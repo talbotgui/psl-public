@@ -1,0 +1,36 @@
+meta {
+  name: 023-Securite-refreshToken-tokenAnonyme
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/securite/token
+  body: formUrlEncoded
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+body:form-urlencoded {
+  grant_type: refresh_token
+  scope: openid offline_access profile email particulier
+  refresh_token: {{tokenPslAnonyme}}
+  client_id: xxxxxxxxx
+  client_secret: bidon
+}
+
+vars:post-response {
+  tokenPslAnonyme: res('access_token')
+}
+
+assert {
+  res.status: eq 200
+  res.body.access_token: isDefined 
+}
+
+script:pre-request {
+  // 
+}

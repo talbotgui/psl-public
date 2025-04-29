@@ -1,0 +1,32 @@
+meta {
+  name: 071-DBNotification-envoiDeNotificationSPavecUnTokenUtilisateur
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{API_HOST}}:{{portSocleDbNotification}}/socle/notification/interne/notification
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslSP}}
+}
+
+body:json {
+  {
+      "accessToken":"token.bidon.detest",
+      "refreshToken":"token.bidon.detest",
+    "codeDemarche":"arnaqueInternet",
+    "libelleDemarche":"arnaqueInternet",
+      "statutTeledossier":"brouillon",
+    "idExterneNotification":"idExterneNotification",
+    "messageAafficher":"<div>Juste un petit <b>bonjour</b></div>",
+      "nombreJoursAvantExpiration":45
+  }
+}
+
+assert {
+  res.status: eq 200
+}

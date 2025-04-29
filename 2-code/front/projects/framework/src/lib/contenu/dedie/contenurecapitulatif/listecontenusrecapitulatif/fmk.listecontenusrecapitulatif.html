@@ -1,0 +1,20 @@
+<!-- pour chaque contenu-->
+@for (c of contenus; track c) {
+  <div class="fr-grid-row">
+    <!-- Contenu de type simple -->
+    @if (c.visibilite && c.clef && definirSiContenuEstUneSaisieMonoChamp(c) && definirSiDonneeSaisie(c)) {
+      <div class="fr-col-6">
+        <p>{{c.titreAafficher?c.titreAafficher:c.titre}}</p>
+      </div>
+      <div class="fr-col-6 data">
+        <p>{{lireDonneeSimple(c)}}</p>
+      </div>
+    }
+    <!-- Contenu de type complexe -->
+    @if (c.visibilite && c.clef && definirSiContenuEstDeTypeComplexe(c)) {
+      <div class="fr-col-12">
+        <div data-fmk-listecontenusrecapitulatif [contenus]="contenuDesContenu[c.clef]"></div>
+      </div>
+    }
+  </div>
+}

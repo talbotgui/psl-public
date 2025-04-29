@@ -1,0 +1,41 @@
+meta {
+  name: 01-infoUsagerSP avecTokenKC
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://api.xxxxx.dila.fr/services/v1/userinfo
+  body: none
+  auth: none
+}
+
+script:pre-request {
+  // 
+}
+
+tests {
+  // // Si une connexion OIDC a été réalisée
+  // if (pm.request.headers.get('Authorization')) {
+  // 
+  //     // Vérifications de base
+  //     pm.test("Réponse correcte", function () {
+  //         pm.expect(pm.response.code).to.be.equals(200);
+  //         pm.expect(pm.response.json().email).to.be.not.empty;
+  //     });
+  // 
+  //     // Récupération des donnése pour alimenter des variables d'environnement
+  //     pm.environment.set('tokenSPpur', pm.request.auth.oauth2.get("accessToken"));
+  //     pm.environment.set('emailCompteSP', pm.response.json().email);
+  //     pm.environment.set('uuidUtilisateurSP', pm.response.json().sub);
+  // 
+  // } else {
+  //     pm.test("/!\\ Aucun token SP généré depuis l'onglet Authorization de cette requête", function () {
+  //         pm.expect(pm.response.code).to.be.equals(401);
+  //     });
+  //     pm.environment.unset('tokenSPpur');
+  //     pm.environment.unset('emailCompteSP');
+  //     pm.environment.unset('uuidUtilisateurSP');
+  // }
+  // 
+}

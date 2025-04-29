@@ -1,0 +1,23 @@
+meta {
+  name: 065-DBDocument-demanderClefTelechargementDunDocumentDunTeledossier-tokenSP
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/document/teledossier/{{idTeledossierCreeAvecSP}}/document/{{codePremierDocumentAvecSP}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslSP}}
+}
+
+vars:post-response {
+  clefTelechargementDocumentAvecSP: res.body
+}
+
+assert {
+  res.status: eq 200
+}

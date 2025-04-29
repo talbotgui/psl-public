@@ -1,0 +1,120 @@
+<!-- Titre -->
+<div class="fr-grid-row">
+  <h3>Suivi des télé-dossiers</h3>
+</div>
+
+<!-- Formulaire de recherche -->
+<div class="fr-grid-row fr-grid-row--gutters" role="search">
+  <div class="fr-col-4 fr-select-group">
+    <label class="fr-label" for="codesDemarche">Démarche(s)</label>
+    <select class="fr-select" id="codesDemarche" name="codesDemarche" [(ngModel)]="codesDemarche" multiple="multiple" size="5"
+      (keyup.enter)="rechercher()">
+      <option></option>
+      @for (code of listeDemarches; track code) {
+        <option [value]="code">{{code}}</option>
+      }
+    </select>
+  </div>
+
+  <div class="fr-col-4">
+    <div class=" fr-input-group">
+      <label class="fr-label" for="dateDebut">Du</label>
+      <input class="fr-input" type="datetime-local" id="dateDebut" name="dateDebut" [ngModel]="dateDebut | date:'yyyy-MM-ddTHH:mm'"
+        (ngModelChange)="dateDebut=traiterLocalisationDate($event)" (keyup.enter)="rechercher()" placeholder="Date début">
+      </div>
+      <div class="fr-input-group">
+        <label class="fr-label" for="dateFin">Au</label>
+        <input class="fr-input" type="datetime-local" id="dateFin" name="dateFin" [ngModel]="dateFin | date:'yyyy-MM-ddTHH:mm'"
+          (ngModelChange)="dateFin=traiterLocalisationDate($event)" (keyup.enter)="rechercher()" placeholder="Date fin">
+        </div>
+      </div>
+
+      <div class="fr-col-4">
+        <div class="fr-input-group">
+          <label class="fr-label" for="numeroTeledossier">Télé-dossier</label>
+          <input class="fr-input" type="text" id="numeroTeledossier" name="numeroTeledossier" [(ngModel)]="numeroTeledossier"
+            (keyup.enter)="rechercher()" placeholder="Numéro télédossier">
+          </div>
+          <button type="button" [disabled]="rechercheEnCours" class="fr-btn fr-btn--icon-left fr-icon-search-fill boutonRechercherAligne"
+          (click)="rechercher()">Rechercher</button>
+        </div>
+      </div>
+
+      <br />
+
+      <!-- Tableau de résultats -->
+      <div class="fr-table fr-table--bordered">
+        <table>
+          <caption>
+            <span>{{nombreTotalResultats}} télé-dossier(s) trouvé(s) avec les paramètres de recherche sélectionnés</span>
+            <nav role="navigation" class="fr-pagination" aria-label="Pagination">
+              <ul class="fr-pagination__list">
+                <!-- LIEN vers 0 (sans condition) -->
+                <li>
+                  <a class="fr-pagination__link fr-pagination__link--first" (click)="selectionnerPageEtRechercher(0)" role="link"
+                    [attr.aria-disabled]="(rechercheEnCours || numeroPage===0) ? true : null"
+                    [attr.href]="(rechercheEnCours || numeroPage===0) ? null : 'javascript:void(0)'">Première
+                  page</a>
+                </li>
+                <!-- LIEN vers la page précédente (désactivé selon condition) -->
+                <li>
+                  <a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label" role="link"
+                    (click)="selectionnerPageEtRechercher(numeroPage-1)"
+                    [attr.aria-disabled]="(rechercheEnCours || numeroPage===0) ? true : null"
+                  [attr.href]="(rechercheEnCours || numeroPage===0) ? null : 'javascript:void(0)'"></a>
+                </li>
+                <!-- 3 liens avant et 3 après -->
+                @if (numeroPageMax > 0) {
+                  @for (ele of [].constructor(numeroPageMax+1); track ele; let i = $index) {
+                    @if (numeroPage-3<=i && i<numeroPage+3) {
+                      <li>
+                        <a class="fr-pagination__link" [attr.aria-current]="i===numeroPage ? true : null" [title]="'Page ' + (i+1)"
+                        [attr.href]="(rechercheEnCours)?null:'javascript:void(0)'" (click)="selectionnerPageEtRechercher(i)">{{i+1}}</a>
+                      </li>
+                    }
+                  }
+                }
+                <!-- LIEN vers la page suivante (désactivé selon condition) -->
+                <li>
+                  <a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"
+                    [attr.href]="(rechercheEnCours || numeroPage===numeroPageMax || numeroPageMax===0) ? null : 'javascript:void(0)'"
+                    [attr.aria-disabled]="(rechercheEnCours || numeroPage===numeroPageMax || numeroPageMax===0) ? true : null"
+                  (click)="selectionnerPageEtRechercher(numeroPageMax+1)"></a>
+                </li>
+                <!-- LIEN vers numeroPageMax (sans condition) -->
+                <li>
+                  <a class="fr-pagination__link fr-pagination__link--last" (click)="selectionnerPageEtRechercher(numeroPageMax)"
+                    [attr.href]="(rechercheEnCours || numeroPage===numeroPageMax || numeroPageMax===0) ? null : 'javascript:void(0)'"
+                    [attr.aria-disabled]="(rechercheEnCours || numeroPage===numeroPageMax || numeroPageMax===0) ? true : null">Dernière
+                  page</a>
+                </li>
+              </ul>
+            </nav>
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Date de soumission</th>
+              <th scope="col">Numéro télé-dossier</th>
+              <th scope="col">Code démarche</th>
+              <th scope="col">Etats</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (t of transferts; track t) {
+              <tr>
+                <td>{{t.dateCreation | date:'yyyy-MM-dd HH:mm:ss.SSS'}}</td>
+                <td>{{t.numeroTeledossier}}</td>
+                <td>{{t.codeDemarche}}</td>
+                <td>
+                  <span aria-hidden="true" class="succesTransfert fr-icon-discuss-fill"
+                  matTooltip="Etat de la notification dans le fil d'actualité SP"></span>
+                  <span aria-hidden="true" class="succesTransfert fr-icon-attachment-fill" matTooltip="Etat de l'envoi des documents"></span>
+                  <span aria-hidden="true" class="erreurTransfert fr-icon-mail-open-fill" matTooltip="Etat de l'envoi du mail"></span>
+                </td>
+                <td></td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>

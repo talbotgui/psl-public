@@ -1,0 +1,24 @@
+meta {
+  name: 013-ServiceConfig-configuration-socleSecurite
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{API_HOST}}:{{portServiceConfig}}/tls,accesslog,adminClient,doc,jwt,log,serviceregistry,socle-securite/default
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: adminconfig
+  password: adminconfig
+}
+
+assert {
+  res.status: eq 200
+}
+
+script:pre-request {
+  // 
+}

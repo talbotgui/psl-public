@@ -1,0 +1,19 @@
+<fieldset>
+  <legend class="editeur">Mode d'édition de la configuration publique de la démarche</legend>
+  <mat-radio-group [(ngModel)]="modeEdition">
+    <mat-radio-button value="json">JSON</mat-radio-button>
+    <mat-radio-button value="accordeon">Accordéon</mat-radio-button>
+  </mat-radio-group>
+</fieldset>
+
+@if (modeEdition==='json') {
+  <app-editeurjson [configurationEnCoursDedition]="configurationEnCoursDedition"
+    (onDemandeDeTest)="testerConfiguration($event)">
+  </app-editeurjson>
+}
+
+@if (modeEdition==='accordeon') {
+  <app-editeurniveau1 [configurationEnCoursDedition]="configurationEnCoursDedition"
+    (onDemandeDeTest)="testerConfiguration($event)">
+  </app-editeurniveau1>
+}

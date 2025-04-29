@@ -1,0 +1,29 @@
+@if (configurationDemarche) {
+  <!-- titre de la démarche -->
+  <h1 class="text-center">{{configurationDemarche.titreAafficher}}</h1>
+  <div class="fr-stepper">
+    <h2 class="fr-stepper__title">
+      {{ configurationDemarche.pages[indexPageCourante].titreArianeAafficher ? configurationDemarche.pages[indexPageCourante].titreArianeAafficher :
+      configurationDemarche.pages[indexPageCourante].titreAafficher }}
+      <span class="fr-stepper__state">{{ 'filariane.etape.1' | i18n}}{{ indexVisibleDesPages[indexPageCourante] }}{{ 'filariane.etape.2' | i18n}}{{
+      indexVisibleMaximal }}</span>
+    </h2>
+    <div class="fr-stepper__steps" [attr.data-fr-current-step]="indexVisibleDesPages[indexPageCourante]" [attr.data-fr-steps]="indexVisibleMaximal">
+    </div>
+    @if (indexVisibleDesPages[indexPageCourante] < indexVisibleMaximal) {
+      <p class="fr-stepper__details">
+        @if (indexVisibleDesPages[indexPageCourante] != indexVisibleDesPages[indexPageCourante+1]) {
+          <span class="fr-text--bold">{{
+          'filariane.etapesuivante' | i18n}}</span>
+        }
+        @if (indexVisibleDesPages[indexPageCourante] == indexVisibleDesPages[indexPageCourante+1]) {
+          <span class="fr-text--bold">{{
+          'filariane.pagesuivante' | i18n}}</span>
+        }
+        {{ configurationDemarche.pages[indexPageCourante+1].titreArianeAafficher ? configurationDemarche.pages[indexPageCourante+1].titreArianeAafficher
+        :
+        configurationDemarche.pages[indexPageCourante+1].titreAafficher }}
+      </p>
+    }
+  </div>
+}

@@ -1,0 +1,9 @@
+---
+
+# Non réalisable car les scripts Ansible de démarrage et arrêt sont exécutés sans compte ROOT
+
+# Cette tâche permet de démarrer apache2
+#- name: "[Démarrage] Démarrage de 'apache2'"
+#  ansible.builtin.systemd:
+#    name: "apache2"
+#    state: "started"

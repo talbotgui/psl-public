@@ -1,0 +1,33 @@
+@if (contenu && contenuListe && controle) {
+  <div class="fr-select-group" [class.fr-select-group--error]="saisieInvalide" [class.fr-select-group--valid]="saisieValide">
+    @if (contenu.titreAafficher || contenu.aideAafficher) {
+      <label class="fr-label" [for]="'idSaisie'+numeroUnique">
+        @if (validationObligatoirePresente && !contenu.modeObligatoireParDefaut) {
+          <span class="symbol-required">* </span>
+        }
+        <span class="textelibelle" [innerHTML]="contenu.titreAafficher | libelle"></span>
+        @if ((!validationObligatoirePresente && contenu.modeObligatoireParDefaut) || contenu.aideAafficher) {
+          <span class="fr-hint-text">
+            @if (!validationObligatoirePresente && contenu.modeObligatoireParDefaut) {
+              Facultatif
+            }
+            @if (!validationObligatoirePresente && contenu.modeObligatoireParDefaut && contenu.aideAafficher) {
+              -
+            }
+            {{ contenu.aideAafficher | libelle }}
+          </span>
+        }
+      </label>
+    }
+    <select [formControl]="controle" class="fr-select" [attr.aria-describedby]="'messages'+numeroUnique" [class.fr-select--error]="saisieInvalide"
+      [class.fr-select--valid]="saisieValide" [id]="'idSaisie'+numeroUnique">
+      @for (v of contenuListe.valeurs; track v) {
+        @if (v.visibilite) {
+          <option [value]="v.valeur">{{v.libelleAafficher}}</option>
+        }
+      }
+    </select>
+    <p data-fmk-messagesvalidation [id]="'messages'+numeroUnique" [contenu]="contenu" [controle]="controle" aria-live="assertive">
+    </p>
+  </div>
+}

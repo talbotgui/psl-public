@@ -1,0 +1,62 @@
+/*
+This file is part of the talbotgui/psl project.
+Authors: talbotgui.
+
+This program is offered under a commercial and under the AGPL license.
+For commercial licensing, contact me at talbotgui@gmail.com.
+For AGPL licensing, see below.
+
+AGPL licensing:
+This program is free software: you can redistribute it and/or modify 
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+AGPL license is available in LICENSE.md file and https://www.gnu.org/licenses/#AGPL
+ */
+package com.github.talbotgui.psl.socle.referentiel.client;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+
+import com.github.talbotgui.psl.socle.referentiel.apiclient.dto.AdresseEtHorairesGendarmerieDto;
+import com.github.talbotgui.psl.socle.referentiel.apiclient.dto.InformationSiretDto;
+import com.github.talbotgui.psl.socle.referentiel.apiclient.dto.ProtectionDeCommuneDto;
+
+public interface DataGouvClient {
+
+	/**
+	 * Télécharge le référetiel des adresses et horaires des gendarmeries.
+	 *
+	 * @return une Map de codeInsee, détailsProtection
+	 */
+	Map<String, AdresseEtHorairesGendarmerieDto> telechargerAdressesGendarmeries();
+
+	/**
+	 * Télécharge le référentiel des codes postaux du gouvernement et fournit le code postal pour chaque INSEE.
+	 *
+	 * @return une Map de codeInsee, codesPostaux
+	 */
+	Map<String, List<String>> telechargerCodesPostaux();
+
+	/**
+	 * Télécharge le référentiel des protections de commune.
+	 *
+	 * @return une Map de codeInsee, détailsProtection
+	 */
+	Map<String, ProtectionDeCommuneDto> telechargerProtectionsDeCommune();
+
+	/**
+	 * Télécharge le référentiel des SIRETs.
+	 *
+	 * @return une collection de DTO.
+	 */
+	Collection<InformationSiretDto> telechargerSirets();
+
+}

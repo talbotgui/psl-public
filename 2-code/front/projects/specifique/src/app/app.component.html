@@ -1,0 +1,21 @@
+<!-- Le composant d'entete du framework -->
+<div data-fmk-entete></div>
+
+<!-- Le composant contenant les pages (configurée+spécifiques à la démarche) -->
+@if (afficherApplication) {
+  <div data-fmk-conteneurpages [configurationDemarche]="configuration">
+    <!-- Une page d'index 3 à afficherdans le cadre de la démarche JeChangeDeCoordonnees -->
+    @if ((indexPageCouranteObservable | async) === 3 && page && !!page.specifiqueAlaDemarche) {
+      <div class="fr-col-12" id="page-3">
+        <div class="main-body">
+          <app-pagejcc [formulaire]="formulaire" [page]="page"></app-pagejcc>
+          <!-- Le composant de navigation -->
+          <div data-fmk-navigation [page]="page" [formulaire]="formulaire"></div>
+        </div>
+      </div>
+    }
+  </div>
+}
+
+<!-- Le composant de pied de page du framework -->
+<div data-fmk-pieddepage></div>

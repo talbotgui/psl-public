@@ -1,0 +1,931 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >OIDCService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Fichier</h3>
+        </p>
+        <p class="comment">
+            <code>projects/framework/src/lib/services/stateless/oidc.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Cette classe contient la gestion de l&#39;authentification OIDC.</p>
+
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#initialiserAuthentification" >initialiserAuthentification</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#obtenirUrlInitiale" >obtenirUrlInitiale</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#sauvegarderDonneesDeSecurite" >sauvegarderDonneesDeSecurite</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#seDeconnecter" >seDeconnecter</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructeur</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(contexte: <a href="../injectables/ContexteService.html" target="_self">ContexteService</a>, oauthService: OAuthService, bouchon: <a href="../injectables/BouchonService.html" target="_self">BouchonService</a>, logger: NGXLogger, donneesService: <a href="../injectables/DonneesService.html" target="_self">DonneesService</a>, securiteService: <a href="../injectables/SecuriteService.html" target="_self">SecuriteService</a>, environnementService: <a href="../injectables/EnvironnementService.html" target="_self">EnvironnementService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="40" class="link-to-prism">projects/framework/src/lib/services/stateless/oidc.service.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructeur avec injection des dépendances</p>
+</div>
+                            <div>
+                                    <b>Paramètres :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nom</td>
+                                                    <td>Type</td>
+                                                <td>Optionnel</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>contexte</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ContexteService.html" target="_self" >ContexteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>oauthService</td>
+                                                  
+                                                        <td>
+                                                                    <code>OAuthService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>bouchon</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BouchonService.html" target="_self" >BouchonService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                    <code>NGXLogger</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>donneesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DonneesService.html" target="_self" >DonneesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>securiteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SecuriteService.html" target="_self" >SecuriteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>environnementService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/EnvironnementService.html" target="_self" >EnvironnementService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialiserAuthentification"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>initialiserAuthentification</b></span>
+                        <a href="#initialiserAuthentification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initialiserAuthentification(codeDemarche: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="46"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/oidc.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Initialisation OIDC et authentification</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>codeDemarche</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="../miscellaneous/enumerations.html#STATUT_CONNEXION_OIDC" target="_self" >Observable&lt;STATUT_CONNEXION_OIDC&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenirUrlInitiale"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>obtenirUrlInitiale</b></span>
+                        <a href="#obtenirUrlInitiale"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>obtenirUrlInitiale(url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="282"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/oidc.service.ts:282</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode extrayant l&#39;URL originale dans une URL de redirection OIDC (ou renvoyant l&#39;URL passée en paramètre)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>URL à traiter</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>l&#39;URL initiale</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sauvegarderDonneesDeSecurite"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>sauvegarderDonneesDeSecurite</b></span>
+                        <a href="#sauvegarderDonneesDeSecurite"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sauvegarderDonneesDeSecurite(donneesUsager: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="250"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/oidc.service.ts:250</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sauvegarde des données obtenues depuis l&#39;API des informations de l&#39;usager  pour alimenter les données de la démarche</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>donneesUsager</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="seDeconnecter"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>seDeconnecter</b></span>
+                        <a href="#seDeconnecter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>seDeconnecter()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="236"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/oidc.service.ts:236</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Déconnexion OIDC</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { AuthConfig, OAuthService } from &#x27;angular-oauth2-oidc&#x27;;
+import { NGXLogger } from &#x27;ngx-logger&#x27;;
+import { Observable, catchError, from, map, mergeMap, of, tap } from &#x27;rxjs&#x27;;
+import { configuration } from &#x27;../../conf/configuration&#x27;;
+import { i18n } from &#x27;../../conf/i18n&#x27;;
+import { MessageAafficher, TypeMessageAafficher } from &#x27;../../model/message.model&#x27;;
+import { CLEF_UTILISATEUR, STATUT_CONNEXION_OIDC } from &#x27;../../model/securite.model&#x27;;
+import { ContexteService } from &#x27;../stateful/contexte.service&#x27;;
+import { DonneesService } from &#x27;../stateful/donnees.service&#x27;;
+import { EnvironnementService } from &#x27;../stateful/environnement.service&#x27;;
+import { BouchonService } from &#x27;./bouchon.service&#x27;;
+import { SecuriteService } from &#x27;./securite.service&#x27;;
+
+/**
+ * Cette classe contient la gestion de l&#x27;authentification OIDC.
+ */
+@Injectable({ providedIn: &#x27;root&#x27; })
+export class OIDCService {
+
+    /** Constructeur avec injection des dépendances */
+    constructor(private contexte: ContexteService, private oauthService: OAuthService, private bouchon: BouchonService, private logger: NGXLogger, private donneesService: DonneesService, private securiteService: SecuriteService, private environnementService: EnvironnementService) { }
+
+    /** Initialisation OIDC et authentification */
+    public initialiserAuthentification(codeDemarche:string): Observable&lt;STATUT_CONNEXION_OIDC&gt; {
+
+        // Message à l&#x27;usager
+        this.logger.info(&#x27;Configuration OIDC&#x27;);
+        const message &#x3D; i18n.oidcService.echangesOidcEnCours.get(this.contexte.langue);
+        this.contexte.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Information, message));
+
+        // Calcul de l&#x27;URI de retour OIDC (par défaut, l&#x27;URL du navigateur avec ses paramètres)
+        const redirectUri &#x3D; this.obtenirUrlInitiale(window.location.href);
+
+        // Création de la configuration
+        const authCodeFlowConfig: AuthConfig &#x3D; {
+            // URL du fournisseur d&#x27;identité (celle à partir de laquelle se déduit le ./.well-known/openid-configuration)
+            // issuer: configuration.oidc.url,
+            // URL de connexion (/auth)
+            loginUrl: configuration.oidc.url,
+            // On fait sauter la vérification de l&#x27;ISSUER car 
+            //  - l&#x27;URL est https://xxx.service-public.fr/auth/realms/service-public/protocol/openid-connect/auth
+            //  - mais le token retour un issuer avec la valeur https://xxx.service-public.fr/auth/realms/service-public
+            skipIssuerCheck: true,
+            // URL de l&#x27;application vers laquelle revenir (pas de valeur fixe pour conserver les paramètres de l&#x27;URL avec le HMR et les autres paramètres fonctionnels)
+            redirectUri: redirectUri,
+            // Identifiant OIDC (le secret est côté Back pas dans le front)
+            clientId: configuration.oidc.clientId,
+            dummyClientSecret: &#x27;bidon&#x27;,
+            // &#x27;code&#x27; pour activer l&#x27;implicit-flow
+            // L&#x27;implicit-flow est maintenant DEPRECATED en OAuth-2.1 (https://connect2id.com/learn/oauth-2-1#:~:text&#x3D;The%20implicit%20and%20password%20grants,via%20the%20client%20credentials%20grant.)
+            responseType: &#x27;code&#x27;,
+            // Les SCOPES demandés (cf. configuration)
+            scope: configuration.oidc.scopes,
+            // URL du micro-service de sécurité permettant de récupérer un accessToken et un refreshToken
+            tokenEndpoint: this.environnementService.urls.socle.gateway + &#x27;/socle/securite/token&#x27;,
+            // L&#x27;URL précédente est en HTTP et non en HTTPs sur le poste local
+            requireHttps: false,
+
+            // EN PLUS :
+            // Pour être verbeux (si besoin)
+            showDebugInformation: false,
+            // Pour traiter un bug en lien avec les #xxx d&#x27;Angular
+            // https://github.com/manfredsteyer/angular-oauth2-oidc/issues/457#issuecomment-431807040,
+            clearHashAfterLogin: false,
+        };
+
+        // Si la sécurité est bouchonnée, 
+        if (this.bouchon.verifierSiSecuriteEstBouchonnee()) {
+            // connexion anonyme pour disposer d&#x27;un token
+            return this.securiteService.seConnecterEnAnonyme(codeDemarche).pipe(
+                // Récupération des informations de l&#x27;usager
+                mergeMap(() &#x3D;&gt; this.securiteService.recupererInformationsUsager()),
+                // Sauvegarde de ces informations
+                tap(donneesUsager &#x3D;&gt; this.sauvegarderDonneesDeSecurite(donneesUsager)),
+                // renvoi du statut de success
+                map(() &#x3D;&gt; STATUT_CONNEXION_OIDC.connexionReussie),
+                // Suppression du message affiché à l&#x27;usager
+                tap(() &#x3D;&gt; this.contexte.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Information, &#x27;&#x27;)))
+            );
+        }
+
+        // Log de la configuration
+        this.logger.info(&#x27;Découverte et connexion OIDC&#x27;, authCodeFlowConfig);
+
+        // Initialisation du service
+        this.oauthService.configure(authCodeFlowConfig);
+
+        // Lectures des paramètres de l&#x27;URL d&#x27;accès à la page
+        const params &#x3D; (new URL(window.location.href)).searchParams;
+
+        // Si les paramètres code et state sont présents, on ne revient donc pas juste de la page de connexion OIDC.
+        // Donc déclenchement de la connexion via le flow implicite (c&#x27;est le but de cette méthode)
+        if (!params.has(&#x27;code&#x27;) || !params.has(&#x27;state&#x27;)) {
+            this.oauthService.initImplicitFlow(window.location.href);
+            return of(STATUT_CONNEXION_OIDC.connexionEnCours);
+        }
+
+        // Mais, si les deux paramètres sont là, c&#x27;est qu&#x27;on a déjà démarré le flow implicite
+        // Donc on tente la connexion à partir des informations échangées dans le navigateur entre l&#x27;application et la(es) page(s) de connexion OIDC
+        return from(this.oauthService.tryLogin()).pipe(
+            // en cas d&#x27;échec de la connexion
+            catchError((err: any) &#x3D;&gt; {
+                this.logger.error(&#x27;Connexion OIDC échouée&#x27;, err);
+                return of(STATUT_CONNEXION_OIDC.erreurConnexion);
+            }),
+            // A la fin de la tentative de connexion, est fourni le couple accesToken/refreshToken obtenu depuis le socle PSL
+            // Ce ne sont pas les token OIDC originaux mais les tokens PSL !
+            map(resultat &#x3D;&gt; {
+
+                // lecture des données obtenues
+                const tokenPSL &#x3D; this.oauthService.getAccessToken();
+
+                // log
+                this.logger.info(&#x27;Statut de l\&#x27;initialisation OIDC: &#x27;, resultat);
+                this.logger.info(&#x27;tokenPSL : &#x27;, tokenPSL);
+                this.logger.info(&#x27;jwks : &#x27;, this.oauthService.jwks);
+                this.logger.info(&#x27;claims : &#x27;, this.oauthService.getIdentityClaims());
+                this.logger.info(&#x27;state : &#x27;, this.oauthService.state);
+
+                // récupération de l&#x27;ID de brouillon s&#x27;il est présent dans l&#x27;URL initial de l&#x27;authentification
+                // (l&#x27;URL est passée dans la méthode &#x27;loadDiscoveryDocumentAndLogin&#x27;)
+                if (this.oauthService.state &amp;&amp; this.oauthService.state.startsWith(&#x27;http&#x27;)) {
+                    const index &#x3D; this.oauthService.state.indexOf(&#x27;brouillon%3D&#x27;);
+                    if (index !&#x3D;&#x3D; -1) {
+                        this.contexte.idBrouillon &#x3D; this.oauthService.state.substring(index + 12);
+                    }
+                }
+
+                // Si le tokenPSL est là, on est bien connecté et on passe le token à l&#x27;étape suivante
+                if (tokenPSL) {
+                    return tokenPSL;
+                }
+
+                // Si la connexion est échouée, message à l&#x27;usager et on passe UNDEFINED à l&#x27;étape suivante
+                else if (this.oauthService.state) {
+
+                    // Message à l&#x27;usager
+                    const message &#x3D; i18n.oidcService.erreurSansState.get(this.contexte.langue);
+                    this.contexte.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Erreur, message));
+
+                    // Dans tous les cas, on renvoi la valeur UNDEFINED à la place du tokenPSL
+                    return undefined;
+                }
+
+                // Si la connexion est à faire (avec la redirection à venir)
+                else {
+
+                    // Message à l&#x27;usager
+                    const message &#x3D; i18n.oidcService.redirectionEnCours.get(this.contexte.langue);
+                    this.contexte.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Avertissement, message));
+
+                    // Dans tous les cas, on renvoi le valeur UNDEFINED à la place du tokenPSL
+                    return undefined;
+                }
+            }),
+
+            // Déclaration du token OIDC vers le microservice du socle
+            map(tokenPSL &#x3D;&gt; {
+
+                // Si la connexion est un succès et qu&#x27;on a bien le tokenPSL
+                if (tokenPSL) {
+
+                    // Méthode de refresh du token appelée régulièrement par SecuriteService après la sauvegarde du premier token
+                    const methodeDeRefreshDuToken &#x3D; () &#x3D;&gt; from(this.oauthService.refreshToken()).pipe(
+                        // Pour sauvegarder le nouveau token (sans fournir de méthode de refresh car on est déjà dedans)
+                        tap(reponse &#x3D;&gt; {
+                            this.logger.info(&#x27;Refresh du token : &#x27;, reponse)
+                            this.securiteService.sauvegardeTokenJwt(reponse.access_token);
+                        }),
+                        // Pour renvoyer un Observable&lt;boolean&gt;
+                        map(reponse &#x3D;&gt; !!reponse)
+                    );
+
+                    // Sauvegarde du token dans le contexte
+                    this.securiteService.sauvegardeTokenJwt(tokenPSL, configuration.oidc.refreshTimeout, methodeDeRefreshDuToken);
+
+                    // Suppression du message affiché à l&#x27;usager
+                    this.contexte.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Information, &#x27;&#x27;));
+
+                    // Renvoi du statut de connexion
+                    return STATUT_CONNEXION_OIDC.connexionReussie;
+                }
+
+                // Sinon, c&#x27;est un échec
+                else {
+                    return STATUT_CONNEXION_OIDC.erreurConnexion;
+                }
+            }),
+
+            // Appel à l&#x27;API des informations de l&#x27;usager (dans un mergeMap pour que la méthode globale attende la réponse)
+            // et sauvegarde des données
+            mergeMap(statut &#x3D;&gt; {
+                this.contexte.utilisateurConnecteOidc &#x3D; (statut &#x3D;&#x3D; STATUT_CONNEXION_OIDC.connexionReussie);
+                return this.securiteService.recupererInformationsUsager().pipe(
+                    map(donneesUsager &#x3D;&gt; {
+                        this.sauvegarderDonneesDeSecurite(donneesUsager);
+                        return statut;
+                    })
+                );
+            }),
+
+            // Message à l&#x27;usager en cas de succès
+            tap(statut &#x3D;&gt; {
+                if (statut &#x3D;&#x3D; STATUT_CONNEXION_OIDC.connexionReussie) {
+                    const message &#x3D; i18n.oidcService.connexionReussie.get(this.contexte.langue);
+                    this.contexte.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Information, message));
+                }
+                // Pas de else car les cas d&#x27;erreur sont traités plus haut
+            })
+        );
+    }
+
+    /** Déconnexion OIDC */
+    public seDeconnecter(): void {
+        // Suppression du token de sécurité
+        this.contexte.sauvegarderNouveauTokenJwt(undefined);
+        // Déconnexion OIDC
+        this.oauthService.revokeTokenAndLogout();
+        // On va sur la page de déconnexion du fournisseur d&#x27;identité OU on recharge la page
+        if (this.oauthService.logoutUrl) {
+            window.location.href &#x3D; this.oauthService.logoutUrl;
+        } else {
+            window.location.reload();
+        }
+    }
+
+    /** Sauvegarde des données obtenues depuis l&#x27;API des informations de l&#x27;usager  pour alimenter les données de la démarche */
+    private sauvegarderDonneesDeSecurite(donneesUsager: any): void {
+
+        // Création d&#x27;un objet avec tous les attributs préfixés par &#x27;utilisateur_&#x27;
+        const utilisateurDansLesDonnees: any &#x3D; {};
+        Object.keys(donneesUsager).forEach(k &#x3D;&gt; utilisateurDansLesDonnees[&#x27;utilisateur_&#x27; + k] &#x3D; donneesUsager[k]);
+
+        // Ajout de données pré-calculées
+        if (utilisateurDansLesDonnees.utilisateur_prenoms &amp;&amp; utilisateurDansLesDonnees.utilisateur_nom) {
+            utilisateurDansLesDonnees.utilisateur_nomComplet &#x3D; utilisateurDansLesDonnees.utilisateur_prenoms + &#x27; &#x27; + utilisateurDansLesDonnees.utilisateur_nom;
+        } else if (utilisateurDansLesDonnees.prenoms) {
+            utilisateurDansLesDonnees.utilisateur_nomComplet &#x3D; utilisateurDansLesDonnees.utilisateur_prenoms;
+        } else if (utilisateurDansLesDonnees.nom) {
+            utilisateurDansLesDonnees.utilisateur_nomComplet &#x3D; utilisateurDansLesDonnees.utilisateur_nom;
+        } else {
+            this.logger.warn(&#x27;Pas de nom ni de prenoms dans les données de l\&#x27;usager connecté&#x27;)
+        }
+
+        // log
+        this.logger.info(&#x27;Utilisateur inséré dans les données soumises : &#x27;, utilisateurDansLesDonnees);
+
+        // Sauvegarde des données
+        this.donneesService.sauvegarderUnObjet(CLEF_UTILISATEUR, utilisateurDansLesDonnees);
+
+        // Sauvegarde des données utilisateur
+        this.contexte.sauvegarderDonnesUtilisateur(utilisateurDansLesDonnees);
+    }
+
+    /**
+     * Méthode extrayant l&#x27;URL originale dans une URL de redirection OIDC (ou renvoyant l&#x27;URL passée en paramètre)
+     * @param url URL à traiter
+     * @return l&#x27;URL initiale 
+     */
+    public obtenirUrlInitiale(url: string): string {
+        // Si la démarche se charge avec les paramètres code, scope et state
+        // on est donc au milieu d&#x27;une authentification OIDC !
+        // L&#x27;URL originale contenant les paramètres sont donc dans le state
+        const params &#x3D; (new URL(url)).searchParams;
+        if (params.has(&#x27;code&#x27;) &amp;&amp; params.has(&#x27;state&#x27;)) {
+            const urlOriginelleS &#x3D; params.get(&#x27;state&#x27;)?.split(&#x27;http&#x27;);
+            if (urlOriginelleS &amp;&amp; urlOriginelleS.length &#x3D;&#x3D;&#x3D; 2) {
+                return decodeURIComponent(&#x27;http&#x27; + urlOriginelleS[1]);
+            }
+        }
+
+        // Si l&#x27;URL n&#x27;est pas une redirection OIDC
+        return url;
+    }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'OIDCService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

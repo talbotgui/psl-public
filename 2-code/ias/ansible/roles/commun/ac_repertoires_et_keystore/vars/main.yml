@@ -1,0 +1,5 @@
+---
+
+# Définition des variables par défaut pour ce rôle
+keystore_rep: "/psl/keystore/"
+keystore_fichier: "keystore"

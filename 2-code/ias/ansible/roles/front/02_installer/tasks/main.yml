@@ -1,0 +1,20 @@
+---
+
+# Création de la page par défaut
+- name: "[Installation] Création de la page par défaut '/var/www/html/index.html'"
+  ansible.builtin.template:
+    src: "templates/index.html.j2"
+    dest: "/var/www/html/index.html"
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+    mode: "{{ mode_fic_nominal }}"
+
+# Création du répertoire des versions applicatives
+- name: "[Installation] Création des sous-répertoires de '/var/www/html'"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: "directory"
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+    mode: "{{ mode_rep_nominal }}"
+  with_items: [ "/var/www/html/bin", "/var/www/html/mademarche" ]

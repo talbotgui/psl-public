@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- ************************************************ -->
+	<!-- Pour compiler ce projet, il est nécessaire de SYSTEMATIQUEMENT compiler les classes de test. -->
+	<!-- Donc pas de paramètre "-Dmaven.test.skip" -->
+	<!-- La bonne commande est : mvn clean install -DskipTests -->
+	<!--  -->
+	<!-- Pour lancer l'analyse de la Javadoc : mvn clean install -DskipTests -P qualimetrie -->
+	<!--  -->
+	<!-- Pour modifier la version dans ce pom.xml et tous ces sous-modules, utiliser les commandes suivantes : -->
+	<!--    mvn versions:set -DprocessAllModules -DnewVersion=X.Y.Z-SNAPSHOT -->
+	<!--    mvn versions:commit -DprocessAllModules -->
+	<!-- ************************************************ -->
+
+	<!-- Définition Maven de cet artefact -->
+	<groupId>com.github.talbotgui.psl</groupId>
+	<artifactId>parent</artifactId>
+	<version>0.0.2-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<!-- Clef de configuration disponibles dans cet artefact et tous ces enfants -->
+	<properties>
+
+		<!-- Version des plugins présents dans tous les projets -->
+		<version.git-commit-id-plugin>4.9.10</version.git-commit-id-plugin>			<!-- https://mvnrepository.com/artifact/pl.project13.maven/git-commit-id-plugin -->
+		<version.clean-plugin>3.4.1</version.clean-plugin>							<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-clean-plugin -->
+		<version.assembly-plugin>3.7.1</version.assembly-plugin>					<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-assembly-plugin -->
+		<version.exec-plugin>3.5.0</version.exec-plugin>							<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
+		<version.maven.enforcer>3.5.0</version.maven.enforcer>						<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-enforcer-plugin -->
+		<version.maven.extraenforcer>1.9.0</version.maven.extraenforcer>			<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/extra-enforcer-rules -->
+	
+	</properties>
+
+	<!-- Liste des enfants de cet artefact (la conception après le code pour embarquer, dans le site, la documentation générée par le code) -->
+	<modules>
+		<module>2-code</module>
+		<module>1-conception</module>
+	</modules>
+	
+	<build>
+		<plugins>
+			<!-- Pour vérifier que l'encoding des fichiers -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>${version.maven.enforcer}</version>
+				<executions>
+					<execution>
+						<id>require-utf-8</id>
+						<goals><goal>enforce</goal></goals>
+						<configuration>
+							<rules>
+								<requireEncoding>
+									<encoding>UTF-8</encoding>
+									<includes>src/**/*,projects/**/*,content/**/*,layouts/**/*,ansible/**/*,assembly/**/*,*.xml,*.json</includes>
+									<!-- Pour lister tous les fichiers posant problème dans un projet avant de déclencher une erreur -->
+									<failFast>false</failFast>
+									<!-- Pour accepter les fichiers sans accent détecté comme des ASCII -->
+									<acceptAsciiSubset>true</acceptAsciiSubset>
+								</requireEncoding>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>extra-enforcer-rules</artifactId>
+						<version>${version.maven.extraenforcer}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+</project>

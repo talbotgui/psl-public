@@ -1,0 +1,102 @@
+---
+#
+# Pour démarrer le script, exécuter :
+#   ansible-playbook ansible/02_installer.yml -i ansible/inventory/local
+#
+# Pour se limiter à un groupe de machines, ajouter --limit machines_zone_execution_exposee
+# Pour se limiter à un applicatif précis, ajouter --tags socle-securite
+#
+# Ce script s'exécute sans aucun droit SUDO
+#
+
+# Rien à faire pour service-redis
+
+- name: "[02_installer] Configuration de l'applicatif service-gateway"
+  tags: "service-gateway"
+  hosts: "machines_service_gateway"
+  roles: [ "service-gateway/02_installer" ]
+
+- name: "[02_installer] Configuration de l'applicatif service-registry"
+  tags: "service-registry"
+  hosts: "machines_service_registry"
+  roles: [ "service-registry/02_installer" ]
+
+- name: "[02_installer] Configuration de l'applicatif service-config"
+  tags: "service-config"
+  hosts: "machines_service_config"
+  roles: [ "service-config/02_installer" ]
+
+- name: "[02_installer] Configuration de l'applicatif service-admin"
+  tags: "service-admin"
+  hosts: "machines_service_admin"
+  roles: [ "service-admin/02_installer" ]
+
+- name: "[02_installer] Configuration de l'applicatif service-ldap"
+  tags: "service-ldap"
+  hosts: "machines_service_ldap"
+  roles: [ "service-ldap/02_installer" ]
+
+- name: "[02_installer] Configuration de l'applicatif service-nosql"
+  tags: "service-nosql"
+  hosts: "machines_service_nosql"
+  roles: [ "service-nosql/02_installer" ]
+
+- name: "[02_installer] Configuration de l'applicatif socle-dbbrouillon"
+  tags: "socle-dbbrouillon"
+  hosts: "machines_socle_dbbrouillon"
+  roles: [ "socle-dbbrouillon/02_installer" ]
+
+- name: "[02_installer] Configuration de l'applicatif socle-dbconfiguration"
+  tags: "socle-dbconfiguration"
+  hosts: "machines_socle_dbconfiguration"
+  roles: [ "socle-dbconfiguration/02_installer" ]
+
+- name: "[02_installer] Configuration de l'applicatif socle-dbdocument"
+  tags: "socle-dbdocument"
+  hosts: "machines_socle_dbdocument"
+  roles: [ "socle-dbdocument/02_installer" ]
+
+- name: "[02_installer] Configuration de l'applicatif socle-dbnotification"
+  tags: "socle-dbnotification"
+  hosts: "machines_socle_dbnotification"
+  roles: [ "socle-dbnotification/02_installer" ]
+
+- name: "[02_installer] Configuration de l'applicatif socle-referentiel"
+  tags: "socle-referentiel"
+  hosts: "machines_socle_referentiel"
+  roles: [ "socle-referentiel/02_installer" ]
+
+- name: "[02_installer] Configuration de l'applicatif socle-referentielexterne"
+  tags: "socle-referentielexterne"
+  hosts: "machines_socle_referentielexterne"
+  roles: [ "socle-referentielexterne/02_installer" ]
+
+- name: "[02_installer] Configuration de l'applicatif socle-securite"
+  tags: "socle-securite"
+  hosts: "machines_socle_securite"
+  roles: [ "socle-securite/02_installer" ]
+
+- name: "[02_installer] Configuration de l'applicatif socle-soumission"
+  tags: "socle-soumission"
+  hosts: "machines_socle_soumission"
+  roles: [ "socle-soumission/02_installer" ]
+
+- name: "[02_installer] Configuration de l'applicatif socle-transfert"
+  tags: "socle-transfert"
+  hosts: "machines_socle_transfert"
+  roles: [ "socle-transfert/02_installer" ]
+
+- name: "[02_installer] Configuration de l'applicatif socle-adminpsl"
+  tags: "socle-adminpsl"
+  hosts: "machines_socle_adminpsl"
+  roles: [ "socle-adminpsl/02_installer" ]
+
+- name: "[02_installer] Configuration de l'applicatif WEB public (front)"
+  tags: "web-front"
+  hosts: "machines_web_front"
+  roles: [ "front/02_installer" ]
+
+- name: "[02_installer] Configuration de l'applicatif WEB d'administration"
+  tags: "web-admin"
+  hosts: "machines_web_admin"
+  roles: [ "front/02_installer" ]

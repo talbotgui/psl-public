@@ -1,0 +1,11 @@
+com.github.talbotgui.psl.socle.dbconfiguration.apiclient
+com.github.talbotgui.psl.socle.dbconfiguration.apiclient.api
+com.github.talbotgui.psl.socle.dbconfiguration.apiclient.dto
+com.github.talbotgui.psl.socle.dbconfiguration.apiclient.dto.configurationinterne
+com.github.talbotgui.psl.socle.dbconfiguration.apiclient.dto.configurationpubliquedemarche
+com.github.talbotgui.psl.socle.dbconfiguration.apiclient.exception
+com.github.talbotgui.psl.socle.dbconfiguration.apiclient.utils
+com.github.talbotgui.psl.socle.dbconfiguration.application
+com.github.talbotgui.psl.socle.dbconfiguration.controleur
+com.github.talbotgui.psl.socle.dbconfiguration.dao
+com.github.talbotgui.psl.socle.dbconfiguration.service

@@ -1,0 +1,20 @@
+meta {
+  name: 0113-ServiceGateway-swagger-dbnotification
+  type: http
+  seq: 14
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/v3/api-docs/notification
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.openapi: isDefined 
+}
+
+script:pre-request {
+  // 
+}

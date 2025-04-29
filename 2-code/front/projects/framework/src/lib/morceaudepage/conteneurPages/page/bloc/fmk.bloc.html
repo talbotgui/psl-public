@@ -1,0 +1,52 @@
+@if (bloc) {
+  <div class="fr-grid-row" [class.fmk-bloc]="!estUnSousBloc()" [class.fmk-sbloc]="estUnSousBloc()">
+    <!-- Titre du bloc et son aide -->
+    @if (bloc.titre && compterContenusVisibles()>0) {
+      <div class="fr-col-12 titreDeBloc">
+        @if (bloc.titre && !estUnSousBloc()) {
+          <h3 class="fmk-titrebloc" [class.premier-bloc]="indexBloc === 0">
+            <span>{{bloc.titreAafficher}}</span>&nbsp;
+            @if (bloc.aideAafficher || bloc.aideTitreAafficher) {
+              <button type="button" class="btn-help" [attr.title]="bloc.aideTitreAafficher"
+                (click)="aideAffichee=!aideAffichee">
+                <span class="fr-fi-question-fill" aria-hidden="true"></span>
+                <span class="blank">{{bloc.aideAafficher}}</span>
+              </button>
+            }
+          </h3>
+        }
+        @if (bloc.titre && estUnSousBloc()) {
+          <h4 class="fmk-titrebloc" [class.premier-bloc]="indexBloc === 0">
+            <span>{{bloc.titreAafficher}}</span>&nbsp;
+            @if (bloc.aideAafficher || bloc.aideTitreAafficher) {
+              <button type="button" class="btn-help" [attr.title]="bloc.aideTitreAafficher"
+                (click)="aideAffichee=!aideAffichee">
+                <span class="fr-fi-question-fill" aria-hidden="true"></span>
+                <span class="blank">{{bloc.aideAafficher}}</span>
+              </button>
+            }
+          </h4>
+        }
+        @if (bloc.aide && aideAffichee) {
+          <div class="help-panel">
+            <p [innerHTML]="bloc.aideAafficher | libelle"></p>
+          </div>
+        }
+      </div>
+    }
+    <!-- les contenus-->
+    @for (contenu of bloc.contenus; track contenu; let j = $index) {
+      @if (contenu.visibilite) {
+        <div class="fr-col-12 data-contenu data-contenu{{j}}">
+          <div data-fmk-contenu [contenu]="contenu" [controle]="recupererControleAssocieAuContenu(contenu)"></div>
+        </div>
+      }
+    }
+    <!-- Les sous-blocs (BlocSecondNiveau)-->
+    @for (sousBloc of extraireSousBlocSiPresent(); track sousBloc; let j = $index) {
+      <div data-fmk-bloc [bloc]="sousBloc" [formulaire]="formulaire"
+        [listeContenusDesBlocsDynamiquesPourRecalculDesConditionsAuOnChange]="listeContenusDesBlocsDynamiquesPourRecalculDesConditionsAuOnChange">
+      </div>
+    }
+  </div>
+}

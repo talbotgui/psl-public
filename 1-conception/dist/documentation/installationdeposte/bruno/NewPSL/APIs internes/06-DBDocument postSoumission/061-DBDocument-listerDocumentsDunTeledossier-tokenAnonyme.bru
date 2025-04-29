@@ -1,0 +1,23 @@
+meta {
+  name: 061-DBDocument-listerDocumentsDunTeledossier-tokenAnonyme
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/document/teledossier/{{idTeledossierCree}}/document
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+vars:post-response {
+  codePremierDocument: res.body[0].codeDocument
+}
+
+assert {
+  res.status: eq 200
+}

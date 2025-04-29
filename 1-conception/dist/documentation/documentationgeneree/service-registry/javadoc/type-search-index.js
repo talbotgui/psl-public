@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.github.talbotgui.psl.socle.serviceregistry.application","l":"SocleServiceRegistryApplication"},{"p":"com.github.talbotgui.psl.socle.serviceregistry.application","l":"WebSecurityConfig"}];updateSearchResults();

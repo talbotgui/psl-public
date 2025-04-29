@@ -1,0 +1,21 @@
+/* Pour réduire un peu la taille des titres de niveau 2 dans les pages */
+h2 { font-size: 2rem; }
+
+/* Pour réduire l'espace entre un UL/OL et le paragraphe qui le précède */
+ul, ol { margin-top: -1rem; }
+
+/* Pour barrer les tâches finies dans le chapitre de suivi */
+tr.fini { text-decoration:line-through; }
+/* Pour souligner les tâches en cours dans le chapitre de suivi */
+tr.enCours { text-decoration:underline; }
+/* Pour mettre en avant les tâches bloquées dans le chapitre de suivi */
+tr.bloqué { color: lightcoral; }
+/* Pour séparer les groupes de tâches dans la chapitre de suivi */
+tr.vide { background-color: lightgrey; }
+
+/* Pour réduire l'espace perdu autour du cadre principal de texte */
+#body .padding { padding: 1rem 4rem!important; }
+
+/* Pour ne pas perdre autant de place autour des NAV en entête des pages */
+ul, ol { margin-top: 0px!important; margin-bottom: 0px!important; }
+nav#TableOfContents { padding: 0px!important }

@@ -1,0 +1,23 @@
+meta {
+  name: 062-DBDocument-demanderClefTelechargement-tokenAnonyme
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/document/teledossier/{{idTeledossierCree}}/document/{{codePremierDocument}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+vars:post-response {
+  clefTelechargementDocument: res.body
+}
+
+assert {
+  res.status: eq 200
+}

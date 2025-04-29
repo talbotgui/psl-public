@@ -1,0 +1,49 @@
+/*
+This file is part of the talbotgui/psl project.
+Authors: talbotgui.
+
+This program is offered under a commercial and under the AGPL license.
+For commercial licensing, contact me at talbotgui@gmail.com.
+For AGPL licensing, see below.
+
+AGPL licensing:
+This program is free software: you can redistribute it and/or modify 
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+AGPL license is available in LICENSE.md file and https://www.gnu.org/licenses/#AGPL
+ */
+package com.github.talbotgui.psl.socle.securite.client;
+
+import com.github.talbotgui.psl.socle.securite.client.dto.InformationSpCompteDto;
+import com.github.talbotgui.psl.socle.securite.client.dto.InformationSpUsagerDto;
+
+public interface SpClient {
+
+	/**
+	 * Chargement des données du compte (type et fournisseur OIDC) depuis l'API OIDC.
+	 *
+	 * @param clientId
+	 * @param clientSecret
+	 * @param accessTokenOIDC L'accessToken à utiliser.
+	 * @return Les informations du compte.
+	 */
+	InformationSpCompteDto chargerDonneesCompte(String clientId, String clientSecret, String accessTokenOIDC);
+
+	/**
+	 * Chargement des données de l'usager connecté depuis l'API OIDC.
+	 *
+	 * @param clientId
+	 * @param clientSecret
+	 * @param accessTokenOIDC L'accessToken à utiliser.
+	 * @return Les informations de l'usager.
+	 */
+	InformationSpUsagerDto chargerDonneesPersonnelles(String clientId, String clientSecret, String accessTokenOIDC);
+
+}

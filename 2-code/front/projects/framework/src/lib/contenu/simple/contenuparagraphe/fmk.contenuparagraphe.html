@@ -1,0 +1,29 @@
+@if (contenuParagraphe && (contenuParagraphe.texteAafficher || contenuParagraphe.aideAafficher)) {
+  <!-- Dans le cas où le texte ne commence pas par un P -->
+  @if (contenuParagraphe.texteAafficher && !texteCommenceParUnP) {
+    <div [class]="'paragraphe ' + contenuParagraphe.style">
+      <p [class.fr-callout__text]="contenuParagraphe.style && contenuParagraphe.style.indexOf('fr-callout')!==-1"
+      [innerHTML]="contenuParagraphe.texteAafficher | libelle"></p>
+    </div>
+  }
+  <!-- Dans le cas où le texte commence par un P -->
+  @if (contenuParagraphe.texteAafficher && texteCommenceParUnP) {
+    <div [class]="'paragraphe ' + contenuParagraphe.style"
+      [innerHTML]="contenuParagraphe.texteAafficher | libelle">
+    </div>
+  }
+  <!-- Affichage de l'aide. -->
+  <!-- Dans le cas où le texte ne commence pas par un P -->
+  @if (contenuParagraphe.aideAafficher && !aideCommenceParUnP) {
+    <div [class]="'paragrapheAide ' + contenuParagraphe.styleAide">
+      <p [class.fr-callout__text]="contenuParagraphe.styleAide && contenuParagraphe.styleAide.indexOf('fr-callout')!==-1"
+      [innerHTML]="contenuParagraphe.aideAafficher | libelle"></p>
+    </div>
+  }
+  <!-- Dans le cas où le texte commence par un P -->
+  @if (contenuParagraphe.aideAafficher && aideCommenceParUnP) {
+    <div [class]="'paragrapheAide ' + contenuParagraphe.styleAide"
+      [innerHTML]="contenuParagraphe.aideAafficher | libelle">
+    </div>
+  }
+}

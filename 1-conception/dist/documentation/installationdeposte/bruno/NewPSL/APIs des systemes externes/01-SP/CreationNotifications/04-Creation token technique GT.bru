@@ -1,0 +1,28 @@
+meta {
+  name: 04-Création token technique GT
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://xxxxx.service-public.fr/realms/service-public/protocol/openid-connect/token
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  grant_type: client_credentials
+  client_id: gtclient
+  client_secret: xxxxxxxx
+}
+
+tests {
+  // // Vérifications de base
+  // pm.test("Réponse correcte", function () {
+  //     pm.expect(pm.response.code).to.be.equals(200);
+  //     pm.expect(pm.response.json().access_token).to.be.not.empty;
+  // });
+  // 
+  // // Récupération d'une donnée pour alimenter une variable d'environnement
+  // pm.environment.set('tokenGT', pm.response.json().access_token);
+}

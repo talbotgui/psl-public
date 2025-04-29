@@ -1,0 +1,586 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >AdminBouchonService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Fichier</h3>
+        </p>
+        <p class="comment">
+            <code>projects/adminpsl/src/app/service/adminbouchon.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Cette classe contient les méthodes de bouchonnage des APIs.</p>
+<p>Les bouchons sont impérativement utilisés dans les tests E2E.
+Ils peuvent aussi l&#39;être durant les développements.</p>
+<p>Comment bouchonner un simple appel GET :</p>
+<ul>
+<li>mettre un fichier JSON (ou autre) dans le répertoire bouchonapi</li>
+<li>modifier l&#39;URL dans le fichier this.environnementService.ts (et ses variantes) pour pointer sur le fichier du répertoire bouchonapi
+Comment bouchonner un GET complexe ou un PUT/POST/DELETE</li>
+<li>ajouter une variable &#39;xxxxxBouchonne&#39; dans la configuration</li>
+<li>vérifier cette variable dans le service réel</li>
+<li>si la variable existe et est &#39;true&#39;, faire appel à une méthode statique de cette classe</li>
+</ul>
+
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#MINI_JDD" >MINI_JDD</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#appelerApiBouchonne" >appelerApiBouchonne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#verifierSiApiEstBouchonne" >verifierSiApiEstBouchonne</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructeur</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(logger: NGXLogger, environnementService: EnvironnementService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="50" class="link-to-prism">projects/adminpsl/src/app/service/adminbouchon.service.ts:50</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructeur pour injection de dépendance.</p>
+</div>
+                            <div>
+                                    <b>Paramètres :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nom</td>
+                                                    <td>Type</td>
+                                                <td>Optionnel</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                    <code>NGXLogger</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>environnementService</td>
+                                                  
+                                                        <td>
+                                                                    <code>EnvironnementService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appelerApiBouchonne"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>appelerApiBouchonne</b></span>
+                        <a href="#appelerApiBouchonne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>appelerApiBouchonne(api: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, valeur: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="72"
+                                    class="link-to-prism">projects/adminpsl/src/app/service/adminbouchon.service.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Pour remplacer un appel d&#39;API</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>api</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>valeur</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verifierSiApiEstBouchonne"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>verifierSiApiEstBouchonne</b></span>
+                        <a href="#verifierSiApiEstBouchonne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>verifierSiApiEstBouchonne()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="67"
+                                    class="link-to-prism">projects/adminpsl/src/app/service/adminbouchon.service.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Pour vérifier si la configuration demande à utiliser le bouchon.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MINI_JDD"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>MINI_JDD</b></span>
+                        <a href="#MINI_JDD"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>{
+        &#x27;/socle/adminpsl/demarche&#x27;: [&#x27;arnaqueInternet&#x27;, &#x27;etatCivil&#x27;, &#x27;biliotheque&#x27;, &#x27;operationtranquillitevacances&#x27;, &#x27;daua&#x27;, &#x27;DICPE&#x27;, &#x27;EICPE&#x27;, &#x27;DIOTA&#x27;, &#x27;DAENV&#x27;],
+        &#x27;/socle/adminpsl/config/{codeDemarche}/xxx&#x27;: { &#x27;id1&#x27;: &#x27;libelleVersion1&#x27;, &#x27;id2&#x27;: &#x27;libelleVersion2&#x27; },
+        &#x27;/socle/adminpsl/config/{codeDemarche}/xxx/{idConfiguration}&#x27;: { &#x27;codeDemarche&#x27;: &#x27;codeDemarche&#x27;, &#x27;version&#x27;: &#x27;v1&#x27;, &#x27;documentsAgenerer&#x27;: [{ &#x27;code&#x27;: &#x27;doc1&#x27;, &#x27;template&#x27;: &#x27;dGVtcGxhdGVEb2Mx&#x27; }, { &#x27;code&#x27;: &#x27;doc2&#x27;, &#x27;template&#x27;: &#x27;dGVtcGxhdGVEb2My&#x27; }] },
+        &#x27;/socle/adminpsl/transfert&#x27;: { resultats: [{ &#x27;codeDemarche&#x27;: &#x27;arnaqueInternet&#x27;, &#x27;numeroTeledossier&#x27;: &#x27;SP2-AI-0000000000&#x27;, &#x27;dateCreation&#x27;: new Date() }], nombreTotalResultats: 1 }
+    }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="45" class="link-to-prism">projects/adminpsl/src/app/service/adminbouchon.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>La liste des jeux de données à utiliser dans le bouchon.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { NGXLogger } from &#x27;ngx-logger&#x27;;
+import { Observable, of } from &#x27;rxjs&#x27;;
+import { EnvironnementService } from &#x27;../../../../framework/src/lib/services/stateful/environnement.service&#x27;;
+
+/**
+ * Cette classe contient les méthodes de bouchonnage des APIs.
+ * 
+ * Les bouchons sont impérativement utilisés dans les tests E2E.
+ * Ils peuvent aussi l&#x27;être durant les développements.
+ * 
+ * Comment bouchonner un simple appel GET :
+ * - mettre un fichier JSON (ou autre) dans le répertoire bouchonapi
+ * - modifier l&#x27;URL dans le fichier this.environnementService.ts (et ses variantes) pour pointer sur le fichier du répertoire bouchonapi
+ * Comment bouchonner un GET complexe ou un PUT/POST/DELETE
+ * - ajouter une variable &#x27;xxxxxBouchonne&#x27; dans la configuration
+ * - vérifier cette variable dans le service réel
+ * - si la variable existe et est &#x27;true&#x27;, faire appel à une méthode statique de cette classe
+ */
+@Injectable({ providedIn: &#x27;root&#x27; })
+export class AdminBouchonService {
+
+    /** La liste des jeux de données à utiliser dans le bouchon. */
+    private static readonly MINI_JDD &#x3D; {
+        &#x27;/socle/adminpsl/demarche&#x27;: [&#x27;arnaqueInternet&#x27;, &#x27;etatCivil&#x27;, &#x27;biliotheque&#x27;, &#x27;operationtranquillitevacances&#x27;, &#x27;daua&#x27;, &#x27;DICPE&#x27;, &#x27;EICPE&#x27;, &#x27;DIOTA&#x27;, &#x27;DAENV&#x27;],
+        &#x27;/socle/adminpsl/config/{codeDemarche}/xxx&#x27;: { &#x27;id1&#x27;: &#x27;libelleVersion1&#x27;, &#x27;id2&#x27;: &#x27;libelleVersion2&#x27; },
+        &#x27;/socle/adminpsl/config/{codeDemarche}/xxx/{idConfiguration}&#x27;: { &#x27;codeDemarche&#x27;: &#x27;codeDemarche&#x27;, &#x27;version&#x27;: &#x27;v1&#x27;, &#x27;documentsAgenerer&#x27;: [{ &#x27;code&#x27;: &#x27;doc1&#x27;, &#x27;template&#x27;: &#x27;dGVtcGxhdGVEb2Mx&#x27; }, { &#x27;code&#x27;: &#x27;doc2&#x27;, &#x27;template&#x27;: &#x27;dGVtcGxhdGVEb2My&#x27; }] },
+        &#x27;/socle/adminpsl/transfert&#x27;: { resultats: [{ &#x27;codeDemarche&#x27;: &#x27;arnaqueInternet&#x27;, &#x27;numeroTeledossier&#x27;: &#x27;SP2-AI-0000000000&#x27;, &#x27;dateCreation&#x27;: new Date() }], nombreTotalResultats: 1 }
+    };
+
+    /** Constructeur pour injection de dépendance. */
+    public constructor(private logger: NGXLogger, private environnementService: EnvironnementService) {
+
+        // Construction dynamique du jeu de données
+        const page &#x3D; AdminBouchonService.MINI_JDD[&#x27;/socle/adminpsl/transfert&#x27;];
+        page.resultats &#x3D; [];
+        const nbPages &#x3D; 21;
+        for (let i &#x3D; 0; i &lt; nbPages; i++) {
+            const index &#x3D; ((i &lt; 10) ? &#x27;0&#x27; : &#x27;&#x27;) + i;
+            page.resultats.push({ &#x27;codeDemarche&#x27;: &#x27;arnaqueInternet&#x27;, &#x27;numeroTeledossier&#x27;: &#x27;SP2-AI-00000000&#x27; + index, &#x27;dateCreation&#x27;: new Date() });
+        }
+        page.nombreTotalResultats &#x3D; page.resultats.length;
+    }
+
+    /** Pour vérifier si la configuration demande à utiliser le bouchon. */
+    public verifierSiApiEstBouchonne(): boolean {
+        return this.environnementService.urls.socle.adminpslBouchonnee &amp;&amp; this.environnementService.urls.socle.adminpslBouchonnee &#x3D;&#x3D;&#x3D; true;
+    }
+
+    /** Pour remplacer un appel d&#x27;API */
+    public appelerApiBouchonne(api: string, valeur: string): Observable&lt;any&gt; {
+        this.logger.trace(&#x27;Appel bouchonné à l\&#x27;API \&#x27;&#x27; + api + &#x27;\&#x27; avec le paramètre \&#x27;&#x27; + valeur + &#x27;\&#x27;&#x27;);
+        return of((AdminBouchonService.MINI_JDD as any)[api]);
+    }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'AdminBouchonService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

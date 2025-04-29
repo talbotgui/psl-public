@@ -1,0 +1,92 @@
+
+# Quelque soit le vhost, désactivation de tout accès au fileSystem sauf ce qui suit
+<Directory />
+    AllowOverride None
+    Require all denied
+</Directory>
+
+# Site de la PSL
+# Pas de IF sur le module SSL qui doit impérativement être actif
+<VirtualHost _default_:443>
+
+    # DNS sur lequel doit répondre le serveur
+    ServerName {{ front_dnsadmin }}
+
+    # Exposition du répertoire contenant les applications
+    DocumentRoot /var/www/html
+    <Directory "/var/www/html/">
+        # Pas de FallbackResource sinon aucune erreur 404 (la page par défaut est renvoyée avec le code 200)
+        #FallbackResource /404.html
+        # Interdiction du parcours de répertoire avec -Indexes
+        # Interdiction des ServerSideInclude (https://httpd.apache.org/docs/2.4/fr/howto/ssi.html)
+        # Interdiction des scripts CGI (https://httpd.apache.org/docs/2.4/fr/mod/mod_cgi.html)
+        Options +FollowSymLinks -Includes -ExecCGI
+        # Pour bloquer l'usage des .gtaccess
+        AllowOverride None
+        # Pour autoriser pleinement l'accès à tous
+        Require all granted
+        # Page d'erreurs
+        ErrorDocument 403 /404.html
+        ErrorDocument 404 /404.html
+    </Directory>
+
+    # Pour bloquer l'accès aux démarches standards
+    # (même si elle ne devrait pas être présentes sur cette machine dans un autre environnement que le poste local)
+    <DirectoryMatch "/var/www/html/mademarche/({{ applications_web_front | join('|') }})">
+        Require all denied
+    </DirectoryMatch>
+
+    # Configuration des logs
+    ErrorLog ${APACHE_LOG_DIR}/adminerror.log
+    CustomLog ${APACHE_LOG_DIR}/adminaccess.log combined
+
+    # Activation SSL
+    SSLEngine on
+
+    # Pour limiter à TLS-1.2 (les autres sont moins sécurisés)
+    SSLProtocol -ALL +TLSv1.2
+
+    # Pour limiter les implémentations Ciphers faibles
+    SSLCipherSuite ALL:!aNULL:!ADH:!eNULL:!LOW:!EXP:RC4+RSA:+HIGH:+MEDIUM
+
+    # Certificats nécessaires au SSL
+    SSLCertificateFile /etc/ssl/certs/psl.crt
+    SSLCertificateKeyFile /etc/ssl/certs/psl.key
+
+    # L'apache2 fait proxy vers des https
+    SSLProxyEngine on
+
+    # ProxyPass vers les APIS de socle-adminpsl
+    ProxyPass "/socle/adminpsl" "https://machineUbuntuTest:8989/socle/adminpsl"
+    ProxyPassReverse "/socle/adminpsl" "https://machineUbuntuTest:8989/socle/adminpsl"
+    
+    # ProxyPass vers les pages de service-adminpsl
+    ProxyPass "/service/adminpsl" "https://machineUbuntuTest:9090/service/adminpsl"
+    ProxyPassReverse "/service/adminpsl" "https://machineUbuntuTest:9090/service/adminpsl"
+    
+    # ProxyPass vers les pages de service-registre
+    ProxyPass "/service/registry" "https://machineUbuntuTest:8761/service/registry"
+    ProxyPassReverse "/service/registry" "https://machineUbuntuTest:8761/service/registry"
+
+    # Spécifiquement pour la documentation, sécurisation via le LDAP
+    <Location "/documentation">
+        # Nom de l'authentification (sans contrainte)
+        AuthName "AuthentificationDocumentation"
+
+        # Authentification LDAP
+        AuthType Basic
+        AuthBasicProvider ldap
+
+        # Paramètres d'appel au LDAP
+        AuthLDAPURL "ldap://localhost:1389/ou=people,dc=psl,dc=talbotgui,dc=github,dc=com?uid?"
+        AuthLDAPBindDN "{{ ldap_manager }}"
+        AuthLDAPBindPassword "{{ ldap_motdepasse }}"
+
+        # Contrainte autorisant l'accès
+        Require valid-user
+    </Location>
+
+    # Pour débugger
+    # LogLevel debug
+
+</VirtualHost>

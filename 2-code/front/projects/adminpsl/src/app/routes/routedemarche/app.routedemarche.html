@@ -1,0 +1,56 @@
+<!-- Titre -->
+<div class="fr-grid-row">
+  <h3>Configuration publique des démarches</h3>
+</div>
+
+<!-- Sélection de l'édition -->
+<div class="fr-grid-row fr-grid-row--gutters" role="search">
+  <div class="fr-col-4 fr-select-group">
+    <label class="fr-label" for="codeDemarche">Sélection de la démarche</label>
+    <select class="fr-select" id="codeDemarche" name="codeDemarche" #codeDemarche (change)="selectionnerCodeDemarche(codeDemarche.value)"
+      [disabled]="editionEnCours">
+      <option></option>
+      @for (code of listeDemarches; track code) {
+        <option [value]="code">{{code}}</option>
+      }
+    </select>
+  </div>
+  <div class="fr-col-4 fr-select-group">
+    <label class="fr-label" for="version">Version de la configuration</label>
+    <select class="fr-select" id="version" name="version" #version (change)="selectionnerVersionConfiguration(codeDemarche.value, version.value)"
+      [disabled]="editionEnCours">
+      <option></option>
+      @for (version of listeVersions | keyvalue; track version) {
+        <option [value]="version.key">{{version.value}}</option>
+      }
+    </select>
+  </div>
+</div>
+
+<!-- Edition -->
+<div class="fr-grid-row fr-input-group">
+  <label class="fr-label" for="saisie">Edition de la configuration publique</label>
+  <textarea class="fr-input" id="saisie" [disabled]="!editionEnCours" name="saisie" rows="20" [(ngModel)]="saisie"></textarea>
+</div>
+<div class="fr-grid-row fr-input-group">
+  <label class="fr-label" for="commentaire">Commentaire de la version</label>
+  <input class="fr-input" id="commentaire" name="commentaire" [(ngModel)]="commentaire">
+</div>
+
+<div class="fr-grid-row">
+  <div class="fr-col-9"></div>
+  <div class="fr-col-1">
+    @if (!editionEnCours) {
+      <button type="button" class="fr-btn" (click)="demarrerEdition()">Modifier</button>
+    }
+    @if (editionEnCours) {
+      <button type="button" class="fr-btn" (click)="annuler()">Annuler</button>
+    }
+  </div>
+  <div class="fr-col-2">
+    @if (editionEnCours) {
+      <button type="button" class="fr-btn fr-btn--icon-left fr-icon-save-3-fill"
+      (click)="enregistrer(codeDemarche.value, version.value)">Enregistrer</button>
+    }
+  </div>
+</div>

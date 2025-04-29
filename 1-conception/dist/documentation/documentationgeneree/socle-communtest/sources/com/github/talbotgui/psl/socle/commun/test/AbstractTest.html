@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="" lang="">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>AbstractTest xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../../../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../../../../../../apidocs/com/github/talbotgui/psl/socle/commun/test/AbstractTest.html">View Javadoc</a></div><pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_comment">This file is part of the talbotgui/psl project.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_comment">Authors: talbotgui.</em>
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_comment">This program is offered under a commercial and under the AGPL license.</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_comment">For commercial licensing, contact me at talbotgui@gmail.com.</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_comment">For AGPL licensing, see below.</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_comment">AGPL licensing:</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_comment">This program is free software: you can redistribute it and/or modify </em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_comment">it under the terms of the GNU Affero General Public License as published by</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_comment">the Free Software Foundation, either version 3 of the License, or</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_comment">(at your option) any later version.</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment">This program is distributed in the hope that it will be useful,</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_comment">but WITHOUT ANY WARRANTY; without even the implied warranty of</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_comment">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_comment">GNU Affero General Public License for more details.</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_comment">AGPL license is available in LICENSE.md file and <a href="https://www.gnu.org/licenses/" target="alexandria_uri">https://www.gnu.org/licenses/</a>#AGPL</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">package</strong> com.github.talbotgui.psl.socle.commun.test;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">import</strong> org.junit.jupiter.api.BeforeEach;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">import</strong> org.junit.jupiter.api.MethodOrderer;
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">import</strong> org.junit.jupiter.api.TestInfo;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">import</strong> org.junit.jupiter.api.TestMethodOrder;
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> org.slf4j.Logger;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> org.slf4j.LoggerFactory;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> org.springframework.test.context.TestPropertySource;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_javadoccomment"> * Classe de base de tous les tests : - les méthodes de test s'exécute dans l'ordre du nom de la méthode (ordre alphabétique) - les fichiers de</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment"> * propriétés sont tous chargés : les communs, les communs de test, les spécifiques à l'application et les spécifiques aux tests de l'application -</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment"> * une ligne de log ************* est générée entre chaque test</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  @TestMethodOrder(MethodOrderer.MethodName.<strong class="jxr_keyword">class</strong>)
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  @TestPropertySource(locations = {
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  		<em class="jxr_comment">// la configuration de bootstrap (pré-démarrage de spring) de chaque micro-service</em>
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  		<span class="jxr_string">"classpath:/bootstrap.properties"</span>,
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  		<em class="jxr_comment">// désactivé car le serveur d'admin n'est pas actif durant les tests (mutualisé dans le projet socle-communtest)</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  		<em class="jxr_comment">// "classpath:/config/adminClient.properties",</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  		<em class="jxr_comment">// les communs présents dans le projet service-config (mutualisés dans le projet socle-communtest)</em>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  		<span class="jxr_string">"classpath:/config/jwt.properties"</span>, <span class="jxr_string">"classpath:/config/log.properties"</span>, <span class="jxr_string">"classpath:/config/serviceregistry.properties"</span>,
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  		<span class="jxr_string">"classpath:/config/mongodb.properties"</span>, <span class="jxr_string">"classpath:/config/doc.properties"</span>, <span class="jxr_string">"classpath:/config/oidc.properties"</span>,
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  		<em class="jxr_comment">// le commun à tous les tests (dans le projet socle-communtest mais pas disponible à travers service-config)</em>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  		<span class="jxr_string">"classpath:/application-tests.properties"</span>,
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  		<em class="jxr_comment">// le spécifique à l'application (nommé selon le nom de l'application) (mutualisé dans le projet socle-communtest)</em>
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  		<span class="jxr_string">"classpath:/config/${spring.application.name}.properties"</span>,
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  		<em class="jxr_comment">// les spécifiques aux tests de l'application (présent dans le classpath des tests de chaque micro-service)</em>
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  		<span class="jxr_string">"classpath:/application-testsspecifique.properties"</span> })
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> AbstractTest {
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  	<em class="jxr_javadoccomment">/** Logger spécifique aux tests */</em>
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Logger LOGGER = LoggerFactory.getLogger(AbstractTest.<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  	<em class="jxr_javadoccomment">/** Entre chaque test, une ligne *********** */</em>
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  	@BeforeEach
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> avantChaqueTest(TestInfo testInfo) {
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  		LOGGER.info(<span class="jxr_string">"**********************"</span>);
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  		String nomDeLaClasseDeTest = testInfo.getTestClass().isPresent() ? testInfo.getTestClass().get().getName() : <span class="jxr_string">"inconnue"</span>;
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  		LOGGER.info(<span class="jxr_string">"Exécution du test {}.{}"</span>, nomDeLaClasseDeTest, testInfo.getDisplayName());
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  	}
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  }
+</pre>
+<hr/>
+<div id="footer">Copyright https://github.com/talbotgui/. All rights reserved.</div>
+</body>
+</html>

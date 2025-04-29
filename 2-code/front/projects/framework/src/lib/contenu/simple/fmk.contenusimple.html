@@ -1,0 +1,42 @@
+@if (contenu) {
+<div class="contenuAbstrait">
+  <!-- Le contenu à afficher en fonction de son type -->
+  <!-- Ajout de la clef en attribut de la balise pour l'analyse et les tests automatisés -->
+  <!-- Attention, [controle] pour les mono-saisie et [groupeControles] pour les complexes-->
+  @if (estDeTypeAutocompletion()) {
+  <div data-fmk-contenuautocompletion [attr.data-clef]="contenu.clef" [contenu]="contenu" [controle]="controle">
+  </div>
+  }
+  @if (estDeTypeCase()) {
+  <div data-fmk-contenucase [attr.data-clef]="contenu.clef" [contenu]="contenu" [controle]="controle">
+  </div>
+  }
+  @if (estDeTypeDate()) {
+  <div data-fmk-contenudate [attr.data-clef]="contenu.clef" [contenu]="contenu" [controle]="controle">
+  </div>
+  }
+  @if (estDeTypeListeFinie()) {
+  <div data-fmk-contenulistefinie [attr.data-clef]="contenu.clef" [contenu]="contenu" [controle]="controle">
+  </div>
+  }
+  @if (estDeTypeParagraphe()) {
+  <div data-fmk-contenuparagraphe [contenu]="contenu"></div>
+  }
+  @if (estDeTypeRadio()) {
+  <div data-fmk-contenuradio [attr.data-clef]="contenu.clef" [contenu]="contenu" [controle]="controle">
+  </div>
+  }
+  @if (estDeTypeSaisie()) {
+  <div data-fmk-contenusaisie [attr.data-clef]="contenu.clef" [contenu]="contenu" [controle]="controle">
+  </div>
+  }
+  @if (estDeTypeSaisieLongue()) {
+  <div data-fmk-contenusaisielongue [attr.data-clef]="contenu.clef" [contenu]="contenu" [controle]="controle">
+  </div>
+  }
+  @if (estDeTypeUploadDocument()) {
+  <div data-fmk-contenuuploaddocument [attr.data-clef]="contenu.clef" [contenu]="contenu" [controle]="controle">
+  </div>
+  }
+</div>
+}

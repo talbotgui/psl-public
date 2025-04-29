@@ -1,0 +1,161 @@
+---
+
+# Cette tâche permet d’installer unzip à l’aide du module apt
+- name: "[Preparation] Logiciel unzip"
+  apt:
+    name: "unzip"
+    force_apt_get: "true"
+    state: "present"
+
+# Cette tâche permet d’installer apache2 à l’aide du module apt
+- name: "[Preparation] Logiciel 'apache2'"
+  apt:
+    name: "apache2"
+    force_apt_get: "true"
+    state: "present"
+
+# Désactivation de toutes les configurations Apache2 par défaut
+- name: "[Preparation] Désactivation de toutes les configurations Apache2 par défaut"
+  ansible.builtin.shell:
+    chdir: "/etc/apache2/conf-enabled/"
+    cmd: "sudo a2disconf *"
+    removes: "/etc/apache2/conf-enabled/charset.conf"
+  register: "modificationNecessitantRedemarrage1"
+
+# Désactivation de tous les sites Apache2 par défaut
+- name: "[Preparation] Désactivation de tous les sites Apache2 par défaut"
+  ansible.builtin.shell:
+    chdir: "/etc/apache2/sites-enabled/"
+    cmd: "sudo a2dissite *"
+    removes: "/etc/apache2/sites-enabled/000-default.conf"
+  register: "modificationNecessitantRedemarrage2"
+
+# Réécriture de la configuration des ports
+- name: "[Preparation] Réécriture de la configuration des ports '/etc/apache2/conf-available/pslconf.conf'"
+  ansible.builtin.template:
+    src: "templates/portsconf.j2"
+    dest: "/etc/apache2/ports.conf"
+    owner: "root"
+    group: "root"
+    mode: "644"
+  register: "modificationNecessitantRedemarrage3"
+
+# Création de la configuration spécifique
+- name: "[Preparation] Création de la configuration spécifique '/etc/apache2/conf-available/pslconf.conf'"
+  ansible.builtin.template:
+    src: "templates/pslconf.j2"
+    dest: "/etc/apache2/conf-available/pslconf.conf"
+    owner: "root"
+    group: "root"
+    mode: "644"
+  register: "modificationNecessitantRedemarrage4"
+
+# Création des sites spécifiques
+- name: "[Preparation] Création du site spécifique '/etc/apache2/sites-available/pslsitefront.conf'"
+  ansible.builtin.template:
+    src: "templates/pslsitefront.j2"
+    dest: "/etc/apache2/sites-available/pslsitefront.conf"
+    owner: "root"
+    group: "root"
+    mode: "644"
+  when: "preparerVhostFront == true"
+  register: "modificationNecessitantRedemarrage5"
+- name: "[Preparation] Création du site spécifique '/etc/apache2/sites-available/pslsiteadmin.conf'"
+  ansible.builtin.template:
+    src: "templates/pslsiteadmin.j2"
+    dest: "/etc/apache2/sites-available/pslsiteadmin.conf"
+    owner: "root"
+    group: "root"
+    mode: "644"
+  when: "preparerVhostAdmin == true"
+  register: "modificationNecessitantRedemarrage6"
+
+# Dépôt des pages d'erreurs
+- name: "[Preparation] Dépôt des pages d'erreur"
+  copy:
+    src: "files/404.html"
+    dest: "/var/www/html/404.html"
+    mode: '644'
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+
+# Dépot des certificats et clefs pour l'activation SSL/TLS
+- name: "[Preparation] Dépot des certificats et clefs pour l'activation SSL/TLS '{{ front_tls_crt }}' vers '/etc/ssl/certs/psl.crt'"
+  ansible.builtin.copy:
+    src: "{{ front_tls_crt }}"
+    dest: "/etc/ssl/certs/psl.crt"
+    owner: "root"
+    group: "root"
+    mode: "644"
+  register: "modificationNecessitantRedemarrage7"
+- name: "[Preparation] Dépot des certificats et clefs pour l'activation SSL/TLS '{{ front_tls_key }}' vers '/etc/ssl/certs/psl.key'"
+  ansible.builtin.copy:
+    src: "{{ front_tls_key }}"
+    dest: "/etc/ssl/certs/psl.key"
+    owner: "root"
+    group: "root"
+    mode: "644"
+  register: "modificationNecessitantRedemarrage8"
+
+# Modification des droits du répertoire /var/www/html pour permettre un déploiement à www
+- name: "[Preparation] Modification des droits du répertoire '/var/www/html' pour permettre un déploiement à www"
+  ansible.builtin.file:
+    path: "/var/www/html"
+    state: "directory"
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+    mode: "{{ mode_rep_nominal }}"
+  register: "modificationNecessitantRedemarrage9"
+
+# Activation de la configuration spécifique
+- name: "[Preparation] Activation de la configuration spécifique '/etc/apache2/conf-enabled/pslconf.conf'"
+  ansible.builtin.shell:
+    cmd: "sudo a2enconf pslconf.conf"
+    creates: "/etc/apache2/conf-enabled/pslconf.conf"
+  register: "modificationNecessitantRedemarrage10"
+
+# Activation du site spécifique
+- name: "[Preparation] Activation du site spécifique '/etc/apache2/sites-enabled/pslsitefront.conf'"
+  ansible.builtin.shell:
+    cmd: "sudo a2ensite pslsitefront"
+    creates: "/etc/apache2/sites-enabled/pslsitefront.conf"
+  when: "preparerVhostFront == true"
+  register: "modificationNecessitantRedemarrage11"
+- name: "[Preparation] Activation du site spécifique '/etc/apache2/sites-enabled/pslsiteadmin.conf'"
+  ansible.builtin.shell:
+    cmd: "sudo a2ensite pslsiteadmin"
+    creates: "/etc/apache2/sites-enabled/pslsiteadmin.conf"
+  when: "preparerVhostAdmin == true"
+  register: "modificationNecessitantRedemarrage12"
+
+# Activation des modules nécessaires
+- name: "[Preparation] Activation du module Apache : 'ssl'"
+  ansible.builtin.shell:
+    cmd: "sudo a2enmod ssl"
+    creates: "/etc/apache2/mods-enabled/ssl.load"
+  when: "preparerVhostFront == true"
+  register: "modificationNecessitantRedemarrage13"
+- name: "[Preparation] Activation du module Apache : 'headers'"
+  ansible.builtin.shell:
+    cmd: "sudo a2enmod headers"
+    creates: "/etc/apache2/mods-enabled/headers.load"
+  when: "preparerVhostFront == true"
+  register: "modificationNecessitantRedemarrage14"
+- name: "[Preparation] Activation du module Apache 'authnz_ldap' (et 'ldap' pas dépendance)'"
+  ansible.builtin.shell:
+    cmd: "sudo a2enmod authnz_ldap"
+    creates: "/etc/apache2/mods-enabled/ldap.load"
+  when: "preparerVhostFront == true"
+  register: "modificationNecessitantRedemarrage15"
+- name: "[Preparation] Activation du module Apache 'proxy_http' (et 'proxy' pas dépendance)'"
+  ansible.builtin.shell:
+    cmd: "sudo a2enmod proxy_http"
+    creates: "/etc/apache2/mods-enabled/proxy.load"
+  when: "preparerVhostFront == true"
+  register: "modificationNecessitantRedemarrage16"
+
+# Activation de toutes les modifications
+- name: "[Preparation] Activation de toutes les modifications"
+  ansible.builtin.shell:
+    cmd: "systemctl restart apache2"
+  when: "modificationNecessitantRedemarrage1.changed == true or modificationNecessitantRedemarrage2.changed == true or modificationNecessitantRedemarrage3.changed == true or modificationNecessitantRedemarrage4.changed == true or modificationNecessitantRedemarrage5.changed == true or modificationNecessitantRedemarrage6.changed == true or modificationNecessitantRedemarrage7.changed == true or modificationNecessitantRedemarrage8.changed == true or modificationNecessitantRedemarrage9.changed == true or modificationNecessitantRedemarrage10.changed == true or modificationNecessitantRedemarrage11.changed == true or modificationNecessitantRedemarrage12.changed == true or modificationNecessitantRedemarrage13.changed == true or modificationNecessitantRedemarrage14.changed == true or modificationNecessitantRedemarrage15.changed == true or modificationNecessitantRedemarrage16.changed == true"

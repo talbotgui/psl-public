@@ -1,0 +1,12 @@
+com.github.talbotgui.psl.socle.dbnotification.apiclient
+com.github.talbotgui.psl.socle.dbnotification.apiclient.api
+com.github.talbotgui.psl.socle.dbnotification.apiclient.dto
+com.github.talbotgui.psl.socle.dbnotification.apiclient.dto.statistiques
+com.github.talbotgui.psl.socle.dbnotification.apiclient.exception
+com.github.talbotgui.psl.socle.dbnotification.application
+com.github.talbotgui.psl.socle.dbnotification.client
+com.github.talbotgui.psl.socle.dbnotification.client.model
+com.github.talbotgui.psl.socle.dbnotification.controleur
+com.github.talbotgui.psl.socle.dbnotification.dao
+com.github.talbotgui.psl.socle.dbnotification.declenchement
+com.github.talbotgui.psl.socle.dbnotification.service

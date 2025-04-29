@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>5. Avancement on Documentation nouvelle PSL</title>
+    <link>http://localhost:1313/documentation/5avancement/</link>
+    <description>Recent content in 5. Avancement on Documentation nouvelle PSL</description>
+    <generator>Hugo</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Mon, 24 Mar 2025 08:54:56 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/documentation/5avancement/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>5.1 Organisation</title>
+      <link>http://localhost:1313/documentation/5avancement/5.1comment/</link>
+      <pubDate>Tue, 13 Jun 2023 17:52:28 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/5avancement/5.1comment/</guid>
+      <description>A l&amp;rsquo;origine, ce prototype est un défi personnel : est-ce faisable ? Il a été initialisé et développé sur du temps personnel.&#xA;Donc, côté stratégie, les sujets ont été priorisés selon&#xA;leur faisabilité leur difficulté mais aussi en selon l&amp;rsquo;intéret personnel du sujet. </description>
+    </item>
+    <item>
+      <title>5.2 à faire</title>
+      <link>http://localhost:1313/documentation/5avancement/5.2quoi/</link>
+      <pubDate>Mon, 24 Mar 2025 08:54:56 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/5avancement/5.2quoi/</guid>
+      <description>Rappel des étapes/éléments à réaliser par type de sujet :&#xA;fonctionnalité FRONT : doc éventuelle + bibliothèque + framework + impact Back éventuel + TU fonctionnalité BACK : doc + Back + TU ComplexitéPrioritéDescription Maintenances : Maintenance à faire en 07/2024 : Sécurité (1/3) : mettre à jour DependencyTrack depuis §3.34.5.1 (dernière en 04/2024 en 4.10.1) Maintenance à faire en 07/2023 : Sécurité (2/3) : refaire l&#39;audit de sécurité avec DependencyTrack depuis §3.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,11 @@
+{
+  "integrationFolder": "projects/edition/cypress/integration",
+  "supportFile": "projects/framework/cypress/support/index.ts",
+  "videosFolder": "projects/edition/cypress/videos",
+  "screenshotsFolder": "projects/edition/cypress/screenshots",
+  "pluginsFile": "projects/framework/cypress/plugins/index.js",
+  "fixturesFolder": "projects/framework/cypress/fixtures",
+  "baseUrl": "http://dev-psl.guillaumetalbot.com/mademarche/",
+  "scrollBehavior": "center",
+  "chromeWebSecurity": false
+}

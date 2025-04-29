@@ -1,0 +1,20 @@
+meta {
+  name: 0423-DBConfiguration-etatCivilPublic-tokenSP
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/configuration/demarche/etatcivil
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslSP}}
+}
+
+assert {
+  res.status: eq 200
+  res.body.codeDemarche: eq etatcivil
+}

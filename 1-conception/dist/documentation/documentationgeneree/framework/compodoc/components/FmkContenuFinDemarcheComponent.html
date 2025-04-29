@@ -1,0 +1,474 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Composants</li>
+  <li class="breadcrumb-item"
+  >
+  FmkContenuFinDemarcheComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Fichier</h3>
+</p>
+<p class="comment">
+    <code>projects/framework/src/lib/contenu/dedie/contenufindemarche/fmk.contenufindemarche.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Métadonnées</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+            <tr>
+                <td class="col-md-3">encapsulation</td>
+                <td class="col-md-9"><code>ViewEncapsulation.None</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>div[data-fmk-contenufindemarche]</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/FmkContenuFinDemarcheConnecteComponent.html" target="_self" >FmkContenuFinDemarcheConnecteComponent</a></code>
+                                <code><a href="../components/FmkContenuFinDemarcheNonConnecteComponent.html" target="_self" >FmkContenuFinDemarcheNonConnecteComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./fmk.contenufindemarche.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#estUsagerConnecte" >estUsagerConnecte</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructeur</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(contexteService: <a href="../injectables/ContexteService.html" target="_self">ContexteService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="33" class="link-to-prism">projects/framework/src/lib/contenu/dedie/contenufindemarche/fmk.contenufindemarche.ts:33</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructeur pour injection des dépendances</p>
+</div>
+                            <div>
+                                    <b>Paramètres :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nom</td>
+                                                    <td>Type</td>
+                                                <td>Optionnel</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>contexteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ContexteService.html" target="_self" >ContexteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estUsagerConnecte"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>estUsagerConnecte</b></span>
+                        <a href="#estUsagerConnecte"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>estUsagerConnecte()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="39"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/dedie/contenufindemarche/fmk.contenufindemarche.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Flag permettant de savoir si l&#39;utilisateur connecté est connecté en anonyme ou OIDC</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ViewEncapsulation } from &#x27;@angular/core&#x27;;
+import { ContexteService } from &#x27;../../../../public-api&#x27;;
+import { FmkContenuFinDemarcheConnecteComponent } from &#x27;./contenufindemarcheconnecte/fmk.contenufindemarcheconnecte&#x27;;
+import { FmkContenuFinDemarcheNonConnecteComponent } from &#x27;./contenufindemarchenonconnecte/fmk.contenufindemarchenonconnecte&#x27;;
+
+
+@Component({
+    selector: &#x27;div[data-fmk-contenufindemarche]&#x27;, templateUrl: &#x27;./fmk.contenufindemarche.html&#x27;, encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    imports: [FmkContenuFinDemarcheConnecteComponent, FmkContenuFinDemarcheNonConnecteComponent]
+})
+export class FmkContenuFinDemarcheComponent {
+
+    /** Constructeur pour injection des dépendances */
+    public constructor(private contexteService: ContexteService) { }
+
+    /** Flag permettant de savoir si l&#x27;utilisateur connecté est connecté en anonyme ou OIDC */
+    public estUsagerConnecte(): boolean {
+        return this.contexteService.utilisateurConnecteOidc;
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@if (estUsagerConnecte()) {
+  &lt;div data-fmk-contenufindemarcheconnecte&gt;&lt;/div&gt;
+}
+@if (!estUsagerConnecte()) {
+  &lt;div data-fmk-contenufindemarchenonconnecte&gt;&lt;/div&gt;
+}</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Légende</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elément Html</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Composant</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elément Html avec une directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@if (estUsagerConnecte()) {  <div data-fmk-contenufindemarcheconnecte></div>}@if (!estUsagerConnecte()) {  <div data-fmk-contenufindemarchenonconnecte></div>}</div>'
+    var COMPONENTS = [{'name': 'ConnexionBrouillonDialog', 'selector': 'div[data-fmk-connexionreprisebrouillon]'},{'name': 'FmkBlocComponent', 'selector': 'div[data-fmk-bloc]'},{'name': 'FmkBlocDynamiqueComponent', 'selector': 'div[data-fmk-blocdynamique]'},{'name': 'FmkCaptchaComponent', 'selector': 'div[data-fmk-captcha]'},{'name': 'FmkConteneurPagesComponent', 'selector': 'div[data-fmk-conteneurpages]'},{'name': 'FmkContenuAdresseFrOuRtrComponent', 'selector': 'div[data-fmk-contenuadressefrouetr]'},{'name': 'FmkContenuAutocompletionComponent', 'selector': 'div[data-fmk-contenuautocompletion]'},{'name': 'FmkContenuCaseComponent', 'selector': 'div[data-fmk-contenucase]'},{'name': 'FmkContenuComponent', 'selector': 'div[data-fmk-contenu]'},{'name': 'FmkContenuContactPersonnelComponent', 'selector': 'div[data-fmk-contenucontactpersonnel]'},{'name': 'FmkContenuDateComponent', 'selector': 'div[data-fmk-contenudate]'},{'name': 'FmkContenuDocumentsComponent', 'selector': 'div[data-fmk-contenudocuments]'},{'name': 'FmkContenuFinDemarcheComponent', 'selector': 'div[data-fmk-contenufindemarche]'},{'name': 'FmkContenuFinDemarcheConnecteComponent', 'selector': 'div[data-fmk-contenufindemarcheconnecte]'},{'name': 'FmkContenuFinDemarcheNonConnecteComponent', 'selector': 'div[data-fmk-contenufindemarchenonconnecte]'},{'name': 'FmkContenuIdentiteComponent', 'selector': 'div[data-fmk-contenuidentite]'},{'name': 'FmkContenuListeFinieComponent', 'selector': 'div[data-fmk-contenulistefinie]'},{'name': 'FmkContenuParagrapheComponent', 'selector': 'div[data-fmk-contenuparagraphe]'},{'name': 'FmkContenuRadioComponent', 'selector': 'div[data-fmk-contenuradio]'},{'name': 'FmkContenuRecapitulatifComponent', 'selector': 'div[data-fmk-contenurecapitulatif]'},{'name': 'FmkContenuRicheComponent', 'selector': 'div[data-fmk-contenuriche]'},{'name': 'FmkContenuSaisieComponent', 'selector': 'div[data-fmk-contenusaisie]'},{'name': 'FmkContenuSaisieLongueComponent', 'selector': 'div[data-fmk-contenusaisielongue]'},{'name': 'FmkContenuSimpleComponent', 'selector': 'div[data-fmk-contenusimple]'},{'name': 'FmkContenuUploadDocumentComponent', 'selector': 'div[data-fmk-contenuuploaddocument]'},{'name': 'FmkContenuUtilisateurConnecteComponent', 'selector': 'div[data-fmk-contenuutilisateurconnecte]'},{'name': 'FmkEnteteComponent', 'selector': 'div[data-fmk-entete]'},{'name': 'FmkFilDarianeComponent', 'selector': 'div[data-fmk-fildariane]'},{'name': 'FmkListeContenusRecapitulatifComponent', 'selector': 'div[data-fmk-listecontenusrecapitulatif]'},{'name': 'FmkMessageGlobalComponent', 'selector': 'div[data-fmk-messageglobal]'},{'name': 'FmkMessagesValidationComponent', 'selector': '[data-fmk-messagesvalidation]'},{'name': 'FmkNavigationComponent', 'selector': 'div[data-fmk-navigation]'},{'name': 'FmkPageComponent', 'selector': 'div[data-fmk-page]'},{'name': 'FmkPiedDePageComponent', 'selector': 'div[data-fmk-pieddepage]'}];
+    var DIRECTIVES = [{'name': 'AbstractComponent', 'selector': ''},{'name': 'AncreTabulableDirective', 'selector': 'a:not([href])'},{'name': 'FmkApplicationAbstraitComponent', 'selector': ''},{'name': 'FmkContenuAbstraitComponent', 'selector': ''},{'name': 'FmkContenuComplexeAbstraitComponent', 'selector': ''},{'name': 'FmkContenuFinDemarcheAbstraitComponent', 'selector': ''},{'name': 'FmkContenuMonoSaisieAbstraitComponent', 'selector': ''}];
+    var ACTUAL_COMPONENT = {'name': 'FmkContenuFinDemarcheComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FmkContenuFinDemarcheComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

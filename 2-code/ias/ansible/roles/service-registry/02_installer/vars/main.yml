@@ -1,0 +1,13 @@
+---
+
+# Nom de l'applicatif
+applicatif_nom: "service-registry"
+
+# Répertoire contenant les fichiers de configuration à déposer sur le sreveur
+configuration_rep: "{{ playbook_dir }}/../../socle/services-cloud/service-registry/src/test/resources/"
+
+# Paramètre supplémentaire pour le script de démarrage (uniquement les -- car les -D vont dans scripts_demarrer_options_specifiques)
+scripts_demarrer_parametres_specifiques: "--spring.config.location={{ applicatifs_rep }}{{ applicatif_nom }}/application-specifique.properties --cheminapp={{ playbook_dir }}/../../socle/socle-communtest --cheminkeystorechiffrement={{ playbook_dir }}/../../socle/socle-communtest/src/main/resources/keystoreconfig"
+
+# Ce service n'a pas de Actuator
+scripts_demarrer_option_arret_par_acturator: false

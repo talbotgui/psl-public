@@ -1,0 +1,9 @@
+com.github.talbotgui.psl.socle.dbdocument.apiclient
+com.github.talbotgui.psl.socle.dbdocument.apiclient.api
+com.github.talbotgui.psl.socle.dbdocument.apiclient.dto
+com.github.talbotgui.psl.socle.dbdocument.application
+com.github.talbotgui.psl.socle.dbdocument.clientantivirus
+com.github.talbotgui.psl.socle.dbdocument.controleur
+com.github.talbotgui.psl.socle.dbdocument.dao
+com.github.talbotgui.psl.socle.dbdocument.exception
+com.github.talbotgui.psl.socle.dbdocument.service

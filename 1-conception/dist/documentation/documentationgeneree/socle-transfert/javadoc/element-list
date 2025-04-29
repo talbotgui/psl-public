@@ -1,0 +1,6 @@
+com.github.talbotgui.psl.socle.transfert.application
+com.github.talbotgui.psl.socle.transfert.client
+com.github.talbotgui.psl.socle.transfert.client.dto
+com.github.talbotgui.psl.socle.transfert.declenchement
+com.github.talbotgui.psl.socle.transfert.exception
+com.github.talbotgui.psl.socle.transfert.service

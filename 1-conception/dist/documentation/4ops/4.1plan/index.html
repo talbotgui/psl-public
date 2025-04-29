@@ -1,0 +1,2803 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.127.0">
+    <meta name="description" content="Conception de la nouvelle PSL">
+
+
+    <link rel="icon" href="/psl-public/documentation/images/favicon.png" type="image/png">
+
+    <title>4.1 Plan - Documentation nouvelle PSL</title>
+
+    
+    <link href="/psl-public/documentation/css/nucleus.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/fontawesome-all.min.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/hybrid.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/featherlight.min.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/perfect-scrollbar.min.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/auto-complete.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/atom-one-dark-reasonable.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/theme.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/tabs.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/hugo-theme.css?1745960225" rel="stylesheet">
+    
+    <link href="/psl-public/documentation/css/theme-blue.css?1745960225" rel="stylesheet">
+    
+    <link href="/psl-public/documentation/style.css?1745960225" rel="stylesheet">
+
+    <script src="/psl-public/documentation/js/jquery-3.3.1.min.js?1745960225"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/psl-public/documentation/4ops/4.1plan/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="/psl-public/documentation/"><img src="/psl-public/documentation/newPSL.png"/></a>
+<span style="color:white">Version : <i>${project.version}</i></span>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/psl-public/documentation/js/lunr.min.js?1745960225"></script>
+<script type="text/javascript" src="/psl-public/documentation/js/auto-complete.js?1745960225"></script>
+<script type="text/javascript">
+    
+        var baseurl = "http:\/\/localhost:1313\/documentation\/";
+    
+</script>
+<script type="text/javascript" src="/psl-public/documentation/js/search.js?1745960225"></script>
+
+    
+  </div>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/1conceptiongenerale/" title="1. Conception générale" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/1conceptiongenerale/">
+          1. Conception générale
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/" title="1.1 Objectifs" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/">
+          1.1 Objectifs
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.1objectifsfonctionnels/" title="1.1.1 Objectifs fonctionnels" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.1objectifsfonctionnels/">
+        1.1.1 Objectifs fonctionnels
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.2objectifstechniques/" title="1.1.2 Objectifs techniques" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.2objectifstechniques/">
+        1.1.2 Objectifs techniques
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.3objectifsdisponibilite/" title="1.1.3 Objectifs de disponibilité" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.3objectifsdisponibilite/">
+        1.1.3 Objectifs de disponibilité
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.4objectifhomogeneite/" title="1.1.4 Objectifs d&#39;homogénéité" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.4objectifhomogeneite/">
+        1.1.4 Objectifs d&#39;homogénéité
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.2architecture/" title="1.2 Architecture" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/1conceptiongenerale/1.2architecture/">
+          1.2 Architecture
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.1conceptionarchitecture/" title="1.2.1 Conception de l&#39;architecture" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.1conceptionarchitecture/">
+        1.2.1 Conception de l&#39;architecture
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.2schemageneral/" title="1.2.2 Schéma d&#39;architecture générale" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.2schemageneral/">
+        1.2.2 Schéma d&#39;architecture générale
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.3principesgeneraux/" title="1.2.3 Principes généraux" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.3principesgeneraux/">
+        1.2.3 Principes généraux
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/" title="1.3 Les applicatifs" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/">
+          1.3 Les applicatifs
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.1demarche/" title="1.3.1 Les applications WEB de démarche" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.1demarche/">
+        1.3.1 Les applications WEB de démarche
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.2socle/" title="1.3.2 Le socle" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.2socle/">
+        1.3.2 Le socle
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.3outils/" title="1.3.3 Les outils" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.3outils/">
+        1.3.3 Les outils
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.4retroingenierie/" title="1.3.4 Rétro-ingénierie" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.4retroingenierie/">
+        1.3.4 Rétro-ingénierie
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/" title="2. Conception détaillée" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/2conceptiondetaillee/">
+          2. Conception détaillée
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.1introduction/" title="2.1 Introduction" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.1introduction/">
+        2.1 Introduction
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.2principesconceptionduback/" title="2.2 Principes de conception du BACK" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.2principesconceptionduback/">
+        2.2 Principes de conception du BACK
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.3principesconceptiondufront/" title="2.3 Principes de conception du FRONT" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.3principesconceptiondufront/">
+        2.3 Principes de conception du FRONT
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.4principesconceptionfrontetback/" title="2.4 Principes de conception communs" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.4principesconceptionfrontetback/">
+        2.4 Principes de conception communs
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.5principeconceptiondocumentaire/" title="2.5 Principes de rédaction documentaire" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.5principeconceptiondocumentaire/">
+        2.5 Principes de rédaction documentaire
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.6fonctionnalites/" title="2.6 Fonctionnalités" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.6fonctionnalites/">
+        2.6 Fonctionnalités
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.7cloud/" title="2.7 Fonctionnalités Cloud" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.7cloud/">
+        2.7 Fonctionnalités Cloud
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.8securite/" title="2.8 Sécurité" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.8securite/">
+        2.8 Sécurité
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.9liensdocumentaires/" title="2.9 Liens documentaires" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.9liensdocumentaires/">
+        2.9 Liens documentaires
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.10documentationutilisateur/" title="2.10 Documentation utilisateur" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.10documentationutilisateur/">
+        2.10 Documentation utilisateur
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/3developpement/" title="3. Développement" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/3developpement/">
+          3. Développement
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.1liens/" title="3.1 Liens" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.1liens/">
+        3.1 Liens
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.2installationdeposte/" title="3.2 Installation de poste" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.2installationdeposte/">
+        3.2 Installation de poste
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.3demarrertout/" title="3.3 Démarrer tout" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.3demarrertout/">
+        3.3 Démarrer tout
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.11infoslogs/" title="3.11 Infos-logs" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.11infoslogs/">
+        3.11 Infos-logs
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.12infosspring/" title="3.12 Infos-Spring" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.12infosspring/">
+        3.12 Infos-Spring
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.13infoscloud/" title="3.13 Infos-cloud" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.13infoscloud/">
+        3.13 Infos-cloud
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.14infospic/" title="3.14 Infos-PIC" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.14infospic/">
+        3.14 Infos-PIC
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.15infose2e/" title="3.15 Infos-test e2e" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.15infose2e/">
+        3.15 Infos-test e2e
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.16infovelocity/" title="3.16 Infos-velocity" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.16infovelocity/">
+        3.16 Infos-velocity
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.21reglesdeconception/" title="3.21 Règles-conception" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.21reglesdeconception/">
+        3.21 Règles-conception
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.22reglesspecificiquesjava/" title="3.22 Règles-Java" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.22reglesspecificiquesjava/">
+        3.22 Règles-Java
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.23reglesmaven/" title="3.23 Règles-Maven" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.23reglesmaven/">
+        3.23 Règles-Maven
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.24reglesdetest/" title="3.24 Règles-test" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.24reglesdetest/">
+        3.24 Règles-test
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.25reglesdelog/" title="3.25 Règles-logs" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.25reglesdelog/">
+        3.25 Règles-logs
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.26regesspecificiquesfront/" title="3.26 Règles-Front" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.26regesspecificiquesfront/">
+        3.26 Règles-Front
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.31proceduressitedocumentaire/" title="3.31 Procédures-site documentaire" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.31proceduressitedocumentaire/">
+        3.31 Procédures-site documentaire
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.32proceduresapplicationangular/" title="3.32 Procédures-règles de l&#39;application Angular" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.32proceduresapplicationangular/">
+        3.32 Procédures-règles de l&#39;application Angular
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.33proceduresmaven/" title="3.33 Procédures-environnement Maven" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.33proceduresmaven/">
+        3.33 Procédures-environnement Maven
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.34proceduressecurite/" title="3.34 Procédures-veille sécurité" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.34proceduressecurite/">
+        3.34 Procédures-veille sécurité
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.35procedureselastic/" title="3.35 Procédures-elastic" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.35procedureselastic/">
+        3.35 Procédures-elastic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.36procedurestest/" title="3.36 Procédures-test" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.36procedurestest/">
+        3.36 Procédures-test
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.37proceduresdiverses/" title="3.37 Procédures-diverses" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.37proceduresdiverses/">
+        3.37 Procédures-diverses
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.41chosesasavoir/" title="3.41 Les choses à savoir" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.41chosesasavoir/">
+        3.41 Les choses à savoir
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.99faq/" title="3.99 Foire aux questions (FAQ)" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.99faq/">
+        3.99 Foire aux questions (FAQ)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/4ops/" title="4. Ops" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/psl-public/documentation/4ops/">
+          4. Ops
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/4ops/4.1plan/" title="4.1 Plan" class="dd-item active">
+        <a href="/psl-public/documentation/4ops/4.1plan/">
+        4.1 Plan
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/4ops/4.2ansible/" title="4.2 Ansible" class="dd-item ">
+        <a href="/psl-public/documentation/4ops/4.2ansible/">
+        4.2 Ansible
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/4ops/4.3regles/" title="4.3 Règles" class="dd-item ">
+        <a href="/psl-public/documentation/4ops/4.3regles/">
+        4.3 Règles
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/4ops/4.4exploitation/" title="4.4 Exploitation" class="dd-item ">
+        <a href="/psl-public/documentation/4ops/4.4exploitation/">
+        4.4 Exploitation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/5avancement/" title="5. Avancement" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/5avancement/">
+          5. Avancement
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/5avancement/5.1comment/" title="5.1 Organisation" class="dd-item ">
+        <a href="/psl-public/documentation/5avancement/5.1comment/">
+        5.1 Organisation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/5avancement/5.2quoi/" title="5.2 à faire" class="dd-item ">
+        <a href="/psl-public/documentation/5avancement/5.2quoi/">
+        5.2 à faire
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/6glossaire/" title="6. Glossaire" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/6glossaire/">
+          6. Glossaire
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>License : <a href="/psl-public/documentation/0licence/">commercial & AGPL</a></p>
+<p>Built with <a target="_blank" href="https://github.com/matcornic/hugo-theme-learn">Learn Theme</i></a> & <a target="_blank" href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/documentation/'>Accueil</a> > <a href='/documentation/4ops/'>4. Ops</a> > 4.1 Plan
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#411---les-composants-applicatifs-et-leurs-contraintes">4.1.1 - Les composants applicatifs et leurs contraintes</a></li>
+    <li><a href="#412---plan-de-déploiement">4.1.2 - Plan de déploiement</a></li>
+    <li><a href="#413---besoins-vis-à-vis-de-lhébergeurexploitant">4.1.3 - Besoins vis-à-vis de l&rsquo;hébergeur/exploitant</a></li>
+    <li><a href="#414---installation-avec-ansible">4.1.4 - Installation avec Ansible</a></li>
+    <li><a href="#415---commandes-à-connaître">4.1.5 - Commandes à connaître</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              4.1 Plan
+            </h1>
+          
+
+        
+
+
+<p>Voici le plan de déploiement imaginé au 13/06/2023 (aucun environnement cible n&rsquo;existe encore à cette date).</p>
+<div class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#411---les-composants-applicatifs-et-leurs-contraintes">4.1.1 - Les composants applicatifs et leurs contraintes</a></li>
+    <li><a href="#412---plan-de-déploiement">4.1.2 - Plan de déploiement</a></li>
+    <li><a href="#413---besoins-vis-à-vis-de-lhébergeurexploitant">4.1.3 - Besoins vis-à-vis de l&rsquo;hébergeur/exploitant</a></li>
+    <li><a href="#414---installation-avec-ansible">4.1.4 - Installation avec Ansible</a></li>
+    <li><a href="#415---commandes-à-connaître">4.1.5 - Commandes à connaître</a></li>
+  </ul>
+</nav>
+</div>
+<h2 id="411---les-composants-applicatifs-et-leurs-contraintes">4.1.1 - Les composants applicatifs et leurs contraintes</h2>
+<p>Les services du socle sont des fonctionnalités que peuvent proposer les fournisseurs de Cloud. Ils ne seront donc pas tous installés en production. Mais, ceux développés permettent de démarrer, sur le poste local ou sur un serveur OnPremise, un SI complet.</p>
+<p>Sont définies 3 catégories de composants :</p>
+<ul>
+<li>catégorie 3 : le composant est vital et doit être redondé pour assurer le fonctionnement du système.</li>
+<li>catégorie 2 : le composant n&rsquo;est pas assez vital pour que tout le SI soit indisponible s&rsquo;il est absent. Mais son indisponibilité réduit les fonctionnalités proposées aux usagers.</li>
+<li>catégorie 1 : le composant peut être indisponible sans gêne particulière pour les fonctionnalités proposées aux usagers mais son absence réduit les fonctionnalités du SI.</li>
+<li>catégorie * : certains composants à la criticité faible peuvent nécessiter plusieurs instances pour tenir la charge induite par les usagers.</li>
+</ul>
+<p>Sont aussi définies</p>
+<ul>
+<li>des couches réseaux
+<ul>
+<li>exposée</li>
+<li>interne</li>
+<li>profonde</li>
+</ul>
+</li>
+<li>et des colonnes séparant les instances des applicatifs dans des zones réseaux verticales (DNS dédié obligatoire)
+<ul>
+<li>exécution</li>
+<li>administration</li>
+</ul>
+</li>
+</ul>
+<p>Voici les contraintes et la catégorisation de tous les services :</p>
+<ul>
+<li>services-cloud
+<ul>
+<li>service-admin : [catégorie 1] [interne] [administration] Le service d&rsquo;administration n&rsquo;a pas besoin d&rsquo;être redondée. S&rsquo;il est absente, le SI continue son travail. Seules les équipes réalisant des analyses ou souhaitant modifier une configuration sont gênées. Elles résolveront le problème en cours et pourront de nouveau travailler une fois l&rsquo;application de nouveau disponible.</li>
+<li>service-config : [catégorie 1] [interne] [administration] Sans mise à disposition des configurations, de nouvelles instances de micro-services ne peuvent pas démarrer et leur configuration ne peut pas être rechargée (action depuis le service d&rsquo;administration).</li>
+<li>service-elastic : [catégorie 1] [profonde] [administration] Sans base de données Elasticsearch, les lignes de log ne peuvent pas être centralisées. Mais les fichiers de log sur cheque serveur ne sont pas perdus pour autant. Donc, dès que Elasticsearch est de nouveau disponible, les FileBeat lui enverront les logs. Mais, par principe, un sreveur ElasticSearch est obligatoirement installé sur plusieurs serveurs différents (plusieurs noeuds) pour assurer l&rsquo;intégrité des données (copie de <em>shard</em>).</li>
+<li>service-gateway : [catégorie 3] [exposée] [exécution] La Gateway est le point d&rsquo;entrée de toute requête HTTP vers une API du socle. Elle est hautement nécessaire et donc redondée.</li>
+<li>service-ldap : [catégorie 1] [profonde] [administration] Le LDAP permet l&rsquo;authentification du service d&rsquo;administration et de l&rsquo;application d&rsquo;administration. Il n&rsquo;est pas plus critique que ces deux applications.</li>
+<li>service-nosql : [catégorie 3] [profonde] [exécution] Sans les configurations (publiques et internes), aucune démarche n&rsquo;est disponible aux usagers. Cette base de données est donc primordiale.</li>
+<li>service-redis : [catégorie 1] [profonde] [exécution] Ce composant apporte de la sécuritée (anti-DDOS) pour la Gateway. Il n&rsquo;apporte rien aux usagers. Il participe à protéger le SI.</li>
+<li>service-registry : [catégorie 3] [profonde] [exécution] Sans registre, les différents services et micro-services ne peuvent pas communiquer entre eux. Il est indispensable et à redonder.</li>
+</ul>
+</li>
+<li>micro-services :
+<ul>
+<li>socle-adminpsl : [catégorie 1] [interne] [administration] L&rsquo;application d&rsquo;administration n&rsquo;a pas besoin d&rsquo;être redondée. Si elle est absente, le SI continue son travail. Seules les équipes réalisant des analyses ou souhaitant modifier une configuration sont gênés. Ils résolveront le problème en cours et pourront de nouveau travailler une fois l&rsquo;application disponible.</li>
+<li>socle-dbbrouillon : [catégorie 2] [interne] [exécution] Sans sauvegarde ou chargement de brouillon, les usagers peuvent toujours renseigner et soumettre des télé-dossiers.</li>
+<li>socle-dbconfiguration : [catégorie 3] [interne] [exécution] Sans les configurations (publiques et internes), aucune démarche n&rsquo;est disponible aux usagers.</li>
+<li>socle-dbdocument : [catégorie 3] [interne] [exécution] Sans upload de pièce jointe et stockage de documents générés, aucune soumission n&rsquo;est possible. Cet applicatif est donc indispensable et doit être rendondé.</li>
+<li>socle-dbnotification : [catégorie 3] [interne] [exécution] Ce composant participe à la soumission d&rsquo;un télé-dossier. Il est donc indispensable.</li>
+<li>socle-referentiel : [catégorie 2*] [interne] [exécution] Ce composant donne accès à un référentiel. Si une démarche n&rsquo;utilise aucun de ces référentiels, elle peut être parcourue et des télé-dossiers peuvent être soumis.</li>
+<li>socle-referentielexterne : [catégorie 2*] [interne] [exécution] Ce composant donne accès à un référentiel. Si une démarche n&rsquo;utilise aucun de ces référentiels, elle peut être parcourue et des télé-dossiers peuvent être soumis.</li>
+<li>socle-securite : [catégorie 3] [interne] [exécution] Ce composant permet toutes les authentifications (OIDC, anonyme et par mot de passe). Sans lui, aucune API ne peut être appelée.</li>
+<li>socle-soumission : [catégorie 3] [interne] [exécution] Ce composant porte la soumission d&rsquo;un télé-dossier. Il est donc indispensable.</li>
+<li>socle-transfert : [catégorie 1*] [interne] [administration] Si ce composant est indisponible, les télé-dossiers soumis s&rsquo;accumuleront. Mais, à son redémarrage, les traitements seront réalisés au fur et à mesure sans perte de données.</li>
+</ul>
+</li>
+<li>autres :
+<ul>
+<li>les applications WEB des démarches :[catégorie 3] [exposée] [exécution] Les applications des démarches sont la partie visible du système</li>
+<li>les applications WEB d&rsquo;administration :[catégorie 1] [interne] [administration] Les applications d&rsquo;administration ne sont pas nécessaires au bon fonctionnement. Elles sont utiles pour la gestion/configuration/administration uniquement.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="412---plan-de-déploiement">4.1.2 - Plan de déploiement</h2>
+<p>En reprenant les besoins décrits au chapitre précédent et les intégrant dans un tableau représenant les zones et colonnes réseau :</p>
+<table>
+    <tr>
+		<th></th>
+		<th>Colonne ADMIN</th>
+		<th>Colonne EXECUTION</th>
+	</tr>
+	<tr>
+		<td>Zone exposée</td>
+		<td></td>
+		<td><ul>
+			<li>service-gateway <b>x3</b></li>
+			<li>applications WEB des démarches <b>x3</b></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>Zone interne</td>
+		<td><ul>
+			<li>service-admin <b>x1</b></li>
+			<li>service-config <b>x1</b></li>
+			<li>socle-adminpsl <b>x1</b></li>
+			<li>socle-transfert <b>x2</b></li>
+			<li>applications WEB d'administration <b>x1</b></li>
+		</ul></td>
+		<td><ul>
+			<li>socle-dbbrouillon <b>x3</b></li>
+			<li>socle-dbconfiguration <b>x1</b></li>
+			<li>socle-dbdocument <b>x3</b></li>
+			<li>socle-dbnotification <b>x3</b></li>
+			<li>socle-referentiel <b>x2</b></li>
+			<li>socle-referentielexterne <b>x2</b></li>
+			<li>socle-securite <b>x3</b></li>
+			<li>socle-soumission <b>x3</b></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<td>Zone profonde</td>
+		<td><ul>
+			<li>service-elastic <b>x3</b></li>
+			<li>service-ldap <b>x1</b></li>
+		</ul></td>
+		<td><ul>
+			<li>service-nosql <b>x3</b></li>
+			<li>service-redis <b>x1</b></li>
+			<li>service-registry <b>x3</b></li>
+		</ul></td>
+	</tr>
+</table>
+<p>A partir de ces besoin et sans disposer des résultats d&rsquo;un tir de performance, il parait logique et suffisant de créer un nombre limiter de machines identiques entre elles (pour simplifier les déploiements) sur le modèle suivant :</p>
+<table>
+    <tr>
+		<th></th>
+		<th>Colonne ADMIN</th>
+		<th>Colonne EXECUTION</th>
+	</tr>
+	<tr>
+		<td>Zone exposée</td>
+		<td></td>
+		<td><b>3</b> machines</td>
+	</tr>
+	<tr>
+		<td>Zone interne</td>
+		<td><b>2</b> machines</td>
+		<td><b>3</b> machines</td>
+	</tr>
+	<tr>
+		<td>Zone profonde</td>
+		<td><b>3</b> machines</td>
+		<td><b>3</b> machines</td>
+	</tr>
+</table>
+<hr>
+<h2 id="413---besoins-vis-à-vis-de-lhébergeurexploitant">4.1.3 - Besoins vis-à-vis de l&rsquo;hébergeur/exploitant</h2>
+<p>Le SI semble donc nécessiter 14 machines Unix répondant aux critères suivants</p>
+<ul>
+<li>[toutes] est installé un OS unix récent (distribution au choix de l&rsquo;hébergeur/exploitant) et maintenu à jour par l&rsquo;expoitant</li>
+<li>[toutes] sont ouverts les flux vers toutes les zones inférieures (la gateway a besoin de l&rsquo;accès au registre)</li>
+<li>[zone exposée et interne] Internet est accessible en passant par un même dispositif réseau (pour assurer une unique IP publique du SI facilitant ainsi la configuration des filtres par IP des partenaires)</li>
+<li>[profonde] la capacité de disque est importante et taillée en fonction des tirs de performance réalisés (par défaut 300Go)</li>
+<li>[toutes] aucun logiciel précis n&rsquo;est à préinstaller sur les machines (Ansible sera utilisé pour installer tous les éléments nécessaires et réaliser les montées de version sauf indication contraire de l&rsquo;hébergeur/exploitant)</li>
+</ul>
+<p>En plus de ces caractéristiques, la sécurité périphérique du SI est à la charge de l&rsquo;hébergeur/exploitant. Ceci comprend (liste non exhaustive)</p>
+<ul>
+<li>un filtrage de sécurité basé sur les signatures standards d&rsquo;attaque</li>
+<li>la sécurisation des accès SSH d&rsquo;administration/exploitation</li>
+<li>&hellip; (à compléter)</li>
+</ul>
+<p>Les machines sont donc identifiées avec un code XXX_YYY_Z avec</p>
+<ul>
+<li>XXX la colonne réseau,</li>
+<li>YYY la couche réseau</li>
+<li>Z l&rsquo;indice de la machine.</li>
+</ul>
+<p>On obtient ainsi la liste des machines suivantes :</p>
+<ul>
+<li>EXE_EXP_1, EXE_EXP_2, EXE_EXP_3</li>
+<li>EXE_INT_1, EXE_INT_2, EXE_INT_3</li>
+<li>EXE_PRO_1, EXE_PRO_2, EXE_PRO_3</li>
+<li>ADM_INT_1, ADM_INT_2</li>
+<li>ADM_PRO_1, ADM_PRO_2, ADM_PRO_3</li>
+</ul>
+<hr>
+<h2 id="414---installation-avec-ansible">4.1.4 - Installation avec Ansible</h2>
+<p>La création des machines n&rsquo;est pas dans le périmètre actuel de ce projet. Elles sont identifiées telles que le définit le chapitre précédent.</p>
+<p>La répartition du déploiement des applicatifs sur les machines est lisible dans le fichier d&rsquo;inventaire</p>
+<p>Les scripts doivent être construits pour installer l&rsquo;ensemble des éléments nécessaires au bon fonctionnement d&rsquo;un applicatif sur un serveur. Ainsi, chaque installation d&rsquo;un applicatif passe, par exemple, par l&rsquo;installation de Java (si Java est déjà installé, Ansible ne fera rien). Avec ce principe, les scripts ne sont pas à refaire si le plan de déploiement change et il est même envisageable d&rsquo;installer rapidement une machine supplémentaire avec seulement un unique applicatif alors que ce dernier est systématiquement installé avec d&rsquo;autres sur les autres machines de l&rsquo;environnement.</p>
+<p>Les scripts/configurations Ansible du projet <em>ias</em> permettent :</p>
+<ul>
+<li>pour toutes les machines
+<ul>
+<li>de paramétrer un groupe et un utilisateur UNIX (<em>www:www</em>)</li>
+</ul>
+</li>
+<li>pour les micro-services
+<ul>
+<li>d&rsquo;installer la bonne version de Java (identique sur toutes les machines - cf version dans la page <a href="/psl-public/documentation/5avancement/5.2quoi/">A faire</a>).</li>
+<li>de télécharger le binaire applicatif à installer</li>
+<li>de déposer le binaire dans le répertoire <em>${repertoirePsl}${nomApplicatif}</em></li>
+<li>de déposer la configuration nécessaire dans ce même répertoire</li>
+<li>de déposer les scripts de démarrage et d&rsquo;arrêt dans ce même répertoire</li>
+<li>d&rsquo;installer FileBeat dans le répertoire <em>${repertoireFileBeat}</em></li>
+<li>de déposer la configuration propre à FileBeat dans le répertoire <em>${repertoireFileBeat}conf.d</em></li>
+</ul>
+</li>
+<li>pour les services :
+<ul>
+<li>full custom pour la plus part</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="415---commandes-à-connaître">4.1.5 - Commandes à connaître</h2>
+<p>Après exécuter un playbook depuis la machine locale vers la machine WSL :</p>
+<ul>
+<li>démarrer <em>WLS</em> depuis le menu démarrer de Windows en recherchant <em>ubuntu</em></li>
+<li>démarrer WSL, depuis une commande DOS, avec la commande <code>wsl -d UbuntuAnsible</code></li>
+<li>sur la machine <em>UbuntuAnsible</em>, exécuter la commande <code>ansible-playbook ansible/05_statuer.yml -i ansible/inventory/local</code></li>
+<li>si les actions à réaliser par Ansible nécessite un droit <em>SUDO</em>, exécuter la commande <code>ansible-playbook ansible/01_preparer.yml -i ansible/inventory/local -K --extra-vars &quot;ansible_user=ubuntu&quot;</code> et saisir le mot de passe &ldquo;ubuntu&rdquo;</li>
+</ul>
+<p>Pour n&rsquo;exécuter un <em>playbook</em> que pour un groupe de machines précis (service/couche/colonne), exécuter <code>ansible-playbook ansible/05_statuer.yml -i ansible/inventory/local --limit machines_service_registry</code></p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/psl-public/documentation/4ops/" title="4. Ops"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/psl-public/documentation/4ops/4.2ansible/" title="4.2 Ansible" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/psl-public/documentation/js/clipboard.min.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/perfect-scrollbar.min.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/perfect-scrollbar.jquery.min.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/jquery.sticky.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/featherlight.min.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/highlight.pack.js?1745960225"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/psl-public/documentation/js/modernizr.custom-3.6.0.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/learn.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/hugo-learn.js?1745960225"></script>
+    
+        
+            <script src="/psl-public/documentation/mermaid/mermaid.js?1745960225"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

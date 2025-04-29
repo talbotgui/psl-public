@@ -1,0 +1,24 @@
+meta {
+  name: 033-Referentiel-paysActuels-tokenAnonyme
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/referentiel/paysActuel?recherche=all
+  body: none
+  auth: bearer
+}
+
+query {
+  recherche: all
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+assert {
+  res.status: eq 200
+  res.body[0].codeInsee: eq "99515"
+}

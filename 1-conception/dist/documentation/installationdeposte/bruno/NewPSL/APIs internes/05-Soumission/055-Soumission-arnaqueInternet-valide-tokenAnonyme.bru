@@ -1,0 +1,89 @@
+meta {
+  name: 055-Soumission-arnaqueInternet-valide-tokenAnonyme
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/soumission/soumettre
+  body: json
+  auth: bearer
+}
+
+headers {
+  Accept-Language: en-en
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+body:json {
+  {
+    "codeDemarche": "arnaqueinternet",
+    "versionConfiguration": "1.0.0",
+    "donnees": {
+      "action": "SIGNALEMENT",
+      "type": "FSV",
+      "infoPersoAdresse_communeActuelle_code": "18001",
+      "infoPersoAdresse_communeActuelle_codePostal": "18000",
+      "infoPersoAdresse_communeActuelle_libelle": "Bourges",
+      "infoPersoAdresse_communeActuelle_libelleLong": "Bourges (18000)",
+      "infoPersoAdresse_communeActuelle_typeProtection": "PN",
+      "infoPersoAdresse_estFrance": "true",
+      "infoPersoAdresse_voie": "1 rue de l'église",
+      "infoPersoContactPerso_email": "arnauddurant@gmail.com",
+      "infoPersoContactPerso_numTeleGeneral": "0123456789",
+      "infoPersoIdentite_civilite": "M",
+      "infoPersoIdentite_communeNaissanceFR_code": "18001",
+      "infoPersoIdentite_communeNaissanceFR_codePostal": "18000",
+      "infoPersoIdentite_communeNaissanceFR_libelle": "Bourges",
+      "infoPersoIdentite_communeNaissanceFR_libelleLong": "Bourges (18000)",
+      "infoPersoIdentite_dateNaissance": "2000-01-01",
+      "infoPersoIdentite_nationalite_capitale": "Paris",
+      "infoPersoIdentite_nationalite_codeInsee": 1,
+      "infoPersoIdentite_nationalite_libelle": "France",
+      "infoPersoIdentite_nationalite_nationalite": "Française",
+      "infoPersoIdentite_nomFamille": "Dupont",
+      "infoPersoIdentite_nomUsage": "Durant",
+      "infoPersoIdentite_paysNaissance_code": 1,
+      "infoPersoIdentite_paysNaissance_libelle": "France",
+      "infoPersoIdentite_prenoms": "Arnaud",
+      "infoPersoProfession": "00752",
+      "infoPersoSituationMatrimoniale": "Concubinage",
+      "faitsDateAchat": "2022-01-01",
+      "faitsProduitCategorie": "sousCategorieDeVehicule",
+      "faitsProduitMacroCategorie": "vehicule",
+      "faitsProduitModele": "saisies avec caractères spéciaux : \n \" < = ",
+      "faitsSiteAdresse": "https://lesite.fr",
+      "faitsSiteConditionsGenerales": "non",
+      "faitsSiteConnu": "Un moteur de recherche internet",
+      "faitsSiteIp": "127.0.0.1",
+      "faitsSiteLangue": "Française",
+      "faitsSiteNom": "leSite",
+      "faitsSiteNumeroRCS": "LE_NUM_RCS",
+      "faitsSiteNumeroRCSaffiche": "oui",
+      "prejudiceDemandeVersement": "oui",
+      "prejudicePaiements00DatePaiement": "2022-01-01",
+      "prejudicePaiements00IsDebite": "oui",
+      "prejudicePaiements00ModePaiement": "bitcoin",
+      "prejudicePaiements00Montant": "0,2",
+      "prejudicePaiements00OptionDevise": "false",
+      "prejudicePaiements01DatePaiement": "2022-01-02",
+      "prejudicePaiements01IsDebite": "oui",
+      "prejudicePaiements01ModePaiement": "bitcoin",
+      "prejudicePaiements01Montant": "2",
+      "prejudicePaiements01OptionDevise": "false",
+      "captcha_id":"1234",
+      "captcha_valeur":"JPJAMJGAJP"
+    }
+  }
+}
+
+vars:post-response {
+  idTeledossierCreeAI: res.body
+}
+
+assert {
+  res.status: eq 200
+}

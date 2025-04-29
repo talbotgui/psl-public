@@ -1,0 +1,8 @@
+---
+
+# Cette tâche permet d’installer unzip à l’aide du module apt
+- name: "[Destruction] Logiciel redis (via snap)"
+  ansible.builtin.shell:
+    cmd: "sudo snap remove redis"
+    removes: "/var/lib/snapd/snaps/redis_1070.snap"
+

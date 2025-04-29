@@ -1,0 +1,8 @@
+---
+
+# Cette tâche permet d’installer unzip à l’aide du module apt
+- name: "[Preparation] Logiciel redis (via snap)"
+  ansible.builtin.shell:
+    cmd: "sudo snap install redis"
+    creates: "/var/lib/snapd/snaps/redis_*.snap"
+

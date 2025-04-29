@@ -1,0 +1,28 @@
+meta {
+  name: 070-DBNotification-envoiDeMail-anonyme
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{API_HOST}}:{{portSocleDbNotification}}/socle/notification/interne/email
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+body:json {
+  {
+    "destinataires":["test@test.com"],
+    "objet":"Bonjour",
+    "contenuHtml":true,
+    "contenu":"<div>Juste un petit <b>bonjour</b></div>"
+  }
+}
+
+assert {
+  res.status: eq 200
+}

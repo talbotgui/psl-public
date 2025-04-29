@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Déclaration de l'artefact parent -->
+	<parent>
+		<groupId>com.github.talbotgui.psl.socle.servicescloud</groupId>
+		<artifactId>services-cloud</artifactId>
+		<version>0.0.2-SNAPSHOT</version>
+	</parent>
+
+	<!-- Définition Maven de cet artefact -->
+	<artifactId>service-ldap</artifactId>
+	<packaging>jar</packaging>
+
+	<!-- Modification de la clef pour les besoins des sous-projets -->
+	<properties><cheminRelatifVersLaRacineDuDepot>${project.basedir}/../../../..</cheminRelatifVersLaRacineDuDepot></properties>
+
+	<!-- dépendances -->
+	<dependencies>
+	
+		<!-- Pour les logs -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+		
+		<!-- @see https://docs.ldap.com/ldap-sdk/docs/javadoc/com/unboundid/ldap/listener/InMemoryDirectoryServer.html -->
+		<dependency>
+			<groupId>com.unboundid</groupId>
+			<artifactId>unboundid-ldapsdk</artifactId>
+		</dependency>
+		
+		<!-- Pour passer des paramètres -->
+		<dependency>
+			<groupId>org.jcommander</groupId>
+			<artifactId>jcommander</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			
+			<!-- Pour copier le fichier target/classes/git.properties du projet SOCLE contenant les informations du dernier commit (infos exposées ensuite dans /info d'Actuator) -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-the-git-infos</id>
+						<configuration>
+							<resources>
+								<resource><directory>${project.basedir}/../../target/classes</directory></resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<!-- Crée un JAR comprenant aussi les dépendances  -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>${version.shade}</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals><goal>shade</goal></goals>
+						<configuration>
+							<!-- Pour avoir un JAR exécutable -->
+							<transformers>
+								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>com.github.talbotgui.psl.socle.serviceldap.application.ProgrammeDemarrantLdap</mainClass>
+								</transformer>
+							</transformers>
+							<!-- Pour filtrer les éléments durant la fusion et limiter les WARNING durant le build -->
+							<filters>
+								<filter>
+									<artifact>*:*</artifact>
+									<excludes>
+										<exclude>module-info.class</exclude>
+										<exclude>META-INF/*.MF</exclude>
+									</excludes>
+								</filter>
+							</filters>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

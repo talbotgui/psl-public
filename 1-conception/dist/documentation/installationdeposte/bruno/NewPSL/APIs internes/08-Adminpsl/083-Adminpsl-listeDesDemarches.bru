@@ -1,0 +1,24 @@
+meta {
+  name: 083-Adminpsl-listeDesDemarches
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_ADMIN_PORT}}/socle/adminpsl/config/demarche
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenAdminPsl}}
+}
+
+assert {
+  res.status: eq 200
+  res.body.length: eq 6
+}
+
+script:pre-request {
+  // 
+}

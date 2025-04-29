@@ -1,0 +1,25 @@
+@if (utilisateur) {
+<div class="dataReadOnly fr-grid-row">
+  <div class="fr-col-1">
+    <img class="utilisateurConnecte" src="public/fmk/LogoFC.png" alt="{{ 'utilisateurconnecte.source' | i18n}}">
+  </div>
+  <div class="fr-col-11">
+    <p class="utilisateurConnecte">
+      <strong>{{utilisateur.utilisateur_prenoms}}</strong>
+      <strong> {{utilisateur.utilisateur_nom}}</strong>
+    </p>
+    @if (utilisateur.utilisateur_dateDeNaissance) {
+    <p class="utilisateurConnecte">
+      <span>{{ 'utilisateurconnecte.nele' | i18n}}</span>
+      <strong>{{utilisateur.utilisateur_dateDeNaissance | date : 'dd/MM/yyyy'}}</strong>
+    </p>
+    }
+    @if (utilisateur.utilisateur_sexe) {
+    <p class="utilisateurConnecte">
+      <span>{{ 'utilisateurconnecte.sexe' | i18n}}</span>
+      <strong>{{ (utilisateur.utilisateur_sexe==='1' ? 'utilisateurconnecte.masculin' : 'utilisateurconnecte.feminin') | i18n}}</strong>
+    </p>
+    }
+  </div>
+</div>
+}

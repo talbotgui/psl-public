@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- ************************************************ -->
+	<!-- Pour compiler ce projet, il est nécessaire de SYSTEMATIQUEMENT compiler les classes de test. -->
+	<!-- Donc pas de paramètre "-Dmaven.test.skip" -->
+	<!-- La bonne commande est : mvn clean install -DskipTests -->
+	<!--  -->
+	<!-- Pour lancer l'analyse de la Javadoc : mvn clean install -DskipTests -P qualimetrie -->
+	<!-- ************************************************ -->
+
+	<!-- Déclaration de l'artefact parent -->
+	<parent>
+		<groupId>com.github.talbotgui.psl</groupId>
+		<artifactId>psl</artifactId>
+		<version>0.0.2-SNAPSHOT</version>
+	</parent>
+
+	<!-- Définition Maven de cet artefact -->
+	<groupId>com.github.talbotgui.psl.socle</groupId>
+	<artifactId>socle</artifactId>
+	<packaging>pom</packaging>
+	<name>socle</name>
+	<description>Projet parent du socle</description>
+
+	<!-- Clef de configuration disponibles dans cet artefact et tous ces enfants -->
+	<properties>
+		<maven.compiler.source>22</maven.compiler.source>
+    	<maven.compiler.target>22</maven.compiler.target>
+    	<maven.compiler.release>22</maven.compiler.release>
+		
+    	<!-- Toutes les sources sont en UTF-8 (de ce projet comme de tous ces enfants)-->
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<!-- Clef nécessaire à l'insertion de la documentation générée dans le site documentaire -->
+		<cheminRelatifVersLaRacineDuDepot>${project.basedir}/../..</cheminRelatifVersLaRacineDuDepot>
+		
+		<!-- Version des dépendances. Toutes doivent être déclarées ici et nulle part ailleurs (cf. §3.4.1.2 de la documentation) -->
+		<version.springboot>3.4.4</version.springboot>								<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies -->
+		<version.springcloud>2024.0.1</version.springcloud>							<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-parent -->
+		<version.springcloudeureka>4.2.1</version.springcloudeureka>				<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-client -->
+		<version.springcloudfeign>4.2.1</version.springcloudfeign>					<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign -->
+		<version.tracingMicrometer>1.4.4</version.tracingMicrometer>				<!-- https://mvnrepository.com/artifact/io.micrometer/micrometer-tracing-bridge-brave -->
+		<version.feignmicrometer>13.5</version.feignmicrometer>						<!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-micrometer -->
+		<version.springbootadminclient>3.4.5</version.springbootadminclient>		<!-- https://mvnrepository.com/artifact/de.codecentric/spring-boot-admin-starter-client -->
+		<version.springbootstartermail>3.4.4</version.springbootstartermail>		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail -->
+		<version.catchexception>2.0</version.catchexception>						<!-- https://mvnrepository.com/artifact/eu.codearte.catch-exception/catch-exception -->
+		<version.jjwt>0.12.6</version.jjwt>											<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api -->
+		<version.flapdoodleIntegSpring>4.20.0</version.flapdoodleIntegSpring>		<!-- https://mvnrepository.com/artifact/de.flapdoodle.embed/de.flapdoodle.embed.mongo.spring3x -->
+		<version.flapdoodle>4.20.0</version.flapdoodle>								<!-- rechercher, dans les "compile dependencies" la version de "de.flapdoodle.embed.mongo" utilisée par la version de "de.flapdoodle.embed.mongo.spring3x" ci-dessus. Au besoin, utiliser un lien du type : https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-4.4.11.zip-->
+		<version.springdoc>2.8.5</version.springdoc>								<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui -->
+		<version.adminServer>3.4.5</version.adminServer>							<!-- https://mvnrepository.com/artifact/de.codecentric/spring-boot-admin-starter-server -->
+		<version.graalvm>24.2.0</version.graalvm>									<!-- https://mvnrepository.com/artifact/org.graalvm.polyglot/js-community -->
+		<version.velocity>2.4.1</version.velocity>									<!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity-engine-core -->
+		<version.lucene>10.1.0</version.lucene>										<!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-core -->
+		<version.xdocreport>2.1.0</version.xdocreport>								<!-- https://mvnrepository.com/artifact/fr.opensagres.xdocreport/fr.opensagres.poi.xwpf.converter.pdf -->
+		<version.pdfbox>3.0.4</version.pdfbox>										<!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
+		<version.xhtmlrenderer>9.11.4</version.xhtmlrenderer>						<!-- https://mvnrepository.com/artifact/org.xhtmlrenderer/flying-saucer-core -->
+		<version.poi>5.4.0</version.poi>											<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+		<version.tika>2.9.3</version.tika>											<!-- /!\3.x à faire https://mvnrepository.com/artifact/org.apache.tika/tika-core -->
+		<version.jsonschemavalidator>1.5.6</version.jsonschemavalidator>			<!-- https://mvnrepository.com/artifact/com.networknt/json-schema-validator -->
+		<version.embeddedredis>0.7.3</version.embeddedredis>						<!-- https://mvnrepository.com/artifact/it.ozimov/embedded-redis -->
+		<version.commonsio>2.18.0</version.commonsio>								<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<version.ldapsdk>6.0.11</version.ldapsdk>									<!-- /!\7.xhttps://mvnrepository.com/artifact/com.unboundid/unboundid-ldapsdk -->
+		<version.jcommander>1.85</version.jcommander>								<!-- https://mvnrepository.com/artifact/org.jcommander/jcommander -->
+		<version.spring-oauth2>6.4.4</version.spring-oauth2>						<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-client -->
+		<version.hibernate-validator>8.0.2.Final</version.hibernate-validator>		<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+
+		<!-- Version des plugins -->
+ 		<version.maven-compiler>3.14.0</version.maven-compiler>						<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+		<version.maven-surefire-plugin>3.5.2</version.maven-surefire-plugin>		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+		<version.maven-jar-plugin>3.4.2</version.maven-jar-plugin>					<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+		<version.maven-dependency-plugin>3.8.1</version.maven-dependency-plugin>	<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-dependency-plugin -->
+		<version.spring-boot-maven-plugin>3.4.4</version.spring-boot-maven-plugin>	<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-maven-plugin -->
+		<version.maven-resources-plugin>3.3.1</version.maven-resources-plugin>		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+		<version.jacoco-maven-plugin>0.8.12</version.jacoco-maven-plugin>			<!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
+		<version.maven-jxr-plugin>3.6.0</version.maven-jxr-plugin>					<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jxr-plugin -->
+		<version.maven-javadoc-plugin>3.11.2</version.maven-javadoc-plugin>			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
+		<version.maven-source-plugin>3.3.1</version.maven-source-plugin>			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
+		<version.proguard-maven-plugin>2.6.1</version.proguard-maven-plugin>		<!-- https://mvnrepository.com/artifact/com.github.wvengen/proguard-maven-plugin -->
+		<version.proguard-base>7.6.1</version.proguard-base>						<!-- https://mvnrepository.com/artifact/com.guardsquare/proguard-base -->
+		<version.proguard-core>9.1.9</version.proguard-core>						<!-- https://mvnrepository.com/artifact/com.guardsquare/proguard-core -->
+		<version.shade>3.6.0</version.shade>										<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-shade-plugin -->
+		<!-- /!\ vérifier aussi les versions de plugin dans les pom.xml parents /!\ -->
+		
+	</properties>
+
+	<!-- Liste des enfants de cet artefact -->
+	<modules>
+		<module>services-cloud</module>
+		<module>socle-commun</module>
+		<module>socle-commundb</module>
+		<module>socle-communtest</module>
+		<module>socle-commundbtest</module>
+		<module>socle-referentiel</module>
+		<module>socle-referentielexterne</module>
+		<module>socle-dbnotification</module>
+		<module>socle-dbconfiguration</module>
+		<module>socle-dbdocument</module>
+		<module>socle-dbbrouillon</module>
+		<module>socle-soumission</module>
+		<module>socle-securite</module>
+		<module>socle-transfert</module>
+		<module>socle-adminpsl</module>
+	</modules>
+	
+	<!-- Cette balise contient la déclaration de toutes les librairies utilisées dans le socle et leur version. Toute version doit être déclarée ici et nulle part ailleurs (cf. §3.4.1.2 de la documentation) -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- Ajout de la configuration globale de Spring (ainsi les enfants ne précise pas la version des dépendances Spring) -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${version.springboot}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- Pour tester les cas d'erreur plus facilement -->
+			<dependency>
+				<groupId>eu.codearte.catch-exception</groupId>
+				<artifactId>catch-exception</artifactId>
+				<version>${version.catchexception}</version>
+			</dependency>
+			<!-- Pour que tout les modules utilisent la même version du client AdminServer -->
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-client</artifactId>
+				<version>${version.springbootadminclient}</version>
+			</dependency>
+			<!-- Pour les dépendances CLOUD de Spring -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-parent</artifactId>
+				<version>${version.springcloud}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+				<version>${version.springcloudeureka}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-openfeign</artifactId>
+				<version>${version.springcloudfeign}</version>
+			</dependency>
+			<!-- MicroMeter remplace Sleuth depuis SpringBoot-3 -->
+			<dependency>
+				<groupId>io.micrometer</groupId>
+				<artifactId>micrometer-tracing-bridge-brave</artifactId>
+				<version>${version.tracingMicrometer}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.github.openfeign</groupId>
+				<artifactId>feign-micrometer</artifactId>
+				<version>${version.feignmicrometer}</version>
+			</dependency>
+			<!-- Pour l'authentification OIDC (notamment dans le micro-service SECURITE -->
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-oauth2-client</artifactId>
+				<version>${version.spring-oauth2}</version>
+			</dependency>
+			<!-- Manipulation de token JWT @see https://github.com/jwtk/jjwt#install-jdk-maven -->
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-api</artifactId>
+				<version>${version.jjwt}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-impl</artifactId>
+				<version>${version.jjwt}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-jackson</artifactId>
+				<version>${version.jjwt}</version>
+			</dependency>
+			<!-- Pour forcer la version de la base MongoDB -->
+			<dependency>
+				<groupId>de.flapdoodle.embed</groupId>
+				<artifactId>de.flapdoodle.embed.mongo</artifactId>
+				<version>${version.flapdoodle}</version>
+			</dependency>
+			<!-- Pour remplacer l'intégration de MongoDB dans SpringBoot (disparue en 3.x) -->
+			<dependency>
+				<groupId>de.flapdoodle.embed</groupId>
+				<artifactId>de.flapdoodle.embed.mongo.spring3x</artifactId>
+				<version>${version.flapdoodleIntegSpring}</version>
+			</dependency>
+			<!-- Ajout de la documentation des APIs (webmvc pour les Tomcat et webflux pour le Netty de la Gateway) -->
+			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+				<version>${version.springdoc}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
+				<version>${version.springdoc}</version>
+			</dependency>
+			<!-- pour service-admin : une application de gestion/monitoring des autres applications -->
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-server</artifactId>
+				<version>${version.adminServer}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-server-ui-login</artifactId>
+				<version>${version.adminServerLogin}</version>
+			</dependency>
+			<!-- Pour disposer d'un moteur JS dans socle-soumission -->
+			<dependency>
+				<groupId>org.graalvm.polyglot</groupId>
+				<artifactId>polyglot</artifactId>
+				<version>${version.graalvm}</version>
+	        </dependency>
+	        <dependency>
+				<groupId>org.graalvm.js</groupId>
+				<artifactId>js-scriptengine</artifactId>
+				<version>${version.graalvm}</version>
+	        </dependency>
+	        <dependency>
+				<groupId>org.graalvm.polyglot</groupId>
+				<artifactId>js-community</artifactId>
+				<version>${version.graalvm}</version>
+				<type>pom</type>
+	        </dependency>
+			<!-- Pour générer des documents à partir de template textuel dans socle-soumission -->
+			<dependency>
+				<groupId>org.apache.velocity</groupId>
+				<artifactId>velocity-engine-core</artifactId>
+				<version>${version.velocity}</version>
+			</dependency>
+			<!-- Pour analyser/compléter des templates de document PDF -->
+			<dependency>
+				<groupId>fr.opensagres.xdocreport</groupId>
+				<artifactId>fr.opensagres.poi.xwpf.converter.pdf</artifactId>
+				<version>${version.xdocreport}</version>
+			</dependency>
+			<!-- Pour manipuler un template PDF existant -->
+			<dependency>
+				<groupId>org.apache.pdfbox</groupId>
+				<artifactId>pdfbox</artifactId>
+				<version>${version.pdfbox}</version>
+			</dependency>
+			<!-- Pour transformer du HTML en PDF -->
+			<dependency>
+				<groupId>org.xhtmlrenderer</groupId>
+				<artifactId>flying-saucer-core</artifactId>
+				<version>${version.xhtmlrenderer}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.xhtmlrenderer</groupId>
+				<artifactId>flying-saucer-pdf</artifactId>
+				<version>${version.xhtmlrenderer}</version>
+			</dependency>
+			<!-- Pour manipuler des fichiers Excel -->
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi</artifactId>
+				<version>${version.poi}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml</artifactId>
+				<version>${version.poi}</version>
+			</dependency>
+			<!-- Pour l'indexation -->
+			<dependency>        
+				<groupId>org.apache.lucene</groupId>
+				<artifactId>lucene-core</artifactId>
+				<version>${version.lucene}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.lucene</groupId>
+				<artifactId>lucene-queryparser</artifactId>
+				<version>${version.lucene}</version>
+			</dependency>
+			<!-- Pour la détection de contenu de fichier -->
+			<dependency>
+				<groupId>org.apache.tika</groupId>
+				<artifactId>tika-core</artifactId>
+				<version>${version.tika}</version>
+			</dependency>
+			<!-- Validation de document JSON -->
+			<dependency>
+				<groupId>com.networknt</groupId>
+				<artifactId>json-schema-validator</artifactId>
+				<version>${version.jsonschemavalidator}</version>
+			</dependency>
+			<!-- Pour démarrer programmatiquement un équivalent de serveur REDIS -->
+			<dependency>
+				<groupId>it.ozimov</groupId>
+				<artifactId>embedded-redis</artifactId>
+				<version>${version.embeddedredis}</version>
+			</dependency>
+			<!-- Pour envoyer des emails -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-mail</artifactId>
+				<version>${version.springbootstartermail}</version>
+			</dependency>
+			<!-- Pour que tous les micros-services utilisent la même version de commons-io quand celle-ci est apportée par plein de librairies en différentes versions -->
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${version.commonsio}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.unboundid</groupId>
+				<artifactId>unboundid-ldapsdk</artifactId>
+				<version>${version.ldapsdk}</version>
+			</dependency>
+			<!-- Pour passer des paramètres aux applicatifs LDAP et SQL -->
+			<dependency>
+				<groupId>org.jcommander</groupId>
+				<artifactId>jcommander</artifactId>
+				<version>${version.jcommander}</version>
+			</dependency>
+			<!-- Ajout de la validation des données en entrée des APIs -->
+			<dependency>
+				<groupId>org.hibernate.validator</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>${version.hibernate-validator}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
+	<!-- Cette description de la construction est utilisée par tous les modules et sous-modules -->
+	<build>
+	
+		<pluginManagement>
+			<plugins>
+				<!-- Pour forcer l'activation des fonctionnalités PREVIEW de Java (comme les RECORD) -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${version.maven-compiler}</version>
+					<configuration>
+						<source>${maven.compiler.source}</source>
+						<target>${maven.compiler.target}</target>
+						<release>${maven.compiler.release}</release>
+						<compilerArgs>
+							<!-- enable-preview pour profiter de toutes les fonctionnalités du JDK -->
+							<!-- - -enable-preview bloqué en JDK-21 car les tests ne démarre pas dans Eclipse-202309 -->
+							<!-- arg>- -enable-preview</arg -->
+							<!-- Nécessaire au bon fonctionnement de la recherche de configuration publique en JAVA >18 avec ProGuard (lequel pose problème dans cette équation ?) -->
+							<arg>-parameters</arg>
+						</compilerArgs>
+					</configuration>
+				</plugin>
+				<!-- Execution des tests automatisés -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${version.maven-surefire-plugin}</version>
+					<configuration>
+						<!-- enable-preview pour profiter de toutes les fonctionnalités du JDK -->
+						<!-- EnableDynamicAgentLoading pour désactiver les warning s'affichant durant les tests automatisés (cf. https://github.com/mockito/mockito/issues/3037 et https://openjdk.org/jeps/451) -->
+						<!-- - -enable-preview bloqué en JDK-21 car les tests ne démarre pas dans Eclipse-202309 -->
+						<argLine> -XX:+EnableDynamicAgentLoading</argLine>
+						<includes>*</includes>
+					</configuration>
+				</plugin>
+				<!-- Version déclarée ici pour la forcer pour tous les sous-projets -->
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${version.maven-jar-plugin}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>${version.maven-dependency-plugin}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${version.spring-boot-maven-plugin}</version>
+					<executions>
+						<execution>
+							<goals>
+								<!-- Pour ajouter les informations du build Maven dans le JAR généré et le récupérer avec @Autowired private Optional<BuildProperties> build; -->
+								<!-- et pour récupérer les informations du fichier target/classes/git.properties généré par git-commit-id-plugin dans l'API /info d'actuator -->
+								<goal>build-info</goal>
+								<!-- Pour forcer le plugin Spring à repackager les JAR et les rendre exécutables -->
+								<goal>repackage</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<!-- proguard-maven-plugin inclue le code des autres composants du socle dépendants -->
+						<excludeGroupIds>com.github.talbotgui.psl.socle</excludeGroupIds>
+					</configuration>
+				</plugin>
+				<!-- Pour copier le fichier target/classes/git.properties du projet SOCLE contenant les informations du dernier commit (infos exposées ensuite dans /info d'Actuator) -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${version.maven-resources-plugin}</version>
+					<executions>
+						<execution>
+							<id>copy-the-git-infos</id>
+							<phase>generate-sources</phase>
+							<goals><goal>copy-resources</goal></goals>
+							<configuration>
+								<outputDirectory>${project.basedir}/target/classes/</outputDirectory>
+								<!-- Ressource par défaut. Les sous-modules ajoutent un répertoire du projet SOCLE -->
+								<resources><resource><directory>${project.basedir}/src/main/resources</directory></resource></resources>
+							</configuration>
+						</execution>
+					</executions>
+                </plugin>
+				<!-- Pour obfusquer le code (à n'activer que sur les projets générant des JAR à livrer) -->
+				<plugin>
+					<groupId>com.github.wvengen</groupId>
+					<artifactId>proguard-maven-plugin</artifactId>
+					<version>${version.proguard-maven-plugin}</version>
+					<executions><execution><phase>package</phase><goals><goal>proguard</goal></goals></execution></executions>
+					<configuration>
+						<injar>${project.build.finalName}.jar</injar>
+						<outjar>${project.build.finalName}.jar</outjar>
+						<obfuscate>true</obfuscate>
+						<!-- Pour retrouver la configuration depuis tous les sous-modules Maven -->
+						<proguardInclude>${cheminRelatifVersLaRacineDuDepot}/2-code/socle/obfuscation-proguard.conf</proguardInclude>
+						<!-- Pour inclure le code des autres modules du socle directement dans le JAR généré et l'obfusquer -->
+						<assembly><inclusions>
+							<inclusion><groupId>com.github.talbotgui.psl.socle</groupId><artifactId>*</artifactId></inclusion>
+							<inclusion><groupId>com.github.talbotgui.psl.socle</groupId><artifactId>*</artifactId><classifier>client</classifier></inclusion>
+						</inclusions></assembly>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>com.guardsquare</groupId>
+							<artifactId>proguard-base</artifactId>
+							<version>${version.proguard-base}</version>
+							<scope>runtime</scope>
+						</dependency>
+						<dependency>
+							<groupId>com.guardsquare</groupId>
+							<artifactId>proguard-core</artifactId>
+							<version>${version.proguard-core}</version>
+							<scope>runtime</scope>
+						</dependency>
+					</dependencies>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		
+		<plugins>
+			<!-- Pour ajouter la couverture de code au build (même dans le build de base) -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${version.jacoco-maven-plugin}</version>
+				<executions>
+					<!-- Utilisation du JavaAgent pour instrumenter le code à l'exécution et non à la compilation (https://www.jacoco.org/jacoco/trunk/doc/agent.html) -->
+					<execution><goals><goal>prepare-agent</goal></goals></execution>
+					<!-- Génération du rapport à la fin de la phase de test -->
+					<execution><id>report</id><phase>test</phase><goals><goal>report</goal></goals></execution>
+				</executions>
+			</plugin>
+			<!-- Pour générer un fichier target/classes/git.properties contenant les informations du dernier commit -->
+			<!-- Ce fichier sera copié par tous les sous-modules dont le packaging est JAR -->
+			<!-- Les informations de ce fichier seront exposées ensuite dans "/info" d'Actuator -->
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>${version.git-commit-id-plugin}</version>
+				<!-- Pour que ce plugin ne s'exécute pas dans chaque sous-module -->
+				<inherited>false</inherited>
+				<executions>
+					<execution>
+						<id>get-the-git-infos</id>
+						<phase>generate-sources</phase>
+						<goals><goal>revision</goal></goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- pour forcer la génération du fichier -->
+					<generateGitPropertiesFile>true</generateGitPropertiesFile>
+					<skipPoms>false</skipPoms>
+					<!-- pour limiter les données publiées sur Internet -->
+					<includeOnlyProperties>
+						<includeOnlyProperty>git.branch</includeOnlyProperty>
+						<includeOnlyProperty>git.build.time</includeOnlyProperty>
+						<includeOnlyProperty>git.build.version</includeOnlyProperty>
+						<includeOnlyProperty>git.closest.tag.*</includeOnlyProperty>
+						<includeOnlyProperty>git.commit.id</includeOnlyProperty>
+					</includeOnlyProperties>
+					<dotGitDirectory>${project.basedir}/../../.git</dotGitDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<!-- Ce profile ajoute la documentation au build (Javadoc et JarSource) -->
+		<profile>
+			<id>qualimetrie</id>
+			<build>
+				<plugins>
+					<!-- Execution des tests automatisés avec couverture de code via Jacoco-->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>${version.maven-surefire-plugin}</version>
+						<configuration>
+							<!-- @{argLine} est nécessaire pour ajouter l'agent Jacoco et permettre la couverture de code -->
+							<!-- enable-preview pour profiter de toutes les fonctionnalités du JDK -->
+							<!-- EnableDynamicAgentLoading pour désactiver les warning s'affichant durant les tests automatisés (cf. https://github.com/mockito/mockito/issues/3037 et https://openjdk.org/jeps/451) -->
+							<!-- - -enable-preview bloqué en JDK-21 car les tests ne démarre pas dans Eclipse-202309 -->
+							<argLine>@{argLine} -XX:+EnableDynamicAgentLoading</argLine>
+							<includes>*</includes>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jxr-plugin</artifactId>
+						<version>${version.maven-jxr-plugin}</version>
+						<executions>
+							<execution>
+								<id>generer-jxr</id><phase>generate-sources</phase><goals><goal>jxr-no-fork</goal></goals>
+								<configuration><bottom>Copyright https://github.com/talbotgui/. All rights reserved.</bottom></configuration>
+							</execution>
+							<execution>
+								<id>generer-jxrTest</id><phase>generate-sources</phase><goals><goal>test-jxr-no-fork</goal></goals>
+								<configuration><bottom>Copyright https://github.com/talbotgui/. All rights reserved.</bottom></configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>${version.maven-javadoc-plugin}</version>
+						<executions>
+							<!-- Nécessaire pour que la Javadoc soit envoyée dans Nexus avec le jar -->
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+								<configuration>
+									<doclint>none</doclint>
+									<!-- pour autoriser les fonctionnalités nouvelles telles que 'record' -->
+									<release>${maven.compiler.release}</release>
+									<additionalOptions>--enable-preview</additionalOptions>
+									<!-- Pour réduire les logs générés par ce plugin -->
+									<quiet>true</quiet>
+									<!-- Pour générer la javadoc des éléments privés -->
+									<show>private</show>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<!-- Pour ajouter les sources dans la documentation -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<version>${version.maven-source-plugin}</version>
+						<executions>
+							<execution><id>attach-sources</id><goals><goal>jar</goal></goals></execution>
+						</executions>
+					</plugin>
+					<!-- Pour copier les documentations générées dans le répertoire de documentation "1-conception" -->
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<version>${version.maven-resources-plugin}</version>
+						<executions>
+							<execution>
+								<id>copy-javadoc</id><phase>install</phase><goals><goal>copy-resources</goal></goals>
+								<configuration>
+									<outputDirectory>${cheminRelatifVersLaRacineDuDepot}/1-conception/static/documentationgeneree/${project.artifactId}/javadoc</outputDirectory>
+									<resources><resource><directory>${basedir}/target/reports/apidocs</directory></resource></resources>
+								</configuration>
+							</execution>
+							<execution>
+								<id>copy-source</id><phase>install</phase><goals><goal>copy-resources</goal></goals>
+								<configuration>
+									<outputDirectory>${cheminRelatifVersLaRacineDuDepot}/1-conception/static/documentationgeneree/${project.artifactId}/sources</outputDirectory>
+									<resources><resource><directory>${basedir}/target/reports/xref</directory></resource></resources>
+								</configuration>
+							</execution>
+							<execution>
+								<id>copy-sourcetest</id><phase>install</phase><goals><goal>copy-resources</goal></goals>
+								<configuration>
+									<outputDirectory>${cheminRelatifVersLaRacineDuDepot}/1-conception/static/documentationgeneree/${project.artifactId}/sources-test</outputDirectory>
+									<resources><resource><directory>${basedir}/target/reports/xref-test</directory></resource></resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

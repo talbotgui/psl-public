@@ -1,0 +1,14 @@
+---
+
+# Nom de l'applicatif
+applicatif_nom: "service-admin"
+
+# Répertoire contenant les fichiers de adminuration à déposer sur le sreveur
+configuration_rep: "{{ playbook_dir }}/../../socle/services-cloud/service-admin/src/test/resources/"
+
+# Paramètre supplémentaire pour le script de démarrage (uniquement les -- car les -D vont dans scripts_demarrer_options_specifiques)
+#   spring.boot.admin.ui.public-url permet de fournir l'URL utilisée pour contacter l'Apache2 utilisé comme reverseProxy pour que l'application retourne les bonnes URLs de chargement des ressources statiques
+scripts_demarrer_parametres_specifiques: "--spring.config.location={{ applicatifs_rep }}{{ applicatif_nom }}/application-specifique.properties  --spring.boot.admin.ui.public-url=https://admin.dev-psl.guillaumetalbot.com/"
+
+# Ce service n'est pas arrêté via Actuator car il n'est pas enregistré dans le Registre
+scripts_demarrer_option_arret_par_acturator: false

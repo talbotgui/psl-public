@@ -1,0 +1,24 @@
+meta {
+  name: 037-Referentiel-communeNaissance-tokenAnonyme
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/referentiel/communeNaissance?recherche=alger
+  body: none
+  auth: bearer
+}
+
+query {
+  recherche: alger
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+assert {
+  res.status: eq 200
+  res.body[0].code: eq "94352"
+}

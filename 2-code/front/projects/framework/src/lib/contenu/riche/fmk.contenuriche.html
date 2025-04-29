@@ -1,0 +1,19 @@
+@if (contenu) {
+  <div class="contenuAbstrait">
+    <!-- Le contenu à afficher en fonction de son type -->
+    <!-- Ajout de la clef en attribut de la balise pour l'analyse et les tests automatisés -->
+    <!-- Attention, [controle] pour les mono-saisie et [groupeControles] pour les complexes-->
+    @if (estDeTypeAdresseFrOuEtr()) {
+      <div data-fmk-contenuadressefrouetr [attr.data-clef]="contenu.clef" [contenu]="contenu" [groupeControles]="groupeControles"
+      ></div>
+    }
+    @if (estDeTypeContactPersonnel()) {
+      <div data-fmk-contenucontactpersonnel [attr.data-clef]="contenu.clef" [contenu]="contenu" [groupeControles]="groupeControles"
+      ></div>
+    }
+    @if (estDeTypeIdentite()) {
+      <div data-fmk-contenuidentite [attr.data-clef]="contenu.clef" [contenu]="contenu" [groupeControles]="groupeControles">
+      </div>
+    }
+  </div>
+}

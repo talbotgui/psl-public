@@ -1,0 +1,20 @@
+meta {
+  name: 017-ServiceGateway-swagger-dbconfiguration
+  type: http
+  seq: 8
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/v3/api-docs/configuration
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.openapi: isDefined
+}
+
+script:pre-request {
+  // 
+}

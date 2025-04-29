@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Déclaration de l'artefact parent -->
+	<parent>
+		<groupId>com.github.talbotgui.psl.socle</groupId>
+		<artifactId>socle</artifactId>
+		<version>0.0.2-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>socle-referentiel</artifactId>
+	<name>socle-referentiel</name>
+	<description>API du référentiel PSL</description>
+
+	<!-- Modification de la clef pour les besoins des sous-projets -->
+	<properties><cheminRelatifVersLaRacineDuDepot>${project.basedir}/../../..</cheminRelatifVersLaRacineDuDepot></properties>
+
+	<dependencies>
+	
+		<!-- Les projets communs -->
+		<dependency>
+			<groupId>com.github.talbotgui.psl.socle</groupId>
+			<artifactId>socle-commun</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.talbotgui.psl.socle</groupId>
+			<artifactId>socle-communtest</artifactId>
+			<version>${project.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- Pour manipuler des fichiers Excel -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+		</dependency>
+		
+
+		<!-- Pour l'indexation -->
+		<!-- Dépendance spécifique à ce projet -->
+		<dependency>        
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-queryparser</artifactId>
+		</dependency>
+
+		<!-- Outils de développement (redémarrage à la modification par exemple) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- Outils de tests (avec JUnit5 et non le 4 apporté par Spring) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- Pour obfusquer le code (impossible à placer dans le projet parent) -->
+			<plugin>
+				<groupId>com.github.wvengen</groupId>
+				<artifactId>proguard-maven-plugin</artifactId>
+			</plugin>
+			
+			<!-- Packaging en JAR exécutable Spring -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			
+			<!-- Pour copier le fichier target/classes/git.properties du projet SOCLE contenant les informations du dernier commit (infos exposées ensuite dans /info d'Actuator) -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-the-git-infos</id>
+						<configuration>
+							<resources>
+								<resource><directory>${project.basedir}/../target/classes</directory></resource>
+							</resources>    
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<!-- Création du JAR client en plus du JAR classique -->
+ 			<plugin>
+ 				<artifactId>maven-jar-plugin</artifactId>
+ 				<executions>
+ 					<execution>
+ 						<id>jarClient</id>
+ 						<phase>package</phase>
+ 						<goals><goal>jar</goal></goals>
+ 						<configuration>
+ 							<classifier>client</classifier>
+ 							<includes>
+ 								<include>**/apiclient/**</include>
+ 							</includes>
+ 						</configuration>
+ 					</execution>
+ 				</executions>
+ 			</plugin> 
+		</plugins>
+	</build>
+
+</project>

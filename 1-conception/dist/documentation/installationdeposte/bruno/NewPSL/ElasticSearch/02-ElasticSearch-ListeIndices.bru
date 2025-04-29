@@ -1,0 +1,20 @@
+meta {
+  name: 02-ElasticSearch-ListeIndices
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:9200/_cat/indices/
+  body: none
+  auth: none
+}
+
+tests {
+  // // Vérifications de base
+  // pm.test("Réponse correcte", function () {
+  //     pm.expect(pm.response.code).to.be.equals(200);
+  //     pm.expect(pm.response.text()).to.contains("service");
+  //     pm.expect(pm.response.text()).to.contains("socle");
+  // });
+}

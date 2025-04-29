@@ -1,0 +1,32 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+	<id>local</id>
+  
+	<formats><format>zip</format></formats>
+  
+	<!-- Pour que le contenu des fileSet soit placé à la racine du ZIP et non dans ${artifactId}-${version} -->
+	<baseDirectory/>
+
+	<fileSets>
+		<fileSet>
+			<directory>${basedir}</directory>
+			<includes>
+				<!-- Les fichiers de conf à la racine du projet IAS -->
+				<include>ansible.cfg</include>
+				<!-- Les playbooks -->
+				<include>./ansible/*.yml</include>
+				<!-- Les rôles -->
+				<include>./ansible/roles/**/*</include>
+				<!-- L'inventaire propre à cet assembly -->
+				<include>./ansible/inventory/local/**/*</include>
+			</includes>
+			<excludes/>
+			<outputDirectory/>
+		</fileSet>
+		<!-- Les fichiers de conf à la racine du projet IAS -->
+		<fileSet>
+			<directory>${basedir}/target</directory>
+			<includes><include>git.properties</include></includes>
+			<outputDirectory>/</outputDirectory>
+		</fileSet>
+	</fileSets>
+</assembly>

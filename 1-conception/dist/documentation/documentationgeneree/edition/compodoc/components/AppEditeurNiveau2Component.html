@@ -1,0 +1,956 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Composants</li>
+  <li class="breadcrumb-item"
+  >
+  AppEditeurNiveau2Component</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Fichier</h3>
+</p>
+<p class="comment">
+    <code>projects/edition/src/app/editeur/editeurniveau2/app.editeurniveau2.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implémente</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Métadonnées</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+            <tr>
+                <td class="col-md-3">encapsulation</td>
+                <td class="col-md-9"><code>ViewEncapsulation.None</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-editeurniveau2</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>MatExpansionPanel</code>
+                            <code>MatExpansionPanelHeader</code>
+                            <code>MatExpansionPanelTitle</code>
+                            <code>MatExpansionPanelDescription</code>
+                            <code>MatIconButton</code>
+                            <code>MatFormField</code>
+                            <code>MatLabel</code>
+                            <code>MatInput</code>
+                            <code>ReactiveFormsModule</code>
+                            <code>FormsModule</code>
+                            <code>MatRadioGroup</code>
+                            <code>MatRadioButton</code>
+                            <code>MatExpansionPanelActionRow</code>
+                            <code>MatButton</code>
+                                <code><a href="../components/AppEditeurNiveau3Component.html" target="_self" >AppEditeurNiveau3Component</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./app.editeurniveau2.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./app.editeurniveau2.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#statuts" >statuts</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ajouterElementEnfant" >ajouterElementEnfant</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#descendreElement" >descendreElement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#monterElement" >monterElement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#supprimerElement" >supprimerElement</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Entrées</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#pages" >pages</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Entrées</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pages"></a>
+                        <b>pages</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Page[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Défini dans <a href="" data-line="41" class="link-to-prism">projects/edition/src/app/editeur/editeurniveau2/app.editeurniveau2.ts:41</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ajouterElementEnfant"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ajouterElementEnfant</b></span>
+                        <a href="#ajouterElementEnfant"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ajouterElementEnfant(i: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="57"
+                                    class="link-to-prism">projects/edition/src/app/editeur/editeurniveau2/app.editeurniveau2.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Ajouter un élément</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>i</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="descendreElement"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>descendreElement</b></span>
+                        <a href="#descendreElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>descendreElement(i: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="69"
+                                    class="link-to-prism">projects/edition/src/app/editeur/editeurniveau2/app.editeurniveau2.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Descendre un élément dans la liste</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>i</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="monterElement"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>monterElement</b></span>
+                        <a href="#monterElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>monterElement(i: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="62"
+                                    class="link-to-prism">projects/edition/src/app/editeur/editeurniveau2/app.editeurniveau2.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Monter un élément dans la liste</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>i</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="47"
+                                    class="link-to-prism">projects/edition/src/app/editeur/editeurniveau2/app.editeurniveau2.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>A l&#39;initialisation</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="supprimerElement"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>supprimerElement</b></span>
+                        <a href="#supprimerElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>supprimerElement(i: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="52"
+                                    class="link-to-prism">projects/edition/src/app/editeur/editeurniveau2/app.editeurniveau2.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Supprimer un élément</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>i</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="statuts"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>statuts</b></span>
+                        <a href="#statuts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>boolean[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="44" class="link-to-prism">projects/edition/src/app/editeur/editeurniveau2/app.editeurniveau2.ts:44</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Statut des mat-expansion.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit, ViewEncapsulation } from &#x27;@angular/core&#x27;;
+import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { MatButton, MatIconButton } from &#x27;@angular/material/button&#x27;;
+import { MatExpansionPanel, MatExpansionPanelActionRow, MatExpansionPanelDescription, MatExpansionPanelHeader, MatExpansionPanelTitle } from &#x27;@angular/material/expansion&#x27;;
+import { MatFormField, MatLabel } from &#x27;@angular/material/form-field&#x27;;
+import { MatInput } from &#x27;@angular/material/input&#x27;;
+import { MatRadioButton, MatRadioGroup } from &#x27;@angular/material/radio&#x27;;
+import { Bloc, Page } from &#x27;../../../../../framework/src/public-api&#x27;;
+import { AppEditeurNiveau3Component } from &#x27;../editeurniveau3/app.editeurniveau3&#x27;;
+
+
+@Component({
+    selector: &#x27;app-editeurniveau2&#x27;, templateUrl: &#x27;./app.editeurniveau2.html&#x27;, encapsulation: ViewEncapsulation.None, styleUrls: [&#x27;./app.editeurniveau2.scss&#x27;],
+    standalone: true,
+    imports: [MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle, MatExpansionPanelDescription, MatIconButton, MatFormField, MatLabel, MatInput, ReactiveFormsModule, FormsModule, MatRadioGroup, MatRadioButton, MatExpansionPanelActionRow, MatButton, AppEditeurNiveau3Component]
+})
+export class AppEditeurNiveau2Component implements OnInit {
+
+    @Input()
+    public pages: Page[] &#x3D; [];
+
+    /** Statut des mat-expansion. */
+    public statuts: boolean[] &#x3D; [];
+
+    /** A l&#x27;initialisation */
+    public ngOnInit(): void {
+        this.statuts &#x3D; this.pages.map(() &#x3D;&gt; false);
+    }
+
+    /** Supprimer un élément */
+    public supprimerElement(i: number): void {
+        this.pages.splice(i, 1);
+    }
+
+    /** Ajouter un élément */
+    public ajouterElementEnfant(i: number): void {
+        this.pages[i].blocs.push(new Bloc());
+    }
+
+    /** Monter un élément dans la liste */
+    public monterElement(i: number): void {
+        if (i &gt; 0) {
+            this.pages.splice(i - 1, 0, this.pages.splice(i, 1)[0]);
+        }
+    }
+
+    /** Descendre un élément dans la liste */
+    public descendreElement(i: number): void {
+        if (i &lt; this.pages.length - 1) {
+            this.pages.splice(i + 1, 0, this.pages.splice(i, 1)[0]);
+        }
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@for (page of pages; track page; let i &#x3D; $index) {
+  &lt;mat-expansion-panel class&#x3D;&quot;panelNiveau2&quot; (opened)&#x3D;&quot;statuts[i]&#x3D;true&quot; (closed)&#x3D;&quot;statuts[i]&#x3D;false&quot;&gt;
+    &lt;mat-expansion-panel-header&gt;
+      &lt;mat-panel-title&gt;Page {{i}} - {{page.titre}}&lt;/mat-panel-title&gt;
+      &lt;mat-panel-description&gt;
+        @if (i&gt;0) {
+          &lt;button type&#x3D;&quot;button&quot; mat-icon-button (click)&#x3D;&quot;monterElement(i); $event.stopPropagation()&quot;&gt;
+            &lt;span class&#x3D;&quot;fr-icon-arrow-up-fill&quot; aria-hidden&#x3D;&quot;false&quot; aria-label&#x3D;&quot;Monter l&#x27;élément&quot;&gt;&lt;/span&gt;
+          &lt;/button&gt;
+        }
+        @if (i&lt;pages.length-1) {
+          &lt;button type&#x3D;&quot;button&quot; mat-icon-button (click)&#x3D;&quot;descendreElement(i); $event.stopPropagation()&quot;&gt;
+            &lt;span class&#x3D;&quot;fr-icon-arrow-down-fill&quot; aria-hidden&#x3D;&quot;false&quot; aria-label&#x3D;&quot;Descendre l&#x27;élément&quot;&gt;&lt;/span&gt;
+          &lt;/button&gt;
+        }
+      &lt;/mat-panel-description&gt;
+    &lt;/mat-expansion-panel-header&gt;
+    &lt;!-- Pour les performances, le contenu du cadre est vide --&gt;
+    @if (statuts[i] &#x3D;&#x3D;&#x3D; true) {
+      &lt;!--Configuration de la page--&gt;
+      &lt;mat-expansion-panel [expanded]&#x3D;&quot;true&quot;&gt;
+        &lt;mat-expansion-panel-header&gt;
+          &lt;mat-panel-title&gt;Configuration de la page&lt;/mat-panel-title&gt;
+        &lt;/mat-expansion-panel-header&gt;
+        &lt;mat-form-field&gt;
+          &lt;mat-label&gt;
+            &lt;span class&#x3D;&quot;symbol-required&quot;&gt;* &lt;/span&gt;
+            &lt;span&gt;Titre de la page&lt;/span&gt;
+          &lt;/mat-label&gt;
+          &lt;input type&#x3D;&quot;text&quot; matInput [(ngModel)]&#x3D;&quot;page.titre&quot; [disabled]&#x3D;&quot;i&#x3D;&#x3D;&#x3D;0&quot;&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field&gt;
+          &lt;mat-label&gt;
+            &lt;span&gt;Titre de la page dans le fil d&#x27;Ariane&lt;/span&gt;
+          &lt;/mat-label&gt;
+          &lt;input type&#x3D;&quot;text&quot; matInput [(ngModel)]&#x3D;&quot;page.titreAriane&quot; [disabled]&#x3D;&quot;i&#x3D;&#x3D;&#x3D;0&quot;&gt;
+        &lt;/mat-form-field&gt;
+        &lt;fieldset&gt;
+          &lt;legend class&#x3D;&quot;niveau2&quot;&gt;
+            &lt;span&gt;Page exclue du fil d&#x27;Ariane&lt;/span&gt;
+            @if (i&#x3D;&#x3D;&#x3D;0) {
+              &lt;span&gt;&amp;nbsp;(permet de masquer ce premier écran dans le fil d&#x27;Ariane et donc de voir les bons
+              numéros de page MAIS ne permet plus de revenir à l&#x27;éditeur d&#x27;un simple clic )&lt;/span&gt;
+            }
+          &lt;/legend&gt;
+          &lt;mat-radio-group [(ngModel)]&#x3D;&quot;page.exclueDuFilDariane&quot;&gt;
+            &lt;mat-radio-button [value]&#x3D;&quot;true&quot;&gt;oui&lt;/mat-radio-button&gt;
+            &lt;mat-radio-button [value]&#x3D;&quot;false&quot;&gt;non&lt;/mat-radio-button&gt;
+          &lt;/mat-radio-group&gt;
+        &lt;/fieldset&gt;
+        &lt;mat-form-field&gt;
+          &lt;mat-label&gt;
+            &lt;span&gt;Condition de visibilité&lt;/span&gt;
+          &lt;/mat-label&gt;
+          &lt;input type&#x3D;&quot;text&quot; matInput [(ngModel)]&#x3D;&quot;page.conditionVisibilite&quot; [disabled]&#x3D;&quot;i&#x3D;&#x3D;&#x3D;0&quot;&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-action-row&gt;
+          @if (i&gt;0) {
+            &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary&quot; mat-button (click)&#x3D;&quot;supprimerElement(i)&quot;&gt;Supprimer cette
+            page&lt;/button&gt;
+          }
+          &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary&quot; mat-button (click)&#x3D;&quot;ajouterElementEnfant(i)&quot;&gt;Ajouter un bloc&lt;/button&gt;
+        &lt;/mat-action-row&gt;
+      &lt;/mat-expansion-panel&gt;
+      &lt;!-- blocs --&gt;
+      &lt;app-editeurniveau3 [blocs]&#x3D;&quot;page.blocs&quot;&gt;&lt;/app-editeurniveau3&gt;
+    }
+  &lt;/mat-expansion-panel&gt;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./app.editeurniveau2.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/** Légende du cadre avec une police à la même taille que le reste */
+legend.niveau2{
+    color: rgba(0,0,0,.54);
+    font-size: 0.8em;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Légende</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elément Html</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Composant</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elément Html avec une directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@for (page of pages; track page; let i = $index) {  <mat-expansion-panel class="panelNiveau2" (opened)="statuts[i]=true" (closed)="statuts[i]=false">    <mat-expansion-panel-header>      <mat-panel-title>Page {{i}} - {{page.titre}}</mat-panel-title>      <mat-panel-description>        @if (i>0) {          <button type="button" mat-icon-button (click)="monterElement(i); $event.stopPropagation()">            <span class="fr-icon-arrow-up-fill" aria-hidden="false" aria-label="Monter l\'élément"></span>          </button>        }        @if (i<pages.length-1) {          <button type="button" mat-icon-button (click)="descendreElement(i); $event.stopPropagation()">            <span class="fr-icon-arrow-down-fill" aria-hidden="false" aria-label="Descendre l\'élément"></span>          </button>        }      </mat-panel-description>    </mat-expansion-panel-header>    <!-- Pour les performances, le contenu du cadre est vide -->    @if (statuts[i] === true) {      <!--Configuration de la page-->      <mat-expansion-panel [expanded]="true">        <mat-expansion-panel-header>          <mat-panel-title>Configuration de la page</mat-panel-title>        </mat-expansion-panel-header>        <mat-form-field>          <mat-label>            <span class="symbol-required">* </span>            <span>Titre de la page</span>          </mat-label>          <input type="text" matInput [(ngModel)]="page.titre" [disabled]="i===0">        </mat-form-field>        <mat-form-field>          <mat-label>            <span>Titre de la page dans le fil d\'Ariane</span>          </mat-label>          <input type="text" matInput [(ngModel)]="page.titreAriane" [disabled]="i===0">        </mat-form-field>        <fieldset>          <legend class="niveau2">            <span>Page exclue du fil d\'Ariane</span>            @if (i===0) {              <span>&nbsp;(permet de masquer ce premier écran dans le fil d\'Ariane et donc de voir les bons              numéros de page MAIS ne permet plus de revenir à l\'éditeur d\'un simple clic )</span>            }          </legend>          <mat-radio-group [(ngModel)]="page.exclueDuFilDariane">            <mat-radio-button [value]="true">oui</mat-radio-button>            <mat-radio-button [value]="false">non</mat-radio-button>          </mat-radio-group>        </fieldset>        <mat-form-field>          <mat-label>            <span>Condition de visibilité</span>          </mat-label>          <input type="text" matInput [(ngModel)]="page.conditionVisibilite" [disabled]="i===0">        </mat-form-field>        <mat-action-row>          @if (i>0) {            <button type="button" class="btn btn-primary" mat-button (click)="supprimerElement(i)">Supprimer cette            page</button>          }          <button type="button" class="btn btn-primary" mat-button (click)="ajouterElementEnfant(i)">Ajouter un bloc</button>        </mat-action-row>      </mat-expansion-panel>      <!-- blocs -->      <app-editeurniveau3 [blocs]="page.blocs"></app-editeurniveau3>    }  </mat-expansion-panel>}</div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppEditeurComponent', 'selector': 'app-editeur'},{'name': 'AppEditeurJsonComponent', 'selector': 'app-editeurjson'},{'name': 'AppEditeurNiveau1Component', 'selector': 'app-editeurniveau1'},{'name': 'AppEditeurNiveau2Component', 'selector': 'app-editeurniveau2'},{'name': 'AppEditeurNiveau3Component', 'selector': 'app-editeurniveau3'},{'name': 'AppEditeurNiveau4Component', 'selector': 'app-editeurniveau4'},{'name': 'AppSaisieValeurDeListeFinieComponent', 'selector': 'app-saisievaleurdelistefinie'},{'name': 'AppSelecteurTypeContenuComponent', 'selector': 'app-selecteurtypecontenu'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AppEditeurNiveau2Component'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AppEditeurNiveau2Component.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

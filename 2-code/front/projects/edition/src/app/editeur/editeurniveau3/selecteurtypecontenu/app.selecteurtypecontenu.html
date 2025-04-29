@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Sélection</h1>
+
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>
+      <span>Type de contenu à insérer</span>
+    </mat-label>
+    @for (t of listeTypesContenu; track t) {
+      <button type="button" class="btn btn-primary" mat-button [mat-dialog-close]="t" cdkFocusInitial>{{t}}</button>
+    }
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button type="button" class="btn btn-secondary" mat-button (click)="annuler()">Annuler</button>
+</div>

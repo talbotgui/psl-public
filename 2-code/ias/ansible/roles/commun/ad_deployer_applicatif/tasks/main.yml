@@ -1,0 +1,11 @@
+---
+
+# Installation du binaire (le JAR)
+- name: "[Déploiement] Déploiement du binaire '{{ applicatif_binaire_rep }}{{ applicatif_version }}/{{ applicatif_nom }}-{{ applicatif_version }}.jar' vers '{{ applicatifs_rep }}{{ applicatif_nom }}/{{ applicatif_nom }}.jar'"
+  ansible.builtin.copy:
+    src: "{{ applicatif_binaire_rep }}{{ applicatif_version }}/{{ applicatif_nom }}-{{ applicatif_version }}.jar"
+    dest: "{{ applicatifs_rep }}{{ applicatif_nom }}/{{ applicatif_nom }}.jar"
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+    mode: "{{ mode_fic_nominal }}"
+

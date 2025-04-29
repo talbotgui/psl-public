@@ -1,0 +1,3487 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "Documentation de l'API service-public.fr<br><br>Cette API est protégée par OpenId Connect, surcouche à OAuth2. L'accès au ressources se fait grâce à l'access_token.<ul><li>401 Unauthorized : Si l'access token n'est pas fourni ou est invalide / expiré,</li><li>403 Forbidden : Si l'access token est valide mais ne permet pas d'accéder à la ressource</li></ul>",
+		"version": "1.0.12",
+		"title": "API Service Public (https://api.xxxxx.dila.fr/services/doc/swagger)",
+		"contact": {
+			"name": "dev.sp.project@dila.gouv.fr"
+		}
+	},
+	"host": "api.xxxxx.dila.fr",
+	"basePath": "/",
+	"tags": [
+		{
+			"name": "associations-endpoint-v-1",
+			"description": "#API@description - Point d'entrée de l'API Service Public."
+		},
+		{
+			"name": "particuliers-endpoint-v-1",
+			"description": "#API@description - Point d'entrée de l'API Service Public."
+		},
+		{
+			"name": "user-info-endpoint-v-1",
+			"description": "#API@description - Point d'entrée de l'API Service Public."
+		}
+	],
+	"paths": {
+		"/services/v1/associations": {
+			"get": {
+				"tags": [
+					"Associations",
+					"Comptes"
+				],
+				"summary": "Renvoie la liste des associations pour un compte Keycloak",
+				"description": "Seules les UUID et les noms des associations retournés",
+				"operationId": "getAssociationByUserKcUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/AssoInfoWithSubApiDto",
+								"originalRef": "AssoInfoWithSubApiDto"
+							}
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				},
+				"responsesObject": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/AssoInfoWithSubApiDto",
+								"originalRef": "AssoInfoWithSubApiDto"
+							}
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				}
+			}
+		},
+		"/services/v1/associations/alertes": {
+			"post": {
+				"tags": [
+					"Associations",
+					"Fil d'activités & Alertes"
+				],
+				"summary": "Ajout d'une alerte",
+				"description": "L'alerte sera visible dans le compte de l'utilisateur.<br>L'identifiant de l'alerte est retourné dans le header \"Location\".",
+				"operationId": "addAlerteAssociationUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "alerteApiDto",
+						"description": "alerteApiDto",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/AlerteApiDto",
+							"originalRef": "AlerteApiDto"
+						}
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					}
+				},
+				"responsesObject": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					}
+				}
+			}
+		},
+		"/services/v1/associations/createspaceasso": {
+			"post": {
+				"tags": [
+					"Associations",
+					"Comptes"
+				],
+				"summary": "création d'une association pour un compte Keycloak importé sur SP",
+				"description": "La création d'une association permet d'ajouter une association à un compte Keycloak importé sur SP",
+				"operationId": "createEspaceAssociationUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "createEspaceAssociationDto",
+						"description": "createEspaceAssociationDto",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/CreateEspaceAssociationDto",
+							"originalRef": "CreateEspaceAssociationDto"
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					}
+				},
+				"responsesObject": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					}
+				}
+			}
+		},
+		"/services/v1/associations/documents": {
+			"get": {
+				"tags": [
+					"Associations",
+					"Documents"
+				],
+				"summary": "Renvoie la liste des documents du compte",
+				"description": "Seules les métadonnées des documents sont retournées",
+				"operationId": "getListDocumentsAssociationUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MetadonneesDocumentApiDto",
+								"originalRef": "MetadonneesDocumentApiDto"
+							}
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				},
+				"responsesObject": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MetadonneesDocumentApiDto",
+								"originalRef": "MetadonneesDocumentApiDto"
+							}
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Associations",
+					"Documents"
+				],
+				"summary": "Création d'un document dans le porte document",
+				"description": "Envoi du binaire et des métadonnées en multipart. Les champs en lecture seule (id, taille et dateDepot) sont ignorés si ils sont renseignés lors du POST.<br>L'identifiant du document est retourné dans le header \"Location\".<br><br>CURL en CMD : <code>curl -v -F \"metadonnees={'nom': CI.jpg', 'type': 'logement', 'origine': 'PJ démarche', 'commentaire': 'CI de mon fiston', 'idDemarche': '13AA5' }\" -F file=@test.xlsx http://localhost:8081/services/v1/associations/documents</code>",
+				"operationId": "postDocumentAssociationUsingPOST",
+				"consumes": [
+					"multipart/form-data"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "file",
+						"in": "formData",
+						"required": false,
+						"type": "file"
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					}
+				},
+				"responsesObject": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					}
+				}
+			}
+		},
+		"/services/v1/associations/documents/{id_doc}": {
+			"get": {
+				"tags": [
+					"Associations",
+					"Documents"
+				],
+				"summary": "Téléchargement d'un document",
+				"description": "Le binaire ainsi que les métadonnées du document sont renvoyés en multipart, le JSON en premier, le binaire en second.",
+				"operationId": "getDocumentAssociationUsingGET",
+				"produces": [
+					"multipart/form-data"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "id_doc",
+						"in": "path",
+						"description": "Identifiant du document",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Document en binaire et métadonnées en multipart",
+						"schema": {
+							"$ref": "#/definitions/MetadonneesDocumentApiDto",
+							"originalRef": "MetadonneesDocumentApiDto"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"404": {
+						"description": "Le document demandé n'existe pas",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				},
+				"responsesObject": {
+					"200": {
+						"description": "Document en binaire et métadonnées en multipart",
+						"schema": {
+							"$ref": "#/definitions/MetadonneesDocumentApiDto",
+							"originalRef": "MetadonneesDocumentApiDto"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"404": {
+						"description": "Le document demandé n'existe pas",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				}
+			}
+		},
+		"/services/v1/associations/filactivites/demarches": {
+			"post": {
+				"tags": [
+					"Associations",
+					"Fil d'activités & Alertes"
+				],
+				"summary": "Création d'une nouvelle instance de démarche",
+				"description": "Une instance de démarche (ou télédossier) est une suite d'évenement. Pour modifier le statut d'une instance de démarche créée, il faut lui ajouter de nouveaux événements.<br>L'identifiant de la démarche est retourné dans le header \"Location\".<br><br>CURL en CMD : <code>curl -v -H 'Authorization:xx' -H 'Content-Type:application/json' --data '{\"typeDemarche\": \"ILE\"}' http://localhost:8081/services/v1/associations/demarches</code>",
+				"operationId": "createDemarcheAssociationUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "demarcheBody",
+						"description": "demarcheBody",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/DemarcheApiDto",
+							"originalRef": "DemarcheApiDto"
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Succès",
+						"headers": {
+							"Location": {
+								"type": "string"
+							}
+						},
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					}
+				},
+				"responsesObject": {
+					"201": {
+						"description": "Succès",
+						"headers": {
+							"Location": {
+								"type": "string"
+							}
+						},
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					}
+				}
+			}
+		},
+		"/services/v1/associations/filactivites/demarches/{id_dem}/statuts": {
+			"post": {
+				"tags": [
+					"Associations",
+					"Fil d'activités & Alertes"
+				],
+				"summary": "Création d'un nouvel événement pour une instance de démarche existante",
+				"description": "Une instance de démarche est une suite d'événement qui peuvent modifier son statut. La démarche doit exister avant d'ajouter un nouvel événement.<br>L'identifiant de l'événement est retourné dans le header \"Location\".",
+				"operationId": "updateStatutDemarcheAssociationUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "id_dem",
+						"in": "path",
+						"description": "Identifiant de la démarche",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "statutDemarcheBody",
+						"description": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/EvenementDemarcheApiDto",
+							"originalRef": "EvenementDemarcheApiDto"
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					},
+					"404": {
+						"description": "La démarche spécifiée ({id_dem}) n'existe pas"
+					}
+				},
+				"responsesObject": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					},
+					"404": {
+						"description": "La démarche spécifiée ({id_dem}) n'existe pas"
+					}
+				}
+			}
+		},
+		"/services/v1/associations/informations": {
+			"get": {
+				"tags": [
+					"Associations",
+					"Comptes"
+				],
+				"summary": "Renvoie les informations d'une association",
+				"description": "Les informations proviennent du compte pour lequel a été forgé l'accessToken",
+				"operationId": "getInformationsAssociationUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"$ref": "#/definitions/InformationsAssociationApiDto",
+							"originalRef": "InformationsAssociationApiDto"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				},
+				"responsesObject": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"$ref": "#/definitions/InformationsAssociationApiDto",
+							"originalRef": "InformationsAssociationApiDto"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				}
+			},
+			"patch": {
+				"tags": [
+					"Associations",
+					"Comptes"
+				],
+				"summary": "Modifie les informations d'une association",
+				"description": "Seuls les attributs présents dans le JSON seront mis à jour dans la base SP.<br>Les informations mises à jour de l'association sont retournées en réponse.",
+				"operationId": "patchInformationsAssociationUsingPATCH",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "informationsAssociationApiDto",
+						"description": "informationsAssociationApiDto",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/InformationsAssociationApiDto",
+							"originalRef": "InformationsAssociationApiDto"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"$ref": "#/definitions/InformationsAssociationApiDto",
+							"originalRef": "InformationsAssociationApiDto"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				},
+				"responsesObject": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"$ref": "#/definitions/InformationsAssociationApiDto",
+							"originalRef": "InformationsAssociationApiDto"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				}
+			}
+		},
+		"/services/v1/associations/offline/{id_space}/documents": {
+			"post": {
+				"tags": [
+					"Associations",
+					"Documents"
+				],
+				"summary": "Création d'un document dans le porte document",
+				"description": "Envoi du binaire et des métadonnées en multipart. Les champs en lecture seule (id, taille et dateDepot) sont ignorés si ils sont renseignés lors du POST.<br>L'identifiant du document est retourné dans le header \"Location\".<br><br>CURL en CMD : <code>curl -v -F \"metadonnees={'nom': CI.jpg', 'type': 'logement', 'origine': 'PJ démarche', 'commentaire': 'CI de mon fiston', 'idDemarche': '13AA5' }\" -F file=@test.xlsx http://localhost:8081/services/v1/associations/documents</code>",
+				"operationId": "postDocumentAssociationOfflineUsingPOST",
+				"consumes": [
+					"multipart/form-data"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "file",
+						"in": "formData",
+						"required": false,
+						"type": "file"
+					},
+					{
+						"name": "id_space",
+						"in": "path",
+						"description": "Identifiant de l'espace association",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					}
+				},
+				"responsesObject": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					}
+				}
+			}
+		},
+		"/services/v1/associations/offline/{id_space}/filactivites/demarches/{id_dem}/statuts": {
+			"post": {
+				"tags": [
+					"Associations",
+					"Fil d'activités & Alertes"
+				],
+				"summary": "Création d'un nouvel événement pour une instance de démarche existante en mode offline",
+				"description": "Une instance de démarche est une suite d'événement qui peuvent modifier son statut. La démarche doit exister avant d'ajouter un nouvel événement.<br>L'identifiant de l'événement est retourné dans le header \"Location\".",
+				"operationId": "updateStatutDemarcheAssociationOfflineUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "id_dem",
+						"in": "path",
+						"description": "Identifiant de la démarche",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "id_space",
+						"in": "path",
+						"description": "Identifiant de l'esapce association'",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "statutDemarcheBody",
+						"description": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/EvenementDemarcheApiDto",
+							"originalRef": "EvenementDemarcheApiDto"
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					},
+					"404": {
+						"description": "La démarche spécifiée ({id_dem}) n'existe pas"
+					}
+				},
+				"responsesObject": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					},
+					"404": {
+						"description": "La démarche spécifiée ({id_dem}) n'existe pas"
+					}
+				}
+			}
+		},
+		"/services/v1/associations/{id_space}/alertes": {
+			"post": {
+				"tags": [
+					"Associations",
+					"Fil d'activités & Alertes"
+				],
+				"summary": "Ajout d'une alerte",
+				"description": "L'alerte sera visible dans le compte de l'utilisateur.<br>L'identifiant de l'alerte est retourné dans le header \"Location\".",
+				"operationId": "addAlerteAssociationWithIdSpaceAssociationUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "alerteApiDto",
+						"description": "alerteApiDto",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/AlerteApiDto",
+							"originalRef": "AlerteApiDto"
+						}
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "id_space",
+						"in": "path",
+						"description": "Identifiant de l'esapce association'",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					}
+				},
+				"responsesObject": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					}
+				}
+			}
+		},
+		"/services/v1/associations/{id_space}/documents": {
+			"get": {
+				"tags": [
+					"Associations",
+					"Documents"
+				],
+				"summary": "Renvoie la liste des documents du compte en passant en paramètre le ID de l'espace association ",
+				"description": "Seules les métadonnées des documents sont retournées pour un espace assocation passé en paramètre",
+				"operationId": "getListDocumentsAssociationWithIdSpaceAssociationUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "id_space",
+						"in": "path",
+						"description": "Identifiant de l'esapce association'",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MetadonneesDocumentApiDto",
+								"originalRef": "MetadonneesDocumentApiDto"
+							}
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				},
+				"responsesObject": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MetadonneesDocumentApiDto",
+								"originalRef": "MetadonneesDocumentApiDto"
+							}
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Associations",
+					"Documents"
+				],
+				"summary": "Création d'un document dans le porte document d'un espace association",
+				"description": "Envoi du binaire et des métadonnées en multipart. Les champs en lecture seule en passant en paramètre ID Space association(id, taille et dateDepot) sont ignorés si ils sont renseignés lors du POST.<br>L'identifiant du document est retourné dans le header \"Location\".<br><br>CURL en CMD : <code>curl -v -F \"metadonnees={'nom': CI.jpg', 'type': 'logement', 'origine': 'PJ démarche', 'commentaire': 'CI de mon fiston', 'idDemarche': '13AA5' }\" -F file=@test.xlsx http://localhost:8081/services/v1/associations/documents</code>",
+				"operationId": "postDocumentAssociationWithIdSpaceUsingPOST",
+				"consumes": [
+					"multipart/form-data"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "file",
+						"in": "formData",
+						"required": false,
+						"type": "file"
+					},
+					{
+						"name": "id_space",
+						"in": "path",
+						"description": "Identifiant de l'esapce association'",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					}
+				},
+				"responsesObject": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					}
+				}
+			}
+		},
+		"/services/v1/associations/{id_space}/documents/{id_doc}": {
+			"get": {
+				"tags": [
+					"Associations",
+					"Documents"
+				],
+				"summary": "Téléchargement d'un document en ajoutant en paramètre le ID de l'espace association ",
+				"description": "Le binaire ainsi que les métadonnées du document sont renvoyés en multipart, le JSON en premier, le binaire en second en ajoutant en paramètre le ID de l'espace association.",
+				"operationId": "getDocumentAssociationWithIdSpaceAssociationUsingGET",
+				"produces": [
+					"multipart/form-data"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "id_doc",
+						"in": "path",
+						"description": "Identifiant du document",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "id_space",
+						"in": "path",
+						"description": "Identifiant de l'esapce association'",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Document en binaire et métadonnées en multipart",
+						"schema": {
+							"$ref": "#/definitions/MetadonneesDocumentApiDto",
+							"originalRef": "MetadonneesDocumentApiDto"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"404": {
+						"description": "Le document demandé n'existe pas",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				},
+				"responsesObject": {
+					"200": {
+						"description": "Document en binaire et métadonnées en multipart",
+						"schema": {
+							"$ref": "#/definitions/MetadonneesDocumentApiDto",
+							"originalRef": "MetadonneesDocumentApiDto"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"404": {
+						"description": "Le document demandé n'existe pas",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				}
+			}
+		},
+		"/services/v1/associations/{id_space}/filactivites/demarches": {
+			"post": {
+				"tags": [
+					"Associations",
+					"Fil d'activités & Alertes"
+				],
+				"summary": "Création d'une nouvelle instance de démarche pour un espace association",
+				"description": "Une instance de démarche (ou télédossier) est une suite d'évenement. Pour modifier le statut d'une instance de démarche pour un espace association passé en paramètrecréée, il faut lui ajouter de nouveaux événements.<br>L'identifiant de la démarche est retourné dans le header \"Location\".<br><br>CURL en CMD : <code>curl -v -H 'Authorization:xx' -H 'Content-Type:application/json' --data '{\"typeDemarche\": \"ILE\"}' http://localhost:8081/services/v1/associations/demarches</code>",
+				"operationId": "createDemarcheAssociationWithIdSpaceAssociationUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "demarcheBody",
+						"description": "demarcheBody",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/DemarcheApiDto",
+							"originalRef": "DemarcheApiDto"
+						}
+					},
+					{
+						"name": "id_space",
+						"in": "path",
+						"description": "Identifiant de l'esapce association'",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Succès",
+						"headers": {
+							"Location": {
+								"type": "string"
+							}
+						},
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					}
+				},
+				"responsesObject": {
+					"201": {
+						"description": "Succès",
+						"headers": {
+							"Location": {
+								"type": "string"
+							}
+						},
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					}
+				}
+			}
+		},
+		"/services/v1/associations/{id_space}/filactivites/demarches/{id_dem}/statuts": {
+			"post": {
+				"tags": [
+					"Associations",
+					"Fil d'activités & Alertes"
+				],
+				"summary": "Création d'un nouvel événement pour une instance de démarche existante et pour un espace association",
+				"description": "Une instance de démarche est une suite d'événement qui peuvent modifier son statut. La démarche doit exister avant d'ajouter un nouvel événement.<br>L'identifiant de l'événement est retourné dans le header \"Location\".",
+				"operationId": "updateStatutDemarcheAssociationWithIdSpaceAssociationUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "id_dem",
+						"in": "path",
+						"description": "Identifiant de la démarche",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "id_space",
+						"in": "path",
+						"description": "Identifiant de l'esapce association'",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "statutDemarcheBody",
+						"description": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/EvenementDemarcheApiDto",
+							"originalRef": "EvenementDemarcheApiDto"
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					},
+					"404": {
+						"description": "La démarche spécifiée ({id_dem}) n'existe pas"
+					}
+				},
+				"responsesObject": {
+					"201": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					},
+					"404": {
+						"description": "La démarche spécifiée ({id_dem}) n'existe pas"
+					}
+				}
+			}
+		},
+		"/services/v1/associations/{id_space}/informations": {
+			"get": {
+				"tags": [
+					"Associations",
+					"Comptes"
+				],
+				"summary": "Renvoie les informations d'une association en passant en paramètre le ID de l'espace association ",
+				"description": "Les informations proviennent du compte pour lequel a été forgé l'accessToken et ID de l'esapce association",
+				"operationId": "getInformationsAssociationWithIdSpaceUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "id_space",
+						"in": "path",
+						"description": "Identifiant de l'esapce association'",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"$ref": "#/definitions/InformationsAssociationApiDto",
+							"originalRef": "InformationsAssociationApiDto"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				},
+				"responsesObject": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"$ref": "#/definitions/InformationsAssociationApiDto",
+							"originalRef": "InformationsAssociationApiDto"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				}
+			},
+			"patch": {
+				"tags": [
+					"Associations",
+					"Comptes"
+				],
+				"summary": "Modifie les informations d'une association en passant ID espace association en paramètre ",
+				"description": "Seuls les attributs présents dans le JSON seront mis à jour dans la base SP.<br>Les informations mises à jour de l'association sont retournées en réponse.",
+				"operationId": "patchInformationsAssociationWithIdSpaceUsingPATCH",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "id_space",
+						"in": "path",
+						"description": "Identifiant de l'esapce association'",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "informationsAssociationApiDto",
+						"description": "informationsAssociationApiDto",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/InformationsAssociationApiDto",
+							"originalRef": "InformationsAssociationApiDto"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"$ref": "#/definitions/InformationsAssociationApiDto",
+							"originalRef": "InformationsAssociationApiDto"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				},
+				"responsesObject": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"$ref": "#/definitions/InformationsAssociationApiDto",
+							"originalRef": "InformationsAssociationApiDto"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				}
+			}
+		},
+		"/services/v1/particuliers/alertes": {
+			"post": {
+				"tags": [
+					"Fil d'activités & Alertes",
+					"Particuliers"
+				],
+				"summary": "Ajout d'une alerte",
+				"description": "L'alerte sera visible dans le compte de l'utilisateur.<br>L'identifiant de l'alerte est retourné dans le header \"Location\".",
+				"operationId": "addAlerteParticulierUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "body",
+						"description": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/AlerteApiDto",
+							"originalRef": "AlerteApiDto"
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Succès",
+						"headers": {
+							"Location": {
+								"type": "string"
+							}
+						},
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					}
+				},
+				"responsesObject": {
+					"201": {
+						"description": "Succès",
+						"headers": {
+							"Location": {
+								"type": "string"
+							}
+						},
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					}
+				}
+			}
+		},
+		"/services/v1/particuliers/documents": {
+			"get": {
+				"tags": [
+					"Documents",
+					"Particuliers"
+				],
+				"summary": "Renvoie la liste des documents du compte",
+				"description": "Seules les métadonnées des documents sont retournées",
+				"operationId": "getListDocumentsParticulierUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MetadonneesDocumentApiDto",
+								"originalRef": "MetadonneesDocumentApiDto"
+							}
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				},
+				"responsesObject": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/MetadonneesDocumentApiDto",
+								"originalRef": "MetadonneesDocumentApiDto"
+							}
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Documents",
+					"Particuliers"
+				],
+				"summary": "Création d'un document dans le porte document",
+				"description": "Envoi du binaire et des métadonnées en multipart. Les champs en lecture seule (id, taille et dateDepot) sont ignorés si ils sont renseignés lors du POST.<br>L'identifiant du document est retourné dans le header \"Location\".<br><br>CURL en CMD : <code>curl -v -F \"metadonnees={'nom': CI.jpg', 'type': 'logement', 'origine': 'PJ démarche', 'commentaire': 'CI de mon fiston', 'idDemarche': '13AA5' }\" -F file=@test.xlsx http://localhost:8081/services/v1/particuliers/documents</code>",
+				"operationId": "postDocumentParticulierUsingPOST",
+				"consumes": [
+					"multipart/form-data"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "file",
+						"in": "formData",
+						"required": false,
+						"type": "file"
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Succès",
+						"headers": {
+							"Location": {
+								"type": "string"
+							}
+						},
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					}
+				},
+				"responsesObject": {
+					"201": {
+						"description": "Succès",
+						"headers": {
+							"Location": {
+								"type": "string"
+							}
+						},
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					}
+				}
+			}
+		},
+		"/services/v1/particuliers/documents/{id_doc}": {
+			"get": {
+				"tags": [
+					"Documents",
+					"Particuliers"
+				],
+				"summary": "Téléchargement d'un document",
+				"description": "Le binaire ainsi que les métadonnées du document sont renvoyés en multipart, le JSON en premier, le binaire en second.",
+				"operationId": "getDocumentParticulierUsingGET",
+				"produces": [
+					"multipart/form-data"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "id_doc",
+						"in": "path",
+						"description": "Identifiant du document",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Document en binaire et métadonnées en multipart",
+						"schema": {
+							"$ref": "#/definitions/MetadonneesDocumentApiDto",
+							"originalRef": "MetadonneesDocumentApiDto"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"404": {
+						"description": "Le document demande n existe pas"
+					}
+				},
+				"responsesObject": {
+					"200": {
+						"description": "Document en binaire et métadonnées en multipart",
+						"schema": {
+							"$ref": "#/definitions/MetadonneesDocumentApiDto",
+							"originalRef": "MetadonneesDocumentApiDto"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"404": {
+						"description": "Le document demande n existe pas"
+					}
+				}
+			}
+		},
+		"/services/v1/particuliers/filactivites/demarches": {
+			"post": {
+				"tags": [
+					"Fil d'activités & Alertes",
+					"Particuliers"
+				],
+				"summary": "Création d'une nouvelle instance de démarche",
+				"description": "Une instance de démarche (ou télédossier) est une suite d'évenement. Pour modifier le statut d'une instance de démarche créée, il faut lui ajouter de nouveaux événements.<br>L'identifiant de la démarche est retourné dans le header \"Location\".<br><br>CURL en CMD : <code>curl -v -H 'Authorization:xx' -H 'Content-Type:application/json' --data '{\"typeDemarche\": \"ILE\"}' http://localhost:8081/services/v1/particuliers/demarches</code>",
+				"operationId": "createDemarcheParticulierUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "demarcheBody",
+						"description": "demarcheBody",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/DemarcheApiDto",
+							"originalRef": "DemarcheApiDto"
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Succès",
+						"headers": {
+							"Location": {
+								"type": "string"
+							}
+						},
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					}
+				},
+				"responsesObject": {
+					"201": {
+						"description": "Succès",
+						"headers": {
+							"Location": {
+								"type": "string"
+							}
+						},
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					}
+				}
+			}
+		},
+		"/services/v1/particuliers/filactivites/demarches/{id_dem}/statuts": {
+			"post": {
+				"tags": [
+					"Fil d'activités & Alertes",
+					"Particuliers"
+				],
+				"summary": "Création d'un nouvel événement pour une instance de démarche existante",
+				"description": "Une instance de démarche est une suite d'événement qui peuvent modifier son statut. La démarche doit exister avant d'ajouter un nouvel événement.<br>L'identifiant de l'événement est retourné dans le header \"Location\".",
+				"operationId": "updateStatutDemarcheParticulierUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "id_dem",
+						"in": "path",
+						"description": "Identifiant de la démarche",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "statutDemarcheBody",
+						"description": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/EvenementDemarcheApiDto",
+							"originalRef": "EvenementDemarcheApiDto"
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Succès",
+						"headers": {
+							"Location": {
+								"type": "string"
+							}
+						},
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					},
+					"404": {
+						"description": "La démarche spécifiée ({id_dem}) n'existe pas"
+					}
+				},
+				"responsesObject": {
+					"201": {
+						"description": "Succès",
+						"headers": {
+							"Location": {
+								"type": "string"
+							}
+						},
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					},
+					"404": {
+						"description": "La démarche spécifiée ({id_dem}) n'existe pas"
+					}
+				}
+			}
+		},
+		"/services/v1/particuliers/informations": {
+			"get": {
+				"tags": [
+					"Comptes",
+					"Particuliers"
+				],
+				"summary": "Renvoie les informations d'un particulier",
+				"description": "Les informations proviennent du compte pour lequel a été forgé l'accessToken",
+				"operationId": "getInformationsParticulierUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"$ref": "#/definitions/InformationsParticulierApiDto",
+							"originalRef": "InformationsParticulierApiDto"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				},
+				"responsesObject": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"$ref": "#/definitions/InformationsParticulierApiDto",
+							"originalRef": "InformationsParticulierApiDto"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				}
+			},
+			"patch": {
+				"tags": [
+					"Comptes",
+					"Particuliers"
+				],
+				"summary": "Modifie les informations d'un particulier",
+				"description": "Seuls les attributs présents dans le JSON seront mis à jour dans la base SP.<br>Les informations mises à jour du particulier sont retournées en réponse.",
+				"operationId": "patchInformationsParticulierUsingPATCH",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "informationsParticuliers",
+						"description": "infosPart",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/InformationsParticulierApiDto",
+							"originalRef": "InformationsParticulierApiDto"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"$ref": "#/definitions/InformationsParticulierApiDto",
+							"originalRef": "InformationsParticulierApiDto"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				},
+				"responsesObject": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"$ref": "#/definitions/InformationsParticulierApiDto",
+							"originalRef": "InformationsParticulierApiDto"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				}
+			}
+		},
+		"/services/v1/particuliers/offline/{uuid_espace}/documents": {
+			"post": {
+				"tags": [
+					"Documents",
+					"Particuliers"
+				],
+				"summary": "Création d'un document dans le porte document",
+				"description": "Envoi du binaire et des métadonnées en multipart. Les champs en lecture seule (id, taille et dateDepot) sont ignorés si ils sont renseignés lors du POST.<br>L'identifiant du document est retourné dans le header \"Location\".<br><br>CURL en CMD : <code>curl -v -F \"metadonnees={'nom': CI.jpg', 'type': 'logement', 'origine': 'PJ démarche', 'commentaire': 'CI de mon fiston', 'idDemarche': '13AA5' }\" -F file=@test.xlsx http://localhost:8081/services/v1/particuliers/documents</code>",
+				"operationId": "postDocumentParticulierOfflineUsingPOST",
+				"consumes": [
+					"multipart/form-data"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "file",
+						"in": "formData",
+						"required": false,
+						"type": "file"
+					},
+					{
+						"name": "uuid_espace",
+						"in": "path",
+						"description": "Identifiant de l'espace particulier",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Succès",
+						"headers": {
+							"Location": {
+								"type": "string"
+							}
+						},
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					}
+				},
+				"responsesObject": {
+					"201": {
+						"description": "Succès",
+						"headers": {
+							"Location": {
+								"type": "string"
+							}
+						},
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					}
+				}
+			}
+		},
+		"/services/v1/particuliers/offline/{uuid_espace}/filactivites/demarches/{id_dem}/statuts": {
+			"post": {
+				"tags": [
+					"Fil d'activités & Alertes",
+					"Particuliers"
+				],
+				"summary": "Création d'un nouvel événement pour une instance de démarche existante en mode offline",
+				"description": "Une instance de démarche est une suite d'événement qui peuvent modifier son statut. La démarche doit exister avant d'ajouter un nouvel événement.<br>L'identifiant de l'événement est retourné dans le header \"Location\".",
+				"operationId": "updateStatutDemarcheParticulierOfflineUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "id_dem",
+						"in": "path",
+						"description": "Identifiant de la démarche",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "body",
+						"name": "statutDemarcheBody",
+						"description": "body",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/EvenementDemarcheApiDto",
+							"originalRef": "EvenementDemarcheApiDto"
+						}
+					},
+					{
+						"name": "uuid_espace",
+						"in": "path",
+						"description": "Identifiant de l'esapce particulier'",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Succès",
+						"headers": {
+							"Location": {
+								"type": "string"
+							}
+						},
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					},
+					"404": {
+						"description": "La démarche spécifiée ({id_dem}) n'existe pas"
+					}
+				},
+				"responsesObject": {
+					"201": {
+						"description": "Succès",
+						"headers": {
+							"Location": {
+								"type": "string"
+							}
+						},
+						"schema": {
+							"type": "string"
+						}
+					},
+					"400": {
+						"description": "Requête invalide (ex : données du JSON incohérentes)"
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource"
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante"
+					},
+					"404": {
+						"description": "La démarche spécifiée ({id_dem}) n'existe pas"
+					}
+				}
+			}
+		},
+		"/services/v1/particuliers/search": {
+			"post": {
+				"tags": [
+					"Comptes",
+					"Particuliers"
+				],
+				"summary": "Effectue une recherche de compte actif possédant un espace PART à partir d'un login utilisateur (email)",
+				"description": "Le compte pour lequel a été forgé l'accessToken peut effectuer une recherche",
+				"operationId": "postSearchCompteUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "accountSearchApiDto",
+						"description": "accountEmailSearch",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/AccountSearchApiDto",
+							"originalRef": "AccountSearchApiDto"
+						}
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"404": {
+						"description": "La ressource demandée est introuvable.",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				},
+				"responsesObject": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"404": {
+						"description": "La ressource demandée est introuvable.",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				}
+			}
+		},
+		"/services/v1/userinfo": {
+			"get": {
+				"tags": [
+					"Comptes"
+				],
+				"summary": "Renvoie les informations d'un utilisateur suivant la spécification OpenID Connect",
+				"description": "Les informations proviennent du compte pour lequel a été forgé l'accessToken",
+				"operationId": "getUserInfoUsingGET",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"$ref": "#/definitions/UserInfoApiDto",
+							"originalRef": "UserInfoApiDto"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				},
+				"responsesObject": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"$ref": "#/definitions/UserInfoApiDto",
+							"originalRef": "UserInfoApiDto"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Comptes"
+				],
+				"summary": "Renvoie les informations d'un utilisateur suivant la spécification OpenID Connect",
+				"description": "Les informations proviennent du compte pour lequel a été forgé l'accessToken",
+				"operationId": "getUserInfoUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "access_token",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"$ref": "#/definitions/UserInfoApiDto",
+							"originalRef": "UserInfoApiDto"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				},
+				"responsesObject": {
+					"200": {
+						"description": "Succès",
+						"schema": {
+							"$ref": "#/definitions/UserInfoApiDto",
+							"originalRef": "UserInfoApiDto"
+						}
+					},
+					"401": {
+						"description": "Authentification nécessaire pour accéder à la ressource",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					},
+					"403": {
+						"description": "Authentification effectuée avec succès, mais habilitation insuffisante",
+						"schema": {
+							"$ref": "#/definitions/ApiError",
+							"originalRef": "ApiError"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"AccountSearchApiDto": {
+			"type": "object",
+			"properties": {
+				"email": {
+					"type": "string",
+					"example": "georges.martin@gmail.com",
+					"description": "E-mail correspondant au login d'un utilisateur Service-Public.fr. Format alphanumérique/email"
+				}
+			},
+			"title": "AccountSearchApiDto",
+			"description": "Décrit les éléments exploitables pour effectuer une recherche de compte Service-Public.fr"
+		},
+		"ActionLienApiDto": {
+			"type": "object",
+			"properties": {
+				"libelle": {
+					"type": "string",
+					"example": "Retrait plainte",
+					"description": "Le libellé du bouton à afficher."
+				},
+				"url": {
+					"type": "string",
+					"example": "http://url.acces.action",
+					"description": "URL pour réaliser l’action proposée sur la démarche correspondante (2048 caractères max)"
+				}
+			},
+			"title": "ActionLienApiDto",
+			"description": "liste d’actions à afficher dans le fil d’activité SP pour chaque message de suivi"
+		},
+		"AdresseApiDto": {
+			"type": "object",
+			"properties": {
+				"appartementOuEtage": {
+					"type": "string",
+					"example": "Appartement 12 Escalier C",
+					"description": "Complément d'adresse : appartement, étage. Facultatif, format alphanumérique (500 caractères max)"
+				},
+				"batimentOuImmeuble": {
+					"type": "string",
+					"example": "Immeuble Dumeilleur",
+					"description": "Complément d'adresse : bâtiment ou immeuble. Facultatif, format alphanumérique (500 caractères max)"
+				},
+				"codeInsee": {
+					"type": "string",
+					"example": 44100,
+					"description": "Code INSEE, Facultatif, format numérique (50 caractères max)"
+				},
+				"codePostal": {
+					"type": "string",
+					"example": 44100,
+					"description": "Code postal, Facultatif, format alphanumérique (500 caractères max)"
+				},
+				"complement": {
+					"type": "string",
+					"description": "Complément pour les adresses étrangères. Facultatif, format alphanumérique (500 caractères max)"
+				},
+				"etatProvince": {
+					"type": "string",
+					"description": "Etat / province, pour les adresses étrangères. Facultatif, format alphanumérique (500 caractères max)"
+				},
+				"libelleVoie": {
+					"type": "string",
+					"example": "80 RUE DE ROCHECHOUART",
+					"description": "Numéro et nom de la voie. Facultatif, format alphanumérique (500 caractères max)"
+				},
+				"lieuDitOuBoitePostale": {
+					"type": "string",
+					"example": "BP 124",
+					"description": "Complément d'adresse : lieu-dit ou boîte postale. Facultatif, format alphanumérique (500 caractères max)"
+				},
+				"pays": {
+					"type": "string",
+					"example": "FRANCE",
+					"description": "Pays. Facultatif, format alphanumérique (500 caractères max)"
+				},
+				"ville": {
+					"type": "string",
+					"example": "Nantes",
+					"description": "Ville. Facultatif, format alphanumérique (500 caractères max)"
+				}
+			},
+			"title": "AdresseApiDto"
+		},
+		"AlerteApiDto": {
+			"type": "object",
+			"required": [
+				"message",
+				"type"
+			],
+			"properties": {
+				"dateAlert": {
+					"type": "string",
+					"example": "2015-10-18T13:52:25.902Z",
+					"description": "Date de l'échéance. Facultatif, format date répondant au pattern yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+				},
+				"message": {
+					"type": "string",
+					"example": "Renouvellement de votre document",
+					"description": "Message de l'échéance à présenter à l'utilisateur. Facultatif, format alphanumérique (2000 caractères max)"
+				},
+				"type": {
+					"type": "string",
+					"example": "DEFAULT",
+					"description": "Type de l'échéance à présenter à l'utilisateur. Obligatoire"
+				},
+				"url": {
+					"type": "string",
+					"example": "http://www.url.echeance.fr/",
+					"description": "URL pour réaliser l'échéance. Facultatif, format alphanumérique (2048 caractères max)"
+				}
+			},
+			"title": "AlerteApiDto",
+			"description": "Echéance. S'affiche dans la partie \"Echéance\" du tableau de bord de l'espace utilisateur (ASSO/PART)."
+		},
+		"ApiError": {
+			"type": "object",
+			"required": [
+				"error"
+			],
+			"properties": {
+				"error": {
+					"type": "string",
+					"example": "too_late",
+					"description": "Code de l'erreur, ou description courte. Alphanumérique "
+				},
+				"errorDescription": {
+					"type": "string",
+					"example": "Closed at midnight",
+					"description": "Description longue, human readable. Alphanumérique"
+				}
+			},
+			"title": "ApiError",
+			"description": "#ApiModel#description"
+		},
+		"AssoComptabiliteApiDto": {
+			"type": "object",
+			"properties": {
+				"budgetPrevisionnel": {
+					"type": "number",
+					"format": "double",
+					"example": 15000.0,
+					"description": "(Déprécié - non pris en compte) Budget prévisionnel de l'association"
+				},
+				"cause": {
+					"type": "string",
+					"example": "Texte libre",
+					"description": "(Déprécié - non pris en compte) Saisie libre"
+				},
+				"montantDonsPercus": {
+					"type": "number",
+					"format": "double",
+					"example": 5600.0,
+					"description": "(Déprécié - non pris en compte) Montant des dons perçus"
+				},
+				"montantSubventionsPercues": {
+					"type": "number",
+					"format": "double",
+					"example": 8000.0,
+					"description": "(Déprécié - non pris en compte) Montant des subventions perçues"
+				}
+			},
+			"title": "AssoComptabiliteApiDto"
+		},
+		"AssoInfoWithSubApiDto": {
+			"type": "object",
+			"properties": {
+				"nom": {
+					"type": "string"
+				},
+				"uuid": {
+					"type": "string"
+				}
+			},
+			"title": "AssoInfoWithSubApiDto"
+		},
+		"AssoInfosComplementairesApiDto": {
+			"type": "object",
+			"properties": {
+				"agrements": {
+					"type": "string",
+					"example": "Texte libre",
+					"description": "(Déprécié - non pris en compte) Liste les agréments de l'association"
+				},
+				"attributeur": {
+					"type": "string",
+					"description": "(Déprécié - non pris en compte) Attributeur de l'agrément"
+				},
+				"commissaireAuxComptes": {
+					"type": "boolean",
+					"example": true,
+					"description": "(Déprécié - non pris en compte) Possède un commissaire aux comptes ?"
+				},
+				"dateAttribution": {
+					"type": "string",
+					"description": "(Déprécié - non pris en compte) Date d'attribution de l'agrément"
+				},
+				"dateDecisionOrganeDeliberant": {
+					"type": "string",
+					"description": "(Déprécié - non pris en compte) date décision organe délibérant"
+				},
+				"datePublicationJournalOfficielAFE": {
+					"type": "string",
+					"description": "(Déprécié - non pris en compte) Si association reconnue d'utilité publique, date de publication au Journal Officiel AFE"
+				},
+				"structuresSecteurMarchand": {
+					"type": "string",
+					"example": "Texte libre",
+					"description": "(Déprécié - non pris en compte) Identités et adresses des structures relevant du secteur marchand avec lesquelles l'association est lié"
+				},
+				"typeAgrements": {
+					"type": "string",
+					"description": "(Déprécié - non pris en compte) Type d'agrément"
+				}
+			},
+			"title": "AssoInfosComplementairesApiDto"
+		},
+		"AssoInfosContactApiDto": {
+			"type": "object",
+			"properties": {
+				"email": {
+					"type": "string",
+					"example": "contact.urba@gmail.com",
+					"description": "E-mail"
+				},
+				"siteInternet": {
+					"type": "string",
+					"example": "www.urba.com",
+					"description": "Adresse du site internet"
+				},
+				"telephonePrincipal": {
+					"description": "Numéro de téléphone principal",
+					"$ref": "#/definitions/TelephoneApiDto",
+					"originalRef": "TelephoneApiDto"
+				},
+				"telephoneSecondaire": {
+					"description": "Numéro de téléphone secondaire",
+					"$ref": "#/definitions/TelephoneApiDto",
+					"originalRef": "TelephoneApiDto"
+				}
+			},
+			"title": "AssoInfosContactApiDto",
+			"description": "Décrit les informations de l'association"
+		},
+		"AssoMemberBureauApiDto": {
+			"type": "object",
+			"properties": {
+				"adresse": {
+					"description": "(Déprécié - non pris en compte) Renseigné pour le responsable légal uniquement",
+					"$ref": "#/definitions/AdresseApiDto",
+					"originalRef": "AdresseApiDto"
+				},
+				"civilite": {
+					"type": "string",
+					"example": "m",
+					"description": "(Déprécié - non pris en compte) Civilité. Valeurs reconnues : m, mme"
+				},
+				"email": {
+					"type": "string",
+					"example": "georges.martin@gmail.com",
+					"description": "(Déprécié - non pris en compte) E-mail"
+				},
+				"fonction": {
+					"type": "string",
+					"example": "president",
+					"description": "(Déprécié - non pris en compte) Rôle dans l'association",
+					"enum": [
+						"administrateur",
+						"co_president",
+						"membre_direction_collegiale",
+						"president",
+						"representant",
+						"secretaire",
+						"secretaire_adjoint",
+						"secretaire_general",
+						"tresorier",
+						"tresorier_adjoint",
+						"vice_president"
+					]
+				},
+				"id": {
+					"type": "integer",
+					"format": "int64",
+					"example": 1337,
+					"description": "(Déprécié - non pris en compte) id"
+				},
+				"isResponsableLegal": {
+					"type": "boolean",
+					"description": "(Déprécié - non pris en compte) Indique si le membre est le responsable légal"
+				},
+				"nom": {
+					"type": "string",
+					"example": "MARTIN",
+					"description": "(Déprécié - non pris en compte) Nom"
+				},
+				"prenom": {
+					"type": "string",
+					"example": "Georges",
+					"description": "(Déprécié - non pris en compte) Prénom"
+				},
+				"telephone": {
+					"description": "(Déprécié - non pris en compte) Téléphone",
+					"$ref": "#/definitions/TelephoneApiDto",
+					"originalRef": "TelephoneApiDto"
+				},
+				"titre": {
+					"type": "string",
+					"example": "Docteur...",
+					"description": "(Déprécié - non pris en compte) Titre"
+				}
+			},
+			"title": "AssoMemberBureauApiDto",
+			"description": "Définit un membre du bureau d'une association"
+		},
+		"AssoPatrimoineImmobilierApiDto": {
+			"type": "object",
+			"required": [
+				"adresse"
+			],
+			"properties": {
+				"adresse": {
+					"description": "(Déprécié - non pris en compte) Adresse de l'établissement (sous forme d'objet JSON adresse)",
+					"$ref": "#/definitions/AdresseApiDto",
+					"originalRef": "AdresseApiDto"
+				},
+				"descriptionDuBienAcquis": {
+					"type": "string",
+					"description": "(Déprécié - non pris en compte) description du bien acquis"
+				},
+				"destinationDuBienAcquis": {
+					"type": "string",
+					"description": "(Déprécié - non pris en compte) destination du bien acquis"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int64",
+					"example": 1337,
+					"description": "id"
+				},
+				"prixAcquisition": {
+					"type": "number",
+					"format": "double",
+					"example": 40990.99,
+					"description": "(Déprécié - non pris en compte) Prix de l'acquisition, peut être null"
+				}
+			},
+			"title": "AssoPatrimoineImmobilierApiDto"
+		},
+		"AssoRHApiDto": {
+			"type": "object",
+			"properties": {
+				"cumul5Salaires": {
+					"type": "number",
+					"format": "double",
+					"example": 7000.0,
+					"description": "(Déprécié - non pris en compte) Cumul des 5 salaires annuels bruts les plus élevés (en €)"
+				},
+				"nbBenevoles": {
+					"type": "integer",
+					"format": "int32",
+					"example": 12,
+					"description": "(Déprécié - non pris en compte) Nombre de bénévoles"
+				},
+				"nbFemmesAdherents": {
+					"type": "integer",
+					"format": "int32",
+					"example": 10,
+					"description": "(Déprécié - non pris en compte) Nombre de femmes adhérentes de l'association au 31 décembre de l’année écoulée"
+				},
+				"nbHommesAdherents": {
+					"type": "integer",
+					"format": "int32",
+					"example": 32,
+					"description": "(Déprécié - non pris en compte) Nombre d'hommes adhérents de l'association au 31 décembre de l’année écoulée"
+				},
+				"nbSalariesETP": {
+					"type": "integer",
+					"format": "int32",
+					"example": 4,
+					"description": "(Déprécié - non pris en compte) Nombre de salariés en emploi temps plein"
+				},
+				"nbTotalSalaries": {
+					"type": "integer",
+					"format": "int32",
+					"example": 8,
+					"description": "(Déprécié - non pris en compte) Nombre de salariés"
+				},
+				"nbVolontaires": {
+					"type": "integer",
+					"format": "int32",
+					"example": 1,
+					"description": "(Déprécié - non pris en compte) Nombre de volontaires"
+				},
+				"pourcentageCA": {
+					"type": "number",
+					"format": "double",
+					"example": 50.0,
+					"description": "(Déprécié - non pris en compte) Pourcentage du chiffre d'affaire"
+				}
+			},
+			"title": "AssoRHApiDto",
+			"description": "Info RH Asso"
+		},
+		"CreateEspaceAssociationDto": {
+			"type": "object",
+			"properties": {
+				"asso_name": {
+					"type": "string"
+				}
+			},
+			"title": "CreateEspaceAssociationDto",
+			"description": "Décrit les informations pour la création de l'association"
+		},
+		"DemarcheApiDto": {
+			"type": "object",
+			"required": [
+				"codeDemarche",
+				"id",
+				"labelDemarche",
+				"nombreJoursAvantExpiration",
+				"statutInitial"
+			],
+			"properties": {
+				"codeDemarche": {
+					"type": "string",
+					"example": "ILE",
+					"description": "Code du type de la démarche (Changement d'adresse, inscription sur liste electorale, etc). Obligatoire, format alphanumérique (50 caractères max)"
+				},
+				"id": {
+					"type": "string",
+					"description": "Numéro unique de la démarche. Fourni par le client"
+				},
+				"labelDemarche": {
+					"type": "string",
+					"example": "Inscription sur liste électorale",
+					"description": "Nom de la démarche, telle qu'affiché à l'utilisateur dans son fil d'activité. Obligatoire, format alphanumérique (255 caractères max)"
+				},
+				"nombreJoursAvantExpiration": {
+					"type": "integer",
+					"format": "int32",
+					"example": 45,
+					"description": "Nombre de jours avant expiration. Cette valeur met à jour la date d'expiration pour toute les démarches. Facultatif, numérique (10 digits max)"
+				},
+				"statutInitial": {
+					"description": "Evénement initial de la démarche, Objet JSON",
+					"$ref": "#/definitions/EvenementDemarcheApiDto",
+					"originalRef": "EvenementDemarcheApiDto"
+				}
+			},
+			"title": "DemarcheApiDto",
+			"description": "Une démarche utilisateur. Constituée d'une liste d'évenements, qui décrivent l'historique de la démarche"
+		},
+		"EvenementDemarcheApiDto": {
+			"type": "object",
+			"required": [
+				"statut"
+			],
+			"properties": {
+				"actions": {
+					"type": "array",
+					"description": "liste d’actions à afficher dans le fil d’activité SP pour chaque message de suivi",
+					"items": {
+						"$ref": "#/definitions/ActionLienApiDto",
+						"originalRef": "ActionLienApiDto"
+					}
+				},
+				"date": {
+					"type": "string",
+					"example": "2015-09-22T13:52:25.740Z",
+					"description": "Date de l'évenement au format yyyy-MM-dd'T'HH:mm:ss.SSS'Z'. Date courante si nulle. "
+				},
+				"idDemarcheComplementaire": {
+					"type": "string",
+					"example": "REF_14323",
+					"description": "Identifiant de la démarche complémentaire. Facultatif, format alphanumérique (255 caractères max)"
+				},
+				"message": {
+					"type": "string",
+					"example": "Il nous manque votre déclaration N320",
+					"description": "Message pour l'utilisateur. Facultatif, alphanumérique (2000 caractèers max)"
+				},
+				"origine": {
+					"type": "string",
+					"example": "INFORMATIONS ADMINISTRATIVES ET LÉGALES",
+					"description": "Origine de la démarche. Facultatif, format alphanumérique (100 caractères max)"
+				},
+				"statut": {
+					"type": "string",
+					"example": "enregistre_brouillon",
+					"description": "Type du statut. Les statuts reconnus sont : termine, en_cours_instruction, envoye_transmis, enregistre_brouillon, demande_complementaire, demande_expiree, non_recevable. Tout autre statut sera accepté, mais affiché en 'inconnu'. Obligatoire, format alphanumérique (100 caractères max)."
+				},
+				"url": {
+					"type": "string",
+					"example": "https://www.url.acces.demarche/",
+					"description": "URL pour accéder à la démarche sur PSL. Facultatif, format alphanumérique (2048 caractères max)"
+				}
+			},
+			"title": "EvenementDemarcheApiDto",
+			"description": "Statut d'une démarche. Une démarche est constituée d'une suite de statuts (création, maj, maj..)"
+		},
+		"InformationsAssociationApiDto": {
+			"type": "object",
+			"properties": {
+				"activitesPrincipalesRealisees": {
+					"type": "string",
+					"description": "(Déprécié- non pris en compte) Activités principales réalisées"
+				},
+				"affiliationA": {
+					"type": "string",
+					"example": "URBA NATIONALE",
+					"description": "(Déprécié - non pris en compte) si l'association est affiliée à une association mère"
+				},
+				"assoComptabilite": {
+					"description": "(Déprécié - non pris en compte) Comptabilité, au format objet JSON AssoComptabilite",
+					"$ref": "#/definitions/AssoComptabiliteApiDto",
+					"originalRef": "AssoComptabiliteApiDto"
+				},
+				"contact": {
+					"description": "(Déprécié- non pris en compte)  Informations de contact de l'association",
+					"$ref": "#/definitions/AssoInfosContactApiDto",
+					"originalRef": "AssoInfosContactApiDto"
+				},
+				"datePublicationRegistreAssociation": {
+					"type": "string",
+					"description": "(Déprécié - non pris en compte)  Date de publication au registre des associations. Format yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+				},
+				"donneesRH": {
+					"description": "(Déprécié- non pris en compte) Données RH, au format objet JSON DonneesRH",
+					"$ref": "#/definitions/AssoRHApiDto",
+					"originalRef": "AssoRHApiDto"
+				},
+				"informationsComplementaires": {
+					"description": "(Déprécié- non pris en compte) Informations complémentaires, au format objet JSON AssoInfosComplementaires",
+					"$ref": "#/definitions/AssoInfosComplementairesApiDto",
+					"originalRef": "AssoInfosComplementairesApiDto"
+				},
+				"membresBureau": {
+					"type": "array",
+					"description": "(Déprécié- non pris en compte) Liste des membres du bureau, au format objet JSON AssoMembreBureau",
+					"items": {
+						"$ref": "#/definitions/AssoMemberBureauApiDto",
+						"originalRef": "AssoMemberBureauApiDto"
+					}
+				},
+				"nom": {
+					"type": "string",
+					"example": "URBALOVE PARIS",
+					"description": "Nom"
+				},
+				"numeroRNA": {
+					"type": "string",
+					"example": "W060706621",
+					"description": "Numéro de l'association dans le Registre National des Associations. Format alphanumérique (10 caractères)"
+				},
+				"patrimoineImmobilier": {
+					"type": "array",
+					"description": "(Déprécié - non pris en compte) Liste des immeubles dont l'association est propriétaire, au format objet JSON AssoPatrimoineImmobilier",
+					"items": {
+						"$ref": "#/definitions/AssoPatrimoineImmobilierApiDto",
+						"originalRef": "AssoPatrimoineImmobilierApiDto"
+					}
+				},
+				"typeAsso": {
+					"type": "string",
+					"example": "NATIONALE",
+					"description": "(Déprécié) - non pris en compte) Type association : nationale, internationale..."
+				}
+			},
+			"title": "InformationsAssociationApiDto",
+			"description": "Décrit les informations de l'association"
+		},
+		"InformationsParticulierApiDto": {
+			"type": "object",
+			"properties": {
+				"adresse": {
+					"description": "Adresse principale, au format objet JSON Adresse",
+					"$ref": "#/definitions/AdresseApiDto",
+					"originalRef": "AdresseApiDto"
+				},
+				"civilite": {
+					"type": "string",
+					"example": "m",
+					"description": "Civilité. Valeurs reconnues : m, mme"
+				},
+				"codeInseeDeNaissance": {
+					"type": "string",
+					"example": 38546,
+					"description": "Conde INSEE de la commune de naissance. Facultatif, format numérique (nb max caractères = 50, après chiffrement)"
+				},
+				"codeInseePaysDeNaissance": {
+					"type": "string",
+					"example": 99351,
+					"description": "code INSEE pays de naissance.)"
+				},
+				"communeDeNaissance": {
+					"type": "string",
+					"example": "Nantes",
+					"description": "Nom de la commune de naissance. Facultatif, format alphanumérique (nb max caractères = 500, après chiffrement)"
+				},
+				"dateDeNaissance": {
+					"type": "string",
+					"example": "2015-01-01T00:00:00.000Z",
+					"description": "Date de naissance au format yyyy-MM-dd'T'HH:mm:ss.SSS'Z'. Facultatif"
+				},
+				"departementDeNaissance": {
+					"type": "string",
+					"example": "Loire Atlantique",
+					"description": "Nom du département de naissance. Facultatif, format alphanumérique (nb max caractères = 500, après chiffrement)"
+				},
+				"email": {
+					"type": "string",
+					"example": "georges.martin@gmail.com",
+					"description": "E-mail de correspondance. Obligatoire, Format email (255 caractères max)"
+				},
+				"membresFamille": {
+					"type": "array",
+					"description": "Liste des membres de la famille, au format objet JSON MembreFamille",
+					"items": {
+						"$ref": "#/definitions/MembreFamilleApiDto",
+						"originalRef": "MembreFamilleApiDto"
+					}
+				},
+				"nom": {
+					"type": "string",
+					"example": "MARTIN",
+					"description": "Nom. Facultatif, format alphanumérique (nb max caractères = 500, après chiffrement)"
+				},
+				"nomDeNaissance": {
+					"type": "string",
+					"example": "MAISONNEUVE",
+					"description": "Nom de naissance. Facultatif, format alphanumérique (nb max caractères = 500, après chiffrement)"
+				},
+				"paysDeNaissance": {
+					"type": "string",
+					"example": "France",
+					"description": "Nom du pays de naissance. Facultatif, format alphanumérique (nb max caractères = 500, après chiffrement)"
+				},
+				"prenoms": {
+					"type": "string",
+					"example": "Georges Cyril Jean-Louis",
+					"description": "Liste des prénoms du particulier, séparés par un espace.  Facultatif, format alphanumérique (nb max caractères = 500, après chiffrement)"
+				},
+				"sexe": {
+					"type": "integer",
+					"format": "int64",
+					"example": 1,
+					"description": "Sexe : 0 (inconnu), 1 (homme), 2 (femme). Facultatif (homme, par défaut)"
+				},
+				"situationFamiliale": {
+					"type": "string",
+					"example": "marie",
+					"description": "Situation familiale. Valeurs reconnues : marie, celibataire, divorce, veuf, pacse, concubinage. Facultatif, format alphanumérique (nb max caractères = 500, après chiffrement) "
+				},
+				"telephoneFixe": {
+					"description": "Numéro de téléphone fixe, au format objet JSON Téléphone",
+					"$ref": "#/definitions/TelephoneApiDto",
+					"originalRef": "TelephoneApiDto"
+				},
+				"telephoneMobile": {
+					"description": "Numéro de téléphone mobile, au format objet JSON Téléphone",
+					"$ref": "#/definitions/TelephoneApiDto",
+					"originalRef": "TelephoneApiDto"
+				}
+			},
+			"title": "InformationsParticulierApiDto",
+			"description": "Décrit les informations principales d'un particulier"
+		},
+		"MembreFamilleApiDto": {
+			"type": "object",
+			"properties": {
+				"dateDeNaissance": {
+					"type": "string",
+					"description": "Date de naissance"
+				},
+				"id": {
+					"type": "string",
+					"example": 1337,
+					"description": "id"
+				},
+				"nom": {
+					"type": "string",
+					"example": "MARTIN",
+					"description": "Nom"
+				},
+				"prenom": {
+					"type": "string",
+					"example": "Gus",
+					"description": "Prénom"
+				},
+				"sexe": {
+					"type": "string",
+					"example": "m",
+					"description": "Sexe. m ou f"
+				}
+			},
+			"title": "MembreFamilleApiDto",
+			"description": "Décrit un membre de la famille"
+		},
+		"MetadonneesDocumentApiDto": {
+			"type": "object",
+			"required": [
+				"nom"
+			],
+			"properties": {
+				"commentaire": {
+					"type": "string",
+					"example": "Ma carte d'identité",
+					"description": "Commentaire libre pour l'usager. Format alphanumérique (1000 caractères maximum)"
+				},
+				"dateDepot": {
+					"type": "string",
+					"example": "2017-01-23T11:22:55.212Z",
+					"description": "Date de dépôt du document. Transmise au format yyyy-MM-dd'T'HH:mm:ss.SSS'Z'. Lecture seule, ignoré en POST"
+				},
+				"dateFinValidite": {
+					"type": "string",
+					"example": "2017-01-23T11:22:55.212Z",
+					"description": "Date de fin de validité du document. Transmise au format yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+				},
+				"hashSha256": {
+					"type": "string",
+					"description": "Hash du fichier, calculé en SHA-256. Format alphanumérique (255 caractères maximum). Fourni en GET, optionnel en POST (si fourni, hash vérifié en fin d'upload)"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int64",
+					"example": 664582,
+					"description": "Identifiant technique du document. Format numérique (19 digits maximum). Lecture seule, ignoré en POST."
+				},
+				"idDemarche": {
+					"type": "string",
+					"example": "DEM_1234",
+					"description": "Identifiant (numéro télédossier) de la démarche dans le cas d'un document remonté au cours d'une démarche. Format alphanumérique (255 caractères maximum)"
+				},
+				"nom": {
+					"type": "string",
+					"example": "Ma carte nationale d'identité.jpg",
+					"description": "Nom du document. Format alphanumérique (255 caractères maximum) "
+				},
+				"origine": {
+					"type": "string",
+					"example": "Inscriptionsur Liste Electorale - Mairie de Paris",
+					"description": "Origine/provenance du document (personnel, remonté par une administration, etc. Format alphanumérique (255 caractères maximum)"
+				},
+				"taille": {
+					"type": "integer",
+					"format": "int64",
+					"example": 255145852,
+					"description": "Poids, en octets. Format numérique (19 digits maximum). Lecture seule, ignoré en POST"
+				},
+				"type": {
+					"type": "string",
+					"example": "impots_et_fiscalite",
+					"description": "Type du document. Champ libre. Format alphanumérique (255 caractères maximum). Reconnu par l'API : 'papiers_identite', 'contrats_et_actes', 'diplomes_universitaires_et_professionnels', 'factures_et_garanties', 'finances_banque_assurance', 'impots_et_fiscalite', 'logement', 'sante', 'vie_professionnelle', 'vehicule', 'recepisse'"
+				}
+			},
+			"title": "MetadonneesDocumentApiDto",
+			"description": "Métadonnées d'un document"
+		},
+		"TelephoneApiDto": {
+			"type": "object",
+			"properties": {
+				"indicatif": {
+					"type": "string",
+					"example": "+33",
+					"description": "Indicatif du pays. Facultatif, format alphanumérique (nb max caractères = 500, après chiffrement)"
+				},
+				"numero": {
+					"type": "string",
+					"example": "0123456789",
+					"description": "Numéro de téléphone. Facultatif, format alphanumérique (nb max caractères = 500, après chiffrement)"
+				}
+			},
+			"title": "TelephoneApiDto"
+		},
+		"UserInfoApiDto": {
+			"type": "object",
+			"properties": {
+				"accountType": {
+					"type": "string",
+					"example": "particulier",
+					"description": "Type de compte particulier ou association. 2 valeurs possibles particulier/association",
+					"enum": [
+						"association",
+						"particulier"
+					]
+				},
+				"email": {
+					"type": "string",
+					"example": "georges.martin@gmail.com",
+					"description": "E-mail de correspondance. Format alphanumérique/email (255 caractères max)"
+				},
+				"franceConnect": {
+					"type": "boolean",
+					"example": false,
+					"description": "Indique si l'utilisateur est France connecté ou non"
+				},
+				"sub": {
+					"type": "string",
+					"example": "ebcb2196-df7c-447d-bf88-41fc1d9d8a8c",
+					"description": "Identifiant technique unique pour le compte fonctionnel utilisateur (particulier ou association). Format alphanumérique (255 caractèers max)"
+				}
+			},
+			"title": "UserInfoApiDto",
+			"description": "Décrit les informations principales d'un utilisateur suivant la spécifiation OpenID Connect"
+		}
+	}
+}

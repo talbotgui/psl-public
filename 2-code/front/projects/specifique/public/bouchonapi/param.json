@@ -1,0 +1,558 @@
+{
+	"codeDemarche": "jechangedecoordonnees",
+	"versionConfiguration": "1.0.0",
+	"fonctionnalites": {
+		"brouillon": true
+	},
+	"titre": "Déclaration de changement de coordonnées",
+	"pointsEntree": [],
+	"valeursInitiales": {
+		"adresseAvant_estFrance": "true",
+		"destinatairesActifs_agirc": true,
+		"destinatairesActifs_camieg": true,
+		"destinatairesActifs_cdc": true,
+		"destinatairesActifs_cnav": true,
+		"destinatairesActifs_cnmss": true,
+		"destinatairesActifs_cpam": true,
+		"destinatairesActifs_enim": false,
+		"destinatairesActifs_laposte": true,
+		"destinatairesActifs_msa": true
+	},
+	"pages": [
+		{
+			"titre": "Avant de commencer",
+			"titreAriane": "Avant de commencer",
+			"exclueDuFilDariane": false,
+			"blocs": [
+				{
+					"titre": "",
+					"aide": "",
+					"contenus": [
+						{
+							"type": "paragraphe",
+							"style": "",
+							"texte": "<p>Informez rapidement et facilement les principaux organismes publics et privés de votre changement d’adresse postale lié à un déménagement ou à une modification administrative, mais également de votre</p><ul><li>Changement d’adresse électronique</li><li>Changement de téléphone fixe</li><li>Changement de téléphone portable</li></ul>"
+						}
+					]
+				},
+				{
+					"titre": "Informations sur le changement d’adresse postale",
+					"aideTitre": "",
+					"aide": "",
+					"contenus": [
+						{
+							"titre": "Date d'effet (JJ/MM/AAAA)",
+							"aide": "Si la date d'effet saisie est comprise entre 3 mois avant et 1 mois après la date d'aujourd'hui, votre demande sera transmise à la totalité des organismes publics et privés. Dans le cas contraire, votre demande ne pourra être transmise qu'à une liste restreinte d'organismes.",
+							"type": "date",
+							"clef": "dateEffet",
+							"validationsSimples": [
+								"required",
+								"dateFuture"
+							]
+						},
+						{
+							"type": "paragraphe",
+							"style": "",
+							"texte": "Avec la date d’effet renseignée, vous pourrez choisir d’avertir les organismes suivants de votre changement d’adresse",
+							"conditionVisibilite": "!!dateEffet"
+						},
+						{
+							"type": "paragraphe",
+							"style": "",
+							"texte": "<p class=\"text-center img-organisme\"><img src=\"./jechangedecoordonnees/logoCdc.gif\" alt=\"\" /></p><p class=\"text-center\">CDC Retraites et solidarité (fonds gérés par la Caisse des dépôts)</p>",
+							"aide": "<p>Si vous relevez au moins d’un des régimes gérés par la Caisse des dépôts (CNRACL, FSPOEIE, IRCANTEC, RAFP, SASPA, MINES…) vous pouvez nous déclarer votre changement de coordonnées.</p><p>Vous aurez besoin de votre <strong>numéro de sécurité sociale </strong>(présent sur votre carte Vitale)</p>",
+							"conditionVisibilite": "!!dateEffet && destinatairesActifs_cdp"
+						},
+						{
+							"type": "paragraphe",
+							"style": "",
+							"texte": "<p class=\"text-center img-organisme\"><img src=\"./jechangedecoordonnees/logoAnts.png\" alt=\"\" /></p><p class=\"text-center\">Système d’Immatriculation des Véhicules</p>",
+							"aide": "<p>Si vous êtes titulaire d'un certificat d'immatriculation (au format AA-123-AA), vous pouvez déclarer votre changement d'adresse dans le délai d'un mois. Vous recevrez une étiquette à apposer sur votre certificat. Au quatrième changement d'adresse, vous devrez vous rendre sur le site de l'ANTS, ants.gouv.fr (réédition d'un certificat d'immatriculation).</p><p>Pour chacun des véhicules concernés par votre demande, vous devez vous munir de votre certificat d’immatriculation et indiquer le <strong> numéro d’immatriculation </strong> et le<strong> numéro de formule.</strong></p>",
+							"conditionVisibilite": "!!dateEffet && destinatairesActifs_ants"
+						},
+						{
+							"type": "paragraphe",
+							"style": "",
+							"texte": "<p class=\"text-center img-organisme\"><img src=\"./jechangedecoordonnees/logoEngie.jpg\" alt=\"\" /></p><p class=\"text-center\">ENGIE</p>",
+							"aide": "<p>Vous allez recevoir un courriel de confirmation de prise en compte de votre déclaration de changement de coordonnées. Pour finaliser votre demande de nouveau contrat d’électricité et/ou de gaz naturel en ligne, il vous suffira de cliquer sur le lien <a rel=\"noopener noreferrer\" href=\"http://particuliers.engie.fr\" target=\"_blank\" title=\"http://particuliers.engie.fr - Nouvelle fenêtre\">http://particuliers.engie.fr <span aria-hidden=\"true\" class=\"icon icon-external-link\"></span></a> , indiqué sur le courriel. Pour résilier le contrat de votre ancien logement, il vous suffira de suivre les instructions communiquées dans le courriel.</p><p>Vous aurez besoin de votre <strong> référence client </strong> qui figure sur vos factures.</p>",
+							"conditionVisibilite": "!!dateEffet && destinatairesActifs_engie"
+						},
+						{
+							"type": "paragraphe",
+							"style": "",
+							"texte": "<p class=\"text-center img-organisme\"><img src=\"./jechangedecoordonnees/logoEnercoop.jpg\" alt=\"\" /></p><p class=\"text-center\">Enercoop, électricité 100% renouvelable</p>",
+							"aide": "<p>Vous êtes sur le point de déclarer votre changement d'adresse. Pour vous aider à finaliser votre demande, une personne de notre équipe prendra contact avec vous dans les prochains jours, par mail ou par téléphone.<br><br>Vous pouvez également nous joindre au 09.70.68.07.65, du lundi au vendredi, de 9h à 18h ou vous rendre sur notre site internet <a rel=\"noopener noreferrer\" href=\"http://www.enercoop.org\" target=\"_blank\" title=\"http://www.enercoop.org - Nouvelle fenêtre\">www.enercoop.org <span aria-hidden=\"true\" class=\"icon icon-external-link\"></span></a><br><br>La coopérative d'électricité vraiment verte et locale qui donne le pouvoir aux citoyen.ne.s d'agir sur leur énergie !</p>",
+							"conditionVisibilite": "!!dateEffet && destinatairesActifs_enercoop"
+						},
+						{
+							"type": "paragraphe",
+							"style": "",
+							"texte": "<p class=\"text-center img-organisme\"><img src=\"./jechangedecoordonnees/logoAgirc.gif\" alt=\"\" /></p><p class=\"text-center\">AGIRC et ARRCO</p>",
+							"aide": "<p>Les salariés et retraités du secteur privé sont inscrits auprès d’une caisse de retraite Arrco et éventuellement auprès d’une caisse Agirc. Vous pouvez leur signaler votre changement de coordonnées.</p><p>Vous aurez besoin des informations suivantes : <strong>numéro de sécurité sociale </strong> (présent sur votre carte Vitale, vos bulletins de salaire ou vos avis de paiement de l’Assédic) et votre date de naissance</p>",
+							"conditionVisibilite": "!!dateEffet && destinatairesActifs_agirc"
+						},
+						{
+							"type": "paragraphe",
+							"style": "",
+							"texte": "<p class=\"text-center img-organisme\"><img src=\"./jechangedecoordonnees/logoCaf.gif\" alt=\"\" /></p><p class=\"text-center\">Caisse d’Allocations Familiales</p>",
+							"aide": "<p>Le changement de coordonnées doit être effectué par le responsable du dossier d’allocataire : une seule déclaration suffit pour toutes les personnes au foyer qui vont continuer à vivre ensemble.</p><p><strong>Attention : </strong>Si le changement de coordonnées concerne, au sein du foyer, plusieurs numéros d’allocataire, chaque allocataire doit faire son propre changement d’adresse sur ce site.</p><p>Vous aurez besoin de votre <strong>numéro d’allocataire,</strong> présent sur l’ensemble des documents adressés par votre Caf.</p>",
+							"conditionVisibilite": "!!dateEffet && destinatairesActifs_caf"
+						},
+						{
+							"type": "paragraphe",
+							"style": "",
+							"texte": "<p class=\"text-center img-organisme\"><img src=\"./jechangedecoordonnees/logoCapam.png\" alt=\"\" /></p><p class=\"text-center\">Caisse Primaire d’Assurance Maladie et CGSS</p>",
+							"aide": "<p>Vous pouvez signaler le changement de coordonnées pour chaque assuré social du régime général de l’assurance maladie.</p><p>Vous aurez besoin de votre <strong>numéro de sécurité sociale </strong>(présent sur votre carte Vitale)</p>",
+							"conditionVisibilite": "!!dateEffet && destinatairesActifs_cpam"
+						},
+						{
+							"type": "paragraphe",
+							"style": "",
+							"texte": "<p class=\"text-center img-organisme\"><img src=\"./jechangedecoordonnees/logoCnav.gif\" alt=\"\" /></p><p class=\"text-center\">CNAV, CARSAT, CRAV ou CGSS (Régime Général)</p>",
+							"aide": "<p>Vous pouvez nous signaler votre changement de coordonnées si :</p> <br><ul class=\"paddingLeft\"><li>vous êtes retraité(e) du régime général</li><li>vous avez déposé une demande</li><li>vous avez un dossier en cours</li></ul><p>Vous aurez besoin de votre <strong>numéro de sécurité sociale </strong>(présent sur votre carte Vitale)</p><p>Vous pouvez nous signaler votre changement de coordonnées si :</p> <br><ul class=\"paddingLeft\"><li>vous êtes retraité(e) du régime général</li><li>vous avez déposé une demande</li><li>vous avez un dossier en cours</li></ul><p>Vous aurez besoin de votre <strong>numéro de sécurité sociale </strong>(présent sur votre carte Vitale)</p>",
+							"conditionVisibilite": "!!dateEffet && destinatairesActifs_cnav"
+						},
+						{
+							"type": "paragraphe",
+							"style": "",
+							"texte": "<p class=\"text-center img-organisme\"><img src=\"./jechangedecoordonnees/logoDgfip.png\" alt=\"\" /></p><p class=\"text-center\">Centres des finances publiques (services des impôts des particuliers, trésorerie)</p>",
+							"aide": "<p>Vous pouvez signaler à votre centre des finances publiques le changement de coordonnées de votre foyer fiscal, c’est-à-dire de l’ensemble des personnes figurant sur votre déclaration de revenus. La prise en compte des changements de coordonnées est réalisée de manière régulière, d’avril à janvier.</p><p>Vous aurez besoin de votre <strong> numéro fiscal </strong> et de  <strong> celui du conjoint ou du partenaire PACS </strong> que vous pouvez trouver sur la première page de votre déclaration de revenus ou dans le cadre « vos références » de votre dernier avis d’imposition.</p>",
+							"conditionVisibilite": "!!dateEffet && destinatairesActifs_dgfip"
+						},
+						{
+							"type": "paragraphe",
+							"style": "",
+							"texte": "<p class=\"text-center img-organisme\"><img src=\"./jechangedecoordonnees/logoEdf.jpg\" alt=\"\" /></p><p class=\"text-center\">EDF</p>",
+							"aide": "<p>Vous allez recevoir un courriel de confirmation d’EDF.<br>Pour finaliser votre demande de changement d’adresse, il vous suffira soit de cliquer sur le lien présent dans ce courriel, soit de contacter notre service client au 3004 pour souscrire nos nouvelles offres (service et appel gratuit).<br>Déménagez sans effort avec EDF !</p>",
+							"conditionVisibilite": "!!dateEffet && destinatairesActifs_edf"
+						},
+						{
+							"type": "paragraphe",
+							"style": "",
+							"texte": "<p class=\"text-center img-organisme\"><img src=\"./jechangedecoordonnees/logoCamieg.png\" alt=\"\" /></p><p class=\"text-center\">Caisse d’Assurance Maladie des Industries Electriques et Gazières</p>",
+							"aide": "<p>Vous pouvez signaler le changement de coordonnées pour chaque assuré social de la CAMIEG.</p> <p>Vous aurez besoin de votre <strong>numéro de sécurité sociale</strong> (présent sur votre carte Vitale).</p>",
+							"conditionVisibilite": "!!dateEffet && destinatairesActifs_camieg"
+						},
+						{
+							"type": "paragraphe",
+							"style": "",
+							"texte": "<p class=\"text-center img-organisme\"><img src=\"./jechangedecoordonnees/logoEnim.jpg\" alt=\"\" /></p><p class=\"text-center\">Etablissement National des Invalides de la  Marine</p>",
+							"aide": "<p>Vous pouvez signaler le changement de coordonnées pour chaque particulier inscrit à l’Enim (Etablissement National des Invalides de la  Marine), le régime social des marins. Il sera pris en compte pour les éventuelles prestations maladie, prestations familiales et vieillesse.<br>Vous aurez besoin de votre numéro de sécurité sociale (présent sur les documents adressés par l’Enim ainsi que sur votre carte Vitale)</p>",
+							"conditionVisibilite": "!!dateEffet && destinatairesActifs_enim"
+						},
+						{
+							"titre": "Objet du changement",
+							"type": "radio",
+							"clef": "objetDuChangement",
+							"valeurs": [
+								{
+									"valeur": "demenagement",
+									"libelle": "Déménagement"
+								},
+								{
+									"valeur": "modificationAdministrative",
+									"libelle": "Modification administrative"
+								}
+							],
+							"validationsSimples": [
+								"required"
+							]
+						},
+						{
+							"type": "paragraphe",
+							"texte": "Plusieurs communes sont également partenaires du dispositif. Si les communes que vous renseignez ont adhéré au service, vous aurez la possibilité au cours de votre démarche de les informer de votre changement de coordonnées."
+						},
+						{
+							"type": "paragraphe",
+							"texte": "Nous vous conseillons de vous munir d’une pièce (courrier, attestation, facture) contenant votre identification afin d’effectuer une déclaration complète."
+						},
+						{
+							"type": "paragraphe",
+							"texte": "Vous pourrez à tout moment enregistrer votre démarche afin de la compléter ultérieurement."
+						}
+					]
+				},
+				{
+					"titre": "Autres coordonnées à changer",
+					"aide": "",
+					"contenus": [
+						{
+							"type": "paragraphe",
+							"texte": "En plus de votre changement de coordonnées postales, nous vous proposons d’effectuer la déclaration pour d’autres types de coordonnées :",
+							"aide": "une aide sur un paragraphe avec une <b>balise de gras</b>"
+						},
+						{
+							"titre": "Adresse électronique",
+							"aide": "Test de l'aide",
+							"type": "case",
+							"clef": "coordonneeAchangerEmail"
+						},
+						{
+							"titre": "Téléphone fixe",
+							"aide": "",
+							"type": "case",
+							"clef": "coordonneeAchangerTelephoneFixe"
+						},
+						{
+							"titre": "Téléphone portable",
+							"aide": "",
+							"type": "case",
+							"clef": "coordonneeAchangerTelephonePortable"
+						}
+					]
+				}
+			]
+		},
+		{
+			"titre": "Mes informations personnelles",
+			"titreAriane": "Mes informations personnelles",
+			"exclueDuFilDariane": false,
+			"blocs": [
+				{
+					"titre": "",
+					"aide": "",
+					"contenus": [
+						{
+							"titre": "",
+							"aide": "",
+							"type": "identite",
+							"clef": "identite",
+							"champsVisibles": [
+								"civilite",
+								"nomFamille",
+								"nomUsage",
+								"prenoms",
+								"dateNaissance"
+							],
+							"aides": {
+								"nomFamille": "Il s’agit du nom tel qu’écrit sur votre acte de naissance.",
+								"nomUsage": "Il s’agit du nom utilisé dans la vie quotidienne et présent sur les documents officiels d’identité mais différents du nom de naissance.",
+								"prenoms": "Vous pouvez indiquer uniquement votre prénom usuel."
+							},
+							"validationsComplexes": {
+								"civilite": [
+									"required"
+								],
+								"nomFamille": [
+									"required"
+								],
+								"prenoms": [
+									"required"
+								],
+								"dateNaissance": [
+									"required",
+									"datePassee"
+								]
+							}
+						}
+					]
+				},
+				{
+					"titre": "Adresse postale avant le déménagement",
+					"aide": "",
+					"contenus": [
+						{
+							"titre": "",
+							"type": "adresseFrOuEtr",
+							"clef": "adresseAvant",
+							"champsVisibles": [
+								"etage",
+								"immeuble",
+								"voie",
+								"boitePostale",
+								"communeActuelle"
+							],
+							"validationsComplexes": {
+								"voie": [
+									"required"
+								],
+								"communeActuelle": [
+									"required"
+								]
+							}
+						}
+					]
+				},
+				{
+					"titre": "Anciennes coordonnées de contacts",
+					"aide": "",
+					"contenus": [
+						{
+							"titre": "Adresse électronique (Exemple : nom@exemple.com)",
+							"aide": "",
+							"type": "saisie",
+							"clef": "emailAvant",
+							"validationsSimples": [
+								"required",
+								"email"
+							],
+							"conditionVisibilite": "coordonneeAchangerEmail === 'true'"
+						},
+						{
+							"titre": "Téléphone fixe (Exemple: 0123456789)",
+							"aide": "",
+							"type": "saisie",
+							"clef": "telephoneFixeAvant",
+							"validationsSimples": [
+								"required",
+								"telephoneFR"
+							],
+							"conditionVisibilite": "coordonneeAchangerTelephoneFixe === 'true'"
+						},
+						{
+							"titre": "Téléphone portable (Exemple: 0623456789)",
+							"aide": "",
+							"type": "saisie",
+							"clef": "telephonePortableAvant",
+							"validationsSimples": [
+								"required",
+								"telephoneFR"
+							],
+							"conditionVisibilite": "coordonneeAchangerTelephonePortable === 'true'"
+						}
+					]
+				}
+			]
+		},
+		{
+			"titre": "Mes nouvelles coordonnées",
+			"titreAriane": "Mes nouvelles coordonnées",
+			"exclueDuFilDariane": false,
+			"blocs": [
+				{
+					"titre": "Adresse postale après le déménagement",
+					"aide": "",
+					"contenus": [
+						{
+							"titre": "",
+							"type": "adresseFrOuEtr",
+							"clef": "adresseApres",
+							"champsVisibles": [
+								"estFrance",
+								"paysETR",
+								"adresseETR",
+								"etage",
+								"immeuble",
+								"voie",
+								"boitePostale",
+								"communeActuelle"
+							],
+							"validationsComplexes": {
+								"voie": [
+									"required"
+								],
+								"communeActuelle": [
+									"required"
+								]
+							}
+						}
+					]
+				},
+				{
+					"titre": "Nouvelles coordonnées de contacts",
+					"aide": "",
+					"contenus": [
+						{
+							"titre": "Adresse électronique (Exemple : nom@exemple.com)",
+							"aide": "",
+							"type": "saisie",
+							"clef": "emailApres",
+							"validationsSimples": [
+								"required",
+								"email"
+							],
+							"conditionVisibilite": "coordonneeAchangerEmail === 'true'"
+						},
+						{
+							"titre": "Téléphone fixe (Exemple: 0123456789)",
+							"aide": "",
+							"type": "saisie",
+							"clef": "telephoneFixeApres",
+							"validationsSimples": [
+								"required",
+								"telephoneFR"
+							],
+							"conditionVisibilite": "coordonneeAchangerTelephoneFixe === 'true'"
+						},
+						{
+							"titre": "Téléphone portable (Exemple: 0623456789)",
+							"aide": "",
+							"type": "saisie",
+							"clef": "telephonePortableApres",
+							"validationsSimples": [
+								"required",
+								"telephoneFR"
+							],
+							"conditionVisibilite": "coordonneeAchangerTelephonePortable === 'true'"
+						}
+					]
+				}
+			]
+		},
+		{
+			"titre": "Les organismes destinataires",
+			"titreAriane": "Les organismes destinataires",
+			"exclueDuFilDariane": false,
+			"specifiqueAlaDemarche": true,
+			"blocs": [
+				{
+					"contenus": [
+						{
+							"clef": "destinatairesSelectionnees_agirc",
+							"titre": "Régimes ARRCO et AGIRC",
+							"type": "case"
+						},
+						{
+							"clef": "destinatairesSelectionnees_cnmss",
+							"titre": "Caisse Nationale Militaire de Sécurité Sociale (CNMSS)",
+							"type": "case"
+						},
+						{
+							"clef": "destinatairesSelectionnees_cpam",
+							"titre": "CPAM / CGSS",
+							"type": "case"
+						},
+						{
+							"clef": "destinatairesSelectionnees_cdc",
+							"titre": "Fonds gérés par la Caisse des dépots",
+							"type": "case"
+						},
+						{
+							"clef": "destinatairesSelectionnees_cnav",
+							"titre": "CNAV, CARSAT, CRAV ou CGSS (Régime général)",
+							"type": "case"
+						},
+						{
+							"clef": "destinatairesSelectionnees_msa",
+							"titre": "MSA",
+							"type": "case"
+						},
+						{
+							"clef": "destinatairesSelectionnees_camieg",
+							"titre": "CAMIEG",
+							"type": "case"
+						},
+						{
+							"clef": "destinatairesSelectionnees_enim",
+							"titre": "ENIM",
+							"type": "case"
+						},
+						{
+							"clef": "numeroSecu",
+							"titre": "Numéro de sécurité",
+							"type": "saisie"
+						},
+						{
+							"clef": "destinatairesSelectionnees_laposte",
+							"titre": "La Poste",
+							"type": "case"
+						}
+					]
+				}
+			]
+		},
+		{
+			"titre": "Récapitulatif et envoi",
+			"titreAriane": "Récapitulatif et envoi",
+			"exclueDuFilDariane": false,
+			"blocs": [
+				{
+					"titre": "",
+					"aide": "",
+					"contenus": [
+						{
+							"type": "paragraphe",
+							"texte": "Votre demande de changement de coordonnées est maintenant complète. Veuillez vérifier l'exactitude des données que vous avez communiquées."
+						},
+						{
+							"type": "recapitulatif"
+						}
+					]
+				},
+				{
+					"titre": "Coordonnées de contacts",
+					"aide": "",
+					"contenus": [
+						{
+							"type": "paragraphe",
+							"texte": "Ces informations pourront être utilisées par les organismes partenaires pour communiquer directement avec vous à l’issue de votre démarche :"
+						},
+						{
+							"titre": "Adresse électronique (Exemple : nom@exemple.com)",
+							"aide": "",
+							"type": "saisie",
+							"clef": "emailContact",
+							"validationsSimples": [
+								"required",
+								"email"
+							]
+						},
+						{
+							"titre": "Téléphone fixe (Exemple: 0123456789)",
+							"aide": "",
+							"type": "saisie",
+							"clef": "telephoneFixeContact",
+							"validationsSimples": [
+								"telephoneFR"
+							]
+						},
+						{
+							"titre": "Téléphone portable (Exemple: 0623456789)",
+							"aide": "",
+							"type": "saisie",
+							"clef": "telephonePortableContact",
+							"validationsSimples": [
+								"telephoneFR"
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"titre": "Récapitulatif et envoi",
+			"titreAriane": "Récapitulatif et envoi",
+			"exclueDuFilDariane": true,
+			"blocs": [
+				{
+					"titre": "",
+					"aide": "",
+					"contenus": [
+						{
+							"type": "finDemarche"
+						}
+					]
+				}
+			]
+		},
+		{
+			"titre": "Récapitulatif et envoi",
+			"titreAriane": "Récapitulatif et envoi",
+			"exclueDuFilDariane": true,
+			"blocs": [
+				{
+					"titre": "",
+					"aide": "",
+					"contenus": [
+						{
+							"type": "paragraphe",
+							"style": "succes",
+							"texte": "Votre demande a été transmise avec succès aux organismes destinataires sélectionnés. Votre dossier a été transmis."
+						},
+						{
+							"type": "paragraphe",
+							"texte": "Vous allez recevoir dans quelques instants, à l'adresse {{emailContact}}, un message de confirmation de transmission de votre dossier."
+						},
+						{
+							"type": "paragraphe",
+							"texte": "La référence de votre dossier : {{numeroTeledossier}}."
+						},
+						{
+							"type": "documents"
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,39 @@
+meta {
+  name: 026-Securite-refreshToken-tokenSP
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/securite/token
+  body: formUrlEncoded
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslSP}}
+}
+
+body:form-urlencoded {
+  grant_type: refresh_token
+  scope: openid offline_access profile email particulier
+  refresh_token: {{tokenPslSP}}
+  client_id: xxxxxxxxx
+  client_secret: bidon
+}
+
+vars:post-response {
+  tokenPslSP: res('access_token')
+}
+
+assert {
+  res.status: eq 200
+  res.body.access_token: isDefined
+  res.body.expires_in: isDefined
+  res.body.refresh_expires_in: isDefined
+  res.body.refresh_token: isDefined
+  res.body.token_type: isDefined
+  res.body.id_token: isDefined
+  res.body.session_state: isDefined
+  res.body.scope: isDefined
+}

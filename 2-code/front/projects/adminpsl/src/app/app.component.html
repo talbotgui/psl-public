@@ -1,0 +1,21 @@
+<app-entete></app-entete>
+
+<main class="main" id="main">
+  <div class="fr-container">
+
+    <app-menu></app-menu>
+
+    @if (dernierMessageAfficher) {
+      <div class="fr-alert" [class.fr-alert--error]="dernierMessageAfficher.isErreur"
+        [class.fr-alert--info]="dernierMessageAfficher.isInformation" [class.fr-alert--warning]="dernierMessageAfficher.isAvertissement">
+        <h3 class="fr-alert__title">Une erreur est survenue</h3>
+        <p>{{dernierMessageAfficher.message}}</p>
+      </div>
+    }
+
+    <router-outlet></router-outlet>
+
+  </div>
+</main>
+
+<app-pieddepage></app-pieddepage>

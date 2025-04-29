@@ -1,0 +1,23 @@
+---
+
+# Création du répertoire {{ applicatifs_rep }}{{ applicatif_nom }}
+- name: "[Installation] Répertoire '{{ applicatifs_rep }}{{ applicatif_nom }}'"
+  ansible.builtin.file:
+    path: "{{ applicatifs_rep }}{{ applicatif_nom }}"
+    state: "directory"
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+    mode: "{{ mode_rep_nominal }}"
+
+# Dépôt des fichiers (conf et log)
+# en utilisant une boucle avec with_fileglob qui liste les fichiers du(es) répertoire(s) dans une variable d'itération nommée 'item'
+# /!\ attention à l'indentation de 'with_fileglob' /!\
+- name: "[Installation] Dépôt des fichiers (conf, log et sh) dans '{{ applicatifs_rep }}{{ applicatif_nom }}/'"
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ applicatifs_rep }}{{ applicatif_nom }}/"
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+    mode: "{{ mode_fic_nominal }}"
+  with_fileglob:
+    - "{{ configuration_rep }}*"

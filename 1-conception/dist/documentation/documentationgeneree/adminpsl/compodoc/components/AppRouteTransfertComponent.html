@@ -1,0 +1,1400 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Composants</li>
+  <li class="breadcrumb-item"
+  >
+  AppRouteTransfertComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Fichier</h3>
+</p>
+<p class="comment">
+    <code>projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Etend</h3>
+    </p>
+    <p class="comment">
+                <code>AbstractComponent</code>
+    </p>
+
+    <p class="comment">
+        <h3>Implémente</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Métadonnées</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+            <tr>
+                <td class="col-md-3">encapsulation</td>
+                <td class="col-md-9"><code>ViewEncapsulation.None</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-routetransfert</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ReactiveFormsModule</code>
+                            <code>FormsModule</code>
+                            <code>MatTooltip</code>
+                            <code>DatePipe</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./app.routetransfert.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./app.routetransfert.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#codesDemarche" >codesDemarche</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dateDebut" >dateDebut</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dateFin" >dateFin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#listeDemarches" >listeDemarches</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#nombreElementsParPage" >nombreElementsParPage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#nombresElementsParPage" >nombresElementsParPage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#nombreTotalResultats" >nombreTotalResultats</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#numeroPage" >numeroPage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#numeroPageMax" >numeroPageMax</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#numeroTeledossier" >numeroTeledossier</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#rechercheEnCours" >rechercheEnCours</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#transferts" >transferts</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#rechercher" >rechercher</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectionnerPageEtRechercher" >selectionnerPageEtRechercher</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#traiterLocalisationDate" >traiterLocalisationDate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructeur</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(adminService: <a href="../injectables/AdminService.html" target="_self">AdminService</a>, logger: NGXLogger)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="64" class="link-to-prism">projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts:64</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructeur pour injection des dépendances</p>
+</div>
+                            <div>
+                                    <b>Paramètres :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nom</td>
+                                                    <td>Type</td>
+                                                <td>Optionnel</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>adminService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AdminService.html" target="_self" >AdminService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                    <code>NGXLogger</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="72"
+                                    class="link-to-prism">projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Au chargement du composant.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rechercher"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>rechercher</b></span>
+                        <a href="#rechercher"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>rechercher()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="95"
+                                    class="link-to-prism">projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Recherche des données</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectionnerPageEtRechercher"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>selectionnerPageEtRechercher</b></span>
+                        <a href="#selectionnerPageEtRechercher"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectionnerPageEtRechercher(noPage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="87"
+                                    class="link-to-prism">projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sélection d&#39;une page et recherche des données</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>noPage</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="traiterLocalisationDate"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>traiterLocalisationDate</b></span>
+                        <a href="#traiterLocalisationDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>traiterLocalisationDate(val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="115"
+                                    class="link-to-prism">projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Transformation d&#39;une chaine de caractère contenant une date ISO en date locale.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>val</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="codesDemarche"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>codesDemarche</b></span>
+                        <a href="#codesDemarche"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="45" class="link-to-prism">projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts:45</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Champs de recherche par codes de démarche</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dateDebut"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>dateDebut</b></span>
+                        <a href="#dateDebut"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Date | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="42" class="link-to-prism">projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts:42</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Champs de recherche par dates</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dateFin"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>dateFin</b></span>
+                        <a href="#dateFin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Date | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="43" class="link-to-prism">projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listeDemarches"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>listeDemarches</b></span>
+                        <a href="#listeDemarches"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="39" class="link-to-prism">projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts:39</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Pour le champs de sélection : liste des démarches.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nombreElementsParPage"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>nombreElementsParPage</b></span>
+                        <a href="#nombreElementsParPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>50</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="52" class="link-to-prism">projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts:52</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Pagination - nombre d&#39;éléments par page</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nombresElementsParPage"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>nombresElementsParPage</b></span>
+                        <a href="#nombresElementsParPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[10, 50, 100, 500]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="50" class="link-to-prism">projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts:50</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Pagination - nombres possibles d&#39;éléments par page</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nombreTotalResultats"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>nombreTotalResultats</b></span>
+                        <a href="#nombreTotalResultats"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="58" class="link-to-prism">projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts:58</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Pagination - nb total déléments.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="numeroPage"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>numeroPage</b></span>
+                        <a href="#numeroPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="54" class="link-to-prism">projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts:54</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Pagination - index de la page</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="numeroPageMax"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>numeroPageMax</b></span>
+                        <a href="#numeroPageMax"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="56" class="link-to-prism">projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts:56</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Pagination - index maximal possible de la page</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="numeroTeledossier"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>numeroTeledossier</b></span>
+                        <a href="#numeroTeledossier"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="47" class="link-to-prism">projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts:47</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Champs de recherche par numéro de télé-dossier</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rechercheEnCours"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>rechercheEnCours</b></span>
+                        <a href="#rechercheEnCours"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="64" class="link-to-prism">projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts:64</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Donnees - recherche en cours.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transferts"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>transferts</b></span>
+                        <a href="#transferts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/TransfertDansRechercheMulticriteres.html" target="_self" >TransfertDansRechercheMulticriteres[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="62" class="link-to-prism">projects/adminpsl/src/app/routes/routetransfert/app.routetransfert.ts:62</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Donnees - liste des éléments.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DatePipe } from &#x27;@angular/common&#x27;;
+import { Component, OnInit, ViewEncapsulation } from &#x27;@angular/core&#x27;;
+import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { MatTooltip } from &#x27;@angular/material/tooltip&#x27;;
+import { NGXLogger } from &#x27;ngx-logger&#x27;;
+import { AbstractComponent } from &#x27;../../../../../framework/src/lib/utilitaires/abstract.component&#x27;;
+import { TransfertDansRechercheMulticriteres } from &#x27;../../model/transfert.model&#x27;;
+import { AdminService } from &#x27;../../service/admin.service&#x27;;
+
+@Component({
+    selector: &#x27;app-routetransfert&#x27;, templateUrl: &#x27;./app.routetransfert.html&#x27;, encapsulation: ViewEncapsulation.None, styleUrls: [&#x27;./app.routetransfert.scss&#x27;],
+    standalone: true,
+    imports: [ReactiveFormsModule, FormsModule, MatTooltip, DatePipe]
+})
+export class AppRouteTransfertComponent extends AbstractComponent implements OnInit {
+
+    /** Pour le champs de sélection : liste des démarches. */
+    public listeDemarches: string[] &#x3D; [];
+
+    /** Champs de recherche par dates */
+    public dateDebut: Date | undefined;
+    public dateFin: Date | undefined;
+    /** Champs de recherche par codes de démarche */
+    public codesDemarche: string[] &#x3D; [];
+    /** Champs de recherche par numéro de télé-dossier */
+    public numeroTeledossier: string | undefined;
+
+    /** Pagination - nombres possibles d&#x27;éléments par page */
+    public nombresElementsParPage &#x3D; [10, 50, 100, 500];
+    /** Pagination - nombre d&#x27;éléments par page */
+    public nombreElementsParPage &#x3D; 50;
+    /** Pagination - index de la page */
+    public numeroPage &#x3D; 0;
+    /** Pagination - index maximal possible de la page */
+    public numeroPageMax &#x3D; 0;
+    /** Pagination - nb total déléments.  */
+    public nombreTotalResultats &#x3D; 0;
+
+
+    /** Donnees - liste des éléments. */
+    public transferts: TransfertDansRechercheMulticriteres[] &#x3D; [];
+    /** Donnees - recherche en cours. */
+    public rechercheEnCours &#x3D; false;
+
+    /** Constructeur pour injection des dépendances */
+    public constructor(private adminService: AdminService, private logger: NGXLogger) {
+        super();
+    }
+
+    /** Au chargement du composant. */
+    public ngOnInit(): void {
+
+        // Chargement de la liste des démarches
+        const sub &#x3D; this.adminService.listerCodesDemarche().subscribe(liste &#x3D;&gt; this.listeDemarches &#x3D; liste);
+        super.declarerSouscription(sub);
+
+        // Initialisation des champs par défaut (pas de fin et début à hier)
+        this.dateDebut &#x3D; new Date((new Date()).getTime() - (24 * 3600 * 1000));
+        this.dateFin &#x3D; undefined;
+
+        // Recherche par défaut
+        this.rechercher();
+    }
+
+    /** Sélection d&#x27;une page et recherche des données */
+    public selectionnerPageEtRechercher(noPage: number): void {
+        // Sélection de la page
+        this.numeroPage &#x3D; noPage;
+        // Recherche
+        this.rechercher();
+    }
+
+    /** Recherche des données */
+    public rechercher(): void {
+
+        // Traitement des paramètres
+        const params &#x3D; { dateDebut: this.dateDebut, dateFin: this.dateFin, codesDemarche: this.codesDemarche, numeroTeledossier: this.numeroTeledossier, numeroPage: this.numeroPage, nombreElementsParPage: this.nombreElementsParPage }
+        if (this.codesDemarche &amp;&amp; this.codesDemarche.length &#x3D;&#x3D;&#x3D; 1 &amp;&amp; this.codesDemarche[0] &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+            params.codesDemarche &#x3D; [];
+        }
+
+        // Appel
+        this.rechercheEnCours &#x3D; true;
+        this.adminService.rechercherTransferts(params).subscribe(pageResultats &#x3D;&gt; {
+            this.nombreTotalResultats &#x3D; pageResultats.nombreTotalResultats;
+            this.transferts &#x3D; pageResultats.resultats;
+            this.numeroPageMax &#x3D; Math.trunc((pageResultats.nombreTotalResultats - 1) / this.nombreElementsParPage);
+
+            this.rechercheEnCours &#x3D; false;
+        })
+    }
+
+    /** Transformation d&#x27;une chaine de caractère contenant une date ISO en date locale. */
+    public traiterLocalisationDate(val: string): Date {
+        return new Date(val);
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- Titre --&gt;
+&lt;div class&#x3D;&quot;fr-grid-row&quot;&gt;
+  &lt;h3&gt;Suivi des télé-dossiers&lt;/h3&gt;
+&lt;/div&gt;
+
+&lt;!-- Formulaire de recherche --&gt;
+&lt;div class&#x3D;&quot;fr-grid-row fr-grid-row--gutters&quot; role&#x3D;&quot;search&quot;&gt;
+  &lt;div class&#x3D;&quot;fr-col-4 fr-select-group&quot;&gt;
+    &lt;label class&#x3D;&quot;fr-label&quot; for&#x3D;&quot;codesDemarche&quot;&gt;Démarche(s)&lt;/label&gt;
+    &lt;select class&#x3D;&quot;fr-select&quot; id&#x3D;&quot;codesDemarche&quot; name&#x3D;&quot;codesDemarche&quot; [(ngModel)]&#x3D;&quot;codesDemarche&quot; multiple&#x3D;&quot;multiple&quot; size&#x3D;&quot;5&quot;
+      (keyup.enter)&#x3D;&quot;rechercher()&quot;&gt;
+      &lt;option&gt;&lt;/option&gt;
+      @for (code of listeDemarches; track code) {
+        &lt;option [value]&#x3D;&quot;code&quot;&gt;{{code}}&lt;/option&gt;
+      }
+    &lt;/select&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;fr-col-4&quot;&gt;
+    &lt;div class&#x3D;&quot; fr-input-group&quot;&gt;
+      &lt;label class&#x3D;&quot;fr-label&quot; for&#x3D;&quot;dateDebut&quot;&gt;Du&lt;/label&gt;
+      &lt;input class&#x3D;&quot;fr-input&quot; type&#x3D;&quot;datetime-local&quot; id&#x3D;&quot;dateDebut&quot; name&#x3D;&quot;dateDebut&quot; [ngModel]&#x3D;&quot;dateDebut | date:&#x27;yyyy-MM-ddTHH:mm&#x27;&quot;
+        (ngModelChange)&#x3D;&quot;dateDebut&#x3D;traiterLocalisationDate($event)&quot; (keyup.enter)&#x3D;&quot;rechercher()&quot; placeholder&#x3D;&quot;Date début&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;fr-input-group&quot;&gt;
+        &lt;label class&#x3D;&quot;fr-label&quot; for&#x3D;&quot;dateFin&quot;&gt;Au&lt;/label&gt;
+        &lt;input class&#x3D;&quot;fr-input&quot; type&#x3D;&quot;datetime-local&quot; id&#x3D;&quot;dateFin&quot; name&#x3D;&quot;dateFin&quot; [ngModel]&#x3D;&quot;dateFin | date:&#x27;yyyy-MM-ddTHH:mm&#x27;&quot;
+          (ngModelChange)&#x3D;&quot;dateFin&#x3D;traiterLocalisationDate($event)&quot; (keyup.enter)&#x3D;&quot;rechercher()&quot; placeholder&#x3D;&quot;Date fin&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;fr-col-4&quot;&gt;
+        &lt;div class&#x3D;&quot;fr-input-group&quot;&gt;
+          &lt;label class&#x3D;&quot;fr-label&quot; for&#x3D;&quot;numeroTeledossier&quot;&gt;Télé-dossier&lt;/label&gt;
+          &lt;input class&#x3D;&quot;fr-input&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;numeroTeledossier&quot; name&#x3D;&quot;numeroTeledossier&quot; [(ngModel)]&#x3D;&quot;numeroTeledossier&quot;
+            (keyup.enter)&#x3D;&quot;rechercher()&quot; placeholder&#x3D;&quot;Numéro télédossier&quot;&gt;
+          &lt;/div&gt;
+          &lt;button type&#x3D;&quot;button&quot; [disabled]&#x3D;&quot;rechercheEnCours&quot; class&#x3D;&quot;fr-btn fr-btn--icon-left fr-icon-search-fill boutonRechercherAligne&quot;
+          (click)&#x3D;&quot;rechercher()&quot;&gt;Rechercher&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;br /&gt;
+
+      &lt;!-- Tableau de résultats --&gt;
+      &lt;div class&#x3D;&quot;fr-table fr-table--bordered&quot;&gt;
+        &lt;table&gt;
+          &lt;caption&gt;
+            &lt;span&gt;{{nombreTotalResultats}} télé-dossier(s) trouvé(s) avec les paramètres de recherche sélectionnés&lt;/span&gt;
+            &lt;nav role&#x3D;&quot;navigation&quot; class&#x3D;&quot;fr-pagination&quot; aria-label&#x3D;&quot;Pagination&quot;&gt;
+              &lt;ul class&#x3D;&quot;fr-pagination__list&quot;&gt;
+                &lt;!-- LIEN vers 0 (sans condition) --&gt;
+                &lt;li&gt;
+                  &lt;a class&#x3D;&quot;fr-pagination__link fr-pagination__link--first&quot; (click)&#x3D;&quot;selectionnerPageEtRechercher(0)&quot; role&#x3D;&quot;link&quot;
+                    [attr.aria-disabled]&#x3D;&quot;(rechercheEnCours || numeroPage&#x3D;&#x3D;&#x3D;0) ? true : null&quot;
+                    [attr.href]&#x3D;&quot;(rechercheEnCours || numeroPage&#x3D;&#x3D;&#x3D;0) ? null : &#x27;javascript:void(0)&#x27;&quot;&gt;Première
+                  page&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;!-- LIEN vers la page précédente (désactivé selon condition) --&gt;
+                &lt;li&gt;
+                  &lt;a class&#x3D;&quot;fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label&quot; role&#x3D;&quot;link&quot;
+                    (click)&#x3D;&quot;selectionnerPageEtRechercher(numeroPage-1)&quot;
+                    [attr.aria-disabled]&#x3D;&quot;(rechercheEnCours || numeroPage&#x3D;&#x3D;&#x3D;0) ? true : null&quot;
+                  [attr.href]&#x3D;&quot;(rechercheEnCours || numeroPage&#x3D;&#x3D;&#x3D;0) ? null : &#x27;javascript:void(0)&#x27;&quot;&gt;&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;!-- 3 liens avant et 3 après --&gt;
+                @if (numeroPageMax &gt; 0) {
+                  @for (ele of [].constructor(numeroPageMax+1); track ele; let i &#x3D; $index) {
+                    @if (numeroPage-3&lt;&#x3D;i &amp;&amp; i&lt;numeroPage+3) {
+                      &lt;li&gt;
+                        &lt;a class&#x3D;&quot;fr-pagination__link&quot; [attr.aria-current]&#x3D;&quot;i&#x3D;&#x3D;&#x3D;numeroPage ? true : null&quot; [title]&#x3D;&quot;&#x27;Page &#x27; + (i+1)&quot;
+                        [attr.href]&#x3D;&quot;(rechercheEnCours)?null:&#x27;javascript:void(0)&#x27;&quot; (click)&#x3D;&quot;selectionnerPageEtRechercher(i)&quot;&gt;{{i+1}}&lt;/a&gt;
+                      &lt;/li&gt;
+                    }
+                  }
+                }
+                &lt;!-- LIEN vers la page suivante (désactivé selon condition) --&gt;
+                &lt;li&gt;
+                  &lt;a class&#x3D;&quot;fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label&quot;
+                    [attr.href]&#x3D;&quot;(rechercheEnCours || numeroPage&#x3D;&#x3D;&#x3D;numeroPageMax || numeroPageMax&#x3D;&#x3D;&#x3D;0) ? null : &#x27;javascript:void(0)&#x27;&quot;
+                    [attr.aria-disabled]&#x3D;&quot;(rechercheEnCours || numeroPage&#x3D;&#x3D;&#x3D;numeroPageMax || numeroPageMax&#x3D;&#x3D;&#x3D;0) ? true : null&quot;
+                  (click)&#x3D;&quot;selectionnerPageEtRechercher(numeroPageMax+1)&quot;&gt;&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;!-- LIEN vers numeroPageMax (sans condition) --&gt;
+                &lt;li&gt;
+                  &lt;a class&#x3D;&quot;fr-pagination__link fr-pagination__link--last&quot; (click)&#x3D;&quot;selectionnerPageEtRechercher(numeroPageMax)&quot;
+                    [attr.href]&#x3D;&quot;(rechercheEnCours || numeroPage&#x3D;&#x3D;&#x3D;numeroPageMax || numeroPageMax&#x3D;&#x3D;&#x3D;0) ? null : &#x27;javascript:void(0)&#x27;&quot;
+                    [attr.aria-disabled]&#x3D;&quot;(rechercheEnCours || numeroPage&#x3D;&#x3D;&#x3D;numeroPageMax || numeroPageMax&#x3D;&#x3D;&#x3D;0) ? true : null&quot;&gt;Dernière
+                  page&lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/nav&gt;
+          &lt;/caption&gt;
+          &lt;thead&gt;
+            &lt;tr&gt;
+              &lt;th scope&#x3D;&quot;col&quot;&gt;Date de soumission&lt;/th&gt;
+              &lt;th scope&#x3D;&quot;col&quot;&gt;Numéro télé-dossier&lt;/th&gt;
+              &lt;th scope&#x3D;&quot;col&quot;&gt;Code démarche&lt;/th&gt;
+              &lt;th scope&#x3D;&quot;col&quot;&gt;Etats&lt;/th&gt;
+              &lt;th scope&#x3D;&quot;col&quot;&gt;Actions&lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tbody&gt;
+            @for (t of transferts; track t) {
+              &lt;tr&gt;
+                &lt;td&gt;{{t.dateCreation | date:&#x27;yyyy-MM-dd HH:mm:ss.SSS&#x27;}}&lt;/td&gt;
+                &lt;td&gt;{{t.numeroTeledossier}}&lt;/td&gt;
+                &lt;td&gt;{{t.codeDemarche}}&lt;/td&gt;
+                &lt;td&gt;
+                  &lt;span aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;succesTransfert fr-icon-discuss-fill&quot;
+                  matTooltip&#x3D;&quot;Etat de la notification dans le fil d&#x27;actualité SP&quot;&gt;&lt;/span&gt;
+                  &lt;span aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;succesTransfert fr-icon-attachment-fill&quot; matTooltip&#x3D;&quot;Etat de l&#x27;envoi des documents&quot;&gt;&lt;/span&gt;
+                  &lt;span aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;erreurTransfert fr-icon-mail-open-fill&quot; matTooltip&#x3D;&quot;Etat de l&#x27;envoi du mail&quot;&gt;&lt;/span&gt;
+                &lt;/td&gt;
+                &lt;td&gt;&lt;/td&gt;
+              &lt;/tr&gt;
+            }
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./app.routetransfert.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* couleur des boutons */
+span.succesTransfert { color: green; }
+span.erreurTransfert { color: red; }
+
+/* Alignement du bouton. */
+.boutonRechercherAligne { margin-top: 32px; width: 100%; }
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Légende</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elément Html</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Composant</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elément Html avec une directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- Titre --><div class="fr-grid-row">  <h3>Suivi des télé-dossiers</h3></div><!-- Formulaire de recherche --><div class="fr-grid-row fr-grid-row--gutters" role="search">  <div class="fr-col-4 fr-select-group">    <label class="fr-label" for="codesDemarche">Démarche(s)</label>    <select class="fr-select" id="codesDemarche" name="codesDemarche" [(ngModel)]="codesDemarche" multiple="multiple" size="5"      (keyup.enter)="rechercher()">      <option></option>      @for (code of listeDemarches; track code) {        <option [value]="code">{{code}}</option>      }    </select>  </div>  <div class="fr-col-4">    <div class=" fr-input-group">      <label class="fr-label" for="dateDebut">Du</label>      <input class="fr-input" type="datetime-local" id="dateDebut" name="dateDebut" [ngModel]="dateDebut | date:\'yyyy-MM-ddTHH:mm\'"        (ngModelChange)="dateDebut=traiterLocalisationDate($event)" (keyup.enter)="rechercher()" placeholder="Date début">      </div>      <div class="fr-input-group">        <label class="fr-label" for="dateFin">Au</label>        <input class="fr-input" type="datetime-local" id="dateFin" name="dateFin" [ngModel]="dateFin | date:\'yyyy-MM-ddTHH:mm\'"          (ngModelChange)="dateFin=traiterLocalisationDate($event)" (keyup.enter)="rechercher()" placeholder="Date fin">        </div>      </div>      <div class="fr-col-4">        <div class="fr-input-group">          <label class="fr-label" for="numeroTeledossier">Télé-dossier</label>          <input class="fr-input" type="text" id="numeroTeledossier" name="numeroTeledossier" [(ngModel)]="numeroTeledossier"            (keyup.enter)="rechercher()" placeholder="Numéro télédossier">          </div>          <button type="button" [disabled]="rechercheEnCours" class="fr-btn fr-btn--icon-left fr-icon-search-fill boutonRechercherAligne"          (click)="rechercher()">Rechercher</button>        </div>      </div>      <br />      <!-- Tableau de résultats -->      <div class="fr-table fr-table--bordered">        <table>          <caption>            <span>{{nombreTotalResultats}} télé-dossier(s) trouvé(s) avec les paramètres de recherche sélectionnés</span>            <nav role="navigation" class="fr-pagination" aria-label="Pagination">              <ul class="fr-pagination__list">                <!-- LIEN vers 0 (sans condition) -->                <li>                  <a class="fr-pagination__link fr-pagination__link--first" (click)="selectionnerPageEtRechercher(0)" role="link"                    [attr.aria-disabled]="(rechercheEnCours || numeroPage===0) ? true : null"                    [attr.href]="(rechercheEnCours || numeroPage===0) ? null : \'javascript:void(0)\'">Première                  page</a>                </li>                <!-- LIEN vers la page précédente (désactivé selon condition) -->                <li>                  <a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label" role="link"                    (click)="selectionnerPageEtRechercher(numeroPage-1)"                    [attr.aria-disabled]="(rechercheEnCours || numeroPage===0) ? true : null"                  [attr.href]="(rechercheEnCours || numeroPage===0) ? null : \'javascript:void(0)\'"></a>                </li>                <!-- 3 liens avant et 3 après -->                @if (numeroPageMax > 0) {                  @for (ele of [].constructor(numeroPageMax+1); track ele; let i = $index) {                    @if (numeroPage-3<=i && i<numeroPage+3) {                      <li>                        <a class="fr-pagination__link" [attr.aria-current]="i===numeroPage ? true : null" [title]="\'Page \' + (i+1)"                        [attr.href]="(rechercheEnCours)?null:\'javascript:void(0)\'" (click)="selectionnerPageEtRechercher(i)">{{i+1}}</a>                      </li>                    }                  }                }                <!-- LIEN vers la page suivante (désactivé selon condition) -->                <li>                  <a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label"                    [attr.href]="(rechercheEnCours || numeroPage===numeroPageMax || numeroPageMax===0) ? null : \'javascript:void(0)\'"                    [attr.aria-disabled]="(rechercheEnCours || numeroPage===numeroPageMax || numeroPageMax===0) ? true : null"                  (click)="selectionnerPageEtRechercher(numeroPageMax+1)"></a>                </li>                <!-- LIEN vers numeroPageMax (sans condition) -->                <li>                  <a class="fr-pagination__link fr-pagination__link--last" (click)="selectionnerPageEtRechercher(numeroPageMax)"                    [attr.href]="(rechercheEnCours || numeroPage===numeroPageMax || numeroPageMax===0) ? null : \'javascript:void(0)\'"                    [attr.aria-disabled]="(rechercheEnCours || numeroPage===numeroPageMax || numeroPageMax===0) ? true : null">Dernière                  page</a>                </li>              </ul>            </nav>          </caption>          <thead>            <tr>              <th scope="col">Date de soumission</th>              <th scope="col">Numéro télé-dossier</th>              <th scope="col">Code démarche</th>              <th scope="col">Etats</th>              <th scope="col">Actions</th>            </tr>          </thead>          <tbody>            @for (t of transferts; track t) {              <tr>                <td>{{t.dateCreation | date:\'yyyy-MM-dd HH:mm:ss.SSS\'}}</td>                <td>{{t.numeroTeledossier}}</td>                <td>{{t.codeDemarche}}</td>                <td>                  <span aria-hidden="true" class="succesTransfert fr-icon-discuss-fill"                  matTooltip="Etat de la notification dans le fil d\'actualité SP"></span>                  <span aria-hidden="true" class="succesTransfert fr-icon-attachment-fill" matTooltip="Etat de l\'envoi des documents"></span>                  <span aria-hidden="true" class="erreurTransfert fr-icon-mail-open-fill" matTooltip="Etat de l\'envoi du mail"></span>                </td>                <td></td>              </tr>            }          </tbody>        </table>      </div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppEnteteComponent', 'selector': 'app-entete'},{'name': 'AppMenuComponent', 'selector': 'app-menu'},{'name': 'AppPiedDePageComponent', 'selector': 'app-pieddepage'},{'name': 'AppRouteAdminComponent', 'selector': 'app-routeadmin'},{'name': 'AppRouteAdminDemarchesComponent', 'selector': 'app-routeadmindemarches'},{'name': 'AppRouteAdminReferentielsComponent', 'selector': 'app-routeadminreferentiels'},{'name': 'AppRouteAdminUtilisateursComponent', 'selector': 'app-routeadminutilisateurs'},{'name': 'AppRouteConnexionComponent', 'selector': 'app-routeconnexion'},{'name': 'AppRouteDemarcheComponent', 'selector': 'app-routedemarche'},{'name': 'AppRouteSoumissionComponent', 'selector': 'app-routesoumission'},{'name': 'AppRouteTransfertComponent', 'selector': 'app-routetransfert'},{'name': 'ConfirmationDialog', 'selector': 'app-confirmation'}];
+    var DIRECTIVES = [{'name': 'AbstractAppRouteDemarcheEtSoumissionComponent', 'selector': ''}];
+    var ACTUAL_COMPONENT = {'name': 'AppRouteTransfertComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AppRouteTransfertComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

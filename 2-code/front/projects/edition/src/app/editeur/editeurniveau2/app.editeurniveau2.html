@@ -1,0 +1,69 @@
+@for (page of pages; track page; let i = $index) {
+  <mat-expansion-panel class="panelNiveau2" (opened)="statuts[i]=true" (closed)="statuts[i]=false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Page {{i}} - {{page.titre}}</mat-panel-title>
+      <mat-panel-description>
+        @if (i>0) {
+          <button type="button" mat-icon-button (click)="monterElement(i); $event.stopPropagation()">
+            <span class="fr-icon-arrow-up-fill" aria-hidden="false" aria-label="Monter l'élément"></span>
+          </button>
+        }
+        @if (i<pages.length-1) {
+          <button type="button" mat-icon-button (click)="descendreElement(i); $event.stopPropagation()">
+            <span class="fr-icon-arrow-down-fill" aria-hidden="false" aria-label="Descendre l'élément"></span>
+          </button>
+        }
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <!-- Pour les performances, le contenu du cadre est vide -->
+    @if (statuts[i] === true) {
+      <!--Configuration de la page-->
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>Configuration de la page</mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <mat-label>
+            <span class="symbol-required">* </span>
+            <span>Titre de la page</span>
+          </mat-label>
+          <input type="text" matInput [(ngModel)]="page.titre" [disabled]="i===0">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>
+            <span>Titre de la page dans le fil d'Ariane</span>
+          </mat-label>
+          <input type="text" matInput [(ngModel)]="page.titreAriane" [disabled]="i===0">
+        </mat-form-field>
+        <fieldset>
+          <legend class="niveau2">
+            <span>Page exclue du fil d'Ariane</span>
+            @if (i===0) {
+              <span>&nbsp;(permet de masquer ce premier écran dans le fil d'Ariane et donc de voir les bons
+              numéros de page MAIS ne permet plus de revenir à l'éditeur d'un simple clic )</span>
+            }
+          </legend>
+          <mat-radio-group [(ngModel)]="page.exclueDuFilDariane">
+            <mat-radio-button [value]="true">oui</mat-radio-button>
+            <mat-radio-button [value]="false">non</mat-radio-button>
+          </mat-radio-group>
+        </fieldset>
+        <mat-form-field>
+          <mat-label>
+            <span>Condition de visibilité</span>
+          </mat-label>
+          <input type="text" matInput [(ngModel)]="page.conditionVisibilite" [disabled]="i===0">
+        </mat-form-field>
+        <mat-action-row>
+          @if (i>0) {
+            <button type="button" class="btn btn-primary" mat-button (click)="supprimerElement(i)">Supprimer cette
+            page</button>
+          }
+          <button type="button" class="btn btn-primary" mat-button (click)="ajouterElementEnfant(i)">Ajouter un bloc</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+      <!-- blocs -->
+      <app-editeurniveau3 [blocs]="page.blocs"></app-editeurniveau3>
+    }
+  </mat-expansion-panel>
+}

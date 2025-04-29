@@ -1,0 +1,62 @@
+meta {
+  name: 02-Création d'une nouvelle instance de démarche
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://xxx.service-public.fr/services/v1/particuliers/filactivites/demarches
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+  Accept: */*
+}
+
+auth:bearer {
+  token: {{tokenSPpur}}
+}
+
+body:json {
+  {
+    "codeDemarche": "arnaqueInternet",
+    "labelDemarche": "Arnaque Internet",
+    "id": "{{idTeledossierPourNotification}}",
+    "nombreJoursAvantExpiration": 45,
+    "statutInitial": {
+      "date": "2022-11-30T12:00:00.000Z",
+      "message": "Vous avez sauvegarder un brouillon dans ArnaqueInternet",
+      "idDemarcheComplementaire": "{{idTeledossierPourNotification}}",
+      "statut": "enregistre_brouillon",
+      "origine": "INFORMATIONS ADMINISTRATIVES ET LÉGALES",
+      "url": "https://www.google.com/search?q=url",
+      "actions": [
+        { "libelle": "Reprise brouillon 1", "url": "https://www.google.com/search?q=repriseBrouillon1" },
+        { "libelle": "Reprise brouillon 2", "url": "https://www.google.com/search?q=repriseBrouillon2" }
+      ]
+    }
+  }
+}
+
+script:pre-request {
+  // function randomString(length=1) {
+  //     let randomString = "";
+  //     for (let i = 0; i < length; i++){
+  //         randomString += pm.variables.replaceIn("{{$randomAlphaNumeric}}");
+  //     }
+  //     return randomString;
+  // }
+  // 
+  // pm.environment.set('idTeledossierPourNotification', 'SP2-AI-' + randomString(8) + '-GTAL')
+  // //pm.environment.set('idTeledossierPourNotification', 'SP2-AI-p4yigc2l-GTAL')
+  // 
+}
+
+tests {
+  // // Vérifications de base
+  // pm.test("Réponse correcte", function () {
+  //     pm.expect(pm.response.code).to.be.equals(201);
+  // });
+}

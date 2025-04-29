@@ -1,0 +1,78 @@
+##############################################################
+# DEBUT - Reprise de /etc/apache2/conf-available/charset.conf
+
+# Tous les fichiers doivent être en UTF-8
+AddDefaultCharset UTF-8
+
+# FIN - Reprise de /etc/apache2/conf-available/charset.conf
+###########################################################
+
+##############################################################
+# DEBUT - Reprise de /etc/apache2/conf-available/security.conf
+
+# Setting this header will prevent MSIE from interpreting files as something
+# else than declared by the content type in the HTTP headers.
+# Requires mod_headers to be enabled.
+Header set X-Content-Type-Options: "nosniff"
+
+# Setting this header will prevent other sites from embedding pages from this
+# site as frames. This defends against clickjacking attacks.
+# Requires mod_headers to be enabled.
+Header set X-Frame-Options: "sameorigin"
+
+# FIN - Reprise de /etc/apache2/conf-available/security.conf
+############################################################
+
+###########################################
+# DEBUT - Configuration spécifique à la PSL
+
+# Désactivation des tokens/signatures/traces
+ServerTokens Prod
+ServerSignature Off
+TraceEnable Off
+
+# Pas de navigation HTTP
+Header set Strict-Transport-Security "max-age=2; includeSubDomains;"
+
+# Sécurisation des contenus
+#  contrôle par défaut pour toutes les directives absentes (manifest-src, prefetch-src, object-src) : interdiction
+#  contrôle de la navigation : autorisé pour uniquement la PSL elle-même
+#  contrôle des requêtes Ajax et WebSocket : autorisé pour uniquement la PSL elle-même
+#  contrôle du chargement des polices d'écriture : autorisé pour uniquement la PSL elle-même + data + SP (pour la page 404)
+#  contrôle du chargement des images : autorisé pour uniquement la PSL elle-même + data + SP (pour la page 404)
+#  contrôle des médias : nécessaire pour l'audio du captcha AIFE
+#  contrôle des JS : les sources autorisées sont PSL uniquement + du inline (généré par Angular) + SP (pour la page 404)
+#  contrôle des CSS : toutes viennent de la PSL elle-même + du inline (généré par Angular) + SP (pour la page 404)
+#  contrôle de la balise <base : autorisé
+#  contrôle des balises iframe, applet, embed et object : aucune dans la PSL
+Header set Content-Security-Policy "default-src 'none';child-src 'self';connect-src 'self';font-src 'self' https://www.service-public.fr data:;img-src 'self' https://www.service-public.fr data:;media-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.service-public.fr;style-src 'self' 'unsafe-inline' https://www.service-public.fr;base-uri 'self';frame-ancestors 'none';"
+
+# Seule l'URL est fournie en Referrer aux sites le recevant (blocage par l'attribut REL des liens)
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+# Pour forcer le navigateur a utilisé le type MIME fourni dans l'entête de la réponse et non de le manipuler
+Header set X-Content-Type-Options "nosniff"
+
+# Pour interdire les iframe
+Header set X-Frame-Options "DENY"
+
+# Pour fournir au navigateur la liste des fonctionnalités API autorisées dans le JS du site
+#  fullscreen : pourquoi pas
+#  camera : pour faire des photos et les fournir en pièce jointe
+#  rien d'autre
+Header always set Permissions-Policy "geolocation=(),midi=(),sync-xhr=(),microphone=(),camera=(self),magnetometer=(),gyroscope=(),fullscreen=(self),payment=()"
+
+# L'entête X-Xss-Protection ne doit plus être utilisé : https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection
+
+# Pour le CORS
+# origine : multiples avec PSL et SP (notamment les ressources de la page 404)
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET, PUT, POST, OPTIONS"
+#Header set Access-Control-Allow-Headers ""
+Header set Access-Control-Allow-Credentials "true"
+
+# Pour limiter le nombre de données, remontées dans la réponse HTTP, concernant un fichier statique
+FileETag None
+
+# FIN - Configuration spécifique à la PSL
+#########################################

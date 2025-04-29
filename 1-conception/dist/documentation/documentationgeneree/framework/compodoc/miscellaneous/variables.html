@@ -1,0 +1,734 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Divers</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#appConfig" title="projects/framework/src/lib/conf/app.config.ts" ><b>appConfig</b>&nbsp;&nbsp;&nbsp;(projects/.../app.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CLEF_UTILISATEUR" title="projects/framework/src/lib/model/securite.model.ts" ><b>CLEF_UTILISATEUR</b>&nbsp;&nbsp;&nbsp;(projects/.../securite.model.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#configuration" title="projects/framework/src/lib/conf/configuration.prod.ts" ><b>configuration</b>&nbsp;&nbsp;&nbsp;(projects/.../configuration.prod.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#configuration" title="projects/framework/src/lib/conf/configuration.ts" ><b>configuration</b>&nbsp;&nbsp;&nbsp;(projects/.../configuration.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#fournirEnvironnement" title="projects/framework/src/lib/conf/app.config.ts" ><b>fournirEnvironnement</b>&nbsp;&nbsp;&nbsp;(projects/.../app.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#i18n" title="projects/framework/src/lib/conf/i18n.ts" ><b>i18n</b>&nbsp;&nbsp;&nbsp;(projects/.../i18n.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>projects/framework/src/lib/conf/app.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appConfig"></a>
+                    <span class="name">
+                        <span ><b>appConfig</b></span>
+                        <a href="#appConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ApplicationConfig</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>{
+  providers: [
+    // Provider de base (https://angular.dev/api/core/provideZoneChangeDetection?tab&#x3D;description)
+    provideZoneChangeDetection({ eventCoalescing: true }),
+
+    // Pour disposer du client HTTP (https://angular.dev/api/common/http/provideHttpClient?tab&#x3D;description)
+    provideHttpClient(withFetch()),
+
+    // Pour fournir les parametres propres à un environnement
+    fournirEnvironnement(),
+
+    // Pour les animations
+    provideAnimations(),
+
+    // Pour démarrer l&#x27;OIDC
+    provideOAuthClient(),
+
+    // Pour les pipe du projet
+    DatePipe,
+
+    // Configuration des logs (en lieu et place de LoggerModule.forRoot)
+    // @see https://github.com/dbfannin/ngx-logger/blob/master/src/lib/logger.module.ts
+    { provide: TOKEN_LOGGER_CONFIG, useValue: { serverLoggingUrl: undefined, level: NgxLoggerLevel.TRACE, serverLogLevel: NgxLoggerLevel.OFF } },
+    { provide: TOKEN_LOGGER_CONFIG_ENGINE_FACTORY, useClass: NGXLoggerConfigEngineFactory },
+    { provide: TOKEN_LOGGER_METADATA_SERVICE, useClass: NGXLoggerMetadataService },
+    { provide: TOKEN_LOGGER_RULES_SERVICE, useClass: NGXLoggerRulesService },
+    { provide: TOKEN_LOGGER_MAPPER_SERVICE, useClass: NGXLoggerMapperService },
+    { provide: TOKEN_LOGGER_WRITER_SERVICE, useClass: NGXLoggerWriterService },
+    { provide: TOKEN_LOGGER_SERVER_SERVICE, useClass: NGXLoggerServerService }
+  ]
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Configuration de l&#39;application Angular</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fournirEnvironnement"></a>
+                    <span class="name">
+                        <span ><b>fournirEnvironnement</b></span>
+                        <a href="#fournirEnvironnement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>(): Provider &#x3D;&gt; {
+  const provider: (Provider) &#x3D;
+  {
+    provide: APP_INITIALIZER,
+    deps: [EnvironnementService],
+    useFactory: initConfigService,
+    multi: true
+  };
+  return provider;
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Provider personnalisé pour injecter l&#39;instance de EnvironnementService</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>projects/framework/src/lib/model/securite.model.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CLEF_UTILISATEUR"></a>
+                    <span class="name">
+                        <span ><b>CLEF_UTILISATEUR</b></span>
+                        <a href="#CLEF_UTILISATEUR"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>&#x27;utilisateur&#x27;</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Structure des données ajoutées dans les données soumises</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>projects/framework/src/lib/conf/configuration.prod.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configuration"></a>
+                    <span class="name">
+                        <span ><b>configuration</b></span>
+                        <a href="#configuration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>{
+
+  // Paramètes OIDC
+  oidc: {
+    // URL de l&#x27;API /auth
+    url: &#x27;OIDC_URL_AUTH&#x27;,
+    // Client réel (nécessaire aux échanges entre l&#x27;application et la page de connexion du fournisseur OIDC)
+    clientId: &#x27;OIDC_CLIENT_ID&#x27;,
+    // Scopes échangés avec le fournisseur OIDC
+    scopes: &#x27;OIDC_SCOPES&#x27;,
+    // Délai entre deux raffraichissement du token PSL en ms (1200000&#x3D;20mn avec un refreshToken SP de 30mn)
+    refreshTimeout: 1200000
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Classe de configuration interne au framework
+(pour limiter la duplication dans les fichiers d&#39;environnement de chaque démarche)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>projects/framework/src/lib/conf/configuration.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configuration"></a>
+                    <span class="name">
+                        <span ><b>configuration</b></span>
+                        <a href="#configuration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>{
+
+  // Paramètes OIDC
+  oidc: {
+    // URL de l&#x27;API /auth
+    url: &#x27;https://xxx.service-public.fr/realms/service-public/protocol/openid-connect/auth&#x27;,
+    // Client réel (nécessaire aux échanges entre l&#x27;application et la page de connexion du fournisseur OIDC)
+    clientId: &#x27;xxxxxxxxx&#x27;,
+    // Scopes échangés avec le fournisseur OIDC
+    scopes: &#x27;openid profile email particulier&#x27;,
+    // Délai entre deux raffraichissement du token PSL en ms (480000&#x3D;8mn avec un refreshToken SP de 30mn mais un accessToken PSL de 10mn)
+    refreshTimeout: 480000
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Classe de configuration interne au framework
+(pour limiter la duplication dans les fichiers d&#39;environnement de chaque démarche)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>projects/framework/src/lib/conf/i18n.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="i18n"></a>
+                    <span class="name">
+                        <span ><b>i18n</b></span>
+                        <a href="#i18n"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>{
+
+    // Petits libellés simples et communs
+    commun: {
+        oui: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Oui&#x27;, &#x27;EN&#x27;: &#x27;Yes&#x27; }),
+        non: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Non&#x27;, &#x27;EN&#x27;: &#x27;No&#x27; })
+    },
+
+    // Messages à l&#x27;usager venant de FmkApplicationAbstraitComponent
+    application: {
+        debut1CreationToken: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Chargement de l\&#x27;application en cours&#x27;, &#x27;EN&#x27;: &#x27;EN Chargement de l\&#x27;application en cours&#x27; }),
+        debut2ChargementConfiguration: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Chargement de la configuration de la démarche&#x27;, &#x27;EN&#x27;: &#x27;EN Chargement de la configuration de la démarche&#x27; }),
+        debut3RechercheModeAuthBrouillon: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Chargement du contexte du brouillon *idBrouillon*&#x27;, &#x27;EN&#x27;: &#x27;EN Chargement du contexte du brouillon *idBrouillon*&#x27; }),
+        debut3ChargementSansBrouillon: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Vérification du lien utilisé pour accéder à la démarche&#x27;, &#x27;EN&#x27;: &#x27;EN Vérification du lien utilisé pour accéder à la démarche&#x27; }),
+        debut3ChargementBrouillon: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Chargement de votre brouillon en cours&#x27;, &#x27;EN&#x27;: &#x27;EN Chargement de votre brouillon en cours&#x27; }),
+
+        debutErreurPointEntree: new LibelleI18n({ &#x27;FR&#x27;: &#x27;L\&#x27;adresse du navigateur n\&#x27;est pas cohérente avec l\&#x27;accès à la démarche.&#x27;, &#x27;EN&#x27;: &#x27;EN L\&#x27;adresse du navigateur n\&#x27;est pas cohérente avec l\&#x27;accès à la démarche.&#x27; }),
+        debutErreurPointEntreeMultiple: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Les paramètres fournis dans l\&#x27;adresse du navigateur ne sont pas cohérents avec la démarche.&#x27;, &#x27;EN&#x27;: &#x27;EN Les paramètres fournis dans l\&#x27;adresse du navigateur ne sont pas cohérents avec la démarche.&#x27; }),
+        debutErreurChargementBrouillon: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Erreur durant le chargement de votre brouillon&#x27;, &#x27;EN&#x27;: &#x27;EN Erreur durant le chargement de votre brouillon&#x27; }),
+        debutErreurLectureParametreCodeDemarche: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Le paramètre du code de démarche est absent ou invalide&#x27;, &#x27;EN&#x27;: &#x27;Missing application code in request parameters&#x27; })
+    },
+
+    // erreurs HTTP traitées dans ClientApiService
+    erreursHttpParDefaut: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Erreur inconnue ou fonctionnalité indisponible&#x27;, &#x27;EN&#x27;: &#x27;EN Erreur inconnue ou fonctionnalité indisponible&#x27; }),
+    erreursHttp: {
+        &#x27;0&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Requête non envoyée ou reçue. La connexion internet est-elle absente ou un proxy est-il mal paramétré ?&#x27;, &#x27;EN&#x27;: &#x27;EN ERR&#x27; }),
+        &#x27;400&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Requête invalide.*messagePrecisDeLapi*&#x27;, &#x27;EN&#x27;: &#x27;EN ERR&#x27; }),
+        &#x27;401&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Erreur de sécurité. Les paramètres de connexion sont invalides.&#x27;, &#x27;EN&#x27;: &#x27;EN ERR&#x27; }),
+        &#x27;403&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Erreur de sécurité. La ressource est interdite.&#x27;, &#x27;EN&#x27;: &#x27;EN ERR&#x27; }),
+        &#x27;404&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Erreur de donnée. La ressource demandée n\&#x27;existe pas.&#x27;, &#x27;EN&#x27;: &#x27;EN ERR&#x27; })
+    },
+
+    // Messages à l&#x27;usager venant de OidcService
+    oidcService: {
+        echangesOidcEnCours: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Vérification de l\&#x27;identité de la personne connectée. Veuillez patienter quelques secondes s\&#x27;il sous plaît.&#x27;, &#x27;EN&#x27;: &#x27;OIDC in progress&#x27; }),
+        redirectionEnCours: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Connexion en cours (une redirection est en cours). Veuillez patienter quelques secondes&#x27;, &#x27;EN&#x27;: &#x27;Auth in progress&#x27; }),
+        connexionReussie: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; }), // Vide volontairement pour faire disparaitre le message en cas de succès
+        erreurSansState: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Echec de connexion&#x27;, &#x27;EN&#x27;: &#x27;Auth ko&#x27; })
+    },
+
+    // Messages à l&#x27;usager venant de BrouillonService
+    brouillonService: {
+        brouillonBienSauvegarde: new LibelleI18n({ &#x27;FR&#x27;: &#x27;La sauvegarde de votre avancement a réussi. Vous pourrez reprendre la saisie de votre démarche avec le lien suivant : *lien*&#x27;, &#x27;EN&#x27;: &#x27;Progression saved : *lien*&#x27; })
+    },
+
+    // Libellés des contenus complexes
+    contenu: {
+        adresseFrOuEtr: {
+            estFrance: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;L\&#x27;adresse est-elle en France ?&#x27;, &#x27;EN&#x27;: &#x27;In France ?&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            },
+            etage: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Étage - escalier - appartement&#x27;, &#x27;EN&#x27;: &#x27;Floor&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            },
+            immeuble: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Immeuble - bâtiment - résidence&#x27;, &#x27;EN&#x27;: &#x27;Building&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            },
+            voie: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Numéro et libellé de voie&#x27;, &#x27;EN&#x27;: &#x27;Street&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            },
+            boitePostale: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Boite postale / lieu-dit&#x27;, &#x27;EN&#x27;: &#x27;BP&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            },
+            communeNaissance: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Code postal / Localité&#x27;, &#x27;EN&#x27;: &#x27;Postal code&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            },
+            communeActuelle: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Code postal / Localité&#x27;, &#x27;EN&#x27;: &#x27;Postal code&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            },
+            adresseETR: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Adresse&#x27;, &#x27;EN&#x27;: &#x27;Addresse&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            },
+            paysETR: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Pays&#x27;, &#x27;EN&#x27;: &#x27;Country&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            }
+        },
+        identite: {
+            civilite: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Civilité&#x27;, &#x27;EN&#x27;: &#x27;Civility&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            },
+            monsieur: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Monsieur&#x27;, &#x27;EN&#x27;: &#x27;Mister&#x27; }),
+            madame: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Madame&#x27;, &#x27;EN&#x27;: &#x27;Miss&#x27; }),
+            nomFamille: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Nom de Famille&#x27;, &#x27;EN&#x27;: &#x27;Familiy name&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            },
+            nomUsage: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Nom d\&#x27;usage&#x27;, &#x27;EN&#x27;: &#x27;Use name&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            },
+            prenoms: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Prénoms&#x27;, &#x27;EN&#x27;: &#x27;EN Prénoms&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            },
+            dateNaissance: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Date de naissance&#x27;, &#x27;EN&#x27;: &#x27;Birthdate&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            },
+            paysNaissance: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Pays de naissance&#x27;, &#x27;EN&#x27;: &#x27;Birth country&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            },
+            communeNaissanceFR: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Commune de naissance&#x27;, &#x27;EN&#x27;: &#x27;Birth city&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;en France&#x27;, &#x27;EN&#x27;: &#x27;in France&#x27; })
+            },
+            communeNaissanceETR: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Commune de naissance&#x27;, &#x27;EN&#x27;: &#x27;Birth city&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;hors de France&#x27;, &#x27;EN&#x27;: &#x27;out of France&#x27; })
+            },
+            nationalite: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Nationalité&#x27;, &#x27;EN&#x27;: &#x27;Notionality&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            }
+        },
+        contactPersonnel: {
+            email: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Email&#x27;, &#x27;EN&#x27;: &#x27;Email&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            },
+            numTeleGeneral: {
+                titre: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Numéro de téléphone&#x27;, &#x27;EN&#x27;: &#x27;Phone number&#x27; }),
+                aide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+            }
+        },
+        upload: {
+            erreurDocumentObligatoire: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Le versement d\&#x27;une pièce jointe est obligatoire&#x27;, &#x27;EN&#x27;: &#x27;Required !!&#x27; }),
+            erreurSuppressionDocument: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Impossible de retirer la pièce jointe.&#x27;, &#x27;EN&#x27;: &#x27;Can not be deleted&#x27; }),
+            erreurTailleDocument: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Impossible de traiter un document si volumineux pour le moment (1Mo max).&#x27;, &#x27;EN&#x27;: &#x27;Max 1Mo&#x27; }),
+            erreurVersementDocument: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Erreur au chargement de la pièce jointe&#x27;, &#x27;EN&#x27;: &#x27;&#x27; }),
+            erreurDocumentInvalide: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Le document fourni ne correspond pas au type de document attendu.&#x27;, &#x27;EN&#x27;: &#x27;&#x27; })
+        }
+    },
+
+    // Messages d&#x27;erreur d&#x27;API
+    messageErreurApi: {
+        // SoumissionService
+        &#x27;soumettreTeledossier&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant la soumission de vos données.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        &#x27;genererCaptcha&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant la génération du CAPTCHA.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        &#x27;chargerRessourceCaptcha&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant la génération des ressources du CAPTCHA.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        // SecuriteService
+        &#x27;seConnecterEnAnonyme&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant la connexion à l\&#x27;application.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        &#x27;recupererInformationsUsager&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant la récupération de votre identité.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        &#x27;seConnecterAvecUnMotDePasse&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant la connexion à l\&#x27;application avec vos paramètres de connexion.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        // ReférentielService
+        &#x27;referentielcommuneban&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant la recherche d\&#x27;une commune.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        &#x27;referentieladresseban&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant la recherche d\&#x27;une adresse.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        &#x27;referentielcommuneNaissance&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant la recherche d\&#x27;une commune.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        &#x27;referentielcommuneActuelle&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant la recherche d\&#x27;une commune.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        &#x27;referentielnationalitePaysActuel&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant la recherche d\&#x27;un pays ou d\&#x27;une nationnalité.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        &#x27;referentielpaysNaissance&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant la recherche d\&#x27;un pays.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        // PieceJointeService
+        &#x27;verserPieceJointeEnUneUniqueRequete&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant le versement de votre pièce jointe.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        &#x27;supprimerPieceJointe&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant le retrait de votre pièce jointe.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        // DocumentService
+        &#x27;chargerListeDocumentsPostSoumission&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant la récupération des documents générés lors de la soumission de vos données.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        &#x27;telechargerDocument&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant le téléchargement du document généré.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        // ConfigurationService
+        &#x27;chargerConfigurationDemarche&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant le chargement de l\&#x27;application.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        // BrouillonService
+        &#x27;obtenirAuthentificationNecessaireAuBrouillon&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant le chargement des données précédemment renseignées.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        &#x27;chargerBrouillon&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant le chargement des données précédemment renseignées.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; }),
+        &#x27;sauvegarderBrouillon&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Une erreur est survenue durant la sauvegarde des données renseignées.&#x27;, &#x27;EN&#x27;: &#x27;ERR&#x27; })
+    },
+
+    // Libellés de page HTML
+    libellesPageHtml: {
+        &#x27;commun.nouvelleFenetre&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Nouvelle fenêtre&#x27;, &#x27;EN&#x27;: &#x27;New window&#x27; }),
+        &#x27;commun.facultatif&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Facultatif&#x27;, &#x27;EN&#x27;: &#x27;Not required&#x27; }),
+
+        &#x27;document.telecharger&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Télécharger&#x27;, &#x27;EN&#x27;: &#x27;Download&#x27; }),
+
+        &#x27;entete.republique.1&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;République&#x27;, &#x27;EN&#x27;: &#x27;République&#x27; }),
+        &#x27;entete.republique.2&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Française&#x27;, &#x27;EN&#x27;: &#x27;Française&#x27; }),
+        &#x27;entete.service.titre&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Service-Public.fr&#x27;, &#x27;EN&#x27;: &#x27;Service-Public.fr&#x27; }),
+        &#x27;entete.service.tag&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Le site officiel de l\&#x27;administration française&#x27;, &#x27;EN&#x27;: &#x27;EN Le site officiel de l\&#x27;administration française&#x27; }),
+        &#x27;entete.bouton.menu&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Menu&#x27;, &#x27;EN&#x27;: &#x27;Menu&#x27; }),
+        &#x27;entete.bouton.connexion&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Se connecter&#x27;, &#x27;EN&#x27;: &#x27;Log in&#x27; }),
+        &#x27;entete.bouton.deconnexion&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Se déconnecter&#x27;, &#x27;EN&#x27;: &#x27;Log out&#x27; }),
+        &#x27;entete.bouton.fermer&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Fermer&#x27;, &#x27;EN&#x27;: &#x27;Close&#x27; }),
+
+        &#x27;filariane.etape.1&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Étape &#x27;, &#x27;EN&#x27;: &#x27;Step &#x27; }),
+        &#x27;filariane.etape.2&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27; sur &#x27;, &#x27;EN&#x27;: &#x27; of &#x27; }),
+        &#x27;filariane.etapesuivante&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Étape suivante :&#x27;, &#x27;EN&#x27;: &#x27;Next step&#x27; }),
+        &#x27;filariane.pagesuivante&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Page suivante : &#x27;, &#x27;EN&#x27;: &#x27;Next page :&#x27; }),
+
+        &#x27;findemarche.captcha.saisie&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Veuillez saisir la valeur du captcha ci-dessus&#x27;, &#x27;EN&#x27;: &#x27;Capcha&#x27; }),
+        &#x27;findemarche.bouton.soumettre&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Soumettre mon télé-dossier&#x27;, &#x27;EN&#x27;: &#x27;Launch&#x27; }),
+
+        &#x27;navigation.bouton.precedent&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Précédent&#x27;, &#x27;EN&#x27;: &#x27;Previous&#x27; }),
+        &#x27;navigation.bouton.brouillon&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Reprendre plus tard&#x27;, &#x27;EN&#x27;: &#x27;Save&#x27; }),
+        &#x27;navigation.bouton.suivant&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Suivant&#x27;, &#x27;EN&#x27;: &#x27;Next&#x27; }),
+
+        &#x27;page.modeObligatoire.1&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Sauf indication contraire, &#x27;, &#x27;EN&#x27;: &#x27;EN Sauf indication contraire, &#x27; }),
+        &#x27;page.modeObligatoire.2&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;toutes les informations demandées sont obligatoires&#x27;, &#x27;EN&#x27;: &#x27;toutes les informations demandées sont obligatoires &#x27; }),
+        &#x27;page.modeObligatoire.3&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27; pour pouvoir traiter votre demande.&#x27;, &#x27;EN&#x27;: &#x27; pour pouvoir traiter votre demande.&#x27; }),
+        &#x27;page.modePasObligatoire.1&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Les champs marqués d\&#x27;un &#x27;, &#x27;EN&#x27;: &#x27;EN &#x27; }),
+        &#x27;page.modePasObligatoire.2&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27; sont obligatoires&#x27;, &#x27;EN&#x27;: &#x27; sont obligatoires&#x27; }),
+
+        &#x27;repriseBrouillon.titre&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Reprendre la saisie de ma démarche&#x27;, &#x27;EN&#x27;: &#x27;EN Reprendre la saisie de ma démarche&#x27; }),
+        &#x27;repriseBrouillon.reprise&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Veuillez saisir les informations d\&#x27;authenfication fournis lors de la sauvegarde de votre brouillon.&#x27;, &#x27;EN&#x27;: &#x27;EN Veuillez saisir les informations d\&#x27;authenfication fournis lors de la sauvegarde de votre brouillon.&#x27; }),
+        &#x27;repriseBrouillon.sauvegarde&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Veuillez saisir des informations d\&#x27;authenfication pour sauvegarder votre brouillon. Ces informations vous serons demandées à la reprise de ce brouillon.&#x27;, &#x27;EN&#x27;: &#x27;EN Veuillez saisir des informations d\&#x27;authenfication pour sauvegarder votre brouillon. Ces informations vous serons demandées à la reprise de ce brouillon.&#x27; }),
+        &#x27;repriseBrouillon.email&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Email&#x27;, &#x27;EN&#x27;: &#x27;Login&#x27; }),
+        &#x27;repriseBrouillon.motdepasse&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Mot de passe&#x27;, &#x27;EN&#x27;: &#x27;Password&#x27; }),
+        &#x27;repriseBrouillon.caseAfficher&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Afficher&#x27;, &#x27;EN&#x27;: &#x27;Display&#x27; }),
+        &#x27;repriseBrouillon.caseAfficherLibelle&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Afficher le mot de passe&#x27;, &#x27;EN&#x27;: &#x27;Display the password&#x27; }),
+
+        &#x27;recapitulatif.bouton.modifier&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Modifier&#x27;, &#x27;EN&#x27;: &#x27;Edit&#x27; }),
+
+        &#x27;saisielongue.nombreCaracteresRestants&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27; caractères restants&#x27;, &#x27;EN&#x27;: &#x27; chars left&#x27; }),
+
+        &#x27;upload.attendu.1&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Le document doit faire moins de &#x27;, &#x27;EN&#x27;: &#x27;EN Le document doit faire moins de &#x27; }),
+        &#x27;upload.attendu.2&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Mo et être de type &#x27;, &#x27;EN&#x27;: &#x27;Mo et être de type &#x27; }),
+        &#x27;upload.cadreGlisseDeposer&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Glisser un document dans la zone ou y cliquer pour verser un fichier.&#x27;, &#x27;EN&#x27;: &#x27;EN &#x27; }),
+        &#x27;upload.versementEnCours&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Versement du fichier &#x27;, &#x27;EN&#x27;: &#x27;EN Versement du fichier &#x27; }),
+        &#x27;upload.versementTermine.1&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Fichier &#x27;, &#x27;EN&#x27;: &#x27;File&#x27; }),
+        &#x27;upload.versementTermine.2&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27; déjà &#x27;, &#x27;EN&#x27;: &#x27; already &#x27; }),
+        &#x27;upload.versementTermine.3&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27; versé&#x27;, &#x27;EN&#x27;: &#x27; uploaded&#x27; }),
+        &#x27;upload.bouton.supprimer&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Suppression de la pièce jointe&#x27;, &#x27;EN&#x27;: &#x27;Delete file&#x27; }),
+
+        &#x27;utilisateurconnecte.source&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Informations récupérées via votre compte France-Connect&#x27;, &#x27;EN&#x27;: &#x27;From FC&#x27; }),
+        &#x27;utilisateurconnecte.nele&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Né(e) le &#x27;, &#x27;EN&#x27;: &#x27;Born &#x27; }),
+        &#x27;utilisateurconnecte.sexe&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;de sexe &#x27;, &#x27;EN&#x27;: &#x27;Sexe&#x27; }),
+        &#x27;utilisateurconnecte.masculin&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Masculin&#x27;, &#x27;EN&#x27;: &#x27;Male&#x27; }),
+        &#x27;utilisateurconnecte.feminin&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Feminin&#x27;, &#x27;EN&#x27;: &#x27;Female&#x27; }),
+
+        &#x27;validation.obligatoire&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Champ obligatoire.&#x27;, &#x27;EN&#x27;: &#x27;Required&#x27; }),
+        &#x27;validation.obligatoireDate&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Champ obligatoire par exemple 31/12/2022.&#x27;, &#x27;EN&#x27;: &#x27;Required&#x27; }),
+        &#x27;validation.email&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;La saisie n\&#x27;est pas un email valide.&#x27;, &#x27;EN&#x27;: &#x27;Invalid email&#x27; }),
+        &#x27;validation.secu&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;La saisie n\&#x27;est pas un numéro de sécurité social valide.&#x27;, &#x27;EN&#x27;: &#x27;Secu&#x27; }),
+        &#x27;validation.telephoneFR&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;La saisie n\&#x27;est pas un numéro de téléphone français valide (10 chiffres commençant par 01 à 09).&#x27;, &#x27;EN&#x27;: &#x27;Phone&#x27; }),
+        &#x27;validation.datePassee&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;La date (au format 24/12/2021) doit être antérieure à la date du jour.&#x27;, &#x27;EN&#x27;: &#x27;Passed date &#x27; }),
+        &#x27;validation.dateFuture&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;La date (au format 24/12/2021) doit être postérieure à la date du jour.&#x27;, &#x27;EN&#x27;: &#x27;Future date&#x27; }),
+        &#x27;validation.autocompletionPrecise&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;La valeur saisie doit être une de celles proposées.&#x27;, &#x27;EN&#x27;: &#x27;One of&#x27; }),
+        &#x27;validation.url&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;La valeur saisie doit être une adresse WEB valide.&#x27;, &#x27;EN&#x27;: &#x27;URL&#x27; }),
+        &#x27;validation.regex&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;La valeur saisie doit correspondre au format attendu.&#x27;, &#x27;EN&#x27;: &#x27;Format&#x27; }),
+        &#x27;validation.dateAvantApres&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;La date saisie doit correspondre aux contraintes calendaires fournies.&#x27;, &#x27;EN&#x27;: &#x27;Date&#x27; }),
+        &#x27;validation.motDePasse&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;Le mot de passe saisi doit contenir au moins 8 caractères dont au moins 3 éléments parmi :&#x27;, &#x27;EN&#x27;: &#x27;Password need...&#x27; }),
+        &#x27;validation.motDePasse.1&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;une majuscule&#x27;, &#x27;EN&#x27;: &#x27;an uppercase&#x27; }),
+        &#x27;validation.motDePasse.2&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;une minuscule&#x27;, &#x27;EN&#x27;: &#x27;a lowercase&#x27; }),
+        &#x27;validation.motDePasse.3&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;un chiffre&#x27;, &#x27;EN&#x27;: &#x27;a digit&#x27; }),
+        &#x27;validation.motDePasse.4&#x27;: new LibelleI18n({ &#x27;FR&#x27;: &#x27;un caractère spécial parmi &#x27;, &#x27;EN&#x27;: &#x27;a special character from &#x27; })
+    }
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Classe de configuration de tous les messages et libellés</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

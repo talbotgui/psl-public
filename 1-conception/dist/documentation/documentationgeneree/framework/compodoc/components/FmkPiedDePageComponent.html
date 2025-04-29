@@ -1,0 +1,409 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Composants</li>
+  <li class="breadcrumb-item"
+  >
+  FmkPiedDePageComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Fichier</h3>
+</p>
+<p class="comment">
+    <code>projects/framework/src/lib/morceaudepage/pieddepage/fmk.pieddepage.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Composant de pied de page.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Métadonnées</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+            <tr>
+                <td class="col-md-3">encapsulation</td>
+                <td class="col-md-9"><code>ViewEncapsulation.None</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>div[data-fmk-pieddepage]</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./fmk.pieddepage.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ViewEncapsulation } from &#x27;@angular/core&#x27;;
+
+/** Composant de pied de page. */
+@Component({
+    selector: &#x27;div[data-fmk-pieddepage]&#x27;, templateUrl: &#x27;./fmk.pieddepage.html&#x27;, encapsulation: ViewEncapsulation.None,
+    standalone: true
+})
+export class FmkPiedDePageComponent {
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;footer class&#x3D;&quot;fr-footer&quot; id&#x3D;&quot;footer&quot;&gt;
+  &lt;div class&#x3D;&quot;fr-footer__top&quot;&gt;
+    &lt;div class&#x3D;&quot;fr-container&quot;&gt;
+      &lt;ul class&#x3D;&quot;fr-grid-row fr-grid-row--start fr-grid-row--gutters&quot;&gt;
+        &lt;li class&#x3D;&quot;fr-col-xs-12 fr-col-sm-6 fr-col-md-4&quot;&gt;
+          &lt;div class&#x3D;&quot;fr-footer__top-cat&quot;&gt;Besoin d’aide pour ce service en ligne ?&lt;/div&gt;
+          &lt;ul class&#x3D;&quot;fr-footer__top-list&quot;&gt;
+            &lt;li&gt;&lt;a class&#x3D;&quot;fr-footer__top-link&quot; href&#x3D;&quot;https://www.service-public.fr/particuliers/vosdroits/R16396/signaler-un-probleme&quot;
+                rel&#x3D;&quot;noopener noreferrer&quot; target&#x3D;&quot;_blank&quot; title&#x3D;&quot;Avez-vous une question ou un problème ? - Nouvelle fenêtre&quot;&gt;Avez-vous une question ou
+                un problème ?&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class&#x3D;&quot;fr-footer__top-link&quot; href&#x3D;&quot;https://www.service-public.fr/particuliers/vosdroits/N47#1&quot; rel&#x3D;&quot;noopener noreferrer&quot;
+                target&#x3D;&quot;_blank&quot; title&#x3D;&quot;Toute l’information sur cette démarche - Nouvelle fenêtre&quot;&gt;Toute l’information sur cette
+                démarche&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li class&#x3D;&quot;fr-col-xs-12 fr-col-sm-6 fr-col-md-4&quot;&gt;
+          &lt;div class&#x3D;&quot;fr-footer__top-cat&quot;&gt;Nos engagements&lt;/div&gt;
+          &lt;ul class&#x3D;&quot;fr-footer__top-list&quot;&gt;
+            &lt;li&gt;&lt;a class&#x3D;&quot;fr-footer__top-link&quot; href&#x3D;&quot;https://www.service-public.fr/P10000&quot; rel&#x3D;&quot;noopener noreferrer&quot; target&#x3D;&quot;_blank&quot;
+                title&#x3D;&quot;Accessibilité de la démarche - Nouvelle fenêtre&quot;&gt;Accessibilité de la démarche : totalement conforme&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class&#x3D;&quot;fr-footer__top-link&quot; href&#x3D;&quot;https://www.service-public.fr/P10129&quot; rel&#x3D;&quot;noopener noreferrer&quot; target&#x3D;&quot;_blank&quot;
+                title&#x3D;&quot;Données personnelles et sécurité de la démarche - Nouvelle fenêtre&quot;&gt;Données personnelles et sécurité de la démarche&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class&#x3D;&quot;fr-footer__top-link&quot; href&#x3D;&quot;https://www.service-public.fr/P10128&quot; rel&#x3D;&quot;noopener noreferrer&quot; target&#x3D;&quot;_blank&quot;
+                title&#x3D;&quot;Conditions générales d&#x27;utilisation de la démarche - Nouvelle fenêtre&quot;&gt;Conditions générales d’utilisation de la démarche&lt;/a&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;fr-container&quot;&gt;
+    &lt;div class&#x3D;&quot;fr-footer__body&quot;&gt;
+      &lt;div class&#x3D;&quot;fr-footer__brand fr-enlarge-link&quot;&gt;&lt;a rel&#x3D;&quot;noopener&quot; href&#x3D;&quot;https://www.service-public.fr/&quot; title&#x3D;&quot;Accueil Service-Public.fr&quot;&gt;
+          &lt;p class&#x3D;&quot;fr-logo&quot;&gt;République &lt;br&gt;Française&lt;/p&gt;
+        &lt;/a&gt;&lt;/div&gt;
+      &lt;div class&#x3D;&quot;fr-footer__content&quot;&gt;
+        &lt;p class&#x3D;&quot;fr-footer__content-desc&quot;&gt;Service Public vous informe et vous oriente vers les services qui permettent
+          de connaître vos obligations, d’exercer vos droits et de faire vos démarches du quotidien.&lt;/p&gt;
+        &lt;p class&#x3D;&quot;fr-footer__content-desc&quot;&gt;&lt;span&gt;Il est édité par la &lt;/span&gt;&lt;a href&#x3D;&quot;https://www.dila.premier-ministre.gouv.fr/&quot;
+            rel&#x3D;&quot;noopener noreferrer&quot; target&#x3D;&quot;_blank&quot; title&#x3D;&quot;Direction de l&#x27;information légale et administrative - Nouvelle fenêtre&quot;&gt;Direction de
+            l’information légale et administrative&lt;/a&gt;et réalisé en partenariat avec les administrations nationales et locales.&lt;/p&gt;
+        &lt;ul class&#x3D;&quot;fr-footer__content-list&quot;&gt;
+          &lt;li&gt;&lt;a class&#x3D;&quot;fr-footer__content-link&quot; href&#x3D;&quot;http://legifrance.gouv.fr&quot; rel&#x3D;&quot;noopener noreferrer&quot; target&#x3D;&quot;_blank&quot;
+              title&#x3D;&quot;legifrance.gouv.fr - nouvelle fenêtre&quot;&gt;legifrance.gouv.fr&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class&#x3D;&quot;fr-footer__content-link&quot; href&#x3D;&quot;http://gouvernement.fr&quot; rel&#x3D;&quot;noopener noreferrer&quot; target&#x3D;&quot;_blank&quot;
+              title&#x3D;&quot;gouvernement.fr - nouvelle fenêtre&quot;&gt;gouvernement.fr&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class&#x3D;&quot;fr-footer__content-link&quot; href&#x3D;&quot;http://service-public.fr&quot; rel&#x3D;&quot;noopener noreferrer&quot; target&#x3D;&quot;_blank&quot;
+              title&#x3D;&quot;service-public.fr - nouvelle fenêtre&quot;&gt;service-public.fr&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class&#x3D;&quot;fr-footer__content-link&quot; href&#x3D;&quot;http://data.gouv.fr&quot; rel&#x3D;&quot;noopener noreferrer&quot; target&#x3D;&quot;_blank&quot;
+              title&#x3D;&quot;data.gouv.fr - nouvelle fenêtre&quot;&gt;data.gouv.fr&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;fr-footer__bottom&quot;&gt;
+      &lt;ul class&#x3D;&quot;fr-footer__bottom-list&quot;&gt;
+        &lt;li class&#x3D;&quot;fr-footer__bottom-item&quot;&gt;&lt;a rel&#x3D;&quot;noopener&quot; class&#x3D;&quot;fr-footer__bottom-link&quot; href&#x3D;&quot;https://www.service-public.fr/P10003&quot;&gt;Plan du
+            site&lt;/a&gt;&lt;/li&gt;
+        &lt;li class&#x3D;&quot;fr-footer__bottom-item&quot;&gt;&lt;a rel&#x3D;&quot;noopener&quot; class&#x3D;&quot;fr-footer__bottom-link&quot; href&#x3D;&quot; https://www.service-public.fr/P10000&quot;&gt;Accessibilité
+            : totalement conforme&lt;/a&gt;&lt;/li&gt;
+        &lt;li class&#x3D;&quot;fr-footer__bottom-item&quot;&gt;&lt;a rel&#x3D;&quot;noopener&quot; class&#x3D;&quot;fr-footer__bottom-link&quot; href&#x3D;&quot;https://www.service-public.fr/P10125&quot;&gt;Accessibilité
+            des services en ligne&lt;/a&gt;&lt;/li&gt;
+        &lt;li class&#x3D;&quot;fr-footer__bottom-item&quot;&gt;&lt;a rel&#x3D;&quot;noopener&quot; class&#x3D;&quot;fr-footer__bottom-link&quot; href&#x3D;&quot;https://www.service-public.fr/P10025&quot;&gt;Mentions
+            légales&lt;/a&gt;&lt;/li&gt;
+        &lt;li class&#x3D;&quot;fr-footer__bottom-item&quot;&gt;&lt;a rel&#x3D;&quot;noopener&quot; class&#x3D;&quot;fr-footer__bottom-link&quot; href&#x3D;&quot;https://www.service-public.fr/P10001&quot;&gt;Données
+            personnelles et sécurité&lt;/a&gt;&lt;/li&gt;
+        &lt;li class&#x3D;&quot;fr-footer__bottom-item&quot;&gt;&lt;a rel&#x3D;&quot;noopener&quot; class&#x3D;&quot;fr-footer__bottom-link&quot; href&#x3D;&quot;https://www.service-public.fr/P10050&quot;&gt;Conditions
+            générales d’utilisation&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;div class&#x3D;&quot;fr-footer__bottom-copy&quot;&gt;
+        &lt;p&gt;&lt;span&gt;Sauf mention contraire, tous les textes de ce site sont sous &lt;/span&gt;&lt;a
+            href&#x3D;&quot;https://github.com/etalab/licence-ouverte/blob/master/LO.md&quot; rel&#x3D;&quot;noopener noreferrer&quot; target&#x3D;&quot;_blank&quot;
+            title&#x3D;&quot;licence etalab-2.0 - nouvelle fenêtre&quot;&gt;licence etalab-2.0&lt;/a&gt;&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;p class&#x3D;&quot;fr-sr-only&quot;&gt;footer&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Légende</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elément Html</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Composant</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elément Html avec une directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><footer class="fr-footer" id="footer">  <div class="fr-footer__top">    <div class="fr-container">      <ul class="fr-grid-row fr-grid-row--start fr-grid-row--gutters">        <li class="fr-col-xs-12 fr-col-sm-6 fr-col-md-4">          <div class="fr-footer__top-cat">Besoin d’aide pour ce service en ligne ?</div>          <ul class="fr-footer__top-list">            <li><a class="fr-footer__top-link" href="https://www.service-public.fr/particuliers/vosdroits/R16396/signaler-un-probleme"                rel="noopener noreferrer" target="_blank" title="Avez-vous une question ou un problème ? - Nouvelle fenêtre">Avez-vous une question ou                un problème ?</a></li>            <li><a class="fr-footer__top-link" href="https://www.service-public.fr/particuliers/vosdroits/N47#1" rel="noopener noreferrer"                target="_blank" title="Toute l’information sur cette démarche - Nouvelle fenêtre">Toute l’information sur cette                démarche</a></li>          </ul>        </li>        <li class="fr-col-xs-12 fr-col-sm-6 fr-col-md-4">          <div class="fr-footer__top-cat">Nos engagements</div>          <ul class="fr-footer__top-list">            <li><a class="fr-footer__top-link" href="https://www.service-public.fr/P10000" rel="noopener noreferrer" target="_blank"                title="Accessibilité de la démarche - Nouvelle fenêtre">Accessibilité de la démarche : totalement conforme</a></li>            <li><a class="fr-footer__top-link" href="https://www.service-public.fr/P10129" rel="noopener noreferrer" target="_blank"                title="Données personnelles et sécurité de la démarche - Nouvelle fenêtre">Données personnelles et sécurité de la démarche</a></li>            <li><a class="fr-footer__top-link" href="https://www.service-public.fr/P10128" rel="noopener noreferrer" target="_blank"                title="Conditions générales d\'utilisation de la démarche - Nouvelle fenêtre">Conditions générales d’utilisation de la démarche</a>            </li>          </ul>        </li>      </ul>    </div>  </div>  <div class="fr-container">    <div class="fr-footer__body">      <div class="fr-footer__brand fr-enlarge-link"><a rel="noopener" href="https://www.service-public.fr/" title="Accueil Service-Public.fr">          <p class="fr-logo">République <br>Française</p>        </a></div>      <div class="fr-footer__content">        <p class="fr-footer__content-desc">Service Public vous informe et vous oriente vers les services qui permettent          de connaître vos obligations, d’exercer vos droits et de faire vos démarches du quotidien.</p>        <p class="fr-footer__content-desc"><span>Il est édité par la </span><a href="https://www.dila.premier-ministre.gouv.fr/"            rel="noopener noreferrer" target="_blank" title="Direction de l\'information légale et administrative - Nouvelle fenêtre">Direction de            l’information légale et administrative</a>et réalisé en partenariat avec les administrations nationales et locales.</p>        <ul class="fr-footer__content-list">          <li><a class="fr-footer__content-link" href="http://legifrance.gouv.fr" rel="noopener noreferrer" target="_blank"              title="legifrance.gouv.fr - nouvelle fenêtre">legifrance.gouv.fr</a></li>          <li><a class="fr-footer__content-link" href="http://gouvernement.fr" rel="noopener noreferrer" target="_blank"              title="gouvernement.fr - nouvelle fenêtre">gouvernement.fr</a></li>          <li><a class="fr-footer__content-link" href="http://service-public.fr" rel="noopener noreferrer" target="_blank"              title="service-public.fr - nouvelle fenêtre">service-public.fr</a></li>          <li><a class="fr-footer__content-link" href="http://data.gouv.fr" rel="noopener noreferrer" target="_blank"              title="data.gouv.fr - nouvelle fenêtre">data.gouv.fr</a></li>        </ul>      </div>    </div>    <div class="fr-footer__bottom">      <ul class="fr-footer__bottom-list">        <li class="fr-footer__bottom-item"><a rel="noopener" class="fr-footer__bottom-link" href="https://www.service-public.fr/P10003">Plan du            site</a></li>        <li class="fr-footer__bottom-item"><a rel="noopener" class="fr-footer__bottom-link" href=" https://www.service-public.fr/P10000">Accessibilité            : totalement conforme</a></li>        <li class="fr-footer__bottom-item"><a rel="noopener" class="fr-footer__bottom-link" href="https://www.service-public.fr/P10125">Accessibilité            des services en ligne</a></li>        <li class="fr-footer__bottom-item"><a rel="noopener" class="fr-footer__bottom-link" href="https://www.service-public.fr/P10025">Mentions            légales</a></li>        <li class="fr-footer__bottom-item"><a rel="noopener" class="fr-footer__bottom-link" href="https://www.service-public.fr/P10001">Données            personnelles et sécurité</a></li>        <li class="fr-footer__bottom-item"><a rel="noopener" class="fr-footer__bottom-link" href="https://www.service-public.fr/P10050">Conditions            générales d’utilisation</a></li>      </ul>      <div class="fr-footer__bottom-copy">        <p><span>Sauf mention contraire, tous les textes de ce site sont sous </span><a            href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" rel="noopener noreferrer" target="_blank"            title="licence etalab-2.0 - nouvelle fenêtre">licence etalab-2.0</a></p>      </div>    </div>  </div>  <p class="fr-sr-only">footer</p></footer></div>'
+    var COMPONENTS = [{'name': 'ConnexionBrouillonDialog', 'selector': 'div[data-fmk-connexionreprisebrouillon]'},{'name': 'FmkBlocComponent', 'selector': 'div[data-fmk-bloc]'},{'name': 'FmkBlocDynamiqueComponent', 'selector': 'div[data-fmk-blocdynamique]'},{'name': 'FmkCaptchaComponent', 'selector': 'div[data-fmk-captcha]'},{'name': 'FmkConteneurPagesComponent', 'selector': 'div[data-fmk-conteneurpages]'},{'name': 'FmkContenuAdresseFrOuRtrComponent', 'selector': 'div[data-fmk-contenuadressefrouetr]'},{'name': 'FmkContenuAutocompletionComponent', 'selector': 'div[data-fmk-contenuautocompletion]'},{'name': 'FmkContenuCaseComponent', 'selector': 'div[data-fmk-contenucase]'},{'name': 'FmkContenuComponent', 'selector': 'div[data-fmk-contenu]'},{'name': 'FmkContenuContactPersonnelComponent', 'selector': 'div[data-fmk-contenucontactpersonnel]'},{'name': 'FmkContenuDateComponent', 'selector': 'div[data-fmk-contenudate]'},{'name': 'FmkContenuDocumentsComponent', 'selector': 'div[data-fmk-contenudocuments]'},{'name': 'FmkContenuFinDemarcheComponent', 'selector': 'div[data-fmk-contenufindemarche]'},{'name': 'FmkContenuFinDemarcheConnecteComponent', 'selector': 'div[data-fmk-contenufindemarcheconnecte]'},{'name': 'FmkContenuFinDemarcheNonConnecteComponent', 'selector': 'div[data-fmk-contenufindemarchenonconnecte]'},{'name': 'FmkContenuIdentiteComponent', 'selector': 'div[data-fmk-contenuidentite]'},{'name': 'FmkContenuListeFinieComponent', 'selector': 'div[data-fmk-contenulistefinie]'},{'name': 'FmkContenuParagrapheComponent', 'selector': 'div[data-fmk-contenuparagraphe]'},{'name': 'FmkContenuRadioComponent', 'selector': 'div[data-fmk-contenuradio]'},{'name': 'FmkContenuRecapitulatifComponent', 'selector': 'div[data-fmk-contenurecapitulatif]'},{'name': 'FmkContenuRicheComponent', 'selector': 'div[data-fmk-contenuriche]'},{'name': 'FmkContenuSaisieComponent', 'selector': 'div[data-fmk-contenusaisie]'},{'name': 'FmkContenuSaisieLongueComponent', 'selector': 'div[data-fmk-contenusaisielongue]'},{'name': 'FmkContenuSimpleComponent', 'selector': 'div[data-fmk-contenusimple]'},{'name': 'FmkContenuUploadDocumentComponent', 'selector': 'div[data-fmk-contenuuploaddocument]'},{'name': 'FmkContenuUtilisateurConnecteComponent', 'selector': 'div[data-fmk-contenuutilisateurconnecte]'},{'name': 'FmkEnteteComponent', 'selector': 'div[data-fmk-entete]'},{'name': 'FmkFilDarianeComponent', 'selector': 'div[data-fmk-fildariane]'},{'name': 'FmkListeContenusRecapitulatifComponent', 'selector': 'div[data-fmk-listecontenusrecapitulatif]'},{'name': 'FmkMessageGlobalComponent', 'selector': 'div[data-fmk-messageglobal]'},{'name': 'FmkMessagesValidationComponent', 'selector': '[data-fmk-messagesvalidation]'},{'name': 'FmkNavigationComponent', 'selector': 'div[data-fmk-navigation]'},{'name': 'FmkPageComponent', 'selector': 'div[data-fmk-page]'},{'name': 'FmkPiedDePageComponent', 'selector': 'div[data-fmk-pieddepage]'}];
+    var DIRECTIVES = [{'name': 'AbstractComponent', 'selector': ''},{'name': 'AncreTabulableDirective', 'selector': 'a:not([href])'},{'name': 'FmkApplicationAbstraitComponent', 'selector': ''},{'name': 'FmkContenuAbstraitComponent', 'selector': ''},{'name': 'FmkContenuComplexeAbstraitComponent', 'selector': ''},{'name': 'FmkContenuFinDemarcheAbstraitComponent', 'selector': ''},{'name': 'FmkContenuMonoSaisieAbstraitComponent', 'selector': ''}];
+    var ACTUAL_COMPONENT = {'name': 'FmkPiedDePageComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FmkPiedDePageComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

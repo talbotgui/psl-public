@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2. Conception détaillée on Documentation nouvelle PSL</title>
+    <link>http://localhost:1313/documentation/2conceptiondetaillee/</link>
+    <description>Recent content in 2. Conception détaillée on Documentation nouvelle PSL</description>
+    <generator>Hugo</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Wed, 02 Apr 2025 22:36:22 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/documentation/2conceptiondetaillee/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2.1 Introduction</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.1introduction/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.1introduction/</guid>
+      <description>2.1.1 - Objectifs de la documentation détaillée 2.1.2 - Les grands ensembles dans le code 2.1.1 - Objectifs de la documentation détaillée La conception détaillée a pour objectif de fournir des informations précises sur les fonctionnalités du système et sur la répartition de ces fonctionnalités dans les applicatifs, leurs couches et leurs composants.&#xA;Or la meilleure documentation détaillée est celle présente dans le code.&#xA;Donc une bonne partie de ce chapitre s&amp;rsquo;appuie sur la documentation générée depuis le code (définition de javadoc et JXR).</description>
+    </item>
+    <item>
+      <title>2.2 Principes de conception du BACK</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.2principesconceptionduback/</link>
+      <pubDate>Fri, 04 Aug 2023 08:12:36 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.2principesconceptionduback/</guid>
+      <description>2.2.1 - Découpage en micro-service 2.2.2 - Gestion commune des dépendances 2.2.3 - Design pattern en couches 2.2.4 - Gestion de la configuration 2.2.5 - Séparation de l&amp;rsquo;application et de ses tests 2.2.6 - le &amp;ldquo;10mn buld&amp;rdquo; 2.2.7 - les logs Ce chapitre liste les principaux principes de conception du Back.&#xA;2.2.1 - Découpage en micro-service Le code du BACK est construit sous forme de micro-services. Un micro-service est un applicatif</description>
+    </item>
+    <item>
+      <title>2.3 Principes de conception du FRONT</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.3principesconceptiondufront/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.3principesconceptiondufront/</guid>
+      <description>2.3.1 - Gestion commune des principales dépendances (via le workspace Angular) 2.3.2 - Segmentation du code 2.3.3 - conception du framework 2.3.4 - tests automatisés 2.3.1 - Gestion commune des principales dépendances (via le workspace Angular) L&amp;rsquo;ensemble du code du FRONT est rassemblé dans un workspace Angular. Ce workspace permet que tous les applicatifs FRONT puissent&#xA;être dépendants les uns des autres (sans publier de version dans un repository NPM/YARN) ; partager les mêmes dépendances (pour ne pas avoir une version d&amp;rsquo;Angular différente d&amp;rsquo;une démarche à une autre).</description>
+    </item>
+    <item>
+      <title>2.4 Principes de conception communs</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.4principesconceptionfrontetback/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.4principesconceptionfrontetback/</guid>
+      <description>2.4.1 - Conception depuis le besoin 2.4.2 - Format d&amp;rsquo;échange JSON 2.4.3 - Sémantique REST 2.4.4 - Sécurisation des APIs REST Les éléments de conception communs au Front et au Back se situent tous au niveau de la conception des APIs.&#xA;2.4.1 - Conception depuis le besoin Les APIs exposées aux démarches comme aux autre micro-services (et donc les services qui sont derrière) se conçoivent à partir du besoin (et de la faisabilité bien-sûr).</description>
+    </item>
+    <item>
+      <title>2.5 Principes de rédaction documentaire</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.5principeconceptiondocumentaire/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.5principeconceptiondocumentaire/</guid>
+      <description>2.5.1 - Accessibilité (au sens compréhension et pas RGAA) 2.5.2 - Chapitrage 2.5.3 - Mise en forme 2.5.4 - Automatisation Le présent chapitre n&amp;rsquo;est pas exclusivement à destination des développeurs. D&amp;rsquo;où sa présence ici. Mais un minimum d&amp;rsquo;outils sont nécessaires pour modifier la documentation (cf. §3.31)&#xA;2.5.1 - Accessibilité (au sens compréhension et pas RGAA) La documentation doit être lisible et accessible à tous. En conséquence, il ne faut pas hésiter à ajouter des liens vers des documents/ressources externes permettant ainsi d&amp;rsquo;utiliser une notion sans la détailler complètement.</description>
+    </item>
+    <item>
+      <title>2.6 Fonctionnalités</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.6fonctionnalites/</link>
+      <pubDate>Sat, 22 Mar 2025 14:29:08 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.6fonctionnalites/</guid>
+      <description>2.6.1 - Index des fonctionnalités et règles de gestion 2.6.1.1 - Fonctionnalités paramétrables dans la configuration publique 2.6.1.2 - Fonctionnalités paramétrables dans la configuration interne 2.6.1.3 - Fonctionnalités de sécurité 2.6.1.4 - Fonctionnalités de type cloud 2.6.1.5 - Fonctionnalités métier 2.6.2 - Fonctionnalités techniques 2.6.2.1 - Les bases de données 2.6.2.2 - La centralisation/gestion des micro-services du Back 2.6.2.3 - Les logs 2.6.2.5 - Détails sur l&amp;rsquo;intégration des référentiels sur Internet pour créer les référentiels PSL 2.</description>
+    </item>
+    <item>
+      <title>2.7 Fonctionnalités Cloud</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.7cloud/</link>
+      <pubDate>Fri, 04 Aug 2023 08:12:36 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.7cloud/</guid>
+      <description>2.7.1 - Que sont les services du socle disponibles jusque sur le poste du développeur ? 2.7.2 - Pile Elastic 2.7.1 - Que sont les services du socle disponibles jusque sur le poste du développeur ? Les micro-services du socle (détaillés au chapitre précédent) ne peuvent pas démarrer, s&amp;rsquo;appeler entre eux ou être appelés depuis l&amp;rsquo;extérieur sans des services purement techniques comme :&#xA;un registre listant les micro-services (et services) démarrés et permettant les appels entre eux ; une gateway pouvant exposer les services de toutes les multiples isntances de micro-service à l&amp;rsquo;extérieur (en s&amp;rsquo;adossant au regitre) ; un fournisseur de configuration mettant à disposition la configuration nécessaire à chaque micro-service.</description>
+    </item>
+    <item>
+      <title>2.8 Sécurité</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.8securite/</link>
+      <pubDate>Sat, 22 Mar 2025 14:16:17 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.8securite/</guid>
+      <description>2.8.1 - Introduction 2.8.2 - Séquence en détails 2.8.2.1 - Jusqu&amp;rsquo;au chargement de la configuration de la démarche 2.8.2.2 - Authentification supplémentaire éventuelle 2.8.2.3 - Par la suite 2.8.2.3 - A la soumission 2.8.3 - Sécurité &amp;amp; chiffrement 2.8.1 - Introduction L&amp;rsquo;authentification d&amp;rsquo;une démarche peut se faire, de manière paramétrables, selon deux modes d&amp;rsquo;authentification.&#xA;Le premier mode authentification, systématiquement utilisée à l&amp;rsquo;accès par l&amp;rsquo;utilisateur à une démarche, est le mode anonyme.</description>
+    </item>
+    <item>
+      <title>2.9 Liens documentaires</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.9liensdocumentaires/</link>
+      <pubDate>Thu, 16 Nov 2023 07:53:35 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.9liensdocumentaires/</guid>
+      <description>Le volume de code est disponible ici.&#xA;L&amp;rsquo;outil d&amp;rsquo;analyse de sécurité DependencyTrack est disponible ici&#xA;La documentation générée/technique des projets BACK est disponible ici (les liens vers les applicatifs sont ici) :&#xA;ProjetDocumentationSources service-admin javadoc sources service-gateway javadoc sources service-nosql javadoc sources service-registry javadoc sources socle-commun javadoc sources&amp;nbsp;sources-test socle-communtest javadoc sources socle-commundb javadoc sources socle-commundbtest javadoc sources socle-dbconfiguration javadoc sources&amp;nbsp;sources-test socle-dbbrouillon javadoc sources&amp;nbsp;sources-test socle-dbdocument javadoc sources&amp;nbsp;sources-test socle-referentiel javadoc sources&amp;nbsp;sources-test socle-referentielexterne javadoc sources&amp;nbsp;sources-test socle-securite javadoc sources&amp;nbsp;sources-test socle-soumission javadoc sources&amp;nbsp;sources-test Celle des projets FRONT est ici :</description>
+    </item>
+    <item>
+      <title>2.10 Documentation utilisateur</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.10documentationutilisateur/</link>
+      <pubDate>Thu, 19 Oct 2023 21:52:39 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.10documentationutilisateur/</guid>
+      <description>Cette page décrit comment définir les configurations d&amp;rsquo;une démarche : 2.10.1 - Configuration interne 2.10.2 - Configuration publique 2.10.2.1 - Structure 2.10.2.2 - Les types de contenu 2.10.1 - Configuration interne Les APIs exposées aux démarches comme aux autre micro-services (et donc les services qui sont derrière) se conçoivent à partir du besoin (et de la faisabilité bien-sûr). Ceci comprend le choix des paramètres (et de leur type) et les données retournées.</description>
+    </item>
+  </channel>
+</rss>

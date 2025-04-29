@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Accueil on Documentation nouvelle PSL</title>
+    <link>http://localhost:1313/documentation/</link>
+    <description>Recent content in Accueil on Documentation nouvelle PSL</description>
+    <generator>Hugo</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Wed, 02 Apr 2025 23:07:24 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/documentation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1.1.1 Objectifs fonctionnels</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/1.1.1objectifsfonctionnels/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/1.1.1objectifsfonctionnels/</guid>
+      <description>Selon moi, l&amp;rsquo;objectif initial et primaire de la Plateforme de Service en Ligne (PSL) est&#xA;de permettre aux usagers de saisir leurs demandes dans des formulaires les guidant le plus possible jusqu&amp;rsquo;au remplissage des documents à envoyer au service instructeur. Ce guidage est&#xA;&amp;ldquo;fonctionnel&amp;rdquo; : les données à renseigner sont affichées/masquées en fonction des saisies précédentes pour que les demandes soient cohérentes et simples à saisir. &amp;ldquo;qualitatif&amp;rdquo; : les données saisies sont bonnes puisque les usagers disposent de saisies avec auto-complétion et de validations de champ.</description>
+    </item>
+    <item>
+      <title>1.1.2 Objectifs techniques</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/1.1.2objectifstechniques/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/1.1.2objectifstechniques/</guid>
+      <description>L&amp;rsquo;objectif technique de ma version du SI est de constuire une solution basée sur des technologies récentes pour en faciliter l&amp;rsquo;installation dans le cloud :&#xA;se baser sur des technologies récentes et pérennes : SpringBoot / Angular permettre une forte évolutivité : architecture micro-services maintenir un haut niveau de sécurité : du fait des technologies modernes (et donc maintenues) et de l&amp;rsquo;architecture (peu d&amp;rsquo;API recevant des données) être &amp;ldquo;cloud ready&amp;rdquo; nativement : usage des fonctionnalités de l&amp;rsquo;écosystème Spring simplifier la configuration et l&amp;rsquo;administration : réduction des configurations sous forme de clef/valeur mais des configurations structurées en Document (au sens NoSQL du terme) disposer d&amp;rsquo;un SI hautement disponible (sans parler de l&amp;rsquo;aspect scalabilité traité par le cloud) </description>
+    </item>
+    <item>
+      <title>1.1.3 Objectifs de disponibilité</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/1.1.3objectifsdisponibilite/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/1.1.3objectifsdisponibilite/</guid>
+      <description>Les applications fontales doivent être hautement disponibles. Leur disponibilité ne doit pas dépendre des applicatifs présents en aval dans la chaîne de traitement de l&amp;rsquo;information.&#xA;Autrement dit, si un des applicatifs en aval est indisponible, aucune fonctionnalité de ma PSL ne doit être impactée.&#xA;La solution est simple (en tout cas le principe) : à la soumission d&amp;rsquo;un télé-dossier, ma PSL ne fait que stocker les pièces jointes fournies par l&amp;rsquo;usager et les documents générés.</description>
+    </item>
+    <item>
+      <title>1.1.4 Objectifs d&#39;homogénéité</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/1.1.4objectifhomogeneite/</link>
+      <pubDate>Wed, 02 Apr 2025 22:52:08 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/1.1.4objectifhomogeneite/</guid>
+      <description>Enfin, parmi les attendus de la PSL, restent&#xA;l&amp;rsquo;homogénéité des écrans leur respect du Référentiel Général d&amp;rsquo;Amélioration de l&amp;rsquo;Accessibilité leur respect de la charte DesignSytem de l&amp;rsquo;état Dans cet objectif, presque toutes les démarches sont construites de la même manière :&#xA;un fil d&amp;rsquo;Ariane permettant de se repérer dans les différentes étapes de la saisie chaque étape est un ensemble de pages chaque page contient un formulaire le formulaire est constitué de blocs chaque bloc peut commencer par un titre et regroupe des champs de saisie et des paragraphes de texte </description>
+    </item>
+    <item>
+      <title>1.2.1 Conception de l&#39;architecture</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.2architecture/1.2.1conceptionarchitecture/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.2architecture/1.2.1conceptionarchitecture/</guid>
+      <description>L&amp;rsquo;architecture de cette PSL est basée sur des Single Page Application (SPA) et des micro-services (wikipedia)&#xA;Le découpage des fonctionnalités de ma PSL en livrables applicatifs WEB est naturel :&#xA;une application publique par démarche (au sens applicatif du terme) une application interne par typologie d&amp;rsquo;utilisateurs (un éditeur pour les concepteurs, une administration pour les exploitants&amp;hellip;) Côté BACK, le principe des micro-services prévaut. Ainsi, le découpage des fonctionnalités est piloté par la séparation des données dans des bases différentes de par</description>
+    </item>
+    <item>
+      <title>1.2.2 Schéma d&#39;architecture générale</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.2architecture/1.2.2schemageneral/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.2architecture/1.2.2schemageneral/</guid>
+      <description>A partir des principes énoncés au chapitre précédent, on peut imaginer une architecture avec :&#xA;Guide de lecture :&#xA;Chaque zone colorée est une zone réseau particulière dont les flux entrants sont spécifiques. En bout de flèche, le &amp;ldquo;R&amp;rdquo; et/ou le &amp;ldquo;W&amp;rdquo; spécifie que l&amp;rsquo;accès est en &amp;ldquo;Lecture&amp;rdquo; ou &amp;ldquo;Ecriture&amp;rdquo;. Par défaut, tous les accès sont &amp;ldquo;Lecture seule&amp;rdquo;. </description>
+    </item>
+    <item>
+      <title>1.2.3 Principes généraux</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.2architecture/1.2.3principesgeneraux/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.2architecture/1.2.3principesgeneraux/</guid>
+      <description>1.2.3.1 - Hébergement des applicatifs 1.2.3.2 - Haute disponibilité 1.2.3.3 - Scalabilité 1.2.3.4 - Zone réseau 1.2.3.5 - Sécurisation des appels à PSL 1.2.3.1 - Hébergement des applicatifs Les applicatifs WEB se présentent sous forme de sites statiques. Leur hébergement peut donc se faire via un service cloud dédié ou un serveur WEB classique (HTTPd ou Nginx).&#xA;Les applicatifs Java sont autonomes (Tomcat est embarqué via SpringBoot). Ces applicatifs peuvent être déployés sur tout type de VM et automatisés/gérés automatiquement.</description>
+    </item>
+    <item>
+      <title>1.3.1 Les applications WEB de démarche</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.1demarche/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.1demarche/</guid>
+      <description>1.3.1.1 - Introduction 1.3.1.2 - Paramétrabilité des applications de démarche 1.3.1.3 - Le moteur paramétrable 1.3.1.4 - Un schéma 1.3.1.1 - Introduction Chaque application WEB de démarche est unique :&#xA;un public d&amp;rsquo;usagers (trés général ou très précis) un ou plusieurs partenaires et services instructeurs une liste précise de données à obtenir de l&amp;rsquo;usager (dont souvent des pièces jointes justificatives) une liste de documents à générer Chaque démarche est donc une application spécifique</description>
+    </item>
+    <item>
+      <title>1.3.2 Le socle</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.2socle/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.2socle/</guid>
+      <description>1.3.2.1 - Introduction 1.3.2.2 - Les paramètres du socle 1.3.2.3 - Les paramètres publics des applications de démarche 1.3.2.4 - Référentiels 1.3.2.5 - Gestion des documents 1.3.2.5.1 - Stockage des documents 1.3.2.5.2 - Antivirus 1.3.2.6 - Brouillon 1.3.2.7 - Transfert 1.3.2.8 - Notification 1.3.2.7 - Admin 1.3.2.7.1 - LDAP 1.3.2.1 - Introduction Les démarches ne sont que des applications WEB s&amp;rsquo;exécutant dans le navigateur des usagers. Tout le reste constitue le socle applicatif :</description>
+    </item>
+    <item>
+      <title>1.3.3 Les outils</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.3outils/</link>
+      <pubDate>Fri, 04 Aug 2023 08:12:36 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.3outils/</guid>
+      <description>En plus de la partie applicative (FRONT et BACK) et de la présente documentation, un ensemble d&amp;rsquo;outils existent pour faciliter la construction de ce SI :&#xA;l&amp;rsquo;outil de rétro-ingénierie permettant d&amp;rsquo;initialiser une configuration publique de démarche à partir d&amp;rsquo;une démarche existante de l&amp;rsquo;ancienne PSL l&amp;rsquo;éditeur de configuration publique est accessible comme tout autre application WEB de démarche est uniquement installée sur un environnement hors production permet de passer d&amp;rsquo;étape en étape dans la navigateur ajoute, dans la toute première étape de la saisie, de modifier la configuration de tester cette configuration immédiatement et de recommencer infiniment les outils techniques sont des exécutables Java à utiliser depuis Eclipse et présents des projets du Socle : La classe OutilRecuperationTemplateDeDocumentEtape1 permet, à partir d&amp;rsquo;un code de démarche, de lister les templates de document présents dans les sources de l&amp;rsquo;ancienne PSL, d&amp;rsquo;en extraire les clefs et d&amp;rsquo;initier un fichier de mapping avec toutes les clefs que la démarche publique devra couvrir.</description>
+    </item>
+    <item>
+      <title>1.3.4 Rétro-ingénierie</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.4retroingenierie/</link>
+      <pubDate>Sun, 24 Apr 2022 21:17:37 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.4retroingenierie/</guid>
+      <description>Pour initialiser une configuration publique de démarche, est disponible un outil&#xA;basé sur la librairie de test d&amp;rsquo;application WEB Cypress (semblable à Protractor ou Selenium) capable de naviguer dans une application existante (déployée en local) à partir d&amp;rsquo;une URL de brouillon extrayant la substance de l&amp;rsquo;application pour créer une première version de la configuration (pages, libellés, champs, validations, composants&amp;hellip;) générant un brouillon dans la nouvelle PSL avec les mêmes données Pour initialiser les templates de la démarche, sont disponibles, dans le projet socle-dbconfiguration, deux outils :</description>
+    </item>
+    <item>
+      <title>2.1 Introduction</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.1introduction/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.1introduction/</guid>
+      <description>2.1.1 - Objectifs de la documentation détaillée 2.1.2 - Les grands ensembles dans le code 2.1.1 - Objectifs de la documentation détaillée La conception détaillée a pour objectif de fournir des informations précises sur les fonctionnalités du système et sur la répartition de ces fonctionnalités dans les applicatifs, leurs couches et leurs composants.&#xA;Or la meilleure documentation détaillée est celle présente dans le code.&#xA;Donc une bonne partie de ce chapitre s&amp;rsquo;appuie sur la documentation générée depuis le code (définition de javadoc et JXR).</description>
+    </item>
+    <item>
+      <title>2.2 Principes de conception du BACK</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.2principesconceptionduback/</link>
+      <pubDate>Fri, 04 Aug 2023 08:12:36 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.2principesconceptionduback/</guid>
+      <description>2.2.1 - Découpage en micro-service 2.2.2 - Gestion commune des dépendances 2.2.3 - Design pattern en couches 2.2.4 - Gestion de la configuration 2.2.5 - Séparation de l&amp;rsquo;application et de ses tests 2.2.6 - le &amp;ldquo;10mn buld&amp;rdquo; 2.2.7 - les logs Ce chapitre liste les principaux principes de conception du Back.&#xA;2.2.1 - Découpage en micro-service Le code du BACK est construit sous forme de micro-services. Un micro-service est un applicatif</description>
+    </item>
+    <item>
+      <title>2.3 Principes de conception du FRONT</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.3principesconceptiondufront/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.3principesconceptiondufront/</guid>
+      <description>2.3.1 - Gestion commune des principales dépendances (via le workspace Angular) 2.3.2 - Segmentation du code 2.3.3 - conception du framework 2.3.4 - tests automatisés 2.3.1 - Gestion commune des principales dépendances (via le workspace Angular) L&amp;rsquo;ensemble du code du FRONT est rassemblé dans un workspace Angular. Ce workspace permet que tous les applicatifs FRONT puissent&#xA;être dépendants les uns des autres (sans publier de version dans un repository NPM/YARN) ; partager les mêmes dépendances (pour ne pas avoir une version d&amp;rsquo;Angular différente d&amp;rsquo;une démarche à une autre).</description>
+    </item>
+    <item>
+      <title>2.4 Principes de conception communs</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.4principesconceptionfrontetback/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.4principesconceptionfrontetback/</guid>
+      <description>2.4.1 - Conception depuis le besoin 2.4.2 - Format d&amp;rsquo;échange JSON 2.4.3 - Sémantique REST 2.4.4 - Sécurisation des APIs REST Les éléments de conception communs au Front et au Back se situent tous au niveau de la conception des APIs.&#xA;2.4.1 - Conception depuis le besoin Les APIs exposées aux démarches comme aux autre micro-services (et donc les services qui sont derrière) se conçoivent à partir du besoin (et de la faisabilité bien-sûr).</description>
+    </item>
+    <item>
+      <title>2.5 Principes de rédaction documentaire</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.5principeconceptiondocumentaire/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.5principeconceptiondocumentaire/</guid>
+      <description>2.5.1 - Accessibilité (au sens compréhension et pas RGAA) 2.5.2 - Chapitrage 2.5.3 - Mise en forme 2.5.4 - Automatisation Le présent chapitre n&amp;rsquo;est pas exclusivement à destination des développeurs. D&amp;rsquo;où sa présence ici. Mais un minimum d&amp;rsquo;outils sont nécessaires pour modifier la documentation (cf. §3.31)&#xA;2.5.1 - Accessibilité (au sens compréhension et pas RGAA) La documentation doit être lisible et accessible à tous. En conséquence, il ne faut pas hésiter à ajouter des liens vers des documents/ressources externes permettant ainsi d&amp;rsquo;utiliser une notion sans la détailler complètement.</description>
+    </item>
+    <item>
+      <title>2.6 Fonctionnalités</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.6fonctionnalites/</link>
+      <pubDate>Sat, 22 Mar 2025 14:29:08 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.6fonctionnalites/</guid>
+      <description>2.6.1 - Index des fonctionnalités et règles de gestion 2.6.1.1 - Fonctionnalités paramétrables dans la configuration publique 2.6.1.2 - Fonctionnalités paramétrables dans la configuration interne 2.6.1.3 - Fonctionnalités de sécurité 2.6.1.4 - Fonctionnalités de type cloud 2.6.1.5 - Fonctionnalités métier 2.6.2 - Fonctionnalités techniques 2.6.2.1 - Les bases de données 2.6.2.2 - La centralisation/gestion des micro-services du Back 2.6.2.3 - Les logs 2.6.2.5 - Détails sur l&amp;rsquo;intégration des référentiels sur Internet pour créer les référentiels PSL 2.</description>
+    </item>
+    <item>
+      <title>2.7 Fonctionnalités Cloud</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.7cloud/</link>
+      <pubDate>Fri, 04 Aug 2023 08:12:36 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.7cloud/</guid>
+      <description>2.7.1 - Que sont les services du socle disponibles jusque sur le poste du développeur ? 2.7.2 - Pile Elastic 2.7.1 - Que sont les services du socle disponibles jusque sur le poste du développeur ? Les micro-services du socle (détaillés au chapitre précédent) ne peuvent pas démarrer, s&amp;rsquo;appeler entre eux ou être appelés depuis l&amp;rsquo;extérieur sans des services purement techniques comme :&#xA;un registre listant les micro-services (et services) démarrés et permettant les appels entre eux ; une gateway pouvant exposer les services de toutes les multiples isntances de micro-service à l&amp;rsquo;extérieur (en s&amp;rsquo;adossant au regitre) ; un fournisseur de configuration mettant à disposition la configuration nécessaire à chaque micro-service.</description>
+    </item>
+    <item>
+      <title>2.8 Sécurité</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.8securite/</link>
+      <pubDate>Sat, 22 Mar 2025 14:16:17 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.8securite/</guid>
+      <description>2.8.1 - Introduction 2.8.2 - Séquence en détails 2.8.2.1 - Jusqu&amp;rsquo;au chargement de la configuration de la démarche 2.8.2.2 - Authentification supplémentaire éventuelle 2.8.2.3 - Par la suite 2.8.2.3 - A la soumission 2.8.3 - Sécurité &amp;amp; chiffrement 2.8.1 - Introduction L&amp;rsquo;authentification d&amp;rsquo;une démarche peut se faire, de manière paramétrables, selon deux modes d&amp;rsquo;authentification.&#xA;Le premier mode authentification, systématiquement utilisée à l&amp;rsquo;accès par l&amp;rsquo;utilisateur à une démarche, est le mode anonyme.</description>
+    </item>
+    <item>
+      <title>2.9 Liens documentaires</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.9liensdocumentaires/</link>
+      <pubDate>Thu, 16 Nov 2023 07:53:35 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.9liensdocumentaires/</guid>
+      <description>Le volume de code est disponible ici.&#xA;L&amp;rsquo;outil d&amp;rsquo;analyse de sécurité DependencyTrack est disponible ici&#xA;La documentation générée/technique des projets BACK est disponible ici (les liens vers les applicatifs sont ici) :&#xA;ProjetDocumentationSources service-admin javadoc sources service-gateway javadoc sources service-nosql javadoc sources service-registry javadoc sources socle-commun javadoc sources&amp;nbsp;sources-test socle-communtest javadoc sources socle-commundb javadoc sources socle-commundbtest javadoc sources socle-dbconfiguration javadoc sources&amp;nbsp;sources-test socle-dbbrouillon javadoc sources&amp;nbsp;sources-test socle-dbdocument javadoc sources&amp;nbsp;sources-test socle-referentiel javadoc sources&amp;nbsp;sources-test socle-referentielexterne javadoc sources&amp;nbsp;sources-test socle-securite javadoc sources&amp;nbsp;sources-test socle-soumission javadoc sources&amp;nbsp;sources-test Celle des projets FRONT est ici :</description>
+    </item>
+    <item>
+      <title>2.10 Documentation utilisateur</title>
+      <link>http://localhost:1313/documentation/2conceptiondetaillee/2.10documentationutilisateur/</link>
+      <pubDate>Thu, 19 Oct 2023 21:52:39 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/2conceptiondetaillee/2.10documentationutilisateur/</guid>
+      <description>Cette page décrit comment définir les configurations d&amp;rsquo;une démarche : 2.10.1 - Configuration interne 2.10.2 - Configuration publique 2.10.2.1 - Structure 2.10.2.2 - Les types de contenu 2.10.1 - Configuration interne Les APIs exposées aux démarches comme aux autre micro-services (et donc les services qui sont derrière) se conçoivent à partir du besoin (et de la faisabilité bien-sûr). Ceci comprend le choix des paramètres (et de leur type) et les données retournées.</description>
+    </item>
+    <item>
+      <title>3.1 Liens</title>
+      <link>http://localhost:1313/documentation/3developpement/3.1liens/</link>
+      <pubDate>Sat, 22 Mar 2025 14:16:17 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.1liens/</guid>
+      <description>3.1.1 - Liens locaux 3.1.2 - Liens de la PIC Les liens vers les documentations générées automatiquement à partir du code sont disponible ici.&#xA;3.1.1 - Liens locaux Applicatifs WEB Front : Applicatifs WEB Front d&amp;rsquo;administration : édition de configuration de démarche PSL Admin: wsl ou local Applications WEB Back : Service Cloud Registry Eureka : lien local ou lien wsl Service Cloud Admin : lien local ou lien wsl Swagger des APIs exposés par la Gateway Documentation : liens documentaire publiée dans WSL ou en édition locale 3.</description>
+    </item>
+    <item>
+      <title>3.2 Installation de poste</title>
+      <link>http://localhost:1313/documentation/3developpement/3.2installationdeposte/</link>
+      <pubDate>Wed, 02 Apr 2025 23:07:24 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.2installationdeposte/</guid>
+      <description>3.2.1 - Clone du dépôt 3.2.2 - Java 3.2.3 - Maven 3.2.4 - Node &amp;amp; co 3.2.4.1 - Installer Node 3.2.5 - Les IDE 3.2.5.1 - IDE - Notepad++ 3.2.5.2 - IDE - Eclipse 3.2.5.3 - IDE - VSCode 3.2.5.4 - IDE - Compass 3.2.5.5 - IDE - UseBruno 3.2.5.6 - IDE - Règle sur l&amp;rsquo;utilisation des IDEs 3.2.5.7 - OUTILS - SMTP4DEV (pas nécessaire dans un premier temps) 3.</description>
+    </item>
+    <item>
+      <title>3.3 Démarrer tout</title>
+      <link>http://localhost:1313/documentation/3developpement/3.3demarrertout/</link>
+      <pubDate>Thu, 18 Jul 2024 08:43:47 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.3demarrertout/</guid>
+      <description>3.3.1 - Démarrer tout 3.2.2 - Ordre de démarrage des composants du socle 3.3.1 - Démarrer tout Pour démarrer l&amp;rsquo;ensemble des applications JAVA et FRONT sur un poste de développement, il faut :&#xA;en prérequis : avoir installé son poste de développement convenablement (cf. §3.2) avoir compilé avec succès tous les projets Java avec Maven avoir installé toutes les dépendances JS avec NPM (avec la commande npm ci) démarrer les projets Java ouvrir une ligne de commande git4windows dans le répertoire 2-code\socle exécuter la commande .</description>
+    </item>
+    <item>
+      <title>3.11 Infos-logs</title>
+      <link>http://localhost:1313/documentation/3developpement/3.11infoslogs/</link>
+      <pubDate>Mon, 06 May 2024 21:36:34 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.11infoslogs/</guid>
+      <description>3.11.1 - Types de log 3.11.2 - Format des logs 3.11.2.1 - Format des logs applicatives 3.11.2.2 - Format des access logs 3.11.3 - Configuration par environnement 3.11.3.1 - Logs en local 3.11.3.2 - Logs hors local 3.11.1 - Types de log Actuellement, deux types de log existent :&#xA;Les logs applicatives générées par les frameworks, les librairies et le code applicatif permettant de suivre l&amp;rsquo;activité des applications. Les access log généré par le serveur WEB et contenant exclusivement les traces des requêtes HTTP.</description>
+    </item>
+    <item>
+      <title>3.12 Infos-Spring</title>
+      <link>http://localhost:1313/documentation/3developpement/3.12infosspring/</link>
+      <pubDate>Mon, 06 May 2024 21:36:34 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.12infosspring/</guid>
+      <description>3.12.1 - Liste des principales dépendances Spring et leurs usages 3.12.2 - Liste des annotations Spring (et autres) utilisées dans les projets Back Les fonctionnalités CLOUD et plus largement de Spring sont utilisées dans les projets BACK.&#xA;3.12.1 - Liste des principales dépendances Spring et leurs usages Ces dépendances Spring sont utilisés sont dans les services de gestion/administration&#xA;spring-boot-admin-starter-server est utilisé dans service-admin pour fournir une interface d&amp;rsquo;administration de l&amp;rsquo;ensemble du SI.</description>
+    </item>
+    <item>
+      <title>3.13 Infos-cloud</title>
+      <link>http://localhost:1313/documentation/3developpement/3.13infoscloud/</link>
+      <pubDate>Sat, 05 Nov 2022 21:57:08 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.13infoscloud/</guid>
+      <description>3.13.1 - spring-boot-admin et service-admin 3.13.2 - spring-cloud-starter-gateway et service-gateway 3.13.3 - spring-cloud-config-server et service-config 3.13.4 - spring-cloud-starter-netflix-eureka-server et service-registry 3.13.5 - service-nosql 3.13.1 - spring-boot-admin et service-admin L&amp;rsquo;ensemble des applicatifs du socle sont prévus pour fonctionner dans le cloud et être scalables horizontalement (possibilité de démarrer plusieurs instances d&amp;rsquo;un même service et répartir la charge sur l&amp;rsquo;ensemble). Pour permettre le monitoring des instances démarrées,&#xA;existe l&amp;rsquo;application service-admin basée sur le projet SpringBootAdmin (https://codecentric.</description>
+    </item>
+    <item>
+      <title>3.14 Infos-PIC</title>
+      <link>http://localhost:1313/documentation/3developpement/3.14infospic/</link>
+      <pubDate>Fri, 04 Aug 2023 08:12:36 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.14infospic/</guid>
+      <description>Une Plateforme d&amp;rsquo;Intégration Continue (PIC) est un ensemble d&amp;rsquo;outils dont l&amp;rsquo;objectif premier est de tester, en continue (d&amp;rsquo;où son nom) toutes les versions de code créées par les développeurs. Pour cela, un orchestrateur (comme Jenkins) surveille un référentiel de source (comme Gitlab) pour déclencher le build (cf. §3.33) et envoyer, si besoin, un mail prévenant que quelque chose ne va pas. En plus de cet objectif de base, la PIC peut permettre :</description>
+    </item>
+    <item>
+      <title>3.15 Infos-test e2e</title>
+      <link>http://localhost:1313/documentation/3developpement/3.15infose2e/</link>
+      <pubDate>Thu, 18 Jul 2024 08:43:47 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.15infose2e/</guid>
+      <description>3.15.1 - Introduction 3.15.2 - Démarrage 3.15.3 - FailFast 3.15.4 - Couverture de code 3.15.5 - Dépannage 3.15.1 - Introduction Protractor n&amp;rsquo;est plus utilisé par Angular. Aucun test ni configuration de test d&amp;rsquo;écrans (E2E) n&amp;rsquo;existe plus à la création d&amp;rsquo;un projet Angular. CYPRESS est le framework nouvellement conseillé. Il fournit notamment une migration automatique depuis Protractor. Mais son premier usage est parfois pénible. Donc le fichier package.json contient des commandes install-1*cypress</description>
+    </item>
+    <item>
+      <title>3.16 Infos-velocity</title>
+      <link>http://localhost:1313/documentation/3developpement/3.16infovelocity/</link>
+      <pubDate>Sun, 04 Sep 2022 15:15:27 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.16infovelocity/</guid>
+      <description>3.15.1 - Introduction 3.15.2 - Syntaxes à connaître 3.15.1 - Introduction Velocity est un framework de templating de texte. Il permet, à partir d&amp;rsquo;un template et de données, de générer un texte.&#xA;Pour rappel, un document JSON, XML ou même HTML est, à la base, un document texte. Et la nouvelle PSL permet de générer un PDF à partir d&amp;rsquo;une page HTML.&#xA;3.15.2 - Syntaxes à connaître La documentation officielle est là.</description>
+    </item>
+    <item>
+      <title>3.21 Règles-conception</title>
+      <link>http://localhost:1313/documentation/3developpement/3.21reglesdeconception/</link>
+      <pubDate>Fri, 06 May 2022 20:27:48 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.21reglesdeconception/</guid>
+      <description>3.21.1 - Conception 3.21.1.1 - Les projets et leur catégorisation 3.21.1.2 - Configuration 3.21.1.3 - Les clients d&amp;rsquo;API 3.21.2 - Règles de nommage 3.21.1 - Conception 3.21.1.1 - Les projets et leur catégorisation Le projet socle se compose de multiples projets (notion de micro-service) mais ces projets se divisent en plusieurs catégories&#xA;les projets fonctionnels apportant des fonctionnalités et exposant des APIs sécurisées comme socle-dbdocument traitant du stockage des documents générés et des pièces jointes ; socle-dbconfiguration stockant les configurations internes et publiques des démarches ; socle-dbbrouillon stockant les brouillons de télé-dossier ; socle-referentiel exposant des APIs permettant l&amp;rsquo;autocomplétion à partir de données indéxées et obtenues depuis des référentiels externes ; socle-referentielexterne exposant des APIs permettant l&amp;rsquo;autocomplétion à partir de directement obtenues (à chaque requête entrante) depuis des référentiels externes ; socle-soumission exposant l&amp;rsquo;API de création d&amp;rsquo;un tx²élé-dossier (validation, génération de documents&amp;hellip;) ; socle-securite exposant les APIs de gestion de l&amp;rsquo;authentification des usagers.</description>
+    </item>
+    <item>
+      <title>3.22 Règles-Java</title>
+      <link>http://localhost:1313/documentation/3developpement/3.22reglesspecificiquesjava/</link>
+      <pubDate>Wed, 07 Aug 2024 22:17:59 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.22reglesspecificiquesjava/</guid>
+      <description>3.22.1 - Java 17 3.22.2 - Spécificités associées aux record de Java 3.22.3 - Les imports 3.22.4 - Validation de données en entrée des APIs exposées par le socle 3.22.5 - L&amp;rsquo;injection de dépendance de Spring 3.22.1 - Java 17 La partie Socle de cette solution est initialement développée avec Java 17. Elle utilise donc certaines fonctionnalités intéressantes (et pour certaines relativement récentes) de Java :&#xA;les record sont une nouvelle façon de déclarer une classe en Java.</description>
+    </item>
+    <item>
+      <title>3.23 Règles-Maven</title>
+      <link>http://localhost:1313/documentation/3developpement/3.23reglesmaven/</link>
+      <pubDate>Fri, 06 May 2022 20:27:48 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.23reglesmaven/</guid>
+      <description>3.23.1 - Règles de développement liées à Maven L&amp;rsquo;ensemble des projets BACK, FRONT sont construits avec Maven. Maven apporte deux grands services :&#xA;la gestion des dépendances se base sur l&amp;rsquo;identification unique de chaque artefact (alias livrable applicatif ) quelque soit son type (JAR, WAR ou EAR. Cette clef unique se compose du groupid, de l&amp;rsquo;artefactid et de la version. Par convention, le groupid est le package de base de la solution (donc aussi un nom DNS déclarant le propriétaire).</description>
+    </item>
+    <item>
+      <title>3.24 Règles-test</title>
+      <link>http://localhost:1313/documentation/3developpement/3.24reglesdetest/</link>
+      <pubDate>Thu, 22 Feb 2024 08:09:48 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.24reglesdetest/</guid>
+      <description>3.24.1 - Comment faire fonctionner edition-tool en local 3.24.2 - Les tests automatisés dans le Back 3.24.3 - Les requêtes HTTP 3.24.4 - Les tests en cas de modification structurelle du code du socle 3.24.5 - Tests E2E 3.24.6 - Analyse de problème dans les tess E2E 3.24.1 - Comment faire fonctionner edition-tool en local L&amp;rsquo;outil de reverse engineering générant une configuration et un brouillon de démarche à partir d&amp;rsquo;une application déployée est aussi limité que l&amp;rsquo;outil CYPRESS sur lequel il est basé.</description>
+    </item>
+    <item>
+      <title>3.25 Règles-logs</title>
+      <link>http://localhost:1313/documentation/3developpement/3.25reglesdelog/</link>
+      <pubDate>Sat, 22 Mar 2025 11:49:31 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.25reglesdelog/</guid>
+      <description>3.25.1 - Règles des logs 3.25.1 - Règles des logs Les règles impérieuses sont :&#xA;aucune donnée personnelle ne doit être logguée. Mais il peut être utile, durant les tests, de consulter le détail des données générées. Donc, les données interdites en production peuvent être loggées en niveau TRACE si et seulement si une ligne de log WARNING est ajoutée dans la classe et générée dès le début du micro-service pour avertir du problème (cf.</description>
+    </item>
+    <item>
+      <title>3.26 Règles-Front</title>
+      <link>http://localhost:1313/documentation/3developpement/3.26regesspecificiquesfront/</link>
+      <pubDate>Fri, 09 Aug 2024 08:56:45 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.26regesspecificiquesfront/</guid>
+      <description>3.26.1 - Angular 3.26.2 - DSFR 3.26.3 - Material versus DSFR 3.26.1 - Angular Toutes les bonnes pratiques poussées par Angular doivent être respectées. C&amp;rsquo;est pour cette raison que, régulièrement, un projet Angular est créé de zéro avec Angular-cli. Ainsi toutes les règles (notamment tslint) sont réintégrées au projet front.&#xA;En plus de ces bonnes pratiques, des choix ont été faits sur le projet :&#xA;aucun fichier source ne doit être vide (notamment les fichiers SCSS bien souvent vides) les CSS de chaque composant ne sont pas encapsulées (cf.</description>
+    </item>
+    <item>
+      <title>3.31 Procédures-site documentaire</title>
+      <link>http://localhost:1313/documentation/3developpement/3.31proceduressitedocumentaire/</link>
+      <pubDate>Sat, 22 Mar 2025 14:16:17 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.31proceduressitedocumentaire/</guid>
+      <description>3.31.1 - Installer tous les éléments 3.31.2 - Démarrer / arrêter le site 3.31.3 - Modifier les pages 3.31.4 - Modifier l&amp;rsquo;arborescence 3.31.5 - Générer la documentation technique 3.31.6 - Créer le site documentaire statique 3.31.7 - Mettre à jour la version d&amp;rsquo;Hugo 3.31.1 - Installer tous les éléments Pour manipuler modifier le site documentaire, il est faut :&#xA;cloner le dépôt des sources du projet installer le HOOK git pre-commit en copiant le fichier aInstaller_pre-commit présent à la racine du dépôt le renommant pre-commit le plaçant dans le répertoire .</description>
+    </item>
+    <item>
+      <title>3.32 Procédures-règles de l&#39;application Angular</title>
+      <link>http://localhost:1313/documentation/3developpement/3.32proceduresapplicationangular/</link>
+      <pubDate>Thu, 18 Jul 2024 08:43:47 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.32proceduresapplicationangular/</guid>
+      <description>3.32.1 - Recréer un workspace Angular avec des applications et un librairie commune 3.32.2 - Créer une nouvelle application de démarche 3.32.3 - Vérifier la cohérence d&amp;rsquo;une démarche 3.32.4 - Ajouter un nouveau type de contenu 3.32.5 - A savoir sur un type de contenu 3.32.6 - Ajout/retrait/modification d&amp;rsquo;un attribut dans un type de contenu ou une classe du package model 3.32.7 - Comment ajouter un nouveau type de validation de champ 3.</description>
+    </item>
+    <item>
+      <title>3.33 Procédures-environnement Maven</title>
+      <link>http://localhost:1313/documentation/3developpement/3.33proceduresmaven/</link>
+      <pubDate>Thu, 18 Jul 2024 08:43:47 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.33proceduresmaven/</guid>
+      <description>3.33.1 - Utilisations courantes de Maven 3.33.2 - Changement de version du socle PSL 3.33.3 - Changement ou ajout d&amp;rsquo;une dépendance 3.33.4 - Astuce pour exécuter un unique plugin ou une unique exécution 3.33.1 - Utilisations courantes de Maven Pour compiler le socle PSL, il est nécessaire de systématiquement compiler les classes de test. Donc il ne faut pas utiliser le paramètre -Dmaven.test.skip. La bonne commande à utiliser est mvn clean install -DskipTests.</description>
+    </item>
+    <item>
+      <title>3.34 Procédures-veille sécurité</title>
+      <link>http://localhost:1313/documentation/3developpement/3.34proceduressecurite/</link>
+      <pubDate>Sat, 22 Mar 2025 18:40:23 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.34proceduressecurite/</guid>
+      <description>3.34.1. - Projet Socle 3.34.1.1 - Mettre à jour les dépendances Java 3.34.1.2 - Chiffrement / déchiffrement des mots de passe (ou clefs) dans les fichiers de configuration 3.34.2 - Projet Front 3.34.2.1 - Montée de version Angular 3.34.2.2 - Montée de version Angular compliquée 3.34.2.3 - Montée de version Angular 3.34.2.4 - Montée de version DSFR 3.34.2.5 - Montée de version des autres dépendances Node 3.34.3 - Mise à jour des outils 3.</description>
+    </item>
+    <item>
+      <title>3.35 Procédures-elastic</title>
+      <link>http://localhost:1313/documentation/3developpement/3.35procedureselastic/</link>
+      <pubDate>Wed, 03 Jan 2024 22:49:53 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.35procedureselastic/</guid>
+      <description>3.35.1 - Comment mettre en place et utiliser la pile Elastic 3.35.2 - Comment faire évoluer la pile Elastic 3.35.3 - Kibana - ajouter un champ calculé 3.35.4 - Pile Elastic - montée de version 3.35.5 - Kibana - astuces diverses et informations à connaître Ce chapitre contient des procédures et des aides pour des manipuler la pile Elastic.&#xA;3.35.1 - Comment mettre en place et utiliser la pile Elastic Pour plus de détails sur la pile Elastic elle-même, cette dernière est décrite au chapitre §2.</description>
+    </item>
+    <item>
+      <title>3.36 Procédures-test</title>
+      <link>http://localhost:1313/documentation/3developpement/3.36procedurestest/</link>
+      <pubDate>Sat, 22 Mar 2025 14:16:17 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.36procedurestest/</guid>
+      <description>3.36.1 - Campagnes de test 3.36.2 - C1 La vérification du build 3.36.3 - C2 Les tests du système sur le poste local 3.36.4 - C2 Les tests du système sur WSL 3.36.5 - Tests du socle 3.36.6 - Tests des applications WEB 3.36.7 - FAQ Ce chapitre contient les procédures de test&#xA;3.36.1 - Campagnes de test Pour tout tester, il est nécessaire de réaliser plusieurs campagnes de test :</description>
+    </item>
+    <item>
+      <title>3.37 Procédures-diverses</title>
+      <link>http://localhost:1313/documentation/3developpement/3.37proceduresdiverses/</link>
+      <pubDate>Sat, 22 Mar 2025 11:49:31 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.37proceduresdiverses/</guid>
+      <description>3.37.1 - Comment ajouter le client d&amp;rsquo;API d&amp;rsquo;un micro-service dans un autre micro-service ? 3.37.2 - Ajout d&amp;rsquo;une dépendance dans le framework du workspace FRONT 3.37.3 - Cypress démarré avec xx-e2e ne trouve pas l&amp;rsquo;application qui est pourtant démarré 3.37.4 - Jackson n&amp;rsquo;arrive pas à transformer un JSON en Record (classcastexception LinkedHashMap) 3.37.5 - Erreur de compilation dans Eclipse 3.37.6 - Comment chiffrer/déchiffrer le fichier variablesPourScripts.properties.gpg 3.37.7 - Le micro-service SOCLE-REFERENTIEL ne démarre plus 3.</description>
+    </item>
+    <item>
+      <title>3.41 Les choses à savoir</title>
+      <link>http://localhost:1313/documentation/3developpement/3.41chosesasavoir/</link>
+      <pubDate>Fri, 15 Mar 2024 21:56:56 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.41chosesasavoir/</guid>
+      <description>Ce chapitre contient une liste non exhaustive d&amp;rsquo;informations, liens et sujets que tout membre de l&amp;rsquo;équipe devrait connaître pour développer efficacement.&#xA;culture informatique&#xA;les expressions régulières l&amp;rsquo;usage de KeePass les groupes d&amp;rsquo;onglet dans Chrome les outils de développement dans les navigateurs WEB les requêtes HTTP (méthodes, code de retour, entêtes, cookies) UNIX&#xA;les commandes de base pour parcourir une machine : cd, cat, vi, ls les redirections de sortie standard et sortie d&amp;rsquo;erreur (cd.</description>
+    </item>
+    <item>
+      <title>3.99 Foire aux questions (FAQ)</title>
+      <link>http://localhost:1313/documentation/3developpement/3.99faq/</link>
+      <pubDate>Mon, 01 Apr 2024 22:22:48 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.99faq/</guid>
+      <description>3.99.1 - Que faire de la log &amp;ldquo;OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended&amp;rdquo; ? 3.99.2 - Des membres Java sont renommés &amp;ldquo;a&amp;rdquo; ou &amp;ldquo;b&amp;rdquo; quand le code s&amp;rsquo;exécutant a été compilé via Maven mais pas en DEBUG avec Eclipse 3.99.3 - Pourquoi le Hot Module Reload de WebPack ne permet pas de garder la configuration, les données et la progression dans une démarche Ce chapitre contient des éléments très diverses et la capitalisation de toutes les questions qu&amp;rsquo;un membre de l&amp;rsquo;équipe peut se poser.</description>
+    </item>
+    <item>
+      <title>4.1 Plan</title>
+      <link>http://localhost:1313/documentation/4ops/4.1plan/</link>
+      <pubDate>Sat, 22 Mar 2025 18:40:23 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/4ops/4.1plan/</guid>
+      <description>Voici le plan de déploiement imaginé au 13/06/2023 (aucun environnement cible n&amp;rsquo;existe encore à cette date).&#xA;4.1.1 - Les composants applicatifs et leurs contraintes 4.1.2 - Plan de déploiement 4.1.3 - Besoins vis-à-vis de l&amp;rsquo;hébergeur/exploitant 4.1.4 - Installation avec Ansible 4.1.5 - Commandes à connaître 4.1.1 - Les composants applicatifs et leurs contraintes Les services du socle sont des fonctionnalités que peuvent proposer les fournisseurs de Cloud. Ils ne seront donc pas tous installés en production.</description>
+    </item>
+    <item>
+      <title>4.2 Ansible</title>
+      <link>http://localhost:1313/documentation/4ops/4.2ansible/</link>
+      <pubDate>Mon, 21 Aug 2023 22:47:05 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/4ops/4.2ansible/</guid>
+      <description>Cette page décrit comment et pourquoi sont organisées les sources du projet IAC&#xA;4.2.1 - Description du projet 4.2.2 - Commandes de base 4.2.1 - Description du projet Ansible permet de créer un répertoire inventory pour y stocker plusieurs sources/fichiers et tous les utiliser avec le paramètre -i. Les fichiers y sont chargés dans l&amp;rsquo;ordre ASCII (source). Ainsi, dans chaque inventaire, sont présents les fichiers :&#xA;01-listeMachines.yml qui fournit, pour chaque code de machine (par exemple EXE_EXP_1), le nom de la machine et son port SSH 02-planDeploiement.</description>
+    </item>
+    <item>
+      <title>4.3 Règles</title>
+      <link>http://localhost:1313/documentation/4ops/4.3regles/</link>
+      <pubDate>Wed, 29 Nov 2023 07:12:10 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/4ops/4.3regles/</guid>
+      <description>Cette page décrit les régèles et normes de développement dans le projet IAC avec Ansible&#xA;4.3.1 - Conception générale 4.3.2 - A savoir 4.3.3 - Règles à respecter 4.3.4 - Commandes utiles 4.3.1 - Conception générale Ansible est un outil de préparation/rédaction de &amp;ldquo;scripts&amp;rdquo;. Il permet, avec ses modules natifs d&amp;rsquo;exécuter un très grand nombre d&amp;rsquo;actes différents sur un ensemble de machines Unix distantes.&#xA;Un projet Ansible est constitué : de tâches, de rôles et de playbook.</description>
+    </item>
+    <item>
+      <title>4.4 Exploitation</title>
+      <link>http://localhost:1313/documentation/4ops/4.4exploitation/</link>
+      <pubDate>Thu, 16 May 2024 18:01:19 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/4ops/4.4exploitation/</guid>
+      <description>Cette page décrit les tests d&amp;rsquo;une campagne de non-régression complète&#xA;4.4.1 - Introduction 4.4.2 - Prérequis à l&amp;rsquo;installation 4.4.3 - Commandes possibles 4.4.4 - Obtenir les versions des composants déployés 4.4.1 - Introduction Cette page décrit les différentes commandes utiles pour l&amp;rsquo;exploitation de ce SI.&#xA;4.4.2 - Prérequis à l&amp;rsquo;installation Les machines doivent toutes être des machines Ubuntu récentes (2023xx minimum). Un compte disposant des droits SUDO doit exister (par exemple, ubuntu dans le reste de la documentation)</description>
+    </item>
+    <item>
+      <title>5.1 Organisation</title>
+      <link>http://localhost:1313/documentation/5avancement/5.1comment/</link>
+      <pubDate>Tue, 13 Jun 2023 17:52:28 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/5avancement/5.1comment/</guid>
+      <description>A l&amp;rsquo;origine, ce prototype est un défi personnel : est-ce faisable ? Il a été initialisé et développé sur du temps personnel.&#xA;Donc, côté stratégie, les sujets ont été priorisés selon&#xA;leur faisabilité leur difficulté mais aussi en selon l&amp;rsquo;intéret personnel du sujet. </description>
+    </item>
+    <item>
+      <title>5.2 à faire</title>
+      <link>http://localhost:1313/documentation/5avancement/5.2quoi/</link>
+      <pubDate>Mon, 24 Mar 2025 08:54:56 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/5avancement/5.2quoi/</guid>
+      <description>Rappel des étapes/éléments à réaliser par type de sujet :&#xA;fonctionnalité FRONT : doc éventuelle + bibliothèque + framework + impact Back éventuel + TU fonctionnalité BACK : doc + Back + TU ComplexitéPrioritéDescription Maintenances : Maintenance à faire en 07/2024 : Sécurité (1/3) : mettre à jour DependencyTrack depuis §3.34.5.1 (dernière en 04/2024 en 4.10.1) Maintenance à faire en 07/2023 : Sécurité (2/3) : refaire l&#39;audit de sécurité avec DependencyTrack depuis §3.</description>
+    </item>
+    <item>
+      <title>0. License</title>
+      <link>http://localhost:1313/documentation/0licence/</link>
+      <pubDate>Sat, 22 Mar 2025 19:15:14 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/0licence/</guid>
+      <description>Summary This program is offered under a commercial and under the AGPL license. For commercial licensing, contact me at talbotgui@gmail.com.&#xA;For AGPL licensing, see below.&#xA;AGPL licensing: This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&#xA;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,14 @@
+---
+
+# Arrêt de l'applicatif
+#   async+poll : attente de 20 secondes et poll de 5
+#   register : création d'une variable "scrout" pour afficher des logs
+- name: "[Arrêt] Arret de {{ applicatif_nom }}"
+  ansible.builtin.command:
+    cmd: "{{ applicatifs_rep }}{{ applicatif_nom }}/{{ applicatif_nom }}.sh stop"
+  async: 120
+  poll: 05
+  register: "scrout"
+
+- name: "[Arrêt] logs d'arrêt"
+  debug: "var=scrout.stdout_lines"

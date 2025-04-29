@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<!-- Sortie standard à décommenter dans Eclipse au besoin -->
+<!--	<appender name="Console" class="ch.qos.logback.core.ConsoleAppender">-->
+<!--		<encoder><pattern>[%d{dd/MM/yyyy:HH:mm:ss:SSS Z}] %-5(${PID:-}) [%-16(%X{traceId:-}),%-16(%X{spanId:-})] %-5level %-40.40logger{39} : %m%n</pattern></encoder>-->
+<!--	</appender>-->
+
+	<!-- Sortie vers un fichier pour les logs -->
+	<appender name="LogApplicatif" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    	<!-- Chemin du fichier à générer -->
+    	<file>${repertoirePidEtLog}log_service-redis-1.log</file>
+    	<!-- Si le fichier existe, on ne l'écrase pas-->
+    	<append>true</append>
+    	<!-- Pattern des lignes -->
+		<encoder><pattern>[%d{dd/MM/yyyy:HH:mm:ss:SSS Z}] %-5(${PID:-}) [%-16(%X{traceId:-}),%-16(%X{spanId:-})] %-5level %-40.40logger{39} : %m%n</pattern></encoder>
+		<!-- Définition de la rotation des fichiers -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- Si la date change ou que la limite de poids est atteinte, le fichier est renommé, zippé et déplacé -->
+			<fileNamePattern>${repertoirePidEtLog}.archive/log_service-redis-1-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+			<!-- Pas plus de 1MB par fichier -->
+			<maxFileSize>1MB</maxFileSize>    
+			<!-- 15 jours de conservation -->
+			<maxHistory>15</maxHistory>
+			<!-- 20MB de conservation au total -->
+			<totalSizeCap>20MB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	<logger name="com.github.talbotgui.psl.socle" level="info" additivity="false">
+		<appender-ref ref="LogApplicatif" />
+	</logger>
+	<logger name="it.ozimov" level="info" additivity="false">
+		<appender-ref ref="LogApplicatif" />
+	</logger>
+
+	<root level="info">
+		<appender-ref ref="LogApplicatif" />
+	</root>
+</configuration>

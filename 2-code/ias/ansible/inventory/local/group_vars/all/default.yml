@@ -1,0 +1,100 @@
+#########################################
+# Variables nécessaies à Ansible lui-même
+#########################################
+
+# Définition des paramètres de connexion SSH pour Ansible
+ansible_user: "www"
+ansible_ssh_private_key_file: "/mnt/c/Users/$USERNAME/.ssh/wsl.key"
+
+#########################################################################
+# Variables utilitaires (pour ne pas répéter un choix ou une explication)
+#########################################################################
+# A savoir : pour créer un sous-répertoire, le répertoire doit être 'x'
+mode_rep_restreint: "700"
+mode_rep_nominal: "755"
+mode_fic_restreint: "600"
+mode_fic_restreint_executable: "700"
+mode_fic_nominal: "655"
+mode_fic_nominal_executable: "755"
+
+######################################################################################
+# Variables du module commun/aa_unix déplacées ici car utilisées dans plusieurs tâches
+######################################################################################
+# Groupe de l'utilisateur utilisé pour tous les processus PSL
+unix_groupe: "www"
+# Utilisateur utilisé pour tous les processus PSL
+unix_utilisateur: "www"
+
+#########################################################################################
+# Variables du module comun/ab_packages déplacées ici car utilisées dans plusieurs tâches
+#########################################################################################
+# Package Java installé avec apt-get
+packages_java: "openjdk-21-jre"
+# CACERT d'Ubuntu utilisé par défaut par Java (pour le stockage du certificat racine)
+cacert_chemin: "/etc/ssl/certs/java/cacerts"
+
+#########################################################################################################
+# Variables du module commun/ac_repertoires_et_keystore déplacées ici car utilisées dans plusieurs tâches
+#########################################################################################################
+# Répertoire de base de la PSL
+psl_rep: "/psl/"
+# Répertoire des applicatifs
+applicatifs_rep: "{{ psl_rep }}applicatifs/"
+# Répertoire des logs
+logs_rep: "{{ psl_rep }}logs/"
+# Répertoire contenant le keystore dans les sources ('playbook_dir' est une variable Ansible ne finissant pas par '/')
+keystore_source: "{{ playbook_dir }}/../../.certificatsLocaux/tls/keystore.p12"
+# Mot de passe du keystore
+keystore_mdp: "changeit"
+
+#########################################################################
+# Variables utilisé dans 03_deployer mais propre à un environnement donné
+#########################################################################
+# Répertoire contenant le repository Maven disponible sur le disque de la machine exécutant Ansible
+binaire_rep: "/mnt/d/xxxxxx/apache-maven-repository/"
+
+######################################################################
+# Variables utilisées pour le déploiément du Front (front/01_preparer)
+######################################################################
+front_dnsfront: "dev-psl.guillaumetalbot.com"
+front_dnsadmin: "admin.dev-psl.guillaumetalbot.com"
+front_tls_crt: "{{ playbook_dir }}/../../.certificatsLocaux/tls/dev-certificatDeDeveloppementSigne.crt"
+front_tls_key: "{{ playbook_dir }}/../../.certificatsLocaux/tls/dev-clefDeDeveloppement.key"
+
+##################################
+# Variables utilisées pour le LDAP
+##################################
+ldap_manager: "cn=DirectoryManager"
+ldap_motdepasse: "password"
+
+#####################################
+# Version des applicatifs à installer
+#####################################
+applications_web_front: ["generique","specifique"]
+applications_web_admin: ["adminpsl","edition"]
+
+version_front:
+  adminpsl: "0.0.2-SNAPSHOT"
+  generique: "0.0.2-SNAPSHOT"
+  specifique: "0.0.2-SNAPSHOT"
+  documentation: "0.0.2-SNAPSHOT"
+  edition: "0.0.2-SNAPSHOT"
+
+version_service_redis: "0.0.2-SNAPSHOT"
+version_service_gateway: "0.0.2-SNAPSHOT"
+version_service_registry: "0.0.2-SNAPSHOT"
+version_service_config: "0.0.2-SNAPSHOT"
+version_service_admin: "0.0.2-SNAPSHOT"
+version_service_ldap: "0.0.2-SNAPSHOT"
+version_service_nosql: "0.0.2-SNAPSHOT"
+
+version_socle_dbbrouillon: "0.0.2-SNAPSHOT"
+version_socle_dbconfiguration: "0.0.2-SNAPSHOT"
+version_socle_dbdocument: "0.0.2-SNAPSHOT"
+version_socle_dbnotification: "0.0.2-SNAPSHOT"
+version_socle_referentiel: "0.0.2-SNAPSHOT"
+version_socle_referentielexterne: "0.0.2-SNAPSHOT"
+version_socle_securite: "0.0.2-SNAPSHOT"
+version_socle_soumission: "0.0.2-SNAPSHOT"
+version_socle_transfert: "0.0.2-SNAPSHOT"
+version_socle_adminpsl: "0.0.2-SNAPSHOT"

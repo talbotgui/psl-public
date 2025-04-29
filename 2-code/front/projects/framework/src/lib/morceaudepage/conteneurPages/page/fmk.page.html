@@ -1,0 +1,36 @@
+@if (page) {
+  <!-- Message d'information pour les champs obligatoires (s'il en existe) -->
+  @if (!page.modeObligatoireParDefaut) {
+    <p class="mentionPasObligatoireParDefaut">{{'page.modePasObligatoire.1' | i18n}}<span
+    class="symbol-required">*</span>{{'page.modePasObligatoire.2'
+  | i18n}}</p>
+}
+@if (page.modeObligatoireParDefaut) {
+  <p class="mentionObligatoireParDefaut">{{'page.modeObligatoire.1' | i18n}}<b>{{'page.modeObligatoire.2' |
+  i18n}}</b>{{'page.modeObligatoire.3' | i18n}}</p>
+}
+<!-- Titre de la page -->
+@if (page.titre) {
+  <h2>{{page.titreAafficher}}</h2>
+}
+<!-- Liste des blocs -->
+@if (formulaire) {
+  <form id="leFormulaire" [formGroup]="formulaire">
+    @for (bloc of page.blocs; track bloc; let i = $index) {
+      <!-- Si le bloc n'est pas DYNAMIQUE -->
+      @if (!bloc.dynamique) {
+        <div data-fmk-bloc [bloc]="bloc" [formulaire]="formulaire" [indexBloc]="i"
+          [listeContenusDesBlocsDynamiquesPourRecalculDesConditionsAuOnChange]="listeContenusDesBlocsDynamiquesPourRecalculDesConditionsAuOnChange">
+        </div>
+      }
+      <!-- Si le bloc est DYNAMIQUE -->
+      @if (!!bloc.dynamique) {
+        <div data-fmk-blocdynamique [bloc]="bloc" [page]="page" [formulaire]="formulaire"
+        (onCreationContenus)="onCreationContenus($event)" (onDestructionContenus)="onDestructionContenus($event)"></div>
+      }
+    }
+  </form>
+}
+<!-- Le composant de navigation -->
+<div data-fmk-navigation [page]="page" [formulaire]="formulaire"></div>
+}

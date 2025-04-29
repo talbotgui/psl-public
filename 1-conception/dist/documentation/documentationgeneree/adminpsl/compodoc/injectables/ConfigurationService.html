@@ -1,0 +1,2068 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ConfigurationService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Fichier</h3>
+        </p>
+        <p class="comment">
+            <code>projects/adminpsl/src/app/service/configuration.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Etend</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../classes/ClientAdminApiService.html" target="_self" >ClientAdminApiService</a></code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#URI_CONFIG_CREATION_ET_LISTE" >URI_CONFIG_CREATION_ET_LISTE</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#URI_CONFIG_MODIFICATION_ET_LECTURE" >URI_CONFIG_MODIFICATION_ET_LECTURE</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#chargerVersionDeConfiguration" >chargerVersionDeConfiguration</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#construireUrl" >construireUrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#creerVersionDeConfiguration" >creerVersionDeConfiguration</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#listerLesVersionsDeConfiguration" >listerLesVersionsDeConfiguration</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#modifierVersionDeConfiguration" >modifierVersionDeConfiguration</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#creerOptionsSimples" >creerOptionsSimples</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#creerOptionsSimplesAvecAuthentification" >creerOptionsSimplesAvecAuthentification</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#creerOptionsSimplesPourPostMultipart" >creerOptionsSimplesPourPostMultipart</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#creerOptionsTexteSimple" >creerOptionsTexteSimple</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#delete" >delete</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#get" >get</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#post" >post</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#postAvecProgression" >postAvecProgression</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#tracerErreur" >tracerErreur</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructeur</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(httpClient: HttpClient, adminContexte: <a href="../injectables/AdminContexteService.html" target="_self">AdminContexteService</a>, logger: NGXLogger, bouchon: <a href="../injectables/AdminBouchonService.html" target="_self">AdminBouchonService</a>, environnementService: EnvironnementService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="38" class="link-to-prism">projects/adminpsl/src/app/service/configuration.service.ts:38</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructeur pour injection de dépendance.</p>
+</div>
+                            <div>
+                                    <b>Paramètres :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nom</td>
+                                                    <td>Type</td>
+                                                <td>Optionnel</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>httpClient</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpClient</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>adminContexte</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AdminContexteService.html" target="_self" >AdminContexteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                    <code>NGXLogger</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>bouchon</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AdminBouchonService.html" target="_self" >AdminBouchonService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>environnementService</td>
+                                                  
+                                                        <td>
+                                                                    <code>EnvironnementService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chargerVersionDeConfiguration"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>chargerVersionDeConfiguration</b></span>
+                        <a href="#chargerVersionDeConfiguration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>chargerVersionDeConfiguration(publique: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, codeDemarche: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, idConfiguration: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="52"
+                                    class="link-to-prism">projects/adminpsl/src/app/service/configuration.service.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Chargement d&#39;une configuration.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>publique</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Configuration publique (true) ou interne (false).</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>codeDemarche</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Code de la démarche.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>idConfiguration</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID de la configuration.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Configuration chargée.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="construireUrl"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>construireUrl</b></span>
+                        <a href="#construireUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>construireUrl(url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, publique: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, codeDemarche: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, idConfiguration: string | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="69"
+                                    class="link-to-prism">projects/adminpsl/src/app/service/configuration.service.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Construction de l&#39;URL à appeler en remplaçant xxx par interne/publique et remplaçant les paramètres.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>publique</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>codeDemarche</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>idConfiguration</td>
+                                            <td>
+                                                        <code>string | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="creerVersionDeConfiguration"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>creerVersionDeConfiguration</b></span>
+                        <a href="#creerVersionDeConfiguration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>creerVersionDeConfiguration(publique: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, codeDemarche: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, configuration: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="83"
+                                    class="link-to-prism">projects/adminpsl/src/app/service/configuration.service.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Création d&#39;une nouvelle version de démarche.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>publique</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Configuration publique (true) ou interne (false).</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>codeDemarche</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Code de la démarche.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>configuration</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Configuration à sauvegarder.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;string&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>ID de l&#39;objet trouvé.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listerLesVersionsDeConfiguration"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>listerLesVersionsDeConfiguration</b></span>
+                        <a href="#listerLesVersionsDeConfiguration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>listerLesVersionsDeConfiguration(publique: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, codeDemarche: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="107"
+                                    class="link-to-prism">projects/adminpsl/src/app/service/configuration.service.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Recherche des versions de configuration.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>publique</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Configuration publique (true) ou interne (false).</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>codeDemarche</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Code de la démarche.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Map de versions (ID/libellé)</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modifierVersionDeConfiguration"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>modifierVersionDeConfiguration</b></span>
+                        <a href="#modifierVersionDeConfiguration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>modifierVersionDeConfiguration(publique: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, codeDemarche: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, idConfiguration: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, configuration: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="131"
+                                    class="link-to-prism">projects/adminpsl/src/app/service/configuration.service.ts:131</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Modification de la version de la configuration.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>publique</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Configuration publique (true) ou interne (false).</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>codeDemarche</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Code de la démarche.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>idConfiguration</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID de la configuration à modifier.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>configuration</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Configuration à sauvegarder.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;string&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>ID de la configuration.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="creerOptionsSimples"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>creerOptionsSimples</b></span>
+                        <a href="#creerOptionsSimples"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>creerOptionsSimples()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../classes/ClientAdminApiService.html" target="_self" >ClientAdminApiService</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ClientAdminApiService.html#source" target="_self" >ClientAdminApiService:115</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>De simples entêtes (cas par défaut).</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>literal type</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="creerOptionsSimplesAvecAuthentification"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>creerOptionsSimplesAvecAuthentification</b></span>
+                        <a href="#creerOptionsSimplesAvecAuthentification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>creerOptionsSimplesAvecAuthentification()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../classes/ClientAdminApiService.html" target="_self" >ClientAdminApiService</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ClientAdminApiService.html#source" target="_self" >ClientAdminApiService:130</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Entêtes simples (@see creerOptionsSimples) avec un Authorization en plus.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>literal type</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="creerOptionsSimplesPourPostMultipart"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>creerOptionsSimplesPourPostMultipart</b></span>
+                        <a href="#creerOptionsSimplesPourPostMultipart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>creerOptionsSimplesPourPostMultipart()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../classes/ClientAdminApiService.html" target="_self" >ClientAdminApiService</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ClientAdminApiService.html#source" target="_self" >ClientAdminApiService:121</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Options spécifiques à l&#39;usage de FormData sans entête car il est généré automatique avec la partie boundary.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>literal type</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="creerOptionsTexteSimple"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>creerOptionsTexteSimple</b></span>
+                        <a href="#creerOptionsTexteSimple"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>creerOptionsTexteSimple()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../classes/ClientAdminApiService.html" target="_self" >ClientAdminApiService</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ClientAdminApiService.html#source" target="_self" >ClientAdminApiService:137</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>De simples entêtes (cas par défaut).</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>literal type</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="delete"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>delete</b></span>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>delete(idAppelant: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options: literal type, valeurParDefaut: T)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../classes/ClientAdminApiService.html" target="_self" >ClientAdminApiService</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ClientAdminApiService.html#source" target="_self" >ClientAdminApiService:62</a></code>
+</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Paramètres de type :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode de base pour appeler une API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idAppelant</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID de l&#39;appelant (pour identifier l&#39;émetteur des messages et les masquer)</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>L&#39;URL de la ressource.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Les entêtes à utiliser.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>valeurParDefaut</td>
+                                            <td>
+                                                        <code>T</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>La valeur par défaut en cas d&#39;erreur.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;T&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="get"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>get</b></span>
+                        <a href="#get"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>get(idAppelant: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options: literal type, valeurParDefaut: T)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../classes/ClientAdminApiService.html" target="_self" >ClientAdminApiService</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ClientAdminApiService.html#source" target="_self" >ClientAdminApiService:45</a></code>
+</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Paramètres de type :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode de base pour appeler une API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idAppelant</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID de l&#39;appelant (pour identifier l&#39;émetteur des messages et les masquer)</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>L&#39;URL de la ressource.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Les entêtes à utiliser.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>valeurParDefaut</td>
+                                            <td>
+                                                        <code>T</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>La valeur par défaut en cas d&#39;erreur.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;T&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="post"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>post</b></span>
+                        <a href="#post"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>post(idAppelant: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, options: literal type, valeurParDefaut: T)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../classes/ClientAdminApiService.html" target="_self" >ClientAdminApiService</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ClientAdminApiService.html#source" target="_self" >ClientAdminApiService:80</a></code>
+</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Paramètres de type :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode de base pour appeler une API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idAppelant</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID de l&#39;appelant (pour identifier l&#39;émetteur des messages et les masquer)</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>L&#39;URL de la ressource.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Le corps de la requête.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Les entêtes à utiliser.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>valeurParDefaut</td>
+                                            <td>
+                                                        <code>T</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>La valeur par défaut en cas d&#39;erreur.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;T&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="postAvecProgression"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>postAvecProgression</b></span>
+                        <a href="#postAvecProgression"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>postAvecProgression(idAppelant: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: FormData, options: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../classes/ClientAdminApiService.html" target="_self" >ClientAdminApiService</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ClientAdminApiService.html#source" target="_self" >ClientAdminApiService:97</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode de base pour appeler une API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idAppelant</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID de l&#39;appelant (pour identifier l&#39;émetteur des messages et les masquer)</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>L&#39;URL de la ressource.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                        <code>FormData</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Le corps de la requête.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Les entêtes à utiliser.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;HttpEvent&lt;any&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tracerErreur"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>tracerErreur</b></span>
+                        <a href="#tracerErreur"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>tracerErreur(idAppelant: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, nomMethode: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, parametres: string[], erreur: HttpErrorResponse)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../classes/ClientAdminApiService.html" target="_self" >ClientAdminApiService</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ClientAdminApiService.html#source" target="_self" >ClientAdminApiService:148</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode de gestion des erreurs.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idAppelant</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID de l&#39;appelant (pour identifier l&#39;émetteur des messages et les masquer)</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>nomMethode</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Nom de la méthode générant l&#39;erreur.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>parametres</td>
+                                            <td>
+                                                        <code>string[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Paramètres d&#39;appel à la méthode.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>erreur</td>
+                                            <td>
+                                                        <code>HttpErrorResponse</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objet erreur à traiter.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="URI_CONFIG_CREATION_ET_LISTE"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>URI_CONFIG_CREATION_ET_LISTE</b></span>
+                        <a href="#URI_CONFIG_CREATION_ET_LISTE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>&#x27;/socle/adminpsl/config/{codeDemarche}/xxx&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="35" class="link-to-prism">projects/adminpsl/src/app/service/configuration.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>URI de la liste des versions de configuration publique et de la création.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="URI_CONFIG_MODIFICATION_ET_LECTURE"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>URI_CONFIG_MODIFICATION_ET_LECTURE</b></span>
+                        <a href="#URI_CONFIG_MODIFICATION_ET_LECTURE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>&#x27;/socle/adminpsl/config/{codeDemarche}/xxx/{idConfiguration}&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="38" class="link-to-prism">projects/adminpsl/src/app/service/configuration.service.ts:38</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>URI de la lecture et modification de configuration publique.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { Injectable } from &#x27;@angular/core&#x27;;
+import { NGXLogger } from &#x27;ngx-logger&#x27;;
+import { Observable, of } from &#x27;rxjs&#x27;;
+import { EnvironnementService } from &#x27;../../../../framework/src/lib/services/stateful/environnement.service&#x27;;
+import { AdminContexteService } from &#x27;./adminContexte.service&#x27;;
+import { AdminBouchonService } from &#x27;./adminbouchon.service&#x27;;
+import { ClientAdminApiService } from &#x27;./clientadminapi.service&#x27;;
+
+@Injectable({ providedIn: &#x27;root&#x27; })
+export class ConfigurationService extends ClientAdminApiService {
+
+    /** URI de la liste des versions de configuration publique et de la création. */
+    private static readonly URI_CONFIG_CREATION_ET_LISTE &#x3D; &#x27;/socle/adminpsl/config/{codeDemarche}/xxx&#x27;;
+
+    /** URI de la lecture et modification de configuration publique. */
+    private static readonly URI_CONFIG_MODIFICATION_ET_LECTURE &#x3D; &#x27;/socle/adminpsl/config/{codeDemarche}/xxx/{idConfiguration}&#x27;;
+
+    /** Constructeur pour injection de dépendance. */
+    public constructor(httpClient: HttpClient, adminContexte: AdminContexteService, logger: NGXLogger, private bouchon: AdminBouchonService, private environnementService: EnvironnementService) {
+        super(httpClient, logger, adminContexte);
+    }
+
+    /**
+     * Chargement d&#x27;une configuration.
+     * @param publique Configuration publique (true) ou interne (false).
+     * @param codeDemarche Code de la démarche.
+     * @param idConfiguration ID de la configuration.
+     * @returns Configuration chargée.
+     */
+    public chargerVersionDeConfiguration(publique: boolean, codeDemarche: string, idConfiguration: string): Observable&lt;any&gt; {
+        this.logger.info(&#x27;Chargement d\&#x27;une configuration pour &#x27; + codeDemarche + &#x27; - &#x27; + idConfiguration);
+
+        // Pour bouchonner les APIs dans le cas des tests e2e
+        if (this.bouchon.verifierSiApiEstBouchonne()) {
+            this.logger.info(&#x27;Chargement via le bouchon&#x27;);
+            return this.bouchon.appelerApiBouchonne(ConfigurationService.URI_CONFIG_MODIFICATION_ET_LECTURE, &#x27;&#x27;);
+        }
+
+        // Appel réel
+        const url &#x3D; this.construireUrl(ConfigurationService.URI_CONFIG_MODIFICATION_ET_LECTURE, publique, codeDemarche, idConfiguration);
+        const options &#x3D; this.creerOptionsSimplesAvecAuthentification();
+        const valeurParDefaut: any &#x3D; {};
+        return this.get&lt;any&gt;(&#x27;chargerVersionDeConfiguration&#x27;, url, options, valeurParDefaut);
+    }
+
+    /** Construction de l&#x27;URL à appeler en remplaçant xxx par interne/publique et remplaçant les paramètres. */
+    private construireUrl(url: string, publique: boolean, codeDemarche: string, idConfiguration: string | undefined): string {
+        return this.environnementService.urls.socle.adminpsl + url//
+            .replace(&#x27;xxx&#x27;, publique ? &#x27;publique&#x27; : &#x27;interne&#x27;)//
+            .replace(&#x27;{codeDemarche}&#x27;, codeDemarche)//
+            .replace(&#x27;{idConfiguration}&#x27;, idConfiguration ? idConfiguration : &#x27;&#x27;);
+    }
+
+    /**
+     * Création d&#x27;une nouvelle version de démarche.
+     * @param publique Configuration publique (true) ou interne (false).
+     * @param codeDemarche Code de la démarche.
+     * @param configuration Configuration à sauvegarder.
+     * @returns ID de l&#x27;objet trouvé.
+     */
+    public creerVersionDeConfiguration(publique: boolean, codeDemarche: string, configuration: string): Observable&lt;string&gt; {
+        this.logger.info(&#x27;Création d\&#x27;une version de configuration pour &#x27; + codeDemarche);
+
+        // Pour bouchonner les APIs dans le cas des tests e2e
+        if (this.bouchon.verifierSiApiEstBouchonne()) {
+            this.logger.info(&#x27;Chargement via le bouchon&#x27;);
+            return of(&#x27;nouvelleVersion&#x27;);
+        }
+
+        // Préparation de l&#x27;appel
+        const url &#x3D; this.construireUrl(ConfigurationService.URI_CONFIG_CREATION_ET_LISTE, publique, codeDemarche, undefined);
+        const options &#x3D; this.creerOptionsSimplesAvecAuthentification();
+        const valeurParDefaut &#x3D; &#x27;&#x27;;
+
+        // Appel
+        return this.post&lt;string&gt;(&#x27;creerVersionDeConfiguration&#x27;, url, configuration, options, valeurParDefaut);
+    }
+
+    /**
+     * Recherche des versions de configuration.
+     * @param publique Configuration publique (true) ou interne (false).
+     * @param codeDemarche Code de la démarche.
+     * @returns Map de versions (ID/libellé)
+     */
+    public listerLesVersionsDeConfiguration(publique: boolean, codeDemarche: string): Observable&lt;{ [index: string]: any }&gt; {
+        this.logger.info(&#x27;Chargement des versions de configuration pour &#x27; + codeDemarche);
+
+        // Pour bouchonner les APIs dans le cas des tests e2e
+        if (this.bouchon.verifierSiApiEstBouchonne()) {
+            this.logger.info(&#x27;Chargement via le bouchon&#x27;);
+            return this.bouchon.appelerApiBouchonne(ConfigurationService.URI_CONFIG_CREATION_ET_LISTE, &#x27;&#x27;);
+        }
+
+        // Appel réel
+        const url &#x3D; this.construireUrl(ConfigurationService.URI_CONFIG_CREATION_ET_LISTE, publique, codeDemarche, undefined);
+        const options &#x3D; this.creerOptionsSimplesAvecAuthentification();
+        const valeurParDefaut: { [index: string]: any } &#x3D; {};
+        return this.get&lt;{ [index: string]: any }&gt;(&#x27;listerLesVersionsDeConfiguration&#x27;, url, options, valeurParDefaut);
+    }
+
+    /**
+     * Modification de la version de la configuration.
+     * @param publique Configuration publique (true) ou interne (false).
+    * @param codeDemarche Code de la démarche.
+     * @param idConfiguration ID de la configuration à modifier.
+     * @param configuration Configuration à sauvegarder.
+     * @returns ID de la configuration.
+     */
+    public modifierVersionDeConfiguration(publique: boolean, codeDemarche: string, idConfiguration: string, configuration: string): Observable&lt;string&gt; {
+        this.logger.info(&#x27;Sauvegarde des modifications d\&#x27;une configuration pour &#x27; + codeDemarche + &#x27;-&#x27; + idConfiguration);
+
+        // Pour bouchonner les APIs dans le cas des tests e2e
+        if (this.bouchon.verifierSiApiEstBouchonne()) {
+            this.logger.info(&#x27;Chargement via le bouchon&#x27;);
+            return of(idConfiguration);
+        }
+
+        // Préparation de l&#x27;appel
+        const url &#x3D; this.construireUrl(ConfigurationService.URI_CONFIG_MODIFICATION_ET_LECTURE, publique, codeDemarche, idConfiguration);
+        const options &#x3D; this.creerOptionsSimplesAvecAuthentification();
+        const valeurParDefaut &#x3D; &#x27;&#x27;;
+
+        // Appel
+        return this.post&lt;string&gt;(&#x27;modifierVersionDeConfiguration&#x27;, url, configuration, options, valeurParDefaut);
+    }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ConfigurationService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

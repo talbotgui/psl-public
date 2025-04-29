@@ -1,0 +1,1117 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Composants</li>
+  <li class="breadcrumb-item"
+  >
+  FmkContenuSaisieComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Fichier</h3>
+</p>
+<p class="comment">
+    <code>projects/framework/src/lib/contenu/simple/contenusaisie/fmk.contenusaisie.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Etend</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../directives/FmkContenuMonoSaisieAbstraitComponent.html" target="_self" >FmkContenuMonoSaisieAbstraitComponent</a></code>
+    </p>
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Métadonnées</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+            <tr>
+                <td class="col-md-3">encapsulation</td>
+                <td class="col-md-9"><code>ViewEncapsulation.None</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>div[data-fmk-contenusaisie]</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ReactiveFormsModule</code>
+                                <code><a href="../components/FmkMessagesValidationComponent.html" target="_self" >FmkMessagesValidationComponent</a></code>
+                            <code>LibelleDirective</code>
+                                <code><a href="../miscellaneous/variables.html#i18n" target="_self" >i18nPipeDirective</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./fmk.contenusaisie.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initialisationDejaAppelee" >initialisationDejaAppelee</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#numeroUnique" >numeroUnique</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#PROCHAINE_VALEUR_DU_NUMERO_UNIQUE" >PROCHAINE_VALEUR_DU_NUMERO_UNIQUE</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#souscriptions" >souscriptions</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#initialiserComposant" >initialiserComposant</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#declarerSouscription" >declarerSouscription</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#declarerSouscriptions" >declarerSouscriptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#detruireLesSouscriptions" >detruireLesSouscriptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Entrées</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#controle" >controle</a>
+                            </li>
+                            <li>
+                                <a href="#contenu" >contenu</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Entrées</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="controle"></a>
+                        <b>controle</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>UntypedFormControl | undefined</code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuMonoSaisieAbstraitComponent.html" target="_self" >FmkContenuMonoSaisieAbstraitComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuMonoSaisieAbstraitComponent.html#source" target="_self" >FmkContenuMonoSaisieAbstraitComponent:38</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Controle associé au champ de saisie.
+Pour que le contrôle soit associé à un FormGroup, il doit être initialié au niveau de la page (cf. <a href="https://angular.io/guide/reactive-forms#grouping-form-controls">https://angular.io/guide/reactive-forms#grouping-form-controls</a>).</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="contenu"></a>
+                        <b>contenu</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ContenuDeBloc | undefined</code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:45</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Configuration du bloc</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialiserComposant"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>initialiserComposant</b></span>
+                        <a href="#initialiserComposant"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initialiserComposant(contenu: <a href="../classes/ContenuDeBloc.html" target="_self">ContenuDeBloc</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:69</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode à surcharger pour initialiser un composant complexe (et pas ngOnInit @see FmkContenuAbstraitComponent.ngOnChanges)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>contenu</td>
+                                            <td>
+                                                            <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnChanges(changes: SimpleChanges)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:60</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Pour fournir une méthode d&#39;initialisation de tous les composants dans laquelle
+l&#39;attribut this.contenu est défini (il ne l&#39;est pas encore dans ngOnInit)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>changes</td>
+                                            <td>
+                                                        <code>SimpleChanges</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="declarerSouscription"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>declarerSouscription</b></span>
+                        <a href="#declarerSouscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>declarerSouscription(sub: Subscription)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:35</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Déclaration d&#39;une souscription qui sera détruite à la destruction du composant</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>sub</td>
+                                            <td>
+                                                        <code>Subscription</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="declarerSouscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>declarerSouscriptions</b></span>
+                        <a href="#declarerSouscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>declarerSouscriptions(subs: Subscription[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:40</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Déclaration d&#39;une souscription qui sera détruite à la destruction du composant</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>subs</td>
+                                            <td>
+                                                        <code>Subscription[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="detruireLesSouscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>detruireLesSouscriptions</b></span>
+                        <a href="#detruireLesSouscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>detruireLesSouscriptions()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:45</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Destruction des souscriptions créées</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:50</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>A la destruction du composant, on détruit ses souscriptions</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialisationDejaAppelee"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initialisationDejaAppelee</b></span>
+                        <a href="#initialisationDejaAppelee"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:48</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Pour ne pas appeler l&#39;initialisation plusieurs fois</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="numeroUnique"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>numeroUnique</b></span>
+                        <a href="#numeroUnique"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:41</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Numéro unique de ce champ de saisie</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PROCHAINE_VALEUR_DU_NUMERO_UNIQUE"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                        <span ><b>PROCHAINE_VALEUR_DU_NUMERO_UNIQUE</b></span>
+                        <a href="#PROCHAINE_VALEUR_DU_NUMERO_UNIQUE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>0</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:38</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Compteur static permettant de créer manuellement des ID différents pour chaque champ</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="souscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>souscriptions</b></span>
+                        <a href="#souscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:32</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Liste des souscriptions réalisées par le composant concrêt et à détruire</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ViewEncapsulation } from &#x27;@angular/core&#x27;;
+import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { i18nPipeDirective } from &#x27;../../../morceaudepage/directives/i18nPipe&#x27;;
+import { LibelleDirective } from &#x27;../../../morceaudepage/directives/libelle&#x27;;
+import { FmkContenuMonoSaisieAbstraitComponent } from &#x27;../../abstrait/fmk.contenumonosaisieabstrait&#x27;;
+import { FmkMessagesValidationComponent } from &#x27;../../messagesvalidation/fmk.messagesvalidation&#x27;;
+
+@Component({
+    selector: &#x27;div[data-fmk-contenusaisie]&#x27;, templateUrl: &#x27;./fmk.contenusaisie.html&#x27;, encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    imports: [ReactiveFormsModule, FmkMessagesValidationComponent, LibelleDirective, i18nPipeDirective]
+})
+export class FmkContenuSaisieComponent extends FmkContenuMonoSaisieAbstraitComponent { }</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@if (contenu &amp;&amp; controle) {
+  &lt;div [class.fr-input-group--error]&#x3D;&quot;saisieInvalide&quot; [class.fr-input-group--valid]&#x3D;&quot;saisieValide&quot; class&#x3D;&quot;fr-input-group&quot;&gt;
+    @if (contenu.titreAafficher || contenu.aideAafficher) {
+      &lt;label class&#x3D;&quot;fr-label&quot; [for]&#x3D;&quot;&#x27;idSaisie&#x27;+numeroUnique&quot;&gt;
+        @if (validationObligatoirePresente &amp;&amp; !contenu.modeObligatoireParDefaut) {
+          &lt;span class&#x3D;&quot;symbol-required&quot;&gt;* &lt;/span&gt;
+        }
+        &lt;span class&#x3D;&quot;textelibelle&quot; [innerHTML]&#x3D;&quot;contenu.titreAafficher | libelle&quot;&gt;&lt;/span&gt;
+        @if ((!validationObligatoirePresente &amp;&amp; contenu.modeObligatoireParDefaut) || contenu.aideAafficher) {
+          &lt;span class&#x3D;&quot;fr-hint-text&quot;&gt;
+            @if (!validationObligatoirePresente &amp;&amp; contenu.modeObligatoireParDefaut) {
+              {{ &#x27;commun.facultatif&#x27; | i18n}}
+            }
+            @if (!validationObligatoirePresente &amp;&amp; contenu.modeObligatoireParDefaut &amp;&amp; contenu.aideAafficher) {
+              -
+            }
+            {{ contenu.aideAafficher | libelle }}
+          &lt;/span&gt;
+        }
+      &lt;/label&gt;
+    }
+    &lt;input class&#x3D;&quot;fr-input&quot; [class.fr-input--error]&#x3D;&quot;saisieInvalide&quot; [class.fr-input--valid]&#x3D;&quot;saisieValide&quot;
+      [attr.aria-describedby]&#x3D;&quot;&#x27;messages&#x27;+numeroUnique&quot; type&#x3D;&quot;text&quot; [id]&#x3D;&quot;&#x27;idSaisie&#x27;+numeroUnique&quot; [formControl]&#x3D;&quot;controle&quot;&gt;
+      &lt;p data-fmk-messagesvalidation [id]&#x3D;&quot;&#x27;messages&#x27;+numeroUnique&quot; [contenu]&#x3D;&quot;contenu&quot; [controle]&#x3D;&quot;controle&quot; aria-live&#x3D;&quot;assertive&quot;&gt;
+      &lt;/p&gt;
+    &lt;/div&gt;
+  }</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Légende</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elément Html</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Composant</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elément Html avec une directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@if (contenu && controle) {  <div [class.fr-input-group--error]="saisieInvalide" [class.fr-input-group--valid]="saisieValide" class="fr-input-group">    @if (contenu.titreAafficher || contenu.aideAafficher) {      <label class="fr-label" [for]="\'idSaisie\'+numeroUnique">        @if (validationObligatoirePresente && !contenu.modeObligatoireParDefaut) {          <span class="symbol-required">* </span>        }        <span class="textelibelle" [innerHTML]="contenu.titreAafficher | libelle"></span>        @if ((!validationObligatoirePresente && contenu.modeObligatoireParDefaut) || contenu.aideAafficher) {          <span class="fr-hint-text">            @if (!validationObligatoirePresente && contenu.modeObligatoireParDefaut) {              {{ \'commun.facultatif\' | i18n}}            }            @if (!validationObligatoirePresente && contenu.modeObligatoireParDefaut && contenu.aideAafficher) {              -            }            {{ contenu.aideAafficher | libelle }}          </span>        }      </label>    }    <input class="fr-input" [class.fr-input--error]="saisieInvalide" [class.fr-input--valid]="saisieValide"      [attr.aria-describedby]="\'messages\'+numeroUnique" type="text" [id]="\'idSaisie\'+numeroUnique" [formControl]="controle">      <p data-fmk-messagesvalidation [id]="\'messages\'+numeroUnique" [contenu]="contenu" [controle]="controle" aria-live="assertive">      </p>    </div>  }</div>'
+    var COMPONENTS = [{'name': 'ConnexionBrouillonDialog', 'selector': 'div[data-fmk-connexionreprisebrouillon]'},{'name': 'FmkBlocComponent', 'selector': 'div[data-fmk-bloc]'},{'name': 'FmkBlocDynamiqueComponent', 'selector': 'div[data-fmk-blocdynamique]'},{'name': 'FmkCaptchaComponent', 'selector': 'div[data-fmk-captcha]'},{'name': 'FmkConteneurPagesComponent', 'selector': 'div[data-fmk-conteneurpages]'},{'name': 'FmkContenuAdresseFrOuRtrComponent', 'selector': 'div[data-fmk-contenuadressefrouetr]'},{'name': 'FmkContenuAutocompletionComponent', 'selector': 'div[data-fmk-contenuautocompletion]'},{'name': 'FmkContenuCaseComponent', 'selector': 'div[data-fmk-contenucase]'},{'name': 'FmkContenuComponent', 'selector': 'div[data-fmk-contenu]'},{'name': 'FmkContenuContactPersonnelComponent', 'selector': 'div[data-fmk-contenucontactpersonnel]'},{'name': 'FmkContenuDateComponent', 'selector': 'div[data-fmk-contenudate]'},{'name': 'FmkContenuDocumentsComponent', 'selector': 'div[data-fmk-contenudocuments]'},{'name': 'FmkContenuFinDemarcheComponent', 'selector': 'div[data-fmk-contenufindemarche]'},{'name': 'FmkContenuFinDemarcheConnecteComponent', 'selector': 'div[data-fmk-contenufindemarcheconnecte]'},{'name': 'FmkContenuFinDemarcheNonConnecteComponent', 'selector': 'div[data-fmk-contenufindemarchenonconnecte]'},{'name': 'FmkContenuIdentiteComponent', 'selector': 'div[data-fmk-contenuidentite]'},{'name': 'FmkContenuListeFinieComponent', 'selector': 'div[data-fmk-contenulistefinie]'},{'name': 'FmkContenuParagrapheComponent', 'selector': 'div[data-fmk-contenuparagraphe]'},{'name': 'FmkContenuRadioComponent', 'selector': 'div[data-fmk-contenuradio]'},{'name': 'FmkContenuRecapitulatifComponent', 'selector': 'div[data-fmk-contenurecapitulatif]'},{'name': 'FmkContenuRicheComponent', 'selector': 'div[data-fmk-contenuriche]'},{'name': 'FmkContenuSaisieComponent', 'selector': 'div[data-fmk-contenusaisie]'},{'name': 'FmkContenuSaisieLongueComponent', 'selector': 'div[data-fmk-contenusaisielongue]'},{'name': 'FmkContenuSimpleComponent', 'selector': 'div[data-fmk-contenusimple]'},{'name': 'FmkContenuUploadDocumentComponent', 'selector': 'div[data-fmk-contenuuploaddocument]'},{'name': 'FmkContenuUtilisateurConnecteComponent', 'selector': 'div[data-fmk-contenuutilisateurconnecte]'},{'name': 'FmkEnteteComponent', 'selector': 'div[data-fmk-entete]'},{'name': 'FmkFilDarianeComponent', 'selector': 'div[data-fmk-fildariane]'},{'name': 'FmkListeContenusRecapitulatifComponent', 'selector': 'div[data-fmk-listecontenusrecapitulatif]'},{'name': 'FmkMessageGlobalComponent', 'selector': 'div[data-fmk-messageglobal]'},{'name': 'FmkMessagesValidationComponent', 'selector': '[data-fmk-messagesvalidation]'},{'name': 'FmkNavigationComponent', 'selector': 'div[data-fmk-navigation]'},{'name': 'FmkPageComponent', 'selector': 'div[data-fmk-page]'},{'name': 'FmkPiedDePageComponent', 'selector': 'div[data-fmk-pieddepage]'}];
+    var DIRECTIVES = [{'name': 'AbstractComponent', 'selector': ''},{'name': 'AncreTabulableDirective', 'selector': 'a:not([href])'},{'name': 'FmkApplicationAbstraitComponent', 'selector': ''},{'name': 'FmkContenuAbstraitComponent', 'selector': ''},{'name': 'FmkContenuComplexeAbstraitComponent', 'selector': ''},{'name': 'FmkContenuFinDemarcheAbstraitComponent', 'selector': ''},{'name': 'FmkContenuMonoSaisieAbstraitComponent', 'selector': ''}];
+    var ACTUAL_COMPONENT = {'name': 'FmkContenuSaisieComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FmkContenuSaisieComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

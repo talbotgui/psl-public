@@ -1,0 +1,2569 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Composants</li>
+  <li class="breadcrumb-item"
+  >
+  FmkContenuUploadDocumentComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Fichier</h3>
+</p>
+<p class="comment">
+    <code>projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Etend</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../directives/FmkContenuMonoSaisieAbstraitComponent.html" target="_self" >FmkContenuMonoSaisieAbstraitComponent</a></code>
+    </p>
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Métadonnées</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+            <tr>
+                <td class="col-md-3">encapsulation</td>
+                <td class="col-md-9"><code>ViewEncapsulation.None</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>div[data-fmk-contenuuploaddocument]</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>MatProgressBar</code>
+                                <code><a href="../components/FmkMessagesValidationComponent.html" target="_self" >FmkMessagesValidationComponent</a></code>
+                            <code>LibelleDirective</code>
+                                <code><a href="../miscellaneous/variables.html#i18n" target="_self" >i18nPipeDirective</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./fmk.contenuuploaddocument.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./fmk.contenuuploaddocument.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dragNdropEnCours" >dragNdropEnCours</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#LIBELLE_TYPE_DOCUMENT" >LIBELLE_TYPE_DOCUMENT</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#messageErreur" >messageErreur</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#nomFichier" >nomFichier</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#progressionLancee" >progressionLancee</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#progressionValidee" >progressionValidee</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#suppressionEnCours" >suppressionEnCours</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#tailleMaximaleAutorisee" >tailleMaximaleAutorisee</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#typesDeContenuAutorises" >typesDeContenuAutorises</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initialisationDejaAppelee" >initialisationDejaAppelee</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#numeroUnique" >numeroUnique</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#PROCHAINE_VALEUR_DU_NUMERO_UNIQUE" >PROCHAINE_VALEUR_DU_NUMERO_UNIQUE</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#souscriptions" >souscriptions</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dragLeave" >dragLeave</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dragOver" >dragOver</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#drop" >drop</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier"></span>
+                                <a href="#initialiserComposant" >initialiserComposant</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ouvrirPopupFichier" >ouvrirPopupFichier</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectionnerFichier" >selectionnerFichier</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#supprimerFichier" >supprimerFichier</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#validerPresenceFichierSiObligatoire" >validerPresenceFichierSiObligatoire</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#verserFichier" >verserFichier</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#verserFichierEnUneUniqueRequete" >verserFichierEnUneUniqueRequete</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#declarerSouscription" >declarerSouscription</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#declarerSouscriptions" >declarerSouscriptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#detruireLesSouscriptions" >detruireLesSouscriptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Entrées</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#controle" >controle</a>
+                            </li>
+                            <li>
+                                <a href="#contenu" >contenu</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructeur</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(piecejointeService: <a href="../injectables/PieceJointeService.html" target="_self">PieceJointeService</a>, contexteService: <a href="../injectables/ContexteService.html" target="_self">ContexteService</a>, logger: NGXLogger, donneesService: <a href="../injectables/DonneesService.html" target="_self">DonneesService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="82" class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:82</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructeur avec injection des dépendances</p>
+</div>
+                            <div>
+                                    <b>Paramètres :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nom</td>
+                                                    <td>Type</td>
+                                                <td>Optionnel</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>piecejointeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PieceJointeService.html" target="_self" >PieceJointeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>contexteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ContexteService.html" target="_self" >ContexteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                    <code>NGXLogger</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>donneesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DonneesService.html" target="_self" >DonneesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Entrées</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="controle"></a>
+                        <b>controle</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>UntypedFormControl | undefined</code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuMonoSaisieAbstraitComponent.html" target="_self" >FmkContenuMonoSaisieAbstraitComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuMonoSaisieAbstraitComponent.html#source" target="_self" >FmkContenuMonoSaisieAbstraitComponent:38</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Controle associé au champ de saisie.
+Pour que le contrôle soit associé à un FormGroup, il doit être initialié au niveau de la page (cf. <a href="https://angular.io/guide/reactive-forms#grouping-form-controls">https://angular.io/guide/reactive-forms#grouping-form-controls</a>).</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="contenu"></a>
+                        <b>contenu</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ContenuDeBloc | undefined</code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:45</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Configuration du bloc</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dragLeave"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>dragLeave</b></span>
+                        <a href="#dragLeave"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>dragLeave(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="270"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:270</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gestion du drag&amp;drop</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dragOver"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>dragOver</b></span>
+                        <a href="#dragOver"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>dragOver(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="264"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:264</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="drop"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>drop</b></span>
+                        <a href="#drop"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>drop(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="276"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:276</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gestion du drag&amp;drop</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialiserComposant"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier"></span>
+                        <span ><b>initialiserComposant</b></span>
+                        <a href="#initialiserComposant"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initialiserComposant(contenu: <a href="../classes/ContenuDeBloc.html" target="_self">ContenuDeBloc</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:90</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Implémentation de l&#39;initialisation</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>contenu</td>
+                                            <td>
+                                                            <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ouvrirPopupFichier"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ouvrirPopupFichier</b></span>
+                        <a href="#ouvrirPopupFichier"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ouvrirPopupFichier(fichier: HTMLInputElement)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="256"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:256</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Au clic sur la zone, on ouvre le popup si aucun fichier n&#39;est encore versé</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fichier</td>
+                                            <td>
+                                                        <code>HTMLInputElement</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectionnerFichier"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>selectionnerFichier</b></span>
+                        <a href="#selectionnerFichier"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectionnerFichier(e: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="126"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:126</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>A la sélection d&#39;un fichier</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>e</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="supprimerFichier"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>supprimerFichier</b></span>
+                        <a href="#supprimerFichier"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>supprimerFichier(event: Event, inputFile: HTMLInputElement)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="140"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:140</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Suppression du fichier</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>inputFile</td>
+                                            <td>
+                                                        <code>HTMLInputElement</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validerPresenceFichierSiObligatoire"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>validerPresenceFichierSiObligatoire</b></span>
+                        <a href="#validerPresenceFichierSiObligatoire"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validerPresenceFichierSiObligatoire()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="119"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:119</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Affiche le message d&#39;erreur si aucune pièce jointe n&#39;est fournie mais qu&#39;elle est obligatoire</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verserFichier"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>verserFichier</b></span>
+                        <a href="#verserFichier"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>verserFichier(fichier: File)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="172"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:172</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Upload du fichier</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fichier</td>
+                                            <td>
+                                                        <code>File</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verserFichierEnUneUniqueRequete"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>verserFichierEnUneUniqueRequete</b></span>
+                        <a href="#verserFichierEnUneUniqueRequete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>verserFichierEnUneUniqueRequete(clef: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fichier: File)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="193"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:193</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Envoi du fichier en une seule requête HTTP</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>clef</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>fichier</td>
+                                            <td>
+                                                        <code>File</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnChanges(changes: SimpleChanges)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:60</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Pour fournir une méthode d&#39;initialisation de tous les composants dans laquelle
+l&#39;attribut this.contenu est défini (il ne l&#39;est pas encore dans ngOnInit)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>changes</td>
+                                            <td>
+                                                        <code>SimpleChanges</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="declarerSouscription"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>declarerSouscription</b></span>
+                        <a href="#declarerSouscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>declarerSouscription(sub: Subscription)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:35</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Déclaration d&#39;une souscription qui sera détruite à la destruction du composant</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>sub</td>
+                                            <td>
+                                                        <code>Subscription</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="declarerSouscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>declarerSouscriptions</b></span>
+                        <a href="#declarerSouscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>declarerSouscriptions(subs: Subscription[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:40</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Déclaration d&#39;une souscription qui sera détruite à la destruction du composant</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>subs</td>
+                                            <td>
+                                                        <code>Subscription[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="detruireLesSouscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>detruireLesSouscriptions</b></span>
+                        <a href="#detruireLesSouscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>detruireLesSouscriptions()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:45</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Destruction des souscriptions créées</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:50</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>A la destruction du composant, on détruit ses souscriptions</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dragNdropEnCours"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>dragNdropEnCours</b></span>
+                        <a href="#dragNdropEnCours"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="263" class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:263</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gestion du drag&amp;drop</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LIBELLE_TYPE_DOCUMENT"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>LIBELLE_TYPE_DOCUMENT</b></span>
+                        <a href="#LIBELLE_TYPE_DOCUMENT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>{
+        &#x27;application/vnd.oasis.opendocument.text&#x27;: &#x27;document OpenDocument&#x27;,
+        &#x27;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#x27;: &#x27;tableur OpenDocument&#x27;,
+        &#x27;image/gif&#x27;: &#x27;image GIF&#x27;,
+        &#x27;image/png&#x27;: &#x27;image PNG&#x27;,
+        &#x27;image/jpeg&#x27;: &#x27;image JPG&#x27;,
+        &#x27;image/jpg&#x27;: &#x27;image JPG&#x27;,
+        &#x27;application/jpg&#x27;: &#x27;image JPG&#x27;,
+        &#x27;application/x-jpg&#x27;: &#x27;image JPG&#x27;,
+        &#x27;image/pjpeg&#x27;: &#x27;image JPG&#x27;,
+        &#x27;application/pdf&#x27;: &#x27;document PDF&#x27;,
+        &#x27;application/vnd.pdf&#x27;: &#x27;document PDF&#x27;,
+        &#x27;application/x-pdf&#x27;: &#x27;document PDF&#x27;,
+        &#x27;text/pdf&#x27;: &#x27;document PDF&#x27;,
+        &#x27;text/x-pdf&#x27;: &#x27;document PDF&#x27;,
+        &#x27;application/acrobat&#x27;: &#x27;document PDF&#x27;
+    }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="44" class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="messageErreur"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>messageErreur</b></span>
+                        <a href="#messageErreur"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="79" class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:79</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Message d&#39;erreur à afficher</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nomFichier"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>nomFichier</b></span>
+                        <a href="#nomFichier"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="70" class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:70</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Nom du fichier (sans le chemin)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="progressionLancee"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>progressionLancee</b></span>
+                        <a href="#progressionLancee"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="76" class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:76</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Avancement de l&#39;upload : pourcentage du volume du document en cours de transmission.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="progressionValidee"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>progressionValidee</b></span>
+                        <a href="#progressionValidee"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="73" class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:73</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Avancement de l&#39;upload : pourcentage du volume du document complètement transmis au serveur.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="suppressionEnCours"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>suppressionEnCours</b></span>
+                        <a href="#suppressionEnCours"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="82" class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:82</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Suppression en cours</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tailleMaximaleAutorisee"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>tailleMaximaleAutorisee</b></span>
+                        <a href="#tailleMaximaleAutorisee"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="64" class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:64</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>La taille maximale du document (en Mo)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="typesDeContenuAutorises"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>typesDeContenuAutorises</b></span>
+                        <a href="#typesDeContenuAutorises"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="67" class="link-to-prism">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts:67</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Les types MIME autorisés</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialisationDejaAppelee"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initialisationDejaAppelee</b></span>
+                        <a href="#initialisationDejaAppelee"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:48</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Pour ne pas appeler l&#39;initialisation plusieurs fois</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="numeroUnique"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>numeroUnique</b></span>
+                        <a href="#numeroUnique"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:41</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Numéro unique de ce champ de saisie</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PROCHAINE_VALEUR_DU_NUMERO_UNIQUE"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                        <span ><b>PROCHAINE_VALEUR_DU_NUMERO_UNIQUE</b></span>
+                        <a href="#PROCHAINE_VALEUR_DU_NUMERO_UNIQUE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>0</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:38</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Compteur static permettant de créer manuellement des ID différents pour chaque champ</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="souscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>souscriptions</b></span>
+                        <a href="#souscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:32</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Liste des souscriptions réalisées par le composant concrêt et à détruire</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpEvent, HttpEventType } from &#x27;@angular/common/http&#x27;;
+import { Component, ViewEncapsulation } from &#x27;@angular/core&#x27;;
+import { MatProgressBar } from &#x27;@angular/material/progress-bar&#x27;;
+import { NGXLogger } from &#x27;ngx-logger&#x27;;
+import { i18n } from &#x27;../../../conf/i18n&#x27;;
+import { ContenuDeBloc } from &#x27;../../../model/configurationdemarchecontenubloc.model&#x27;;
+import { i18nPipeDirective } from &#x27;../../../morceaudepage/directives/i18nPipe&#x27;;
+import { LibelleDirective } from &#x27;../../../morceaudepage/directives/libelle&#x27;;
+import { ContexteService } from &#x27;../../../services/stateful/contexte.service&#x27;;
+import { DonneesService } from &#x27;../../../services/stateful/donnees.service&#x27;;
+import { PieceJointeService } from &#x27;../../../services/stateless/piecejointe.service&#x27;;
+import { FmkContenuMonoSaisieAbstraitComponent } from &#x27;../../abstrait/fmk.contenumonosaisieabstrait&#x27;;
+import { FmkMessagesValidationComponent } from &#x27;../../messagesvalidation/fmk.messagesvalidation&#x27;;
+
+@Component({
+    selector: &#x27;div[data-fmk-contenuuploaddocument]&#x27;, templateUrl: &#x27;./fmk.contenuuploaddocument.html&#x27;, encapsulation: ViewEncapsulation.None, styleUrls: [&#x27;./fmk.contenuuploaddocument.scss&#x27;],
+    standalone: true,
+    imports: [MatProgressBar, FmkMessagesValidationComponent, LibelleDirective, i18nPipeDirective]
+})
+export class FmkContenuUploadDocumentComponent extends FmkContenuMonoSaisieAbstraitComponent {
+
+    private static readonly LIBELLE_TYPE_DOCUMENT: { [index: string]: any } &#x3D; {
+        &#x27;application/vnd.oasis.opendocument.text&#x27;: &#x27;document OpenDocument&#x27;,
+        &#x27;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#x27;: &#x27;tableur OpenDocument&#x27;,
+        &#x27;image/gif&#x27;: &#x27;image GIF&#x27;,
+        &#x27;image/png&#x27;: &#x27;image PNG&#x27;,
+        &#x27;image/jpeg&#x27;: &#x27;image JPG&#x27;,
+        &#x27;image/jpg&#x27;: &#x27;image JPG&#x27;,
+        &#x27;application/jpg&#x27;: &#x27;image JPG&#x27;,
+        &#x27;application/x-jpg&#x27;: &#x27;image JPG&#x27;,
+        &#x27;image/pjpeg&#x27;: &#x27;image JPG&#x27;,
+        &#x27;application/pdf&#x27;: &#x27;document PDF&#x27;,
+        &#x27;application/vnd.pdf&#x27;: &#x27;document PDF&#x27;,
+        &#x27;application/x-pdf&#x27;: &#x27;document PDF&#x27;,
+        &#x27;text/pdf&#x27;: &#x27;document PDF&#x27;,
+        &#x27;text/x-pdf&#x27;: &#x27;document PDF&#x27;,
+        &#x27;application/acrobat&#x27;: &#x27;document PDF&#x27;
+    };
+
+
+    /** La taille maximale du document (en Mo) */
+    public tailleMaximaleAutorisee: number | undefined;
+
+    /** Les types MIME autorisés */
+    public typesDeContenuAutorises: string[] &#x3D; [];
+
+    /** Nom du fichier (sans le chemin) */
+    public nomFichier: string | undefined;
+
+    /** Avancement de l&#x27;upload : pourcentage du volume du document complètement transmis au serveur. */
+    public progressionValidee: number | undefined;
+
+    /** Avancement de l&#x27;upload : pourcentage du volume du document en cours de transmission. */
+    public progressionLancee &#x3D; 0;
+
+    /** Message d&#x27;erreur à afficher */
+    public messageErreur: string | undefined;
+
+    /** Suppression en cours */
+    public suppressionEnCours &#x3D; false;
+
+    /** Constructeur avec injection des dépendances */
+    public constructor(private piecejointeService: PieceJointeService, private contexteService: ContexteService, private logger: NGXLogger, private donneesService: DonneesService) {
+        super();
+    }
+
+    /** Implémentation de l&#x27;initialisation */
+    protected override initialiserComposant(contenu: ContenuDeBloc): void {
+        // Dès réception de la configuration, 
+        const sub &#x3D; this.contexteService.obtenirUnObservableDeChargementDeLaConfiguration().subscribe(conf &#x3D;&gt; {
+
+            // on récupère les informations de la pièce jointe associée au contenu
+            const pj &#x3D; conf?.piecesJointesAssociees.find(pj &#x3D;&gt; pj.codePieceJointe &#x3D;&#x3D;&#x3D; contenu.clef);
+            if (pj) {
+                this.tailleMaximaleAutorisee &#x3D; pj.tailleMaximaleAutorisee;
+                const listeAvecDoublons &#x3D; pj.typesDeContenuAutorises.map(t &#x3D;&gt; FmkContenuUploadDocumentComponent.LIBELLE_TYPE_DOCUMENT[t] ? FmkContenuUploadDocumentComponent.LIBELLE_TYPE_DOCUMENT[t] : t);
+                this.typesDeContenuAutorises &#x3D; [...new Set(listeAvecDoublons)];
+            } else {
+                this.logger.error(&#x27;Erreur de configuration : le contenu de type \&#x27;uploadDocument\&#x27; avec la clef \&#x27;&#x27; + contenu.clef + &#x27;\&#x27; ne correspond à aucune des piecesJointesAssociees&#x27;);
+            }
+
+            // on vérifie si une valeur est disponible
+            if (this.contenu &amp;&amp; this.contenu.clef) {
+                const donneesPresentes &#x3D; this.donneesService.lireUnObjet(this.contenu.clef);
+                if (donneesPresentes) {
+                    this.logger.info(&#x27;pièce jointe &quot;&#x27; + this.contenu.clef + &#x27;&quot; déjà présente&#x27;, donneesPresentes);
+                    this.progressionValidee &#x3D; 100;
+                    this.controle?.setValue(donneesPresentes);
+                    this.nomFichier &#x3D; donneesPresentes[this.contenu.clef + &#x27;_nom&#x27;];
+                }
+            }
+        });
+        super.declarerSouscription(sub);
+    }
+
+    /** Affiche le message d&#x27;erreur si aucune pièce jointe n&#x27;est fournie mais qu&#x27;elle est obligatoire */
+    public validerPresenceFichierSiObligatoire(): void {
+        if (this.validationObligatoirePresente &amp;&amp; !this.nomFichier) {
+            this.messageErreur &#x3D; i18n.contenu.upload.erreurDocumentObligatoire.get(this.contexteService.langue);
+        }
+    }
+
+    /** A la sélection d&#x27;un fichier */
+    public selectionnerFichier(e: Event): void {
+        // Cast du champ
+        const champ &#x3D; (e.target as HTMLInputElement);
+
+        // si un document est bien sélectionné
+        if (champ.files &amp;&amp; champ.files.length &gt; 0) {
+            this.verserFichier(champ.files[0]);
+        }
+
+        // validation de saisie
+        this.validerPresenceFichierSiObligatoire();
+    }
+
+    /** Suppression du fichier */
+    public supprimerFichier(event: Event, inputFile: HTMLInputElement): void {
+        // Pour éviter que le clic ne se propage à la DIV parente et ne déclenche l&#x27;ouverture de la sélection de fichier
+        event.preventDefault();
+        event.stopPropagation();
+
+        // Si on a une valeur
+        if (this.controle &amp;&amp; this.controle?.value &amp;&amp; this.contenu &amp;&amp; this.contenu.clef) {
+            const donneesPJ &#x3D; this.controle.value as { [index: string]: any };
+
+            // flag d&#x27;affichage
+            this.suppressionEnCours &#x3D; true;
+
+            // Suppression de la PJ
+            const sub &#x3D; this.piecejointeService.supprimerPieceJointe(donneesPJ[this.contenu.clef + &#x27;_id&#x27;]).subscribe((ok) &#x3D;&gt; {
+                // si tout va bien, reset des données
+                if (ok &amp;&amp; this.controle) {
+                    this.controle.reset();
+                    this.nomFichier &#x3D; undefined;
+                    this.progressionValidee &#x3D; undefined;
+                    this.progressionLancee &#x3D; 0;
+                    this.messageErreur &#x3D; undefined;
+                    inputFile.value &#x3D; &#x27;&#x27;;
+                } else {
+                    this.messageErreur &#x3D; i18n.contenu.upload.erreurSuppressionDocument.get(this.contexteService.langue);
+                }
+                this.suppressionEnCours &#x3D; false;
+            })
+            this.declarerSouscription(sub);
+        }
+    }
+
+    /** Upload du fichier */
+    private verserFichier(fichier: File): void {
+        // TODO: validation du type de document
+        // TODO: validation de la taille maximale
+
+        // Gestion des erreurs (reset)
+        this.messageErreur &#x3D; undefined;
+
+        // pour les fichiers de moins de 10Mo, envoi du document au socle en une seule requête
+        if (this.contenu &amp;&amp; this.contenu.clef) {
+            if (fichier.size &lt;&#x3D; 1024 * 1024) {
+                this.verserFichierEnUneUniqueRequete(this.contenu.clef, fichier);
+            }
+            // Sinon, chunk
+            else {
+                console.error(&#x27;CHUNK non implémenté&#x27;);
+                this.messageErreur &#x3D; i18n.contenu.upload.erreurSuppressionDocument.get(this.contexteService.langue);
+            }
+        }
+    }
+
+    /** Envoi du fichier en une seule requête HTTP */
+    private verserFichierEnUneUniqueRequete(clef: string, fichier: File): void {
+        this.detruireLesSouscriptions();
+        const sub &#x3D; this.piecejointeService.verserPieceJointeEnUneUniqueRequete(clef, fichier)
+            .subscribe((event: HttpEvent&lt;any&gt;) &#x3D;&gt; {
+                this.logger.log(&#x27;versement du fichier : &#x27;, event);
+
+                // A l&#x27;envoi
+                if (event.type &#x3D;&#x3D;&#x3D; HttpEventType.Sent) {
+                    const split &#x3D; fichier.name.split(&#x27;[/\\]&#x27;);
+                    this.nomFichier &#x3D; split[split.length - 1];
+                    this.progressionLancee &#x3D; 1;
+                    this.logger.info(&#x27;Pièce jointe &quot;&#x27; + clef + &#x27;&quot; : requête d\&#x27;envoi du fichier envoyée&#x27;);
+                }
+
+                // A chaque étape de progression
+                else if (event.type &#x3D;&#x3D;&#x3D; HttpEventType.UploadProgress) {
+                    if (event.loaded &amp;&amp; event.total) {
+                        this.progressionLancee &#x3D; Math.round(event.loaded / event.total * 100);
+                        this.logger.info(&#x27;Pièce jointe &quot;&#x27; + clef + &#x27;&quot; : progression à &#x27; + this.progressionLancee);
+                    } else {
+                        this.logger.error(&#x27;Pièce jointe &quot;&#x27; + clef + &#x27;&quot; : pas de progression (&#x27; + event.loaded + &#x27;/&#x27; + event.total + &#x27;)&#x27;);
+                    }
+                }
+
+                // A la réception des entêtes de réponse
+                else if (event.type &#x3D;&#x3D;&#x3D; HttpEventType.ResponseHeader) {
+                    this.logger.info(&#x27;Pièce jointe &quot;&#x27; + clef + &#x27;&quot; : entête de la réponse reçus&#x27;, event);
+                    this.progressionLancee &#x3D; 100;
+                    if (!event.ok) {
+                        if (event.status &#x3D;&#x3D;&#x3D; 400) {
+                            this.messageErreur &#x3D; i18n.contenu.upload.erreurDocumentInvalide.get(this.contexteService.langue);
+                        } else {
+                            this.messageErreur &#x3D; i18n.contenu.upload.erreurVersementDocument.get(this.contexteService.langue);
+                        }
+                    }
+                }
+
+                // Une fois la requête terminée
+                else if (event.type &#x3D;&#x3D;&#x3D; HttpEventType.Response) {
+                    this.logger.info(&#x27;Pièce jointe &quot;&#x27; + clef + &#x27;&quot; : réponse obtenue&#x27;, event);
+                    // En cas d&#x27;erreur
+                    if (!event.ok) {
+                        this.messageErreur &#x3D; i18n.contenu.upload.erreurVersementDocument.get(this.contexteService.langue);
+                    }
+                    // Si tout est bon
+                    else {
+                        // progression à 100%
+                        this.progressionValidee &#x3D; 100;
+                        // Sauvegarde de l&#x27;ID de la PJ dans les données de la démarche (dirty pour que la donnée soit prise en compte)
+                        const objetAsauvegarder: any &#x3D; {};
+                        objetAsauvegarder[this.contenu?.clef + &#x27;_id&#x27;] &#x3D; event.body;
+                        objetAsauvegarder[this.contenu?.clef + &#x27;_nom&#x27;] &#x3D; this.nomFichier;
+                        objetAsauvegarder[this.contenu?.clef + &#x27;_longueur&#x27;] &#x3D; fichier.size;
+                        objetAsauvegarder[this.contenu?.clef + &#x27;_type&#x27;] &#x3D; fichier.type;
+                        this.controle?.setValue(objetAsauvegarder);
+                        this.controle?.markAsDirty();
+                    }
+                }
+            });
+        this.declarerSouscription(sub);
+    }
+
+    /** Au clic sur la zone, on ouvre le popup si aucun fichier n&#x27;est encore versé */
+    public ouvrirPopupFichier(fichier: HTMLInputElement) {
+        if (!this.progressionValidee) {
+            fichier.click();
+        }
+    }
+
+    /** Gestion du drag&amp;drop */
+    public dragNdropEnCours &#x3D; false;
+    public dragOver(event: Event): void {
+        event.preventDefault();
+        event.stopPropagation();
+        this.dragNdropEnCours &#x3D; true;
+    }
+    /** Gestion du drag&amp;drop */
+    public dragLeave(event: Event): void {
+        event.preventDefault();
+        event.stopPropagation();
+        this.dragNdropEnCours &#x3D; false;
+    }
+    /** Gestion du drag&amp;drop */
+    public drop(event: Event): void {
+        event.preventDefault();
+        event.stopPropagation();
+        this.dragNdropEnCours &#x3D; false;
+
+        if ((event as any).dataTransfer &amp;&amp; (event as any).dataTransfer.files &amp;&amp; (event as any).dataTransfer.files.length &amp;&amp; (event as any).dataTransfer.files.length &gt; 0) {
+            this.verserFichier((event as any).dataTransfer.files[0]);
+        }
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- Pas d&#x27;affichage du composant si la pice jointe associee n&#x27;est pas trouvée --&gt;
+@if (contenu &amp;&amp; !!tailleMaximaleAutorisee) {
+&lt;div class&#x3D;&quot;fr-input-group fr-upload-group&quot; [class.fr-input-group--error]&#x3D;&quot;messageErreur&quot;
+  [class.fr-input-group--valid]&#x3D;&quot;!messageErreur &amp;&amp; progressionValidee &#x3D;&#x3D; 100&quot;&gt;
+  &lt;!-- Titre et aide --&gt;
+  @if (contenu.titreAafficher || contenu.aideAafficher) {
+  &lt;label class&#x3D;&quot;fr-label&quot; [for]&#x3D;&quot;&#x27;fichier_&#x27;+contenu.clef&quot;&gt;
+    @if (validationObligatoirePresente &amp;&amp; !contenu.modeObligatoireParDefaut) {
+    &lt;span class&#x3D;&quot;symbol-required&quot;&gt;* &lt;/span&gt;
+    }
+    &lt;span class&#x3D;&quot;textelibelle&quot; [innerHTML]&#x3D;&quot;contenu.titreAafficher | libelle&quot;&gt;&lt;/span&gt;
+    @if ((!validationObligatoirePresente &amp;&amp; contenu.modeObligatoireParDefaut) || contenu.aideAafficher) {
+    &lt;span class&#x3D;&quot;fr-hint-text&quot;&gt;
+      @if (!validationObligatoirePresente &amp;&amp; contenu.modeObligatoireParDefaut) {
+      {{ &#x27;commun.facultatif&#x27; | i18n}}
+      }
+      @if (!validationObligatoirePresente &amp;&amp; contenu.modeObligatoireParDefaut &amp;&amp; contenu.aideAafficher) {
+      -
+      }
+      {{ contenu.aideAafficher | libelle }}
+    &lt;/span&gt;
+    }
+    &lt;!-- Sous le libellé, les détails techniques du document --&gt;
+    &lt;span class&#x3D;&quot;detailsDocumentAttendu fr-hint-text&quot;&gt;
+      {{ &#x27;upload.attendu.1&#x27; | i18n}}{{tailleMaximaleAutorisee}}{{ &#x27;upload.attendu.2&#x27; | i18n}}
+      @for (t of typesDeContenuAutorises; track t; let i &#x3D; $index) {
+      {{t}}@if (i !&#x3D;&#x3D; typesDeContenuAutorises.length-1) {
+      ou
+      }
+      }
+    &lt;/span&gt;
+  &lt;/label&gt;
+  }
+  &lt;!-- Zone de depot --&gt;
+  &lt;div class&#x3D;&quot;zoneDepot fr-upload-group fr-grid-row&quot; [class.survol]&#x3D;&quot;dragNdropEnCours &amp;&amp; !progressionValidee&quot;
+    [class.dejaUtilise]&#x3D;&quot;dragNdropEnCours &amp;&amp; progressionValidee&quot; (click)&#x3D;&quot;ouvrirPopupFichier(file)&quot; (dragover)&#x3D;&quot;dragOver($event)&quot;
+    (dragleave)&#x3D;&quot;dragLeave($event)&quot; (drop)&#x3D;&quot;drop($event)&quot; tabindex&#x3D;&quot;0&quot; (keyup.enter)&#x3D;&quot;ouvrirPopupFichier(file)&quot;
+    (keyup.space)&#x3D;&quot;ouvrirPopupFichier(file)&quot; (blur)&#x3D;&quot;validerPresenceFichierSiObligatoire()&quot;&gt;
+    &lt;!-- Libelle et input masquee --&gt;
+    @if (!progressionValidee) {
+    &lt;div class&#x3D;&quot;fr-col-12 align-self-center text-center&quot;&gt;
+      {{ &#x27;upload.cadreGlisseDeposer&#x27; | i18n}}
+    &lt;/div&gt;
+    }
+    &lt;input #file [id]&#x3D;&quot;&#x27;fichier_&#x27;+contenu.clef&quot; type&#x3D;&quot;file&quot; class&#x3D;&quot;uploadDocument fr-upload&quot; [name]&#x3D;&quot;contenu.clef&quot;
+      (change)&#x3D;&quot;selectionnerFichier($event)&quot; [attr.aria-describedby]&#x3D;&quot;&#x27;messages&#x27;+contenu.clef&quot;&gt;
+    &lt;!-- Libellés --&gt;
+    @if (nomFichier) {
+    &lt;div [id]&#x3D;&quot;&#x27;libelleTeleversement&#x27;+contenu.clef&quot; class&#x3D;&quot;fr-col-12 align-self-center text-center&quot;&gt;
+      @if ((progressionLancee || progressionValidee) &amp;&amp; progressionValidee !&#x3D;&#x3D; 100) {
+      &lt;span&gt;{{ &#x27;upload.versementEnCours&#x27; | i18n}}{{nomFichier}}.&lt;/span&gt;
+      }
+      @if (progressionValidee &#x3D;&#x3D; 100) {
+      &lt;span&gt;
+        {{ &#x27;upload.versementTermine.1&#x27; | i18n}}@if (dragNdropEnCours) {
+        &lt;b&gt;{{ &#x27;upload.versementTermine.2&#x27; | i18n}}&lt;/b&gt;
+        }{{nomFichier}}{{
+        &#x27;upload.versementTermine.3&#x27; | i18n}}.
+        &lt;span class&#x3D;&quot;uploadDocument fr-fi-delete-line&quot; aria-hidden&#x3D;&quot;true&quot; (click)&#x3D;&quot;supprimerFichier($event, file)&quot;&gt;&lt;/span&gt;
+      &lt;/span&gt;
+      }
+      @if (suppressionEnCours) {
+      &lt;span&gt;
+        {{ &#x27;upload.bouton.supprimer&#x27; | i18n}}
+        &lt;img src&#x3D;&quot;public/loader-5-line.png&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;spin&quot; /&gt;
+      &lt;/span&gt;
+      }
+    &lt;/div&gt;
+    }
+    &lt;!-- Barre de progression --&gt;
+    @if ((progressionLancee || progressionValidee) &amp;&amp; progressionValidee !&#x3D;&#x3D; 100) {
+    &lt;div class&#x3D;&quot;fr-col-12&quot;&gt;
+      &lt;mat-progress-bar mode&#x3D;&quot;buffer&quot; [attr.aria-labelledby]&#x3D;&quot;&#x27;libelleTeleversement&#x27;+contenu.clef&quot; [value]&#x3D;&quot;progressionValidee&quot; [bufferValue]&#x3D;&quot;progressionLancee&quot;&gt;&lt;/mat-progress-bar&gt;
+    &lt;/div&gt;
+    }
+  &lt;/div&gt;
+  &lt;!-- Erreurs --&gt;
+  &lt;p data-fmk-messagesvalidation [contenu]&#x3D;&quot;contenu&quot; [controle]&#x3D;&quot;controle&quot; aria-live&#x3D;&quot;assertive&quot;&gt;&lt;/p&gt;
+  &lt;p [id]&#x3D;&quot;&#x27;messages&#x27;+contenu.clef&quot; class&#x3D;&quot;fr-error-text&quot; [class.masque]&#x3D;&quot;!messageErreur&quot;&gt;
+      @if (messageErreur) {
+      &lt;!-- La classe CSS &#x27;erreur&#x27; est utilisée dans les tests E2E --&gt;
+      &lt;span class&#x3D;&quot;erreur required&quot; aria-hidden&#x3D;&quot;false&quot; role&#x3D;&quot;alert&quot;&gt;{{messageErreur}}&lt;/span&gt;
+    }
+    &lt;/p&gt;
+&lt;/div&gt;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./fmk.contenuuploaddocument.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">/* input masqué */
+input.uploadDocument { display:none; }
+
+/* Mise en forme de la zone de dépôt */
+.zoneDepot { min-height:100px; border: solid 1px blue; }
+.zoneDepot.survol { background-color: lightgray; border: dashed 1px black; cursor: pointer; }
+.zoneDepot.survol.dejaUtilise { background-color: red; border: double 1px black; cursor: no-drop; }
+
+/* Pour le curseur sur les icônes d&#x27;action */
+.uploadDocument.fr-fi-delete-line { cursor: pointer; }
+
+/* Pour masquer la zone d&#x27;erreur mais ne pas l&#x27;enlever (sinon erreur de validation HTML car le p d&#x27;erreur est référencé dans un aria-describedby) */
+p.masque { display:none; }</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Légende</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elément Html</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Composant</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elément Html avec une directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- Pas d\'affichage du composant si la pice jointe associee n\'est pas trouvée -->@if (contenu && !!tailleMaximaleAutorisee) {<div class="fr-input-group fr-upload-group" [class.fr-input-group--error]="messageErreur"  [class.fr-input-group--valid]="!messageErreur && progressionValidee == 100">  <!-- Titre et aide -->  @if (contenu.titreAafficher || contenu.aideAafficher) {  <label class="fr-label" [for]="\'fichier_\'+contenu.clef">    @if (validationObligatoirePresente && !contenu.modeObligatoireParDefaut) {    <span class="symbol-required">* </span>    }    <span class="textelibelle" [innerHTML]="contenu.titreAafficher | libelle"></span>    @if ((!validationObligatoirePresente && contenu.modeObligatoireParDefaut) || contenu.aideAafficher) {    <span class="fr-hint-text">      @if (!validationObligatoirePresente && contenu.modeObligatoireParDefaut) {      {{ \'commun.facultatif\' | i18n}}      }      @if (!validationObligatoirePresente && contenu.modeObligatoireParDefaut && contenu.aideAafficher) {      -      }      {{ contenu.aideAafficher | libelle }}    </span>    }    <!-- Sous le libellé, les détails techniques du document -->    <span class="detailsDocumentAttendu fr-hint-text">      {{ \'upload.attendu.1\' | i18n}}{{tailleMaximaleAutorisee}}{{ \'upload.attendu.2\' | i18n}}      @for (t of typesDeContenuAutorises; track t; let i = $index) {      {{t}}@if (i !== typesDeContenuAutorises.length-1) {      ou      }      }    </span>  </label>  }  <!-- Zone de depot -->  <div class="zoneDepot fr-upload-group fr-grid-row" [class.survol]="dragNdropEnCours && !progressionValidee"    [class.dejaUtilise]="dragNdropEnCours && progressionValidee" (click)="ouvrirPopupFichier(file)" (dragover)="dragOver($event)"    (dragleave)="dragLeave($event)" (drop)="drop($event)" tabindex="0" (keyup.enter)="ouvrirPopupFichier(file)"    (keyup.space)="ouvrirPopupFichier(file)" (blur)="validerPresenceFichierSiObligatoire()">    <!-- Libelle et input masquee -->    @if (!progressionValidee) {    <div class="fr-col-12 align-self-center text-center">      {{ \'upload.cadreGlisseDeposer\' | i18n}}    </div>    }    <input #file [id]="\'fichier_\'+contenu.clef" type="file" class="uploadDocument fr-upload" [name]="contenu.clef"      (change)="selectionnerFichier($event)" [attr.aria-describedby]="\'messages\'+contenu.clef">    <!-- Libellés -->    @if (nomFichier) {    <div [id]="\'libelleTeleversement\'+contenu.clef" class="fr-col-12 align-self-center text-center">      @if ((progressionLancee || progressionValidee) && progressionValidee !== 100) {      <span>{{ \'upload.versementEnCours\' | i18n}}{{nomFichier}}.</span>      }      @if (progressionValidee == 100) {      <span>        {{ \'upload.versementTermine.1\' | i18n}}@if (dragNdropEnCours) {        <b>{{ \'upload.versementTermine.2\' | i18n}}</b>        }{{nomFichier}}{{        \'upload.versementTermine.3\' | i18n}}.        <span class="uploadDocument fr-fi-delete-line" aria-hidden="true" (click)="supprimerFichier($event, file)"></span>      </span>      }      @if (suppressionEnCours) {      <span>        {{ \'upload.bouton.supprimer\' | i18n}}        <img src="public/loader-5-line.png" alt="" class="spin" />      </span>      }    </div>    }    <!-- Barre de progression -->    @if ((progressionLancee || progressionValidee) && progressionValidee !== 100) {    <div class="fr-col-12">      <mat-progress-bar mode="buffer" [attr.aria-labelledby]="\'libelleTeleversement\'+contenu.clef" [value]="progressionValidee" [bufferValue]="progressionLancee"></mat-progress-bar>    </div>    }  </div>  <!-- Erreurs -->  <p data-fmk-messagesvalidation [contenu]="contenu" [controle]="controle" aria-live="assertive"></p>  <p [id]="\'messages\'+contenu.clef" class="fr-error-text" [class.masque]="!messageErreur">      @if (messageErreur) {      <!-- La classe CSS \'erreur\' est utilisée dans les tests E2E -->      <span class="erreur required" aria-hidden="false" role="alert">{{messageErreur}}</span>    }    </p></div>}</div>'
+    var COMPONENTS = [{'name': 'ConnexionBrouillonDialog', 'selector': 'div[data-fmk-connexionreprisebrouillon]'},{'name': 'FmkBlocComponent', 'selector': 'div[data-fmk-bloc]'},{'name': 'FmkBlocDynamiqueComponent', 'selector': 'div[data-fmk-blocdynamique]'},{'name': 'FmkCaptchaComponent', 'selector': 'div[data-fmk-captcha]'},{'name': 'FmkConteneurPagesComponent', 'selector': 'div[data-fmk-conteneurpages]'},{'name': 'FmkContenuAdresseFrOuRtrComponent', 'selector': 'div[data-fmk-contenuadressefrouetr]'},{'name': 'FmkContenuAutocompletionComponent', 'selector': 'div[data-fmk-contenuautocompletion]'},{'name': 'FmkContenuCaseComponent', 'selector': 'div[data-fmk-contenucase]'},{'name': 'FmkContenuComponent', 'selector': 'div[data-fmk-contenu]'},{'name': 'FmkContenuContactPersonnelComponent', 'selector': 'div[data-fmk-contenucontactpersonnel]'},{'name': 'FmkContenuDateComponent', 'selector': 'div[data-fmk-contenudate]'},{'name': 'FmkContenuDocumentsComponent', 'selector': 'div[data-fmk-contenudocuments]'},{'name': 'FmkContenuFinDemarcheComponent', 'selector': 'div[data-fmk-contenufindemarche]'},{'name': 'FmkContenuFinDemarcheConnecteComponent', 'selector': 'div[data-fmk-contenufindemarcheconnecte]'},{'name': 'FmkContenuFinDemarcheNonConnecteComponent', 'selector': 'div[data-fmk-contenufindemarchenonconnecte]'},{'name': 'FmkContenuIdentiteComponent', 'selector': 'div[data-fmk-contenuidentite]'},{'name': 'FmkContenuListeFinieComponent', 'selector': 'div[data-fmk-contenulistefinie]'},{'name': 'FmkContenuParagrapheComponent', 'selector': 'div[data-fmk-contenuparagraphe]'},{'name': 'FmkContenuRadioComponent', 'selector': 'div[data-fmk-contenuradio]'},{'name': 'FmkContenuRecapitulatifComponent', 'selector': 'div[data-fmk-contenurecapitulatif]'},{'name': 'FmkContenuRicheComponent', 'selector': 'div[data-fmk-contenuriche]'},{'name': 'FmkContenuSaisieComponent', 'selector': 'div[data-fmk-contenusaisie]'},{'name': 'FmkContenuSaisieLongueComponent', 'selector': 'div[data-fmk-contenusaisielongue]'},{'name': 'FmkContenuSimpleComponent', 'selector': 'div[data-fmk-contenusimple]'},{'name': 'FmkContenuUploadDocumentComponent', 'selector': 'div[data-fmk-contenuuploaddocument]'},{'name': 'FmkContenuUtilisateurConnecteComponent', 'selector': 'div[data-fmk-contenuutilisateurconnecte]'},{'name': 'FmkEnteteComponent', 'selector': 'div[data-fmk-entete]'},{'name': 'FmkFilDarianeComponent', 'selector': 'div[data-fmk-fildariane]'},{'name': 'FmkListeContenusRecapitulatifComponent', 'selector': 'div[data-fmk-listecontenusrecapitulatif]'},{'name': 'FmkMessageGlobalComponent', 'selector': 'div[data-fmk-messageglobal]'},{'name': 'FmkMessagesValidationComponent', 'selector': '[data-fmk-messagesvalidation]'},{'name': 'FmkNavigationComponent', 'selector': 'div[data-fmk-navigation]'},{'name': 'FmkPageComponent', 'selector': 'div[data-fmk-page]'},{'name': 'FmkPiedDePageComponent', 'selector': 'div[data-fmk-pieddepage]'}];
+    var DIRECTIVES = [{'name': 'AbstractComponent', 'selector': ''},{'name': 'AncreTabulableDirective', 'selector': 'a:not([href])'},{'name': 'FmkApplicationAbstraitComponent', 'selector': ''},{'name': 'FmkContenuAbstraitComponent', 'selector': ''},{'name': 'FmkContenuComplexeAbstraitComponent', 'selector': ''},{'name': 'FmkContenuFinDemarcheAbstraitComponent', 'selector': ''},{'name': 'FmkContenuMonoSaisieAbstraitComponent', 'selector': ''}];
+    var ACTUAL_COMPONENT = {'name': 'FmkContenuUploadDocumentComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FmkContenuUploadDocumentComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

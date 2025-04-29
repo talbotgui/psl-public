@@ -1,0 +1,7 @@
+---
+
+# Nom de l'applicatif
+applicatif_nom: "socle-transfert"
+
+# Répertoire contenant les fichiers de configuration à déposer sur le sreveur
+configuration_rep: "{{ playbook_dir }}/../../socle/socle-transfert/src/test/resources/"

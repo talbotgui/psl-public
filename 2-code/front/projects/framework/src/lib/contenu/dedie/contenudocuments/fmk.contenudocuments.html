@@ -1,0 +1,24 @@
+@if (contenu) {
+  @for (document of documents; track document) {
+    <div class="file">
+      <div class="fr-card fr-enlarge-link fr-card--download">
+        <div class="fr-card__body">
+          <div class="fr-card__content">
+            <h3 class="fr-card__title">
+              <a download href="#" (click)=" telechargerDocument($event, document)"
+                title="{{ 'document.telecharger' | i18n }} {{document.nomDocument}} ({{document.libelleDocument}} - {{formaterTailleAffichable(document.taille)}}) - {{ 'commun.nouvelleFenetre' | i18n}}">
+                <span>{{ 'document.telecharger' | i18n }} {{document.nomDocument}}</span>
+                <span class="icon" aria-hidden="true" title="nouvelle fenêtre"></span>
+                <span class="blank">{{ 'commun.nouvelleFenetre' | i18n}}</span>
+              </a>
+            </h3>
+            <p class="fr-card__desc"></p>
+            <div class="fr-card__end">
+              <p class="fr-card__detail">{{document.libelleDocument}} - {{formaterTailleAffichable(document.taille)}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+}

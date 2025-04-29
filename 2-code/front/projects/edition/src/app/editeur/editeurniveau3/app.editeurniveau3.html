@@ -1,0 +1,76 @@
+@for (bloc of blocs; track bloc; let i = $index) {
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span>Bloc {{i}}</span>
+        @if (bloc.titre) {
+          <span>&nbsp;- {{bloc.titre}}</span>
+        }
+      </mat-panel-title>
+      <mat-panel-description>
+        @if (i>0) {
+          <button type="button" mat-icon-button (click)="monterElement(i); $event.stopPropagation()">
+            <span class="fr-icon-arrow-up-fill" aria-hidden="false" aria-label="Monter l'élément"></span>
+          </button>
+        }
+        @if (i<blocs.length-1) {
+          <button type="button" mat-icon-button (click)="descendreElement(i); $event.stopPropagation()">
+            <span class="fr-icon-arrow-down-fill" aria-hidden="false" aria-label="Descendre l'élément"></span>
+          </button>
+        }
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <!--Configuration du bloc-->
+    <mat-expansion-panel [expanded]="bloc.titre !== '' || bloc.aide !== ''">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span>Configuration du bloc</span>
+          @if (!bloc.titre && !bloc.aide) {
+            <span>&nbsp;(vide)</span>
+          }
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+        <mat-label>
+          <span>Titre du bloc</span>
+        </mat-label>
+        <input type="text" matInput [(ngModel)]="bloc.titre">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>
+          <span>Aide associée</span>
+        </mat-label>
+        <input type="text" matInput [(ngModel)]="bloc.aide">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>
+          <span>Condition de visibilité</span>
+        </mat-label>
+        <input type="text" matInput [(ngModel)]="bloc.conditionVisibilite">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>
+          <span>Activer le bloc dynamique</span>
+        </mat-label>
+        <mat-select [(ngModel)]="bloc.dynamique">
+          <mat-option [value]="true">OUI</mat-option>
+          <mat-option [value]="false">NON</mat-option>
+        </mat-select>
+      </mat-form-field>
+      @if (bloc.dynamique==true) {
+        <mat-form-field>
+          <mat-label>
+            <span>Nombre maximal d'occurences possibles</span>
+          </mat-label>
+          <input type="text" matInput [(ngModel)]="bloc.maxOccurences">
+        </mat-form-field>
+      }
+      <mat-action-row>
+        <button type="button" class="btn btn-primary" mat-button (click)="supprimerElement(i)">Supprimer ce bloc</button>
+        <button type="button" class="btn btn-primary" mat-button (click)="ajouterElementEnfant(i)">Ajouter un contenu</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+    <!-- contenus -->
+    <app-editeurniveau4 [contenus]="bloc.contenus"></app-editeurniveau4>
+  </mat-expansion-panel>
+}

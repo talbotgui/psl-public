@@ -1,0 +1,19 @@
+@if (contenu && contenuComplexe && contenuComplexe.sousContenus) {
+  <!-- Le titre et l'aide-->
+  @if (contenu.titreAafficher || contenu.aideAafficher) {
+    <label class="fr-label">
+      <span class="textelibelle" [innerHTML]="contenu.titreAafficher | libelle"></span>
+      @if (contenu.aideAafficher) {
+        <span class="fr-hint-text" [innerHTML]="contenu.aideAafficher | libelle"></span>
+      }
+    </label>
+  }
+  <!-- Les sous-composants-->
+  @for (c of contenuComplexe.sousContenus; track c) {
+    @if (c.visibilite) {
+      <div>
+        <div data-fmk-contenusimple [contenu]="c" [controle]="recupererControleAssocieAuContenu(c)"></div>
+      </div>
+    }
+  }
+}

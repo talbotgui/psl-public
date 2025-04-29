@@ -1,0 +1,22 @@
+{
+	"codeDemarche":"FCB", #* FCB car biblio n'est pas connu de HUBEE et que FCB est très peu utilisée *#
+	"numeroTeledossier":"$json.numeroTeledossier",
+	#if($json.idBrouillon)"idBrouillon":"$json.idBrouillon",#end
+	#if($json.utilisateur_nom)"nomUsager": "$json.utilisateur_nom",#end
+	#if($json.utilisateur_prenoms)"prenomUsager": "$json.utilisateur_prenoms",#end
+	#if($json.utilisateur_email)"emailUsager": "$json.utilisateur_email",#end
+	#if($json.uuidEspace)"uuidEspace":"$json.uuidEspace",#end
+	"documents":[
+		{ "estPieceJointe":false, "codeFichierAenvoyer":"JSON001", "idFichierStocke":"$json.JSON001_id", "mimeType":"$json.JSON001_type", "nomFichier":"$json.JSON001_nom", "taille":"$json.JSON001_longueur" }
+		#if( $json.pj1_id ),{ "estPieceJointe":true, "codeFichierAenvoyer":"pj1", "idFichierStocke":"$json.pj1_id", "mimeType":"$json.pj1_type", "nomFichier":"$json.pj1_nom", "taille":"$json.pj1_longueur" }#end
+	],
+	"destinataires":[
+		{
+			"siret":"21260274200018", "guichet":"26274", "type":"SI",
+			"codeDesDocuments":[
+				"JSON001"
+				#if( $json.pj1_id ),"pj1"#end
+			]
+		}
+	]
+}

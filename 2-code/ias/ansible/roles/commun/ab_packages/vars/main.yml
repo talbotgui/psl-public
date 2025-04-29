@@ -1,0 +1,4 @@
+---
+
+# Chemin vers le certificat racine de tous les certificats TLS
+certificatracine_chemin: "{{ playbook_dir }}/../../.certificatsLocaux/caRacine/ca-certificatRacine.pem"

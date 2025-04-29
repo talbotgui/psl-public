@@ -1,0 +1,14 @@
+---
+
+# Démarrage de l'application
+#   async+poll : attente de 20 secondes et poll de 5
+#   register : création d'une variable "scrout" pour afficher des logs
+- name: "[Démarrage] Démarrage de {{ applicatif_nom }}"
+  ansible.builtin.command:
+    cmd: "{{ applicatifs_rep }}{{ applicatif_nom }}/{{ applicatif_nom }}.sh restart"
+  async: 120
+  poll: 05
+  register: "scrout"
+
+- name: "[Démarrage] logs de démarrage"
+  debug: "var=scrout.stdout_lines"

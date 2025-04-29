@@ -1,0 +1,3390 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.127.0">
+    <meta name="description" content="Conception de la nouvelle PSL">
+
+
+    <link rel="icon" href="/psl-public/documentation/images/favicon.png" type="image/png">
+
+    <title>3.34 Procédures-veille sécurité - Documentation nouvelle PSL</title>
+
+    
+    <link href="/psl-public/documentation/css/nucleus.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/fontawesome-all.min.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/hybrid.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/featherlight.min.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/perfect-scrollbar.min.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/auto-complete.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/atom-one-dark-reasonable.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/theme.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/tabs.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/hugo-theme.css?1745960225" rel="stylesheet">
+    
+    <link href="/psl-public/documentation/css/theme-blue.css?1745960225" rel="stylesheet">
+    
+    <link href="/psl-public/documentation/style.css?1745960225" rel="stylesheet">
+
+    <script src="/psl-public/documentation/js/jquery-3.3.1.min.js?1745960225"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/psl-public/documentation/3developpement/3.34proceduressecurite/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="/psl-public/documentation/"><img src="/psl-public/documentation/newPSL.png"/></a>
+<span style="color:white">Version : <i>${project.version}</i></span>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/psl-public/documentation/js/lunr.min.js?1745960225"></script>
+<script type="text/javascript" src="/psl-public/documentation/js/auto-complete.js?1745960225"></script>
+<script type="text/javascript">
+    
+        var baseurl = "http:\/\/localhost:1313\/documentation\/";
+    
+</script>
+<script type="text/javascript" src="/psl-public/documentation/js/search.js?1745960225"></script>
+
+    
+  </div>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/1conceptiongenerale/" title="1. Conception générale" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/1conceptiongenerale/">
+          1. Conception générale
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/" title="1.1 Objectifs" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/">
+          1.1 Objectifs
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.1objectifsfonctionnels/" title="1.1.1 Objectifs fonctionnels" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.1objectifsfonctionnels/">
+        1.1.1 Objectifs fonctionnels
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.2objectifstechniques/" title="1.1.2 Objectifs techniques" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.2objectifstechniques/">
+        1.1.2 Objectifs techniques
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.3objectifsdisponibilite/" title="1.1.3 Objectifs de disponibilité" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.3objectifsdisponibilite/">
+        1.1.3 Objectifs de disponibilité
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.4objectifhomogeneite/" title="1.1.4 Objectifs d&#39;homogénéité" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.4objectifhomogeneite/">
+        1.1.4 Objectifs d&#39;homogénéité
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.2architecture/" title="1.2 Architecture" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/1conceptiongenerale/1.2architecture/">
+          1.2 Architecture
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.1conceptionarchitecture/" title="1.2.1 Conception de l&#39;architecture" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.1conceptionarchitecture/">
+        1.2.1 Conception de l&#39;architecture
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.2schemageneral/" title="1.2.2 Schéma d&#39;architecture générale" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.2schemageneral/">
+        1.2.2 Schéma d&#39;architecture générale
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.3principesgeneraux/" title="1.2.3 Principes généraux" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.3principesgeneraux/">
+        1.2.3 Principes généraux
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/" title="1.3 Les applicatifs" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/">
+          1.3 Les applicatifs
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.1demarche/" title="1.3.1 Les applications WEB de démarche" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.1demarche/">
+        1.3.1 Les applications WEB de démarche
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.2socle/" title="1.3.2 Le socle" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.2socle/">
+        1.3.2 Le socle
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.3outils/" title="1.3.3 Les outils" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.3outils/">
+        1.3.3 Les outils
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.4retroingenierie/" title="1.3.4 Rétro-ingénierie" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.4retroingenierie/">
+        1.3.4 Rétro-ingénierie
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/" title="2. Conception détaillée" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/2conceptiondetaillee/">
+          2. Conception détaillée
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.1introduction/" title="2.1 Introduction" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.1introduction/">
+        2.1 Introduction
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.2principesconceptionduback/" title="2.2 Principes de conception du BACK" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.2principesconceptionduback/">
+        2.2 Principes de conception du BACK
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.3principesconceptiondufront/" title="2.3 Principes de conception du FRONT" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.3principesconceptiondufront/">
+        2.3 Principes de conception du FRONT
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.4principesconceptionfrontetback/" title="2.4 Principes de conception communs" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.4principesconceptionfrontetback/">
+        2.4 Principes de conception communs
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.5principeconceptiondocumentaire/" title="2.5 Principes de rédaction documentaire" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.5principeconceptiondocumentaire/">
+        2.5 Principes de rédaction documentaire
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.6fonctionnalites/" title="2.6 Fonctionnalités" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.6fonctionnalites/">
+        2.6 Fonctionnalités
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.7cloud/" title="2.7 Fonctionnalités Cloud" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.7cloud/">
+        2.7 Fonctionnalités Cloud
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.8securite/" title="2.8 Sécurité" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.8securite/">
+        2.8 Sécurité
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.9liensdocumentaires/" title="2.9 Liens documentaires" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.9liensdocumentaires/">
+        2.9 Liens documentaires
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.10documentationutilisateur/" title="2.10 Documentation utilisateur" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.10documentationutilisateur/">
+        2.10 Documentation utilisateur
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/3developpement/" title="3. Développement" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/psl-public/documentation/3developpement/">
+          3. Développement
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.1liens/" title="3.1 Liens" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.1liens/">
+        3.1 Liens
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.2installationdeposte/" title="3.2 Installation de poste" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.2installationdeposte/">
+        3.2 Installation de poste
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.3demarrertout/" title="3.3 Démarrer tout" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.3demarrertout/">
+        3.3 Démarrer tout
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.11infoslogs/" title="3.11 Infos-logs" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.11infoslogs/">
+        3.11 Infos-logs
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.12infosspring/" title="3.12 Infos-Spring" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.12infosspring/">
+        3.12 Infos-Spring
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.13infoscloud/" title="3.13 Infos-cloud" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.13infoscloud/">
+        3.13 Infos-cloud
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.14infospic/" title="3.14 Infos-PIC" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.14infospic/">
+        3.14 Infos-PIC
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.15infose2e/" title="3.15 Infos-test e2e" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.15infose2e/">
+        3.15 Infos-test e2e
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.16infovelocity/" title="3.16 Infos-velocity" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.16infovelocity/">
+        3.16 Infos-velocity
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.21reglesdeconception/" title="3.21 Règles-conception" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.21reglesdeconception/">
+        3.21 Règles-conception
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.22reglesspecificiquesjava/" title="3.22 Règles-Java" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.22reglesspecificiquesjava/">
+        3.22 Règles-Java
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.23reglesmaven/" title="3.23 Règles-Maven" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.23reglesmaven/">
+        3.23 Règles-Maven
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.24reglesdetest/" title="3.24 Règles-test" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.24reglesdetest/">
+        3.24 Règles-test
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.25reglesdelog/" title="3.25 Règles-logs" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.25reglesdelog/">
+        3.25 Règles-logs
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.26regesspecificiquesfront/" title="3.26 Règles-Front" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.26regesspecificiquesfront/">
+        3.26 Règles-Front
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.31proceduressitedocumentaire/" title="3.31 Procédures-site documentaire" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.31proceduressitedocumentaire/">
+        3.31 Procédures-site documentaire
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.32proceduresapplicationangular/" title="3.32 Procédures-règles de l&#39;application Angular" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.32proceduresapplicationangular/">
+        3.32 Procédures-règles de l&#39;application Angular
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.33proceduresmaven/" title="3.33 Procédures-environnement Maven" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.33proceduresmaven/">
+        3.33 Procédures-environnement Maven
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.34proceduressecurite/" title="3.34 Procédures-veille sécurité" class="dd-item active">
+        <a href="/psl-public/documentation/3developpement/3.34proceduressecurite/">
+        3.34 Procédures-veille sécurité
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.35procedureselastic/" title="3.35 Procédures-elastic" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.35procedureselastic/">
+        3.35 Procédures-elastic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.36procedurestest/" title="3.36 Procédures-test" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.36procedurestest/">
+        3.36 Procédures-test
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.37proceduresdiverses/" title="3.37 Procédures-diverses" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.37proceduresdiverses/">
+        3.37 Procédures-diverses
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.41chosesasavoir/" title="3.41 Les choses à savoir" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.41chosesasavoir/">
+        3.41 Les choses à savoir
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.99faq/" title="3.99 Foire aux questions (FAQ)" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.99faq/">
+        3.99 Foire aux questions (FAQ)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/4ops/" title="4. Ops" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/4ops/">
+          4. Ops
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/4ops/4.1plan/" title="4.1 Plan" class="dd-item ">
+        <a href="/psl-public/documentation/4ops/4.1plan/">
+        4.1 Plan
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/4ops/4.2ansible/" title="4.2 Ansible" class="dd-item ">
+        <a href="/psl-public/documentation/4ops/4.2ansible/">
+        4.2 Ansible
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/4ops/4.3regles/" title="4.3 Règles" class="dd-item ">
+        <a href="/psl-public/documentation/4ops/4.3regles/">
+        4.3 Règles
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/4ops/4.4exploitation/" title="4.4 Exploitation" class="dd-item ">
+        <a href="/psl-public/documentation/4ops/4.4exploitation/">
+        4.4 Exploitation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/5avancement/" title="5. Avancement" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/5avancement/">
+          5. Avancement
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/5avancement/5.1comment/" title="5.1 Organisation" class="dd-item ">
+        <a href="/psl-public/documentation/5avancement/5.1comment/">
+        5.1 Organisation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/5avancement/5.2quoi/" title="5.2 à faire" class="dd-item ">
+        <a href="/psl-public/documentation/5avancement/5.2quoi/">
+        5.2 à faire
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/6glossaire/" title="6. Glossaire" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/6glossaire/">
+          6. Glossaire
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>License : <a href="/psl-public/documentation/0licence/">commercial & AGPL</a></p>
+<p>Built with <a target="_blank" href="https://github.com/matcornic/hugo-theme-learn">Learn Theme</i></a> & <a target="_blank" href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/documentation/'>Accueil</a> > <a href='/documentation/3developpement/'>3. Développement</a> > 3.34 Procédures-veille sécurité
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#3341---projet-socle">3.34.1. - Projet Socle</a>
+      <ul>
+        <li><a href="#33411---mettre-à-jour-les-dépendances-java">3.34.1.1 - Mettre à jour les dépendances Java</a></li>
+        <li><a href="#33412---chiffrement--déchiffrement-des-mots-de-passe-ou-clefs-dans-les-fichiers-de-configuration">3.34.1.2 - Chiffrement / déchiffrement des mots de passe (ou clefs) dans les fichiers de configuration</a></li>
+      </ul>
+    </li>
+    <li><a href="#3342---projet-front">3.34.2 - Projet Front</a>
+      <ul>
+        <li><a href="#33421---montée-de-version-angular">3.34.2.1 - Montée de version Angular</a></li>
+      </ul>
+    </li>
+    <li><a href="#33422---montée-de-version-angular-compliquée">3.34.2.2 - Montée de version Angular compliquée</a>
+      <ul>
+        <li><a href="#33423---montée-de-version-angular">3.34.2.3 - Montée de version Angular</a></li>
+        <li><a href="#33424---montée-de-version-dsfr">3.34.2.4 - Montée de version DSFR</a></li>
+        <li><a href="#33425---montée-de-version-des-autres-dépendances-node">3.34.2.5 - Montée de version des autres dépendances Node</a></li>
+      </ul>
+    </li>
+    <li><a href="#3343---mise-à-jour-des-outils">3.34.3 - Mise à jour des outils</a>
+      <ul>
+        <li><a href="#33431---vscode">3.34.3.1 - VSCode</a></li>
+        <li><a href="#33432---eclipse">3.34.3.2 - Eclipse</a></li>
+        <li><a href="#33433---java">3.34.3.3 - Java</a></li>
+        <li><a href="#33434---node">3.34.3.4 - Node</a></li>
+        <li><a href="#33435---maven">3.34.3.5 - Maven</a></li>
+      </ul>
+    </li>
+    <li><a href="#3344---documentation-du-socle">3.34.4 - Documentation du Socle</a>
+      <ul>
+        <li><a href="#33441---rapports-du-socle">3.34.4.1 - Rapports du Socle</a></li>
+        <li><a href="#33442---tests-de-sécurité-avec-owasp-zap">3.34.4.2 - Tests de sécurité avec OWASP ZAP</a></li>
+      </ul>
+    </li>
+    <li><a href="#3345---suivi-de-sécurité-avec-dependencytrack">3.34.5 - Suivi de sécurité avec DependencyTrack</a>
+      <ul>
+        <li><a href="#33451---installationréinstallation-et-préparation-dune-instance-locale-de-dependencytrack">3.34.5.1 - Installation/réinstallation et préparation d&rsquo;une instance locale de DependencyTrack</a></li>
+        <li><a href="#33452---audit-des-projets-socle-et-front">3.34.5.2 - Audit des projets SOCLE et FRONT</a></li>
+        <li><a href="#33453---raffrachir-un-audit">3.34.5.3 - Raffrachir un audit</a></li>
+        <li><a href="#33454---analyse">3.34.5.4 - Analyse</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              3.34 Procédures-veille sécurité
+            </h1>
+          
+
+        
+
+
+<div class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#3341---projet-socle">3.34.1. - Projet Socle</a>
+      <ul>
+        <li><a href="#33411---mettre-à-jour-les-dépendances-java">3.34.1.1 - Mettre à jour les dépendances Java</a></li>
+        <li><a href="#33412---chiffrement--déchiffrement-des-mots-de-passe-ou-clefs-dans-les-fichiers-de-configuration">3.34.1.2 - Chiffrement / déchiffrement des mots de passe (ou clefs) dans les fichiers de configuration</a></li>
+      </ul>
+    </li>
+    <li><a href="#3342---projet-front">3.34.2 - Projet Front</a>
+      <ul>
+        <li><a href="#33421---montée-de-version-angular">3.34.2.1 - Montée de version Angular</a></li>
+      </ul>
+    </li>
+    <li><a href="#33422---montée-de-version-angular-compliquée">3.34.2.2 - Montée de version Angular compliquée</a>
+      <ul>
+        <li><a href="#33423---montée-de-version-angular">3.34.2.3 - Montée de version Angular</a></li>
+        <li><a href="#33424---montée-de-version-dsfr">3.34.2.4 - Montée de version DSFR</a></li>
+        <li><a href="#33425---montée-de-version-des-autres-dépendances-node">3.34.2.5 - Montée de version des autres dépendances Node</a></li>
+      </ul>
+    </li>
+    <li><a href="#3343---mise-à-jour-des-outils">3.34.3 - Mise à jour des outils</a>
+      <ul>
+        <li><a href="#33431---vscode">3.34.3.1 - VSCode</a></li>
+        <li><a href="#33432---eclipse">3.34.3.2 - Eclipse</a></li>
+        <li><a href="#33433---java">3.34.3.3 - Java</a></li>
+        <li><a href="#33434---node">3.34.3.4 - Node</a></li>
+        <li><a href="#33435---maven">3.34.3.5 - Maven</a></li>
+      </ul>
+    </li>
+    <li><a href="#3344---documentation-du-socle">3.34.4 - Documentation du Socle</a>
+      <ul>
+        <li><a href="#33441---rapports-du-socle">3.34.4.1 - Rapports du Socle</a></li>
+        <li><a href="#33442---tests-de-sécurité-avec-owasp-zap">3.34.4.2 - Tests de sécurité avec OWASP ZAP</a></li>
+      </ul>
+    </li>
+    <li><a href="#3345---suivi-de-sécurité-avec-dependencytrack">3.34.5 - Suivi de sécurité avec DependencyTrack</a>
+      <ul>
+        <li><a href="#33451---installationréinstallation-et-préparation-dune-instance-locale-de-dependencytrack">3.34.5.1 - Installation/réinstallation et préparation d&rsquo;une instance locale de DependencyTrack</a></li>
+        <li><a href="#33452---audit-des-projets-socle-et-front">3.34.5.2 - Audit des projets SOCLE et FRONT</a></li>
+        <li><a href="#33453---raffrachir-un-audit">3.34.5.3 - Raffrachir un audit</a></li>
+        <li><a href="#33454---analyse">3.34.5.4 - Analyse</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<h2 id="3341---projet-socle">3.34.1. - Projet Socle</h2>
+<p>Le projet Socle est paramétré pour fournir une liste des failles de sécurité associées à chaque dépendance Maven utilisée dans les sources.</p>
+<p><strong>/!\ Il est préférable de réaliser l&rsquo;analyse à la suite d&rsquo;une montée de version des principales librairies et des principaux framework ! (et non avant)</strong></p>
+<hr>
+<h3 id="33411---mettre-à-jour-les-dépendances-java">3.34.1.1 - Mettre à jour les dépendances Java</h3>
+<p>Les fichiers <em>pom.xml</em>, <em>2-code/front/pom.xml</em> et <em>2-code/socle/pom.xml</em> sont aménagés pour faciliter cette montée de version : en face de chaque propriété <em>&lt;version.xxxx&gt;</em> est placé le lien direct vers le site <em>mvnrepository.com</em> permettant de vérifier la dernière version disponible.</p>
+<p>La montée de version consiste donc en :</p>
+<ul>
+<li>la modification de la version de chaque dépendance directe (depuis les fichiers <em>pom.xml</em>) pour utiliser la dernière version disponible ;</li>
+<li>la déconnexion de tout réseau nécessitant un proxy et leur désactivation (le téléchargement des dépendances sera plus rapide et celui de <em>flapdoodle</em> ne supporte pas les proxy)</li>
+<li>la compilation <strong>uniquement</strong> (<em>-DskipTests -T 1C</em>) de l&rsquo;ensemble du projet (au besoin, utiliser <em>Eclipse</em> pour tout compiler après le premier échec et le téléchargement de la plus part des dépendances) ;</li>
+<li>la correction de toutes les nouveaux avertissements (notamment <em>Deprecated</em>)</li>
+<li>le build de l&rsquo;ensemble du code ;</li>
+<li>la purge de tous les éléments du socle (logs, données de base de données et cache) avec l&rsquo;outil <code>. ./outils.sh</code> depuis le répertoire <em>2-code/socle</em> ;</li>
+<li>pour gagner du temps, recréer le fichier de cache du référentiel des SIRET (cf. <a href="/psl-public/documentation/3developpement/3.2installationdeposte/#3211---initialiser-un-fichier-de-cache">§3.2.11</a>)</li>
+<li>le démarrage de tous les composants applicatifs avec la commande <code>. ./demarrerTout.sh</code> depuis le répertoire <em>2-code/socle</em> ;</li>
+<li>la vérification du bon démarrage de tous les composants applicatifs ;</li>
+<li>l&rsquo;exécution des tests depuis <em>UseBruno</em> : suivre les étapes du chapitre <a href="/psl-public/documentation/3developpement/3.24reglesdetest/#3243---les-requ%C3%AAtes-http">règles de test des requêtes HTTP</a> ;</li>
+<li>le démarrage des démarches compilées avec la commande <code>npm run http-start</code> depuis le répertoire <em>2-code/front</em> ;</li>
+<li>l&rsquo;exécution de tests manuels depuis les démarches ;</li>
+<li>l&rsquo;arrêt de tous les composants applicatifs avec la commande <code>. ./arreterTout.sh</code> depuis le répertoire <em>2-code/socle</em> ;</li>
+<li>la suppression de la précédente version de <em>flapdoodle</em> (<em>.embedmongo/windows/mongodb-windows-x86_64-xxx.zip</em> et <em>embedmongo/Windows-B64&ndash;unknown&mdash;xxx</em>) ;</li>
+<li>la mise à jour, dans le fichier <em>4.2quoi.md</em>, des dates de l&rsquo;actuelle et de la prochaine mise à jour des dépendances du <em>socle</em> ;</li>
+<li>la vérification des licences associées aux dépendances (cf. <a href="/psl-public/documentation/3developpement/3.34proceduressecurite/#3345---suivi-de-s%C3%A9curit%C3%A9-avec-dependencytrack">§3.34.5</a>)</li>
+<li>le commit de la montée de version.</li>
+</ul>
+<hr>
+<h3 id="33412---chiffrement--déchiffrement-des-mots-de-passe-ou-clefs-dans-les-fichiers-de-configuration">3.34.1.2 - Chiffrement / déchiffrement des mots de passe (ou clefs) dans les fichiers de configuration</h3>
+<p>Tout mot de passe ou clef de configuration doit être stocké(s) sous forme chiffrée. Pour cela il suffit :</p>
+<ul>
+<li>de démarrer (ou avoir déjà démarré) les services <em>service-gateway</em> et <em>service-registry</em> (nécessaires pour appeler les APIs exposées par <em>service-config</em>)</li>
+<li>de commenter, dans le fichier <em>application-specifique.properties</em> du projet <em>service-config</em>, les clefs spring.security.user.xx</li>
+<li>de commenter, dans le <em>pom.xml</em> du même projet, la dépendance à <em>spring-boot-starter-security</em> dans le <em>pom.xml</em> de <em>service-config</em></li>
+<li>de démarrer le service service-config</li>
+<li>d&rsquo;utiliser l&rsquo;API <em>http://localhost:xxxx/encrypt</em> depuis l&rsquo;IDE HTTP (UseBruno) pour chiffrer une valeur fournie dans le corps de la requête</li>
+<li>de placer cette valeur chiffrée dans le fichier de properties souhaité en la préfixant par <em>{cipher}</em></li>
+</ul>
+<p>A savoir :</p>
+<ul>
+<li>Pour déchiffrer une valeur, une API <em>decrypt</em> existe aussi.</li>
+<li>Pour créer le keystore, les étapes à suivre sont (<a href="https://cloud.spring.io/spring-cloud-config/reference/html/#_key_management">ici</a>) :
+<ul>
+<li>se placer dans un répertoire et ouvrir une ligne de commande</li>
+<li>exécuter la commande <code>keytool -genkeypair -alias clefDeTest -keyalg RSA -dname &quot;CN=ServiceConfig,OU=Moi,O=Perso,L=Amiens,S=France,C=FR&quot; -keystore service-config.jks -storepass MotDePasseStore</code></li>
+<li>placer le fichier <em>service-config.jks</em> n&rsquo;importe où et utiliser la clef <em>cheminkeystore</em> pour pointer sur le répertoire contenant le keystore (dans les sources, le keystore est présent dans le répertoire <em>src/test/resources</em> du projet <em>service-config</em> pour ne pas être embarqué dans le JAR exécutable)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3342---projet-front">3.34.2 - Projet Front</h2>
+<h3 id="33421---montée-de-version-angular">3.34.2.1 - Montée de version Angular</h3>
+<p>La mise à jour d&rsquo;Angular est régulière car une version sort régulièrement.
+Elle est à réaliser de la manière suivante :</p>
+<ul>
+<li>avant la montée de version, vérifier que le projet <em>front</em> fonctionne en
+<ul>
+<li>exécutant un build complet <code>npm run all-build-prod</code> puis <code>npm run all-postBuildProd-setOIDC</code></li>
+<li>exécutant les tests <code>npm run e2e</code> vs <code>npm run xx-start</code> avec xx chacune des démarches</li>
+</ul>
+</li>
+<li>ouvrir le <a href="https://update.angular.io/">site guidant chaque montée de version Angular</a></li>
+<li>si une nouvelle version majeure est disponible
+<ul>
+<li>sélectionner la version source (actuelle et donc présente dans le <em>package.json</em>) et la dernière version GA proposée sur le site</li>
+<li>suivre les instructions fournies par le site en complément des commandes ci-dessous (potentiellement avant ou après)
+<ul>
+<li>ne pas exécuter la commande <code>ng update ...</code> de la procédure d&rsquo;Angular (prévu plus bas)</li>
+<li>en cas de besoin, le paramètre <em>&ndash;allow-dirty</em> de la commande <em>ng update</em> permet une exécution de la mise à jour sans devoir tout commiter</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>dans une ligne de commande DOS, mettre @angular/cli à jour avec la commande
+<code>npm install --save-dev @angular/cli</code></li>
+<li>pour réaliser la mise à jour, exécuter <code>npm run update-angular</code></li>
+<li>vérifier que toutes les versions modifiées sont identiques entre elles sinon les harmoniser à la main (sauf <em>@angular-builders*</em>)</li>
+<li>installer les dépendances avec la commande <code>npm install</code> (normalement inutile)</li>
+<li>vérifier que le projet <em>front</em> fonctionne en
+<ul>
+<li>exécutant un build complet <code>npm run all-build-prod</code> puis <code>npm run all-postBuildProd-setOIDC</code></li>
+<li>exécutant les tests <code>npm run e2e</code> vs <code>npm run xx-start</code> avec xx chacune des démarches</li>
+</ul>
+</li>
+<li>mettre à jour la page contenant la backlog et programmer la prochaine mise à jour pour le prochain trimestre</li>
+</ul>
+<h2 id="33422---montée-de-version-angular-compliquée">3.34.2.2 - Montée de version Angular compliquée</h2>
+<p>En cas de problème sur une montée de version, il est parfois nécessaire de recréer un projet de zéro pour avoir une référence et de traiter à la main les différences entre le projet de référence et le vrai projet.</p>
+<p>Pour cela, il faut</p>
+<ul>
+<li>créer un nouveau workspace Angular avec une librairie et une application avec les commandes suivantes (<a href="https://angular.dev/reference/configs/file-structure#multiple-projects">source</a>) :
+<ul>
+<li>se placer dans le répertoire <em>/2-code</em> et y ouvrir une ligne de commande <em>DOS</em> (pas <em>gitBash</em> car des questions sont posées et <em>gitBash</em> ne le supporte pas en 11/2022)</li>
+<li><code>npm install --location=global @angular/cli@latest</code> pour mettre à jour le CLI d&rsquo;Angular (oui en <em>NPM</em> même si le reste du projet est en <em>Yarn</em>)</li>
+<li>supprimer le répertoire existant <em>/2-code/front-exemple</em></li>
+<li><code>ng new front-exemple --create-application false</code>  pour créer une nouvelle application avec la dernière version disponible</li>
+<li><code>cd front-exemple</code> pour entrer dans le répertoire de la nouvelle application</li>
+<li><code>ng generate library framework --skip-package-json true --skip-install true</code> pour créer une librairie</li>
+<li><code>ng generate application bibliotheque --routing false --skip-tests true --style scss --ssr false</code> pour créer une application</li>
+<li><code>npm install angular-oauth2-oidc espression ngx-logger font-awesome font-awesome-animation @gouvfr/dsfr @angular/material @angular/cdk --save</code> pour ajouter les dépendances actuelles du projet
+<ul>
+<li>en cas de problème avec la commande à cause d&rsquo;une dépendance de la librairie DSFR, essayer d&rsquo;ajouter le paramètre <code>--legacy-peer-deps</code></li>
+</ul>
+</li>
+<li><code>npm install @compodoc/compodoc @cypress/schematic cypress cypress-fail-fast cypress-html-validate html-validate ng-packagr npm-check-updates source-map-explorer @cypress/webpack-batteries-included-preprocessor @cypress/webpack-preprocessor @cypress/code-coverage http-server --save-dev</code> pour ajouter les dépendances actuelles du projet
+<ul>
+<li>en cas de problème avec la commande à cause d&rsquo;une dépendance de la librairie DSFR, essayer d&rsquo;ajouter le paramètre <code>--legacy-peer-deps</code></li>
+</ul>
+</li>
+<li>désinstaller le client Angular global avec la commande <code>npm remove --location=global @angular/cli</code></li>
+</ul>
+</li>
+<li>récupérer le contenu du projet actuel
+<ul>
+<li>supprimer le fichier <em>README.md</em></li>
+<li>dans le nouveau projet, supprimer les répertoires <em>projects\framework\public</em>, <em>projects\bibliotheque\public</em>, <em>projects\framework\src</em> et <em>projects\bibliotheque\src</em></li>
+<li>récupérer les 4 mêmes répertoires du projet actuel</li>
+<li>récupérer aussi :
+<ul>
+<li><em>cypress.config.ts</em></li>
+<li><em>projects\framework\cypress</em></li>
+<li><em>projects\bibliotheque\cypress</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>éditer le fichier <em>angular.json</em> pour
+<ul>
+<li>supprimer la balise <em>architect &gt; test</em> et <em>architect &gt; extract-i18n</em></li>
+<li>récupérer la balise <em>architect &gt; cypress-open</em></li>
+<li>dans les <em>assets</em> du projet <em>biliotheque</em>, ajouter <code>,{&quot;glob&quot;: &quot;**/*&quot;,&quot;input&quot;: &quot;projects/framework/public&quot;,&quot;output&quot;: &quot;/public/&quot;},{&quot;glob&quot;: &quot;**/*&quot;,&quot;input&quot;: &quot;@gouvfr/dsfr/dist/favicon&quot;,&quot;output&quot;: &quot;/dsfr/&quot;}</code></li>
+<li>dans les <em>styles</em> du projet <em>biliotheque</em>, ajouter <code>,&quot;@gouvfr/dsfr/dist/dsfr/dsfr.min.css&quot;,&quot;@gouvfr/dsfr/dist/utility/utility.main.min.css&quot;,&quot;projects/framework/public/styles.scss&quot;</code></li>
+<li>dans les <em>scripts</em> du projet <em>biliotheque</em>, ajouter <code>&quot;@gouvfr/dsfr/dist/dsfr.module.min.js&quot;</code></li>
+</ul>
+</li>
+<li>éditer le fichier <em>package.json</em> pour
+<ul>
+<li>récupérer la balise <em>author</em></li>
+<li>récupérer les scripts <em>install-1-cypress</em>, <em>install-2-cypress</em>, <em>bibliotheque-start</em> et <em>e2e</em></li>
+</ul>
+</li>
+<li>tester ce projet
+<ul>
+<li>en installant <em>Cypress</em> avec les deux script d&rsquo;installation</li>
+<li>en démarrant la démarche avec la commande <code>npm run bibliotheque-start</code></li>
+<li>en lançant _Cypress _ et exécutant les tests avec la commande <code>npm run e2e</code></li>
+</ul>
+</li>
+<li>généraliser à tous les projets
+<ul>
+<li>importer le code de tous les projets</li>
+<li>tester tous les projets avec les tests <em>Cypress</em></li>
+<li>relire les logs et vérifier les screenshots générés</li>
+</ul>
+</li>
+<li>réaliser les tests spéciaux :
+<ul>
+<li>
+<p>vérifier la bonne validation HTML des pages durant les tests E2E</p>
+<ul>
+<li>en retirant la configuration spécifique du projet en commentant la partie configuration du code <code>require('cypress-html-validate/plugin').install(on, {...})</code> dans le fichier cypress.config.ts</li>
+<li>relançant les tests E2E sur le projet <em>bibliotheque</em> qui devrait échouer</li>
+</ul>
+</li>
+<li>
+<p>tester les <em>build-prod</em></p>
+<ul>
+<li>exécuter un <code>npm run all-build-prod</code></li>
+<li>exécuter un <code>npm run http-start</code></li>
+<li>exécuter tous les tests E2E</li>
+</ul>
+</li>
+<li>
+<p>tester la génération de la documentation</p>
+<ul>
+<li>recopier les fichiers <em>tsconfig.doc.json</em> et le fichier <em>tsconfig.doctest.json</em> présents dans les répertoires de projet depuis l&rsquo;ancienne arborescence vers la nouvelle</li>
+<li>exécuter <code>npm run all-compodoc</code></li>
+<li>démarrer le serveur de documentation avec <code>1-conception\startServer.cmd</code></li>
+<li>vérifier la présence et la qualité de la documentation depuis le site documentaire (lien dans le chapitre §3.1)</li>
+</ul>
+</li>
+<li>
+<p>couverture de code avec les tests E2E</p>
+<ul>
+<li>depuis la version Angular-18 (juillet 2024), l&rsquo;instrumentation via les fonctionnalités de WebPack n&rsquo;est plus possible (changement du builder Angular). Donc la couverture de code n&rsquo;est plus possible pour le moment.</li>
+</ul>
+</li>
+<li>
+<p>lignes de code (CLOC)</p>
+<ul>
+<li>remettre en place les scripts <em>cloc*</em> dans le <em>package.json</em></li>
+<li>exécuter les deux commandes <em>cloc*</em> et en vérifier la cohérence manuellement</li>
+</ul>
+</li>
+<li>
+<p>remettre <em>Maven</em> en place</p>
+<ul>
+<li>à modifier :
+<ul>
+<li>récupérer le <em>pom.xml</em> et le répertoire <em>assembly</em></li>
+</ul>
+</li>
+<li>pour tester :
+<ul>
+<li>exécuter la commande <code>mvn clean install</code></li>
+<li>exécuter la commande <code>mvn clean install -P qualimetrie</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>tester le build Maven nominal
+/!\ retirer le fichier de conf et le bouchonAPI du ZIP généré par Maven</p>
+</li>
+<li>
+<p>tester le build Maven nominal avec le profile <em>qualimetrie</em></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Pour vérifier que cela fonctionne, exécuter les commandes :</p>
+<ul>
+<li>de build de la démarche <em>bibliotheque</em> avec la commande <code>npm run bibliotheque-build-prod</code></li>
+<li>d&rsquo;analyse de la démarche <em>bibliotheque</em> avec la commande <code>npm run bibliotheque-analyseBundle</code></li>
+<li>de génération de la documentation de la démarche <em>bibliotheque</em> avec la commande <code>npm run bibliotheque-compodoc</code></li>
+<li>de démarrage de la démarche <em>bibliotheque</em> avec la commande <code>npm run bibliotheque-start</code></li>
+<li>de démarrage des tests E2E de la démarche <em>bibliotheque</em> avec la commande <code>npm run bibliotheque-e2e</code></li>
+</ul>
+<h3 id="33423---montée-de-version-angular">3.34.2.3 - Montée de version Angular</h3>
+<p>_ Cette procédure est à mettre à jour depuis l&rsquo;abandon de YARN_
+La <em>DINUM</em> publie régulièrement des versions de la librairie <em>System Design</em> de l&rsquo;état.
+Une montée de version est à réaliser de la manière suivante :</p>
+<ul>
+<li>dans une commande DOS et pas Git4windows, démarrer l&rsquo;outil d&rsquo;<em>upgrade</em> de <em>Yarn</em> avec la commande (s&rsquo;il n&rsquo;est pas installé, <code>yarn plugin import interactive-tools</code>)
+<code>yarn upgrade-interactive</code></li>
+<li>attendre que toutes les libs soient chargées</li>
+<li>sélectionner (carré vert) la dernière version de la librairie DSFR</li>
+<li>taper ENTRER pour valider les sélections et lancer l&rsquo;installation</li>
+<li>vérifier que le projet <em>front</em> fonctionne en
+<ul>
+<li>exécutant un build complet : <code>npm run all-build-prod</code></li>
+<li>exécutant les tests <code>npm run e2e</code> vs <code>npm run xx-start</code> avec xx chacune des démarches</li>
+<li>exécutant les tests avec couverture de code <code>npm run e2e</code> vs <code>npm run xx-startcoverage</code> avec xx chacune des démarches</li>
+</ul>
+</li>
+</ul>
+<h3 id="33424---montée-de-version-dsfr">3.34.2.4 - Montée de version DSFR</h3>
+<p>_ Cette procédure est à mettre à jour depuis l&rsquo;abandon de YARN_</p>
+<p>La mise à jour de la dépendance DSFR est régulière.
+Elle est à réaliser de la manière suivante :</p>
+<ul>
+<li>dans une commande DOS et pas Git4windows, démarrer l&rsquo;outil d&rsquo;<em>upgrade</em> de <em>Yarn</em> avec la commande (s&rsquo;il n&rsquo;est pas installé, <code>yarn plugin import interactive-tools</code>)
+<code>yarn upgrade-interactive</code></li>
+<li>attendre que toutes les libs soient chargées</li>
+<li>sélectionner (carré vert) la version à installer dans la colonne <em>Range</em> pour la librairie DSFR</li>
+<li>taper ENTRER pour valider les sélections et lancer l&rsquo;installation</li>
+<li>vérifier que le projet <em>front</em> fonctionne en
+<ul>
+<li>exécutant un build complet : <code>npm run all-build-prod</code></li>
+<li>exécutant les tests <code>npm run e2e</code> vs <code>npm run xx-start</code> avec xx chacune des démarches</li>
+<li>exécutant les tests avec couverture de code <code>npm run e2e</code> vs <code>npm run xx-startcoverage</code> avec xx chacune des démarches</li>
+</ul>
+</li>
+<li>pour chaque composant HTML de la DSFR utilisé dans l&rsquo;application, vérifier la structure HTML de chacun (La structure évolue. La documentation aussi. Mais aucun guide de migration n&rsquo;existe) :</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Composant(s) PSL</th>
+<th>Composant DSFR</th>
+<th>Adaptation(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>contenu/contenuautocompletion</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/champ-de-saisie/">composants/champ-de-saisie</a></td>
+<td>valide vis-à-vis du chapitre &ldquo;Autres types de champs&rdquo;</td>
+</tr>
+<tr>
+<td>contenu/contenucase</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/case-a-cocher">composants/case-a-cocher</a></td>
+<td>valide vis-à-vis du chapitre &ldquo;Pour les développeurs&rdquo;</td>
+</tr>
+<tr>
+<td>contenu/contenudate</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/champ-de-saisie/">composants/champ-de-saisie</a></td>
+<td>valide vis-à-vis du chapitre &ldquo;Autres types de champs&rdquo;</td>
+</tr>
+<tr>
+<td>contenu/contenudocuments</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/telechargement-de-fichier">composants/telechargement-de-fichier</a></td>
+<td>valide vis-à-vis du chapitre &ldquo;Carte&rdquo;</td>
+</tr>
+<tr>
+<td>contenu/contenufindemarchenonconnecte</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/groupe-de-boutons/">composants/groupe-de-boutons</a></td>
+<td>valide vis-à-vis du chapitre &ldquo;Tailles&rdquo;</td>
+</tr>
+<tr>
+<td>contenu/contenulistefinie</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liste-deroulante">composants/liste-deroulante</a></td>
+<td>valide vis-à-vis du chapitre &ldquo;État de succès&rdquo;</td>
+</tr>
+<tr>
+<td>contenu/contenuparagraphe</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-avant">composants/mise-en-avant</a></td>
+<td>valide vis-à-vis du chapitre &ldquo;Structure&rdquo; mais le composant <em>paragraphe</em> ne gère pas de titre ou de bouton disponibles les callout. Si cela est, un jour, nécessaire, il faudra créer un composant dédié différent de <em>paragraphe</em></td>
+</tr>
+<tr>
+<td>contenu/contenuparagraphe</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-exergue">composants/mise-en-exergue</a></td>
+<td>valide vis-à-vis du  chapitre &ldquo;Structure&rdquo;</td>
+</tr>
+<tr>
+<td>contenu/contenuradio</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton-radio/">composants/bouton-radio/</a></td>
+<td>valide vis-à-vis des chapitre &ldquo;Liste horizontale&rdquo; (pour la structure) et &ldquo;Pour les développeurs&rdquo; (pour les styles <em>valid</em> et <em>error</em>)</td>
+</tr>
+<tr>
+<td>contenu/contenusaisie</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/champ-de-saisie">composants/champ-de-saisie</a></td>
+<td>valide vis-à-vis du chapitre &ldquo;États erreur et succès&rdquo; sauf une modification assumée : Dans la documentation, les messages de validation (<em>valid</em> ou <em>error</em>) sont affichés, dans tous les composants, dans une <em>DIV</em> contenant des <em>P</em> sauf le composant de saisie. Pour ne pas dupliquer/multiplier les composants, la même structure est utilisée pour le composant de saisie malgré ce que dit la documentation. La seule concession est l&rsquo;usage d&rsquo;un <em>P</em> pour invoquer le composant <em>data-fmk-messagesvalidation</em>.</td>
+</tr>
+<tr>
+<td>contenu/contenusaisielongue</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/champ-de-saisie">composants/champ-de-saisie</a></td>
+<td>valide vis-à-vis du chapitre &ldquo;Zone de texte - textarea&rdquo; sauf une modification assumée : Dans la documentation, les messages de validation (<em>valid</em> ou <em>error</em>) sont affichés, dans tous les composants, dans une <em>DIV</em> contenant des <em>P</em> sauf le composant de saisie. Pour ne pas dupliquer/multiplier les composants, la même structure est utilisée pour le composant de saisie malgré ce que dit la documentation. La seule concession est l&rsquo;usage d&rsquo;un <em>P</em> pour invoquer le composant <em>data-fmk-messagesvalidation</em>.</td>
+</tr>
+<tr>
+<td>contenu/contenuuploaddocument</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/ajout-de-fichier">composants/ajout-de-fichier</a></td>
+<td>invalide car le composant PSL est plus riche que celui de la DSFR. Il ne supporte pas le drag&amp;drop. Donc la balise <em>INPUT</em> est masquée et s&rsquo;affiche, à la place, une zone de drag&amp;drop. De plus, la structure du <em>label</em> est enrichie avec un second <em>fr-hint-text</em> pour différencier l&rsquo;aide à la saisie des contraintes de document (type et taille).</td>
+</tr>
+<tr>
+<td>contenu/messagesvalidation</td>
+<td>-</td>
+<td>valide vis-à-vis du composant DSFR radio et liste déroulante</td>
+</tr>
+<tr>
+<td>conteneurPages/fildariane</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/indicateur-d-etapes">composants/indicateur-d-etapes</a></td>
+<td>valide</td>
+</tr>
+<tr>
+<td>modale/connexionbrouillon</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/modeles/page-de-connexion">modeles/page-de-connexion</a></td>
+<td>valide en retirant beaucoup d&rsquo;éléments du premier chapitre</td>
+</tr>
+<tr>
+<td>morceaudepage/entete</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/en-tete">composants/en-tete</a></td>
+<td>valide vis-à-vis des chapitres combinés de la documentation</td>
+</tr>
+<tr>
+<td>morceaudepage/entete</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/selecteur-de-langue">composant/selecteur-de-langue</a></td>
+<td>valide</td>
+</tr>
+<tr>
+<td>morceaudepage/entete/messageglobal</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/alerte">composants/alerte</a></td>
+<td>valide</td>
+</tr>
+<tr>
+<td>morceaudepage/pieddepage</td>
+<td><a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pied-de-page">composants/pied-de-page</a></td>
+<td>invalide car construit depuis le pied de page de la vrai PSL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33425---montée-de-version-des-autres-dépendances-node">3.34.2.5 - Montée de version des autres dépendances Node</h3>
+<p>_ Cette procédure est à mettre à jour depuis l&rsquo;abandon de YARN_</p>
+<p>La mise à jour des dépendances autres que celles d&rsquo;Angular et DSFR est régulière.
+Elle est à réaliser de la manière suivante :</p>
+<ul>
+<li>dans une commande DOS et pas Git4windows, démarrer l&rsquo;outil d&rsquo;<em>upgrade</em> de <em>Yarn</em> avec la commande (s&rsquo;il n&rsquo;est pas installé, <code>yarn plugin import interactive-tools</code>)
+<code>yarn upgrade-interactive</code></li>
+<li>attendre que toutes les libs soient chargées</li>
+<li>sélectionner (carré vert) les versions à installer dans la colonne <em>Range</em> sauf la librairie DSFR</li>
+<li>taper ENTRER pour valider les sélections et lancer l&rsquo;installation</li>
+<li>vérifier que le projet <em>front</em> fonctionne en
+<ul>
+<li>exécutant un build complet : <code>npm run all-build-prod</code></li>
+<li>exécutant les tests <code>npm run e2e</code> vs <code>npm run xx-start</code> avec xx chacune des démarches</li>
+<li>exécutant les tests avec couverture de code <code>npm run e2e</code> vs <code>npm run xx-startcoverage</code> avec xx chacune des démarches</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3343---mise-à-jour-des-outils">3.34.3 - Mise à jour des outils</h2>
+<h3 id="33431---vscode">3.34.3.1 - VSCode</h3>
+<p>La mise à jour de VSCode est opportuniste car elle se fait dès que l&rsquo;IDE annonce la sortie d&rsquo;une nouvelle version.
+Elle est à réaliser de la manière suivante :</p>
+<ul>
+<li>télécharger l&rsquo;archive contenant l&rsquo;IDE depuis Internet (site internet ou depuis l&rsquo;IDE)</li>
+<li>dézipper l&rsquo;archive dans le répertoire des outils en faisant attention à conserver le numéro de version de l&rsquo;IDE dans le nom du répertoire</li>
+<li>modifier le raccourci vers l&rsquo;IDE en y changeant le numéro de version</li>
+<li>mettre à jour la page contenant la backlog et programmer la prochaine mise à jour pour le prochain trimestre</li>
+<li>modifier la version à installer dans les <a href="/psl-public/documentation/3developpement/3.2installationdeposte/">chapitre 3.2</a></li>
+</ul>
+<hr>
+<h3 id="33432---eclipse">3.34.3.2 - Eclipse</h3>
+<p>La mise à jour d&rsquo;Eclipse est régulière car une version sort tous les trimestres.
+Elle est à réaliser de la manière suivante :</p>
+<ul>
+<li>télécharger l&rsquo;archive contenant la version <em>Eclipse IDE for Java Developers</em> de l&rsquo;IDE depuis le site <a href="https://www.eclipse.org/downloads/packages/">Internet officiel</a></li>
+<li>dézipper l&rsquo;archive dans le répertoire des outils en faisant attention à conserver le numéro de version de l&rsquo;IDE dans le nom du répertoire</li>
+<li>modifier le raccourci vers l&rsquo;IDE en y changeant le numéro de version</li>
+<li>accepter, au démarrage, qu&rsquo;Eclipse transforme le workspace pour le rendre compatible avec la nouvelle version de l&rsquo;IDE (au besoin, recréer un workspace avec la procédure ci-dessous)</li>
+<li>après le démarrage, il est nécessaire d&rsquo;installer le plugin SonarLint</li>
+<li>mettre à jour la page contenant la backlog et programmer la prochaine mise à jour pour le prochain trimestre</li>
+<li>modifier la version à installer dans les <a href="/psl-public/documentation/3developpement/3.2installationdeposte/">chapitre 3.2</a></li>
+</ul>
+<p>Si, à la montée de version Eclipse, le workspace n&rsquo;est plus utilisable (par exemple, raccourci cassé à la montée de version 2022-12), il faut :</p>
+<ul>
+<li>arrêter Eclipse</li>
+<li>renommer le répertoire du workspace existant en le suffixant de <em>-old</em></li>
+<li>démarrer Eclipse (il va recréer un répertoire puisqu&rsquo;il est en paramètre de l&rsquo;exécutable dans le raccourci - cf. procédure d&rsquo;installation du poste)</li>
+<li>configurer :
+<ul>
+<li>General &gt; Workspace : définir l&rsquo;encoding UTF8 et le délimiteur Unix pour tout nouveau fichier</li>
+<li>Maven : définir l&rsquo;installation externe à Eclipse</li>
+<li>Maven : définir le chemin du fichier de configuration et cliquer sur le bouton <em>Update settings</em></li>
+<li>Java &gt; Installed JRE : ajouter le dernier JDK en date, en faire la version par défaut et supprimer tout autre installation Java</li>
+<li>Java &gt; Code style &gt; Formatter : importer le fichier de configuration présent <a href="/psl-public/documentation/installationdeposte/pourRefaireLeMetadata/formatteurCodeEclipse.xml">dans la documentation</a></li>
+<li>Java &gt; Editor &gt; Save actions : configurer chaque formulaire jusqu&rsquo;à obtenir <a href="/psl-public/documentation/installationdeposte/pourRefaireLeMetadata/saveActions.png">cette configuration</a></li>
+<li>General &gt; Keys : créer vos raccourcis si vous en paramétrer habituellement (<em>²²</em> pour <em>rerun Junit test</em> par exemple)</li>
+<li>Run/Debug &gt; console : désactiver la limite de sortie de la console</li>
+<li>Run/Debug &gt; Launching : cocher <em>always</em> pour la sauvegarde des fichiers en cours d&rsquo;édition (première question du formulaire en version 2023-06)</li>
+<li>Run/Debug &gt; Perspective : cocher <em>always</em> pour l&rsquo;ouverture de la prespective au lancement (première question du formulaire en version 2023-06)</li>
+<li>Version control &gt; Git &gt; Project : décocher toutes les cases</li>
+<li>SonarLint &gt; File exclusions : ajouter une exclusion <em>*.rdb</em></li>
+<li>réorganiser les perspectives <em>Java</em> et <em>Debug</em> pour faire apparaitre les vues <em>progress</em></li>
+</ul>
+</li>
+<li>au besoin, comparer les fichiers présents dans _.metadata.plugins\org.eclipse.core.runtime.settings_</li>
+<li>arrêter Eclipse</li>
+<li>créer une archive ZIP du répertoire <em>.metadata</em> et la conserver dans la documentation</li>
+<li>supprimer le répertoire du workspace précédent suffixé par <em>-old</em></li>
+<li>importer les projets du socle qui ne sont pas de type <em>POM</em> (ceux qui n&rsquo;ont pas d&rsquo;enfant)</li>
+</ul>
+<hr>
+<h3 id="33433---java">3.34.3.3 - Java</h3>
+<p>La mise à jour de Java est régulière car une version sort régulièrement.
+Elle est à réaliser de la manière suivante :</p>
+<ul>
+<li>télécharger l&rsquo;archive contenant le nouveau JDK depuis le site <a href="https://jdk.java.net/">Internet officiel</a></li>
+<li>dézipper l&rsquo;archive dans le répertoire des outils en faisant attention à conserver le numéro de version du JDK dans le nom du répertoire</li>
+<li>ouvrir les paramètres système pour modifier les variables d&rsquo;environnement (rechercher <em>modifier les variables d&rsquo;environnement système</em> dans le <em>menu démarrer</em>)</li>
+<li>modifier la variable d&rsquo;environnement <em>JAVA_HOME</em></li>
+<li>vérifier que <em>JAVA_HOME</em> fait partie de <em>path</em></li>
+<li>fermer les fenêtres de commandes déjà ouvertes et ouvrir une nouvelle fenêtre de commandes</li>
+<li>vérifier que la version de Java est bien prise en compte avec la commande <code>java -version</code></li>
+<li>vérifier que le projet <em>socle</em> fonctionne en exécutant un build nominal <code>mvn clean install</code></li>
+<li>ajouter le certificat racine de l&rsquo;entreprise (si nécessaire) dans le nouveau JDK avec les informations du <a href="/psl-public/documentation/3developpement/3.2installationdeposte/#327---r%C3%A9-activer-la-v%C3%A9rification-ssl">chapitre 3.2.7</a></li>
+<li>ajouter le certificat TLS newPSL dans le nouveau JDK avec les informations du <a href="/psl-public/documentation/3developpement/3.2installationdeposte/#3281---cr%C3%A9er-le-certificat-racine-et-le-faire-accepter-par-windows-et-java">chapitre 3.2.8.1</a> (rechercher <em>Importer le certificat racine</em>)</li>
+<li>dans le raccourci démarrant Eclipse, changer le chemin du JDK</li>
+<li>modifier la version du JDK dans la description du raccourci présente au <a href="/psl-public/documentation/3developpement/3.2installationdeposte/#3252---ide---eclipse">chapitre 3.2.5.2</a></li>
+<li>dans le workspace d&rsquo;Eclipse, ajouter le nouveau JDK et retirer l&rsquo;ancien  (<em>Window</em> &gt; <em>Preferences</em> &gt; <em>Java</em> &gt; <em>Installed JRE</em>)</li>
+<li>revoir l&rsquo;intéret
+<ul>
+<li>de l&rsquo;argument _-XX:+EnableDynamicAgentLoading _ dans <em>2-code/socle/pom.xml</em> et dans tous les <em>.launch</em> qui permet de désactiver les warning s&rsquo;affichant durant les tests automatisés (cf. <a href="https://github.com/mockito/mockito/issues/3037">https://github.com/mockito/mockito/issues/3037</a> et <a href="https://openjdk.org/jeps/451">https://openjdk.org/jeps/451</a>)</li>
+<li>de l&rsquo;argument <em>&ndash;enable-preview</em> non activable actuellement car Eclipse-202309 ne le supporte pas pour le JDK-21.</li>
+</ul>
+</li>
+<li>mettre à jour la page contenant la backlog et programmer la prochaine mise à jour pour le prochain trimestre</li>
+<li>modifier la version à installer dans les <a href="/psl-public/documentation/3developpement/3.2installationdeposte/">chapitre 3.2</a></li>
+</ul>
+<hr>
+<h3 id="33434---node">3.34.3.4 - Node</h3>
+<p>_ Cette procédure est à mettre à jour depuis l&rsquo;abandon de YARN _</p>
+<p>La mise à jour de Node/npm est régulière car une version sort régulièrement.
+Elle est à réaliser de la manière suivante :</p>
+<ul>
+<li>télécharger l&rsquo;archive contenant la nouvelle version de Node depuis le site <a href="https://nodejs.org/en/download/">Internet officiel</a> en version <em>Windows Binary (.zip)</em> et <em>64 bits</em></li>
+<li>dézipper l&rsquo;archive dans le répertoire des outils en faisant attention à conserver le numéro de version de Node dans le nom du répertoire</li>
+<li>ouvrir les paramètres système pour modifier les variables d&rsquo;environnement (rechercher <em>modifier les variables d&rsquo;environnement système</em> dans le <em>menu démarrer</em>)</li>
+<li>modifier la variable d&rsquo;environnement <em>NODE_HOME</em></li>
+<li>vérifier que <em>NODE_HOME</em> fait partie de <em>path</em></li>
+<li>redémarrer la console GIT et VSCode pour prendre en compte la modification de la variable d&rsquo;environnement</li>
+<li>si un outil de sécurité modifie l&rsquo;autorité de certification sur l&rsquo;URL <em><a href="https://registry.npmjs.org/">https://registry.npmjs.org/</a></em>, il faut (<a href="https://stackoverflow.com/questions/70580425/error-when-performing-the-request-while-installing-yarn">source</a>) :
+<ul>
+<li>accéder au site <em><a href="https://registry.npmjs.org/">https://registry.npmjs.org/</a></em> avec le navigateur Chrome</li>
+<li>afficher les détails du certificat</li>
+<li>télécharger le certificat racine de l&rsquo;outil dans un fichier au format CRT</li>
+<li>exécuter la commande suivante :</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>set NODE_EXTRA_CA_CERTS=%JAVA_HOME%\lib\security\xxx.crt
+</code></pre><ul>
+<li>vérifier les versions installées avec les commandes <code>node -v</code> et <code>npm -v</code></li>
+<li>dans une commande <em>DOS</em> (et pas <em>git4windows</em>), utiliser la commande <code>yarn upgrade-interactive</code> pour mettre à jour la dépendance <em>@types/node</em> à la version de l&rsquo;outil <em>Node</em> installée</li>
+<li>mettre à jour le fichier <em>2-code/front/pom.xml</em> pour mettre à jour la version
+<ul>
+<li>de <em>Node</em> avec la version affichée dans la console,</li>
+<li>de <em>Npm</em> avec la version affichée dans la console,</li>
+</ul>
+</li>
+<li>vérifier que le projet <em>front</em> fonctionne en exécutant
+<ul>
+<li>un <code>npm install</code></li>
+<li>un simple démarrage avec <code>npm run etatcivil-start</code></li>
+<li>un build complet via <em>Node</em> avec la commande <code>npm run all-build-prod</code></li>
+<li>un build complet via <em>Maven</em> avec la commande <code>mvn clean install -P qualimetrie</code></li>
+</ul>
+</li>
+<li>mettre à jour la page contenant la backlog et programmer la prochaine mise à jour pour le prochain trimestre</li>
+<li>modifier la version à installer dans les <a href="/psl-public/documentation/3developpement/3.2installationdeposte/#324---node--co">chapitre 3.2</a></li>
+</ul>
+<hr>
+<h3 id="33435---maven">3.34.3.5 - Maven</h3>
+<p>La mise à jour de Maven est régulière car une version sort régulièrement.
+Elle est à réaliser de la manière suivante :</p>
+<ul>
+<li>télécharger l&rsquo;archive contenant la nouvelle version de maven depuis le site <a href="https://maven.apache.org/download.cgi">Internet officiel</a></li>
+<li>dézipper l&rsquo;archive dans le répertoire des outils en faisant attention à conserver le numéro de version dans le nom du répertoire</li>
+<li>ouvrir les paramètres système pour modifier les variables d&rsquo;environnement (rechercher <em>modifier les variables d&rsquo;environnement système</em> dans le <em>menu démarrer</em>)</li>
+<li>modifier la variable d&rsquo;environnement <em>MAVEN_HOME</em></li>
+<li>vérifier que <em>MAVEN_HOME</em> fait partie de <em>path</em></li>
+<li>remplacer le fichier <em>MAVEN_HOME/conf/settings.xml</em> du nouveau <em>Maven</em> par celui de l&rsquo;ancien</li>
+<li>fermer toutes les fenêtres de commande et en ouvrir une nouvelle</li>
+<li>vérifier la version de <em>Maven</em> en exécutant la commande <code>mvn -v</code></li>
+<li>vérifier que le projet <em>socle</em> fonctionne en exécutant un build nominal <code>mvn clean install</code></li>
+<li>dans Eclipse, la version embarquée de Maven est utilisée. Mais il faut pointer sur le même fichier de configuration (<em>Window</em> &gt; <em>Preferences</em> &gt; <em>Maven</em> &gt; <em>User Settings</em>)</li>
+<li>une fois le <em>workspace</em> du projet modifié, il est certainement nécessaire de modifier le <em>workspace</em> des autres projets présents sur le poste de développement</li>
+<li>mettre à jour la page contenant la backlog et programmer la prochaine mise à jour pour le prochain trimestre</li>
+<li>modifier la version à installer dans les <a href="/psl-public/documentation/3developpement/3.2installationdeposte/">chapitre 3.2</a></li>
+</ul>
+<hr>
+<h2 id="3344---documentation-du-socle">3.34.4 - Documentation du Socle</h2>
+<p>Depuis l&rsquo;usage de <em>DependencyTrack</em>, les rapports HTML <em>DependencyCheck</em> n&rsquo;ont plus de sens. La veille sécuritaire (recherche et analyses) se fait donc via l&rsquo;outil <em>DependencyTrack</em> (cf. <a href="/psl-public/documentation/3developpement/3.34proceduressecurite/#3345---suivi-de-s%C3%A9curit%C3%A9-avec-dependencytrack">§3.34.5</a>).</p>
+<p>La documentation générée pour le <em>Socle</em> a néanmoins encore du sens.</p>
+<h3 id="33441---rapports-du-socle">3.34.4.1 - Rapports du Socle</h3>
+<p>La génération des rapports a particulièrement de sens à être exécutée après les montées de version des dépendances du <em>Socle</em>.</p>
+<p>Puis il suffit d&rsquo;utiliser la commande <code>mvn clean install -P qualimetrie</code>. Cette commande exécute l&rsquo;ensemble complet de toutes les actions possibles :</p>
+<ul>
+<li>exécution des tests automatisés avec couverture</li>
+<li>packaging
+<ul>
+<li>des livrables</li>
+<li>des sources (en <a href="https://maven.apache.org/plugins/maven-source-plugin/usage.html">jar-source</a>)</li>
+<li>des javadoc (en jar-javadoc](<a href="https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html">https://maven.apache.org/plugins/maven-javadoc-plugin/jar-mojo.html</a>))</li>
+</ul>
+</li>
+<li>génération de rapport
+<ul>
+<li>de couverture de code</li>
+</ul>
+</li>
+<li>copie de certains éléments dans la partie documentaire du dépôt : <a href="/psl-public/documentation/2conceptiondetaillee/2.9liensdocumentaires/">dans la page des liens documentaires</a></li>
+</ul>
+<p>Une fois les rapports générés, ces derniers sont consultables immédiatement <a href="/psl-public/documentation/2conceptiondetaillee/2.9liensdocumentaires/">dans la page des liens documentaires</a>.</p>
+<hr>
+<h3 id="33442---tests-de-sécurité-avec-owasp-zap">3.34.4.2 - Tests de sécurité avec OWASP ZAP</h3>
+<p>Pour installer l&rsquo;outil :</p>
+<ul>
+<li>télécharger, depuis le <a href="https://www.zaproxy.org/download/">site officiel</a>, l&rsquo;archive ZAP_2.11.1_Crossplatform.zip</li>
+<li>ouvrir l&rsquo;archive téléchargée avec 7zip pour modifier le fichier <em>lib/log4j-core-2.15.0.jar</em> en <em>log4j-core-2.15.0.abc</em> (car certains outils de protection refusent l&rsquo;écriture sur disque de ce fichier)</li>
+<li>extraire le contenu de l&rsquo;archive dans le répertoire <em>outils</em></li>
+<li>ouvrir l&rsquo;archive <em>xxxxxx/ZAP_2.xx.x/zap-2.xx.x.jar</em> avec 7zip et modifier, dans le fichier <em>META_INF/MANIFEST.MF</em>, le nom du jar de <em>log4j</em></li>
+</ul>
+<p>Pour utiliser OWASP ZAP :</p>
+<ul>
+<li>démarrer l&rsquo;outil via le script <em>zap.bat</em></li>
+<li>sélectionner la session présente dans le projet documentaire (nommée _sessionOwaspZap décrite plus bas)</li>
+<li>dans la liste déroulante en haut à gauche, sélectionner la valeur <em>mode standard</em></li>
+<li>dans la fenêtre principale, cliquer sur <em>Automated scan</em></li>
+<li>saisir l&rsquo;URL <em><a href="http://dev-psl.guillaumetalbot.com/mademarche/bibliotheque/">http://dev-psl.guillaumetalbot.com/mademarche/bibliotheque/</a></em> avec les spider <em>ajax</em> (avec Chrome headless) et traditionnel</li>
+<li>lancer l&rsquo;audit (plusieurs dizaines de minutes)</li>
+<li>analyser les résultats</li>
+</ul>
+<p>Pour information, la session créée a été paramétrée avec :</p>
+<ul>
+<li>l&rsquo;exclusion des sites <em>https://.*</em> dans <em>exclure du proxy</em>, <em>exclure du balayage</em> et <em>exclure du robot d&rsquo;indexation</em></li>
+<li>l&rsquo;inclusion, dans le contexte, des sites <em><a href="http://dev-psl.guillaumetalbot.com/mademarche">http://dev-psl.guillaumetalbot.com/mademarche</a></em>, <em><a href="http://dev-psl.guillaumetalbot.com/mademarche">http://dev-psl.guillaumetalbot.com/mademarche</a>.*</em>, <em>http://localhost:8080</em> et <em>http://localhost:8080.*</em></li>
+<li>l&rsquo;import du swagger des APIs</li>
+</ul>
+<hr>
+<h2 id="3345---suivi-de-sécurité-avec-dependencytrack">3.34.5 - Suivi de sécurité avec DependencyTrack</h2>
+<h3 id="33451---installationréinstallation-et-préparation-dune-instance-locale-de-dependencytrack">3.34.5.1 - Installation/réinstallation et préparation d&rsquo;une instance locale de DependencyTrack</h3>
+<p><em>procédure issue de la <a href="https://docs.dependencytrack.org/getting-started/deploy-exewar/">documentation officielle</a></em></p>
+<p><strong>!!! ATTENTION A PREVOIR 2Go DE DISQUE ET, AU MINIMUM, 45 MINUTES DE TEMPS D&rsquo;EXECUTION DE L&rsquo;OUTIL POUR SON INITIALISATION (téléchargement de 1,2Go de JSON du NIST compressé en 70Mo de GZ) !!!</strong></p>
+<p>Pour installer DependencyTrack, exécuter les actions suivantes :</p>
+<ul>
+<li>Sortir de tout réseau nécessitant un proxy pour accéder à Internet</li>
+<li>Télécharger, depuis le <a href="https://github.com/DependencyTrack/dependency-track/releases">site GitHub</a> la dernière release nommée <em>dependency-track-bundled.jar</em>.</li>
+<li>Placer le livrable dans le répertoire <em>2-code\securite\dependencyTrack</em> (écraser l&rsquo;existant s&rsquo;il est présent)</li>
+<li>Ouvrir une ligne de commande dans ce répertoire</li>
+<li>Démarrer l&rsquo;application avec le script <em>2-code/socle/securite/dependencyTrack/dependencyTrack.sh</em> ou la commande <code>java -Xmx4G -jar dependency-track-bundled.jar -port 9999</code> (testé en 04/2024 avec Java-21)</li>
+<li>Ignorer les avertissements concernant le fichier <em>id.system</em></li>
+<li>Ne rien arrêter tant que les logs indiquent des téléchargements et du <em>parsing</em> de fichier</li>
+</ul>
+<p>Pour simplement mettre à jour <em>DependencyTrack</em>, exécuter les étapes suivantes :</p>
+<ul>
+<li>Vérifier son bon fonctionnement en cliquant sur ce lien menant à <a href="http://localhost:9999/">l&rsquo;application démarrée localement</a></li>
+<li>Se connecter avec le compte <em>admin</em> et le nouveau mot de passe défini (à sauvegarder dans un <em>KeePass</em>)</li>
+</ul>
+<p>Pour initialiser <em>DependencyTrack</em> la première fois, exécuter les étapes suivantes :</p>
+<ul>
+<li>Vérifier son bon fonctionnement en cliquant sur ce lien menant à <a href="http://localhost:9999/">l&rsquo;application démarrée localement</a></li>
+<li>Se connecter avec le compte <em>admin</em> et le mot de passe <em>admin</em></li>
+<li>Changer le mot de passe comme l&rsquo;impose l&rsquo;application</li>
+<li>Se reconnecter avec le compte <em>admin</em> et le nouveau mot de passe défini (à sauvegarder dans un <em>KeePass</em>)</li>
+<li>Accéder à la page <em>administration</em> &gt; <em>Access management</em> &gt; <em>Teams</em></li>
+<li>Créer une équipe nommée <em>AnalyseLocale</em></li>
+<li>Cliquer sur la ligne de l&rsquo;équipe créée</li>
+<li>Mettre la clef d&rsquo;API (dans la suite de la procédure, elle se nomme <em>XXCLEFAPIXX</em>)</li>
+<li>Ajouter les droits <em>BOM_UPLOAD</em> et <em>VIEW_PORTFOLIO</em></li>
+<li>Accéder à la page <em>Policy Management</em></li>
+<li>Créer les <em>policy</em> suivantes
+<ul>
+<li>1 (ne semble pas fonctionnel au 11/2023) :
+<ul>
+<li>Name : <em>Composant avec version majeure de retard</em></li>
+<li>Operator : <em>any</em></li>
+<li>Violation state : <em>Warn</em></li>
+<li>Conditions : <em>Version Distance &gt; 0 1 0 0</em></li>
+</ul>
+</li>
+<li>2 :
+<ul>
+<li>Name : <em>Composant de plus d&rsquo;un an</em></li>
+<li>Operator : <em>any</em></li>
+<li>Violation state : <em>Inform</em></li>
+<li>Conditions : <em>Age &gt; P1Y</em></li>
+</ul>
+</li>
+<li>3 (ne semble pas fonctionnel au 11/2023) :
+<ul>
+<li>Name : <em>Composant pas à la dernière version</em></li>
+<li>Operator : <em>any</em></li>
+<li>Violation state : <em>Inform</em></li>
+<li>Conditions : <em>Version Distance &gt; 0 0 0 1</em></li>
+</ul>
+</li>
+<li>4 :
+<ul>
+<li>Name : <em>Licence CopyLeft Interdite</em></li>
+<li>Operator : <em>any</em></li>
+<li>Violation state : <em>Fail</em></li>
+<li>Conditions : <em>Licence group is copylef</em></li>
+</ul>
+</li>
+<li>5 :
+<ul>
+<li>Name : <em>Licence NonCommeciale Interdite</em></li>
+<li>Operator : <em>any</em></li>
+<li>Violation state : <em>Fail</em></li>
+<li>Conditions : <em>Licence group is Nom-Commercial</em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="33452---audit-des-projets-socle-et-front">3.34.5.2 - Audit des projets SOCLE et FRONT</h3>
+<p>Réaliser une analyse du <em>socle</em> en exécutant les étapes suivantes :</p>
+<ul>
+<li>Dans le répertoire <em>2-code/socle</em>, exécuter la commande <code>mvn org.cyclonedx:cyclonedx-maven-plugin:makeAggregateBom</code></li>
+<li>Vérifier que <em>DependencyTrack</em> s&rsquo;exécute</li>
+<li>Exécuter la commande <code>curl -X &quot;POST&quot; http://localhost:9999/api/v1/bom -H 'Content-Type: multipart/form-data' -H &quot;X-Api-Key: XXCLEFAPIXX&quot; -F &quot;autoCreate=xxAUTOxx&quot; -F &quot;projectName=newPslSocle&quot; -F &quot;projectVersion=xxVERSIONxx&quot; -F bom=@target/bom.xml</code>
+<ul>
+<li>avec <em>xxVERSIONxx</em> une date au format <em>yyyyMM</em> (par exemple 202404 pour avril 2024)</li>
+<li>avec <em>XXCLEFAPIXX</em> la clef créée plus tôt (ou à récupérer dans <em>DependencyTrack</em> &gt; <em>Access Management</em> &gt; <em>Teams</em> &gt; <em>AnalyseLocale</em>)</li>
+</ul>
+</li>
+<li>Vérifier que la réponse soit au format <code>{&quot;token&quot;:&quot;eef176b8-feea-4786-97e4-817e97763a2a&quot;}</code></li>
+<li>Dans l&rsquo;IHM de <em>DependencyTrack</em>, vérifier la présence du projet dans la page <em>Projects</em></li>
+</ul>
+<p>Réaliser une  analyse du <em>front</em> en exécutant les commandes suivantes !!!!!!!NE FONCTIONNE PAS POUR LE MOMENT (04/2024) !!!!!!!!!!! :</p>
+<ul>
+<li>Dans le répertoire <em>2-code/front</em>, depuis une ligne de commande <em>DOS</em>, exécuter les commandes suivantes :
+<ul>
+<li>Pour installer globalement l&rsquo;outil d&rsquo;analyse <code>npm install --global @cyclonedx/cyclonedx-npm</code></li>
+<li>Pour créer un <em>package-lock.json</em> pour les besoins de l&rsquo;analyse <code>npm install --package-lock-only --force</code></li>
+<li>Pour générer le <em>BOM</em> du <em>front</em> <code>cyclonedx-npm --output-format XML --output-file bom.xml</code></li>
+<li>Supprimer le répertoire <em>node_modules</em></li>
+<li>Supprimer le fichier <em>package-lock.json</em></li>
+</ul>
+</li>
+<li>Créer le projet <em>newPslFront</em> avec la commande suivante (en remplaçant la clef) <code>curl -X &quot;POST&quot; http://localhost:8080/api/v1/bom -H 'Content-Type: multipart/form-data' -H &quot;X-Api-Key: XXCLEFAPIXX&quot; -F &quot;autoCreate=true&quot; -F &quot;projectName=newPslFront&quot; -F &quot;projectVersion=1.0.0&quot; -F bom=@bom.xml</code></li>
+</ul>
+<hr>
+<h3 id="33453---raffrachir-un-audit">3.34.5.3 - Raffrachir un audit</h3>
+<p>Pour relancer (après modification d&rsquo;un paramètre ou évolution du BOM) une analyse, exécuter la commande en y remplaçant la clef d&rsquo;API, le nom du projet et le chemin vers le bom.xml :
+<code>curl -X &quot;POST&quot; http://localhost:9999/api/v1/bom -H 'Content-Type: multipart/form-data' -H &quot;X-Api-Key: XXCLEFAPIXX&quot; -F &quot;projectName=newPslXXXX&quot; -F &quot;projectVersion=1.0.0&quot; -F bom=@target/bom.xml</code></p>
+<hr>
+<h3 id="33454---analyse">3.34.5.4 - Analyse</h3>
+<p>Pour information, le code Java du Socle se base sur de nombreuses dépendances toute sous licence. Certaines de ces licences autorisent un usage en milieu professionnel mais d&rsquo;autres non : elles imposent que le code dépendant soit tout aussi OpenSource que la dépendance elle-même. Ceux sont les licences <em>Copyleft</em>.</p>
+<p>Etudier une analyse <em>DependencyTrack</em> avec les consignes suivantes :</p>
+<ul>
+<li>Dans l&rsquo;IHM de <em>DependencyTrack</em>, accéder à la page <em>Projects</em> &gt; <em>newPslSocle</em></li>
+<li>Vérifier la présence de licence interdites (commerciale ou <em>copyLeft</em>) dans l&rsquo;onglet <em>Policy violations</em>
+<ul>
+<li>Vérifier si la version est la plus récente</li>
+<li>Vérifier si la licence a évolué récemment (à l&rsquo;échelle du rythme des release de ce composant)</li>
+<li>Vérifier si la dépendance est directe ou pas. Si elle est indirecte, peut-on s&rsquo;en passer ?</li>
+<li>Commenter chaque violation pour un suivi</li>
+</ul>
+</li>
+<li>Vérifier la présence de vulnérabilité dans l&rsquo;onglet <em>Audit Vulnerabilities</em>
+<ul>
+<li>Traiter les vulnérabilités par sévérité décroissantes :
+<ul>
+<li>Si la faille existe et qu&rsquo;il est possible de la combler en changeant le code appelant ou en modifiant la dépendance directe (et uniquement la dépendance directe !), la correction est à faire.</li>
+<li>Si la faille existe et qu&rsquo;il n&rsquo;est pas possible de la combler, autant savoir qu&rsquo;elle existe et surveiller de près la dépendance fautive pour réaliser une mise à jour rapidement.</li>
+<li>Si la faille n&rsquo;existe pas, il est possible de l&rsquo;ignorer dans l&rsquo;outil (sans oublier de mettre un commentaire)</li>
+</ul>
+</li>
+<li>Systématiquement, commenter chaque vulnérabilité pour un suivi</li>
+</ul>
+</li>
+</ul>
+<p>Un bon référentiel des licences est disponible <a href="https://en.wikipedia.org/wiki/Comparison_of_free_and_open-source_software_licenses">sur Wikipedia</a></p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/psl-public/documentation/3developpement/3.33proceduresmaven/" title="3.33 Procédures-environnement Maven"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/psl-public/documentation/3developpement/3.35procedureselastic/" title="3.35 Procédures-elastic" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/psl-public/documentation/js/clipboard.min.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/perfect-scrollbar.min.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/perfect-scrollbar.jquery.min.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/jquery.sticky.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/featherlight.min.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/highlight.pack.js?1745960225"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/psl-public/documentation/js/modernizr.custom-3.6.0.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/learn.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/hugo-learn.js?1745960225"></script>
+    
+        
+            <script src="/psl-public/documentation/mermaid/mermaid.js?1745960225"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

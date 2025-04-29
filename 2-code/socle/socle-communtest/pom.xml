@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Déclaration de l'artefact parent -->
+	<parent>
+		<groupId>com.github.talbotgui.psl.socle</groupId>
+		<artifactId>socle</artifactId>
+		<version>0.0.2-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>socle-communtest</artifactId>
+	<name>socle-communtest</name>
+	<description>Classes de test communes entre les projets</description>
+
+	<!-- Modification de la clef pour les besoins des sous-projets -->
+	<properties><cheminRelatifVersLaRacineDuDepot>${project.basedir}/../../..</cheminRelatifVersLaRacineDuDepot></properties>
+	
+	<dependencies>
+	
+		<!-- Le projet commun -->
+		<dependency>
+			<groupId>com.github.talbotgui.psl.socle</groupId>
+			<artifactId>socle-commun</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- Outils de tests (avec JUnit5 et non le 4 apporté par Spring) -->
+		<!-- en scope provided pour permettre la compilation des classes dans le projet sans apporter de dépendances dans les projets utilisant socle-communtest -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Pour que tous les projets dépendants de socle-communtest disposent de catch-exception -->
+		<dependency>
+			<groupId>eu.codearte.catch-exception</groupId>
+			<artifactId>catch-exception</artifactId>
+		</dependency>
+	</dependencies>
+</project>

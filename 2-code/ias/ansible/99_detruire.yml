@@ -1,0 +1,126 @@
+---
+#
+# Pour démarrer le script, exécuter :
+#   ansible-playbook ansible/99_detruire.yml -i ansible/inventory/local -K --extra-vars "ansible_user=ubuntu"
+#
+# Pour se limiter à un groupe de machines, ajouter --limit machines_zone_execution_exposee
+# Pour se limiter à un applicatif précis, ajouter --tags socle-securite
+#
+# Ce script s'exécute avec les droits SUDO
+#
+# /!\ Ce script ne doit être exécuter que si tous les processus sont arrêtés /!\
+#
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif service-redis"
+  tags: "service-redis"
+  hosts: "machines_service_redis"
+  become: "yes"
+  roles: [ "service-redis/99_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif service-gateway"
+  tags: "service-gateway"
+  hosts: "machines_service_gateway"
+  become: "yes"
+  roles: [ "commun/zz_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif service-registry"
+  tags: "service-registry"
+  hosts: "machines_service_registry"
+  become: "yes"
+  roles: [ "commun/zz_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif service-config"
+  tags: "service-config"
+  hosts: "machines_service_config"
+  become: "yes"
+  roles: [ "commun/zz_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif service-admin"
+  tags: "service-admin"
+  hosts: "machines_service_admin"
+  become: "yes"
+  roles: [ "commun/zz_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif service-ldap"
+  tags: "service-ldap"
+  hosts: "machines_service_ldap"
+  become: "yes"
+  roles: [ "commun/zz_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif service-nosql"
+  tags: "service-nosql"
+  hosts: "machines_service_nosql"
+  become: "yes"
+  roles: [ "commun/zz_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif socle-dbbrouillon"
+  tags: "socle-dbbrouillon"
+  hosts: "machines_socle_dbbrouillon"
+  become: "yes"
+  roles: [ "commun/zz_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif socle-dbconfiguration"
+  tags: "socle-dbconfiguration"
+  hosts: "machines_socle_dbconfiguration"
+  become: "yes"
+  roles: [ "commun/zz_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif socle-dbdocument"
+  tags: "socle-dbdocument"
+  hosts: "machines_socle_dbdocument"
+  become: "yes"
+  roles: [ "commun/zz_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif socle-dbnotification"
+  tags: "socle-dbnotification"
+  hosts: "machines_socle_dbnotification"
+  become: "yes"
+  roles: [ "commun/zz_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif socle-referentiel"
+  tags: "socle-referentiel"
+  hosts: "machines_socle_referentiel"
+  become: "yes"
+  roles: [ "commun/zz_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif socle-referentielexterne"
+  tags: "socle-referentielexterne"
+  hosts: "machines_socle_referentielexterne"
+  become: "yes"
+  roles: [ "commun/zz_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif socle-securite"
+  tags: "socle-securite"
+  hosts: "machines_socle_securite"
+  become: "yes"
+  roles: [ "commun/zz_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif socle-soumission"
+  tags: "socle-soumission"
+  hosts: "machines_socle_soumission"
+  become: "yes"
+  roles: [ "commun/zz_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif socle-transfert"
+  tags: "socle-transfert"
+  hosts: "machines_socle_transfert"
+  become: "yes"
+  roles: [ "commun/zz_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif socle-adminpsl"
+  tags: "socle-adminpsl"
+  hosts: "machines_socle_adminpsl"
+  become: "yes"
+  roles: [ "commun/zz_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif WEB public (front)"
+  tags: "web-front"
+  hosts: "machines_web_front"
+  become: "yes"
+  roles: [ "front/99_detruire" ]
+
+- name: "[99_detruire] Destruction de la machine hébergeant l'applicatif WEB d'administration"
+  tags: "web-admin"
+  hosts: "machines_web_admin"
+  become: "yes"
+  roles: [ "front/99_detruire" ]

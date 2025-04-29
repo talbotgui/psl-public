@@ -1,0 +1,20 @@
+@if (utilisateurConnecte) {
+  <div class="fr-grid-row menu">
+    <nav class="fr-nav" id="header-navigation" role="navigation" aria-label="Menu principal">
+      <ul class="fr-nav__list">
+        <li class="fr-nav__item" title="Gestion des démarches, utilisateurs et référentiels">
+          <a class="fr-nav__link" routerLink="/route-admin" routerLinkActive="active" ariaCurrentWhenActive="page">Administration</a>
+        </li>
+        <li class="fr-nav__item" title="Structure et contenu des pages de démarche">
+          <a class="fr-nav__link" routerLink="/route-demarche" routerLinkActive="active" ariaCurrentWhenActive="page">Configuration démarche</a>
+        </li>
+        <li class="fr-nav__item" title="Documents générés et envoi au partenaire">
+          <a class="fr-nav__link" routerLink="/route-soumission" routerLinkActive="active" ariaCurrentWhenActive="page">Configuration soumission</a>
+        </li>
+        <li class="fr-nav__item" title="Suivi des télé-dossiers envoyés aux partenaires">
+          <a class="fr-nav__link" routerLink="/route-transfert" routerLinkActive="active" ariaCurrentWhenActive="page">Transfert</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+}

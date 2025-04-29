@@ -1,0 +1,27 @@
+meta {
+  name: Oauth0-connexion
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://dev-xqwkfrqhbdzvv2nb.us.auth0.com/oauth/token
+  body: none
+  auth: oauth2
+}
+
+auth:oauth2 {
+  grant_type: authorization_code
+  callback_url: http://dev-psl.guillaumetalbot.com/mademarche/bibliotheque/
+  authorization_url: https://dev-xqwkfrqhbdzvv2nb.us.auth0.com/authorize
+  access_token_url: https://dev-xqwkfrqhbdzvv2nb.us.auth0.com/oauth/token
+  client_id: d3F2Sx8AiVGgDvjF63MTnWotxF65wQtA
+  client_secret: xxxxxxxx
+  scope: openid profile
+  state: 
+  pkce: false
+}
+
+vars:post-response {
+  access_token: res.body.access_token
+}

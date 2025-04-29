@@ -1,0 +1,43 @@
+meta {
+  name: 052-Soumission-biblio-valide-tokenAnonyme
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/soumission/soumettre
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+body:json {
+  {
+    "codeDemarche": "bibliotheque",
+    "versionConfiguration": "1.0.0",
+      "donnees": {
+          "clefSaisie5": "toto",
+          "clefSaisie6": "aze@aze.com",
+          "clefRadio2": "peutetre",
+          "clefListe2": 1,
+          "pj1_id": "{{idPj1}}",
+      "pj1_nom": "vide.pdf",
+      "pj1_type": "application/pdf",
+      "pj1_longueur": "123",
+          "identite1_civilite": "M",
+          "identite1_nomFamille": "NomDeFamille1",
+          "clefCase1": "true"
+      }
+  }
+}
+
+vars:post-response {
+  idTeledossierCree: res.body
+}
+
+assert {
+  res.status: eq 200
+}

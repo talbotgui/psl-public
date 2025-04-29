@@ -1,0 +1,47 @@
+---
+
+# Cette tâche permet d’installer unzip à l’aide du module apt
+- name: "[Preparation] Logiciel unzip"
+  apt:
+    name: "unzip"
+    force_apt_get: "true"
+    state: "present"
+
+# Cette tâche permet d’installer Java à l’aide du module apt
+- name: "[Preparation] Logiciel '{{ packages_java }}'"
+  apt:
+    name: "{{ packages_java }}"
+    force_apt_get: "true"
+    state: "present"
+
+# Création d'une copie du CACERT original de la machine
+- name: "[Preparation] Copie de sauvegarde de '{{ cacert_chemin }}'"
+  ansible.builtin.shell:
+    cmd: "cp {{ cacert_chemin }} {{ cacert_chemin }}.save"
+    creates: "{{ cacert_chemin }}.save"
+  register: "resultatCopieCacert"
+
+# Modification du cacert Java pour y insérer le certificat racine local
+- name: "[Preparation] Ajout du certificat racine '{{ certificatracine_chemin }}' dans le CACERT Java '{{ cacert_chemin }}'"
+  ansible.builtin.shell:
+    cmd: |
+      keytool -import -trustcacerts -file '{{ certificatracine_chemin }}' -alias caRacineDevLocal -keystore '{{ cacert_chemin }}' -storepass changeit <<EOF
+      yes
+      EOF
+  when: "resultatCopieCacert.changed == true"
+
+# Modification du cacert Java pour y insérer le certificat du site de téléchargement de MongoDB
+- name: "[Preparation] Téléchargement du certificat du site de MongoDB dans /home/www/fastdl.mongodb.org.pem"
+  ansible.builtin.shell:
+    cmd: "openssl s_client -showcerts -connect fastdl.mongodb.org:443 </dev/null 2>/dev/null|openssl x509 -outform PEM >/home/www/fastdl.mongodb.org.pem"
+    creates: "/home/www/fastdl.mongodb.org.pem"
+  when: "resultatCopieCacert.changed == true"
+
+# Modification du cacert Java pour y insérer le certificat du site de téléchargement de MongoDB
+- name: "[Preparation] Ajout du certificat du site de téléchargement de MongoDB dans le CACERT Java '{{ cacert_chemin }}'"
+  ansible.builtin.shell:
+    cmd: |
+      keytool -import -trustcacerts -file '/home/www/fastdl.mongodb.org.pem' -alias certificatTelechargementMongoDB -keystore '{{ cacert_chemin }}' -storepass changeit <<EOF
+      yes
+      EOF
+  when: "resultatCopieCacert.changed == true"

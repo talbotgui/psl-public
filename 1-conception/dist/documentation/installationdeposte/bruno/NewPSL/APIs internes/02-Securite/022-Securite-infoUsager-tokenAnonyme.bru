@@ -1,0 +1,24 @@
+meta {
+  name: 022-Securite-infoUsager-tokenAnonyme
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/securite/info
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+assert {
+  res.status: eq 200
+  res.body.email: eq anonymous@psl.fr
+}
+
+script:pre-request {
+  // 
+}

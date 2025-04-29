@@ -1,0 +1,3390 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.127.0">
+    <meta name="description" content="Conception de la nouvelle PSL">
+
+
+    <link rel="icon" href="/psl-public/documentation/images/favicon.png" type="image/png">
+
+    <title>3.2 Installation de poste - Documentation nouvelle PSL</title>
+
+    
+    <link href="/psl-public/documentation/css/nucleus.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/fontawesome-all.min.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/hybrid.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/featherlight.min.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/perfect-scrollbar.min.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/auto-complete.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/atom-one-dark-reasonable.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/theme.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/tabs.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/hugo-theme.css?1745960225" rel="stylesheet">
+    
+    <link href="/psl-public/documentation/css/theme-blue.css?1745960225" rel="stylesheet">
+    
+    <link href="/psl-public/documentation/style.css?1745960225" rel="stylesheet">
+
+    <script src="/psl-public/documentation/js/jquery-3.3.1.min.js?1745960225"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/psl-public/documentation/3developpement/3.2installationdeposte/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="/psl-public/documentation/"><img src="/psl-public/documentation/newPSL.png"/></a>
+<span style="color:white">Version : <i>${project.version}</i></span>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/psl-public/documentation/js/lunr.min.js?1745960225"></script>
+<script type="text/javascript" src="/psl-public/documentation/js/auto-complete.js?1745960225"></script>
+<script type="text/javascript">
+    
+        var baseurl = "http:\/\/localhost:1313\/documentation\/";
+    
+</script>
+<script type="text/javascript" src="/psl-public/documentation/js/search.js?1745960225"></script>
+
+    
+  </div>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/1conceptiongenerale/" title="1. Conception générale" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/1conceptiongenerale/">
+          1. Conception générale
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/" title="1.1 Objectifs" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/">
+          1.1 Objectifs
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.1objectifsfonctionnels/" title="1.1.1 Objectifs fonctionnels" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.1objectifsfonctionnels/">
+        1.1.1 Objectifs fonctionnels
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.2objectifstechniques/" title="1.1.2 Objectifs techniques" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.2objectifstechniques/">
+        1.1.2 Objectifs techniques
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.3objectifsdisponibilite/" title="1.1.3 Objectifs de disponibilité" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.3objectifsdisponibilite/">
+        1.1.3 Objectifs de disponibilité
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.4objectifhomogeneite/" title="1.1.4 Objectifs d&#39;homogénéité" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.4objectifhomogeneite/">
+        1.1.4 Objectifs d&#39;homogénéité
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.2architecture/" title="1.2 Architecture" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/1conceptiongenerale/1.2architecture/">
+          1.2 Architecture
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.1conceptionarchitecture/" title="1.2.1 Conception de l&#39;architecture" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.1conceptionarchitecture/">
+        1.2.1 Conception de l&#39;architecture
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.2schemageneral/" title="1.2.2 Schéma d&#39;architecture générale" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.2schemageneral/">
+        1.2.2 Schéma d&#39;architecture générale
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.3principesgeneraux/" title="1.2.3 Principes généraux" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.3principesgeneraux/">
+        1.2.3 Principes généraux
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/" title="1.3 Les applicatifs" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/">
+          1.3 Les applicatifs
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.1demarche/" title="1.3.1 Les applications WEB de démarche" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.1demarche/">
+        1.3.1 Les applications WEB de démarche
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.2socle/" title="1.3.2 Le socle" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.2socle/">
+        1.3.2 Le socle
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.3outils/" title="1.3.3 Les outils" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.3outils/">
+        1.3.3 Les outils
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.4retroingenierie/" title="1.3.4 Rétro-ingénierie" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.4retroingenierie/">
+        1.3.4 Rétro-ingénierie
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/" title="2. Conception détaillée" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/2conceptiondetaillee/">
+          2. Conception détaillée
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.1introduction/" title="2.1 Introduction" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.1introduction/">
+        2.1 Introduction
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.2principesconceptionduback/" title="2.2 Principes de conception du BACK" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.2principesconceptionduback/">
+        2.2 Principes de conception du BACK
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.3principesconceptiondufront/" title="2.3 Principes de conception du FRONT" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.3principesconceptiondufront/">
+        2.3 Principes de conception du FRONT
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.4principesconceptionfrontetback/" title="2.4 Principes de conception communs" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.4principesconceptionfrontetback/">
+        2.4 Principes de conception communs
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.5principeconceptiondocumentaire/" title="2.5 Principes de rédaction documentaire" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.5principeconceptiondocumentaire/">
+        2.5 Principes de rédaction documentaire
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.6fonctionnalites/" title="2.6 Fonctionnalités" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.6fonctionnalites/">
+        2.6 Fonctionnalités
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.7cloud/" title="2.7 Fonctionnalités Cloud" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.7cloud/">
+        2.7 Fonctionnalités Cloud
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.8securite/" title="2.8 Sécurité" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.8securite/">
+        2.8 Sécurité
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.9liensdocumentaires/" title="2.9 Liens documentaires" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.9liensdocumentaires/">
+        2.9 Liens documentaires
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.10documentationutilisateur/" title="2.10 Documentation utilisateur" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.10documentationutilisateur/">
+        2.10 Documentation utilisateur
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/3developpement/" title="3. Développement" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/psl-public/documentation/3developpement/">
+          3. Développement
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.1liens/" title="3.1 Liens" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.1liens/">
+        3.1 Liens
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.2installationdeposte/" title="3.2 Installation de poste" class="dd-item active">
+        <a href="/psl-public/documentation/3developpement/3.2installationdeposte/">
+        3.2 Installation de poste
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.3demarrertout/" title="3.3 Démarrer tout" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.3demarrertout/">
+        3.3 Démarrer tout
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.11infoslogs/" title="3.11 Infos-logs" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.11infoslogs/">
+        3.11 Infos-logs
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.12infosspring/" title="3.12 Infos-Spring" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.12infosspring/">
+        3.12 Infos-Spring
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.13infoscloud/" title="3.13 Infos-cloud" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.13infoscloud/">
+        3.13 Infos-cloud
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.14infospic/" title="3.14 Infos-PIC" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.14infospic/">
+        3.14 Infos-PIC
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.15infose2e/" title="3.15 Infos-test e2e" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.15infose2e/">
+        3.15 Infos-test e2e
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.16infovelocity/" title="3.16 Infos-velocity" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.16infovelocity/">
+        3.16 Infos-velocity
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.21reglesdeconception/" title="3.21 Règles-conception" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.21reglesdeconception/">
+        3.21 Règles-conception
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.22reglesspecificiquesjava/" title="3.22 Règles-Java" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.22reglesspecificiquesjava/">
+        3.22 Règles-Java
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.23reglesmaven/" title="3.23 Règles-Maven" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.23reglesmaven/">
+        3.23 Règles-Maven
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.24reglesdetest/" title="3.24 Règles-test" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.24reglesdetest/">
+        3.24 Règles-test
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.25reglesdelog/" title="3.25 Règles-logs" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.25reglesdelog/">
+        3.25 Règles-logs
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.26regesspecificiquesfront/" title="3.26 Règles-Front" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.26regesspecificiquesfront/">
+        3.26 Règles-Front
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.31proceduressitedocumentaire/" title="3.31 Procédures-site documentaire" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.31proceduressitedocumentaire/">
+        3.31 Procédures-site documentaire
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.32proceduresapplicationangular/" title="3.32 Procédures-règles de l&#39;application Angular" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.32proceduresapplicationangular/">
+        3.32 Procédures-règles de l&#39;application Angular
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.33proceduresmaven/" title="3.33 Procédures-environnement Maven" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.33proceduresmaven/">
+        3.33 Procédures-environnement Maven
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.34proceduressecurite/" title="3.34 Procédures-veille sécurité" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.34proceduressecurite/">
+        3.34 Procédures-veille sécurité
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.35procedureselastic/" title="3.35 Procédures-elastic" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.35procedureselastic/">
+        3.35 Procédures-elastic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.36procedurestest/" title="3.36 Procédures-test" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.36procedurestest/">
+        3.36 Procédures-test
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.37proceduresdiverses/" title="3.37 Procédures-diverses" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.37proceduresdiverses/">
+        3.37 Procédures-diverses
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.41chosesasavoir/" title="3.41 Les choses à savoir" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.41chosesasavoir/">
+        3.41 Les choses à savoir
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.99faq/" title="3.99 Foire aux questions (FAQ)" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.99faq/">
+        3.99 Foire aux questions (FAQ)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/4ops/" title="4. Ops" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/4ops/">
+          4. Ops
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/4ops/4.1plan/" title="4.1 Plan" class="dd-item ">
+        <a href="/psl-public/documentation/4ops/4.1plan/">
+        4.1 Plan
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/4ops/4.2ansible/" title="4.2 Ansible" class="dd-item ">
+        <a href="/psl-public/documentation/4ops/4.2ansible/">
+        4.2 Ansible
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/4ops/4.3regles/" title="4.3 Règles" class="dd-item ">
+        <a href="/psl-public/documentation/4ops/4.3regles/">
+        4.3 Règles
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/4ops/4.4exploitation/" title="4.4 Exploitation" class="dd-item ">
+        <a href="/psl-public/documentation/4ops/4.4exploitation/">
+        4.4 Exploitation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/5avancement/" title="5. Avancement" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/5avancement/">
+          5. Avancement
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/5avancement/5.1comment/" title="5.1 Organisation" class="dd-item ">
+        <a href="/psl-public/documentation/5avancement/5.1comment/">
+        5.1 Organisation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/5avancement/5.2quoi/" title="5.2 à faire" class="dd-item ">
+        <a href="/psl-public/documentation/5avancement/5.2quoi/">
+        5.2 à faire
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/6glossaire/" title="6. Glossaire" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/6glossaire/">
+          6. Glossaire
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>License : <a href="/psl-public/documentation/0licence/">commercial & AGPL</a></p>
+<p>Built with <a target="_blank" href="https://github.com/matcornic/hugo-theme-learn">Learn Theme</i></a> & <a target="_blank" href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/documentation/'>Accueil</a> > <a href='/documentation/3developpement/'>3. Développement</a> > 3.2 Installation de poste
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#321---clone-du-dépôt">3.2.1 - Clone du dépôt</a></li>
+    <li><a href="#322---java">3.2.2 - Java</a></li>
+    <li><a href="#323---maven">3.2.3 - Maven</a></li>
+    <li><a href="#324---node--co">3.2.4 - Node &amp; co</a>
+      <ul>
+        <li><a href="#3241---installer-node">3.2.4.1 - Installer Node</a></li>
+      </ul>
+    </li>
+    <li><a href="#325---les-ide">3.2.5 - Les IDE</a>
+      <ul>
+        <li><a href="#3251---ide---notepad">3.2.5.1 - IDE - Notepad++</a></li>
+        <li><a href="#3252---ide---eclipse">3.2.5.2 - IDE - Eclipse</a></li>
+        <li><a href="#3253---ide---vscode">3.2.5.3 - IDE - VSCode</a></li>
+        <li><a href="#3254---ide---compass">3.2.5.4 - IDE - Compass</a></li>
+        <li><a href="#3255---ide---usebruno">3.2.5.5 - IDE - UseBruno</a></li>
+        <li><a href="#3256---ide---règle-sur-lutilisation-des-ides">3.2.5.6 - IDE - Règle sur l&rsquo;utilisation des IDEs</a></li>
+        <li><a href="#3257---outils---smtp4dev-pas-nécessaire-dans-un-premier-temps">3.2.5.7 - OUTILS - SMTP4DEV (pas nécessaire dans un premier temps)</a></li>
+        <li><a href="#3258---outils---springbootcli-pas-nécessaire-dans-un-premier-temps">3.2.5.8 - OUTILS - SpringBootCli (pas nécessaire dans un premier temps)</a></li>
+      </ul>
+    </li>
+    <li><a href="#326---compiler-les-sources">3.2.6 - Compiler les sources</a></li>
+    <li><a href="#327---ré-activer-la-vérification-ssl">3.2.7 - Ré-activer la vérification SSL</a></li>
+    <li><a href="#328---certificats">3.2.8 - Certificats</a>
+      <ul>
+        <li><a href="#3281---créer-le-certificat-racine-et-le-faire-accepter-par-windows-et-java">3.2.8.1 - Créer le certificat racine et le faire accepter par Windows et Java</a></li>
+        <li><a href="#3282---créer-le-certificat-signé-localement-tlshttps">3.2.8.2 - Créer le certificat signé localement (TLS/HTTPs)</a></li>
+        <li><a href="#3283---créer-un-certificat-client-dappel-aux-apis-dadministration">3.2.8.3 - Créer un certificat client d&rsquo;appel aux APIs d&rsquo;administration</a></li>
+      </ul>
+    </li>
+    <li><a href="#329---installer-les-outils-nécessaires-au-projet-ias-infrastructure-as-code-pas-nécessaire-dans-un-premier-temps">3.2.9 - Installer les outils nécessaires au projet IAS (Infrastructure As Code) (pas nécessaire dans un premier temps)</a></li>
+    <li><a href="#3210---modifier-le-fichier-_host_-de-windows">3.2.10 - Modifier le fichier <em>host</em> de Windows</a></li>
+    <li><a href="#3211---initialiser-un-fichier-de-cache">3.2.11 - Initialiser un fichier de cache</a></li>
+    <li><a href="#3212---faq">3.2.12 - FAQ</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              3.2 Installation de poste
+            </h1>
+          
+
+        
+
+
+<div class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#321---clone-du-dépôt">3.2.1 - Clone du dépôt</a></li>
+    <li><a href="#322---java">3.2.2 - Java</a></li>
+    <li><a href="#323---maven">3.2.3 - Maven</a></li>
+    <li><a href="#324---node--co">3.2.4 - Node &amp; co</a>
+      <ul>
+        <li><a href="#3241---installer-node">3.2.4.1 - Installer Node</a></li>
+      </ul>
+    </li>
+    <li><a href="#325---les-ide">3.2.5 - Les IDE</a>
+      <ul>
+        <li><a href="#3251---ide---notepad">3.2.5.1 - IDE - Notepad++</a></li>
+        <li><a href="#3252---ide---eclipse">3.2.5.2 - IDE - Eclipse</a></li>
+        <li><a href="#3253---ide---vscode">3.2.5.3 - IDE - VSCode</a></li>
+        <li><a href="#3254---ide---compass">3.2.5.4 - IDE - Compass</a></li>
+        <li><a href="#3255---ide---usebruno">3.2.5.5 - IDE - UseBruno</a></li>
+        <li><a href="#3256---ide---règle-sur-lutilisation-des-ides">3.2.5.6 - IDE - Règle sur l&rsquo;utilisation des IDEs</a></li>
+        <li><a href="#3257---outils---smtp4dev-pas-nécessaire-dans-un-premier-temps">3.2.5.7 - OUTILS - SMTP4DEV (pas nécessaire dans un premier temps)</a></li>
+        <li><a href="#3258---outils---springbootcli-pas-nécessaire-dans-un-premier-temps">3.2.5.8 - OUTILS - SpringBootCli (pas nécessaire dans un premier temps)</a></li>
+      </ul>
+    </li>
+    <li><a href="#326---compiler-les-sources">3.2.6 - Compiler les sources</a></li>
+    <li><a href="#327---ré-activer-la-vérification-ssl">3.2.7 - Ré-activer la vérification SSL</a></li>
+    <li><a href="#328---certificats">3.2.8 - Certificats</a>
+      <ul>
+        <li><a href="#3281---créer-le-certificat-racine-et-le-faire-accepter-par-windows-et-java">3.2.8.1 - Créer le certificat racine et le faire accepter par Windows et Java</a></li>
+        <li><a href="#3282---créer-le-certificat-signé-localement-tlshttps">3.2.8.2 - Créer le certificat signé localement (TLS/HTTPs)</a></li>
+        <li><a href="#3283---créer-un-certificat-client-dappel-aux-apis-dadministration">3.2.8.3 - Créer un certificat client d&rsquo;appel aux APIs d&rsquo;administration</a></li>
+      </ul>
+    </li>
+    <li><a href="#329---installer-les-outils-nécessaires-au-projet-ias-infrastructure-as-code-pas-nécessaire-dans-un-premier-temps">3.2.9 - Installer les outils nécessaires au projet IAS (Infrastructure As Code) (pas nécessaire dans un premier temps)</a></li>
+    <li><a href="#3210---modifier-le-fichier-_host_-de-windows">3.2.10 - Modifier le fichier <em>host</em> de Windows</a></li>
+    <li><a href="#3211---initialiser-un-fichier-de-cache">3.2.11 - Initialiser un fichier de cache</a></li>
+    <li><a href="#3212---faq">3.2.12 - FAQ</a></li>
+  </ul>
+</nav>
+</div>
+<p>Le premier élément primordiale du guide du développeur est l&rsquo;installation du poste de développement.
+Si, lors de son installation de poste, un développeur a un doute ou a besoin d&rsquo;une information supplémentaire, il doit capitaliser et enrichir, à son tour, la présente page.</p>
+<p>Cette procédure ne prend pas en compte le paramétrage d&rsquo;éventuel repository personnel ou de proxy.</p>
+<p>Cette procédure peut sembler fastidieuse. Une installation de poste via la virtualisation est en effet plus rapide à exécuter pour chaque développeur. Mais, toute mise à jour de l&rsquo;environnement de développement nécessite de retravailler la VM puis de la redistribuer à chacun. De plus, la virtualisation est maintenant limitée chez certaines ESN (pour des raisons de sécurité). Enfin, l&rsquo;installation manuelle a l&rsquo;avantage de faire comprendre à chacun le fonctionnement de chaque outil. Cela fait donc grandir chacun.</p>
+<h2 id="321---clone-du-dépôt">3.2.1 - Clone du dépôt</h2>
+<p>Ce dépôt contient des <strong>sub-modules</strong> GIT pour le thème GoHugo utilisé dans la documentation. La commande (<a href="https://git-scm.com/book/fr/v2/Utilitaires-Git-Sous-modules">documentation</a>) pour faire un clone du dépôt est donc</p>
+<pre tabindex="0"><code>git clone --recurse-submodules https://xxxxxxxxxxx
+</code></pre><p>Si le paramètre <strong>&ndash;recurse-submodules</strong> n&rsquo;a pas été utilisé au moment du clone, il est toujours possible de récupérer les <strong>sub-modules</strong> avec les commandes :</p>
+<pre tabindex="0"><code>git submodule init 
+git submodule update
+</code></pre><p>Un <em>hook</em> doit être installé pour mettre à jour la date des documents MD au moment de chaque <em>commit</em>. Pour cela, il faut copier le fichier <em>aInstaller_pre-commit</em> dans le répertoire <em>.git/hooks</em> en le renommant <em>pre-commit</em>.
+A chaque commit comprenant un fichier MD, un message apparaît :</p>
+<pre tabindex="0"><code>Modification des dates dans les pages MD
+  pour 1-conception/content/X.xxx/X.Xxxxxxx.md
+</code></pre><p><em>Pour plus de détails, se référer au <a href="/psl-public/documentation/3developpement/3.31proceduressitedocumentaire/">§3.31</a></em></p>
+<hr>
+<h2 id="322---java">3.2.2 - Java</h2>
+<p>Le projet utilise Java-23.0.2.
+Pour le télécharger, le binaire est sur le site <a href="https://jdk.java.net/">java.net</a>.</p>
+<p>Une fois téléchargé, il suffit</p>
+<ul>
+<li>d&rsquo;extraire le contenu du ZIP dans un répertoire précis (comme <em>D:\outils</em>)</li>
+<li>de définir la variable d&rsquo;environnement <em>JAVA_HOME</em> (globalement sur la machine ou localement dans la console)</li>
+<li>d&rsquo;ajouter <em>%JAVA_HOME%\bin</em> dans la variable d&rsquo;environnement PATH</li>
+</ul>
+<hr>
+<h2 id="323---maven">3.2.3 - Maven</h2>
+<p>Le projet utilise Maven-3.9.9.</p>
+<p>Pour installer Maven :</p>
+<ul>
+<li>télécharger le binaire depuis le <a href="https://maven.apache.org/download.cgi">site officiel</a></li>
+<li>d&rsquo;extraire le contenu du ZIP dans un répertoire précis (comme <em>D:\outils</em>)</li>
+<li>de définir la variable d&rsquo;environnement <em>MAVEN_HOME</em> (globalement sur la machine ou localement dans la console)</li>
+<li>de définir la variable d&rsquo;environnement <em>MAVEN_OPTS</em>  avec la valeur <em>&ndash;add-opens java.base/java.lang=ALL-UNNAMED</em> (demandé depuis la version <em>maven-3.9.7</em>)</li>
+<li>d&rsquo;ajouter <em>%MAVEN_HOME%\bin</em> dans la variable d&rsquo;environnement PATH</li>
+<li>paramétrer votre Maven :
+<ul>
+<li>créer le répertoire du <em>repository local</em> (comme <em>D:\outils\repositoryLocal</em>)</li>
+<li>le renseigner dans le fichier <em>%MAVEN_HOME%\conf\settings.xml</em></li>
+</ul>
+</li>
+<li>si des mots de passe sont à stocker dans la configuration Maven, suivre la <a href="https://maven.apache.org/guides/mini/guide-encryption.html">procédure de chiffrement des mots de passe</a></li>
+</ul>
+<p>Pour construire (<em>builder</em>) très rapidement les projets du <em>socle</em> sans déclencher les tests automatisés, il est possible d&rsquo;utiliser la commande <code>mvn clean install -DskipTests -T 1C</code>. Ce paramètre déclenche la parallélisation en utilisant tous les coeurs du processeur.</p>
+<p>Si le poste de développement dispose de plusieurs version de Java. Il peut être utile de créer des raccourcis d&rsquo;appel à Maven pour chaque version depuis la commande Git4Windows. Pour cela :</p>
+<ul>
+<li>éditer le fichier <em>C:\Program Files\Git\etc\profile.d\aliases.sh</em></li>
+<li>ajouter, autant que nécessaire, une ligne sur le modèle <code>alias mvn19=&quot;JAVA_HOME=/d/xxxxxx/jdk-19/ &amp;&amp; mvn&quot;</code> en remplaçant le chemin vers le JDK par le bon ainsi que la version dans l&rsquo;alias</li>
+<li>redémarrer votre (vos) ligne(s) de commande Git4Windows et/ou CMD et/ou PowerShell pour que la modification soit prise en compte.</li>
+</ul>
+<hr>
+<h2 id="324---node--co">3.2.4 - Node &amp; co</h2>
+<p>Le projet utilise Node-23.10.0.
+La compilation de tout le projet peut se faire via Maven car ce dernier télécharge un Node et un NPM pour construire le livrable des projets FRONT.</p>
+<p>Mais, pour développer, installer Node et NPM sur son poste est nécessaire.</p>
+<h3 id="3241---installer-node">3.2.4.1 - Installer Node</h3>
+<p>Pour installer Node et NPM, il suffit de :</p>
+<ul>
+<li>télécharger le ZIP depuis le <a href="https://nodejs.org/download/">site officiel</a></li>
+<li>d&rsquo;extraire le contenu du ZIP dans un répertoire précis (comme <em>D:\outils</em>)</li>
+<li>de définir la variable d&rsquo;environnement <em>NODE_HOME</em> (globalement sur la machine ou localement dans la console)</li>
+<li>d&rsquo;ajouter <em>%NODE_HOME%</em> dans la variable d&rsquo;environnement PATH</li>
+</ul>
+<hr>
+<h2 id="325---les-ide">3.2.5 - Les IDE</h2>
+<p>L&rsquo;idée n&rsquo;est pas de multiplier les outils mais d&rsquo;utiliser le bon outil pour le bon usage.</p>
+<p>Les informations nécessaires à l&rsquo;installation des IDEs sont regroupées ici mais ceci ne préjuge pas de l&rsquo;ordre d&rsquo;installation des outils (et tous ne sont pas forcément nécessaires).</p>
+<hr>
+<h3 id="3251---ide---notepad">3.2.5.1 - IDE - Notepad++</h3>
+<p>Notepad++ est utilisé pour l&rsquo;édition de la documentation.</p>
+<p>Pour l&rsquo;installer :</p>
+<ul>
+<li>Télécharger le binaire depuis le <a href="https://notepad-plus-plus.org/downloads/">site officiel</a>.</li>
+<li>Installer le.</li>
+</ul>
+<p>Pour installer le plugin <em>DSpellCheck</em> dans Notepad++ :</p>
+<ul>
+<li>cliquer sur le menu <em>Modules d&rsquo;extension</em> &gt; <em>Gestionnaire des modules d&rsquo;extension</em></li>
+<li>filter sur le nom <em>DSpellCheck</em></li>
+<li>installer le plugin</li>
+<li>une fois le plugin installé, cliquer sur le menu <em>Modules d&rsquo;extension</em> &gt; <em>DSpellCheck</em> &gt; <em>Change current language</em> &gt; <em>Download more language</em></li>
+<li>installer le pack français</li>
+</ul>
+<hr>
+<h3 id="3252---ide---eclipse">3.2.5.2 - IDE - Eclipse</h3>
+<p>La version Eclipse-2025-03 est utilisée pour la partie Java.</p>
+<p>Pour l&rsquo;installer :</p>
+<ul>
+<li>télécharger la dernière version <em>for Java Developpers</em> depuis le <a href="https://www.eclipse.org/downloads/packages/">site officiel</a>.</li>
+<li>extraire l&rsquo;archive dans le répertoire de votre choix (comme D:\outils par exemple)</li>
+<li>créer un répertoire <em>workspacepsl</em> dans le répertoire de votre choix (comme D:\workspaces par exemple)</li>
+<li>télécharger l&rsquo;archive <a href="/psl-public/documentation/installationdeposte/.metadata.zip">disponible ici</a> (prévue pour <em>eclipse-java-XXXX-XX-R-win32-x86_64</em>)</li>
+<li>en extraire le contenu dans le répertoire <em>workspacepsl</em> précédemment créé (un répertoire <em>.metadata</em> doit donc être présent dans le répertoire <em>workspacepsl</em>)
+<ul>
+<li>Ce workspace prépackagé prévoit la désactivation des fonctionnalités GIT d&rsquo;Eclipse (qui traite projet par projet et non globalement par dépôt).</li>
+<li>Il référence un JDK installé dans le répertoire <em>D:\outils\jdk-XXXX</em> (à changer au besoin)</li>
+<li>Il prévoit tout un ensemble d&rsquo;actions automatiques à la sauvegarde d&rsquo;une classe Java (alias <em>Java save actions</em>).</li>
+<li>Il embarque un formattage du code Java (pour que tous les membres de l&rsquo;équipe partage le même formattage).</li>
+</ul>
+</li>
+<li>créer un raccourci Windows pointant sur D:\outils\eclipse-java-XXXX-XX-R-win32-x86_64\eclipse.exe -showlocation -data D:\workspaces\workspacepsl -vm %JAVA_HOME%\bin
+<ul>
+<li>Ce raccourci pointe sur l&rsquo;Eclipse installé.</li>
+<li>Ce raccourci pointe sur le workspace créé (à changer sur vos postes).</li>
+<li>Ce raccourci force l&rsquo;utilisation du chemin du workspace dans le nom de la fenêtre (pratique quand plusieurs Eclipse sont démarrés en même temps)</li>
+<li>Ce raccourci force l&rsquo;usage d&rsquo;un DJK précis (à changer sur vos postes).</li>
+</ul>
+</li>
+<li>au démarrage d&rsquo;Eclipse, si la version de Java n&rsquo;est pas supportée (Eclipse refuse de démarrer les tests automatisés et affiche sa version embarquée de JRE plutôt que la version de JDK paramétrée dans le workspace), il est possible de télécharger le <em>plugin</em> <em>Java XX Support for Eclipse</em> depuis le <em>Marketplace</em></li>
+<li>après le démarrage, il est nécessaire d&rsquo;installer le plugin SonarLint (profile par défaut)</li>
+</ul>
+<hr>
+<h3 id="3253---ide---vscode">3.2.5.3 - IDE - VSCode</h3>
+<p>VScode est utilisé pour la partie Angular.
+Le projet utilise la dernière version disponible.</p>
+<p>Pour l&rsquo;installer VSCode :</p>
+<ul>
+<li>télécharger la dernière version ZIP pour Windows de VSCode depuis <a href="https://code.visualstudio.com/download">le site officiel</a> (car plus simple à mettre à jour).</li>
+<li>extraire l&rsquo;archive dans un répertoire contenant la version de VSCode (toujours pour simplifier la mise à jour)</li>
+<li>créer un raccourci vers l&rsquo;exécutable <em>Code.exe</em> et ajouter, à la fin du chemin, le chemin absolu vers le répertoire <em>front</em> (cela évite d&rsquo;avoir à sélectionner le répertoire de travail)</li>
+</ul>
+<p>_La couverture de code ne fonctionne plus depuis le passage en Angular-17 et le passage de webpack à ESbuild/Vite (cf. <a href="https://v17.angular.io/guide/esbuild">https://v17.angular.io/guide/esbuild</a>) _</p>
+<p>Pour consulter les classes TS présentes dans les dépendances, il faut ajouter l&rsquo;extension <em>ZipFS</em> dans VSCode.</p>
+<p>Pour manipuler le projet <em>ias</em>, il faut ajouter l&rsquo;extension <em>WSL</em> (l&rsquo;extension <em>ansible</em> nécessite l&rsquo;exécutable installé sur Windows mais il ne fonctionne pas).</p>
+<hr>
+<h3 id="3254---ide---compass">3.2.5.4 - IDE - Compass</h3>
+<p>Compass est un IDE permettant de se connecter à une base de donnée MongoDB.
+Le projet utilise la dernière version disponible.</p>
+<p>Pour l&rsquo;installer :</p>
+<ul>
+<li>télécharger la dernière version disponible depuis le <a href="https://www.mongodb.com/try/download/compass">site officiel</a>) (pour Windows et au format <em>ZIP</em>).</li>
+<li>extraire l&rsquo;archive téléchargée dans un répertoire (comme <em>D:\outils</em>)</li>
+<li>démarrer le programme</li>
+<li>saisir la chaine de connexion <em>mongodb://localhost:27017/?readPreference=primary&amp;appname=MongoDB%20Compass&amp;directConnection=true&amp;ssl=false</em> et se connecter</li>
+</ul>
+<hr>
+<h3 id="3255---ide---usebruno">3.2.5.5 - IDE - UseBruno</h3>
+<p>Historiquement (avant 2024), Postman était l&rsquo;IDE de prédilection pour les requêtes HTTP. Mais, en 2023, la modification de leur modèle économique et le stockage du travail de chacun sur Internet (et non sur le poste local), a poussé ses utilisateurs vers d&rsquo;autres solutions.
+Pour rappel, d&rsquo;un point de vue SECURITE, il n&rsquo;est pas envisageable de stocker des requêtes, des identifiants ou des certificats sur Internet.</p>
+<p>L&rsquo;IDE à utiliser sur le projet est donc, maintenant, <a href="https://www.usebruno.com/">UseBruno</a>.</p>
+<p>Le projet utilise la dernière version disponible sur la <a href="https://www.usebruno.com/downloads">page de téléchargement</a>.</p>
+<p>Une fois téléchargé et installé, il est nécessaire</p>
+<ul>
+<li>d&rsquo;ouvrir la collection présente dans le répertoire <em>1-conception/static/installationdeposte/bruno/NewPSL</em></li>
+<li>de paramétrer l&rsquo;IDE via le menu <em>Collection &gt; Préférences</em>
+<ul>
+<li>de paramétrer le proxy en fonction des besoins</li>
+<li>dans le cas d&rsquo;une mise à jour ou d&rsquo;une réinstallation, il faut déclarer le certificat racine. Pour cela, se référer à l&rsquo;étape <em>ajouter le certificat racine dans UseBruno</em> du chapitre <a href="/psl-public/documentation/3developpement/3.2installationdeposte/#3282---cr%C3%A9er-le-certificat-sign%C3%A9-localement-tlshttps">Créer le certificat signé localement</a></li>
+</ul>
+</li>
+</ul>
+<p>L&rsquo;usage de la collecion est décrit dans le chapitre <a href="/psl-public/documentation/3developpement/3.24reglesdetest/">3.24.3</a>.
+La création des certificats et clefs est décrites au chapitre $3.2.8 (plus loin dans cette page).</p>
+<hr>
+<h3 id="3256---ide---règle-sur-lutilisation-des-ides">3.2.5.6 - IDE - Règle sur l&rsquo;utilisation des IDEs</h3>
+<p>La configuration des IDE doit être commune à tous les développeurs de l&rsquo;équipe pour permettre de maintenir une homogénéité du code et donc une bonne traçabilité des modifications.</p>
+<p>Il est tout à fait autorisé de modifier l&rsquo;apparence de son IDE (skin, thème, raccourcis, &hellip;) mais le paramétrage influant sur le code (formatage, import, &hellip;) ne doit pas être modifié.</p>
+<hr>
+<h3 id="3257---outils---smtp4dev-pas-nécessaire-dans-un-premier-temps">3.2.5.7 - OUTILS - SMTP4DEV (pas nécessaire dans un premier temps)</h3>
+<p>Pour recevoir les emails envoyés par le système, il suffit d&rsquo;installer <a href="https://github.com/rnwood/smtp4dev/wiki/Installation">smtp4dev</a> en laissant le paramétrage par défaut et en le démarrant avec le programme <em>Rnwood.Smtp4dev.exe</em>.</p>
+<p>Une fois démarré, l&rsquo;interface graphique du serveur SMTP est disponible <a href="http://localhost:5000/">ici</a>.</p>
+<p>La documentation de l&rsquo;outil est <a href="https://github.com/rnwood/smtp4dev">ici</a>.</p>
+<hr>
+<h3 id="3258---outils---springbootcli-pas-nécessaire-dans-un-premier-temps">3.2.5.8 - OUTILS - SpringBootCli (pas nécessaire dans un premier temps)</h3>
+<p><em>SpringBootCli</em> est un outil en ligne de commande lié à <em>SpringBoot</em>. Il est principalement utilisé pour chiffrer/déchiffrer des clefs de configuration.</p>
+<p>Pour l&rsquo;installer, il faut (inspiré de la <a href="https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/html/getting-started.html#getting-started.installing.cli.manual-installation">documentation officielle</a>) :</p>
+<ul>
+<li>télécharger la dernière version de spring-boot-cli-*-bin.zip depuis <a href="https://repo.spring.io/ui/native/snapshot/org/springframework/boot/spring-boot-cli/3.1.0-SNAPSHOT/">le repository officiel</a></li>
+<li>extraire l&rsquo;archive dans le répertoire des outils</li>
+<li>créer une variable d&rsquo;environnement Windows nommée <em>SPRING_HOME</em> contenant le chemin vers le répertoire créé</li>
+<li>ajouter <em>SPRING_HOME/bin</em> dans la variable d&rsquo;environnement <em>PATH</em></li>
+</ul>
+<hr>
+<h2 id="326---compiler-les-sources">3.2.6 - Compiler les sources</h2>
+<p>Pour builder le projet une première fois, il suffit de lancer la commande <code>mvn clean install</code> depuis une ligne de commande ouverte à la racine du dépôt (puis de patienter).</p>
+<p>Pour compiler les sources individuellement :</p>
+<ul>
+<li>documentation : depuis le répertoire <em>1-conception</em>, exécuter le raccourci <em>startServer.cmd</em> (ou <em>startServer.sh</em>)</li>
+<li>front, depuis le répertoire _D:\xxx\2-code\front_, exécuter la commande <code>npm ci</code></li>
+</ul>
+<p><strong>Quand on installe son poste, il ne faut jamais utiliser la commande <em>npm install</em> ou <em>yarn install</em>. <code>npm ci</code> ou <code>yarn install --frozen-lockfile</code> installe les dépendances exactes du <em>package-lock.json</em> ou du <em>yarn.lock</em> quand <em>install</em> recherche des dépendances compatibles.</strong></p>
+<hr>
+<h2 id="327---ré-activer-la-vérification-ssl">3.2.7 - Ré-activer la vérification SSL</h2>
+<p>Il se peut que, sur certains postes de développement professionnels, un certificat racine propre à la société soit paramétré. Ceci se vérifie dans Chrome :</p>
+<ul>
+<li>ouvrir Chrome en étant connecté au réseau de l&rsquo;entreprise</li>
+<li>afficher un site HTTPs dans un onglet</li>
+<li>cliquer sur le cadenas dans la barre d&rsquo;adresse</li>
+<li>afficher le certificat en cliquant sur les messages <em>la connexion est sécurisée</em> puis <em>certificat valide</em></li>
+<li>dans la fenêtre qui s&rsquo;ouvre, vérifier la donnée intitulée <em>Délivré par</em></li>
+</ul>
+<p>Si le certificat Racine du service HTTPs appelé n&rsquo;est pas délivré/vérifié par une autorité de certification standard, alors le certificat racine n&rsquo;est pas présent dans le CACERT du JDK (qui contient déjà les principaux certificats racines du monde).</p>
+<p>Deux solutions sont possibles :</p>
+<ul>
+<li>désactiver les vérifications SSL (cf. <em>clients.desactiverSSL</em> dans les fichiers de configuration)</li>
+<li>ajouter, dans le CACERT du JDK, le certificat racine de l&rsquo;employeur (cf. ci-dessous)</li>
+</ul>
+<p>Pour ajouter le certificat de votre entreprise, dans le trustore de Java (pour les tests automatisés) et dans le trustore utilisé par les micro-service, il faut :</p>
+<ul>
+<li>réafficher la fenêtre comme décrit précédemment</li>
+<li>dans la fenêtre ouverte, afficher l&rsquo;onglet <em>Détails</em></li>
+<li>sélectionner le certificat racine et cliquer sur le bouton <em>exporter</em> pour extraire le certificat dans un fichier</li>
+<li>ouvrir une ligne de commande dans le répertoire <em>$JAVA_HOME/lib/security/</em></li>
+<li>exécuter les commandes (avec XXXXX le libellé de votre choix)</li>
+</ul>
+<pre tabindex="0"><code>cp &#34;$JAVA_HOME/lib/security/cacerts&#34; &#34;$JAVA_HOME/lib/security/cacerts-saveXXXXX&#34;
+keytool -import -trustcacerts -file &#34;/chemin/vers/le/certificat.cer&#34; -alias certificatEntreprise -keystore &#34;$JAVA_HOME/lib/security/cacerts&#34; -storepass changeit
+</code></pre><p>Pour vérifier que cette modification fonctionne (ou ne sert à rien), exécuter les tests du projet <em>socle-commun</em> et vérifier la bonne exécution des tests de la classe AbstractClientHttpTest.</p>
+<hr>
+<h2 id="328---certificats">3.2.8 - Certificats</h2>
+<h3 id="3281---créer-le-certificat-racine-et-le-faire-accepter-par-windows-et-java">3.2.8.1 - Créer le certificat racine et le faire accepter par Windows et Java</h3>
+<p>Pour créer un certificat signé localement (<a href="https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/">source</a>), il faut, en premier lieu, disposer d&rsquo;une autorité de certification enregistrée dans Windows et dans Java.
+Pour cela, il faut :</p>
+<ul>
+<li>0/ <strong>!! En cas de besoin seulement !!</strong> Voici comment détruire toute la partie certificats potentiellement déjà créée dans une installation précédente :
+<ul>
+<li>Fichiers :
+<ul>
+<li>Supprimer le répertoire <em>2-code/.certificatsLocaux</em></li>
+</ul>
+</li>
+<li>Certificat racine dans Windows :
+<ul>
+<li>Ouvrir <em>Microsoft Management Console</em> en utilisant la combinaison <em>Windows + R</em> et tapant <em>mmc</em> avant de valider</li>
+<li>Cliquer sur <em>Fichier</em> &gt; <em>Ajouter/Supprimer un composant logiciel enfichable</em></li>
+<li>Cliquer sur <em>Certificats</em> and <em>Ajouter</em></li>
+<li>Sélectionner <em>Un compte d&rsquo;ordinateur</em> et cliquer sur <em>Suivant</em></li>
+<li>Sélectionner <em>Ordinateur local</em> et cliquer sur <em>Terminer</em></li>
+<li>Cliquer sur <em>OK</em></li>
+<li>Double-cliquer sur <em>Certificats (ordinateur local)</em></li>
+<li>Sélectionner <em>Autorités de certification racines de confiance</em></li>
+<li>Cliquer droit sur <em>Autorités de certification racines de confiance</em></li>
+<li>Cliquer sur <em>Rechercher des certificats</em></li>
+<li>Sélectionner la valeur <em>Autorités de certification racines de confiance</em> dans le champs <em>Rechercher dans</em></li>
+<li>Taper le mot <em>Amiens</em> dans le champ <em>Contenu</em></li>
+<li>Cliquer sur <em>Rechercher maintenant</em></li>
+<li>Cliquer droit sur l&rsquo;entrée disponible</li>
+<li>Cliquer sur <em>Supprimer</em> puis confirmer</li>
+<li>Fermer la fenêtre sans enregistrer</li>
+</ul>
+</li>
+<li>Certificat racine dans Java :
+<ul>
+<li>Exécuter la commande</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>keytool -delete -alias caRacineDevLocal -keystore &#34;$JAVA_HOME/lib/security/cacerts&#34; -storepass changeit
+	Warning: use -cacerts option to access cacerts keystore
+</code></pre><ul>
+<li>1/ Créer une clef et un certificat d&rsquo;autorité
+<ul>
+<li>ouvrir une ligne de commande dans le répertoire racine du dépôt</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>mkdir -p 2-code/.certificatsLocaux/caRacine
+cd 2-code/.certificatsLocaux/caRacine
+openssl genrsa -des3 -out ca-clefAutoriteCertification.key -passout pass:mdpAutoriteCertification 2048
+	Generating RSA private key, 2048 bit long modulus (2 primes)
+	.......................+++++
+	....+++++
+	e is 65537 (0x010001)
+openssl req -x509 -new -nodes -key ca-clefAutoriteCertification.key -sha256 -days 1825 -out ca-certificatRacine.pem -passout pass:mdpAutoriteCertification -passin pass:mdpAutoriteCertification -subj &#34;//C=FR/ST=Amiens/L=Amiens/O=Security/OU=general/CN=guillaumetalbot.com&#34;
+	req: Skipping unknown attribute &#34;/C&#34;
+</code></pre><ul>
+<li>2/ Ajouter ce certificat racine dans Windows :
+<ul>
+<li>Ouvrir <em>Microsoft Management Console</em> en utilisant la combinaison <em>Windows + R</em> et tapant <em>mmc</em> avant de valider</li>
+<li>Cliquer sur <em>Fichier</em> &gt; <em>Ajouter/Supprimer un composant logiciel enfichable</em></li>
+<li>Cliquer sur <em>Certificats</em> and <em>Ajouter</em></li>
+<li>Sélectionner <em>Un compte d&rsquo;ordinateur</em> et cliquer sur <em>Suivant</em></li>
+<li>Sélectionner <em>Ordinateur local</em> et cliquer sur <em>Terminer</em></li>
+<li>Cliquer sur <em>OK</em></li>
+<li>Double-cliquer sur <em>Certificats (ordinateur local)</em></li>
+<li>Cliquer droit sur <em>Autorités de certification racines de confiance</em></li>
+<li>Sélectionner <em>Toutes les tâches</em> &gt; <em>Import</em></li>
+<li>Cliquer sur <em>Suivant</em> et <em>Parcourir</em></li>
+<li>Sélectionner le fichier <em>ca-certificatRacine.pem</em></li>
+<li>Cliquer sur <em>Suivant</em></li>
+<li>Choisir de placer les certificats dans <em>Autorités de certification racines de confiance</em> (valeur par défaut normalement)</li>
+<li>Cliquer sur <em>Suivant</em> et <em>Terminer</em></li>
+</ul>
+</li>
+<li>3/ Pour vérifier le bon ajout du certificat racine
+<ul>
+<li>Retourner (ou rester) dans la partie <em>Autorités de certification racines de confiance</em> de <em>Microsoft Management Console</em></li>
+<li>Cliquer droit sur <em>Autorités de certification racines de confiance</em></li>
+<li>Cliquer sur <em>Rechercher des certificats</em></li>
+<li>Sélectionner la valeur <em>Autorités de certification racines de confiance</em> dans le champs <em>Rechercher dans</em></li>
+<li>Taper le mot <em>Amiens</em> dans le champ <em>Contenu</em></li>
+<li>Cliquer sur <em>Rechercher maintenant</em></li>
+<li>Vérifier qu&rsquo;une entrée apparaît avec une date d&rsquo;expiration à +5 ans -1 jour</li>
+<li>Fermer la fenêtre <em>Microsoft Management Console</em> sans enregistrer</li>
+</ul>
+</li>
+<li>3/ Déclarer cette autorité dans Java :
+<ul>
+<li>Se replacer (si besoin) dans le répertoire <em>2-code/.certificatsLocaux/caRacine</em></li>
+<li>Vérifier que la variable <em>JAVA_HOME</em> pointe bien sur la version de Java utilisée pour le projet : <code>echo $JAVA_HOME</code></li>
+<li>Dupliquer le cacert par défaut de Java (pour en faire une sauvegarde)</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>rm -f &#34;$JAVA_HOME/lib/security/cacerts-save&#34;
+cp &#34;$JAVA_HOME/lib/security/cacerts&#34; &#34;$JAVA_HOME/lib/security/cacerts-save&#34;
+</code></pre><ul>
+<li>Importer le certificat racine en exécutant la commande suivante, depuis le répertoire <em>2-code.certificatsLocaux\caRacine</em> (répondre <em>yes</em> à la confirmation)</li>
+</ul>
+<pre tabindex="0"><code>keytool -import -trustcacerts -file &#34;ca-certificatRacine.pem&#34; -alias caRacineDevLocal -keystore &#34;$JAVA_HOME/lib/security/cacerts&#34; -storepass changeit
+</code></pre><ul>
+<li>Vérifier la présence du certificat racine</li>
+</ul>
+<pre tabindex="0"><code>keytool -v -list -keystore &#34;$JAVA_HOME/lib/security/cacerts&#34; -storepass changeit | grep &#34;Alias name&#34; | grep caracinedevlocal
+	Warning: use -cacerts option to access cacerts keystore
+	Alias name: caracinedevlocal
+</code></pre><ul>
+<li>Sont donc présents, dans le répertoire <em>2-code/.certificatsLocaux/caRacine</em>,
+<ul>
+<li>le certificat racine (extension PEM)</li>
+<li>la clef permettant de signer un certificat (extension KEY)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3282---créer-le-certificat-signé-localement-tlshttps">3.2.8.2 - Créer le certificat signé localement (TLS/HTTPs)</h3>
+<p>Tous les micro-services du socle ne s&rsquo;exposent exclusivement que sur une interface <em>https</em>.
+Le certificat TLS doit être signé avec l&rsquo;autorité de certification créée précédemment.
+Pour cela, il faut :</p>
+<ul>
+<li>
+<p>0/ Pour recréer les éléments de ce chapitre, rien n&rsquo;est réutilisable (car le CSR n&rsquo;est pas conservé). Donc il faut supprimer tous les fichiers du répertoire <em>2-code/.certificatsLocaux/tls</em> s&rsquo;il existe.</p>
+</li>
+<li>
+<p>1/ Créer un certificat propre à l&rsquo;environnement de développement</p>
+</li>
+</ul>
+<pre tabindex="0"><code>mkdir -p 2-code/.certificatsLocaux/tls
+cd 2-code/.certificatsLocaux/tls
+openssl req -new -sha256 -nodes -out dev-certificatDeDeveloppementNonSigne.csr -newkey rsa:2048 -keyout dev-clefDeDeveloppement.key -passout pass:mdpCertificatDeDeveloppement -subj &#34;//C=FR/ST=Amiens/L=Amiens/O=Security/OU=newPSL/CN=dev-psl.guillaumetalbot.com&#34;
+	Generating a RSA private key
+	.............................................+++++
+	.....................+++++
+	writing new private key to &#39;dev-clefDeDeveloppement.key&#39;
+	-----
+	req: Skipping unknown attribute &#34;/C&#34;
+</code></pre><ul>
+<li>2/ Signer ce certificat de développement avec l&rsquo;autorité de certification</li>
+</ul>
+<pre tabindex="0"><code>echo &#34;authorityKeyIdentifier=keyid,issuer&#34; &gt;dev-confSignature.cnf
+echo &#34;basicConstraints=CA:FALSE&#34; &gt;&gt;dev-confSignature.cnf
+echo &#34;keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment&#34; &gt;&gt;dev-confSignature.cnf
+echo &#34;subjectAltName=DNS:machineUbuntuTest,DNS:dev-psl.guillaumetalbot.com,DNS:*.dev-psl.guillaumetalbot.com,DNS:localhost,IP:127.0.0.1&#34; &gt;&gt;dev-confSignature.cnf
+openssl x509 -req -in dev-certificatDeDeveloppementNonSigne.csr -passin pass:mdpAutoriteCertification -CA ../caRacine/ca-certificatRacine.pem -CAkey ../caRacine/ca-clefAutoriteCertification.key -CAcreateserial -out dev-certificatDeDeveloppementSigne.crt -days 3650 -sha256 -extfile dev-confSignature.cnf
+	Signature ok
+	subject=ST = Amiens, L = Amiens, O = Security, OU = newPSL, CN = dev-psl.guillaumetalbot.com
+	Getting CA Private Key
+rm dev-confSignature.cnf
+rm dev-certificatDeDeveloppementNonSigne.csr
+</code></pre><ul>
+<li>3/ Créer un <em>PKCS12</em> (format standard remplaçant <em>JKS</em>) à partir du certificat signé (pour être utilisé dans Java)</li>
+</ul>
+<pre tabindex="0"><code>openssl pkcs12 -export -out keystore.p12 -inkey dev-clefDeDeveloppement.key -in dev-certificatDeDeveloppementSigne.crt -certfile ../caRacine/ca-certificatRacine.pem -password pass:changeit
+</code></pre><ul>
+<li>4/ Paramétrer le keystore dans les micro-services
+<ul>
+<li>4.1/ modifier/vérifier le contenu du fichier <em>/socle/variablesPourScripts.properties.gpg</em> (cf. <a href="/psl-public/documentation/3developpement/3.37proceduresdiverses/#3376---comment-chiffrerd%C3%A9chiffrer-le-fichier-variablespourscriptspropertiesgpg">§3.37.6</a>)</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>cheminRelatifKeystore=&#34;../.certificatsLocaux/tls/keystore.p12&#34;
+motdepasseKeystore=&#34;changeit&#34;
+</code></pre><ul>
+<li>4.2/ modifier/vérifier le contenu des configurations d&rsquo;exécution Eclipse (fichier <em>.launch</em>)</li>
+</ul>
+<pre tabindex="0"><code>&lt;stringAttribute key=&#34;org.eclipse.jdt.launching.VM_ARGUMENTS&#34; value=&#34;-DcheminKeystore=../../.certificatsLocaux/tls/keystore.p12 -DmdpKeystore=changeit&#34;/&gt;
+</code></pre><ul>
+<li>4.3/ ajouter le certificat racine dans UseBruno
+<ul>
+<li>ouvrir UseBruno</li>
+<li>dans le menu <em>Collection &gt; Preferences</em>, cocher la case <em>Use custom CA Certificate</em> et de sélectionner le fichier <em>2-code/.certificatsLocaux/caRacine/ca-certificatRacine.pem</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="3283---créer-un-certificat-client-dappel-aux-apis-dadministration">3.2.8.3 - Créer un certificat client d&rsquo;appel aux APIs d&rsquo;administration</h3>
+<p>Certains micro-services du socle exposent des APIs d&rsquo;administration exclusivement accessibles si la requête contient un certificat autorisé.
+Pour cela, il faut :</p>
+<ul>
+<li>1/ Créer un certificat client propre à l&rsquo;environnement de développement
+<ul>
+<li>Exécuter les commandes suivantes</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>mkdir -p 2-code/.certificatsLocaux/authAdmin
+cd 2-code/.certificatsLocaux/authAdmin
+openssl genrsa -out certificatClientAppelApiAdmin-clefPrivee.key 4096
+MSYS_NO_PATHCONV=1 openssl req -new -key certificatClientAppelApiAdmin-clefPrivee.key -out certificatClientAppelApiAdmin-certifNonSigne.csr -nodes -subj &#34;/CN=developeurLocal1/OU=talbotgui/O=github/C=com&#34;
+echo &#34;[SAN]&#34; &gt;opensslConf.txt
+echo &#34;subjectAltName=DNS:dev-psl.guillaumetalbot.com,DNS:localhost&#34; &gt;&gt;opensslConf.txt
+openssl x509 -req -days 360 -in certificatClientAppelApiAdmin-certifNonSigne.csr -passin pass:mdpAutoriteCertification -CA ../caRacine/ca-certificatRacine.pem -CAkey ../caRacine/ca-clefAutoriteCertification.key -CAcreateserial -out certificatClientAppelApiAdmin-certifSigne.crt -sha256 -extensions SAN -extfile opensslConf.txt
+rm opensslConf.txt
+openssl pkcs12 -export -out certificatClientAppelApiAdmin.p12 -inkey certificatClientAppelApiAdmin-clefPrivee.key -in certificatClientAppelApiAdmin-certifSigne.crt -password pass:changeit
+</code></pre><pre><code>* _L'astuce du MSYS_NO_PATHCONV est décrite [ici](https://github.com/git-for-windows/git/issues/577#issuecomment-166118846)._
+</code></pre>
+<ul>
+<li>
+<p>Supprimer le fichier <em>certificatClientAppelApiAdmin-certifNonSigne.csr</em></p>
+</li>
+<li>
+<p>Sont dont présents les fichiers</p>
+<ul>
+<li><em>certificatClientAppelApiAdmin.jks</em> utilisé dans les applicatifs Java</li>
+<li><em>certificatClientAppelApiAdmin.p12</em> utilisé dans les commandes CURL</li>
+<li><em>certificatClientAppelApiAdmin-certifSigne.crt</em> et  <em>certificatClientAppelApiAdmin-clefPrivee.key</em> utilisés dans Postman</li>
+</ul>
+</li>
+<li>
+<p>Ajouter <em>dev-psl.guillaumetalbot.com</em> dans les sites de confiances</p>
+<ul>
+<li>démarrer Internet Explorer</li>
+<li>ouvrir les propriétés &gt; sécurité &gt; site de confiances</li>
+<li>ajouter <em>dev-psl.guillaumetalbot.com</em></li>
+</ul>
+</li>
+<li>
+<p>2/ Créer un truststore pour contenir les certificats &ldquo;client&rdquo; autorisés</p>
+</li>
+</ul>
+<pre tabindex="0"><code>keytool -import -trustcacerts -noprompt -alias certificatClientAppelApiAdmin1 -ext san=dns:dev-psl.guillaumetalbot.com,localhost,ip:127.0.0.1 -file certificatClientAppelApiAdmin-certifSigne.crt -keystore certificatClientAppelApiAdmin.jks -storepass changeit -keypass changeit
+</code></pre><ul>
+<li>3/ Paramétrer le truststore dans les micro-services
+<ul>
+<li>3.1/ modifier/vérifier le contenu du fichier <em>/socle/variablesPourScripts.properties.gpg</em> (cf. <a href="/psl-public/documentation/3developpement/3.37proceduresdiverses/#3376---comment-chiffrerd%C3%A9chiffrer-le-fichier-variablespourscriptspropertiesgpg">§3.37.6</a>)</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>cheminRelatifTruststore=&#34;../.certificatsLocaux/authAdmin/certificatClientAppelApiAdmin.jks&#34;
+motdepasseTruststore=&#34;changeit&#34;
+</code></pre><ul>
+<li>3.2/ modifier/vérifier le contenu des configurations d&rsquo;exécution Eclipse (fichier <em>.launch</em>)</li>
+</ul>
+<pre tabindex="0"><code>&lt;stringAttribute key=&#34;org.eclipse.jdt.launching.VM_ARGUMENTS&#34; value=&#34;xxxxx -DcheminTruststore=../../.certificatsLocaux/authAdmin/certificatClientAppelApiAdmin.jks -DmdpTruststore=changeit&#34;/&gt;
+</code></pre><p>Pour tester le certificat et le trustStore, après avoir démarré l&rsquo;ensemble du socle, il est possible d&rsquo;exécuter les commandes suivantes (en remplaçant le port par celui du micro-service)</p>
+<pre tabindex="0"><code>curl -vk --cert certificatClientAppelApiAdmin-certifSigne.crt --key certificatClientAppelApiAdmin-clefPrivee.key https://dev-psl.guillaumetalbot.com:65129/socle/notification/admin/statistiques
+
+curl -vk --cert-type P12 --cert certificatClientAppelApiAdmin.p12:changeit https://dev-psl.guillaumetalbot.com:65129/socle/notification/admin/statistiques
+</code></pre><p>PKCS12 est le format standard des keystores (à opposer à JKS qui est propre à Java). Depuis la version 8 de Java, ce dernier gère les PKCS12. (source <a href="https://www.baeldung.com/java-keystore-truststore-difference">baeldung</a>).</p>
+<hr>
+<h2 id="329---installer-les-outils-nécessaires-au-projet-ias-infrastructure-as-code-pas-nécessaire-dans-un-premier-temps">3.2.9 - Installer les outils nécessaires au projet IAS (Infrastructure As Code) (pas nécessaire dans un premier temps)</h2>
+<p>Installer les machines WSL :</p>
+<ul>
+<li>Pour (re)installer WSL,
+<ul>
+<li>si c&rsquo;est la première installation de WSL, depuis une ligne de commande DOS, exécuter :</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dosbatch" data-lang="dosbatch"><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;activer WSL&#34;</span>
+</span></span><span style="display:flex;"><span>wsl --install
+</span></span></code></pre></div><ul>
+<li>si WSL est déjà installé, depuis une ligne de commande DOS, exécuter :</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dosbatch" data-lang="dosbatch"><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;lister les machines&#34;</span>
+</span></span><span style="display:flex;"><span>wsl --list
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;pour chaque machine, exécuter&#34;</span>
+</span></span><span style="display:flex;"><span>wsl --unregister XXX
+</span></span></code></pre></div><ul>
+<li>Pour installer WSL et des machines récentes, exécuter, depuis une ligne de commande DOS, les commandes suivantes :</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dosbatch" data-lang="dosbatch"><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;créer une clef SSH pour permettre à Ansible de se connecter à la machine&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">del</span> %USERPROFILE%\.ssh\wsl.key
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">del</span> %USERPROFILE%\.ssh\wsl.key.pub
+</span></span><span style="display:flex;"><span>ssh-keygen -t rsa -b 2048 -f %USERPROFILE%/.ssh/wsl.key -N <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;mettre à jour WSL&#34;</span>
+</span></span><span style="display:flex;"><span>wsl --update
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;installer la version d&#39;Ubuntu par défaut&#34;</span>
+</span></span><span style="display:flex;"><span>wsl --install -d Ubuntu
+</span></span></code></pre></div><ul>
+<li>Dans la fenêtre WSL, du fait du premier démarrage, il est nécessaire de saisir un compte et un mot de passe. Saisir <em>ubuntu</em> pour toutes les questions.</li>
+<li>Si besoin (l&rsquo;installation démarre habituellement l&rsquo;instance), démarrer l&rsquo;instance</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dosbatch" data-lang="dosbatch"><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;démarer l&#39;instance&#34;</span>
+</span></span><span style="display:flex;"><span>wsl -d Ubuntu
+</span></span></code></pre></div><ul>
+<li>Pour initialiser la machine <em>Ubuntu</em> de base du projet,
+<ul>
+<li>exécuter une première fois la commande <code>sudo ls /etc</code> pour que les prochaines commandes <em>sudo</em> ne réclame pas de mot de passe (pour tout copier/coller)</li>
+<li>exécuter les commandes suivantes, dans <em>WSL</em>,</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;suppression des fichiers (pas dans le même bloc que leur création)&#34;</span>
+</span></span><span style="display:flex;"><span>sudo rm -f /etc/wsl.conf
+</span></span><span style="display:flex;"><span>sudo rm -f /etc/resolv.conf
+</span></span><span style="display:flex;"><span>rm -rf ~/.ssh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;activation de systemd sur la machine (et création du fichier)&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;[boot]&#39;</span> | sudo tee /etc/wsl.conf
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;systemd=true&#39;</span> | sudo tee -a /etc/wsl.conf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;[network]&#39;</span> | sudo tee -a /etc/wsl.conf
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;déclarer un DNS pour accéder à Internet (sans support du proxy Windows)&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;generateResolvConf=false&#39;</span> | sudo tee -a /etc/wsl.conf
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;pour pouvoir manipuler le nom de la machine&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;hostname = machineUbuntuTest&#39;</span> | sudo tee -a /etc/wsl.conf
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;nameserver 8.8.8.8&#39;</span> | sudo tee -a /etc/resolv.conf
+</span></span><span style="display:flex;"><span>sudo chattr +i /etc/resolv.conf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;pour forcer la connexion avec le compte ubuntu&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;[user]&#39;</span> | sudo tee -a /etc/wsl.conf
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;default=ubuntu&#39;</span> | sudo tee -a /etc/wsl.conf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;pour pouvoir manipuler les autorisations (chmod) depuis WSL sur des répertoires Windows&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;[automount]&#39;</span> | sudo tee -a /etc/wsl.conf
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;options = &#34;metadata&#34;&#39;</span> | sudo tee -a /etc/wsl.conf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;initialiser le fichier des clefs RSA autorisées (en remplaçant par le bon login)&#34;</span>
+</span></span><span style="display:flex;"><span>mkdir ~/.ssh
+</span></span><span style="display:flex;"><span>touch ~/.ssh/authorized_keys
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> ~/.ssh/authorized_keys
+</span></span><span style="display:flex;"><span>cat /mnt/c/Users/$USERNAME/.ssh/wsl.key.pub &gt;~/.ssh/authorized_keys
+</span></span><span style="display:flex;"><span>sed -i <span style="color:#e6db74">&#39;s/@.*/@localhost/g&#39;</span> ~/.ssh/authorized_keys
+</span></span></code></pre></div><ul>
+<li>exécuter les commandes suivantes, une à une, dans <em>WSL</em>,</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;vérifier que tout est fait (9, 1, 1)&#34;</span>
+</span></span><span style="display:flex;"><span>wc -l /etc/wsl.conf
+</span></span><span style="display:flex;"><span>cat /etc/resolv.conf | grep 8.8.8.8 | wc -l
+</span></span><span style="display:flex;"><span>cat ~/.ssh/authorized_keys | grep localhost | wc -l
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Activation des releases non LTS&#34;</span>
+</span></span><span style="display:flex;"><span>sudo sed -i <span style="color:#e6db74">&#39;s/=lts/=normal/g&#39;</span> /etc/update-manager/release-upgrades
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Mise à jour du système (répondre yes et attendre)&#34;</span>
+</span></span><span style="display:flex;"><span>sudo <span style="color:#66d9ef">do</span>-release-upgrade
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;mettre à jour la machine&#34;</span>
+</span></span><span style="display:flex;"><span>sudo apt-get update
+</span></span><span style="display:flex;"><span>sudo apt-get upgrade -y
+</span></span><span style="display:flex;"><span>sudo apt-get dist-upgrade -y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Afficher la version installée&#34;</span>
+</span></span><span style="display:flex;"><span>lsb_release -a
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;personnalisation du répertoire par défaut de la machine (à customiser)&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;&#34;</span> &gt;&gt; ~/.bashrc
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;#répertoire par défaut à la connexion&#34;</span> &gt;&gt; ~/.bashrc
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;cd /mnt/d/xxx/2-code/ias&#34;</span> &gt;&gt; ~/.bashrc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;sortir de la machine&#34;</span>
+</span></span><span style="display:flex;"><span>exit
+</span></span></code></pre></div><ul>
+<li>Pour créer deux machines basées sur cette version d&rsquo;Ubuntu, depuis une ligne de commande DOS, exécuter les commandes :</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dosbatch" data-lang="dosbatch"><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;complètement arrêter WSL pour prendre en compte le paramétrage&#34;</span>
+</span></span><span style="display:flex;"><span>wsl --shutdown
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;se placer dans le répertoire 2-code/ias/machinesWsl&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">cd</span> xxxxxxxxxxxxxxxxxxxxx
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;supprimer les machines existantes (si présentes)&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">del</span> ubuntu_nue.tar
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">rmdir</span> UbuntuAnsible
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">rmdir</span> UbuntuTest
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;création d&#39;une photo de la machine&#34;</span>
+</span></span><span style="display:flex;"><span>wsl --export Ubuntu ubuntu_nue.tar
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;création des nouvelles instances basées sur l&#39;image&#34;</span>
+</span></span><span style="display:flex;"><span>wsl --import UbuntuAnsible .\UbuntuAnsible ubuntu_nue.tar
+</span></span><span style="display:flex;"><span>wsl --import UbuntuTest .\UbuntuTest ubuntu_nue.tar
+</span></span></code></pre></div><ul>
+<li>
+<p>Pour démarrer les machines, <strong>depuis deux lignes de commande DOS différentes</strong>, exécuter</p>
+<ul>
+<li><code>wsl -d UbuntuAnsible</code></li>
+<li><code>wsl -d UbuntuTest</code></li>
+</ul>
+</li>
+<li>
+<p>Dans la machine UbuntuTest, exécuter les commandes :</p>
+</li>
+</ul>
+<pre tabindex="0"><code>echo &#34;personnalisation du prompt&#34;
+echo &#34;&#34; &gt;&gt; ~/.bashrc
+echo &#34;# personnalisation du prompt&#34; &gt;&gt; ~/.bashrc
+echo &#34;PS1=&#39;${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@test\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ &#39;&#34; &gt;&gt; ~/.bashrc
+. ~/.bashrc
+
+echo &#34;installer openssh-server&#34;
+sudo apt-get install openssh-server -y
+sudo systemctl enable ssh
+
+echo &#34;installer ACL pour permettre le démarrage des applicatifs avec le compte www&#34;
+sudo apt-get install acl
+
+echo &#34;vérifier que openssh est démarré (doit s&#39;afficher en vert &#39;active (running)&#39;)&#34;
+sudo service ssh status
+
+echo &#34;installer une librairie nécessaire à MongoDB (pour le message : libcrypto.so.1.1: cannot open shared object file: No such file or directory)&#34;
+wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb
+sudo dpkg -i libssl1.1_1.1.0g-2ubuntu4_amd64.deb
+rm libssl1.1_1.1.0g-2ubuntu4_amd64.deb
+
+echo &#34;paramétrer le hostname (le fichier /etc/hosts est une copie du fichier C:\Windows\System32\drivers\etc\hosts de Windows)&#34;
+echo &#39;machineUbuntuTest&#39; | sudo tee /etc/hostname
+</code></pre><ul>
+<li>
+<p>Pour tester la bonne connexion à la machine UbuntuTest,</p>
+<ul>
+<li>ouvrir une nouvelle ligne de commande DOS</li>
+<li>exécuter <code>ssh -i C:/Users/%username%/.ssh/wsl.key ubuntu@localhost</code>
+<ul>
+<li>en cas d&rsquo;erreur impliquant <em>remote host identification</em>, supprimer la ligne commençant par <em>localhost</em> dans le fichier <em>C:\Users%username%.ssh\known_hosts</em></li>
+<li>en cas d&rsquo;erreur, vérifier le contenu du fichier <em>~/.ssh/authorized_keys</em> dans WSL (erreur récurente)</li>
+</ul>
+</li>
+<li>fermer la nouvelle ligne de commande DOS</li>
+</ul>
+</li>
+<li>
+<p>Dans la machine UbuntuAnsible, exécuter les commandes :</p>
+</li>
+</ul>
+<pre tabindex="0"><code>echo &#34;personnalisation du prompt et ajout d&#39;un chemin dans le path&#34;
+echo &#34;&#34; &gt;&gt; ~/.bashrc
+echo &#34;# personnalisation du prompt&#34; &gt;&gt; ~/.bashrc
+echo &#34;PS1=&#39;${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@ansible\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ &#39;&#34; &gt;&gt; ~/.bashrc
+. ~/.bashrc
+
+echo &#34;installation d&#39;Ansible (pipx est long à s&#39;exécuter - cf. https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)&#34;
+sudo apt install pipx -y
+pipx install --include-deps ansible
+echo &#39;export PATH=&#34;/home/ubuntu/.local/bin:$PATH&#34;&#39; &gt;&gt; ~/.bashrc
+. ~/.bashrc
+
+echo &#34;vérifier la bonne installation&#34;
+ansible --version
+
+echo &#34;correction des droits sur la clef SSH (chemin à adapter avec la variable saisie dans les scripts Ansible)&#34;
+sudo chmod 600 /mnt/c/Users/%username%/.ssh/wsl.key
+
+echo &#34;Installer les logiciels nécessaires à la documentation d&#39;Ansible (pipx peut être long à s&#39;exécuter)&#34;
+sudo apt-get update
+sudo apt-get install graphviz -y
+pipx install ansible-playbook-grapher
+</code></pre><ul>
+<li>Pour réaliser une installation complète, depuis UbuntuAnsible, exécuter les commandes</li>
+</ul>
+<pre tabindex="0"><code>echo &#34;première installation - commandes de préparation (avec droits SUDO)&#34;
+ansible-playbook ansible/01_preparer.yml -i ansible/inventory/local -K --extra-vars &#34;ansible_user=ubuntu&#34;
+ansible-playbook ansible/02_installer.yml -i ansible/inventory/local
+ansible-playbook ansible/03_deployer.yml -i ansible/inventory/local
+ansible-playbook ansible/04_demarrer.yml -i ansible/inventory/local
+ansible-playbook ansible/05_statuer.yml -i ansible/inventory/local
+ansible-playbook ansible/06_arreter.yml -i ansible/inventory/local
+</code></pre><ul>
+<li>Pour valider le bon fonctionnement complet (cas uniquement d&rsquo;une mise à jour de l&rsquo;environnement), se référer aux étapes 4 et suppérieures du <a href="/psl-public/documentation/3developpement/3.36procedurestest/#3364---c2-les-tests-du-syst%C3%A8me-sur-wsl">chapitre 3.36.4</a></li>
+</ul>
+<hr>
+<h2 id="3210---modifier-le-fichier-_host_-de-windows">3.2.10 - Modifier le fichier <em>host</em> de Windows</h2>
+<p>Tous les applicatifs répondent sur le DNS <em>dev-psl.guillaumetalbot.com</em>. Mais ce DNS n&rsquo;existe pas. Il faut donc le déclarer à Windows.
+Pour ce faire :</p>
+<ul>
+<li>ouvrir le menu <em>Démarrer</em> de Windows</li>
+<li>recherche <em>bloc note</em></li>
+<li>faire un clic droit et sélectionner <em>Executer en tant qu&rsquo;administrateur</em></li>
+<li>cliquer sur le menu <em>Fichier &gt; Ouvrir</em></li>
+<li>sélectionner le répertoire <em>C:\Windows\System32\drivers\etc</em></li>
+<li>taper <em>*</em> dans le champs de saisie de fichier pour faire apparaître tous les fichiers</li>
+<li>sélectionner le fichier <em>hosts</em></li>
+<li>ajouter les lignes suivantes (si elles n&rsquo;y sont pas déjà) :</li>
+</ul>
+<pre tabindex="0"><code># dev local
+::1             dev-psl.guillaumetalbot.com admin.dev-psl.guillaumetalbot.com
+# Nécessaire pour que les applicatifs s&#39;enregistrent auprès du service-admin quand ils sont démarrés depuis Git4Windows avec le script demarrerTout.sh
+127.0.0.1       dev-psl.guillaumetalbot.com admin.dev-psl.guillaumetalbot.com
+# mais les appels interne à Ubuntu sont aussi résolus simplements (rappel : le hosts de Windows est copié dans WSL)
+127.0.0.1       machineUbuntuTest
+</code></pre><hr>
+<h2 id="3211---initialiser-un-fichier-de-cache">3.2.11 - Initialiser un fichier de cache</h2>
+<p>L&rsquo;applicatif <em>socle-referentiel</em> télécharge un fichier de plus de 1Go et le conserve, sur disque, en guise de cache.
+Or seule une toute petite portion du fichier est nécessaire.
+Pour limiter l&rsquo;espace pris par ce cache, il faut :</p>
+<ul>
+<li>télécharger le <a href="https://www.data.gouv.fr/fr/datasets/r/0651fb76-bcf3-4f6a-a38d-bc04fa708576">fichier de référentiel des SIRET</a></li>
+<li>placer ce fichier dans le répertoire <em>2-code/socle/.cache</em> avec le nom <em>referentiel-dataGouv-siret</em> (supprimer le fichier s&rsquo;il existe)</li>
+<li>exécuter la commande</li>
+</ul>
+<pre tabindex="0"><code>cd 2-code/socle/.cache
+unzip referentiel-dataGouv-siret
+rm referentiel-dataGouv-siret
+mv StockEtablissement_utf8.csv StockEtablissement_utf8_original.csv
+cat StockEtablissement_utf8_original.csv | grep A,MAIRIE &gt;StockEtablissement_utf8.csv
+rm StockEtablissement_utf8_original.csv
+</code></pre><ul>
+<li>créer un ZIP nommé <em>referentiel-dataGouv-siret</em> contenant le fichier <em>StockEtablissement_utf8.csv</em></li>
+</ul>
+<p>Si l&rsquo;applicatif <em>socle-referentiel</em>, s&rsquo;exécutant sur la machine WSL est long à démarrer, copier le fichier de cache dans le bon répertoire en exécutant les commandes :</p>
+<pre tabindex="0"><code>sudo su - www
+mkdir /psl/applicatifs/socle-referentiel/.cache
+cp /mnt/d/xxx/2-code/socle/.cache/referentiel-dataGouv-siret /psl/applicatifs/socle-referentiel/.cache/
+</code></pre><hr>
+<h2 id="3212---faq">3.2.12 - FAQ</h2>
+<ul>
+<li>Si Node ne veut pas fonctionner durant le <em>npm ci</em>, tenter la commande suivante :</li>
+</ul>
+<pre tabindex="0"><code>npm cache clean -f
+</code></pre><ul>
+<li>
+<p>En cas d&rsquo;erreur, dans les tests automatisés, du type <em>Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target</em> : ajouter <em>-Djavax.net.debug=all</em> dans la configuration du test et relancer le test.</p>
+</li>
+<li>
+<p>Pour se simplifier la vie, une fois le compte <em>www</em> créé sur la machine <em>UbuntuTest</em>, il est utile de créer ces alias :</p>
+</li>
+</ul>
+<pre tabindex="0"><code>echo &#34;ajouter un alias pour tout demarrer/arrêter dans le compte www&#34;
+sudo su - www
+echo &#34;alias demarrerTout=&#39;/psl/applicatifs/service-gateway/service-gateway.sh startAndWait ; /psl/applicatifs/service-registry/service-registry.sh startAndWait ; /psl/applicatifs/service-nosql/service-nosql.sh startAndWait ; /psl/applicatifs/service-config/service-config.sh startAndWait ; /psl/applicatifs/service-admin/service-admin.sh startAndWait ; /psl/applicatifs/service-ldap/service-ldap.sh startAndWait ; /psl/applicatifs/socle-dbbrouillon/socle-dbbrouillon.sh startAndWait ; /psl/applicatifs/socle-dbconfiguration/socle-dbconfiguration.sh startAndWait ; /psl/applicatifs/socle-dbdocument/socle-dbdocument.sh startAndWait ; /psl/applicatifs/socle-dbnotification/socle-dbnotification.sh startAndWait ; /psl/applicatifs/socle-referentiel/socle-referentiel.sh startAndWait ; /psl/applicatifs/socle-referentielexterne/socle-referentielexterne.sh startAndWait ; /psl/applicatifs/socle-securite/socle-securite.sh startAndWait ; /psl/applicatifs/socle-soumission/socle-soumission.sh startAndWait ; /psl/applicatifs/socle-transfert/socle-transfert.sh startAndWait ; /psl/applicatifs/socle-admin/socle-admin.sh startAndWait&#39;&#34; &gt;&gt; .bashrc
+echo &#34;alias arreterTout=&#39;/psl/applicatifs/service-nosql/service-nosql.sh stop &amp;&amp; /psl/applicatifs/service-config/service-config.sh stop &amp;&amp; /psl/applicatifs/service-admin/service-admin.sh stop &amp;&amp; /psl/applicatifs/service-ldap/service-ldap.sh stop &amp;&amp; /psl/applicatifs/socle-dbbrouillon/socle-dbbrouillon.sh stop &amp;&amp; /psl/applicatifs/socle-dbconfiguration/socle-dbconfiguration.sh stop &amp;&amp; /psl/applicatifs/socle-dbdocument/socle-dbdocument.sh stop &amp;&amp; /psl/applicatifs/socle-dbnotification/socle-dbnotification.sh stop &amp;&amp; /psl/applicatifs/socle-referentiel/socle-referentiel.sh stop &amp;&amp; /psl/applicatifs/socle-referentielexterne/socle-referentielexterne.sh stop &amp;&amp; /psl/applicatifs/socle-securite/socle-securite.sh stop &amp;&amp; /psl/applicatifs/socle-soumission/socle-soumission.sh stop &amp;&amp; /psl/applicatifs/socle-transfert/socle-transfert.sh stop &amp;&amp; /psl/applicatifs/service-gateway/service-gateway.sh stop &amp;&amp; /psl/applicatifs/socle-admin/socle-admin.sh stop &amp;&amp; /psl/applicatifs/service-registry/service-registry.sh stop&#39;&#34; &gt;&gt; .bashrc
+echo &#34;alias statutTout=&#39;/psl/applicatifs/service-gateway/service-gateway.sh status &amp;&amp; /psl/applicatifs/service-registry/service-registry.sh status &amp;&amp; /psl/applicatifs/service-nosql/service-nosql.sh status &amp;&amp; /psl/applicatifs/service-config/service-config.sh status &amp;&amp; /psl/applicatifs/service-admin/service-admin.sh status &amp;&amp; /psl/applicatifs/service-ldap/service-ldap.sh stop &amp;&amp; /psl/applicatifs/socle-dbbrouillon/socle-dbbrouillon.sh status &amp;&amp; /psl/applicatifs/socle-dbconfiguration/socle-dbconfiguration.sh status &amp;&amp; /psl/applicatifs/socle-dbdocument/socle-dbdocument.sh status &amp;&amp; /psl/applicatifs/socle-dbnotification/socle-dbnotification.sh status &amp;&amp; /psl/applicatifs/socle-referentiel/socle-referentiel.sh status &amp;&amp; /psl/applicatifs/socle-referentielexterne/socle-referentielexterne.sh status &amp;&amp; /psl/applicatifs/socle-securite/socle-securite.sh status &amp;&amp; /psl/applicatifs/socle-soumission/socle-soumission.sh status &amp;&amp; /psl/applicatifs/socle-transfert/socle-transfert.sh status &amp;&amp; /psl/applicatifs/socle-admin/socle-admin.sh status&#39;&#34; &gt;&gt; .bashrc
+. ~/.bashrc
+</code></pre><ul>
+<li>Si plusieurs versions de Java sont présentes sur le poste de développement, il est possible de créer plusieurs aliases dans la ligne de commande <em>GIT</em> pour exécuter <em>Maven</em> avec une version de <em>Java</em> spécifique. Pour cela, il faut éditer le fichier <em>C:\Program Files\Git\etc\profile.d\aliases.sh</em> pour y ajouter les lignes suivantes :</li>
+</ul>
+<pre tabindex="0"><code>alias mvn8=&#34;JAVA_HOME=/d/xxxxxx/jdk-1.8.0.212 &amp;&amp; mvn&#34;
+alias mvn11=&#34;JAVA_HOME=/d/xxxxxx/jdk-11.0.20.1+1 &amp;&amp; mvn&#34;
+alias mvn17=&#34;JAVA_HOME=/d/xxxxxx/jdk-17.0.2 &amp;&amp; mvn&#34;
+</code></pre>
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/psl-public/documentation/3developpement/3.1liens/" title="3.1 Liens"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/psl-public/documentation/3developpement/3.3demarrertout/" title="3.3 Démarrer tout" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/psl-public/documentation/js/clipboard.min.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/perfect-scrollbar.min.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/perfect-scrollbar.jquery.min.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/jquery.sticky.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/featherlight.min.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/highlight.pack.js?1745960225"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/psl-public/documentation/js/modernizr.custom-3.6.0.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/learn.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/hugo-learn.js?1745960225"></script>
+    
+        
+            <script src="/psl-public/documentation/mermaid/mermaid.js?1745960225"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

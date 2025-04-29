@@ -1,0 +1,119 @@
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# A SYNCHRONISER AVEC LES RUN "cloc" du 2-code/front/package.json
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##################################
+### Les fichiers liés aux IDEs ###
+##################################
+
+# Les fichiers de configuration générés par Eclipse
+.project
+.classpath
+.settings
+
+############################
+### Les fichiers générés ###
+############################
+
+# Les répertoires contenant les sources compilés
+2-code/front/dist
+target
+META-INF
+
+# Le répertoire contenant les modules NodeJS
+node_modules
+
+# Le répertoire de Node téléchargé/installé par Maven
+node
+
+# Les répertoires/fichiers générés par l'installation de YARN
+2-code/front/.pnp.*
+2-code/front/.yarn/install-state.gz
+2-code/front/.yarn/unplugged
+2-code/front/.yarn/sdks
+2-code/front/.nx
+
+# Le répertoire généré par les tests E2E
+2-code/front/screenshots
+
+# Le répertoire de cache d'Angular (arrivé avec Angular-13)
+2-code/front/.angular
+
+# Les fichiers générés par Hugo
+1-conception/.hugo_build.lock
+1-conception/resources/_gen
+1-conception/tmp
+
+# La documentation générée depuis le code des autres projets
+1-conception/static/documentationgeneree
+
+# Le certificat autosigné local
+2-code/.certificatsLocaux
+
+###################################################################
+### Les fichiers temporaires et/ou générés par les applications ###
+###################################################################
+
+# Les logs et PID générés au démarrage depuis Eclipse (depuis les scripts, ils sont dans le répertoire .log)
+*.log
+*.log.gz
+*.pid
+
+# Les logs et PID générés au démarrage avec le script SH
+2-code/socle/.log
+
+# Le répertoire de MongoDB (zip téléchargé et exécutable extrait)
+2-code/socle/.embedmongo
+
+# Le fichier généré par Redis
+2-code/socle/services-cloud/service-redis/dump.rdb
+
+# Le cache des données de référence téléchargées depuis l'INSEE et DATA.GOUV (démarré depuis la ligne de commande ou Eclipse)
+2-code/socle/.cache
+2-code/socle/socle-referentiel/.cache
+
+# Le répertoire d'analyse des données de référence
+2-code/socle/.analyse
+2-code/socle/socle-referentiel/.analyse
+
+# Les templates générés automatiquement par les outils du projet socle-soumission
+2-code/socle/socle-dbconfiguration/src/main/resources/db/auto-*
+
+# Le répertoire de démarrage des tomcat
+2-code/socle/.tomcatembarque
+
+# Le répertoire généré par Cypress au démarrage
+2-code/front/cypress
+
+# Le répertoire généré par la couverture de code Cypress
+2-code/front/coverage*
+2-code/front/.nyc_output
+
+# Le fichier généré par Shade
+2-code/socle/services-cloud/service-ldap/dependency-reduced-pom.xml
+2-code/socle/services-cloud/service-nosql/dependency-reduced-pom.xml
+2-code/socle/services-cloud/service-redis/dependency-reduced-pom.xml
+
+###################################################################################
+### Les fichiers utiles sur le poste local du développeur mais à ne pas partagé ###
+###################################################################################
+
+# des liens Windows
+*.lnk
+
+# Les sauvegardes générées par le script de sauvegarde
+sauvegarde_*.zip
+
+# Le fichier contenant les secrets du socle
+2-code/socle/variablesPourScripts.properties
+
+# Le répertoire des archives, binaires et données de la pile Elastic
+2-code/socle/.elastic
+
+# Les images de machine WSL
+2-code/ias/machinesWsl/*
+
+######################################
+### L'installation DependencyTrack ###
+######################################
+2-code/securite/*

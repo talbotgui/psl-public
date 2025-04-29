@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Fichier de configuration des logs car aucune configuration n'est activée dans les tests qui ne démarre pas une application Spring -->
+<configuration>
+
+	<appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} : %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.github.talbotgui.psl.socle" level="trace"
+		additivity="false">
+		<appender-ref ref="Console" />
+	</logger>
+
+	<logger name="ch.qos.logback" level="warn" additivity="false">
+		<appender-ref ref="Console" />
+	</logger>
+
+	<root level="debug">
+		<appender-ref ref="Console" />
+	</root>
+</configuration>

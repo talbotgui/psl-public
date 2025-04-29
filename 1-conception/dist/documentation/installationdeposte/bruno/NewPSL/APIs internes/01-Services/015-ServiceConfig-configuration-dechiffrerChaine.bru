@@ -1,0 +1,23 @@
+meta {
+  name: 015-ServiceConfig-configuration-dechiffrerChaine
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{API_HOST}}:{{portServiceConfig}}/decrypt
+  body: text
+  auth: none
+}
+
+headers {
+  Content-Type: text/plain
+}
+
+body:text {
+  AQCSOYNxR/SB0Dmh5tY1IVE/vIzCU4vI/bgBzC3Y0tH+bynweMl6B8VcsgtHjHw6S7sONrtW7eo+RrBFLQ8XT1QlMEu4yftzokEWKntHT9TqrbX2JE+Igk3OTo89YRgsUwvsIgkMTMIOT94UPZ1ApKGmbu6uYv+KjyhOC7VHKYDRUTcr3XJgbdzBQ7MxvnRtwWAxxrHhdvXu4JC+++xUYEzEgiPNnnDo4I/fac33OO25FGhGBDYileXPjziGoPH1u+JH1XGZvgBwGr5ts1IEae40IoE1SFFoDb7Nwm/c33eTy/XDimd+DpSlF50gxtN4kXGgGIW8M8xSaMe023sz8wQRtnHJn8/YHPu0w9ml+1OKYrZ/qRvcAvE0H1EOwgx49OMC075+kbJE1gtrNDC+u2CM
+}
+
+script:pre-request {
+  // 
+}

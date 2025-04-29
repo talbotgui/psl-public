@@ -1,0 +1,4 @@
+com.github.talbotgui.psl.socle.commundb.application
+com.github.talbotgui.psl.socle.commundb.dao
+com.github.talbotgui.psl.socle.commundb.exception
+com.github.talbotgui.psl.socle.commundb.utils

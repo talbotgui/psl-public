@@ -1,0 +1,5 @@
+#foreach ($mapEntry in $json.entrySet())
+	#if($foreach.first){#end
+    "$mapEntry.key":"$mapEntry.value"#if($foreach.hasNext),#end
+    #if($foreach.last)}#end
+#end

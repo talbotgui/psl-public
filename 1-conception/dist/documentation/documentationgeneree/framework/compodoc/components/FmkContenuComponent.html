@@ -1,0 +1,876 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Composants</li>
+  <li class="breadcrumb-item"
+  >
+  FmkContenuComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Fichier</h3>
+</p>
+<p class="comment">
+    <code>projects/framework/src/lib/contenu/fmk.contenu.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Composant de sélection du composant à afficher selon le contenu.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Métadonnées</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+            <tr>
+                <td class="col-md-3">encapsulation</td>
+                <td class="col-md-9"><code>ViewEncapsulation.None</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>div[data-fmk-contenu]</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/FmkContenuRicheComponent.html" target="_self" >FmkContenuRicheComponent</a></code>
+                                <code><a href="../components/FmkContenuSimpleComponent.html" target="_self" >FmkContenuSimpleComponent</a></code>
+                                <code><a href="../components/FmkContenuDocumentsComponent.html" target="_self" >FmkContenuDocumentsComponent</a></code>
+                                <code><a href="../components/FmkContenuUtilisateurConnecteComponent.html" target="_self" >FmkContenuUtilisateurConnecteComponent</a></code>
+                                <code><a href="../components/FmkContenuFinDemarcheComponent.html" target="_self" >FmkContenuFinDemarcheComponent</a></code>
+                                <code><a href="../components/FmkContenuRecapitulatifComponent.html" target="_self" >FmkContenuRecapitulatifComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./fmk.contenu.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#estDeTypeDocuments" >estDeTypeDocuments</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#estDeTypeFinDemarche" >estDeTypeFinDemarche</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#estDeTypeInconnu" >estDeTypeInconnu</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#estDeTypeRecapitulatif" >estDeTypeRecapitulatif</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#estDeTypeRiche" >estDeTypeRiche</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#estDeTypeSimple" >estDeTypeSimple</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#estDeTypeUtilisateurConnecte" >estDeTypeUtilisateurConnecte</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Entrées</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#contenu" >contenu</a>
+                            </li>
+                            <li>
+                                <a href="#controle" >controle</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accesseurs</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#controleAsFormGroup" >controleAsFormGroup</a>
+                                </li>
+                                <li>
+                                    <a href="#controleAsFormControl" >controleAsFormControl</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Entrées</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="contenu"></a>
+                        <b>contenu</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ContenuDeBloc | undefined</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Défini dans <a href="" data-line="44" class="link-to-prism">projects/framework/src/lib/contenu/fmk.contenu.ts:44</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Paramètrage du contenu</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="controle"></a>
+                        <b>controle</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>UntypedFormControl | UntypedFormGroup | undefined</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Défini dans <a href="" data-line="48" class="link-to-prism">projects/framework/src/lib/contenu/fmk.contenu.ts:48</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Controle associé au champ</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estDeTypeDocuments"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>estDeTypeDocuments</b></span>
+                        <a href="#estDeTypeDocuments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>estDeTypeDocuments()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="59"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/fmk.contenu.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estDeTypeFinDemarche"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>estDeTypeFinDemarche</b></span>
+                        <a href="#estDeTypeFinDemarche"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>estDeTypeFinDemarche()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="56"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/fmk.contenu.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estDeTypeInconnu"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>estDeTypeInconnu</b></span>
+                        <a href="#estDeTypeInconnu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>estDeTypeInconnu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="61"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/fmk.contenu.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estDeTypeRecapitulatif"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>estDeTypeRecapitulatif</b></span>
+                        <a href="#estDeTypeRecapitulatif"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>estDeTypeRecapitulatif()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="57"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/fmk.contenu.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estDeTypeRiche"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>estDeTypeRiche</b></span>
+                        <a href="#estDeTypeRiche"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>estDeTypeRiche()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="54"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/fmk.contenu.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estDeTypeSimple"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>estDeTypeSimple</b></span>
+                        <a href="#estDeTypeSimple"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>estDeTypeSimple()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="53"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/fmk.contenu.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Liste des méthodes retournant TRUE ou FALSE pour déclencher l&#39;affichage d&#39;un composant en fonction d&#39;un contenu.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estDeTypeUtilisateurConnecte"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>estDeTypeUtilisateurConnecte</b></span>
+                        <a href="#estDeTypeUtilisateurConnecte"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>estDeTypeUtilisateurConnecte()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="58"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/fmk.contenu.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accesseurs
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="controleAsFormGroup"></a>
+                        <span class="name"><b>controleAsFormGroup</b><a href="#controleAsFormGroup"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>controleAsFormGroup()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Défini dans <a href="" data-line="49" class="link-to-prism">projects/framework/src/lib/contenu/fmk.contenu.ts:49</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="controleAsFormControl"></a>
+                        <span class="name"><b>controleAsFormControl</b><a href="#controleAsFormControl"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>controleAsFormControl()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Défini dans <a href="" data-line="50" class="link-to-prism">projects/framework/src/lib/contenu/fmk.contenu.ts:50</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, ViewEncapsulation } from &#x27;@angular/core&#x27;;
+import { UntypedFormControl, UntypedFormGroup } from &#x27;@angular/forms&#x27;;
+import { ContenuDeBloc, TypeContenuDeBloc } from &#x27;../model/configurationdemarchecontenubloc.model&#x27;;
+import { UtilitaireModel } from &#x27;../utilitaires/utilitaire.model&#x27;;
+import { FmkContenuDocumentsComponent } from &#x27;./dedie/contenudocuments/fmk.contenudocuments&#x27;;
+import { FmkContenuFinDemarcheComponent } from &#x27;./dedie/contenufindemarche/fmk.contenufindemarche&#x27;;
+import { FmkContenuRecapitulatifComponent } from &#x27;./dedie/contenurecapitulatif/fmk.contenurecapitulatif&#x27;;
+import { FmkContenuUtilisateurConnecteComponent } from &#x27;./dedie/contenuutilisateurconnecte/fmk.contenuutilisateurconnecte&#x27;;
+import { FmkContenuRicheComponent } from &#x27;./riche/fmk.contenuriche&#x27;;
+import { FmkContenuSimpleComponent } from &#x27;./simple/fmk.contenusimple&#x27;;
+
+/** Composant de sélection du composant à afficher selon le contenu. */
+@Component({
+    selector: &#x27;div[data-fmk-contenu]&#x27;, templateUrl: &#x27;./fmk.contenu.html&#x27;, encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    imports: [FmkContenuRicheComponent, FmkContenuSimpleComponent, FmkContenuDocumentsComponent, FmkContenuUtilisateurConnecteComponent, FmkContenuFinDemarcheComponent, FmkContenuRecapitulatifComponent]
+})
+export class FmkContenuComponent {
+
+    /** Paramètrage du contenu */
+    @Input()
+    public contenu: ContenuDeBloc | undefined;
+
+    /** Controle associé au champ */
+    @Input()
+    public controle: UntypedFormControl | UntypedFormGroup | undefined;
+    public get controleAsFormGroup(): UntypedFormGroup | undefined { return this.controle as UntypedFormGroup; }
+    public get controleAsFormControl(): UntypedFormControl | undefined { return this.controle as UntypedFormControl; }
+
+    /** Liste des méthodes retournant TRUE ou FALSE pour déclencher l&#x27;affichage d&#x27;un composant en fonction d&#x27;un contenu. */
+    public estDeTypeSimple(): boolean { return !!this.contenu &amp;&amp; !UtilitaireModel.contenuEstUneSaisieComplexe(this.contenu); }
+    public estDeTypeRiche(): boolean { return !!this.contenu &amp;&amp; UtilitaireModel.contenuEstUneSaisieComplexe(this.contenu); }
+
+    public estDeTypeFinDemarche(): boolean { return !!this.contenu &amp;&amp; UtilitaireModel.contenuEstDeType(this.contenu, TypeContenuDeBloc.finDemarche); }
+    public estDeTypeRecapitulatif(): boolean { return !!this.contenu &amp;&amp; UtilitaireModel.contenuEstDeType(this.contenu, TypeContenuDeBloc.recapitulatif); }
+    public estDeTypeUtilisateurConnecte(): boolean { return !!this.contenu &amp;&amp; UtilitaireModel.contenuEstDeType(this.contenu, TypeContenuDeBloc.utilisateurConnecte); }
+    public estDeTypeDocuments(): boolean { return !!this.contenu &amp;&amp; UtilitaireModel.contenuEstDeType(this.contenu, TypeContenuDeBloc.documents); }
+
+    public estDeTypeInconnu(): boolean { return !!this.contenu &amp;&amp; UtilitaireModel.contenuEstDeTypeInconnu(this.contenu); }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@if (contenu) {
+&lt;div class&#x3D;&quot;contenuAbstrait&quot;&gt;
+  &lt;!-- Le contenu à afficher en fonction de son type --&gt;
+  &lt;!-- Ajout de la clef en attribut de la balise pour l&#x27;analyse et les tests automatisés --&gt;
+  &lt;!-- Attention, [controle] pour les mono-saisie et [groupeControles] pour les complexes--&gt;
+  @if (estDeTypeSimple()) {
+  &lt;div data-fmk-contenusimple [attr.data-clef]&#x3D;&quot;contenu.clef&quot; [contenu]&#x3D;&quot;contenu&quot; [controle]&#x3D;&quot;controleAsFormControl&quot;&gt;
+  &lt;/div&gt;
+  }
+  @if (estDeTypeRiche()) {
+  &lt;div data-fmk-contenuriche [attr.data-clef]&#x3D;&quot;contenu.clef&quot; [contenu]&#x3D;&quot;contenu&quot; [groupeControles]&#x3D;&quot;controleAsFormGroup&quot;&gt;
+  &lt;/div&gt;
+  }
+  @if (estDeTypeFinDemarche()) {
+  &lt;div data-fmk-contenufindemarche&gt;&lt;/div&gt;
+  }
+  @if (estDeTypeRecapitulatif()) {
+  &lt;div data-fmk-contenurecapitulatif [contenu]&#x3D;&quot;contenu&quot;&gt;&lt;/div&gt;
+  }
+  @if (estDeTypeDocuments()) {
+  &lt;div data-fmk-contenudocuments [attr.data-clef]&#x3D;&quot;contenu.clef&quot; [contenu]&#x3D;&quot;contenu&quot; [controle]&#x3D;&quot;controleAsFormControl&quot;&gt;
+  &lt;/div&gt;
+  }
+  @if (estDeTypeUtilisateurConnecte()) {
+  &lt;div data-fmk-contenuutilisateurconnecte [attr.data-clef]&#x3D;&quot;contenu.clef&quot; [contenu]&#x3D;&quot;contenu&quot;&gt;
+  &lt;/div&gt;
+  }
+  @if (estDeTypeInconnu()) {
+  &lt;span&gt;Erreur de configuration, le type de contenu n&#x27;est pas connu&lt;/span&gt;
+  }
+&lt;/div&gt;
+}</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Légende</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elément Html</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Composant</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elément Html avec une directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@if (contenu) {<div class="contenuAbstrait">  <!-- Le contenu à afficher en fonction de son type -->  <!-- Ajout de la clef en attribut de la balise pour l\'analyse et les tests automatisés -->  <!-- Attention, [controle] pour les mono-saisie et [groupeControles] pour les complexes-->  @if (estDeTypeSimple()) {  <div data-fmk-contenusimple [attr.data-clef]="contenu.clef" [contenu]="contenu" [controle]="controleAsFormControl">  </div>  }  @if (estDeTypeRiche()) {  <div data-fmk-contenuriche [attr.data-clef]="contenu.clef" [contenu]="contenu" [groupeControles]="controleAsFormGroup">  </div>  }  @if (estDeTypeFinDemarche()) {  <div data-fmk-contenufindemarche></div>  }  @if (estDeTypeRecapitulatif()) {  <div data-fmk-contenurecapitulatif [contenu]="contenu"></div>  }  @if (estDeTypeDocuments()) {  <div data-fmk-contenudocuments [attr.data-clef]="contenu.clef" [contenu]="contenu" [controle]="controleAsFormControl">  </div>  }  @if (estDeTypeUtilisateurConnecte()) {  <div data-fmk-contenuutilisateurconnecte [attr.data-clef]="contenu.clef" [contenu]="contenu">  </div>  }  @if (estDeTypeInconnu()) {  <span>Erreur de configuration, le type de contenu n\'est pas connu</span>  }</div>}</div>'
+    var COMPONENTS = [{'name': 'ConnexionBrouillonDialog', 'selector': 'div[data-fmk-connexionreprisebrouillon]'},{'name': 'FmkBlocComponent', 'selector': 'div[data-fmk-bloc]'},{'name': 'FmkBlocDynamiqueComponent', 'selector': 'div[data-fmk-blocdynamique]'},{'name': 'FmkCaptchaComponent', 'selector': 'div[data-fmk-captcha]'},{'name': 'FmkConteneurPagesComponent', 'selector': 'div[data-fmk-conteneurpages]'},{'name': 'FmkContenuAdresseFrOuRtrComponent', 'selector': 'div[data-fmk-contenuadressefrouetr]'},{'name': 'FmkContenuAutocompletionComponent', 'selector': 'div[data-fmk-contenuautocompletion]'},{'name': 'FmkContenuCaseComponent', 'selector': 'div[data-fmk-contenucase]'},{'name': 'FmkContenuComponent', 'selector': 'div[data-fmk-contenu]'},{'name': 'FmkContenuContactPersonnelComponent', 'selector': 'div[data-fmk-contenucontactpersonnel]'},{'name': 'FmkContenuDateComponent', 'selector': 'div[data-fmk-contenudate]'},{'name': 'FmkContenuDocumentsComponent', 'selector': 'div[data-fmk-contenudocuments]'},{'name': 'FmkContenuFinDemarcheComponent', 'selector': 'div[data-fmk-contenufindemarche]'},{'name': 'FmkContenuFinDemarcheConnecteComponent', 'selector': 'div[data-fmk-contenufindemarcheconnecte]'},{'name': 'FmkContenuFinDemarcheNonConnecteComponent', 'selector': 'div[data-fmk-contenufindemarchenonconnecte]'},{'name': 'FmkContenuIdentiteComponent', 'selector': 'div[data-fmk-contenuidentite]'},{'name': 'FmkContenuListeFinieComponent', 'selector': 'div[data-fmk-contenulistefinie]'},{'name': 'FmkContenuParagrapheComponent', 'selector': 'div[data-fmk-contenuparagraphe]'},{'name': 'FmkContenuRadioComponent', 'selector': 'div[data-fmk-contenuradio]'},{'name': 'FmkContenuRecapitulatifComponent', 'selector': 'div[data-fmk-contenurecapitulatif]'},{'name': 'FmkContenuRicheComponent', 'selector': 'div[data-fmk-contenuriche]'},{'name': 'FmkContenuSaisieComponent', 'selector': 'div[data-fmk-contenusaisie]'},{'name': 'FmkContenuSaisieLongueComponent', 'selector': 'div[data-fmk-contenusaisielongue]'},{'name': 'FmkContenuSimpleComponent', 'selector': 'div[data-fmk-contenusimple]'},{'name': 'FmkContenuUploadDocumentComponent', 'selector': 'div[data-fmk-contenuuploaddocument]'},{'name': 'FmkContenuUtilisateurConnecteComponent', 'selector': 'div[data-fmk-contenuutilisateurconnecte]'},{'name': 'FmkEnteteComponent', 'selector': 'div[data-fmk-entete]'},{'name': 'FmkFilDarianeComponent', 'selector': 'div[data-fmk-fildariane]'},{'name': 'FmkListeContenusRecapitulatifComponent', 'selector': 'div[data-fmk-listecontenusrecapitulatif]'},{'name': 'FmkMessageGlobalComponent', 'selector': 'div[data-fmk-messageglobal]'},{'name': 'FmkMessagesValidationComponent', 'selector': '[data-fmk-messagesvalidation]'},{'name': 'FmkNavigationComponent', 'selector': 'div[data-fmk-navigation]'},{'name': 'FmkPageComponent', 'selector': 'div[data-fmk-page]'},{'name': 'FmkPiedDePageComponent', 'selector': 'div[data-fmk-pieddepage]'}];
+    var DIRECTIVES = [{'name': 'AbstractComponent', 'selector': ''},{'name': 'AncreTabulableDirective', 'selector': 'a:not([href])'},{'name': 'FmkApplicationAbstraitComponent', 'selector': ''},{'name': 'FmkContenuAbstraitComponent', 'selector': ''},{'name': 'FmkContenuComplexeAbstraitComponent', 'selector': ''},{'name': 'FmkContenuFinDemarcheAbstraitComponent', 'selector': ''},{'name': 'FmkContenuMonoSaisieAbstraitComponent', 'selector': ''}];
+    var ACTUAL_COMPONENT = {'name': 'FmkContenuComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FmkContenuComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

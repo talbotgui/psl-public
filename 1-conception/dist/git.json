@@ -1,0 +1,28 @@
+
+{
+    "git.branch": "master",
+    "git.build.host": "FR-L4876926",
+    "git.build.time": "2025-04-29T22:57:03+0200",
+    "git.build.user.email": "talbotgui@gmail.com",
+    "git.build.user.name": "Guillaume TALBOT",
+    "git.build.version": "0.0.2-SNAPSHOT",
+    "git.closest.tag.commit.count": "",
+    "git.closest.tag.name": "",
+    "git.commit.author.time": "2025-04-29T21:58:01+0200",
+    "git.commit.committer.time": "2025-04-29T21:58:01+0200",
+    "git.commit.id": "087602e50d6831341af75fa1fa6c6f331a57526a",
+    "git.commit.id.abbrev": "087602e",
+    "git.commit.id.describe": "087602e-dirty",
+    "git.commit.id.describe-short": "087602e-dirty",
+    "git.commit.message.full": "Initial commit",
+    "git.commit.message.short": "Initial commit",
+    "git.commit.time": "2025-04-29T21:58:01+0200",
+    "git.commit.user.email": "talbotgui@gmail.com",
+    "git.commit.user.name": "TALBOT Guillaume",
+    "git.dirty": "true",
+    "git.local.branch.ahead": "0",
+    "git.local.branch.behind": "0",
+    "git.remote.origin.url": "https://github.com/talbotgui/psl-public.git",
+    "git.tags": "",
+    "git.total.commit.count": "1"
+}

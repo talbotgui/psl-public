@@ -1,0 +1,161 @@
+<!-- La liste des champs de saisie, dans cette page, respecte l'ordre de présence des champs dans le fichier configurationdemarchecontenubloc.model.ts -->
+@for (contenu of contenus; track contenu; let i = $index) {
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span>Contenu {{i}}</span>
+        @if (contenu.clef) {
+          <span>&nbsp;- {{contenu.clef}}</span>
+        }
+        <span><i>&nbsp;- {{contenu.type}}</i></span>
+      </mat-panel-title>
+      <mat-panel-description>
+        @if (i>0) {
+          <button type="button" mat-icon-button (click)="monterElement(i); $event.stopPropagation()">
+            <span class="fr-icon-arrow-up-fill" aria-hidden="false" aria-label="Monter l'élément"></span>
+          </button>
+        }
+        @if (i<contenus.length-1) {
+          <button type="button" mat-icon-button (click)="descendreElement(i); $event.stopPropagation()">
+            <span class="fr-icon-arrow-down-fill" aria-hidden="false" aria-label="Descendre l'élément"></span>
+          </button>
+        }
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <!-- ContenuDeBloc -->
+    @if (contenu.type!='paragraphe') {
+      <mat-form-field>
+        <mat-label>
+          <span class="symbol-required">* </span>
+          <span>Clef</span>
+        </mat-label>
+        <input type="text" matInput [(ngModel)]="contenu.clef">
+      </mat-form-field>
+    }
+    @if (contenu.type!='paragraphe') {
+      <mat-form-field>
+        <mat-label>
+          <span class="symbol-required">* </span>
+          <span>Titre</span>
+        </mat-label>
+        <input type="text" matInput [(ngModel)]="contenu.titre">
+      </mat-form-field>
+    }
+    @if (contenu.type!='paragraphe') {
+      <mat-form-field>
+        <mat-label>
+          <span>Aide</span>
+        </mat-label>
+        <input type="text" matInput [(ngModel)]="contenu.aide">
+      </mat-form-field>
+    }
+    @if (contenu.type!='paragraphe') {
+      <mat-form-field>
+        <mat-label>
+          <span>Condition de désactivation</span>
+        </mat-label>
+        <input type="text" matInput [(ngModel)]="contenu.conditionDesactivation">
+      </mat-form-field>
+    }
+    <mat-form-field>
+      <mat-label>
+        <span>Condition de visibilité</span>
+      </mat-label>
+      <input type="text" matInput [(ngModel)]="contenu.conditionVisibilite">
+    </mat-form-field>
+    <!-- ContenuParagraphe -->
+    @if (contenu.type=='paragraphe') {
+      <mat-form-field>
+        <mat-label>
+          <span>Texte à afficher (en texte ou en HTML)</span>
+        </mat-label>
+        <input type="text" matInput [(ngModel)]="contenu.texte">
+      </mat-form-field>
+    }
+    @if (contenu.type=='paragraphe') {
+      <mat-form-field>
+        <mat-label>
+          <span>Classe CSS</span>
+        </mat-label>
+        <input type="text" matInput [(ngModel)]="contenu.style">
+      </mat-form-field>
+    }
+    <!-- ContenuSaisie -->
+    @if (contenu.type=='saisie'||contenu.type=='case'||contenu.type=='listeFinie'||contenu.type=='radio'||contenu.type=='date'||contenu.type=='autocompletion') {
+      <mat-form-field
+        >
+        <mat-label>
+          <span>Validations</span>
+        </mat-label>
+        <mat-select [(ngModel)]="contenu.validations" multiple>
+          @for (v of listeValidations; track v) {
+            <mat-option [value]="v">{{v}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    }
+    <!-- ContenuSaisieComplexe-->
+    @if (contenu.type=='identite'||contenu.type=='adresseFrOuEtr') {
+      <mat-form-field appearance="fill">
+        <mat-label>Champs visibles</mat-label>
+        <mat-select [(ngModel)]="contenu.champsVisibles" multiple>
+          @for (v of listeChampsVisibles[contenu.type]; track v) {
+            <mat-option [value]="v">{{v}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      @for (c of contenu.champsVisibles; track c) {
+        <mat-form-field>
+          <mat-label>
+            <span>Validation du champ '{{c}}'</span>
+          </mat-label>
+          <mat-select [(ngModel)]="contenu.validations[c]" multiple>
+            @for (v of listeValidations; track v) {
+              <mat-option [value]="v">{{v}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>
+            <span>Aide du champ '{{c}}'</span>
+          </mat-label>
+          <input type="text" matInput [(ngModel)]="contenu.aides[c]">
+        </mat-form-field>
+      }
+    }
+    @if (contenu.type=='identite'||contenu.type=='listeFinie'||contenu.type=='radio') {
+      <app-saisievaleurdelistefinie (onValidation)="contenu.valeurs.push($event)">
+      </app-saisievaleurdelistefinie>
+      <ol>
+        @for (v of contenu.valeurs; track v; let j = $index) {
+          <li>
+            <span>{{v.valeur}}={{v.libelle}}</span>
+            <button type="button" mat-icon-button (click)="contenu.valeurs.splice(j, 1)">
+              <span class="fr-icon-delete-bin-fill" aria-hidden="false" aria-label="Supprimer l'élément"></span>
+            </button>
+          </li>
+        }
+      </ol>
+    }
+    <!-- ContenuAutocompletion -->
+    @if (contenu.type=='autocompletion') {
+      <mat-form-field>
+        <mat-label>
+          <span>Clef de l'API source de l'information</span>
+        </mat-label>
+        <input type="text" matInput [(ngModel)]="contenu.api">
+      </mat-form-field>
+    }
+    @if (contenu.type=='autocompletion') {
+      <mat-form-field>
+        <mat-label>
+          <span>Attribut de réponse de l'API à afficher</span>
+        </mat-label>
+        <input type="text" matInput [(ngModel)]="contenu.attributReponseApiPourLibelle">
+      </mat-form-field>
+    }
+    <mat-action-row>
+      <button type="button" class="btn btn-primary" mat-button (click)="supprimerElement(i)">Supprimer ce contenu</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+}

@@ -1,0 +1,41 @@
+@if (contenu && contenuRadio && controle && contenuRadio.valeurs) {
+  <!-- Le FormGroup + formControlName + attr.name sont nécessaires pour que la tabulation se passe bien quand deux contenuradio se suivent sans aide définie -->
+  <!-- Le fr-mb-0 permet de réduire la marge ajoutée après le fieldset et donc séparant ce contenu du suivant -->
+  <fieldset class="fr-fieldset fr-mb-0" [class.fr-fieldset--error]="saisieInvalide" [class.fr-fieldset--valid]="saisieValide"
+    [attr.aria-labelledby]="((contenu.titreAafficher || contenu.aideAafficher)?('legend'+numeroUnique):'')+' messages'+numeroUnique"
+    [formGroup]="formulaire">
+    @if (contenu.titreAafficher || contenu.aideAafficher) {
+      <legend [id]="'legend'+numeroUnique" class="fr-fieldset__legend--regular fr-fieldset__legend"
+        >
+        @if (validationObligatoirePresente && !contenu.modeObligatoireParDefaut) {
+          <span class="symbol-required">* </span>
+        }
+        <span class="textelibelle" [innerHTML]="contenu.titreAafficher | libelle"></span>
+        @if ((!validationObligatoirePresente && contenu.modeObligatoireParDefaut) || contenu.aideAafficher) {
+          <span class="fr-hint-text">
+            @if (!validationObligatoirePresente && contenu.modeObligatoireParDefaut) {
+              Facultatif
+            }
+            @if (!validationObligatoirePresente && contenu.modeObligatoireParDefaut && contenu.aideAafficher) {
+              -
+            }
+            {{ contenu.aideAafficher | libelle }}
+          </span>
+        }
+      </legend>
+    }
+    @for (v of contenuRadio.valeurs; track v; let index = $index) {
+      @if (v.visibilite) {
+        <div class="fr-fieldset__element fr-fieldset__element--inline">
+          <div class="fr-radio-group">
+            <input type="radio" [id]="'radio'+numeroUnique+'-'+index" [formControl]="controle" [value]="v.valeur" [formControlName]="clef"
+              [attr.name]="'radio'+numeroUnique" [attr.v]="v.valeur">
+              <label class="fr-label" [for]="'radio'+numeroUnique+'-'+index">{{v.libelleAafficher}} </label>
+            </div>
+          </div>
+        }
+      }
+      <p data-fmk-messagesvalidation class="fr-messages-group" [id]="'messages'+numeroUnique" aria-live="assertive" [contenu]="contenu"
+      [controle]="controle"></p>
+    </fieldset>
+  }

@@ -1,0 +1,2098 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >GlobalTestUtils</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Fichier</h3>
+        </p>
+        <p class="comment">
+            <code>projects/framework/cypress/utils/globaltest-utils.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Classe utilitaire regroupant la globalité de l&#39;exécution de tous les scénarios de test possibles</p>
+
+            </p>
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#brouillonDemarche" >brouillonDemarche</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#brouillonsDisponibles" >brouillonsDisponibles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#confDemarche" >confDemarche</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#donneesDeBase" >donneesDeBase</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#idSession" >idSession</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#indexPartieCorrespondantAuDebutDuScenarioEnCours" >indexPartieCorrespondantAuDebutDuScenarioEnCours</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#indexScenarioDeTestEnCours" >indexScenarioDeTestEnCours</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#listeUrlDesScenariosDeTest" >listeUrlDesScenariosDeTest</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#nbPagesInvisiblesDansAriane" >nbPagesInvisiblesDansAriane</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#scenarioPrecedentTermine" >scenarioPrecedentTermine</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#calculerListeOccurencesApartirDesDonnees" >calculerListeOccurencesApartirDesDonnees</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#calculerTimestampCourant" >calculerTimestampCourant</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#chargerConfigurationEtBrouillonPuisDefinirLesScenariosAtester" >chargerConfigurationEtBrouillonPuisDefinirLesScenariosAtester</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#clonerAminimaContenusPourLoccurence" >clonerAminimaContenusPourLoccurence</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#definirLesScenariosAtester" >definirLesScenariosAtester</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#demarrerLaNavigation" >demarrerLaNavigation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#executerUnePartieDesTests" >executerUnePartieDesTests</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#formatterNombre" >formatterNombre</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#selectionnerBrouillon" >selectionnerBrouillon</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#testerPage" >testerPage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#validerContenus" >validerContenus</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="brouillonDemarche"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>brouillonDemarche</b></span>
+                        <a href="#brouillonDemarche"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BrouillonDemarche | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="47" class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:47</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variable globale contenant les données de brouillon de la démarche</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="brouillonsDisponibles"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>brouillonsDisponibles</b></span>
+                        <a href="#brouillonsDisponibles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BrouillonDemarche[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="44" class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:44</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Liste des brouillons disponibles en fonction de l&#39;URL de démarrage</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confDemarche"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>confDemarche</b></span>
+                        <a href="#confDemarche"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ConfigurationDemarche | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="41" class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:41</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variable globale contenant la configuration de la démarche</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="donneesDeBase"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>donneesDeBase</b></span>
+                        <a href="#donneesDeBase"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="65" class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:65</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Données disponibles au début du test d&#39;une page</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="idSession"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>idSession</b></span>
+                        <a href="#idSession"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>this.calculerTimestampCourant()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="38" class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:38</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>ID unique de la session</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="indexPartieCorrespondantAuDebutDuScenarioEnCours"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>indexPartieCorrespondantAuDebutDuScenarioEnCours</b></span>
+                        <a href="#indexPartieCorrespondantAuDebutDuScenarioEnCours"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="62" class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:62</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Index de la partie correspondant au début du scénario en cours</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="indexScenarioDeTestEnCours"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>indexScenarioDeTestEnCours</b></span>
+                        <a href="#indexScenarioDeTestEnCours"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>-1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="56" class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:56</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Index du scénario de test en cours</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listeUrlDesScenariosDeTest"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>listeUrlDesScenariosDeTest</b></span>
+                        <a href="#listeUrlDesScenariosDeTest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="53" class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:53</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Liste des scénarios de test à réaliser</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nbPagesInvisiblesDansAriane"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>nbPagesInvisiblesDansAriane</b></span>
+                        <a href="#nbPagesInvisiblesDansAriane"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="50" class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:50</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variable globale contenant le nombre de pages invisibles dans le fil d&#39;Ariane (pour calculer l&#39;index visible de chaque page)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scenarioPrecedentTermine"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>scenarioPrecedentTermine</b></span>
+                        <a href="#scenarioPrecedentTermine"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="59" class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:59</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag indiquant que le scénario de test précédent est terminé pour passer au scénario suivant</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculerListeOccurencesApartirDesDonnees"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>calculerListeOccurencesApartirDesDonnees</b></span>
+                        <a href="#calculerListeOccurencesApartirDesDonnees"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculerListeOccurencesApartirDesDonnees(bloc: Bloc)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="436"
+                                    class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:436</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Recherche de la liste des occurences pour lesquelles existent une valeur dans les données du brouillon.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>bloc</td>
+                                            <td>
+                                                        <code>Bloc</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>number[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculerTimestampCourant"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>calculerTimestampCourant</b></span>
+                        <a href="#calculerTimestampCourant"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculerTimestampCourant()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="499"
+                                    class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:499</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Calcul du timestamp courant.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chargerConfigurationEtBrouillonPuisDefinirLesScenariosAtester"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>chargerConfigurationEtBrouillonPuisDefinirLesScenariosAtester</b></span>
+                        <a href="#chargerConfigurationEtBrouillonPuisDefinirLesScenariosAtester"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>chargerConfigurationEtBrouillonPuisDefinirLesScenariosAtester(codeDemarche: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, urlConfigurationDemarche: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, urlsBrouillonDemarche: string[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="74"
+                                    class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>A exécuter dans la méthode before d&#39;un test Cypress pour charger la configuration de la démarche et son brouillon.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>codeDemarche</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Code de la démarche</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>urlConfigurationDemarche</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>URL relative de la configuration de la démarche présente dans les ressources statiques de l&#39;application.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>urlsBrouillonDemarche</td>
+                                            <td>
+                                                        <code>string[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>URLs relatives des brouillons de la démarche présents dans les ressources statiques de l&#39;application.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clonerAminimaContenusPourLoccurence"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>clonerAminimaContenusPourLoccurence</b></span>
+                        <a href="#clonerAminimaContenusPourLoccurence"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clonerAminimaContenusPourLoccurence(bloc: Bloc, o: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="425"
+                                    class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:425</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode clonant les contenus du bloc pour une occurence précise (pour en changer la clef et les conditions notamment)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>bloc</td>
+                                            <td>
+                                                        <code>Bloc</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>o</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>ContenuDeBloc[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="definirLesScenariosAtester"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>definirLesScenariosAtester</b></span>
+                        <a href="#definirLesScenariosAtester"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>definirLesScenariosAtester()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="117"
+                                    class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:117</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Calcul de tous les scénarios à réaliser</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="demarrerLaNavigation"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>demarrerLaNavigation</b></span>
+                        <a href="#demarrerLaNavigation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>demarrerLaNavigation(urlScenarioAdemarrer: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="174"
+                                    class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:174</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Démarrage de la navigation à appeler dans la méthode it(&#39;Démarrage de la navigation&#39;, () =&gt; {})</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>urlScenarioAdemarrer</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="executerUnePartieDesTests"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>executerUnePartieDesTests</b></span>
+                        <a href="#executerUnePartieDesTests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>executerUnePartieDesTests(i: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="235"
+                                    class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:235</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Execution d&#39;une étape i de l&#39;ensemble des tests.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>i</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Etape i.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatterNombre"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>formatterNombre</b></span>
+                        <a href="#formatterNombre"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>formatterNombre(nombre: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="509"
+                                    class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:509</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Formattage du nombre sur deux chiffres.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>nombre</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectionnerBrouillon"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>selectionnerBrouillon</b></span>
+                        <a href="#selectionnerBrouillon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectionnerBrouillon(urlScenarioAdemarrer: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="201"
+                                    class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:201</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sélection du bon brouillon en fonction des données de l&#39;URL.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>urlScenarioAdemarrer</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>URL du test.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="testerPage"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>testerPage</b></span>
+                        <a href="#testerPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>testerPage(i: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="270"
+                                    class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:270</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Execution du test d&#39;une page i.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>i</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Page i du test (une étape/page d&#39;un déroulé de démarche).</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validerContenus"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>validerContenus</b></span>
+                        <a href="#validerContenus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validerContenus(i: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, iBloc: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, iSousBloc: number | undefined, contenus: ContenuDeBloc[], donneesDeLaPage: literal type, occurenceDeBlocDynamique: number | undefined, modeEdition: boolean | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="470"
+                                    class="link-to-prism">projects/framework/cypress/utils/globaltest-utils.ts:470</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Test du bon fonctionnement des contenus du bloc</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>i</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Page i du test (une étape/page d&#39;un déroulé de démarche).     *</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>iBloc</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>L&#39;index du bloc.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>iSousBloc</td>
+                                            <td>
+                                                        <code>number | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>L&#39;index du sous-bloc (ou undefined)</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>contenus</td>
+                                            <td>
+                                                        <code>ContenuDeBloc[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Les contenus du bloc.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>donneesDeLaPage</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Les données de la page</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>occurenceDeBlocDynamique</td>
+                                            <td>
+                                                        <code>number | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Occurence si c&#39;est un bloc dynamique sinon UNDEFINED</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>modeEdition</td>
+                                            <td>
+                                                        <code>boolean | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Mode LECTURE ou EDITION</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BrouillonDemarche } from &#x27;../../../framework/src/lib/model/brouillonsoumissiondemarche.model&#x27;;
+import { Bloc, ConfigurationDemarche } from &#x27;../../../framework/src/lib/model/configurationdemarchegeneral.model&#x27;;
+import { ContenuDeBloc, ContenuParagraphe, TypeContenuDeBloc } from &#x27;../../src/lib/model/configurationdemarchecontenubloc.model&#x27;;
+import { UtilitaireBlocDynamique } from &#x27;../../src/lib/utilitaires/utilitaire.blocdynamique&#x27;;
+import { BlocTestUtils } from &#x27;./bloctest-utils&#x27;;
+import { ConsoleUtils } from &#x27;./console-utils&#x27;;
+import { ContenuTestUtils } from &#x27;./contenutest-utils&#x27;;
+import { DonneesUtils } from &#x27;./donnees-utils&#x27;;
+import { FilArianeTestUtils } from &#x27;./filarianetest-utils&#x27;;
+import { LogUtils } from &#x27;./log-utils&#x27;;
+import { NavigationTestUtils } from &#x27;./navigationtest-utils&#x27;;
+
+/** Classe utilitaire regroupant la globalité de l&#x27;exécution de tous les scénarios de test possibles */
+export class GlobalTestUtils {
+
+    /** ID unique de la session */
+    private idSession: string &#x3D; this.calculerTimestampCourant();
+
+    /** Variable globale contenant la configuration de la démarche */
+    public confDemarche: ConfigurationDemarche | undefined;
+
+    /** Liste des brouillons disponibles en fonction de l&#x27;URL de démarrage */
+    public brouillonsDisponibles: BrouillonDemarche[] &#x3D; [];
+
+    /** Variable globale contenant les données de brouillon de la démarche */
+    public brouillonDemarche: BrouillonDemarche | undefined;
+
+    /** Variable globale contenant le nombre de pages invisibles dans le fil d&#x27;Ariane (pour calculer l&#x27;index visible de chaque page) */
+    public nbPagesInvisiblesDansAriane &#x3D; 0;
+
+    /** Liste des scénarios de test à réaliser*/
+    public listeUrlDesScenariosDeTest: string[] &#x3D; [];
+
+    /** Index du scénario de test en cours */
+    public indexScenarioDeTestEnCours &#x3D; -1;
+
+    /** Flag indiquant que le scénario de test précédent est terminé pour passer au scénario suivant */
+    private scenarioPrecedentTermine &#x3D; true;
+
+    /** Index de la partie correspondant au début du scénario en cours */
+    public indexPartieCorrespondantAuDebutDuScenarioEnCours &#x3D; 0;
+
+    /** Données disponibles au début du test d&#x27;une page */
+    private donneesDeBase: { [index: string]: any } &#x3D; {};
+
+    /**
+     * A exécuter dans la méthode before d&#x27;un test Cypress pour charger la configuration de la démarche et son brouillon.
+     * 
+     * @param codeDemarche Code de la démarche
+     * @param urlConfigurationDemarche URL relative de la configuration de la démarche présente dans les ressources statiques de l&#x27;application.
+     * @param urlsBrouillonDemarche URLs relatives des brouillons de la démarche présents dans les ressources statiques de l&#x27;application.
+     */
+    public chargerConfigurationEtBrouillonPuisDefinirLesScenariosAtester(codeDemarche: string, urlConfigurationDemarche: string, urlsBrouillonDemarche: string[]): void {
+
+        LogUtils.creerFichier(codeDemarche + &#x27;-&#x27; + this.idSession);
+        LogUtils.log(&#x27;Démarrage des tests pour la démarche \&#x27;&#x27; + codeDemarche + &#x27;\&#x27; avec la configuration \&#x27;&#x27; + urlConfigurationDemarche + &#x27;\&#x27; et les brouillons &#x27; + JSON.stringify(urlsBrouillonDemarche) + &#x27; avec une application répondant sur \&#x27;&#x27; + Cypress.config().baseUrl + &#x27;\&#x27;&#x27;);
+
+        // Chargement de la configuration de la démarche et sauvegarde dans configurationDemarche
+        cy.request(Cypress.config().baseUrl + &#x27;generique&#x27; + urlConfigurationDemarche).then(reponseParam &#x3D;&gt; {
+
+            // Sauvegarde de la configuration dans une variable structurée (pour l&#x27;autocompletion)
+            this.confDemarche &#x3D; reponseParam.body as ConfigurationDemarche;
+
+            //Petit passage sur les données de configuration pour alimenter les listes vides
+            this.confDemarche.pages &#x3D; this.confDemarche.pages || [];
+            this.confDemarche.pages.forEach(p &#x3D;&gt; {
+                p.blocs &#x3D; p.blocs || [];
+                p.blocs.forEach(b &#x3D;&gt; {
+                    b.contenus &#x3D; b.contenus || [];
+                    b.sousBlocs &#x3D; b.sousBlocs || [];
+                    b.sousBlocs.forEach(sb &#x3D;&gt; sb.contenus &#x3D; sb.contenus || []);
+                });
+            });
+
+            // Log du contenu de la configuration chargée (au besoin)
+            LogUtils.log(&#x27;Configuration chargée : &#x27; + JSON.stringify(this.confDemarche));
+            
+            // Chargement du brouillon pour fournir des données de test
+            urlsBrouillonDemarche.forEach(urlBrouillonDemarche &#x3D;&gt; {
+                cy.request(Cypress.config().baseUrl + &#x27;generique&#x27; + urlBrouillonDemarche).then(reponseBrouillon &#x3D;&gt; {
+
+                    // Sauvegarde du brouillon dans une variable structurée (pour l&#x27;autocompletion)
+                    this.brouillonsDisponibles.push(reponseBrouillon.body as BrouillonDemarche);
+
+                    // Log du contenu de la configuration chargée (au besoin)
+                    LogUtils.log(&#x27;Brouillon chargé : &#x27; + JSON.stringify(reponseBrouillon.body));
+                });
+            });
+
+            // Calcul de tous les scénarios à réaliser
+            this.definirLesScenariosAtester();
+        });
+    }
+
+    /** Calcul de tous les scénarios à réaliser */
+    private definirLesScenariosAtester(): void {
+
+        // Au cas où
+        if (!this.confDemarche) {
+            return;
+        }
+
+        // Initialisation de la liste des URLs des scénarios de test (d&#x27;abord les non connectés puis les connectés)
+        this.listeUrlDesScenariosDeTest &#x3D; [];
+
+        // Initialisation de la liste des URLs des scénarios de test connectés
+        const listeUrlDesScenariosDeTestConnectes &#x3D; [];
+
+        // si pas de points d&#x27;entrée défini, un seul scénario de test est possible avec l&#x27;URL &#x27;/&#x27;
+        if (!this.confDemarche.pointsEntree || this.confDemarche.pointsEntree.length &#x3D;&#x3D;&#x3D; 0) {
+            this.listeUrlDesScenariosDeTest.push(&#x27;&amp;&#x27;);
+        }
+
+        // Sinon parcours des points d&#x27;entree pour créer une URL pour chaque combinaison possible des paramètres (ou simplement [&#x27;/&#x27;] si pas de paramètre)
+        else {
+            for (let i &#x3D; 0; i &lt; this.confDemarche.pointsEntree.length; i++) {
+                const pe &#x3D; this.confDemarche.pointsEntree[i];
+
+                // Initialisation de la liste avec l&#x27;URL de base (qui sera retirée plus loin)
+                let urlsDuPointEntree &#x3D; [&#x27;&#x27;];
+
+                // Pour chaque paramètre, création, dans la liste, d&#x27;une nouvelle URL avec chaque valeur différente possible du paramètre
+                pe.parametres?.forEach(p &#x3D;&gt; {
+                    const nouvelleListe: string[] &#x3D; [];
+                    urlsDuPointEntree.forEach(url &#x3D;&gt; {
+                        p.valeurs.forEach(v &#x3D;&gt; {
+                            const nouvelleUrl &#x3D; url + &#x27;&amp;&#x27; + p.parametre + &#x27;&#x3D;&#x27; + v;
+                            nouvelleListe.push(nouvelleUrl);
+                        });
+                    });
+                    urlsDuPointEntree &#x3D; nouvelleListe;
+                });
+
+                // Ajout des URLs de ce point d&#x27;entrée à la bonne liste
+                if (pe.authentification) {
+                    listeUrlDesScenariosDeTestConnectes.push(...urlsDuPointEntree);
+                } else {
+                    this.listeUrlDesScenariosDeTest.push(...urlsDuPointEntree);
+                }
+            }
+        }
+
+        // Ajout de la liste des URLs des scénarios connectés à la fin de la liste
+        this.listeUrlDesScenariosDeTest.push(...listeUrlDesScenariosDeTestConnectes);
+
+        // Log des scénarios
+        LogUtils.log(&#x27;Liste des scénarios de test à réaliser : &#x27; + JSON.stringify(this.listeUrlDesScenariosDeTest));
+    }
+
+    /**
+     * Démarrage de la navigation à appeler dans la méthode it(&#x27;Démarrage de la navigation&#x27;, () &#x3D;&gt; {})
+     */
+    public demarrerLaNavigation(urlScenarioAdemarrer: string): void {
+
+        // Initialisation des données au tout début du test avec les données de la configuration
+        if (this.confDemarche &amp;&amp; this.confDemarche.valeursInitiales) {
+            this.donneesDeBase &#x3D; this.confDemarche.valeursInitiales;
+        }
+
+        // Ajout des données présentes dans l&#x27;URL
+        const indexInterrogation &#x3D; urlScenarioAdemarrer.indexOf(&#x27;&amp;&#x27;);
+        if (indexInterrogation !&#x3D;&#x3D; -1) {
+            const listeParametres &#x3D; urlScenarioAdemarrer.substring(indexInterrogation + 1).split(&#x27;&amp;&#x27;).forEach(p &#x3D;&gt; {
+                const split &#x3D; p.split(&#x27;&#x3D;&#x27;);
+                this.donneesDeBase[split[0]] &#x3D; split[1];
+            })
+        }
+
+        // Démarrage de la navigation
+        NavigationTestUtils.demarrerNavigation(this.confDemarche as ConfigurationDemarche, urlScenarioAdemarrer);
+
+        // Analyse de l&#x27;URL pour trouver le brouillon correspondant
+        this.selectionnerBrouillon(urlScenarioAdemarrer);
+    }
+
+    /**
+     * Sélection du bon brouillon en fonction des données de l&#x27;URL.
+     * @param urlScenarioAdemarrer URL du test.
+     */
+    private selectionnerBrouillon(urlScenarioAdemarrer: string) {
+
+        // Cas simple : il n&#x27;y a qu&#x27;un unique brouillon disponible
+        if (this.brouillonsDisponibles.length &#x3D;&#x3D; 1) {
+            this.brouillonDemarche &#x3D; this.brouillonsDisponibles[0];
+        }
+        // Cas plus complexe : analyse de l&#x27;URL 
+        else {
+            // Extraction des paramètres de l&#x27;URL
+            // substring(1) pour le &amp; au début
+            // les replace pour transformer tout ça en JSON
+            const params &#x3D; JSON.parse(&#x27;{&quot;&#x27; + decodeURI(urlScenarioAdemarrer.substring(1)).replace(/&quot;/g, &#x27;\\&quot;&#x27;).replace(/&amp;/g, &#x27;&quot;,&quot;&#x27;).replace(/&#x3D;/g, &#x27;&quot;:&quot;&#x27;) + &#x27;&quot;}&#x27;)
+            // Recherche du dernier brouillon (de la liste) correspondant aux paramètres
+            this.brouillonsDisponibles.forEach(b &#x3D;&gt; {
+                const bCorrespond &#x3D; Object.keys(params).map(p &#x3D;&gt; b.donnees[p] &#x3D;&#x3D; params[p]).reduce((cumul: boolean, val: boolean) &#x3D;&gt; cumul &amp;&amp; val, true);
+                if (bCorrespond) {
+                    this.brouillonDemarche &#x3D; b;
+                }
+            })
+        }
+        // si toujours pas de brouillon, on plante
+        if (!this.brouillonDemarche) {
+            throw new Error(&quot;Aucun brouillon n&#x27;a été trouvé pour ce scénario&quot;);
+        }
+
+        // Log du brouillon
+        LogUtils.log(&#x27;Brouillon sélectionné : &#x27; + JSON.stringify(this.brouillonDemarche));
+    
+    }
+
+    /**
+     * Execution d&#x27;une étape i de l&#x27;ensemble des tests.
+     * @param i Etape i.
+     */
+    public executerUnePartieDesTests(i: number): void {
+
+        // Si le scénario précédent est fini, on en démarre un nouveau
+        if (this.scenarioPrecedentTermine) {
+            // Sélection du scénario suivant
+            this.indexScenarioDeTestEnCours++;
+            this.indexPartieCorrespondantAuDebutDuScenarioEnCours &#x3D; i + 1;
+            const urlScenario &#x3D; this.listeUrlDesScenariosDeTest[this.indexScenarioDeTestEnCours];
+            // Si un scénario suivant existe
+            if (typeof urlScenario !&#x3D;&#x3D; &#x27;undefined&#x27;) {
+                // Flag à false pour, durant la prochaine partie, tester une page
+                this.scenarioPrecedentTermine &#x3D; false;
+                // reset du compteur des pages invisibles entre deux scénarios
+                this.nbPagesInvisiblesDansAriane &#x3D; 0;
+                // on le démarre
+                this.demarrerLaNavigation(urlScenario);
+            }
+        }
+
+        // Si la partie &#x27;i&#x27; correspond au test d&#x27;une page (le scénario précédent n&#x27;est pas fini)
+        else {
+
+            // En arrivant sur la page de recapitulatif
+            // TODO: tester l&#x27;aller-retour complet avec les boutons RETOUR
+            // TODO: tester l&#x27;aller-retour complet avec les boutons MODIFIER
+            // TODO: tester l&#x27;aller-retour complet avec les boutons du fil d&#x27;Ariane
+
+            this.testerPage(i - this.indexPartieCorrespondantAuDebutDuScenarioEnCours);
+        }
+    }
+
+    /**
+     * Execution du test d&#x27;une page i.
+     * @param i Page i du test (une étape/page d&#x27;un déroulé de démarche).
+     */
+    public testerPage(i: number): void {
+        // On arrête tout de suite cette itération si la configuration ne contient pas autant de pages
+        if (!this.confDemarche || i &gt;&#x3D; this.confDemarche.pages.length - 1) {
+            this.scenarioPrecedentTermine &#x3D; true;
+            return;
+        }
+
+        // Création des espions de console pour ce test (au sens Jasmin)
+        ConsoleUtils.installerEspionConsole();
+
+        // Récupération de la page à tester
+        const page &#x3D; this.confDemarche.pages[i];
+        LogUtils.logPage(i, &#x27;Validation de la page \&#x27;&#x27; + page.titre + &#x27;\&#x27;&#x27;);
+
+        // Initialisation de la variable contenant les données saisies dans la page et pas encore présentes dans le contexte
+        const donneesDeLaPage &#x3D; {};
+
+        // Log de l&#x27;état initial des données
+        LogUtils.logPage(i, &#x27;Données de base au début du test de la page : &#x27; + JSON.stringify(this.donneesDeBase));
+        LogUtils.logPage(i, &#x27;Données de la page au début du test de la page : &#x27; + JSON.stringify(donneesDeLaPage));
+
+        // Calcul de la visibilité de la page
+        if (!DonneesUtils.calculerCondition(page.conditionVisibilite, DonneesUtils.integrerDonnees(this.donneesDeBase, donneesDeLaPage), true)) {
+            // Si la page n&#x27;est pas visible, fin du traitement de cette page
+            LogUtils.logPage(i, &#x27;Page non visible&#x27;);
+            this.nbPagesInvisiblesDansAriane++;
+            return;
+        }
+
+        // Vérification du nombre de boutons de navigation
+        NavigationTestUtils.validerBoutonsDeLaPage(this.confDemarche as ConfigurationDemarche, i);
+
+        // Vérification du fil d&#x27;Ariane à cette page (on récupère, en sortie, le nombre de pages invisibles dans le fil)
+        this.nbPagesInvisiblesDansAriane &#x3D; FilArianeTestUtils.validerFilDunePage(page, i, this.nbPagesInvisiblesDansAriane, this.confDemarche?.fonctionnalites?.modeObligatoireParDefaut || false);
+
+        // Pour chaque bloc de la page
+        page.blocs.forEach((bloc, iBloc) &#x3D;&gt; {
+
+            // Calcul de la visibilité du bloc
+            if (!BlocTestUtils.verifierSiLeBlocEstVisible(i, iBloc, undefined, bloc, DonneesUtils.integrerDonnees(this.donneesDeBase, donneesDeLaPage))) {
+                // Si le contenu est inactif, on cesse de le traiter
+                return;
+            }
+
+            // Si le bloc est dynamique
+            if (bloc.dynamique) {
+                // Recherche des occurences présentes dans le brouillon
+                const listeOccurrences &#x3D; this.calculerListeOccurencesApartirDesDonnees(bloc);
+
+                // log
+                LogUtils.logBloc(i, iBloc, &#x27;Validation du bloc dynamique avec &#x27; + listeOccurrences.length + &#x27; occurences dans les données&#x27;);
+
+                // Création des occurences (attention, le brouillon ne doit pas contenir de saut d&#x27;occurence)
+                listeOccurrences.forEach(o &#x3D;&gt; {
+
+                    // Création des contenus correspondant à l&#x27;occurence
+                    const contenusOccurence &#x3D; this.clonerAminimaContenusPourLoccurence(bloc, o);
+
+                    // Création de l&#x27;occurence
+                    cy.blocObtenir(i, iBloc).find(&#x27;.btn-ajout&#x27;).click();
+                    cy.blocObtenirOccurence(i, iBloc, o).find(&#x27;.btn-supprimer&#x27;).should(&#x27;be.visible&#x27;);
+                    cy.blocObtenirOccurence(i, iBloc, o).find(&#x27;.btn-quitter&#x27;).should(&#x27;be.visible&#x27;);
+                    cy.blocObtenir(i, iBloc).find(&#x27;.btn-ajout&#x27;).should(&#x27;be.disabled&#x27;);
+
+                    // Validation des contenus
+                    this.validerContenus(i, iBloc, undefined, contenusOccurence, donneesDeLaPage, o, true);
+
+                    // Enregistrement/Validation de l&#x27;occurence 
+                    cy.blocObtenirOccurence(i, iBloc, o).find(&#x27;.btn-quitter&#x27;).click();
+                    cy.blocObtenirOccurence(i, iBloc, o).find(&#x27;.btn-supprimer&#x27;).should(&#x27;be.visible&#x27;);
+                    cy.blocObtenirOccurence(i, iBloc, o).find(&#x27;.btn-quitter&#x27;).should(&#x27;not.exist&#x27;);
+                    cy.blocObtenirOccurence(i, iBloc, o).find(&#x27;.btn-editer&#x27;).should(&#x27;be.visible&#x27;);
+                    cy.blocObtenir(i, iBloc).find(&#x27;.btn-ajout&#x27;).should(&#x27;be.enabled&#x27;);
+
+                    // Validation des contenus
+                    this.validerContenus(i, iBloc, undefined, contenusOccurence, donneesDeLaPage, o, false);
+                });
+
+                // Pour la dernière occurence disponible
+                if (listeOccurrences &amp;&amp; listeOccurrences.length &gt; 0) {
+                    const derniereOccurence &#x3D; listeOccurrences[listeOccurrences.length - 1];
+                    // Click sur le bouton d&#x27;édition
+                    cy.blocObtenirOccurence(i, iBloc, derniereOccurence).find(&#x27;.btn-editer&#x27;).click();
+                    cy.blocObtenirOccurence(i, iBloc, derniereOccurence).find(&#x27;.btn-supprimer&#x27;).should(&#x27;be.visible&#x27;);
+                    cy.blocObtenirOccurence(i, iBloc, derniereOccurence).find(&#x27;.btn-quitter&#x27;).should(&#x27;be.visible&#x27;);
+                    cy.blocObtenir(i, iBloc).find(&#x27;.btn-ajout&#x27;).should(&#x27;be.disabled&#x27;);
+
+                    // Validation des contenus
+                    const contenusOccurence &#x3D; this.clonerAminimaContenusPourLoccurence(bloc, derniereOccurence);
+                    this.validerContenus(i, iBloc, undefined, contenusOccurence, donneesDeLaPage, derniereOccurence, true);
+
+                    // Enregistrement/Validation de l&#x27;occurence 
+                    cy.blocObtenirOccurence(i, iBloc, derniereOccurence).find(&#x27;.btn-quitter&#x27;).click;
+                }
+            }
+            // Si le bloc n&#x27;est pas dynamique
+            else {
+                LogUtils.logBloc(i, iBloc, &#x27;Validation du bloc \&#x27;&#x27; + bloc.titre + &#x27;\&#x27;&#x27;);
+                // Vérification de la présence du bloc
+                BlocTestUtils.validerBloc(i, iBloc, undefined, bloc);
+                // Validation des contenus
+                this.validerContenus(i, iBloc, undefined, bloc.contenus || [], donneesDeLaPage, undefined, undefined);
+
+                // Pour chaque sous-bloc, la même chose
+                (bloc.sousBlocs || []).forEach((sousBloc, iSousBloc) &#x3D;&gt; {
+
+                    // Calcul de la visibilité du bloc
+                    if (!BlocTestUtils.verifierSiLeBlocEstVisible(i, iBloc, iSousBloc, sousBloc, DonneesUtils.integrerDonnees(this.donneesDeBase, donneesDeLaPage))) {
+                        // Si le contenu est inactif, on cesse de le traiter
+                        LogUtils.logBloc(i, iBloc, &#x27;sousBloc non visible&#x27;);
+                        return;
+                    }
+                    LogUtils.logBloc(i, iBloc, &#x27;Validation du sous-bloc \&#x27;&#x27; + sousBloc.titre + &#x27;\&#x27; du bloc \&#x27;&#x27; + bloc.titre + &#x27;\&#x27;&#x27;);
+
+                    // Vérification de la présence du bloc
+                    BlocTestUtils.validerBloc(i, iBloc, iSousBloc, sousBloc);
+
+                    // Validation des contenus
+                    this.validerContenus(i, iBloc, iSousBloc, sousBloc.contenus || [], donneesDeLaPage, undefined, undefined);
+                });
+            }
+        });
+
+        // Avant de passer à la page suivante, on cumule les donnée de cette page dans les données de base pour le test suivant
+        LogUtils.logPage(i, &#x27;Fin du test de la page avec les données de page : &#x27; + JSON.stringify(donneesDeLaPage));
+        this.donneesDeBase &#x3D; DonneesUtils.integrerDonnees(this.donneesDeBase, donneesDeLaPage);
+
+        // Controle la console
+        ConsoleUtils.verifierAbsenceAppelConsole();
+
+        // Creation d&#x27;un screenshot de la page
+        const nomFichierCapture &#x3D; this.confDemarche.codeDemarche + &#x27;-&#x27; + this.idSession + &#x27;/page&#x27; + i + &#x27;.png&#x27;;
+        LogUtils.logPage(i, &#x27;Capture du contenu de la page dans le fichier ./cypress/screenshots/&#x27; + nomFichierCapture);
+        cy.screenshot(nomFichierCapture, { log: false, capture: &#x27;fullPage&#x27; });
+
+        // Sauvegarde du contenu de la page
+        const nomFichierSource &#x3D; &#x27;./cypress/pagesHTML/&#x27; + this.confDemarche.codeDemarche + &#x27;-&#x27; + this.idSession + &#x27;/page&#x27; + i + &#x27;.html&#x27;;
+        LogUtils.logPage(i, &#x27;Sauvegarde du contenu HTML de la page dans le fichier &#x27; + nomFichierSource);
+        cy.get(&#x27;html:root&#x27;).eq(0).invoke(&#x27;prop&#x27;, &#x27;outerHTML&#x27;).then((doc: any) &#x3D;&gt; {
+            cy.writeFile(nomFichierSource, doc);
+        });
+
+        // Validation HTML
+        LogUtils.logPage(i, &#x27;Validation du code HTML (à analyser depuis le fichier sauvegardé dans &#x27; + nomFichierSource + &#x27;)&#x27;);
+        cy.htmlvalidate();
+
+        // Validation RGAA
+        LogUtils.logPage(i, &#x27;Validation RGAA de la page (cf. documentation https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md) (à analyser depuis le fichier sauvegardé dans &#x27; + nomFichierSource + &#x27;)&#x27;);
+        cy.checkA11y();
+
+        // Après les tests de cette page, on passe à la suivante
+        NavigationTestUtils.passerAlaPageSuivante(page);
+    }
+
+    /** Méthode clonant les contenus du bloc pour une occurence précise (pour en changer la clef et les conditions notamment) */
+    private clonerAminimaContenusPourLoccurence(bloc: Bloc, o: number): ContenuDeBloc[] {
+        return bloc.contenus.map(c &#x3D;&gt; {
+            const nouveauContenu &#x3D; Object.assign({}, c);
+            nouveauContenu.clef &#x3D; UtilitaireBlocDynamique.remplacerNumeroOccurenceDansUneClefDeContenu(nouveauContenu.clef, o);
+            nouveauContenu.conditionVisibilite &#x3D; UtilitaireBlocDynamique.remplacerNumeroOccurenceDansUneClefDeContenu(nouveauContenu.conditionVisibilite, o);
+            nouveauContenu.conditionDesactivation &#x3D; UtilitaireBlocDynamique.remplacerNumeroOccurenceDansUneClefDeContenu(nouveauContenu.conditionDesactivation, o);
+            return nouveauContenu;
+        });
+    }
+
+    /** Recherche de la liste des occurences pour lesquelles existent une valeur dans les données du brouillon. */
+    private calculerListeOccurencesApartirDesDonnees(bloc: Bloc): number[] {
+        const liste: number[] &#x3D; [];
+        // Pour chaque occurence possible (en commençant par la fin)
+        if (bloc &amp;&amp; bloc.maxOccurences) {
+            for (let i &#x3D; 0; i &lt; bloc?.maxOccurences; i++) {
+                // Recherche d&#x27;une valeur pour un des champs (en remettant la clef originale)
+                const contenusActifTrouve &#x3D; bloc?.contenus.find(c &#x3D;&gt; {
+                    if (c.clef) {
+                        const clefContenuDansOccurence &#x3D; UtilitaireBlocDynamique.remplacerNumeroOccurenceDansUneClefDeContenu(c.clef, i);
+                        const valeurTrouvee &#x3D; this.brouillonDemarche?.donnees[clefContenuDansOccurence as string];
+                        return typeof valeurTrouvee !&#x3D;&#x3D; &#x27;undefined&#x27;;
+                    } else {
+                        return false;
+                    }
+                });
+                // Si contenu actif trouvée
+                if (contenusActifTrouve) {
+                    liste.push(i);
+                }
+            }
+        }
+        return liste;
+    }
+
+    /**
+     * Test du bon fonctionnement des contenus du bloc
+     * @param i Page i du test (une étape/page d&#x27;un déroulé de démarche).     * 
+     * @param iBloc L&#x27;index du bloc.
+     * @param iSousBloc L&#x27;index du sous-bloc (ou undefined)
+     * @param contenus Les contenus du bloc.
+     * @param donneesDeLaPage Les données de la page
+     * @param occurenceDeBlocDynamique Occurence si c&#x27;est un bloc dynamique sinon UNDEFINED 
+     * @param modeEdition Mode LECTURE ou EDITION
+     */
+    private validerContenus(i: number, iBloc: number, iSousBloc: number | undefined, contenus: ContenuDeBloc[], donneesDeLaPage: { [index: string]: any }, occurenceDeBlocDynamique: number | undefined, modeEdition: boolean | undefined): void {
+
+        // Pour chaque contenu du bloc
+        contenus.forEach((contenu, iContenu) &#x3D;&gt; {
+            LogUtils.logContenu(i, iBloc, iSousBloc, iContenu, &#x27;Validation du contenu de type \&#x27;&#x27; + contenu.type + &#x27;\&#x27; avec la clef \&#x27;&#x27; + contenu.clef + &#x27;\&#x27;&#x27;);
+
+            // Si on est dans une occurence de bloc dynamique
+            if (typeof occurenceDeBlocDynamique !&#x3D;&#x3D; &#x27;undefined&#x27;) {
+                // en mode EDITION, ne s&#x27;affichent pas les contenu de type PARAGRAPHE avec l&#x27;attribut estIncluDansUnBlocDynamiquePourLectureSeule&#x3D;true
+                if (modeEdition &amp;&amp; contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.paragraphe &amp;&amp; !!(contenu as ContenuParagraphe).estIncluDansUnBlocDynamiquePourLectureSeule) {
+                    return;
+                }
+                // en mode LECTURE, ne s&#x27;affichent que les contenu de type PARAGRAPHE avec l&#x27;attribut estIncluDansUnBlocDynamiquePourLectureSeule&#x3D;true
+                if (!modeEdition &amp;&amp; !(contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.paragraphe &amp;&amp; !!(contenu as ContenuParagraphe).estIncluDansUnBlocDynamiquePourLectureSeule)) {
+                    return;
+                }
+            }
+
+            if (ContenuTestUtils.verifierSiLeContenuEstActif(i, iBloc, iContenu, contenu, DonneesUtils.integrerDonnees(this.donneesDeBase, donneesDeLaPage))) {
+                // Validation de l&#x27;existence du contenu
+                ContenuTestUtils.validerExistence(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique);
+
+                // Saisie d&#x27;une valeur valide
+                ContenuTestUtils.validerBonFonctionnementContenu(i, iBloc, iSousBloc, iContenu, contenu, this.confDemarche, this.brouillonDemarche as BrouillonDemarche, this.donneesDeBase, donneesDeLaPage, occurenceDeBlocDynamique);
+            }
+        });
+    }
+
+    /** Calcul du timestamp courant. */
+    private calculerTimestampCourant(): string {
+        const dateDuJour &#x3D; new Date();
+        const mois &#x3D; this.formatterNombre((dateDuJour.getMonth() + 1).toString());
+        const jour &#x3D; this.formatterNombre(dateDuJour.getDate().toString());
+        const heure &#x3D; this.formatterNombre(dateDuJour.getHours().toString());
+        const minute &#x3D; this.formatterNombre(dateDuJour.getMinutes().toString());
+        const seconde &#x3D; this.formatterNombre(dateDuJour.getSeconds().toString());
+        return dateDuJour.getFullYear() + mois + jour + heure + minute + seconde;
+    }
+    /** Formattage du nombre sur deux chiffres. */
+    private formatterNombre(nombre: string): string {
+        return (+nombre &lt; 10) ? &#x27;0&#x27; + nombre : nombre;
+    }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'GlobalTestUtils.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

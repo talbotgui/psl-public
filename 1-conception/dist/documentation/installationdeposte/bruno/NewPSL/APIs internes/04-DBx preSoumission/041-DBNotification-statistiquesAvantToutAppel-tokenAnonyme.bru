@@ -1,0 +1,29 @@
+meta {
+  name: 041-DBNotification-statistiquesAvantToutAppel-tokenAnonyme
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{API_HOST}}:{{portSocleDbNotification}}/socle/notification/admin/statistiques
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+tests {
+  // Cette requête n'est plus fonctionnelle. Il faut revoir l'authentification de cette fonctionnalité
+  
+  //     // Vérifications de base
+  //     pm.test("Réponse correcte", function () {
+  //         pm.expect(pm.response.code).to.be.equals(200);
+  //         pm.expect(pm.response.json().nombreTotal).to.be.not.null;
+  //     });
+  // 
+  //     // Récupération d'une donnée pour alimenter une variable d'environnement
+  //     pm.environment.set('nbNotifications', pm.response.json().nombreTotal);
+  
+}

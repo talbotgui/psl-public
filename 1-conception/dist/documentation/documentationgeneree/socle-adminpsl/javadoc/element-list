@@ -1,0 +1,10 @@
+com.github.talbotgui.psl.socle.adminpsl.apiclient
+com.github.talbotgui.psl.socle.adminpsl.apiclient.api
+com.github.talbotgui.psl.socle.adminpsl.apiclient.dto
+com.github.talbotgui.psl.socle.adminpsl.application
+com.github.talbotgui.psl.socle.adminpsl.client
+com.github.talbotgui.psl.socle.adminpsl.controleur
+com.github.talbotgui.psl.socle.adminpsl.dao
+com.github.talbotgui.psl.socle.adminpsl.dto
+com.github.talbotgui.psl.socle.adminpsl.exception
+com.github.talbotgui.psl.socle.adminpsl.service

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!--
+	Il est connu que la variable 'spring.application.name' n'est pas connue immédiatement.
+	Donc un fichier 'log_access_springapplicationname_IS_UNDEFINED' est créé mais reste vide (aucune log n'est perdue).
+	-->
+
+	<!-- Lignes permettant de récupérer des valeurs dans la configuration Spring -->
+	<springProperty scope="context" name="springapplicationname" source="spring.application.name"/>
+	<springProperty scope="context" name="repertoirePidEtLog" source="repertoirePidEtLog"/>
+
+	<!-- Sortie standard à décommenter dans Eclipse au besoin -->
+<!--	<appender name="Console" class="ch.qos.logback.core.ConsoleAppender">-->
+<!--		<encoder><pattern>[%d{dd/MM/yyyy:HH:mm:ss:SSS Z}] %-5(${PID:-}) [%-16(%X{traceId:-}),%-16(%X{spanId:-})] %-5level %-40.40logger{39} : %m%n</pattern></encoder>-->
+<!--	</appender>-->
+
+	<!-- Sortie vers un fichier pour les logs -->
+	<appender name="LogApplicatif" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    	<!-- Chemin du fichier à générer -->
+    	<file>${repertoirePidEtLog}log_${springapplicationname}-1.log</file>
+    	<!-- Si le fichier existe, on ne l'écrase pas-->
+    	<append>true</append>
+    	<!-- Pattern des lignes -->
+		<encoder><pattern>[%d{dd/MM/yyyy:HH:mm:ss:SSS Z}] %-5(${PID:-}) [%-16(%X{traceId:-}),%-16(%X{spanId:-})] %-5level %-40.40logger{39} : %m%n</pattern></encoder>
+		<!-- Définition de la rotation des fichiers -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- Si la date change ou que la limite de poids est atteinte, le fichier est renommé, zippé et déplacé -->
+			<fileNamePattern>${repertoirePidEtLog}.archive/log_${springapplicationname}-1-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+			<!-- Pas plus de 1MB par fichier -->
+			<maxFileSize>1MB</maxFileSize>    
+			<!-- 15 jours de conservation -->
+			<maxHistory>15</maxHistory>
+			<!-- 20MB de conservation au total -->
+			<totalSizeCap>20MB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	<!-- Sortie vers un fichier pour les accessLog -->
+	<appender name="AccessLog" class="ch.qos.logback.core.FileAppender">
+    	<file>${repertoirePidEtLog}log_access_${springapplicationname}-1.log</file>
+    	<append>true</append>
+		<encoder><pattern>[%d{dd/MM/yyyy:HH:mm:ss:SSS Z}] [%-16(%X{traceId:-}),%-16(%X{spanId:-})] %m%n</pattern></encoder>
+	</appender>
+	<appender name="AccessLogAsync" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="AccessLog" />
+    </appender>
+
+	<!-- Access log -->
+	<logger name="reactor.netty.http.server.AccessLog" level="info" additivity="false">
+		<appender-ref ref="AccessLogAsync" />
+	</logger>
+
+	<!-- logs applicatives -->
+	<logger name="com.github.talbotgui.psl.socle" level="trace" additivity="false">
+		<appender-ref ref="LogApplicatif" />
+	</logger>
+
+	<!-- les erreurs (notamment de connexion) sont en DEBUG -->
+	<logger name="org.springframework.cloud.gateway.filter.ratelimit.RedisRateLimiter" level="warn" additivity="false">
+		<appender-ref ref="LogApplicatif" />
+	</logger>
+
+	<!-- Ces loggueurs sont inutiles-->
+	<logger name="org.springframework.security.web.DefaultSecurityFilterChain" level="warn" additivity="false">
+		<appender-ref ref="LogApplicatif" />
+	</logger>
+	<logger name="org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver" level="warn" additivity="false">
+		<appender-ref ref="LogApplicatif" />
+	</logger>
+	<logger name="springfox" level="warn" additivity="false">
+		<appender-ref ref="LogApplicatif" />
+	</logger>
+
+	<root level="info">
+		<appender-ref ref="LogApplicatif" />
+	</root>
+</configuration>

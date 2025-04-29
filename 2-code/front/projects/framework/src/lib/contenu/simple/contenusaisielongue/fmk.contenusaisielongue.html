@@ -1,0 +1,34 @@
+@if (contenu && controle) {
+  <div [class.fr-input-group--error]="saisieInvalide" [class.fr-input-group--valid]="saisieValide" class="fr-input-group">
+    @if (contenu.titreAafficher || contenu.aideAafficher) {
+      <label class="fr-label" [for]="'idSaisie'+numeroUnique">
+        @if (validationObligatoirePresente && !contenu.modeObligatoireParDefaut) {
+          <span class="symbol-required">* </span>
+        }
+        <span class="textelibelle" [innerHTML]="contenu.titreAafficher | libelle"></span>
+        @if ((!validationObligatoirePresente && contenu.modeObligatoireParDefaut) || contenu.aideAafficher) {
+          <span class="fr-hint-text">
+            @if (!validationObligatoirePresente && contenu.modeObligatoireParDefaut) {
+              {{ 'commun.facultatif' | i18n}}
+            }
+            @if (!validationObligatoirePresente && contenu.modeObligatoireParDefaut && contenu.aideAafficher) {
+              -
+            }
+            {{ contenu.aideAafficher | libelle }}
+          </span>
+        }
+      </label>
+    }
+    <!-- Le oninput adapte la hauteur au contenu -->
+    <textarea class="saisieLongue fr-input" [class.fr-input--error]="saisieInvalide" [class.fr-input--valid]="saisieValide"
+      [attr.aria-describedby]="'messages'+numeroUnique" type="text" [id]="'idSaisie'+numeroUnique" [formControl]="controle"
+      oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'">
+    </textarea>
+    @if (limiteDeCaracteresActive) {
+      <p class="decompteCaracteres"><span>{{nombreCaracteresRestants}}</span>{{ 'saisielongue.nombreCaracteresRestants'
+    | i18n}}</p>
+  }
+  <p data-fmk-messagesvalidation [id]="'messages'+numeroUnique" [contenu]="contenu" [controle]="controle" aria-live="assertive">
+  </p>
+</div>
+}

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Déclaration de l'artefact parent -->
+	<parent>
+		<groupId>com.github.talbotgui.psl.socle.servicescloud</groupId>
+		<artifactId>services-cloud</artifactId>
+		<version>0.0.2-SNAPSHOT</version>
+	</parent>
+
+	<!-- Définition Maven de cet artefact -->
+	<artifactId>service-nosql</artifactId>
+	<packaging>jar</packaging>
+
+	<!-- Modification de la clef pour les besoins des sous-projets -->
+	<properties><cheminRelatifVersLaRacineDuDepot>${project.basedir}/../../../..</cheminRelatifVersLaRacineDuDepot></properties>
+
+	<!-- dépendances -->
+	<dependencies>
+	
+		<!-- Pour démarrer MongoDB directement depuis un programme Java -->
+		<dependency>
+			<groupId>com.github.talbotgui.psl.socle</groupId>
+			<artifactId>socle-commundbtest</artifactId>
+			<version>${project.version}</version>
+			<!-- pas de scope test car l'application MAIN utilise la classe ProgrammeDemarrantMongoDB de commundbtest -->
+			<!-- mais un exclude de toutes les dépendances + ajout des dépendances nécessaires plus bas (mieux vaut tout exclure et ajouter manuellement le nécessaire) -->
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<!-- Pour compenser l'exclusion totale des dépendances commundbtest - DEBUT -->
+		<!-- Le projet commun -->
+		<dependency>
+			<groupId>com.github.talbotgui.psl.socle</groupId>
+			<artifactId>socle-commun</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!-- Pour se connecter à une base MongoDB -->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongodb-driver-sync</artifactId>
+		</dependency>
+		<!-- Pour disposer d'un moteur MongoDB -->
+		<dependency>
+			<groupId>de.flapdoodle.embed</groupId>
+			<artifactId>de.flapdoodle.embed.mongo</artifactId>
+		</dependency>
+		<!-- Pour compenser l'exclusion totale des dépendances commundbtest - FIN -->
+		
+		<!-- Pour passer des paramètres -->
+		<dependency>
+			<groupId>org.jcommander</groupId>
+			<artifactId>jcommander</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			
+			<!-- Pour copier le fichier target/classes/git.properties du projet SOCLE contenant les informations du dernier commit (infos exposées ensuite dans /info d'Actuator) -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-the-git-infos</id>
+						<configuration>
+							<resources>
+								<resource><directory>${project.basedir}/../../target/classes</directory></resource>
+							</resources>    
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<!-- Crée un JAR comprenant aussi les dépendances  -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>${version.shade}</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals><goal>shade</goal></goals>
+						<configuration>
+							<!-- Pour avoir un JAR exécutable -->
+							<transformers>
+								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>com.github.talbotgui.psl.socle.servicenosql.application.ProgrammeDemarrantMongoDB</mainClass>
+								</transformer>
+							</transformers>
+							<filters>
+								<filter>
+									<artifact>*:*</artifact>
+									<excludes>
+										<!-- Pour filtrer les éléments durant la fusion et limiter les WARNING durant le build -->
+										<exclude>**/module-info*</exclude>
+										<exclude>META-INF/*.MF</exclude>
+										<exclude>META-INF/*.txt</exclude>
+										<exclude>META-INF/*.MD</exclude>
+										<exclude>META-INF/*.md</exclude>
+										<exclude>META-INF/AL*</exclude>
+										<exclude>META-INF/LGPL*</exclude>
+										<exclude>META-INF/LICENSE</exclude>
+										<exclude>META-INF/versions/9/module-info</exclude>
+										<!-- Pour éliminer les signatures de JAR générant des "java.lang.SecurityException: Invalid signature file digest for Manifest main attributes"-->
+										<exclude>META-INF/*.SF</exclude>
+										<exclude>META-INF/*.DSA</exclude>
+										<exclude>META-INF/*.RSA</exclude>
+									</excludes>
+								</filter>
+							</filters>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,23 @@
+{
+	"codeDemarche": "bibliotheque",
+	"versionConfiguration": "1.0.0",
+	"donnees": {
+		"auth": "FC",
+		"radio1": "oui",
+		"clefSaisie5": "aze",
+		"clefSaisie6": "aze@aze.com",
+		"clefCase1": "true",
+		"clefCase2": "false",
+		"clefRadio2": "peutetre",
+		"clefListe2": "4",
+		"identite1_civilite": "MME",
+		"identite1_nomFamille": "qsdqsd",
+		"pj1_id": "636b5ea562368545d82cf09c",
+		"pj1_nom": "vide.pdf",
+		"pj1_longueur": 189321,
+		"pj1_type": "application/pdf",
+		"clefCaseDuBlocConditionnel": "false"
+	},
+	"_id": "123",
+	"indexPage": 7
+}

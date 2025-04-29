@@ -1,0 +1,69 @@
+@if (contenu && configuration && configuration.pages) {
+  <div class="fr-grid-row">
+    <!-- pour chaque page visible -->
+    @for (p of configuration.pages; track p; let i = $index) {
+      @if (p.visibilite && calculerSiPageContientUnContenuAffichable(p) && indexPageCourante !== undefined && i < indexPageCourante) {
+        <!-- titre de la page -->
+        <div class="fr-col-12 titreEtapeDanRecap">
+          <h3>{{p.titre}}</h3>
+        </div>
+        <!-- Pour chaque bloc -->
+        <div class="fr-col-12 fr-background-alt--grey fr-mb-3w fr-p-2w recapContenuEtape">
+          @for (b of p.blocs; track b) {
+            <!-- Bloc non dynamique -->
+            @if (!b.dynamique && calculerSiBlocContientUnContenuAffichable(b)) {
+              <!-- Séparateur -->
+              <p class="fr-hr"></p>
+              <!-- titre du bloc -->
+              <div class="fr-col-12">
+                @if (b.titre) {
+                  <h4>{{b.titre}}</h4>
+                }
+              </div>
+              <!-- pour chaque contenu-->
+              <div class="fr-col-12">
+                <div data-fmk-listecontenusrecapitulatif [contenus]="b.contenus"></div>
+              </div>
+              <!-- Pour les sous-blocs -->
+              @if (b.sousBlocs) {
+                @for (sb of b.sousBlocs; track sb) {
+                  @if (calculerSiBlocContientUnContenuAffichable(sb)) {
+                    <!-- Séparateur -->
+                    <p class="fr-hr"></p>
+                    <!-- titre du bloc -->
+                    <div class="fr-col-12">
+                      @if (sb.titre) {
+                        <h5>{{sb.titre}}</h5>
+                      }
+                    </div>
+                    <!-- pour chaque contenu-->
+                    <div class="fr-col-12">
+                      <div data-fmk-listecontenusrecapitulatif [contenus]="sb.contenus"></div>
+                    </div>
+                  }
+                }
+              }
+            }
+            <!-- Bloc dynamique -->
+            @if (b.dynamique) {
+              @for (o of creerListeOccurences(b); track o) {
+                <br />
+                <!-- pour chaque contenu-->
+                <div class="fr-col-12">
+                  <div data-fmk-listecontenusrecapitulatif [contenus]="creerContenusDeBlocDynamique(b, o)"></div>
+                </div>
+              }
+            }
+          }
+          <!-- Bouton pour retourner à la bonne page-->
+          <div class="fr-col-12">
+            <button class="fr-btn fr-btn--secondary fr-btn--sm sp-btn--no-border" title="Modifier" type="button" (click)="changerDePage(i)">
+              <span>{{ 'recapitulatif.bouton.modifier' | i18n }}</span>
+              <span class="fr-fi-edit-line" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      }
+    }
+  </div>
+}

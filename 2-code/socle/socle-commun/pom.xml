@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Déclaration de l'artefact parent -->
+	<parent>
+		<groupId>com.github.talbotgui.psl.socle</groupId>
+		<artifactId>socle</artifactId>
+		<version>0.0.2-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>socle-commun</artifactId>
+	<name>socle-commun</name>
+	<description>Classes communes entre les projets</description>
+
+	<!-- Modification de la clef pour les besoins des sous-projets -->
+	<properties><cheminRelatifVersLaRacineDuDepot>${project.basedir}/../../..</cheminRelatifVersLaRacineDuDepot></properties>
+
+	<dependencies>
+
+		<!-- Starter Spring pour disposer des classes Spring des APIs REST -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<!-- Dépendance pour enrichir les logs avec des flags simplifiant l'analyse (anciennement Sleuth mais remplacé par micrometer avec SpringBoot-3)-->
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-tracing-bridge-brave</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-micrometer</artifactId>
+		</dependency>
+
+		<!-- Outils de tests (avec JUnit5 et non le 4 apporté par Spring) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>eu.codearte.catch-exception</groupId>
+			<artifactId>catch-exception</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- Toute application du socle doit être monitorée dans l'AdminServer -->
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
+		</dependency>
+		<!-- Sécurisation de l'application (au minimum les APIs Actuator) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
+		<!-- Toute application du socle doit s'enregistrer dans le ServiceRegistry -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		
+		<!-- Toute application du socle doit charger sa configuration depuis le service de config depuis le contexte de Bootstrap -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+		</dependency>
+		
+		<!-- Toute application peut exposer/appeler une interface appelable à travers le serviceRegistry -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+
+		<!-- Pour disposer d'un load-balancer côté client -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-loadbalancer</artifactId>
+		</dependency>
+		
+		<!-- Manipulation de token JWT @see https://github.com/jwtk/jjwt#install-jdk-maven -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<!-- Ajout de la documentation des APIs -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+		</dependency>
+		
+		<!-- Validation de document JSON -->
+		<dependency>
+			<groupId>com.networknt</groupId>
+			<artifactId>json-schema-validator</artifactId>
+		</dependency>
+		
+		<!-- Pour forcer la même version pour tous les micro-services -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+		</dependency>
+		
+		<!-- Pour fournir une classe utilitaire pour Velocity mais sans fournir la dépendance transitivement -->
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity-engine-core</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Ajout de la validation des données en entrée des APIs -->
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+	</build>
+
+</project>

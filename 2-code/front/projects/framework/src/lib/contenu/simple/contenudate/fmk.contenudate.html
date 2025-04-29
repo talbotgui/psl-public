@@ -1,0 +1,27 @@
+@if (contenu && controle) {
+  <div [class.fr-input-group--error]="saisieInvalide" [class.fr-input-group--valid]="saisieValide" class="fr-input-group">
+    @if (contenu.titreAafficher || contenu.aideAafficher) {
+      <label class="fr-label" [for]="'idSaisie'+numeroUnique">
+        @if (validationObligatoirePresente && !contenu.modeObligatoireParDefaut) {
+          <span class="symbol-required">* </span>
+        }
+        <span class="textelibelle" [innerHTML]="contenu.titreAafficher | libelle"></span>
+        @if ((!validationObligatoirePresente && contenu.modeObligatoireParDefaut) || contenu.aideAafficher) {
+          <span class="fr-hint-text">
+            @if (!validationObligatoirePresente && contenu.modeObligatoireParDefaut) {
+              {{ 'commun.facultatif' | i18n}}
+            }
+            @if (!validationObligatoirePresente && contenu.modeObligatoireParDefaut && contenu.aideAafficher) {
+              -
+            }
+            {{ contenu.aideAafficher | libelle }}
+          </span>
+        }
+      </label>
+    }
+    <input class="fr-input" [class.fr-input--error]="saisieInvalide" [class.fr-input--valid]="saisieValide"
+      [attr.aria-describedby]="'idDescription'+numeroUnique" type="date" [id]="'idSaisie'+numeroUnique" [formControl]="controle">
+      <p data-fmk-messagesvalidation [id]="'idDescription'+numeroUnique" [contenu]="contenu" [controle]="controle" aria-live="assertive">
+      </p>
+    </div>
+  }

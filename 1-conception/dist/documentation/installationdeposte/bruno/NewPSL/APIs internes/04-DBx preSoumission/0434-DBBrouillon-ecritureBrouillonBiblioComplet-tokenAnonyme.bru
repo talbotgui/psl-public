@@ -1,0 +1,30 @@
+meta {
+  name: 0434-DBBrouillon-ecritureBrouillonBiblioComplet-tokenAnonyme
+  type: http
+  seq: 11
+}
+
+post {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/brouillon/brouillon
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+body:json {
+  {
+      "codeDemarche":"bibliotheque","versionConfiguration":"1.0.0","indexPage":6,
+      "donnees":{"radio1":"oui","clefSaisie1":"1","clefSaisie2":"2","clefSaisie3":"3","clefSaisie5":"4","clefSaisie6":"cinq@email.com","clefSaisie7":"0123456789","clefSaisie8":"269054968815787","clefSaisie9":"01/01/2000","clefSaisie10":"01/01/3000","clefSaisie11":"2022-01-01","clefSaisie12":"2023-01-01","clefAutocompletion1_code":"80410","clefAutocompletion1_codePostal":"80400","clefAutocompletion1_libelle":"Ham","clefAutocompletion1_libelleLong":"Ham (80400)","clefAutocompletion2_code":"18033","clefAutocompletion2_codePostal":"18000","clefAutocompletion2_libelle":"Bourges","clefAutocompletion2_libelleLong":"Bourges (18000)","clefAutocompletion3_capitale":"PARIS","clefAutocompletion3_codeInsee":"XXXXX","clefAutocompletion3_libelle":"FRANCE","clefAutocompletion3_nationnalite":"FRANÇAISE","clefAutocompletion4_code":"99999","clefAutocompletion4_libelle":"FRANCE","clefAutocompletion5":"","clefAutocompletion6_label":"Rue de la Vallée 80000 Amiens","clefAutocompletion6_score":"0.7456563636363636","clefAutocompletion6_id":"80021_7930","clefAutocompletion6_name":"Rue de la Vallée","clefAutocompletion6_postcode":"80000","clefAutocompletion6_citycode":"80021","clefAutocompletion6_x":"650353.64","clefAutocompletion6_y":"6977222.41","clefAutocompletion6_city":"Amiens","clefAutocompletion6_context":"80, Somme, Hauts-de-France","clefAutocompletion6_type":"street","clefAutocompletion6_importance":"0.70222","clefAutocompletion7_libelleLong":"Paris (75056)","clefAutocompletion7_city":"Paris","clefAutocompletion7_importance":"0.67448","clefAutocompletion7_postcode":"75001","clefAutocompletion7_label":"Paris","clefAutocompletion7_type":"municipality","clefAutocompletion7_population":"2165423","clefAutocompletion7_score":"0.9704072727272726","clefAutocompletion7_citycode":"75056","clefAutocompletion7_name":"Paris","clefAutocompletion7_x":"652089.7","clefAutocompletion7_context":"75, Paris, Île-de-France","clefAutocompletion7_y":"6862305.26","clefAutocompletion7_id":"75056","clefCase1":"true","clefCase2":"true","clefAutocompletion8_nomProtecteur":"Gendarmerie - Brigade de Pfetterhouse","clefAutocompletion8_typeProtection":"GN","clefAutocompletion8_codeInsee":"68340","clefAutocompletion8_codePostal":"68580","clefAutocompletion8_libelle":"Ueberstrass","clefAutocompletion8_libelleLong":"Ueberstrass (68580)","clefRadio1":"non","clefRadio2":"non","clefRadio3":"valeurConditionnee","clefListe1":"oui","clefListe2":"1","clefListe3":"valeurNonConditionnee","saisieLongueNonLimite":"qsdqsd","saisieLongueLimite":"qsdqsdqsdqsdqsdqs\ndqs\ndqs\ndqsd","identite1_civilite":"M","identite1_nomFamille":"NomDeFamille","identite2_civilite":"M","identite2_nomFamille":"facultatif","identite3_civilite":"M","identite3_nomFamille":"1","identite3_nomUsage":"2","identite3_prenoms":"3","identite3_dateNaissance":"2020-01-01","identite3_paysNaissance_code":"99999","identite3_paysNaissance_libelle":"FRANCE","identite3_communeNaissanceFR_code":"64138","identite3_communeNaissanceFR_codePostal":"64510","identite3_communeNaissanceFR_libelle":"Bordes","identite3_communeNaissanceFR_libelleLong":"Bordes (64510)","identite3_nationnalite_capitale":"PARIS","identite3_nationnalite_codeInsee":"XXXXX","identite3_nationnalite_libelle":"FRANCE","identite3_nationnalite_nationnalite":"FRANÇAISE","adresse1_estFrance":"false","adresse1_adresseETR":"ailleurs","adresse1_paysETR_code":"99109","adresse1_paysETR_libelle":"ALLEMAGNE"}
+      }
+}
+
+vars:post-response {
+  idBrouillonCreePourBibliotheque: res.body
+}
+
+assert {
+  res.status: eq 200
+}

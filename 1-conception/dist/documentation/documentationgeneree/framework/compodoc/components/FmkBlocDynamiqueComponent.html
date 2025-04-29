@@ -1,0 +1,2006 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Composants</li>
+  <li class="breadcrumb-item"
+  >
+  FmkBlocDynamiqueComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Fichier</h3>
+</p>
+<p class="comment">
+    <code>projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Etend</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+    </p>
+
+    <p class="comment">
+        <h3>Implémente</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Métadonnées</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+            <tr>
+                <td class="col-md-3">encapsulation</td>
+                <td class="col-md-9"><code>ViewEncapsulation.None</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>div[data-fmk-blocdynamique]</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/FmkContenuComponent.html" target="_self" >FmkContenuComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./fmk.blocdynamique.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#contenuAffichageBlocDynamique" >contenuAffichageBlocDynamique</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#contenusDupliques" >contenusDupliques</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#listeDesOccurences" >listeDesOccurences</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#occurenceEnCoursDedition" >occurenceEnCoursDedition</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#souscriptions" >souscriptions</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ajouterUneOccurence" >ajouterUneOccurence</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#ajouterUneOccurencePrecise" >ajouterUneOccurencePrecise</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#calculerSiNouvelleOccurenceEstAutorisee" >calculerSiNouvelleOccurenceEstAutorisee</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#passerEnModeEdition" >passerEnModeEdition</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#preinitialiserLesOccurences" >preinitialiserLesOccurences</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#quitterModeEdition" >quitterModeEdition</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#recupererContenuDunBlocDynamique" >recupererContenuDunBlocDynamique</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#recupererControleAssocieAuContenu" >recupererControleAssocieAuContenu</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#supprimerOccurence" >supprimerOccurence</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#declarerSouscription" >declarerSouscription</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#declarerSouscriptions" >declarerSouscriptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#detruireLesSouscriptions" >detruireLesSouscriptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Entrées</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#bloc" >bloc</a>
+                            </li>
+                            <li>
+                                <a href="#formulaire" >formulaire</a>
+                            </li>
+                            <li>
+                                <a href="#page" >page</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Sorties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onCreationContenus" >onCreationContenus</a>
+                            </li>
+                            <li>
+                                <a href="#onDestructionContenus" >onDestructionContenus</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructeur</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(contexte: <a href="../injectables/ContexteService.html" target="_self">ContexteService</a>, formulaireService: <a href="../injectables/FormulaireService.html" target="_self">FormulaireService</a>, configurationService: <a href="../injectables/ConfigurationService.html" target="_self">ConfigurationService</a>, logger: NGXLogger)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="70" class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:70</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructeur pour injection des dépendances.</p>
+</div>
+                            <div>
+                                    <b>Paramètres :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nom</td>
+                                                    <td>Type</td>
+                                                <td>Optionnel</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>contexte</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ContexteService.html" target="_self" >ContexteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>formulaireService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FormulaireService.html" target="_self" >FormulaireService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>configurationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConfigurationService.html" target="_self" >ConfigurationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                    <code>NGXLogger</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Entrées</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="bloc"></a>
+                        <b>bloc</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Bloc.html" target="_self" >Bloc | undefined</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Défini dans <a href="" data-line="50" class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:50</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Bloc dynamique à traiter</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formulaire"></a>
+                        <b>formulaire</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>UntypedFormGroup | undefined</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Défini dans <a href="" data-line="54" class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:54</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Formulaire</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="page"></a>
+                        <b>page</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Page.html" target="_self" >Page | undefined</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Défini dans <a href="" data-line="46" class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:46</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Page en cours</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Sorties</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onCreationContenus"></a>
+                        <b>onCreationContenus</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Défini dans <a href="" data-line="58" class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:58</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evenement de création de nouveaux contenus dans une nouvelle occurence</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onDestructionContenus"></a>
+                        <b>onDestructionContenus</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Défini dans <a href="" data-line="62" class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:62</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evenement de suppression de nouveaux contenus dans une nouvelle occurence</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ajouterUneOccurence"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ajouterUneOccurence</b></span>
+                        <a href="#ajouterUneOccurence"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ajouterUneOccurence()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="134"
+                                    class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:134</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Ajout d&#39;une occurence de ce bloc dynamique dans le formulaire</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ajouterUneOccurencePrecise"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>ajouterUneOccurencePrecise</b></span>
+                        <a href="#ajouterUneOccurencePrecise"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ajouterUneOccurencePrecise(occurence: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="150"
+                                    class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:150</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Ajout d&#39;une occurence à partir d&#39;un numéro.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>occurence</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculerSiNouvelleOccurenceEstAutorisee"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>calculerSiNouvelleOccurenceEstAutorisee</b></span>
+                        <a href="#calculerSiNouvelleOccurenceEstAutorisee"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculerSiNouvelleOccurenceEstAutorisee()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="228"
+                                    class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:228</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vérification du nombre d&#39;occurences déjà présentes VS le nombre maximal autorisé.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="76"
+                                    class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Au chargement du composant</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passerEnModeEdition"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>passerEnModeEdition</b></span>
+                        <a href="#passerEnModeEdition"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>passerEnModeEdition(occurence: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="238"
+                                    class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:238</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gestion de l&#39;édition</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>occurence</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="preinitialiserLesOccurences"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>preinitialiserLesOccurences</b></span>
+                        <a href="#preinitialiserLesOccurences"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>preinitialiserLesOccurences()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="111"
+                                    class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:111</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Détection des occurences existantes dans les données déjà présentes</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="quitterModeEdition"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>quitterModeEdition</b></span>
+                        <a href="#quitterModeEdition"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>quitterModeEdition()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="233"
+                                    class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:233</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gestion de l&#39;édition</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recupererContenuDunBlocDynamique"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>recupererContenuDunBlocDynamique</b></span>
+                        <a href="#recupererContenuDunBlocDynamique"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>recupererContenuDunBlocDynamique(occurence: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, indexContenuOriginal: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="212"
+                                    class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:212</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Recherche d&#39;un contenu précis pour une occurence</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>occurence</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>indexContenuOriginal</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>ContenuDeBloc | undefined</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recupererControleAssocieAuContenu"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>recupererControleAssocieAuContenu</b></span>
+                        <a href="#recupererControleAssocieAuContenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>recupererControleAssocieAuContenu(occurence: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, indexContenuOriginal: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="218"
+                                    class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:218</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Recherche du controle dans le formulaire correspondant à un contenu de bloc dynamique</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>occurence</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>indexContenuOriginal</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>UntypedFormControl | UntypedFormGroup | undefined</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="supprimerOccurence"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>supprimerOccurence</b></span>
+                        <a href="#supprimerOccurence"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>supprimerOccurence(occurence: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="184"
+                                    class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:184</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Suppression d&#39;une occurence</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>occurence</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="declarerSouscription"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>declarerSouscription</b></span>
+                        <a href="#declarerSouscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>declarerSouscription(sub: Subscription)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:35</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Déclaration d&#39;une souscription qui sera détruite à la destruction du composant</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>sub</td>
+                                            <td>
+                                                        <code>Subscription</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="declarerSouscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>declarerSouscriptions</b></span>
+                        <a href="#declarerSouscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>declarerSouscriptions(subs: Subscription[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:40</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Déclaration d&#39;une souscription qui sera détruite à la destruction du composant</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>subs</td>
+                                            <td>
+                                                        <code>Subscription[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="detruireLesSouscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>detruireLesSouscriptions</b></span>
+                        <a href="#detruireLesSouscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>detruireLesSouscriptions()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:45</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Destruction des souscriptions créées</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:50</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>A la destruction du composant, on détruit ses souscriptions</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contenuAffichageBlocDynamique"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>contenuAffichageBlocDynamique</b></span>
+                        <a href="#contenuAffichageBlocDynamique"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/ContenuParagraphe.html" target="_self" >ContenuParagraphe | undefined</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="70" class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contenusDupliques"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>contenusDupliques</b></span>
+                        <a href="#contenusDupliques"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Map&lt;number | ContenuDeBloc[]&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>new Map()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="65" class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:65</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Liste des contenus de chaque occurence de chaque bloc</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listeDesOccurences"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>listeDesOccurences</b></span>
+                        <a href="#listeDesOccurences"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="68" class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:68</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Liste des occurences existantes pour chaque bloc dynamique</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="occurenceEnCoursDedition"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>occurenceEnCoursDedition</b></span>
+                        <a href="#occurenceEnCoursDedition"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="42" class="link-to-prism">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts:42</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Index de l&#39;occurence en cours d&#39;édition</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="souscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>souscriptions</b></span>
+                        <a href="#souscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:32</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Liste des souscriptions réalisées par le composant concrêt et à détruire</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from &#x27;@angular/core&#x27;;
+import { UntypedFormControl, UntypedFormGroup } from &#x27;@angular/forms&#x27;;
+import { NGXLogger } from &#x27;ngx-logger&#x27;;
+import { ConfigurationService, ContexteService, FormulaireService } from &#x27;../../../../../public-api&#x27;;
+import { FmkContenuComponent } from &#x27;../../../../contenu/fmk.contenu&#x27;;
+import { ContenuDeBloc, ContenuParagraphe, TypeContenuDeBloc } from &#x27;../../../../model/configurationdemarchecontenubloc.model&#x27;;
+import { Bloc, Page } from &#x27;../../../../model/configurationdemarchegeneral.model&#x27;;
+import { AbstractComponent } from &#x27;../../../../utilitaires/abstract.component&#x27;;
+import { UtilitaireBlocDynamique } from &#x27;../../../../utilitaires/utilitaire.blocdynamique&#x27;;
+import { UtilitaireModel } from &#x27;../../../../utilitaires/utilitaire.model&#x27;;
+
+
+@Component({
+    selector: &#x27;div[data-fmk-blocdynamique]&#x27;, templateUrl: &#x27;./fmk.blocdynamique.html&#x27;, encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    imports: [FmkContenuComponent]
+})
+export class FmkBlocDynamiqueComponent extends AbstractComponent implements OnInit {
+
+    /** Index de l&#x27;occurence en cours d&#x27;édition */
+    public occurenceEnCoursDedition: number | undefined;
+
+    /** Page en cours */
+    @Input()
+    public page: Page | undefined;
+
+    /** Bloc dynamique à traiter */
+    @Input()
+    public bloc: Bloc | undefined;
+
+    /** Formulaire */
+    @Input()
+    public formulaire: UntypedFormGroup | undefined;
+
+    /** Evenement de création de nouveaux contenus dans une nouvelle occurence */
+    @Output()
+    public onCreationContenus &#x3D; new EventEmitter&lt;ContenuDeBloc[]&gt;();
+
+    /** Evenement de suppression de nouveaux contenus dans une nouvelle occurence */
+    @Output()
+    public onDestructionContenus &#x3D; new EventEmitter&lt;ContenuDeBloc[]&gt;();
+
+    /** Liste des contenus de chaque occurence de chaque bloc */
+    public contenusDupliques: Map&lt;number, ContenuDeBloc[]&gt; &#x3D; new Map();
+
+    /** Liste des occurences existantes pour chaque bloc dynamique */
+    public listeDesOccurences: number[] &#x3D; [];
+
+    public contenuAffichageBlocDynamique: ContenuParagraphe | undefined;
+
+    /** Constructeur pour injection des dépendances. */
+    public constructor(private contexte: ContexteService, private formulaireService: FormulaireService, private configurationService: ConfigurationService, private logger: NGXLogger) { super(); }
+
+    /** Au chargement du composant */
+    public ngOnInit(): void {
+        // Si une condition d&#x27;affichage est présente
+        if (this.page &amp;&amp; this.formulaire &amp;&amp; this.bloc) {
+
+            // Copie de la condition d&#x27;affichage du bloc dynamique dans le contenu de gestion de l&#x27;affichage (le texte permet d&#x27;identifier le paragraphe dans les logs)
+            this.contenuAffichageBlocDynamique &#x3D; new ContenuParagraphe();
+            this.contenuAffichageBlocDynamique.type &#x3D; TypeContenuDeBloc.paragraphe;
+            this.contenuAffichageBlocDynamique.texte &#x3D; &#x27;contenuAffichageBlocDynamique&#x27;;
+            this.contenuAffichageBlocDynamique.conditionVisibilite &#x3D; (this.bloc.conditionVisibilite) ? this.bloc.conditionVisibilite : &#x27;true&#x27;;
+            UtilitaireModel.initialiserLeOuLesTitresEtAides(this.contenuAffichageBlocDynamique);
+
+            // Création du controle lié au contenu
+            const subs &#x3D; this.formulaireService.creerLesControlesDunFormulaire([this.contenuAffichageBlocDynamique], this.formulaire);
+            this.declarerSouscriptions(subs);
+
+            // recalcul de la condition du contenu
+            this.formulaireService.calculerLesConditionsDeTousLesContenus([this.contenuAffichageBlocDynamique], this.formulaire, this.contexte.langue);
+
+            // Recalcule les titres de touts les au changement de langue
+            const sub &#x3D; this.contexte.obtenirUnObservableDeChargementDeLaLangue().subscribe(langue &#x3D;&gt; {
+                if (this.formulaire &amp;&amp; langue &amp;&amp; this.contenuAffichageBlocDynamique) {
+                    this.formulaireService.calculerLesConditionsDeTousLesContenus([this.contenuAffichageBlocDynamique], this.formulaire, langue);
+                }
+            });
+            this.declarerSouscription(sub);
+
+            // On prévient la page de la création des nouveaux contenus
+            this.onCreationContenus.next([this.contenuAffichageBlocDynamique]);
+        }
+
+        // Pré-initialisation des occurences si des données existent déjà (cas du retour arrière)
+        this.preinitialiserLesOccurences();
+    }
+
+    /** Détection des occurences existantes dans les données déjà présentes */
+    private preinitialiserLesOccurences(): void {
+        // Pour chaque occurence possible (en commençant par la fin)
+        if (this.bloc &amp;&amp; this.bloc.maxOccurences) {
+            for (let i &#x3D; 0; i &lt; this.bloc?.maxOccurences; i++) {
+                // Recherche d&#x27;une valeur pour un des champs (en remettant la clef originale)
+                const contenusValorises &#x3D; this.bloc?.contenus.filter(c &#x3D;&gt; {
+                    const clefOriginale &#x3D; c.clef;
+                    c.clef &#x3D; UtilitaireBlocDynamique.remplacerNumeroOccurenceDansUneClefDeContenu(c.clef, i);
+                    const valeurTrouvee &#x3D; !!this.formulaireService.determinerValeurParDefaut(c);
+                    c.clef &#x3D; clefOriginale;
+                    return valeurTrouvee;
+                });
+                if (contenusValorises.length &gt; 0) {
+                    // log
+                    this.logger.info(contenusValorises.length + &#x27; contenus avec une valeur dans l\&#x27;occurence &#x27; + i);
+                    // ajout de l&#x27;occurence précise
+                    this.ajouterUneOccurencePrecise(i);
+                }
+            }
+        }
+    }
+
+    /** Ajout d&#x27;une occurence de ce bloc dynamique dans le formulaire */
+    public ajouterUneOccurence(): void {
+
+        // Recherche du premier numéro d&#x27;occurence disponible
+        let occurence &#x3D; 0;
+        while (this.listeDesOccurences.includes(occurence)) {
+            occurence++;
+        }
+
+        // ajout de l&#x27;occurence précise
+        this.ajouterUneOccurencePrecise(occurence);
+
+        // A la création, la nouvelle occurence est tout de suite en édition
+        this.occurenceEnCoursDedition &#x3D; occurence;
+    }
+
+    /** Ajout d&#x27;une occurence à partir d&#x27;un numéro. */
+    private ajouterUneOccurencePrecise(occurence: number): void {
+        // Au cas où
+        if (!this.formulaire || !this.page || !this.bloc) {
+            return;
+        }
+
+        // Ajout de l&#x27;occurence à la liste
+        this.listeDesOccurences.push(occurence);
+
+        // Clone des contenus 
+        const nouveauxContenus &#x3D; this.configurationService.clonerContenusPourUneOccurenceDeBlocDynamique(this.bloc, occurence);
+
+        // Sauvegarde des contenus de chaque occurence
+        this.contenusDupliques.set(occurence, nouveauxContenus);
+
+        // Création de la liste des contenus de la page (hors blocs dynamiques)
+        const contenusDeLaPage: ContenuDeBloc[] &#x3D; [];
+        this.page.blocs.filter(b &#x3D;&gt; !b.dynamique).forEach(b &#x3D;&gt; contenusDeLaPage.push(...b.contenus));
+
+        // Création des controles liés aux contenus
+        const subs &#x3D; this.formulaireService.creerLesControlesDunFormulaire(nouveauxContenus, this.formulaire, contenusDeLaPage);
+        this.declarerSouscriptions(subs);
+
+        // recalcul des conditions des contenus
+        this.formulaireService.calculerLesConditionsDeTousLesContenus(nouveauxContenus, this.formulaire, this.contexte.langue);
+
+        // On prévient la page de la création des nouveaux contenus
+        this.onCreationContenus.next(nouveauxContenus);
+
+        // log
+        this.logger.trace(&#x27;Fin de l\&#x27;ajout d\&#x27;une occurence de bloc dynamique &#x27;, { bloc: this.bloc, nouveauxContenus: nouveauxContenus, formulaire: this.formulaire.controls });
+    }
+
+    /** Suppression d&#x27;une occurence */
+    public supprimerOccurence(occurence: number): void {
+        // Retrait de l&#x27;occurence de la liste
+        const indexDeLoccurrence &#x3D; this.listeDesOccurences.indexOf(occurence);
+        if (indexDeLoccurrence !&#x3D;&#x3D; -1) {
+            this.listeDesOccurences.splice(indexDeLoccurrence, 1);
+        }
+
+        // Si l&#x27;occurence en cours d&#x27;édition est celle supprimée, on reset l&#x27;occurence en cours d&#x27;édition
+        if (occurence &#x3D;&#x3D;&#x3D; this.occurenceEnCoursDedition) {
+            this.occurenceEnCoursDedition &#x3D; undefined;
+        }
+
+        // Récupération des contenus dupliqués pour cette occurence
+        const contenusAsupprimer &#x3D; this.contenusDupliques.get(occurence);
+
+        if (contenusAsupprimer) {
+            // Destruction des contrôles associés aux contenus à retirer
+            if (this.formulaire) {
+                this.logger.info(&#x27;Desctruction des contrôles de l\&#x27;occurence &#x27; + occurence);
+                this.formulaireService.detruireLesControlesDunFormulaire(this.formulaire, contenusAsupprimer);
+            }
+
+            // Prévenir la page
+            this.onDestructionContenus.next(contenusAsupprimer);
+        }
+    }
+
+    /** Recherche d&#x27;un contenu précis pour une occurence */
+    public recupererContenuDunBlocDynamique(occurence: number, indexContenuOriginal: number): ContenuDeBloc | undefined {
+        const contenusOccurence &#x3D; this.contenusDupliques.get(occurence);
+        return contenusOccurence ? contenusOccurence[indexContenuOriginal] : undefined;
+    }
+
+    /** Recherche du controle dans le formulaire correspondant à un contenu de bloc dynamique*/
+    public recupererControleAssocieAuContenu(occurence: number, indexContenuOriginal: number): UntypedFormControl | UntypedFormGroup | undefined {
+        const contenu &#x3D; this.recupererContenuDunBlocDynamique(occurence, indexContenuOriginal);
+        if (this.formulaire &amp;&amp; contenu) {
+            return this.formulaireService.recupererControleAssocieAuContenu(contenu, this.formulaire);
+        } else {
+            return undefined;
+        }
+    }
+
+    /** Vérification du nombre d&#x27;occurences déjà présentes VS le nombre maximal autorisé. */
+    public calculerSiNouvelleOccurenceEstAutorisee(): boolean {
+        return !!this.bloc &amp;&amp; !!this.bloc.maxOccurences &amp;&amp; this.listeDesOccurences.length &lt; this.bloc.maxOccurences;
+    }
+
+    /** Gestion de l&#x27;édition */
+    public quitterModeEdition(): void {
+        this.occurenceEnCoursDedition &#x3D; undefined;
+    }
+
+    /** Gestion de l&#x27;édition */
+    public passerEnModeEdition(occurence: number): void {
+        this.occurenceEnCoursDedition &#x3D; occurence;
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@if (bloc &amp;&amp; contenuAffichageBlocDynamique?.visibilite) {
+  &lt;div class&#x3D;&quot;fr-grid-row fmk-bloc&quot;&gt;
+    &lt;!-- Fieldset d&#x27;une occurence --&gt;
+    @for (occurence of listeDesOccurences; track occurence) {
+      &lt;fieldset [class]&#x3D;&quot;&#x27;fmk-blocdynamiquefieldset fieldset-&#x27;+occurence&quot;&gt;
+        &lt;!-- Contenus d&#x27;une occurence --&gt;
+        @for (contenu of bloc.contenus; track contenu; let j &#x3D; $index) {
+          &lt;!-- libellé en mode lecture--&gt;
+          @if (occurenceEnCoursDedition!&#x3D;&#x3D;occurence &amp;&amp; !!($any(contenu).estIncluDansUnBlocDynamiquePourLectureSeule) &amp;&amp; recupererContenuDunBlocDynamique(occurence,j)?.visibilite) {
+            &lt;div class&#x3D;&quot;fr-col-12 data-contenu data-contenu{{j}}-{{occurence}}&quot;
+              &gt;
+              &lt;div data-fmk-contenu [contenu]&#x3D;&quot;recupererContenuDunBlocDynamique(occurence,j)&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+          }
+          &lt;!-- Le reste en mode édition --&gt;
+          @if (occurenceEnCoursDedition&#x3D;&#x3D;&#x3D;occurence &amp;&amp; !($any(contenu)).estIncluDansUnBlocDynamiquePourLectureSeule &amp;&amp; recupererContenuDunBlocDynamique(occurence,j)?.visibilite) {
+            &lt;div class&#x3D;&quot;fr-col-12 data-contenu data-contenu{{j}}-{{occurence}}&quot;
+              &gt;
+              &lt;div data-fmk-contenu [contenu]&#x3D;&quot;recupererContenuDunBlocDynamique(occurence,j)&quot;
+                [controle]&#x3D;&quot;recupererControleAssocieAuContenu(occurence,j)&quot;&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          }
+        }
+        &lt;!-- Actions d&#x27;une occurence --&gt;
+        &lt;div class&#x3D;&quot;fr-col-12 actions-{{occurence}}&quot;&gt;
+          @if (occurenceEnCoursDedition&#x3D;&#x3D;&#x3D;occurence) {
+            &lt;button type&#x3D;&quot;button&quot; [disabled]&#x3D;&quot;formulaire &amp;&amp; !formulaire.valid&quot; class&#x3D;&quot;btn-quitter&quot;
+              title&#x3D;&quot;Valider&quot; (click)&#x3D;&quot;quitterModeEdition()&quot;&gt;
+              &lt;span class&#x3D;&quot;fr-fi-success-line&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;blank&quot;&gt;Valider&lt;/span&gt;
+            &lt;/button&gt;
+          }
+          @if (occurenceEnCoursDedition &#x3D;&#x3D;&#x3D; undefined) {
+            &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-editer&quot; title&#x3D;&quot;Modifier&quot;
+              (click)&#x3D;&quot;passerEnModeEdition(occurence)&quot;&gt;
+              &lt;span class&#x3D;&quot;fr-icon-edit-line&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;blank&quot;&gt;Modifier&lt;/span&gt;
+            &lt;/button&gt;
+          }
+          &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-supprimer&quot; title&#x3D;&quot;Supprimer&quot; (click)&#x3D;&quot;supprimerOccurence(occurence)&quot;&gt;
+            &lt;span class&#x3D;&quot;fr-fi-delete-line&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;blank&quot;&gt;Supprimer&lt;/span&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/fieldset&gt;
+    }
+    &lt;!-- Actions du bloc --&gt;
+    &lt;div class&#x3D;&quot;fr-col-12&quot;&gt;
+      @if (calculerSiNouvelleOccurenceEstAutorisee()) {
+        &lt;button type&#x3D;&quot;button&quot; [disabled]&#x3D;&quot;occurenceEnCoursDedition !&#x3D;&#x3D; undefined&quot;
+          class&#x3D;&quot;btn-ajout&quot; title&#x3D;&quot;Ajouter&quot; (click)&#x3D;&quot;ajouterUneOccurence()&quot;&gt;
+          &lt;span class&#x3D;&quot;fr-fi-add-circle-line&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;&lt;span class&#x3D;&quot;blank&quot;&gt;Ajouter&lt;/span&gt;
+        &lt;/button&gt;
+      }
+    &lt;/div&gt;
+  &lt;/div&gt;
+}</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Légende</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elément Html</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Composant</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elément Html avec une directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@if (bloc && contenuAffichageBlocDynamique?.visibilite) {  <div class="fr-grid-row fmk-bloc">    <!-- Fieldset d\'une occurence -->    @for (occurence of listeDesOccurences; track occurence) {      <fieldset [class]="\'fmk-blocdynamiquefieldset fieldset-\'+occurence">        <!-- Contenus d\'une occurence -->        @for (contenu of bloc.contenus; track contenu; let j = $index) {          <!-- libellé en mode lecture-->          @if (occurenceEnCoursDedition!==occurence && !!($any(contenu).estIncluDansUnBlocDynamiquePourLectureSeule) && recupererContenuDunBlocDynamique(occurence,j)?.visibilite) {            <div class="fr-col-12 data-contenu data-contenu{{j}}-{{occurence}}"              >              <div data-fmk-contenu [contenu]="recupererContenuDunBlocDynamique(occurence,j)"></div>            </div>          }          <!-- Le reste en mode édition -->          @if (occurenceEnCoursDedition===occurence && !($any(contenu)).estIncluDansUnBlocDynamiquePourLectureSeule && recupererContenuDunBlocDynamique(occurence,j)?.visibilite) {            <div class="fr-col-12 data-contenu data-contenu{{j}}-{{occurence}}"              >              <div data-fmk-contenu [contenu]="recupererContenuDunBlocDynamique(occurence,j)"                [controle]="recupererControleAssocieAuContenu(occurence,j)">              </div>            </div>          }        }        <!-- Actions d\'une occurence -->        <div class="fr-col-12 actions-{{occurence}}">          @if (occurenceEnCoursDedition===occurence) {            <button type="button" [disabled]="formulaire && !formulaire.valid" class="btn-quitter"              title="Valider" (click)="quitterModeEdition()">              <span class="fr-fi-success-line" aria-hidden="true"></span><span class="blank">Valider</span>            </button>          }          @if (occurenceEnCoursDedition === undefined) {            <button type="button" class="btn-editer" title="Modifier"              (click)="passerEnModeEdition(occurence)">              <span class="fr-icon-edit-line" aria-hidden="true"></span><span class="blank">Modifier</span>            </button>          }          <button type="button" class="btn-supprimer" title="Supprimer" (click)="supprimerOccurence(occurence)">            <span class="fr-fi-delete-line" aria-hidden="true"></span><span class="blank">Supprimer</span>          </button>        </div>      </fieldset>    }    <!-- Actions du bloc -->    <div class="fr-col-12">      @if (calculerSiNouvelleOccurenceEstAutorisee()) {        <button type="button" [disabled]="occurenceEnCoursDedition !== undefined"          class="btn-ajout" title="Ajouter" (click)="ajouterUneOccurence()">          <span class="fr-fi-add-circle-line" aria-hidden="true"></span><span class="blank">Ajouter</span>        </button>      }    </div>  </div>}</div>'
+    var COMPONENTS = [{'name': 'ConnexionBrouillonDialog', 'selector': 'div[data-fmk-connexionreprisebrouillon]'},{'name': 'FmkBlocComponent', 'selector': 'div[data-fmk-bloc]'},{'name': 'FmkBlocDynamiqueComponent', 'selector': 'div[data-fmk-blocdynamique]'},{'name': 'FmkCaptchaComponent', 'selector': 'div[data-fmk-captcha]'},{'name': 'FmkConteneurPagesComponent', 'selector': 'div[data-fmk-conteneurpages]'},{'name': 'FmkContenuAdresseFrOuRtrComponent', 'selector': 'div[data-fmk-contenuadressefrouetr]'},{'name': 'FmkContenuAutocompletionComponent', 'selector': 'div[data-fmk-contenuautocompletion]'},{'name': 'FmkContenuCaseComponent', 'selector': 'div[data-fmk-contenucase]'},{'name': 'FmkContenuComponent', 'selector': 'div[data-fmk-contenu]'},{'name': 'FmkContenuContactPersonnelComponent', 'selector': 'div[data-fmk-contenucontactpersonnel]'},{'name': 'FmkContenuDateComponent', 'selector': 'div[data-fmk-contenudate]'},{'name': 'FmkContenuDocumentsComponent', 'selector': 'div[data-fmk-contenudocuments]'},{'name': 'FmkContenuFinDemarcheComponent', 'selector': 'div[data-fmk-contenufindemarche]'},{'name': 'FmkContenuFinDemarcheConnecteComponent', 'selector': 'div[data-fmk-contenufindemarcheconnecte]'},{'name': 'FmkContenuFinDemarcheNonConnecteComponent', 'selector': 'div[data-fmk-contenufindemarchenonconnecte]'},{'name': 'FmkContenuIdentiteComponent', 'selector': 'div[data-fmk-contenuidentite]'},{'name': 'FmkContenuListeFinieComponent', 'selector': 'div[data-fmk-contenulistefinie]'},{'name': 'FmkContenuParagrapheComponent', 'selector': 'div[data-fmk-contenuparagraphe]'},{'name': 'FmkContenuRadioComponent', 'selector': 'div[data-fmk-contenuradio]'},{'name': 'FmkContenuRecapitulatifComponent', 'selector': 'div[data-fmk-contenurecapitulatif]'},{'name': 'FmkContenuRicheComponent', 'selector': 'div[data-fmk-contenuriche]'},{'name': 'FmkContenuSaisieComponent', 'selector': 'div[data-fmk-contenusaisie]'},{'name': 'FmkContenuSaisieLongueComponent', 'selector': 'div[data-fmk-contenusaisielongue]'},{'name': 'FmkContenuSimpleComponent', 'selector': 'div[data-fmk-contenusimple]'},{'name': 'FmkContenuUploadDocumentComponent', 'selector': 'div[data-fmk-contenuuploaddocument]'},{'name': 'FmkContenuUtilisateurConnecteComponent', 'selector': 'div[data-fmk-contenuutilisateurconnecte]'},{'name': 'FmkEnteteComponent', 'selector': 'div[data-fmk-entete]'},{'name': 'FmkFilDarianeComponent', 'selector': 'div[data-fmk-fildariane]'},{'name': 'FmkListeContenusRecapitulatifComponent', 'selector': 'div[data-fmk-listecontenusrecapitulatif]'},{'name': 'FmkMessageGlobalComponent', 'selector': 'div[data-fmk-messageglobal]'},{'name': 'FmkMessagesValidationComponent', 'selector': '[data-fmk-messagesvalidation]'},{'name': 'FmkNavigationComponent', 'selector': 'div[data-fmk-navigation]'},{'name': 'FmkPageComponent', 'selector': 'div[data-fmk-page]'},{'name': 'FmkPiedDePageComponent', 'selector': 'div[data-fmk-pieddepage]'}];
+    var DIRECTIVES = [{'name': 'AbstractComponent', 'selector': ''},{'name': 'AncreTabulableDirective', 'selector': 'a:not([href])'},{'name': 'FmkApplicationAbstraitComponent', 'selector': ''},{'name': 'FmkContenuAbstraitComponent', 'selector': ''},{'name': 'FmkContenuComplexeAbstraitComponent', 'selector': ''},{'name': 'FmkContenuFinDemarcheAbstraitComponent', 'selector': ''},{'name': 'FmkContenuMonoSaisieAbstraitComponent', 'selector': ''}];
+    var ACTUAL_COMPONENT = {'name': 'FmkBlocDynamiqueComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FmkBlocDynamiqueComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Déclaration de l'artefact parent -->
+	<parent>
+		<groupId>com.github.talbotgui.psl.socle</groupId>
+		<artifactId>socle</artifactId>
+		<version>0.0.2-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>socle-commundb</artifactId>
+	<name>socle-commundb</name>
+	<description>Classes communes entre les projets se connectant à une base MongoDB</description>
+
+	<!-- Modification de la clef pour les besoins des sous-projets -->
+	<properties><cheminRelatifVersLaRacineDuDepot>${project.basedir}/../../..</cheminRelatifVersLaRacineDuDepot></properties>
+
+	<dependencies>
+		<!-- Les projets communs -->
+		<dependency>
+			<groupId>com.github.talbotgui.psl.socle</groupId>
+			<artifactId>socle-commun</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<!-- Pour se connecter à une base MongoDB -->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongodb-driver-sync</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+		</dependency>
+		
+		<!-- Pour remplacer l'intégration de MongoDB dans SpringBoot (disparue en 3.x) -->
+		<dependency>
+			<groupId>de.flapdoodle.embed</groupId>
+			<artifactId>de.flapdoodle.embed.mongo.spring3x</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+	</build>
+
+</project>

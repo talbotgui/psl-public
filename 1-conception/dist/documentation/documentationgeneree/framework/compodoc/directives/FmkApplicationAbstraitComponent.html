@@ -1,0 +1,1403 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content directive">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Directives</li>
+  <li class="breadcrumb-item" >FmkApplicationAbstraitComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Fichier</h3>
+        </p>
+        <p class="comment">
+            <code>projects/framework/src/lib/application/abstrait/fmk.applicationabstrait.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Cette classe fournit les comportements de base de toute application.
+Toutes les app.component.ts doivent en hérité</p>
+
+            </p>
+
+            <p class="comment">
+                <h3>Etend</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+            </p>
+
+            <p class="comment">
+                <h3>Implémente</h3>
+            </p>
+            <p class="comment">
+                        <code>OnInit</code>
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#afficherApplication" >afficherApplication</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#configuration" >configuration</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#souscriptions" >souscriptions</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#chargerBrouillon" >chargerBrouillon</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#definirEtDeclencerAuthentification" >definirEtDeclencerAuthentification</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#gererLaSecurite" >gererLaSecurite</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#declarerSouscription" >declarerSouscription</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#declarerSouscriptions" >declarerSouscriptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#detruireLesSouscriptions" >detruireLesSouscriptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructeur</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(oidcService: <a href="../injectables/OIDCService.html" target="_self">OIDCService</a>, contexteService: <a href="../injectables/ContexteService.html" target="_self">ContexteService</a>, configurationService: <a href="../injectables/ConfigurationService.html" target="_self">ConfigurationService</a>, donneesService: <a href="../injectables/DonneesService.html" target="_self">DonneesService</a>, brouillonService: <a href="../injectables/BrouillonService.html" target="_self">BrouillonService</a>, securiteService: <a href="../injectables/SecuriteService.html" target="_self">SecuriteService</a>, logger: NGXLogger, environnementService: <a href="../injectables/EnvironnementService.html" target="_self">EnvironnementService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="55" class="link-to-prism">projects/framework/src/lib/application/abstrait/fmk.applicationabstrait.ts:55</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructeur pour injection des dépendances</p>
+</div>
+                            <div>
+                                    <b>Paramètres :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nom</td>
+                                                    <td>Type</td>
+                                                <td>Optionnel</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>oidcService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OIDCService.html" target="_self" >OIDCService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>contexteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ContexteService.html" target="_self" >ContexteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>configurationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConfigurationService.html" target="_self" >ConfigurationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>donneesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DonneesService.html" target="_self" >DonneesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>brouillonService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BrouillonService.html" target="_self" >BrouillonService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>securiteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SecuriteService.html" target="_self" >SecuriteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                    <code>NGXLogger</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>environnementService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/EnvironnementService.html" target="_self" >EnvironnementService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chargerBrouillon"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>chargerBrouillon</b></span>
+                        <a href="#chargerBrouillon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>chargerBrouillon(codeDemarche: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="124"
+                                    class="link-to-prism">projects/framework/src/lib/application/abstrait/fmk.applicationabstrait.ts:124</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode chargeant le brouillon si un id est passé en paramètre</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>codeDemarche</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="definirEtDeclencerAuthentification"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>definirEtDeclencerAuthentification</b></span>
+                        <a href="#definirEtDeclencerAuthentification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>definirEtDeclencerAuthentification(codeDemarche: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="166"
+                                    class="link-to-prism">projects/framework/src/lib/application/abstrait/fmk.applicationabstrait.ts:166</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode vérifiant les points d&#39;entrée définidans la configuration</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>codeDemarche</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="../miscellaneous/enumerations.html#STATUT_CONNEXION_OIDC" target="_self" >Observable&lt;STATUT_CONNEXION_OIDC&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gererLaSecurite"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>gererLaSecurite</b></span>
+                        <a href="#gererLaSecurite"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>gererLaSecurite(codeDemarche: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, pointEntree: <a href="../classes/PointEntree.html" target="_self">PointEntree</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="283"
+                                    class="link-to-prism">projects/framework/src/lib/application/abstrait/fmk.applicationabstrait.ts:283</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Une fois la configuration chargée (après une connexion anonyme) et le bon point d&#39;entrée trouvé, gestion de la sécurité</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>codeDemarche</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Code de la démarche</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>pointEntree</td>
+                                            <td>
+                                                            <code><a href="../classes/PointEntree.html" target="_self" >PointEntree</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Point d&#39;entrée sélectionné</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="../miscellaneous/enumerations.html#STATUT_CONNEXION_OIDC" target="_self" >Observable&lt;STATUT_CONNEXION_OIDC&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="61"
+                                    class="link-to-prism">projects/framework/src/lib/application/abstrait/fmk.applicationabstrait.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>A l&#39;initialisation de l&#39;application</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="declarerSouscription"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>declarerSouscription</b></span>
+                        <a href="#declarerSouscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>declarerSouscription(sub: Subscription)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:35</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Déclaration d&#39;une souscription qui sera détruite à la destruction du composant</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>sub</td>
+                                            <td>
+                                                        <code>Subscription</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="declarerSouscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>declarerSouscriptions</b></span>
+                        <a href="#declarerSouscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>declarerSouscriptions(subs: Subscription[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:40</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Déclaration d&#39;une souscription qui sera détruite à la destruction du composant</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>subs</td>
+                                            <td>
+                                                        <code>Subscription[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="detruireLesSouscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>detruireLesSouscriptions</b></span>
+                        <a href="#detruireLesSouscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>detruireLesSouscriptions()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:45</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Destruction des souscriptions créées</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:50</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>A la destruction du composant, on détruit ses souscriptions</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="afficherApplication"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>afficherApplication</b></span>
+                        <a href="#afficherApplication"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="55" class="link-to-prism">projects/framework/src/lib/application/abstrait/fmk.applicationabstrait.ts:55</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag utile pour masquer l&#39;application le temps du chargement des données (configuration / brouillon)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configuration"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>configuration</b></span>
+                        <a href="#configuration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/ConfigurationDemarche.html" target="_self" >ConfigurationDemarche | undefined</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="52" class="link-to-prism">projects/framework/src/lib/application/abstrait/fmk.applicationabstrait.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="souscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>souscriptions</b></span>
+                        <a href="#souscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:32</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Liste des souscriptions réalisées par le composant concrêt et à détruire</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, OnInit } from &#x27;@angular/core&#x27;;
+import { NGXLogger } from &#x27;ngx-logger&#x27;;
+import { Observable, of } from &#x27;rxjs&#x27;;
+import { map, mergeMap, tap } from &#x27;rxjs/operators&#x27;;
+import { i18n } from &#x27;../../conf/i18n&#x27;;
+import { AuthentificationPossibles, ConfigurationDemarche, PointEntree } from &#x27;../../model/configurationdemarchegeneral.model&#x27;;
+import { MessageAafficher, TypeMessageAafficher } from &#x27;../../model/message.model&#x27;;
+import { STATUT_CONNEXION_OIDC } from &#x27;../../model/securite.model&#x27;;
+import { ContexteService } from &#x27;../../services/stateful/contexte.service&#x27;;
+import { DonneesService } from &#x27;../../services/stateful/donnees.service&#x27;;
+import { EnvironnementService } from &#x27;../../services/stateful/environnement.service&#x27;;
+import { BrouillonService } from &#x27;../../services/stateless/brouillon.service&#x27;;
+import { ConfigurationService } from &#x27;../../services/stateless/configuration.service&#x27;;
+import { OIDCService } from &#x27;../../services/stateless/oidc.service&#x27;;
+import { SecuriteService } from &#x27;../../services/stateless/securite.service&#x27;;
+import { AbstractComponent } from &#x27;../../utilitaires/abstract.component&#x27;;
+
+/**
+ * Cette classe fournit les comportements de base de toute application.
+ * Toutes les app.component.ts doivent en hérité
+ */
+// @Directive pour pouvoir utilisé les annotations Angular dans cette classe
+@Directive()
+export class FmkApplicationAbstraitComponent extends AbstractComponent implements OnInit {
+
+    /*
+     * Instance de configuration
+     * - chargée au chargement de la démarche dans le navigateur de l&#x27;usager
+     * - utilisée dans la page HTML et les sous-composants
+     */
+    public configuration: ConfigurationDemarche | undefined;
+
+    /** Flag utile pour masquer l&#x27;application le temps du chargement des données (configuration / brouillon) */
+    public afficherApplication &#x3D; false;
+
+    /** Constructeur pour injection des dépendances */
+    public constructor(protected oidcService: OIDCService, protected contexteService: ContexteService, protected configurationService: ConfigurationService, protected donneesService: DonneesService, protected brouillonService: BrouillonService, protected securiteService: SecuriteService, private logger: NGXLogger, private environnementService: EnvironnementService) { super(); }
+
+    /** A l&#x27;initialisation de l&#x27;application */
+    public ngOnInit(): void {
+        this.afficherApplication &#x3D; false;
+
+        // Dès le tout début du processus, détection et sauvegarde de la langue par défaut du navigateur
+        // (uniquement la première mais c&#x27;est plus subtile dans l&#x27;entête une fois la configuration chargée)
+        this.contexteService.changerLangue(navigator.language.substring(0, 2).toUpperCase());
+
+        // Affichage d&#x27;un message à l&#x27;utilisateur (réutilisation de this.contexteService.langue car elle peut varier entre deux étapes)
+        let message &#x3D; i18n.application.debut1CreationToken.get(this.contexteService.langue);
+        this.contexteService.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Information, message));
+
+        // Récupération du code de la démarche depuis l&#x27;URL
+        const codeDemarche &#x3D; (new URLSearchParams(window.location.search)).get(&#x27;codeDemarche&#x27;);
+        if (!codeDemarche || codeDemarche.length&lt;3){
+            const message &#x3D; i18n.application.debutErreurLectureParametreCodeDemarche.get(this.contexteService.langue);
+            this.contexteService.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Erreur, message));
+            return;
+        }
+
+        // Connexion anonyme dans un premier temps pour charger la configuration
+        const sub &#x3D; this.securiteService.seConnecterEnAnonyme(codeDemarche).pipe(
+            // Une fois connecté en anonyme, chargement du contenu de la configuration
+            mergeMap(() &#x3D;&gt; {
+                message &#x3D; i18n.application.debut2ChargementConfiguration.get(this.contexteService.langue);
+                this.contexteService.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Information, message));
+
+                return this.configurationService.chargerConfigurationDemarche(codeDemarche);
+            }),
+
+            // Sauvegarde de la configuration
+            tap(conf &#x3D;&gt; this.configuration &#x3D; conf),
+
+            // Vérification de l&#x27;état de l&#x27;application vis-à-vis des points d&#x27;entrée configurés
+            mergeMap(() &#x3D;&gt; this.definirEtDeclencerAuthentification(codeDemarche)),
+
+            // Gestion de la réponse de la vérification
+            tap(statutVerification &#x3D;&gt; {
+                // Si la vérification est bonne
+                if (statutVerification &#x3D;&#x3D;&#x3D; STATUT_CONNEXION_OIDC.connexionReussie || statutVerification &#x3D;&#x3D;&#x3D; STATUT_CONNEXION_OIDC.modeAnonyme) {
+
+                    // Initialisation des données initiales
+                    if (this.configuration) {
+                        for (const clef in this.configuration.valeursInitiales) {
+                            const valeur &#x3D; this.configuration.valeursInitiales[clef];
+                            this.donneesService.sauvegarder(clef, valeur);
+                        }
+                    }
+
+                    // Chargement du brouillon si le paramètre est présent
+                    this.chargerBrouillon(codeDemarche);
+                }
+                // Sinon
+                else {
+                    // Pas de configuration pour ne rien chargé
+                    this.configuration &#x3D; undefined;
+                    // Mais pas de message à afficher car l&#x27;OidcService les génère en détails
+                }
+            })
+        ).subscribe();
+        this.declarerSouscription(sub);
+    }
+
+    /** Méthode chargeant le brouillon si un id est passé en paramètre */
+    private chargerBrouillon(codeDemarche: string): void {
+
+        // Dans le cas d&#x27;une authentification OIDC, l&#x27;ID du brouillon a pu être récupéré et déjà initialisé dans le contexte
+        let idBrouillon: string | null | undefined &#x3D; this.contexteService.idBrouillon;
+
+        // Si pas de brouillon OIDC, lecture depuis l&#x27;URL
+        if (!idBrouillon) {
+            // Lectures des paramètres de l&#x27;URL d&#x27;accès à la page
+            const params &#x3D; (new URL(window.location.href)).searchParams;
+
+            // Vérification de la présence du paramètre
+            idBrouillon &#x3D; params.get(&#x27;brouillon&#x27;);
+        }
+
+        // Si on a un ID au final
+        if (idBrouillon &amp;&amp; idBrouillon.length &gt; 2) {
+            // message pour l&#x27;usager
+            const message &#x3D; i18n.application.debut3ChargementBrouillon.get(this.contexteService.langue);
+            this.contexteService.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Information, message));
+            // on conserve une instance
+            // eslint-disable-next-line @typescript-eslint/no-this-alias
+            const me &#x3D; this;
+            // Chargement du brouillon
+            const sub &#x3D; this.brouillonService.chargerBrouillon(codeDemarche, idBrouillon)
+                .pipe(tap(() &#x3D;&gt; {
+                    this.contexteService.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Information, &#x27;&#x27;));
+                    this.afficherApplication &#x3D; true;
+                }))
+                .subscribe({
+                    error() {
+                        const message &#x3D; i18n.application.debutErreurChargementBrouillon.get(me.contexteService.langue);
+                        me.contexteService.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Erreur, message));
+                    }
+                });
+            this.declarerSouscription(sub);
+        } else {
+            this.contexteService.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Information, &#x27;&#x27;));
+            this.afficherApplication &#x3D; true;
+        }
+    }
+
+    /** Méthode vérifiant les points d&#x27;entrée définidans la configuration */
+    private definirEtDeclencerAuthentification(codeDemarche:string): Observable&lt;STATUT_CONNEXION_OIDC&gt; {
+
+        // Lectures des paramètres de l&#x27;URL d&#x27;accès à la page
+        const urlInitiale &#x3D; this.oidcService.obtenirUrlInitiale(window.location.href);
+        const paramsDansUrl &#x3D; (new URL(urlInitiale)).searchParams;
+
+        // Si un brouillon est à charger
+        if (paramsDansUrl.has(&#x27;brouillon&#x27;) &amp;&amp; paramsDansUrl.get(&#x27;brouillon&#x27;) !&#x3D; null) {
+            const idBrouillon &#x3D; paramsDansUrl.get(&#x27;brouillon&#x27;) as string;
+
+            // Message à l&#x27;usager
+            const message &#x3D; i18n.application.debut3RechercheModeAuthBrouillon.get(this.contexteService.langue).replace(&#x27;*idBrouillon*&#x27;, idBrouillon);
+            this.contexteService.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Information, message));
+
+            // Recherche du mode d&#x27;authentification correspondant au brouillon
+            this.logger.info(&#x27;Recherche de l\&#x27;authentification du brouillon &#x27; + idBrouillon);
+            return this.brouillonService.obtenirAuthentificationNecessaireAuBrouillon(codeDemarche, idBrouillon).pipe(
+                mergeMap(auth &#x3D;&gt; {
+                    this.logger.log(&#x27;Authentification trouvée pour ce brouillon  : &quot;&#x27;, auth + &#x27;&quot;&#x27;);
+                    const pe &#x3D; new PointEntree();
+                    if (auth) {
+                        pe.authentification &#x3D; AuthentificationPossibles.FranceConnect;
+                    } else {
+                        pe.authentification &#x3D; AuthentificationPossibles.RepriseBrouillonAnonyme;
+                    }
+                    return this.gererLaSecurite(codeDemarche, pe);
+                }));
+        }
+
+        // Si ce n&#x27;est pas un brouillon
+        else {
+
+            // Si la configuration ne définie pas de points d&#x27;entrée, rien à faire
+            if (this.configuration &amp;&amp; (!this.configuration.pointsEntree || this.configuration.pointsEntree.length &#x3D;&#x3D;&#x3D; 0)) {
+                return of(STATUT_CONNEXION_OIDC.modeAnonyme);
+            }
+
+            // Message à l&#x27;usager
+            const message &#x3D; i18n.application.debut3ChargementSansBrouillon.get(this.contexteService.langue);
+            this.contexteService.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Information, message));
+
+            this.logger.info(&#x27;Recherche des points d\&#x27;entrée&#x27;);
+            let pointsEntreesAvecParam: PointEntree[] &#x3D; [];
+            let pointsEntreesSansParam: PointEntree[] &#x3D; [];
+            if (this.configuration) {
+                // Recherche d&#x27;entrées correspondant aux paramètres de l&#x27;URL
+                pointsEntreesAvecParam &#x3D; this.configuration.pointsEntree.filter(
+                    point &#x3D;&gt; {
+                        if (point.parametres) {
+                            // Recherche, dans ce point d&#x27;entrée, du nombre de paramètres pour lesquels les paramsDansUrl sont cohérents
+                            const nbParametresValides &#x3D; point.parametres.filter(
+                                param &#x3D;&gt; param.parametre &amp;&amp; paramsDansUrl.has(param.parametre) &amp;&amp; param.valeurs.indexOf(paramsDansUrl.get(param.parametre) as string) !&#x3D;&#x3D; -1
+                            ).length
+
+                            // Ce point d&#x27;entree est bon si tous les paramètres sont résolus
+                            return point.parametres.length &#x3D;&#x3D;&#x3D; nbParametresValides;
+                        } else {
+                            return false;
+                        }
+                    });
+
+                // Recherche d&#x27;entrées sans paramètre (par défaut)
+                pointsEntreesSansParam &#x3D; this.configuration.pointsEntree.filter(p &#x3D;&gt; !p.parametres);
+            }
+
+            // si plusieurs entrées avec param, on a un problème
+            if (pointsEntreesAvecParam.length &gt; 1) {
+                const message &#x3D; i18n.application.debutErreurPointEntreeMultiple.get(this.contexteService.langue);
+                this.contexteService.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Erreur, message));
+                this.configuration &#x3D; undefined;
+                this.logger.info(&#x27;Erreur dans la vérification des points d\&#x27;entrées:&#x27;, message);
+                return of(STATUT_CONNEXION_OIDC.erreurURL);
+            }
+
+            // Si un unique point d&#x27;entrée avec param
+            else if (pointsEntreesAvecParam.length &#x3D;&#x3D;&#x3D; 1) {
+                // sauvegarde des valeurs de l&#x27;URL correspondantes aux paramètres du point d&#x27;entrée sélectionné
+                if (pointsEntreesAvecParam[0].parametres) {
+                    for (let i &#x3D; 0; i &lt; pointsEntreesAvecParam[0].parametres.length; i++) {
+                        const clefParam &#x3D; pointsEntreesAvecParam[0].parametres[i].parametre;
+                        if (clefParam) {
+                            const valeurParam &#x3D; paramsDansUrl.get(clefParam);
+                            if (valeurParam) {
+                                this.donneesService.sauvegarder(clefParam, valeurParam);
+                            }
+                        }
+                    }
+                }
+
+                // gestion de la sécuritée
+                this.logger.log(&#x27;Entrée avec le point d\&#x27;entrée paramètres :&#x27;, pointsEntreesAvecParam[0]);
+                return this.gererLaSecurite(codeDemarche, pointsEntreesAvecParam[0]);
+            }
+
+            // Si un unique point d&#x27;entrée sans param
+            else if (pointsEntreesSansParam.length &#x3D;&#x3D;&#x3D; 1) {
+                // Gestion de la sécurité
+                this.logger.log(&#x27;Entrée avec le point d\&#x27;entrée sans paramètres&#x27;);
+                return this.gererLaSecurite(codeDemarche, pointsEntreesSansParam[0]);
+            }
+
+            // Si aucun point d&#x27;entrée ne correspond
+            else {
+                const message &#x3D; i18n.application.debutErreurPointEntree.get(this.contexteService.langue);
+                this.contexteService.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Erreur, message));
+                this.configuration &#x3D; undefined;
+                this.logger.info(&#x27;Erreur dans la vérification des points d\&#x27;entrées:&#x27;, message);
+                return of(STATUT_CONNEXION_OIDC.erreurURL);
+            }
+        }
+    }
+
+    /**
+     * Une fois la configuration chargée (après une connexion anonyme) et le bon point d&#x27;entrée trouvé, gestion de la sécurité
+     * @param codeDemarche Code de la démarche
+     * @param pointEntree Point d&#x27;entrée sélectionné
+     */
+    public gererLaSecurite(codeDemarche:string, pointEntree: PointEntree): Observable&lt;STATUT_CONNEXION_OIDC&gt; {
+
+        // Si pas de sécurité demandée
+        if (pointEntree &amp;&amp; !pointEntree.authentification) {
+            this.logger.info(&#x27;Accès à la démarche sans authentification supplémentaire&#x27;);
+            return of(STATUT_CONNEXION_OIDC.modeAnonyme);
+        }
+
+        // Sinon connexion OIDC
+        else if (pointEntree &amp;&amp; pointEntree.authentification &#x3D;&#x3D;&#x3D; AuthentificationPossibles.FranceConnect) {
+            this.logger.info(&#x27;Accès à la démarche nécessitant une authentification supplémentaire&#x27;);
+            return this.oidcService.initialiserAuthentification(codeDemarche);
+        }
+
+        // Sinon connexion pour reprise de brouillon anonyme
+        else if (pointEntree &amp;&amp; pointEntree.authentification &#x3D;&#x3D;&#x3D; AuthentificationPossibles.RepriseBrouillonAnonyme) {
+            this.logger.info(&#x27;Accès à la démarche nécessitant une authentification de reprise de brouillon anonyme&#x27;);
+            // ouvrir un dialog
+            return this.brouillonService.demanderSaisieParametreConnexionPourBrouillon().pipe(
+                mergeMap(param &#x3D;&gt; {
+                    //récupérer un mail et un mdp
+                    const email &#x3D; param.nomUtilisateur;
+                    const mdp &#x3D; param.motDePasse;
+
+                    // créer un token avec ces info
+                    return this.securiteService.seConnecterAvecUnMotDePasse(email, mdp);
+                }),
+                // Transformation du boolean en résultat
+                map(statut &#x3D;&gt; statut ? STATUT_CONNEXION_OIDC.connexionReussie : STATUT_CONNEXION_OIDC.erreurConnexion)
+            );
+        }
+
+        // si pas de point d&#x27;entrée ou valeur incohérente
+        else {
+            const message &#x3D; i18n.application.debutErreurPointEntree.get(this.contexteService.langue);
+            this.contexteService.afficherUnMessageGeneral(new MessageAafficher(&#x27;oidc&#x27;, TypeMessageAafficher.Erreur, message));
+            this.configuration &#x3D; undefined;
+            this.logger.info(&#x27;Erreur dans la vérification du point d\&#x27;entrée trouvé :&#x27;, message);
+            return of(STATUT_CONNEXION_OIDC.erreurURL);
+        }
+    }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'directive';
+            var COMPODOC_CURRENT_PAGE_URL = 'FmkApplicationAbstraitComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

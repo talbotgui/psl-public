@@ -1,0 +1,675 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >NavigationTestUtils</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Fichier</h3>
+        </p>
+        <p class="comment">
+            <code>projects/framework/cypress/utils/navigationtest-utils.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Classe utilitaire regroupant des actions et validations</p>
+
+            </p>
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#demarrerNavigation" >demarrerNavigation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#passerAlaPageSuivante" >passerAlaPageSuivante</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#testerPageContientUnContenuDeSoumission" >testerPageContientUnContenuDeSoumission</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#validerBoutonsDeLaPage" >validerBoutonsDeLaPage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="demarrerNavigation"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>demarrerNavigation</b></span>
+                        <a href="#demarrerNavigation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>demarrerNavigation(configurationDemarche: ConfigurationDemarche, urlScenarioAdemarrer: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="99"
+                                    class="link-to-prism">projects/framework/cypress/utils/navigationtest-utils.ts:99</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Démarrage de la navigation</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>configurationDemarche</td>
+                                            <td>
+                                                        <code>ConfigurationDemarche</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>urlScenarioAdemarrer</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passerAlaPageSuivante"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>passerAlaPageSuivante</b></span>
+                        <a href="#passerAlaPageSuivante"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>passerAlaPageSuivante(page: Page)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="32"
+                                    class="link-to-prism">projects/framework/cypress/utils/navigationtest-utils.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Passage à la page suivante par le bouton SUIVANT ou le bouton SOUMETTRE</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                        <code>Page</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="testerPageContientUnContenuDeSoumission"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>testerPageContientUnContenuDeSoumission</b></span>
+                        <a href="#testerPageContientUnContenuDeSoumission"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>testerPageContientUnContenuDeSoumission(page: Page)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="45"
+                                    class="link-to-prism">projects/framework/cypress/utils/navigationtest-utils.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vérifie la présence d&#39;un contenu &#39;finDemarche&#39; dans la page</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                        <code>Page</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validerBoutonsDeLaPage"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>validerBoutonsDeLaPage</b></span>
+                        <a href="#validerBoutonsDeLaPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validerBoutonsDeLaPage(configurationDemarche: ConfigurationDemarche, iPage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="50"
+                                    class="link-to-prism">projects/framework/cypress/utils/navigationtest-utils.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Validation des boutons dans la navigation</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>configurationDemarche</td>
+                                            <td>
+                                                        <code>ConfigurationDemarche</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iPage</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ContenuSaisie, ContenuSaisieComplexe, TypeContenuDeBloc, Validation } from &#x27;../../../framework/src/lib/model/configurationdemarchecontenubloc.model&#x27;;
+import { ConfigurationDemarche, Page } from &#x27;../../../framework/src/lib/model/configurationdemarchegeneral.model&#x27;;
+import { UtilitaireModel } from &#x27;../../../framework/src/lib/utilitaires/utilitaire.model&#x27;;
+import { LogUtils } from &#x27;./log-utils&#x27;;
+
+/** Classe utilitaire regroupant des actions et validations */
+export class NavigationTestUtils {
+
+    /** Passage à la page suivante par le bouton SUIVANT ou le bouton SOUMETTRE */
+    public static passerAlaPageSuivante(page: Page): void {
+        // Si la page contient le composant de soumission, clic sur SOUMETTRE MON TELEDOSSIER
+        if (NavigationTestUtils.testerPageContientUnContenuDeSoumission(page)) {
+            cy.get(&#x27;#captchaFormulaireExtInput&#x27;).type(&#x27;JPJAMJGAJP&#x27;);
+            cy.get(&#x27;button&#x27;).contains(&#x27;Soumettre mon télé-dossier&#x27;).click();
+        }
+        // Sinon clic sur SUIVANT
+        else {
+            cy.navigationObtenirBoutonValider().click();
+        }
+    }
+
+    /** Vérifie la présence d&#x27;un contenu &#x27;finDemarche&#x27; dans la page */
+    public static testerPageContientUnContenuDeSoumission(page: Page): boolean {
+        return (page.blocs || []).filter(b &#x3D;&gt; b.contenus &amp;&amp; b.contenus.filter(c &#x3D;&gt; c.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.finDemarche).length &gt; 0).length &gt; 0;
+    }
+
+    /** Validation des boutons dans la navigation */
+    public static validerBoutonsDeLaPage(configurationDemarche: ConfigurationDemarche, iPage: number): void {
+        LogUtils.logPage(iPage, &#x27;Validation des boutons dans la navigation&#x27;);
+
+        // Vérification de la présence/absence du bouton précédent (précédent ne s&#x27;affiche en première et dernière page)
+        if (iPage &gt; 0 &amp;&amp; iPage !&#x3D;&#x3D; configurationDemarche.pages.length - 1) {
+            cy.navigationObtenirBoutonPrecedent().not(&#x27;[disabled]&#x27;).should(&#x27;exist&#x27;);
+        } else {
+            cy.navigationObtenirBoutonPrecedent().should(&#x27;not.exist&#x27;);
+        }
+
+        // Vérification de la présence/absence du bouton brouillon
+        if (configurationDemarche.fonctionnalites &amp;&amp; !configurationDemarche.fonctionnalites.brouillon) {
+            // la fonctionnalité est désactivée
+            cy.navigationObtenirBoutonBrouillon().should(&#x27;not.exist&#x27;);
+        } else if (iPage &#x3D;&#x3D;&#x3D; configurationDemarche.pages.length - 1) {
+            // en dernière page
+            cy.navigationObtenirBoutonBrouillon().should(&#x27;not.exist&#x27;);
+        } else {
+            cy.navigationObtenirBoutonBrouillon().not(&#x27;[disabled]&#x27;).should(&#x27;exist&#x27;);
+        }
+
+        // Calcul du nombre de contenu &quot;monochamp&quot; avec une validation REQUIRED
+        const nbBlocsNonDynamiquesAvecAuMoinsUnContenuSimpleObligatoires &#x3D; (configurationDemarche.pages[iPage].blocs || []).filter(b &#x3D;&gt;
+            !b.dynamique &amp;&amp; b.contenus &amp;&amp; b.contenus.filter(c &#x3D;&gt; UtilitaireModel.contenuEstUneSaisieMonoChamp(c) &amp;&amp; (c as ContenuSaisie).validationsSimples &amp;&amp; (c as ContenuSaisie).validationsSimples.indexOf(Validation.required) !&#x3D;&#x3D; -1).length &gt; 0
+        ).length;
+        // Ajout du nombre de champs avec une validation REQUIRED dans un composant complexe
+        const nbBlocsAvecAuMoinsUnContenuComplexeObligatoires &#x3D; (configurationDemarche.pages[iPage].blocs || []).filter(b &#x3D;&gt;
+            b.contenus &amp;&amp; b.contenus.filter(c &#x3D;&gt; UtilitaireModel.contenuEstUneSaisieComplexe(c) &amp;&amp; (c as ContenuSaisieComplexe).validationsComplexes &amp;&amp; Object.keys((c as ContenuSaisieComplexe).validationsComplexes).filter(k &#x3D;&gt; ((c as ContenuSaisieComplexe).validationsComplexes[k] as string[]).indexOf(Validation.required) !&#x3D;&#x3D; -1).length &gt; 0).length &gt; 0
+        ).length;
+
+        // Vérification de la présence/désactivation/absence du bouton suivant
+        if ((nbBlocsNonDynamiquesAvecAuMoinsUnContenuSimpleObligatoires + nbBlocsAvecAuMoinsUnContenuComplexeObligatoires) &gt; 0) {
+            LogUtils.logPage(iPage, nbBlocsNonDynamiquesAvecAuMoinsUnContenuSimpleObligatoires + &#x27; bloc(s) contenant un contenu simple et &#x27; + nbBlocsAvecAuMoinsUnContenuComplexeObligatoires + &#x27; bloc(s) contenant un contenu complexe avec au moins un contenu obligatoire. Donc le bouton SUIVANT est désactivé&#x27;);
+            // si au moins un champ est REQUIRED
+            cy.navigationObtenirBoutonValider().filter(&#x27;[disabled]&#x27;).should(&#x27;exist&#x27;);
+        } else if (iPage &#x3D;&#x3D;&#x3D; configurationDemarche.pages.length - 1) {
+            LogUtils.logPage(iPage, &#x27;Dernière page de la configuration&#x27;);
+            // à la dernière page
+            cy.navigationObtenirBoutonValider().should(&#x27;not.exist&#x27;);
+        } else if (NavigationTestUtils.testerPageContientUnContenuDeSoumission(configurationDemarche.pages[iPage])) {
+            LogUtils.logPage(iPage, &#x27;Page contenant le composant de soumission&#x27;);
+            // avec le composant de soumission
+            cy.navigationObtenirBoutonValider().should(&#x27;not.exist&#x27;);
+        } else {
+            cy.navigationObtenirBoutonValider().should(&#x27;exist&#x27;);
+        }
+    }
+
+    /** Démarrage de la navigation */
+    public static demarrerNavigation(configurationDemarche: ConfigurationDemarche, urlScenarioAdemarrer: string): void {
+        LogUtils.log(&#x27;&#x27;);
+        LogUtils.log(&#x27;*******&#x27;);
+        LogUtils.log(&#x27;Démarrage de la navigation pour le scénario &#x27; + urlScenarioAdemarrer);
+
+        // Accès à la démarche 
+        cy.visit(&#x27;generique/?codeDemarche&#x3D;&#x27; + configurationDemarche.codeDemarche + urlScenarioAdemarrer);
+        
+        // Injection du plugin d&#x27;accessibilité
+        cy.injectAxe();
+    }
+}
+
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'NavigationTestUtils.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,22 @@
+---
+
+# Nom de l'applicatif
+applicatif_nom: "service-ldap"
+
+# Répertoire contenant les fichiers de configuration à déposer sur le sreveur
+configuration_rep: "{{ playbook_dir }}/../../socle/services-cloud/service-ldap/src/test/resources/"
+
+# Option supplémentaire pour le script de démarrage (uniquement les -D car les -- vont dans scripts_demarrer_parametres_specifiques)
+scripts_demarrer_options_specifiques: "-Dlogback.configurationFile={{ applicatifs_rep }}{{ applicatif_nom }}/logback.xml"
+# Paramètre supplémentaire pour le script de démarrage (uniquement les -- car les -D vont dans scripts_demarrer_options_specifiques)
+scripts_demarrer_parametres_specifiques: "--ldapPort=1389 --baseDn=dc=psl,dc=talbotgui,dc=github,dc=com --adminUtilisateur=${ldapAdminUtilisateur} --adminMdp=${ldapAdminMdp} --cheminLdif={{ playbook_dir }}/../../socle/services-cloud/service-ldap/src/main/resources/server.ldif"
+
+# Ce service n'a pas de Actuator mais surveille son PID pour s'arrêter
+scripts_demarrer_option_arret_par_acturator: false
+scripts_demarrer_option_arret_par_kill: false
+
+# Ce service n'a pas besoin des options de KEYSTORE
+scripts_demarrer_option_avec_keystore: false
+
+# Ce service n'a pas besoin des paramètres de démarrage contenant les variables d'Eureka
+scripts_demarrer_option_sans_param_eureka: true

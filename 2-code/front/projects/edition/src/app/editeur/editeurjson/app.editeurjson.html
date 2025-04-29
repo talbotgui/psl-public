@@ -1,0 +1,14 @@
+@if (messageFormatage) {
+  <div class="alert-danger">
+    <span class="text-danger" aria-hidden="false" role="alert">{{messageFormatage}}</span>
+  </div>
+}
+
+<textarea [class.alert-danger]="!!messageFormatage" [(ngModel)]="json" cols="120" rows="30"></textarea>
+
+<button type="button" class="btn btn-primary" (click)="formaterJson()">
+  <span class="btn-text">Formater le JSON</span>
+</button>
+<button type="button" class="btn btn-primary" (click)="testerJson()">
+  <span class="btn-text">Tester la configuration</span>
+</button>

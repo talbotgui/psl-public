@@ -1,0 +1,29 @@
+meta {
+  name: 051-PieceJointe-sauvegarde-tokenAnonyme
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/document/piecejointe
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+body:multipart-form {
+  codeDemarche: bibliotheque
+  codePieceJointe: pj1
+  fichier: undefined
+}
+
+vars:post-response {
+  idPj1: res.body
+}
+
+assert {
+  res.status: eq 200
+}

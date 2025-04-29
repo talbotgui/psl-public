@@ -1,0 +1,8 @@
+<!-- Les messages d'information globaux -->
+@for (m of messagesAafficher; track m) {
+  <div class="fr-alert" [class.fr-alert--error]="m.isErreur" [class.fr-alert--info]="m.isInformation"
+    [class.fr-alert--warning]="m.isAvertissement">
+    <p [innerHTML]="m.message | libelle"></p>
+    <input type="hidden" name="codeEmetteurDuMessage" [value]="m.codeEmetteurDuMessage" />
+  </div>
+}

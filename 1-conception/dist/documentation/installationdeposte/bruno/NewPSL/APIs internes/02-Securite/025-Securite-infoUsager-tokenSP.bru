@@ -1,0 +1,20 @@
+meta {
+  name: 025-Securite-infoUsager-tokenSP
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/securite/info
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslSP}}
+}
+
+assert {
+  res.status: eq 200
+  res.body.email: isDefined 
+}

@@ -1,0 +1,86 @@
+<!-- Pas d'affichage du composant si la pice jointe associee n'est pas trouvée -->
+@if (contenu && !!tailleMaximaleAutorisee) {
+<div class="fr-input-group fr-upload-group" [class.fr-input-group--error]="messageErreur"
+  [class.fr-input-group--valid]="!messageErreur && progressionValidee == 100">
+  <!-- Titre et aide -->
+  @if (contenu.titreAafficher || contenu.aideAafficher) {
+  <label class="fr-label" [for]="'fichier_'+contenu.clef">
+    @if (validationObligatoirePresente && !contenu.modeObligatoireParDefaut) {
+    <span class="symbol-required">* </span>
+    }
+    <span class="textelibelle" [innerHTML]="contenu.titreAafficher | libelle"></span>
+    @if ((!validationObligatoirePresente && contenu.modeObligatoireParDefaut) || contenu.aideAafficher) {
+    <span class="fr-hint-text">
+      @if (!validationObligatoirePresente && contenu.modeObligatoireParDefaut) {
+      {{ 'commun.facultatif' | i18n}}
+      }
+      @if (!validationObligatoirePresente && contenu.modeObligatoireParDefaut && contenu.aideAafficher) {
+      -
+      }
+      {{ contenu.aideAafficher | libelle }}
+    </span>
+    }
+    <!-- Sous le libellé, les détails techniques du document -->
+    <span class="detailsDocumentAttendu fr-hint-text">
+      {{ 'upload.attendu.1' | i18n}}{{tailleMaximaleAutorisee}}{{ 'upload.attendu.2' | i18n}}
+      @for (t of typesDeContenuAutorises; track t; let i = $index) {
+      {{t}}@if (i !== typesDeContenuAutorises.length-1) {
+      ou
+      }
+      }
+    </span>
+  </label>
+  }
+  <!-- Zone de depot -->
+  <div class="zoneDepot fr-upload-group fr-grid-row" [class.survol]="dragNdropEnCours && !progressionValidee"
+    [class.dejaUtilise]="dragNdropEnCours && progressionValidee" (click)="ouvrirPopupFichier(file)" (dragover)="dragOver($event)"
+    (dragleave)="dragLeave($event)" (drop)="drop($event)" tabindex="0" (keyup.enter)="ouvrirPopupFichier(file)"
+    (keyup.space)="ouvrirPopupFichier(file)" (blur)="validerPresenceFichierSiObligatoire()">
+    <!-- Libelle et input masquee -->
+    @if (!progressionValidee) {
+    <div class="fr-col-12 align-self-center text-center">
+      {{ 'upload.cadreGlisseDeposer' | i18n}}
+    </div>
+    }
+    <input #file [id]="'fichier_'+contenu.clef" type="file" class="uploadDocument fr-upload" [name]="contenu.clef"
+      (change)="selectionnerFichier($event)" [attr.aria-describedby]="'messages'+contenu.clef">
+    <!-- Libellés -->
+    @if (nomFichier) {
+    <div [id]="'libelleTeleversement'+contenu.clef" class="fr-col-12 align-self-center text-center">
+      @if ((progressionLancee || progressionValidee) && progressionValidee !== 100) {
+      <span>{{ 'upload.versementEnCours' | i18n}}{{nomFichier}}.</span>
+      }
+      @if (progressionValidee == 100) {
+      <span>
+        {{ 'upload.versementTermine.1' | i18n}}@if (dragNdropEnCours) {
+        <b>{{ 'upload.versementTermine.2' | i18n}}</b>
+        }{{nomFichier}}{{
+        'upload.versementTermine.3' | i18n}}.
+        <span class="uploadDocument fr-fi-delete-line" aria-hidden="true" (click)="supprimerFichier($event, file)"></span>
+      </span>
+      }
+      @if (suppressionEnCours) {
+      <span>
+        {{ 'upload.bouton.supprimer' | i18n}}
+        <img src="public/loader-5-line.png" alt="" class="spin" />
+      </span>
+      }
+    </div>
+    }
+    <!-- Barre de progression -->
+    @if ((progressionLancee || progressionValidee) && progressionValidee !== 100) {
+    <div class="fr-col-12">
+      <mat-progress-bar mode="buffer" [attr.aria-labelledby]="'libelleTeleversement'+contenu.clef" [value]="progressionValidee" [bufferValue]="progressionLancee"></mat-progress-bar>
+    </div>
+    }
+  </div>
+  <!-- Erreurs -->
+  <p data-fmk-messagesvalidation [contenu]="contenu" [controle]="controle" aria-live="assertive"></p>
+  <p [id]="'messages'+contenu.clef" class="fr-error-text" [class.masque]="!messageErreur">
+      @if (messageErreur) {
+      <!-- La classe CSS 'erreur' est utilisée dans les tests E2E -->
+      <span class="erreur required" aria-hidden="false" role="alert">{{messageErreur}}</span>
+    }
+    </p>
+</div>
+}

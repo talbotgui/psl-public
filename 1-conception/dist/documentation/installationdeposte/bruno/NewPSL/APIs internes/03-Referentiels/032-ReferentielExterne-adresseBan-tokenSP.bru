@@ -1,0 +1,24 @@
+meta {
+  name: 032-ReferentielExterne-adresseBan-tokenSP
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/referentielexterne/adresseban?recherche=59%20rue%20du%20port
+  body: none
+  auth: bearer
+}
+
+query {
+  recherche: 59%20rue%20du%20port
+}
+
+auth:bearer {
+  token: {{tokenPslSP}}
+}
+
+assert {
+  res.status: eq 200
+  res.body[0].label: eq 59 rue du Port 63000 Clermont-Ferrand
+}

@@ -1,0 +1,13 @@
+/* input masqué */
+input.uploadDocument { display:none; }
+
+/* Mise en forme de la zone de dépôt */
+.zoneDepot { min-height:100px; border: solid 1px blue; }
+.zoneDepot.survol { background-color: lightgray; border: dashed 1px black; cursor: pointer; }
+.zoneDepot.survol.dejaUtilise { background-color: red; border: double 1px black; cursor: no-drop; }
+
+/* Pour le curseur sur les icônes d'action */
+.uploadDocument.fr-fi-delete-line { cursor: pointer; }
+
+/* Pour masquer la zone d'erreur mais ne pas l'enlever (sinon erreur de validation HTML car le p d'erreur est référencé dans un aria-describedby) */
+p.masque { display:none; }

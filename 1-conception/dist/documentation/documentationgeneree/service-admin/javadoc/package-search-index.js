@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.github.talbotgui.psl.socle.serviceadmin.application"}];updateSearchResults();

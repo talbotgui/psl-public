@@ -1,0 +1,1385 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >BouchonService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Fichier</h3>
+        </p>
+        <p class="comment">
+            <code>projects/framework/src/lib/services/stateless/bouchon.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Cette classe contient les méthodes de bouchonnage des APIs.</p>
+<p>Les bouchons sont impérativement utilisés dans les tests E2E.
+Ils peuvent aussi l&#39;être durant les développements.</p>
+<p>Comment bouchonner un simple appel GET :</p>
+<ul>
+<li>mettre un fichier JSON (ou autre) dans le répertoire bouchonapi</li>
+<li>modifier l&#39;URL dans le fichier this.environnementService.ts (et ses variantes) pour pointer sur le fichier du répertoire bouchonapi
+Comment bouchonner un GET complexe ou un PUT/POST/DELETE</li>
+<li>ajouter une variable &#39;xxxxxBouchonne&#39; dans la configuration</li>
+<li>vérifier cette variable dans le service réel</li>
+<li>si la variable existe et est &#39;true&#39;, faire appel à une méthode statique de cette classe</li>
+</ul>
+
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#MINI_REFERENTIEL" >MINI_REFERENTIEL</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#appelerReferentielBouchonne" >appelerReferentielBouchonne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#appelerSoumissionBouchonnee" >appelerSoumissionBouchonnee</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#chargerListeDocumentsPostSoumission" >chargerListeDocumentsPostSoumission</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#recupererInformationsUsager" >recupererInformationsUsager</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#recupererUrlBrouillonBouchonne" >recupererUrlBrouillonBouchonne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#recupererUrlConfigurationBouchonne" >recupererUrlConfigurationBouchonne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#simulerAppelGenerationCaptcha" >simulerAppelGenerationCaptcha</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#telechargerDocument" >telechargerDocument</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#verifierSiDocumentEstBouchonnee" >verifierSiDocumentEstBouchonnee</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#verifierSiReferentielEstBouchonne" >verifierSiReferentielEstBouchonne</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#verifierSiSecuriteEstBouchonnee" >verifierSiSecuriteEstBouchonnee</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#verifierSiSoumissionEstBouchonnee" >verifierSiSoumissionEstBouchonnee</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#verserPieceJointeEnUneUniqueRequete" >verserPieceJointeEnUneUniqueRequete</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructeur</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(logger: NGXLogger, environnementService: <a href="../injectables/EnvironnementService.html" target="_self">EnvironnementService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="92" class="link-to-prism">projects/framework/src/lib/services/stateless/bouchon.service.ts:92</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructeur pour injection de dépendance.</p>
+</div>
+                            <div>
+                                    <b>Paramètres :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nom</td>
+                                                    <td>Type</td>
+                                                <td>Optionnel</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                    <code>NGXLogger</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>environnementService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/EnvironnementService.html" target="_self" >EnvironnementService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appelerReferentielBouchonne"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>appelerReferentielBouchonne</b></span>
+                        <a href="#appelerReferentielBouchonne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>appelerReferentielBouchonne(api: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, valeur: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="118"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/bouchon.service.ts:118</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Simulation de l&#39;appel à un référentiel. En réalité, utilisation de données en constantes dans cette classe</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>api</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>valeur</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;any[]&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appelerSoumissionBouchonnee"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>appelerSoumissionBouchonnee</b></span>
+                        <a href="#appelerSoumissionBouchonnee"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>appelerSoumissionBouchonnee(donnees: <a href="../classes/DonneesDeSoumission.html" target="_self">DonneesDeSoumission</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="125"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/bouchon.service.ts:125</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Simulation d&#39;appel à la soumission. Mais simple renvoi d&#39;un ID fixe</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>donnees</td>
+                                            <td>
+                                                            <code><a href="../classes/DonneesDeSoumission.html" target="_self" >DonneesDeSoumission</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;string&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chargerListeDocumentsPostSoumission"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>chargerListeDocumentsPostSoumission</b></span>
+                        <a href="#chargerListeDocumentsPostSoumission"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>chargerListeDocumentsPostSoumission(codeDemarche: string | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="146"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/bouchon.service.ts:146</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Chargement de la liste des documents post-soumission</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>codeDemarche</td>
+                                            <td>
+                                                        <code>string | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="../classes/DocumentsPostSoumission.html" target="_self" >Observable&lt;DocumentsPostSoumission[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recupererInformationsUsager"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>recupererInformationsUsager</b></span>
+                        <a href="#recupererInformationsUsager"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>recupererInformationsUsager()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="131"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/bouchon.service.ts:131</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Simulation d&#39;appel à la récupération des informations de l&#39;usager connecté. Les données sont en dur dans la méthode.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;object&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recupererUrlBrouillonBouchonne"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>recupererUrlBrouillonBouchonne</b></span>
+                        <a href="#recupererUrlBrouillonBouchonne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>recupererUrlBrouillonBouchonne(codeDemarche: string | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="171"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/bouchon.service.ts:171</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Récupération de l&#39;URL du brouillon de bouchon (en relatif ou en absolu)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>codeDemarche</td>
+                                            <td>
+                                                        <code>string | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recupererUrlConfigurationBouchonne"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>recupererUrlConfigurationBouchonne</b></span>
+                        <a href="#recupererUrlConfigurationBouchonne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>recupererUrlConfigurationBouchonne(codeDemarche: string | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="182"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/bouchon.service.ts:182</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Récupération de l&#39;URL de la configuration de bouchon (en relatif ou en absolu)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>codeDemarche</td>
+                                            <td>
+                                                        <code>string | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="simulerAppelGenerationCaptcha"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>simulerAppelGenerationCaptcha</b></span>
+                        <a href="#simulerAppelGenerationCaptcha"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>simulerAppelGenerationCaptcha()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="217"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/bouchon.service.ts:217</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Bouchon de la génération d&#39;un captcha</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;string&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="telechargerDocument"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>telechargerDocument</b></span>
+                        <a href="#telechargerDocument"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>telechargerDocument()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="211"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/bouchon.service.ts:211</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Bouchon de téléchargement de document qui propose le téléchargement de la configuration bouchonnée</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;void&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verifierSiDocumentEstBouchonnee"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>verifierSiDocumentEstBouchonnee</b></span>
+                        <a href="#verifierSiDocumentEstBouchonnee"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>verifierSiDocumentEstBouchonnee()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="113"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/bouchon.service.ts:113</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vérification de l&#39;état du bouchon dans la configuration</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verifierSiReferentielEstBouchonne"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>verifierSiReferentielEstBouchonne</b></span>
+                        <a href="#verifierSiReferentielEstBouchonne"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>verifierSiReferentielEstBouchonne()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="98"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/bouchon.service.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vérification de l&#39;état du bouchon dans la configuration</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verifierSiSecuriteEstBouchonnee"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>verifierSiSecuriteEstBouchonnee</b></span>
+                        <a href="#verifierSiSecuriteEstBouchonnee"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>verifierSiSecuriteEstBouchonnee()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="108"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/bouchon.service.ts:108</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vérification de l&#39;état du bouchon dans la configuration</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verifierSiSoumissionEstBouchonnee"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>verifierSiSoumissionEstBouchonnee</b></span>
+                        <a href="#verifierSiSoumissionEstBouchonnee"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>verifierSiSoumissionEstBouchonnee()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="103"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/bouchon.service.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vérification de l&#39;état du bouchon dans la configuration</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verserPieceJointeEnUneUniqueRequete"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>verserPieceJointeEnUneUniqueRequete</b></span>
+                        <a href="#verserPieceJointeEnUneUniqueRequete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>verserPieceJointeEnUneUniqueRequete()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="193"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/bouchon.service.ts:193</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Simulation d&#39;un upload de pièce jointe bien long/lent pour voir la barre de progression</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;HttpEvent&lt;any&gt;&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MINI_REFERENTIEL"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>MINI_REFERENTIEL</b></span>
+                        <a href="#MINI_REFERENTIEL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>{
+        communeNaissance: [
+            { codePostal: &#x27;80000&#x27;, code: &#x27;80001&#x27;, libelle: &#x27;Amiens&#x27;, libelleLong: &#x27;Amiens (80000)&#x27; },
+            { codePostal: &#x27;80400&#x27;, code: &#x27;80401&#x27;, libelle: &#x27;Ham&#x27;, libelleLong: &#x27;Ham (80400)&#x27; },
+            { codePostal: &#x27;18000&#x27;, code: &#x27;18001&#x27;, libelle: &#x27;Bourges&#x27;, libelleLong: &#x27;Bourges (18000)&#x27; },
+            { code: &#x27;18801&#x27;, libelle: &#x27;Baugy&#x27;, libelleLong: &#x27;Baugy&#x27; },
+        ],
+        communeActuelle: [
+            { codePostal: &#x27;80000&#x27;, code: &#x27;80001&#x27;, libelle: &#x27;Amiens&#x27;, libelleLong: &#x27;Amiens (80000)&#x27;, typeProtection: &quot;PN&quot; },
+            { codePostal: &#x27;80400&#x27;, code: &#x27;80401&#x27;, libelle: &#x27;Ham&#x27;, libelleLong: &#x27;Ham (80400)&#x27;, typeProtection: &quot;GN&quot; },
+            { codePostal: &#x27;18000&#x27;, code: &#x27;18001&#x27;, libelle: &#x27;Bourges&#x27;, libelleLong: &#x27;Bourges (18000)&#x27;, typeProtection: &quot;PN&quot; },
+            { code: &#x27;18801&#x27;, libelle: &#x27;Baugy&#x27;, libelleLong: &#x27;Baugy&#x27; },
+        ],
+        paysNaissance: [
+            { code: 1, libelle: &#x27;France&#x27; },
+            { code: 2, libelle: &#x27;Etats-Unis&#x27; },
+            { code: 3, libelle: &#x27;Italie&#x27; },
+            { code: 4, libelle: &#x27;Belgique&#x27; },
+        ],
+        nationalitePaysActuel: [
+            { codeInsee: 1, libelle: &#x27;France&#x27;, nationalite: &#x27;Française&#x27;, capitale: &#x27;Paris&#x27; },
+            { codeInsee: 2, libelle: &#x27;Etats-Unis&#x27;, nationalite: &#x27;Etasuniene&#x27;, capitale: &#x27;New York&#x27; },
+            { codeInsee: 3, libelle: &#x27;Italie&#x27;, nationalite: &#x27;Italiène&#x27;, capitale: &#x27;Rome&#x27; },
+            { codeInsee: 4, libelle: &#x27;Belgique&#x27;, nationalite: &#x27;Belge&#x27;, capitale: &#x27;Bruxelles&#x27; },
+        ],
+        pays: [
+            { codeInsee: 1, libelle: &#x27;France&#x27;, nationalite: &#x27;Française&#x27;, capitale: &#x27;Paris&#x27; },
+            { codeInsee: 2, libelle: &#x27;Etats-Unis&#x27;, nationalite: &#x27;Etasuniene&#x27;, capitale: &#x27;New York&#x27; },
+            { codeInsee: 3, libelle: &#x27;Italie&#x27;, nationalite: &#x27;Italiène&#x27;, capitale: &#x27;Rome&#x27; },
+            { codeInsee: 4, libelle: &#x27;Belgique&#x27;, nationalite: &#x27;Belge&#x27;, capitale: &#x27;Bruxelles&#x27; },
+        ],
+        communeban: [
+            { name: &#x27;Amiens&#x27;, libelleLong: &#x27;Amiens (80000)&#x27; },
+            { name: &#x27;Ham&#x27;, libelleLong: &#x27;Ham (80400)&#x27; },
+            { name: &#x27;Bourges&#x27;, libelleLong: &#x27;Bourges (18000)&#x27; },
+            { name: &#x27;Baugy&#x27;, libelleLong: &#x27;Baugy (18800)&#x27; },
+        ],
+        adresseban: [
+            { label: &#x27;2 rue de l\&#x27;église 80000 Amiens&#x27; },
+            { label: &#x27;1 rue de la république 80400 Ham&#x27; },
+            { label: &#x27;3 place de la cathédrale 18000 Bourges&#x27; },
+            { label: &#x27;4 place du chateau 18800 Baugy&#x27; },
+            { label: &#x27;59 rue du port 80400 Ham&#x27; },
+        ]
+    }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="48" class="link-to-prism">projects/framework/src/lib/services/stateless/bouchon.service.ts:48</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>La liste des APIs est à maintenir dans schemajson.ts</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpEvent, HttpEventType, HttpHeaderResponse, HttpResponse } from &#x27;@angular/common/http&#x27;;
+import { Injectable } from &#x27;@angular/core&#x27;;
+import { NGXLogger } from &#x27;ngx-logger&#x27;;
+import { BehaviorSubject, Observable, of } from &#x27;rxjs&#x27;;
+import { DocumentsPostSoumission, DonneesDeSoumission } from &#x27;../../model/brouillonsoumissiondemarche.model&#x27;;
+import { EnvironnementService } from &#x27;../stateful/environnement.service&#x27;;
+
+/**
+ * Cette classe contient les méthodes de bouchonnage des APIs.
+ * 
+ * Les bouchons sont impérativement utilisés dans les tests E2E.
+ * Ils peuvent aussi l&#x27;être durant les développements.
+ * 
+ * 
+ * Comment bouchonner un simple appel GET :
+ * - mettre un fichier JSON (ou autre) dans le répertoire bouchonapi
+ * - modifier l&#x27;URL dans le fichier this.environnementService.ts (et ses variantes) pour pointer sur le fichier du répertoire bouchonapi
+ * Comment bouchonner un GET complexe ou un PUT/POST/DELETE
+ * - ajouter une variable &#x27;xxxxxBouchonne&#x27; dans la configuration
+ * - vérifier cette variable dans le service réel
+ * - si la variable existe et est &#x27;true&#x27;, faire appel à une méthode statique de cette classe
+ */
+@Injectable({ providedIn: &#x27;root&#x27; })
+export class BouchonService {
+
+    /** La liste des APIs est à maintenir dans schemajson.ts */
+    private static readonly MINI_REFERENTIEL &#x3D; {
+        communeNaissance: [
+            { codePostal: &#x27;80000&#x27;, code: &#x27;80001&#x27;, libelle: &#x27;Amiens&#x27;, libelleLong: &#x27;Amiens (80000)&#x27; },
+            { codePostal: &#x27;80400&#x27;, code: &#x27;80401&#x27;, libelle: &#x27;Ham&#x27;, libelleLong: &#x27;Ham (80400)&#x27; },
+            { codePostal: &#x27;18000&#x27;, code: &#x27;18001&#x27;, libelle: &#x27;Bourges&#x27;, libelleLong: &#x27;Bourges (18000)&#x27; },
+            { code: &#x27;18801&#x27;, libelle: &#x27;Baugy&#x27;, libelleLong: &#x27;Baugy&#x27; },
+        ],
+        communeActuelle: [
+            { codePostal: &#x27;80000&#x27;, code: &#x27;80001&#x27;, libelle: &#x27;Amiens&#x27;, libelleLong: &#x27;Amiens (80000)&#x27;, typeProtection: &quot;PN&quot; },
+            { codePostal: &#x27;80400&#x27;, code: &#x27;80401&#x27;, libelle: &#x27;Ham&#x27;, libelleLong: &#x27;Ham (80400)&#x27;, typeProtection: &quot;GN&quot; },
+            { codePostal: &#x27;18000&#x27;, code: &#x27;18001&#x27;, libelle: &#x27;Bourges&#x27;, libelleLong: &#x27;Bourges (18000)&#x27;, typeProtection: &quot;PN&quot; },
+            { code: &#x27;18801&#x27;, libelle: &#x27;Baugy&#x27;, libelleLong: &#x27;Baugy&#x27; },
+        ],
+        paysNaissance: [
+            { code: 1, libelle: &#x27;France&#x27; },
+            { code: 2, libelle: &#x27;Etats-Unis&#x27; },
+            { code: 3, libelle: &#x27;Italie&#x27; },
+            { code: 4, libelle: &#x27;Belgique&#x27; },
+        ],
+        nationalitePaysActuel: [
+            { codeInsee: 1, libelle: &#x27;France&#x27;, nationalite: &#x27;Française&#x27;, capitale: &#x27;Paris&#x27; },
+            { codeInsee: 2, libelle: &#x27;Etats-Unis&#x27;, nationalite: &#x27;Etasuniene&#x27;, capitale: &#x27;New York&#x27; },
+            { codeInsee: 3, libelle: &#x27;Italie&#x27;, nationalite: &#x27;Italiène&#x27;, capitale: &#x27;Rome&#x27; },
+            { codeInsee: 4, libelle: &#x27;Belgique&#x27;, nationalite: &#x27;Belge&#x27;, capitale: &#x27;Bruxelles&#x27; },
+        ],
+        pays: [
+            { codeInsee: 1, libelle: &#x27;France&#x27;, nationalite: &#x27;Française&#x27;, capitale: &#x27;Paris&#x27; },
+            { codeInsee: 2, libelle: &#x27;Etats-Unis&#x27;, nationalite: &#x27;Etasuniene&#x27;, capitale: &#x27;New York&#x27; },
+            { codeInsee: 3, libelle: &#x27;Italie&#x27;, nationalite: &#x27;Italiène&#x27;, capitale: &#x27;Rome&#x27; },
+            { codeInsee: 4, libelle: &#x27;Belgique&#x27;, nationalite: &#x27;Belge&#x27;, capitale: &#x27;Bruxelles&#x27; },
+        ],
+        communeban: [
+            { name: &#x27;Amiens&#x27;, libelleLong: &#x27;Amiens (80000)&#x27; },
+            { name: &#x27;Ham&#x27;, libelleLong: &#x27;Ham (80400)&#x27; },
+            { name: &#x27;Bourges&#x27;, libelleLong: &#x27;Bourges (18000)&#x27; },
+            { name: &#x27;Baugy&#x27;, libelleLong: &#x27;Baugy (18800)&#x27; },
+        ],
+        adresseban: [
+            { label: &#x27;2 rue de l\&#x27;église 80000 Amiens&#x27; },
+            { label: &#x27;1 rue de la république 80400 Ham&#x27; },
+            { label: &#x27;3 place de la cathédrale 18000 Bourges&#x27; },
+            { label: &#x27;4 place du chateau 18800 Baugy&#x27; },
+            { label: &#x27;59 rue du port 80400 Ham&#x27; },
+        ]
+    };
+
+    /** Constructeur pour injection de dépendance. */
+    public constructor(private logger: NGXLogger, private environnementService: EnvironnementService) { }
+
+    /** Vérification de l&#x27;état du bouchon dans la configuration */
+    public verifierSiReferentielEstBouchonne(): boolean {
+        return this.environnementService.urls.socle.referentielBouchonne &amp;&amp; this.environnementService.urls.socle.referentielBouchonne &#x3D;&#x3D;&#x3D; true;
+    }
+
+    /** Vérification de l&#x27;état du bouchon dans la configuration */
+    public verifierSiSoumissionEstBouchonnee(): boolean {
+        return this.environnementService.urls.socle.soumissionBouchonne &amp;&amp; this.environnementService.urls.socle.soumissionBouchonne &#x3D;&#x3D;&#x3D; true;
+    }
+
+    /** Vérification de l&#x27;état du bouchon dans la configuration */
+    public verifierSiSecuriteEstBouchonnee(): boolean {
+        return this.environnementService.urls.socle.securiteBouchonne &amp;&amp; this.environnementService.urls.socle.securiteBouchonne &#x3D;&#x3D;&#x3D; true;
+    }
+
+    /** Vérification de l&#x27;état du bouchon dans la configuration */
+    public verifierSiDocumentEstBouchonnee(): boolean {
+        return this.environnementService.urls.socle.documentBouchonne &amp;&amp; this.environnementService.urls.socle.documentBouchonne &#x3D;&#x3D;&#x3D; true;
+    }
+
+    /** Simulation de l&#x27;appel à un référentiel. En réalité, utilisation de données en constantes dans cette classe */
+    public appelerReferentielBouchonne(api: string, valeur: string): Observable&lt;any[]&gt; {
+        this.logger.trace(&#x27;Appel bouchonné à l\&#x27;API \&#x27;&#x27; + api + &#x27;\&#x27; avec le paramètre \&#x27;&#x27; + valeur + &#x27;\&#x27;&#x27;);
+        return of((BouchonService.MINI_REFERENTIEL as any)[api]
+            .filter((e: any) &#x3D;&gt; (e.nom || e.libelleLong || e.libelle || e.name || e.label).toUpperCase().replace(/\(/g, &#x27;&#x27;).indexOf(valeur.toUpperCase()) !&#x3D;&#x3D; -1));
+    }
+
+    /** Simulation d&#x27;appel à la soumission. Mais simple renvoi d&#x27;un ID fixe */
+    public appelerSoumissionBouchonnee(donnees: DonneesDeSoumission): Observable&lt;string&gt; {
+        this.logger.trace(&#x27;Appel bouchonné à la soumission avec les données&#x27;, donnees);
+        return of(&#x27;123456&#x27;);
+    }
+
+    /** Simulation d&#x27;appel à la récupération des informations de l&#x27;usager connecté. Les données sont en dur dans la méthode. */
+    public recupererInformationsUsager(): Observable&lt;object&gt; {
+        return of(
+            {
+                &quot;email&quot;: &quot;wossewodda-3728@yopmail.com&quot;,
+                &quot;emailTechnique&quot;: &quot;wossewodda-3728@yopmailTECHNIQUE.com&quot;,
+                &quot;accountType&quot;: &quot;particulier&quot;, &quot;franceConnect&quot;: true,
+                &quot;civilite&quot;: &quot;M&quot;, &quot;dateDeNaissance&quot;: &quot;2022-04-23T08:15:24.419Z&quot;, &quot;nom&quot;: &quot;nom&quot;, &quot;prenoms&quot;: &quot;prenom1 prenom2&quot;, &quot;sexe&quot;: 1, &quot;nomDeNaissance&quot;: &quot;NOM&quot;,
+                &quot;adresse&quot;: { &quot;libelleVoie&quot;: &quot;voie&quot;, &quot;lieuDitOuBoitePostale&quot;: &quot;lieuDit&quot;, &quot;batimentOuImmeuble&quot;: &quot;batiment&quot;, &quot;appartementOuEtage&quot;: &quot;appartement&quot;, &quot;ville&quot;: &quot;Amiens&quot;, &quot;pays&quot;: &quot;France&quot;, &quot;codePostal&quot;: &quot;80000&quot;, &quot;codeInsee&quot;: &quot;80021&quot;, &quot;complement&quot;: &quot;complément&quot;, &quot;etatProvince&quot;: &quot;Somme&quot; },
+                &quot;codeInseeDeNaissance&quot;: &quot;80021&quot;, &quot;codeInseePaysDeNaissance&quot;: &quot;12345&quot;, &quot;communeDeNaissance&quot;: &quot;Amiens&quot;, &quot;departementDeNaissance&quot;: &quot;Somme&quot;, &quot;paysDeNaissance&quot;: &quot;France&quot;,
+                &quot;situationFamiliale&quot;: &quot;Célibataire&quot;,
+                &quot;telephoneFixe&quot;: { &quot;numero&quot;: &quot;0123456789&quot;, &quot;indicatif&quot;: &quot;+33&quot; }, &quot;telephoneMobile&quot;: { &quot;numero&quot;: &quot;0623456789&quot;, &quot;indicatif&quot;: &quot;+33&quot; }
+            });
+    }
+
+    /** Chargement de la liste des documents post-soumission */
+    public chargerListeDocumentsPostSoumission(codeDemarche: string|undefined): Observable&lt;DocumentsPostSoumission[]&gt; {
+        this.logger.trace(&#x27;Appel bouchonné à la recherche de documents post-soumission&#x27;);
+        const documents: DocumentsPostSoumission[] &#x3D; [];
+        const doc1 &#x3D; new DocumentsPostSoumission();
+        doc1.codeDocument &#x3D; &#x27;code1&#x27;;
+        doc1.contentType &#x3D; &#x27;application/pdf&#x27;;
+        doc1.nomDocument &#x3D; &#x27;Le premier document&#x27;;
+        doc1.libelleDocument &#x3D; &#x27;monPdf1.pdf&#x27;
+        doc1.ordrePresentation &#x3D; 1;
+        doc1.taille &#x3D; 10;
+        doc1.urlTelechargement &#x3D; this.recupererUrlBrouillonBouchonne(codeDemarche);
+        documents.push(doc1);
+        const doc2 &#x3D; new DocumentsPostSoumission();
+        doc2.codeDocument &#x3D; &#x27;code2&#x27;;
+        doc2.contentType &#x3D; &#x27;application/pdf&#x27;;
+        doc2.nomDocument &#x3D; &#x27;Le second document&#x27;;
+        doc1.libelleDocument &#x3D; &#x27;monPdf2.pdf&#x27;
+        doc2.ordrePresentation &#x3D; 2;
+        doc2.taille &#x3D; 11;
+        doc2.urlTelechargement &#x3D; this.recupererUrlConfigurationBouchonne(codeDemarche);
+        documents.push(doc2);
+        return of(documents);
+    }
+
+    /** Récupération de l&#x27;URL du brouillon de bouchon (en relatif ou en absolu) */
+    public recupererUrlBrouillonBouchonne(codeDemarche: string|undefined): string {
+        let url &#x3D; this.environnementService.urls.socle.urlBrouillonBouchonne as string;
+        url &#x3D; url.replace(&#x27;CODE_DEMARCHE&#x27;, codeDemarche?.toLocaleLowerCase() || &#x27;&#x27;);
+        if (url &amp;&amp; url.startsWith(&#x27;http&#x27;)) {
+            return url;
+        } else {
+            return document.baseURI + url;
+        }
+    }
+
+    /** Récupération de l&#x27;URL de la configuration de bouchon (en relatif ou en absolu) */
+    public recupererUrlConfigurationBouchonne(codeDemarche: string|undefined): string {
+        let url &#x3D; this.environnementService.urls.socle.urlConfigurationBouchonne as string;
+        url &#x3D; url.replace(&#x27;CODE_DEMARCHE&#x27;, codeDemarche?.toLocaleLowerCase() || &#x27;&#x27;);
+        if (url &amp;&amp; url.startsWith(&#x27;http&#x27;)) {
+            return url;
+        } else {
+            return document.baseURI + url;
+        }
+    }
+
+    /** Simulation d&#x27;un upload de pièce jointe bien long/lent pour voir la barre de progression */
+    public verserPieceJointeEnUneUniqueRequete(): Observable&lt;HttpEvent&lt;any&gt;&gt; {
+        // Renvoi immédiat de l&#x27;évènement de démarrage de l&#x27;upload
+        const subject &#x3D; new BehaviorSubject({ type: HttpEventType.Sent } as HttpEvent&lt;any&gt;);
+        // Progression à 25%
+        setTimeout(() &#x3D;&gt; subject.next({ type: HttpEventType.UploadProgress, loaded: 25, total: 100 } as HttpEvent&lt;any&gt;), 500);
+        // Progression à 50%
+        setTimeout(() &#x3D;&gt; subject.next({ type: HttpEventType.UploadProgress, loaded: 50, total: 100 } as HttpEvent&lt;any&gt;), 1000);
+        // Progression à 75%
+        setTimeout(() &#x3D;&gt; subject.next({ type: HttpEventType.UploadProgress, loaded: 75, total: 100 } as HttpEvent&lt;any&gt;), 1500);
+        // Envoi de l&#x27;upload terminé
+        setTimeout(() &#x3D;&gt; subject.next(new HttpHeaderResponse()), 2000);
+        // réponse reçue
+        setTimeout(() &#x3D;&gt; subject.next(new HttpResponse&lt;string&gt;({ body: &#x27;idPJ1&#x27; })), 2500);
+
+        return subject.asObservable();
+    }
+
+    /** Bouchon de téléchargement de document qui propose le téléchargement de la configuration bouchonnée */
+    public telechargerDocument(): Observable&lt;void&gt; {
+        window.open(this.environnementService.urls.socle.urlConfigurationBouchonne, &#x27;_blank&#x27;);
+        return of();
+    }
+
+    /** Bouchon de la génération d&#x27;un captcha */
+    public simulerAppelGenerationCaptcha(): Observable&lt;string&gt; {
+        this.logger.trace(&#x27;Appel au captcha bouchonné&#x27;);
+        return of(&#x27;&lt;div style&#x3D;&quot;border:solid 1px black&quot;&gt;&lt;input type&#x3D;&quot;hidden&quot; name&#x3D;&quot;idInput&quot; value&#x3D;&quot;captchaFormulaireExtInput&quot;&gt;&lt;span&gt;bouchon captcha dans Angular&lt;/span&gt;&lt;br/&gt;&lt;span&gt;Toute valeur est autorisée.&lt;/span&gt;&lt;/div&gt;&#x27;);
+    }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'BouchonService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

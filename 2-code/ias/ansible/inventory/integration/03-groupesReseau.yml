@@ -1,0 +1,42 @@
+# Ce fichier de l'inventaire décrit des groupes permettant d'exécuter des playbook sur certaines machines uniquement.
+# Tous les environnements doivent contenir les mêmes déclarations de groupes.
+#
+# Pour se limiter à un groupe de machines, ajouter, dans la ligne de commande, --limit machines_zone_execution_exposee
+#
+all:
+
+  children:
+
+    ########################
+    # Groupe par zone réseau (ne jamais rien modifier dans cette partie !!)
+    ########################
+    # (une zone est l'intersection entre une couche réseau et une colonne)
+    machines_zone_execution_exposee: { hosts: { "EXE_EXP_[1:3]": } }
+    machines_zone_execution_interne: { hosts: { "EXE_INT_[1:3]": } }
+    machines_zone_execution_profonde: { hosts: { "EXE_PRO_[1:3]": } }
+    machines_zone_administration_exposee: { hosts: { "ADM_EXP_[1:3]": } }
+    machines_zone_administration_interne: { hosts: { "ADM_INT_[1:3]": } }
+    machines_zone_administration_profonde: { hosts: { "ADM_PRO_[1:3]": } }
+
+    ###################
+    # Groupe par couche (ne jamais rien modifier dans cette partie !!)
+    ###################
+    machines_couche_exposee: { hosts: { "ADM_EXP_[1:3]":, "EXE_EXP_[1:3]": } }
+    machines_couche_interne: { hosts: { "ADM_INT_[1:3]":, "EXE_INT_[1:3]": } }
+    machines_couche_profonde: { hosts: { "ADM_PRO_[1:3]":, "EXE_PRO_[1:3]": } }
+
+    ###################
+    # Groupe par colonne (ne jamais rien modifier dans cette partie !!)
+    ###################
+    machines_colonne_administration: { hosts: { "EXE_EXP_[1:3]":, "EXE_INT_[1:3]":, "EXE_PRO_[1:3]": } }
+    machines_colonne_execution: { hosts: { "ADM_EXP_[1:3]":, "ADM_INT_[1:3]":, "ADM_PRO_[1:3]": } }
+
+    ###################
+    # Groupe par sous-colonne (ne jamais rien modifier dans cette partie !!)
+    ###################
+    machines_colonne_administration1: { hosts: { "EXE_EXP_1":, "EXE_INT_1":, "EXE_PRO_1": } }
+    machines_colonne_administration2: { hosts: { "EXE_EXP_2":, "EXE_INT_2":, "EXE_PRO_2": } }
+    machines_colonne_administration3: { hosts: { "EXE_EXP_3":, "EXE_INT_3":, "EXE_PRO_3": } }
+    machines_colonne_execution1: { hosts: { "ADM_EXP_1":, "ADM_INT_1":, "ADM_PRO_1": } }
+    machines_colonne_execution2: { hosts: { "ADM_EXP_2":, "ADM_INT_2":, "ADM_PRO_2": } }
+    machines_colonne_execution3: { hosts: { "ADM_EXP_3":, "ADM_INT_3":, "ADM_PRO_3": } }

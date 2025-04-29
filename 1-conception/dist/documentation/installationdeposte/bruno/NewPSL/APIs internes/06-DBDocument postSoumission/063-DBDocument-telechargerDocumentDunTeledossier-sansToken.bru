@@ -1,0 +1,19 @@
+meta {
+  name: 063-DBDocument-telechargerDocumentDunTeledossier-sansToken
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/document/teledossier/{{idTeledossierCree}}/document/{{codePremierDocument}}?clef={{clefTelechargementDocument}}
+  body: none
+  auth: none
+}
+
+query {
+  clef: {{clefTelechargementDocument}}
+}
+
+assert {
+  res.status: eq 200
+}

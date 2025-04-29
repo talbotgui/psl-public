@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# logs
+echo "Modification des dates dans les pages MD"
+laDate=`date +"%Y-%m-%dT%T%:z"`
+
+# Recherche des documents modifiés à commiter
+git diff --name-only --cached | while read -r fichier ; do
+  if [ -e $fichier ] && [[ $fichier == *.md ]]; then
+    sed -i "s/^date = [0-9T:+\-]*$/date = $laDate/" $fichier
+    git add $fichier
+  fi
+done

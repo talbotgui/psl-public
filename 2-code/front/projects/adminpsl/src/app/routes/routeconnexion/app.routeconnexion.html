@@ -1,0 +1,20 @@
+<div>
+    <!-- https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/champ-de-saisie -->
+    <div class="fr-input-group">
+        <label class="fr-label" for="text-input-error">Nom d'utilisateur</label>
+        <input class="fr-input" type="text" id="nomUtilisateur" name="nomUtilisateur" [(ngModel)]="nomUtilisateur">
+    </div>
+
+    <!-- https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mot-de-passe -->
+    <div class="fr-password" id="motDePasse">
+        <label class="fr-label" for="motDePasse-input">Mot de passe</label>
+        <div class="fr-input-wrap">
+            <input class="fr-password__input fr-input" aria-required="true" name="motDePasse" [(ngModel)]="motDePasse" autocomplete="current-password"
+                id="motDePasse-input" type="password">
+        </div>
+    </div>
+
+    <br />
+    <button type="button" class="fr-btn fr-btn--icon-left fr-icon-send-plane-fill" (click)="tenterConnexion()">Se connecter</button>
+    <br />
+</div>

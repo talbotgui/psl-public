@@ -1,0 +1,14 @@
+/** Aide disponible dans les blocs sous forme d'un bouton (n'existe pas dans le DSFR et est issu du code de la PSL actuelle) */
+.btn-help { /*adaptation>>*/cursor: pointer; /*<<adaptation*/ display: inline-block; margin-bottom: 0; font-weight: normal; text-align: center; vertical-align: middle; cursor: pointer; background-image: none; border: 1px solid transparent; white-space: nowrap; padding: 6px 12px; font-size: 1em; line-height: 1.5; border-radius: 4px; -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; user-select: text; padding: 0; line-height: 1; font-size: 1.1em; /*ajout du !important>>*/color: #0b6ba8!important;/*<<ajout du !important*/ background: transparent; }
+.btn-help:focus, .btn-help:hover { color: #2b5677; }
+.icon { font-family: 'fonticon'; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; /* Better Font Rendering =========== */ -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.icon-help:before { content: "\e603"; }
+a.btn.btn-help { margin-left: 5px; }
+.help-panel { position: relative; max-width: 100%; margin-bottom: 1em; padding: 0.5em; border: 1px solid #cccccc; border-radius: 3px; background-color: #f2f2f2; }
+.help-panel:before, .help-panel:after { position: absolute; top: -6px; left: 1em; content: " "; z-index: 1000; width: 0px; height: 0px; border-style: solid; border-width: 0 5px 6px 5px; border-color: transparent transparent #cccccc; }
+.help-panel:after { top: -5px; border-color: transparent transparent #f2f2f2; }
+.help-panel.help-panel-white { background-color: #fff; }
+.help-panel.help-panel-white:after { border-color: transparent transparent #fff; }
+
+/** pour les images des organismes de JeChangeDeCoordonnees */
+.img-organisme img { max-width: 130px; max-height: 80px; }

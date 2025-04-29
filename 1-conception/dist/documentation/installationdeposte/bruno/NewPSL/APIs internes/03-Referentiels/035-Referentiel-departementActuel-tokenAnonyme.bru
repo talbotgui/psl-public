@@ -1,0 +1,24 @@
+meta {
+  name: 035-Referentiel-departementActuel-tokenAnonyme
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/referentiel/departementActuel?recherche=rhin
+  body: none
+  auth: bearer
+}
+
+query {
+  recherche: rhin
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+assert {
+  res.status: eq 200
+  res.body[0].codeInsee: eq "67"
+}

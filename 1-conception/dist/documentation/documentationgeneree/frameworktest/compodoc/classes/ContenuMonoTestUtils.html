@@ -1,0 +1,1665 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >ContenuMonoTestUtils</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Fichier</h3>
+        </p>
+        <p class="comment">
+            <code>projects/framework/cypress/utils/contenumonotest-utils.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Classe utilitaire regroupant des actions et validations</p>
+
+            </p>
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#VALEURS_INVALIDES_POUR_REGEX" >VALEURS_INVALIDES_POUR_REGEX</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#definirBonneValeur" >definirBonneValeur</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#definirMauvaiseValeur" >definirMauvaiseValeur</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#enregistrerLaSaisieDansLesDonneesDeLaPage" >enregistrerLaSaisieDansLesDonneesDeLaPage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#focusUnContenuMonoChamp" >focusUnContenuMonoChamp</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#saisirValeurDunContenuMonoChamp" >saisirValeurDunContenuMonoChamp</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#validerLeLibelleEtAide" >validerLeLibelleEtAide</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#validerLesValidationDunContenuMonoChamp" >validerLesValidationDunContenuMonoChamp</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="VALEURS_INVALIDES_POUR_REGEX"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>VALEURS_INVALIDES_POUR_REGEX</b></span>
+                        <a href="#VALEURS_INVALIDES_POUR_REGEX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[&#x27;&#x27;, &#x27; &#x27;, &#x27;azertyuiop&#x27;, &#x27;AZERT6&#x27;, &#x27;azertyuiopmlkjhgfdsqwxcvbn&#x27;, &#x27;0123456789&#x27;, &#x27;0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOPQSDFGHJKLMWXCVBN&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="30" class="link-to-prism">projects/framework/cypress/utils/contenumonotest-utils.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="definirBonneValeur"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>definirBonneValeur</b></span>
+                        <a href="#definirBonneValeur"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>definirBonneValeur(contenu: ContenuSaisie, brouillonDemarche: BrouillonDemarche)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="90"
+                                    class="link-to-prism">projects/framework/cypress/utils/contenumonotest-utils.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Définition d&#39;une bonne valeur en fonction du type de contenu</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>contenu</td>
+                                            <td>
+                                                        <code>ContenuSaisie</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>brouillonDemarche</td>
+                                            <td>
+                                                        <code>BrouillonDemarche</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>string | literal type</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="definirMauvaiseValeur"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>definirMauvaiseValeur</b></span>
+                        <a href="#definirMauvaiseValeur"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>definirMauvaiseValeur(iPage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, iBloc: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, iSousBloc: number | undefined, iContenu: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contenu: ContenuSaisie, validation: Validation)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="33"
+                                    class="link-to-prism">projects/framework/cypress/utils/contenumonotest-utils.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Définition d&#39;une mauvaise valeur</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>iPage</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iBloc</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iSousBloc</td>
+                                            <td>
+                                                        <code>number | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iContenu</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>contenu</td>
+                                            <td>
+                                                        <code>ContenuSaisie</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>validation</td>
+                                            <td>
+                                                        <code>Validation</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>string | literal type | undefined</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enregistrerLaSaisieDansLesDonneesDeLaPage"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>enregistrerLaSaisieDansLesDonneesDeLaPage</b></span>
+                        <a href="#enregistrerLaSaisieDansLesDonneesDeLaPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>enregistrerLaSaisieDansLesDonneesDeLaPage(iPage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, iBloc: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, iSousBloc: number | undefined, iContenu: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contenu: ContenuDeBloc, valeur: string | literal type, brouillonDemarche: BrouillonDemarche, donneesDeLaPage: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="161"
+                                    class="link-to-prism">projects/framework/cypress/utils/contenumonotest-utils.ts:161</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sauvegarde de la donnée saisie dans les données de la page courante (données nécessaires pour le calcul des conditions d&#39;affichage/désactivation.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>iPage</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iBloc</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iSousBloc</td>
+                                            <td>
+                                                        <code>number | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iContenu</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>contenu</td>
+                                            <td>
+                                                        <code>ContenuDeBloc</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>valeur</td>
+                                            <td>
+                                                        <code>string | literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>brouillonDemarche</td>
+                                            <td>
+                                                        <code>BrouillonDemarche</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>donneesDeLaPage</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="focusUnContenuMonoChamp"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>focusUnContenuMonoChamp</b></span>
+                        <a href="#focusUnContenuMonoChamp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>focusUnContenuMonoChamp(iBloc: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, iSousBloc: number | undefined, iContenu: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contenu: ContenuDeBloc, focus: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, occurenceDeBlocDynamique: number | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="293"
+                                    class="link-to-prism">projects/framework/cypress/utils/contenumonotest-utils.ts:293</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Prise ou libération du focus sur un champ</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>iBloc</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iSousBloc</td>
+                                            <td>
+                                                        <code>number | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iContenu</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>contenu</td>
+                                            <td>
+                                                        <code>ContenuDeBloc</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>focus</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>occurenceDeBlocDynamique</td>
+                                            <td>
+                                                        <code>number | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saisirValeurDunContenuMonoChamp"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>saisirValeurDunContenuMonoChamp</b></span>
+                        <a href="#saisirValeurDunContenuMonoChamp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saisirValeurDunContenuMonoChamp(iBloc: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, iSousBloc: number | undefined, iContenu: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contenu: ContenuDeBloc, valeur: string | undefined | literal type, occurenceDeBlocDynamique: number | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="204"
+                                    class="link-to-prism">projects/framework/cypress/utils/contenumonotest-utils.ts:204</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Saisie d&#39;une valeur (undefined ou &#39;&#39; pour vider le champs)</p>
+<p>Il n&#39;est pas possible de désélectionner une liste déroulante ou un radio  mais il est possible de sélectionner la première option (la vide en général si elle existe)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>iBloc</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iSousBloc</td>
+                                            <td>
+                                                        <code>number | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iContenu</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>contenu</td>
+                                            <td>
+                                                        <code>ContenuDeBloc</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>valeur</td>
+                                            <td>
+                                                        <code>string | undefined | literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>occurenceDeBlocDynamique</td>
+                                            <td>
+                                                        <code>number | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validerLeLibelleEtAide"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>validerLeLibelleEtAide</b></span>
+                        <a href="#validerLeLibelleEtAide"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validerLeLibelleEtAide(iPage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, iBloc: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, iSousBloc: number | undefined, iContenu: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contenu: ContenuSaisie, modeObligatoireParDefaut: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, occurenceDeBlocDynamique: number | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="405"
+                                    class="link-to-prism">projects/framework/cypress/utils/contenumonotest-utils.ts:405</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vérification du libellé du champ et de son aide à la saisie</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>iPage</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iBloc</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iSousBloc</td>
+                                            <td>
+                                                        <code>number | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iContenu</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>contenu</td>
+                                            <td>
+                                                        <code>ContenuSaisie</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>modeObligatoireParDefaut</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>occurenceDeBlocDynamique</td>
+                                            <td>
+                                                        <code>number | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validerLesValidationDunContenuMonoChamp"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>validerLesValidationDunContenuMonoChamp</b></span>
+                        <a href="#validerLesValidationDunContenuMonoChamp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validerLesValidationDunContenuMonoChamp(iPage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, iBloc: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, iSousBloc: number | undefined, iContenu: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contenu: ContenuSaisie, brouillonDemarche: BrouillonDemarche, occurenceDeBlocDynamique: number | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="314"
+                                    class="link-to-prism">projects/framework/cypress/utils/contenumonotest-utils.ts:314</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vérification du fonctionnement de toutes les validations définies sur un champ de saisie &#39;mono-champ&#39;</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>iPage</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iBloc</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iSousBloc</td>
+                                            <td>
+                                                        <code>number | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iContenu</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>contenu</td>
+                                            <td>
+                                                        <code>ContenuSaisie</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>brouillonDemarche</td>
+                                            <td>
+                                                        <code>BrouillonDemarche</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>occurenceDeBlocDynamique</td>
+                                            <td>
+                                                        <code>number | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BrouillonDemarche } from &#x27;../../../framework/src/lib/model/brouillonsoumissiondemarche.model&#x27;;
+import { ContenuAutocompletion, ContenuDeBloc, ContenuRadio, ContenuSaisie, TypeContenuDeBloc, Validation } from &#x27;../../../framework/src/lib/model/configurationdemarchecontenubloc.model&#x27;;
+import { FmkContenuSaisieLongueComponent } from &#x27;../../src/lib/contenu/simple/contenusaisielongue/fmk.contenusaisielongue&#x27;;
+import { LogUtils } from &#x27;./log-utils&#x27;;
+
+/** Classe utilitaire regroupant des actions et validations */
+export class ContenuMonoTestUtils {
+    private static readonly VALEURS_INVALIDES_POUR_REGEX &#x3D; [&#x27;&#x27;, &#x27; &#x27;, &#x27;azertyuiop&#x27;, &#x27;AZERT6&#x27;, &#x27;azertyuiopmlkjhgfdsqwxcvbn&#x27;, &#x27;0123456789&#x27;, &#x27;0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOP0123456789AZERTYUIOPQSDFGHJKLMWXCVBN&#x27;];
+
+    /** Définition d&#x27;une mauvaise valeur  */
+    public static definirMauvaiseValeur(iPage: number, iBloc: number, iSousBloc: number | undefined, iContenu: number, contenu: ContenuSaisie, validation: Validation): string | { nomFichier: string, typeFichier: string } | undefined {
+
+        // Pour les validations de date que la saisie soit libre (type&#x3D;saisie) ou contrainte (type&#x3D;date)
+        if (Validation.datePassee &#x3D;&#x3D;&#x3D; validation) {
+            return &#x27;2050-12-31&#x27;;
+        }
+        // Pour les validations de date que la saisie soit libre (type&#x3D;saisie) ou contrainte (type&#x3D;date)
+        else if (Validation.dateFuture &#x3D;&#x3D;&#x3D; validation) {
+            return &#x27;2000-12-31&#x27;;
+        }
+        //Si c&#x27;est une validation de dateAvant 
+        else if ((&#x27;&#x27; + validation).toUpperCase().startsWith(Validation.dateAvant.toUpperCase())) {
+            return &#x27;2050-12-31&#x27;;
+        }
+        //Si c&#x27;est une validation de dateApres 
+        else if ((&#x27;&#x27; + validation).toUpperCase().startsWith(Validation.dateApres.toUpperCase())) {
+            return &#x27;1800-01-01&#x27;;
+        }
+        // Pour toute autre validation d&#x27;une saisie de date (type&#x3D;date)
+        else if (TypeContenuDeBloc.date &#x3D;&#x3D;&#x3D; contenu.type) {
+            return &#x27;aze&#x27;;
+        }
+        // cas spécifique de l&#x27;upload
+        else if (contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.uploadDocument) {
+            return { nomFichier: &#x27;grossePieceJointe.png&#x27;, typeFichier: &#x27;image/png&#x27; };
+        }
+        //Si c&#x27;est une validation de regex
+        else if ((&#x27;&#x27; + validation).toUpperCase().startsWith(Validation.regex.toUpperCase())) {
+            // Extraction de la regex
+            const regex &#x3D; (validation + &#x27;&#x27;).substring((Validation.regex + &#x27;&#x27;).length + 1)
+            // Extraction (s&#x27;il y a) du nombre max de caractères
+            const nbCaracteresMaxSelonRegex &#x3D; FmkContenuSaisieLongueComponent.extraireLongueurDeSaisieMaximale(contenu);
+            // recherche d&#x27;une valeur dans la liste ne correspondant pas à la regex 
+            // (pour une autre raison que la longueur de chaine car le composant de saisieLongue bloque la saisie quand la limite est atteine)
+            const valeurInvalideTrouvee &#x3D; ContenuMonoTestUtils.VALEURS_INVALIDES_POUR_REGEX.find(val &#x3D;&gt;
+                contenu.type !&#x3D;&#x3D; TypeContenuDeBloc.saisieLongue &amp;&amp; !val.match(regex) ||//
+                contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.saisieLongue &amp;&amp; nbCaracteresMaxSelonRegex &amp;&amp; val.length &lt;&#x3D; nbCaracteresMaxSelonRegex &amp;&amp; !val.match(regex)
+            );
+            if (valeurInvalideTrouvee) {
+                return valeurInvalideTrouvee;
+            } else {
+                LogUtils.logContenu(iPage, iBloc, iSousBloc, iContenu, &#x27;Impossible de trouver une valeur invalide pour la validation &#x27; + validation);
+                return undefined;
+            }
+        }
+        // Pour les autres validations connues 
+        else if (Validation.secu &#x3D;&#x3D;&#x3D; validation || Validation.email &#x3D;&#x3D;&#x3D; validation || Validation.autocompletionPrecise &#x3D;&#x3D;&#x3D; validation || Validation.telephoneFR &#x3D;&#x3D;&#x3D; validation || Validation.url &#x3D;&#x3D;&#x3D; validation) {
+            return &#x27;azertyuiop&#x27;;
+        }
+        // Pour les validations non implémentées, on renvoi &#x27;azertyuiop&#x27;
+        else {
+            LogUtils.logContenu(iPage, iBloc, iSousBloc, iContenu, &#x27;/!\\ attention le type de validation \&#x27;&#x27; + validation + &#x27;\&#x27; n\&#x27;est pas géré spécifiquement dans le code de test&#x27;);
+            return &#x27;azertyuiop&#x27;;
+        }
+    }
+
+    /** Définition d&#x27;une bonne valeur en fonction du type de contenu */
+    public static definirBonneValeur(contenu: ContenuSaisie, brouillonDemarche: BrouillonDemarche): string | { nomFichier: string, typeFichier: string } {
+        // cas nominal : on prend la valeur dans le brouillon
+        let bonneValeur &#x3D; brouillonDemarche.donnees[contenu.clef as string];
+
+        // cas spécifique de l&#x27;autocompletion
+        if (contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.autocompletion) {
+            // Recherche de l&#x27;attribut de l&#x27;API utilisé comme libellé
+            bonneValeur &#x3D; brouillonDemarche.donnees[contenu.clef + &#x27;_&#x27; + (contenu as ContenuAutocompletion).attributReponseApiPourLibelle] as string;
+            if (bonneValeur) {
+                // Si &#x27;(&#x27; dans la valeur
+                if (bonneValeur.includes(&#x27;(&#x27;)) {
+                    // On retire les parenthèses de on envoi tout sauf le dernier caractère.
+                    bonneValeur &#x3D; bonneValeur.replace(/\(/g, &#x27;&#x27;);
+                    bonneValeur &#x3D; bonneValeur.substring(0, bonneValeur.length - 2);
+                }
+                // Sinon
+                else {
+                    // Seuls les premiers caractères sont pris pour tester l&#x27;autocompletion
+                    if (bonneValeur &amp;&amp; bonneValeur.length &lt; 10) {
+                        bonneValeur &#x3D; bonneValeur.substring(0, 3);
+                    } else if (bonneValeur &amp;&amp; bonneValeur.length &gt;&#x3D; 10) {
+                        bonneValeur &#x3D; bonneValeur.substring(0, bonneValeur.length - 3);
+                    }
+                }
+            }
+        }
+
+        // cas spécifique de l&#x27;upload
+        if (contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.uploadDocument) {
+            const nom &#x3D; brouillonDemarche.donnees[contenu.clef + &#x27;_nom&#x27;];
+            const type &#x3D; brouillonDemarche.donnees[contenu.clef + &#x27;_type&#x27;];
+            if (nom &amp;&amp; type) {
+                return { nomFichier: nom, typeFichier: type };
+            } else {
+                return { nomFichier: &#x27;petitePieceJointe.png&#x27;, typeFichier: &#x27;image/png&#x27; };
+            }
+        }
+
+        // si la valeur existe, on la renvoie
+        if (bonneValeur) {
+            return bonneValeur;
+        }
+        // Si aucune valeur mais que c&#x27;est une case, renvoi de &#x27;true&#x27;
+        else if (contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.case) {
+            return &#x27;true&#x27;;
+        }
+        // Si aucune valeur mais que c&#x27;est un radio, renvoi de &#x27;true&#x27;
+        else if (contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.radio) {
+            const cr &#x3D; contenu as ContenuRadio;
+            if (cr.valeurs &amp;&amp; cr.valeurs[0].valeur) {
+                return cr.valeurs[0].valeur + &#x27;&#x27;;
+            } else {
+                return &#x27;&#x27;;
+            }
+        }
+        // Si aucune valeur mais que c&#x27;est une saisie de date avec une validation dateAvant ou dateApres, renvoi de la date du jour
+        else if (contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.date &amp;&amp; contenu.validationsSimples &amp;&amp; contenu.validationsSimples.filter(v &#x3D;&gt; v.toUpperCase().startsWith(Validation.dateAvant.toUpperCase()) || v.toUpperCase().startsWith(Validation.dateApres.toUpperCase())).length &gt; 0) {
+            const dateDuJour &#x3D; new Date();
+            let jour &#x3D; dateDuJour.getDate().toString();
+            jour &#x3D; (+jour &lt; 10) ? &#x27;0&#x27; + jour : jour;
+            let mois: string &#x3D; (dateDuJour.getMonth() + 1).toString();
+            mois &#x3D; (+mois &lt; 10) ? &#x27;0&#x27; + mois : mois;
+            return dateDuJour.getFullYear() + &#x27;-&#x27; + mois + &#x27;-&#x27; + jour;
+        }
+        // Si aucune valeur, renvoi d&#x27;une chaine vide
+        else {
+            return &#x27;&#x27;;
+        }
+    }
+
+    /**  Sauvegarde de la donnée saisie dans les données de la page courante (données nécessaires pour le calcul des conditions d&#x27;affichage/désactivation. */
+    public static enregistrerLaSaisieDansLesDonneesDeLaPage(iPage: number, iBloc: number, iSousBloc: number | undefined, iContenu: number, contenu: ContenuDeBloc, valeur: string | { nomFichier: string, typeFichier: string }, brouillonDemarche: BrouillonDemarche, donneesDeLaPage: { [index: string]: any }): void {
+        LogUtils.logContenu(iPage, iBloc, iSousBloc, iContenu, &#x27;Enregistrement de la valeur pour la clef \&#x27;&#x27; + contenu.clef + &#x27;\&#x27;:&#x27; + JSON.stringify(valeur));
+
+        // cas spécifique de l&#x27;autocompletion
+        if (contenu &amp;&amp; contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.autocompletion) {
+            const contenuType &#x3D; contenu as ContenuAutocompletion;
+
+            // Si la saisie demandée est une valeur correspondant à celles du brouillon (et pas un test d&#x27;une des validations)
+            const valeurBrouillon &#x3D; brouillonDemarche.donnees[contenuType.clef + &#x27;_&#x27; + contenuType.attributReponseApiPourLibelle] as string;
+            if (valeurBrouillon &amp;&amp; typeof valeur &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+                // on copie les attributs de l&#x27;objet sélectionné
+                Object.keys(brouillonDemarche.donnees)
+                    .filter(k &#x3D;&gt; k.startsWith(contenuType.clef + &#x27;_&#x27;))
+                    .forEach(k &#x3D;&gt; donneesDeLaPage[k] &#x3D; brouillonDemarche.donnees[k]);
+            }
+
+            // Si ce n&#x27;est pas la valeur du brouillon
+            else {
+                // on écrase les attributs
+                Object.keys(brouillonDemarche.donnees)
+                    .filter(k &#x3D;&gt; k.startsWith(contenuType.clef + &#x27;_&#x27;))
+                    .forEach(k &#x3D;&gt; delete donneesDeLaPage[k]);
+            }
+        }
+
+        // cas spécifique de l&#x27;upload
+        else if (contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.uploadDocument) {
+            // rien à faire
+        }
+
+        // Sinon, sauvegarde de la saisie dans les données de la page
+        else {
+            donneesDeLaPage[contenu.clef as string] &#x3D; valeur;
+        }
+
+        LogUtils.logContenu(iPage, iBloc, iSousBloc, iContenu, &#x27;Post enregistrement :&#x27; + JSON.stringify(donneesDeLaPage));
+    }
+
+    /**
+     * Saisie d&#x27;une valeur (undefined ou &#x27;&#x27; pour vider le champs)
+     * 
+     * Il n&#x27;est pas possible de désélectionner une liste déroulante ou un radio  mais il est possible de sélectionner la première option (la vide en général si elle existe)
+     */
+    public static saisirValeurDunContenuMonoChamp(iBloc: number, iSousBloc: number | undefined, iContenu: number, contenu: ContenuDeBloc, valeur: string | undefined | { nomFichier: string, typeFichier: string }, occurenceDeBlocDynamique: number | undefined): void {
+
+        // Cas d&#x27;une case
+        if (contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.case) {
+            // le focus est nécessaire pour faire pendant au blur présent en fin de méthode
+            cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;input&#x27;).focus();
+
+            if (valeur &#x3D;&#x3D;&#x3D; &#x27;true&#x27;) {
+                // le {force:true} permet de cocher l&#x27;input même s&#x27;il n&#x27;est pas réellement visible
+                cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;input&#x27;).check({ force: true });
+            } else {
+                cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;input&#x27;).uncheck({ force: true });
+            }
+        }
+
+        // Cas d&#x27;une liste finie
+        else if (contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.listeFinie) {
+            // ouverture de la liste par un click
+            const elementAselectionne &#x3D; (valeur &#x3D;&#x3D;&#x3D; undefined || valeur &#x3D;&#x3D;&#x3D; &#x27;&#x27; || typeof valeur !&#x3D;&#x3D; &#x27;string&#x27;) ? 0 : valeur;
+            cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;select&#x27;).select(elementAselectionne);
+        }
+
+        // Cas d&#x27;un radio
+        else if (contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.radio) {
+            // extraction du libellé des options correspondantes à la valeur demandée (il ne devrait y en avoir qu&#x27;une ou aucune)
+            const libelles &#x3D; (contenu as ContenuRadio).valeurs.filter(v &#x3D;&gt; v.valeur &#x3D;&#x3D;&#x3D; valeur).map(v &#x3D;&gt; v.libelle);
+            // Click sur le bon libellé ou sur le premier élément à défaut.
+            if (libelles.length &#x3D;&#x3D;&#x3D; 1) {
+                cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;input[v&#x3D;&#x27; + valeur + &#x27;]&#x27;).parent().find(&#x27;.fr-label&#x27;).click();
+            } else {
+                cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;.fr-radio-group&#x27;).eq(0).click();
+            }
+            // le focus est nécessaire pour faire pendant au blur présent en fin de méthode
+            ContenuMonoTestUtils.focusUnContenuMonoChamp(iBloc, iSousBloc, iContenu, contenu, true, occurenceDeBlocDynamique);
+        }
+
+        // Cas d&#x27;un upload de document
+        else if (contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.uploadDocument) {
+            // La zone de drop doit exister
+            cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;.zoneDepot&#x27;).should(&#x27;exist&#x27;);
+            // si la valeur à saisir est UNDEFINED, click sur le bouton de suppression (si présent)
+            if (typeof valeur &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27;) {
+                cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).then((contenu: any) &#x3D;&gt; {
+                    const rechercheBouton &#x3D; contenu.find(&#x27;.fr-fi-delete-line&#x27;);
+                    if (rechercheBouton.length &gt; 0) {
+                        (rechercheBouton[0] as HTMLElement).click();
+                    }
+                });
+            }
+            // upload du document si un est présent
+            else if (typeof valeur &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
+                cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;input[type&#x3D;file]&#x27;).then((inputFile: any) &#x3D;&gt; {
+                    // Lecture du fichier à uploader
+                    cy.fixture(valeur.nomFichier, &#x27;base64&#x27;).then(Cypress.Blob.base64StringToBlob).then((blob) &#x3D;&gt; {
+                        // Ajout du document à l&#x27;input
+                        const dataTransfer &#x3D; new DataTransfer();
+                        dataTransfer.items.add(new File([blob], valeur.nomFichier, { type: valeur.typeFichier }));
+                        (inputFile[0] as HTMLInputElement).files &#x3D; dataTransfer.files;
+                        // déclenchement forcé de l&#x27;event
+                        inputFile[0].dispatchEvent(new Event(&#x27;change&#x27;, { bubbles: true }));
+                    });
+                });
+            }
+        }
+
+        // Cas simple
+        else {
+            // Purge de la saisie car il n&#x27;est pas possible de faire un TYPE avec une valeur vide
+            cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;input,textarea&#x27;).focus();
+            cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;input,textarea&#x27;).clear();
+
+            // TYPE de la valeur dans le champ
+            if (valeur !&#x3D;&#x3D; undefined &amp;&amp; valeur !&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; typeof valeur &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+                cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;input,textarea&#x27;).type(valeur);
+            }
+        }
+
+        // On sort du champ pour déclencher les validations
+        if (contenu.type !&#x3D;&#x3D; TypeContenuDeBloc.uploadDocument) {
+            ContenuMonoTestUtils.focusUnContenuMonoChamp(iBloc, iSousBloc, iContenu, contenu, false, occurenceDeBlocDynamique);
+        }
+
+        // Si autocompletion, petite attente pour que l&#x27;unique option soit sélectionnée
+        if (contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.autocompletion) {
+            cy.wait(400);
+        }
+    }
+
+    /** Prise ou libération du focus sur un champ */
+    public static focusUnContenuMonoChamp(iBloc: number, iSousBloc: number | undefined, iContenu: number, contenu: ContenuDeBloc, focus: boolean, occurenceDeBlocDynamique: number | undefined): void {
+
+        // Définition de la balise à rechercher dans le contenu en fonction du type de contenu
+        let balise &#x3D; &#x27;input,textarea&#x27;;
+        if (contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.listeFinie) {
+            balise &#x3D; &#x27;select&#x27;;
+        } else if (contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.radio) {
+            balise &#x3D; &#x27;.fr-radio-group:first input&#x27;;
+        } else if (contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.uploadDocument) {
+            balise &#x3D; &#x27;.zoneDepot&#x27;;
+        }
+
+        // FOCUS ou BLUR
+        if (focus) {
+            cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(balise).focus();
+        } else {
+            cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(balise).blur();
+        }
+    }
+
+    /** Vérification du fonctionnement de toutes les validations définies sur un champ de saisie &#x27;mono-champ&#x27; */
+    public static validerLesValidationDunContenuMonoChamp(iPage: number, iBloc: number, iSousBloc: number | undefined, iContenu: number, contenu: ContenuSaisie, brouillonDemarche: BrouillonDemarche, occurenceDeBlocDynamique: number | undefined): void {
+        // Si aucune validation, on passe
+        if (contenu.validationsSimples) {
+            LogUtils.logContenu(iPage, iBloc, iSousBloc, iContenu, &#x27;Validation des validations du contenu \&#x27;&#x27; + contenu.clef + &#x27;\&#x27;&#x27;);
+
+            // Définition de la bonne
+            const bonneValeur &#x3D; ContenuMonoTestUtils.definirBonneValeur(contenu, brouillonDemarche);
+
+            // Pour chaque validation
+            contenu.validationsSimples.forEach(v &#x3D;&gt; {
+                LogUtils.logContenu(iPage, iBloc, iSousBloc, iContenu, &#x27;Validation de la validation \&#x27;&#x27; + v + &#x27;\&#x27; avec la bonne valeur \&#x27;&#x27; + bonneValeur + &#x27;\&#x27;&#x27;);
+
+                // Saisie de la mauvaise valeur
+                if (Validation.autocompletionPrecise &#x3D;&#x3D;&#x3D; v || Validation.dateFuture &#x3D;&#x3D;&#x3D; v || Validation.datePassee &#x3D;&#x3D;&#x3D; v || Validation.email &#x3D;&#x3D;&#x3D; v || Validation.secu &#x3D;&#x3D;&#x3D; v || Validation.telephoneFR &#x3D;&#x3D;&#x3D; v || v.toUpperCase().startsWith(Validation.regex.toUpperCase()) || v.toUpperCase().startsWith(Validation.dateAvant.toUpperCase()) || v.toUpperCase().startsWith(Validation.dateApres.toUpperCase()) || Validation.url &#x3D;&#x3D;&#x3D; v) {
+
+                    // Définition de la mauvaise valeur en fonction du type du controle
+                    const mauvaiseValeur &#x3D; ContenuMonoTestUtils.definirMauvaiseValeur(iPage, iBloc, iSousBloc, iContenu, contenu, v);
+
+                    // Calcul du nom de la classe associée à la validation
+                    const validationRegex &#x3D; (v.toUpperCase().startsWith(Validation.regex.toUpperCase()));
+                    const validationDateAvantApres &#x3D; (v.toUpperCase().startsWith(Validation.dateAvant.toUpperCase()) || v.toUpperCase().startsWith(Validation.dateApres.toUpperCase()));
+                    const nomClasseAssocieAvalidation &#x3D; validationRegex ? &#x27;regex&#x27; : (validationDateAvantApres ? &#x27;dateAvantApres&#x27; : v);
+
+                    // Si une mauvaise valeur existe (cas d&#x27;une regex non gérée)
+                    if (mauvaiseValeur) {
+                        // Saisie de la mauvaise valeur
+                        ContenuMonoTestUtils.saisirValeurDunContenuMonoChamp(iBloc, iSousBloc, iContenu, contenu, mauvaiseValeur, occurenceDeBlocDynamique);
+
+                        // Vérification de la présence du message d&#x27;erreur
+                        cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;span.erreur.&#x27; + nomClasseAssocieAvalidation).should(&#x27;have.length&#x27;, 1);
+                    }
+
+                    // Saisie de la bonne valeur
+                    ContenuMonoTestUtils.saisirValeurDunContenuMonoChamp(iBloc, iSousBloc, iContenu, contenu, bonneValeur, occurenceDeBlocDynamique);
+
+                    // Vérification de l&#x27;absence du message d&#x27;erreur
+                    cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;span.erreur.&#x27; + nomClasseAssocieAvalidation).should(&#x27;not.exist&#x27;);
+
+                    // Purge du champ pour réinitialiser (oui, sur un required, cela réaffiche le message d&#x27;erreur)
+                    ContenuMonoTestUtils.saisirValeurDunContenuMonoChamp(iBloc, iSousBloc, iContenu, contenu, undefined, occurenceDeBlocDynamique);
+
+                } else if (Validation.required &#x3D;&#x3D;&#x3D; v) {
+
+                    // Recherche du champ
+                    cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).then((elementHtmlJquery: any) &#x3D;&gt; {
+
+                        // Il n&#x27;est pas possible de vider un radio ou une liste
+                        // Donc recherche d&#x27;un radio ou d&#x27;une liste renseignée
+                        const radioOuListeDejaRenseigne &#x3D; (contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.radio &amp;&amp; elementHtmlJquery.find(&#x27;input:checked&#x27;).length !&#x3D;&#x3D; 0)
+                            || (contenu.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.listeFinie &amp;&amp; elementHtmlJquery.find(&#x27;option:selected&#x27;).length !&#x3D;&#x3D; 0);
+
+                        // Si aucune valeur indélébile n&#x27;est saisie 
+                        if (!radioOuListeDejaRenseigne) {
+
+                            // Si le contenu est réinitialisable
+                            if (contenu.type !&#x3D;&#x3D; TypeContenuDeBloc.listeFinie &amp;&amp; contenu.type !&#x3D;&#x3D; TypeContenuDeBloc.radio) {
+                                ContenuMonoTestUtils.saisirValeurDunContenuMonoChamp(iBloc, iSousBloc, iContenu, contenu, undefined, occurenceDeBlocDynamique);
+                            }
+
+                            // simple enchainement de focus puis blur
+                            ContenuMonoTestUtils.focusUnContenuMonoChamp(iBloc, iSousBloc, iContenu, contenu, true, occurenceDeBlocDynamique);
+                            ContenuMonoTestUtils.focusUnContenuMonoChamp(iBloc, iSousBloc, iContenu, contenu, false, occurenceDeBlocDynamique);
+
+                            // Vérification de la présence du message d&#x27;erreur
+                            cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;span.erreur.&#x27; + v).should(&#x27;have.length&#x27;, 1);
+
+                            // Saisie de la bonne valeur
+                            ContenuMonoTestUtils.saisirValeurDunContenuMonoChamp(iBloc, iSousBloc, iContenu, contenu, bonneValeur, occurenceDeBlocDynamique);
+
+                            // Vérification de l&#x27;absence du message d&#x27;erreur
+                            cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;span.erreur.&#x27; + v).should(&#x27;not.exist&#x27;);
+
+                            // Purge du champ pour réinitialiser (oui, sur un required, cela réaffiche le message d&#x27;erreur)
+                            ContenuMonoTestUtils.saisirValeurDunContenuMonoChamp(iBloc, iSousBloc, iContenu, contenu, undefined, occurenceDeBlocDynamique);
+                        }
+                        // Sinon rien à faire
+                    });
+
+                } else {
+                    throw new Error(&#x27;Le type de validation \&#x27;&#x27; + v + &#x27;\&#x27; n\&#x27;est pas géré&#x27;);
+                }
+            });
+        }
+
+        // Si pas de validation, log quand même
+        else {
+            LogUtils.logContenu(iPage, iBloc, iSousBloc, iContenu, &#x27;Aucune validation à valider pour le contenu \&#x27;&#x27; + contenu.clef + &#x27;\&#x27;&#x27;);
+        }
+    }
+
+    /** Vérification du libellé du champ et de son aide à la saisie */
+    public static validerLeLibelleEtAide(iPage: number, iBloc: number, iSousBloc: number | undefined, iContenu: number, contenu: ContenuSaisie, modeObligatoireParDefaut: boolean, occurenceDeBlocDynamique: number | undefined): void {
+        if (contenu.titre) {
+            cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;span.textelibelle&#x27;).should(&#x27;exist&#x27;).should(&#x27;be.visible&#x27;);
+        }
+        if (contenu.aide &amp;&amp; contenu.clef) {
+            cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;span.fr-hint-text&#x27;).should(&#x27;exist&#x27;).should(&#x27;be.visible&#x27;);
+        }
+        const champObligatoire &#x3D; contenu.validationsSimples &amp;&amp; contenu.validationsSimples.indexOf(Validation.required) !&#x3D;&#x3D; -1;
+        if (!champObligatoire &amp;&amp; modeObligatoireParDefaut) {
+            cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;span.fr-hint-text&#x27;).should(&#x27;be.visible&#x27;)
+            cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;span.fr-hint-text&#x27;).should(&#x27;contain.text&#x27;, &#x27;Facultatif&#x27;);
+        }
+        if (champObligatoire &amp;&amp; !modeObligatoireParDefaut) {
+            cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).find(&#x27;span.symbol-required&#x27;).should(&#x27;be.visible&#x27;);
+        }
+        LogUtils.logContenu(iPage, iBloc, iSousBloc, iContenu, &#x27;Libellé, aide et mention facultative/obligatoire du contenu \&#x27;&#x27; + contenu.clef + &#x27;\&#x27; validés&#x27;);
+    }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'ContenuMonoTestUtils.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

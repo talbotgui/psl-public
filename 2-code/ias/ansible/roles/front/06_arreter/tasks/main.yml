@@ -1,0 +1,9 @@
+---
+
+# Non réalisable car les scripts Ansible de démarrage et arrêt sont exécutés sans compte ROOT
+
+# Cette tâche permet d'arrêter apache2
+#- name: "[Arrêt] Arrêt de 'apache2'"
+#  ansible.builtin.systemd:
+#    name: "apache2"
+#    state: "stopped"

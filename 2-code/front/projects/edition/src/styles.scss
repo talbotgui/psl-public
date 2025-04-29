@@ -1,0 +1,28 @@
+/** Pour colorer les mat-expansion-panel */
+mat-expansion-panel:nth-child(1) {border-left: solid 8px rgb(128, 135, 143);}
+mat-expansion-panel:nth-child(2) {border-left: solid 8px rgba(34, 128, 73, 0.479);}
+mat-expansion-panel:nth-child(3) {border-left: solid 8px rgb(47, 47, 196);}
+mat-expansion-panel:nth-child(4) {border-left: solid 8px rgb(62, 134, 110);}
+mat-expansion-panel:nth-child(5) {border-left: solid 8px rgb(10, 10, 136);}
+mat-expansion-panel:nth-child(6) {border-left: solid 8px rgb(102, 102, 179);}
+mat-expansion-panel:nth-child(7) {border-left: solid 8px rgb(59, 59, 189);}
+mat-expansion-panel:nth-child(8) {border-left: solid 8px rgb(152, 51, 161);}
+mat-expansion-panel:nth-child(9) {border-left: solid 8px rgb(88, 30, 223);}
+mat-expansion-panel:nth-child(10) {border-left: solid 8px rgb(126, 87, 218);}
+mat-expansion-panel:nth-child(11) {border-left: solid 8px rgb(57, 27, 128);}
+mat-expansion-panel:nth-child(12) {border-left: solid 8px rgb(82, 125, 218);}
+mat-expansion-panel:nth-child(13) {border-left: solid 8px rgb(142, 66, 161);}
+mat-expansion-panel:nth-child(14) {border-left: solid 8px rgb(29, 3, 88);}
+mat-expansion-panel:nth-child(15) {border-left: solid 8px rgb(150, 176, 233);}
+mat-expansion-panel:nth-child(16) {border-left: solid 8px rgb(13, 173, 247);}
+mat-expansion-panel:nth-child(17) {border-left: solid 8px rgb(9, 128, 184);}
+mat-expansion-panel:nth-child(18) {border-left: solid 8px rgb(117, 210, 253);}
+mat-expansion-panel:nth-child(19) {border-left: solid 8px rgb(35, 116, 136);}
+mat-expansion-panel:nth-child(20) {border-left: solid 8px rgb(57, 184, 189);}
+
+/* Pour les composants Material utilisé dans la page d'édition */
+mat-form-field { width: 100%; }
+mat-radio-button:not(:first-of-type) { margin-left: 15px; }
+.mat-expansion-panel-body fieldset { margin-bottom: 17.5px; }
+/** Bouton d'action alignés à droite */
+.mat-expansion-panel-header-description { flex-direction: row-reverse; }

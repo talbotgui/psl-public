@@ -1,0 +1,42 @@
+meta {
+  name: 05-Création d'un nouvel év-nement pour une instance de démarche existante en mode offline
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://xxx.service-public.fr/services/v1/particuliers/offline/:uuid_espace/filactivites/demarches/:id_dem/statuts
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+  Accept: */*
+}
+
+auth:bearer {
+  token: {{tokenGT}}
+}
+
+body:json {
+  {
+      "date": "2022-11-30T13:30:00.000Z",
+      "message": "Vous avez sauvegarder un brouillon dans ArnaqueInternet (ter)",
+      "idDemarcheComplementaire": "{{idTeledossierPourNotification}}",
+      "statut": "enregistre_brouillon",
+      "origine": "INFORMATIONS ADMINISTRATIVES ET LÉGALES",
+      "url": "https://www.google.com/search?q=urlter",
+      "actions": [
+        { "libelle": "Reprise brouillon 1ter", "url": "https://www.google.com/search?q=repriseBrouillon1ter" },
+        { "libelle": "Reprise brouillon 2ter", "url": "https://www.google.com/search?q=repriseBrouillon2ter" }
+      ]
+  }
+}
+
+tests {
+  // // Vérifications de base
+  // pm.test("Réponse correcte", function () {
+  //     pm.expect(pm.response.code).to.be.equals(201);
+  // });
+}

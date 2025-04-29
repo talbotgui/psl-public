@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Déclaration de l'artefact parent -->
+	<parent>
+		<groupId>com.github.talbotgui.psl</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.0.2-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>documentation</artifactId>
+	<packaging>pom</packaging>
+	<name>documentation</name>
+	<description>Documentation du projet</description>
+
+	<!-- clefs de configuration -->
+	<properties>
+		<!-- Encoding des fichiers -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<build>
+		<plugins>
+			<!-- Nettoyage des répertoires générés par maven et npm -->
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>${version.clean-plugin}</version>
+			</plugin>
+
+			<!-- Génération d'un fichier avec les informations du commit dans le répertoire de destination de la compilation de NPM -->
+			<!-- Pour générer un fichier dist/git.json contenant les informations du dernier commit -->
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>${version.git-commit-id-plugin}</version>
+				<executions>
+					<execution>
+						<id>gitInfos-documentation</id>
+						<phase>initialize</phase>
+						<goals><goal>revision</goal></goals>
+						<configuration>
+							<generateGitPropertiesFilename>${project.basedir}/dist/git.json</generateGitPropertiesFilename>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- pour forcer la génération du fichier -->
+					<generateGitPropertiesFile>true</generateGitPropertiesFile>
+					<format>json</format>
+					<skipPoms>false</skipPoms>
+					<excludeProperties><excludeProperty>git.user.*</excludeProperty></excludeProperties>
+					<!-- chemin vers la racine de dépot GIT (à préciser dans chacun des modules car il change) -->
+					<dotGitDirectory>${project.basedir}/../.git</dotGitDirectory>
+				</configuration>
+			</plugin>
+
+			<!-- Build du site -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>${version.exec-plugin}</version>
+				<executions>
+					<execution>
+						<id>Build du site</id>
+						<phase>generate-sources</phase>
+						<goals><goal>exec</goal></goals>
+						<configuration>
+							<executable>${basedir}/hugo.exe</executable>
+							<arguments>
+								<argument>-t</argument>
+								<argument>hugo-theme-learn</argument>
+							</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>Test du site</id>
+						<phase>generate-sources</phase>
+						<goals><goal>exec</goal></goals>
+						<configuration>
+							<executable>${basedir}/htmltest.exe</executable>
+							<successCodes><successCode>0</successCode><successCode>1</successCode></successCodes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<!-- Génération d'un ZIP minimal contenant les applications WEB -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>${version.assembly-plugin}</version>
+				<executions>
+					<execution>
+						<id>zip-documentation</id>
+						<phase>package</phase>
+						<goals><goal>single</goal></goals>
+						<configuration>
+							<descriptors><descriptor>documentation-assembly.xml</descriptor></descriptors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

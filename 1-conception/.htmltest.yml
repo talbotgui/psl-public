@@ -1,0 +1,17 @@
+# Documentation disponible ici : https://github.com/wjdp/htmltest
+
+# Répertoire dans lequel HUGO génère le site HTML static
+DirectoryPath: dist
+
+# Pour ignorer des erreurs classiques dues à HUGO
+IgnoreAltMissing: true
+IgnoreInternalEmptyHash: true
+
+# Pour ne pas analyser les documentations générées
+IgnoreDirs:
+- "documentationgeneree"
+
+# Pour ne pas relever les liens vers les applications locales non démarrées
+IgnoreURLs:
+- "http://localhost"
+- "http://dev-psl.guillaumetalbot.com"

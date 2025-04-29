@@ -1,0 +1,11 @@
+---
+
+# Cette tâche permet d'obtenir l'état de apache2
+- name: "[Vérifier] Etat du service 'apache2'"
+  ansible.builtin.systemd:
+    name: "apache2"
+  register: statut_apache2
+
+# Cette tâche permet d'afficher cet état
+- debug:
+    var: statut_apache2.status.ActiveState

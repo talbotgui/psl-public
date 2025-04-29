@@ -1,0 +1,31 @@
+<nav aria-label="Navigation">
+  <ul class="fr-btns-group fr-btns-group--inline fr-btns-group--right">
+    @if (!estLaPremierePage && !estApresLaPageDeSoumission) {
+      <li>
+        <button type="button" class="fr-btn fr-btn--tertiary btn-prev" (click)="reculer()">
+          <span>{{'navigation.bouton.precedent' | i18n}}</span>
+        </button>
+      </li>
+    }
+    @if (!estApresLaPageDeSoumission && estBrouillonActif) {
+      <li>
+        <button type="button" class="fr-btn fr-btn--secondary btn-save" (click)="sauvegarderBrouillon()">
+          <span>{{'navigation.bouton.brouillon' | i18n}}</span>
+        </button>
+      </li>
+    }
+    <li>
+      <!-- TODO: Bouton sauvegarder en mode connecté sans AJAX (avec rechargement de la page) -->
+    </li>
+    <li>
+      <!-- TODO: Bouton sauvegarder en mode non connecté -->
+    </li>
+    @if (!estLaDernierePage && !estLaPageDeSoumission) {
+      <li>
+        <button type="submit" form="leFormulaire" [disabled]="formulaire && !formulaire.valid" class="fr-btn btn-next" (click)="avancer()">
+          <span>{{'navigation.bouton.suivant' | i18n}}</span>
+        </button>
+      </li>
+    }
+  </ul>
+</nav>

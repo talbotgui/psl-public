@@ -1,0 +1,58 @@
+
+# Quelque soit le vhost, désactivation de tout accès au fileSystem sauf ce qui suit
+<Directory />
+    AllowOverride None
+    Require all denied
+</Directory>
+
+# Site de la PSL
+# Pas de IF sur le module SSL qui doit impérativement être actif
+<VirtualHost _default_:443>
+
+    # DNS sur lequel doit répondre le serveur
+    ServerName {{ front_dnsfront }}
+
+    # Exposition du répertoire contenant les applications
+    DocumentRoot /var/www/html
+    <Directory "/var/www/html/">
+        # Pas de FallbackResource sinon aucune erreur 404 (la page par défaut est renvoyée avec le code 200)
+        #FallbackResource /404.html
+        # Interdiction des ServerSideInclude (https://httpd.apache.org/docs/2.4/fr/howto/ssi.html)
+        # Interdiction des scripts CGI (https://httpd.apache.org/docs/2.4/fr/mod/mod_cgi.html)
+        Options +FollowSymLinks -Includes -ExecCGI
+        # Pour bloquer l'usage des .gtaccess
+        AllowOverride None
+        # Pour autoriser pleinement l'accès à tous
+        Require all granted
+        # Page d'erreurs
+        ErrorDocument 403 /404.html
+        ErrorDocument 404 /404.html
+    </Directory>
+
+    # Pour bloquer l'accès à l'adminpsl, l'éditeur et la documentation
+    # (même si ces éléments ne devrait être installés sur cette machine que sur le poste de développemet)
+    <DirectoryMatch "/var/www/html/(mademarche/{{ applications_web_admin | join('|mademarche/') }}|documentation)">
+        Require all denied
+    </DirectoryMatch>
+
+    # Configuration des logs
+    ErrorLog ${APACHE_LOG_DIR}/fronterror.log
+    CustomLog ${APACHE_LOG_DIR}/frontaccess.log combined
+
+    # Activation SSL
+    SSLEngine on
+
+    # Pour limiter à TLS-1.2 (les autres sont moins sécurisés)
+    SSLProtocol -ALL +TLSv1.2
+
+    # Pour limiter les implémentations Ciphers faibles
+    SSLCipherSuite ALL:!aNULL:!ADH:!eNULL:!LOW:!EXP:RC4+RSA:+HIGH:+MEDIUM
+
+    # Certificats nécessaires au SSL
+    SSLCertificateFile /etc/ssl/certs/psl.crt
+    SSLCertificateKeyFile /etc/ssl/certs/psl.key
+
+    # Pour débugger
+    # LogLevel debug
+
+</VirtualHost>

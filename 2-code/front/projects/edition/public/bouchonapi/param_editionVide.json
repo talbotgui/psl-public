@@ -1,0 +1,18 @@
+{
+	"codeDemarche": "edition",
+	"versionConfiguration": "1.0.1",
+	"titre": "Démarche d'édition de démarche",
+	"pointsEntree": [],
+	"valeursInitiales": {},
+	"pages": [
+		{
+			"titre": "Configuration de la démarche",
+			"titreAriane": "Configuration",
+			"exclueDuFilDariane": false,
+			"specifiqueAlaDemarche": true
+		}
+	],
+	"fonctionnalites": {
+		"brouillon": false
+	}
+}

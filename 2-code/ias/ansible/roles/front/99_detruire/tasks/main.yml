@@ -1,0 +1,33 @@
+---
+
+# Cette tâche permet d'arrêter apache2
+- name: "[Destruction] Arrêt de 'apache2'"
+  ansible.builtin.systemd:
+    name: "apache2"
+    state: "stopped"
+
+# Cette tâche permet de désinstaller apache2
+# Ajout de l'autoremove pour forcer la suppression des logiciels
+- name: "[Destruction] Logiciel 'apache2'"
+  apt:
+    name: "apache2"
+    force_apt_get: "true"
+    state: "absent"
+    autoremove: true
+
+# Cette tâche permet de désinstaller ZIP
+# Ajout de l'autoremove pour forcer la suppression des logiciels
+- name: "[Destruction] Logiciel 'unzip'"
+  apt:
+    name: "unzip"
+    force_apt_get: "true"
+    state: "absent"
+    autoremove: true
+
+# Création de la page par défaut
+- name: "[Destruction] Suppression du contenu de '/var/www/html'"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    force: true
+    state: "absent"
+  with_items: [ "/var/www/html/mademarche", "/var/www/html/bin", "/var/www/html/index.html"]

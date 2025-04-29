@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Déclaration de l'artefact parent -->
+	<parent>
+		<groupId>com.github.talbotgui.psl.socle.servicescloud</groupId>
+		<artifactId>services-cloud</artifactId>
+		<version>0.0.2-SNAPSHOT</version>
+	</parent>
+
+	<!-- Définition Maven de cet artefact -->
+	<artifactId>service-gateway</artifactId>
+	<packaging>jar</packaging>
+
+	<!-- Modification de la clef pour les besoins des sous-projets -->
+	<properties><cheminRelatifVersLaRacineDuDepot>${project.basedir}/../../../..</cheminRelatifVersLaRacineDuDepot></properties>
+
+	<!-- dépendances -->
+	<dependencies>
+		<!-- Pour permettre le démarrage de la gateway -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-gateway</artifactId>
+		</dependency>
+		<!-- Pour que la gateway utilise le serviceRegistry -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<!-- Ajout de la partie UI de springdoc (uniquement car les contrats d'API sont exposés par les micro-services -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
+		</dependency>
+		<!-- Dépendance pour enrichir les logs avec des flags simplifiant l'analyse (anciennement Sleuth mais remplacé par micrometer avec SpringBoot-3)-->
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-tracing-bridge-brave</artifactId>
+		</dependency>
+		<!-- Pour des logs utilisant LogBack -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
+		</dependency>
+		<!-- Pour gérer les limites d'usage des APIs (cf.)-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+
+		<!-- Outils de tests (avec JUnit5 et non le 4 apporté par Spring) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<!-- Gestion du build -->
+	<build>
+		<plugins>
+			<!-- Packaging en JAR exécutable Spring -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			
+			<!-- Pour copier le fichier target/classes/git.properties du projet SOCLE contenant les informations du dernier commit (infos exposées ensuite dans /info d'Actuator) -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-the-git-infos</id>
+						<configuration>
+							<resources>
+								<resource><directory>${project.basedir}/../../target/classes</directory></resource>
+							</resources>    
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

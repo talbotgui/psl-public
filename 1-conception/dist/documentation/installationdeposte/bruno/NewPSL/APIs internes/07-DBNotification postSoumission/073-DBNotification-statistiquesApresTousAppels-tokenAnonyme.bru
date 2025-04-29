@@ -1,0 +1,16 @@
+meta {
+  name: 073-DBNotification-statistiquesApresTousAppels-tokenAnonyme
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{API_HOST}}:{{portSocleDbNotification}}/socle/notification/admin/statistiques
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.nombreTotal: eq {{nbNotifications}}+6
+}

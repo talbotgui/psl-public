@@ -1,0 +1,25 @@
+meta {
+  name: 036-Referentiel-communeActuelle-tokenAnonyme
+  type: http
+  seq: 6
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/referentiel/communeActuelle?recherche=hirtz
+  body: none
+  auth: bearer
+}
+
+query {
+  recherche: hirtz
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+assert {
+  res.status: eq 200
+  res.body[0].codeInsee: eq "68139"
+  res.body[0].typeProtection: eq GN
+}

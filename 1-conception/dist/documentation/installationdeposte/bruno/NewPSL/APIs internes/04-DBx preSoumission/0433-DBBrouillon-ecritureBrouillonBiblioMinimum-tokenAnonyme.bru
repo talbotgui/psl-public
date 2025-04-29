@@ -1,0 +1,40 @@
+meta {
+  name: 0433-DBBrouillon-ecritureBrouillonBiblioMinimum-tokenAnonyme
+  type: http
+  seq: 10
+}
+
+post {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/brouillon/brouillon
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+body:json {
+  {
+      "codeDemarche":"bibliotheque","versionConfiguration":"1.0.0","indexPage":6,
+      "donnees":{
+      "radio1":"oui",
+      "clefSaisie5":"saisieObligatoire",
+      "clefSaisie6":"email@obligatoire.com",
+      "clefCase1":"false",
+      "clefCase2":"false",
+      "clefRadio2":"peutetre",
+      "clefListe2":"16",
+      "identite1_civilite":"MME",
+      "identite1_nomFamille":"nomFamilleObligatoire"
+  }
+  }
+}
+
+vars:post-response {
+  idBrouillonCreePourBibliotheque: res.body
+}
+
+assert {
+  res.status: eq 200
+}

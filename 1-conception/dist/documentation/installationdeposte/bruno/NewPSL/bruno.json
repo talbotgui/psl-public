@@ -1,0 +1,25 @@
+{
+  "version": "1",
+  "name": "NewPSL",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ],
+  "clientCertificates": {
+    "enabled": true,
+    "certs": []
+  },
+  "proxy": {
+    "enabled": false,
+    "protocol": "http",
+    "hostname": "localhost",
+    "port": 81,
+    "auth": {
+      "enabled": false,
+      "username": "",
+      "password": ""
+    },
+    "bypassProxy": "dev-psl.guillaumetalbot.com"
+  }
+}

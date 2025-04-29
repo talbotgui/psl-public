@@ -1,0 +1,1639 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content directive">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Directives</li>
+  <li class="breadcrumb-item" >FmkContenuComplexeAbstraitComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Fichier</h3>
+        </p>
+        <p class="comment">
+            <code>projects/framework/src/lib/contenu/abstrait/fmk.contenucomplexeabstrait.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Cette classe fournit les comportements de base de tous les contenus avec du contenu riche.</p>
+<p>See cf. <a href="https://angular.io/guide/reactive-forms#grouping-form-controls">https://angular.io/guide/reactive-forms#grouping-form-controls</a></p>
+
+            </p>
+
+            <p class="comment">
+                <h3>Etend</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+            </p>
+
+            <p class="comment">
+                <h3>Implémente</h3>
+            </p>
+            <p class="comment">
+                        <code>OnInit</code>
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#languePrecedente" >languePrecedente</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#referenceDesControlesParClef" >referenceDesControlesParClef</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initialisationDejaAppelee" >initialisationDejaAppelee</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#numeroUnique" >numeroUnique</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#PROCHAINE_VALEUR_DU_NUMERO_UNIQUE" >PROCHAINE_VALEUR_DU_NUMERO_UNIQUE</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#souscriptions" >souscriptions</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Abstract</span>
+                                <a href="#auChangementDeLangue" >auChangementDeLangue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier"></span>
+                                <a href="#initialiserComposant" >initialiserComposant</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Abstract</span>
+                                <a href="#obtenirLesChampsEtContenusPossibleDuComposant" >obtenirLesChampsEtContenusPossibleDuComposant</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#recupererControleAssocieAuContenu" >recupererControleAssocieAuContenu</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#declarerSouscription" >declarerSouscription</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#declarerSouscriptions" >declarerSouscriptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#detruireLesSouscriptions" >detruireLesSouscriptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Entrées</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#groupeControles" >groupeControles</a>
+                            </li>
+                            <li>
+                                <a href="#contenu" >contenu</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accesseurs</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#contenuComplexe" >contenuComplexe</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructeur</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(contexte: <a href="../injectables/ContexteService.html" target="_self">ContexteService</a>, formulaireService: <a href="../injectables/FormulaireService.html" target="_self">FormulaireService</a>, logger: NGXLogger)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="54" class="link-to-prism">projects/framework/src/lib/contenu/abstrait/fmk.contenucomplexeabstrait.ts:54</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructeur avec injection des dépendances</p>
+</div>
+                            <div>
+                                    <b>Paramètres :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nom</td>
+                                                    <td>Type</td>
+                                                <td>Optionnel</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>contexte</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ContexteService.html" target="_self" >ContexteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>formulaireService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FormulaireService.html" target="_self" >FormulaireService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                    <code>NGXLogger</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-inputs">
+    <h3 id="inputs">Entrées</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="groupeControles"></a>
+                        <b>groupeControles</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>UntypedFormGroup | undefined</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Défini dans <a href="" data-line="45" class="link-to-prism">projects/framework/src/lib/contenu/abstrait/fmk.contenucomplexeabstrait.ts:45</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Controle associé au champ de saisie.
+Pour que le contrôle soit associé à un FormGroup, il doit être initialié au niveau de la page (cf. <a href="https://angular.io/guide/reactive-forms#grouping-form-controls">https://angular.io/guide/reactive-forms#grouping-form-controls</a>).</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="contenu"></a>
+                        <b>contenu</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ContenuDeBloc | undefined</code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:45</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Configuration du bloc</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="auChangementDeLangue"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Abstract</span>
+                        <span ><b>auChangementDeLangue</b></span>
+                        <a href="#auChangementDeLangue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>auChangementDeLangue(langueCourante: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="73"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/abstrait/fmk.contenucomplexeabstrait.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode de l&#39;instance permettant de changer les libellés au changement de langue</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>langueCourante</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialiserComposant"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier"></span>
+                        <span ><b>initialiserComposant</b></span>
+                        <a href="#initialiserComposant"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initialiserComposant(contenu: <a href="../classes/ContenuDeBloc.html" target="_self">ContenuDeBloc</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:76</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>A l&#39;initialisation</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>contenu</td>
+                                            <td>
+                                                            <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="60"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/abstrait/fmk.contenucomplexeabstrait.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>A la création du composant</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenirLesChampsEtContenusPossibleDuComposant"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Abstract</span>
+                        <span ><b>obtenirLesChampsEtContenusPossibleDuComposant</b></span>
+                        <a href="#obtenirLesChampsEtContenusPossibleDuComposant"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>obtenirLesChampsEtContenusPossibleDuComposant(contenu: <a href="../classes/ContenuDeBloc.html" target="_self">ContenuDeBloc</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="174"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/abstrait/fmk.contenucomplexeabstrait.ts:174</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode retournant la liste des champs possibles du composant
+avec la condition de visibilité à &#39;true&#39; ou avec une condition intelligente
+avec la condition de désactivation à &#39;false&#39;
+et les validations à [].</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>contenu</td>
+                                            <td>
+                                                            <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>ContenuDeBloc[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recupererControleAssocieAuContenu"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>recupererControleAssocieAuContenu</b></span>
+                        <a href="#recupererControleAssocieAuContenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>recupererControleAssocieAuContenu(contenu: <a href="../classes/ContenuDeBloc.html" target="_self">ContenuDeBloc</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="178"
+                                    class="link-to-prism">projects/framework/src/lib/contenu/abstrait/fmk.contenucomplexeabstrait.ts:178</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode permettant de récupérer un contrôle à partir du contenu</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>contenu</td>
+                                            <td>
+                                                            <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>UntypedFormControl | undefined</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnChanges(changes: SimpleChanges)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:60</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Pour fournir une méthode d&#39;initialisation de tous les composants dans laquelle
+l&#39;attribut this.contenu est défini (il ne l&#39;est pas encore dans ngOnInit)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>changes</td>
+                                            <td>
+                                                        <code>SimpleChanges</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="declarerSouscription"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>declarerSouscription</b></span>
+                        <a href="#declarerSouscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>declarerSouscription(sub: Subscription)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:35</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Déclaration d&#39;une souscription qui sera détruite à la destruction du composant</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>sub</td>
+                                            <td>
+                                                        <code>Subscription</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="declarerSouscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>declarerSouscriptions</b></span>
+                        <a href="#declarerSouscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>declarerSouscriptions(subs: Subscription[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:40</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Déclaration d&#39;une souscription qui sera détruite à la destruction du composant</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>subs</td>
+                                            <td>
+                                                        <code>Subscription[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="detruireLesSouscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>detruireLesSouscriptions</b></span>
+                        <a href="#detruireLesSouscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>detruireLesSouscriptions()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:45</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Destruction des souscriptions créées</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:50</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>A la destruction du composant, on détruit ses souscriptions</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="languePrecedente"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>languePrecedente</b></span>
+                        <a href="#languePrecedente"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="54" class="link-to-prism">projects/framework/src/lib/contenu/abstrait/fmk.contenucomplexeabstrait.ts:54</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Langue précédente (utilisée pour limiter les changements multiples)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="referenceDesControlesParClef"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>referenceDesControlesParClef</b></span>
+                        <a href="#referenceDesControlesParClef"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="48" class="link-to-prism">projects/framework/src/lib/contenu/abstrait/fmk.contenucomplexeabstrait.ts:48</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Pour ne pas appeler systématiquement la méthode formulaireService.recupererControleAssocieAuContenu, on en initialise les résultats et on les garde</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialisationDejaAppelee"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initialisationDejaAppelee</b></span>
+                        <a href="#initialisationDejaAppelee"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:48</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Pour ne pas appeler l&#39;initialisation plusieurs fois</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="numeroUnique"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>numeroUnique</b></span>
+                        <a href="#numeroUnique"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:41</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Numéro unique de ce champ de saisie</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PROCHAINE_VALEUR_DU_NUMERO_UNIQUE"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                        <span ><b>PROCHAINE_VALEUR_DU_NUMERO_UNIQUE</b></span>
+                        <a href="#PROCHAINE_VALEUR_DU_NUMERO_UNIQUE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>0</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../directives/FmkContenuAbstraitComponent.html" target="_self" >FmkContenuAbstraitComponent</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/FmkContenuAbstraitComponent.html#source" target="_self" >FmkContenuAbstraitComponent:38</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Compteur static permettant de créer manuellement des ID différents pour chaque champ</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="souscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>souscriptions</b></span>
+                        <a href="#souscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../directives/AbstractComponent.html" target="_self" >AbstractComponent</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../directives/AbstractComponent.html#source" target="_self" >AbstractComponent:32</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Liste des souscriptions réalisées par le composant concrêt et à détruire</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accesseurs
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="contenuComplexe"></a>
+                        <span class="name"><b>contenuComplexe</b><a href="#contenuComplexe"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>contenuComplexe()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Défini dans <a href="" data-line="51" class="link-to-prism">projects/framework/src/lib/contenu/abstrait/fmk.contenucomplexeabstrait.ts:51</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>GETTER pour ne pas caster</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Renvoie : </b>        <code><a href="../classes/ContenuSaisieComplexe.html" target="_self" >ContenuSaisieComplexe</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { UntypedFormControl, UntypedFormGroup } from &#x27;@angular/forms&#x27;;
+import { NGXLogger } from &#x27;ngx-logger&#x27;;
+import { ContenuDeBloc, ContenuSaisieComplexe } from &#x27;../../model/configurationdemarchecontenubloc.model&#x27;;
+import { ContexteService } from &#x27;../../services/stateful/contexte.service&#x27;;
+import { FormulaireService } from &#x27;../../services/stateless/formulaire.service&#x27;;
+import { UtilitaireModel } from &#x27;../../utilitaires/utilitaire.model&#x27;;
+import { FmkContenuAbstraitComponent } from &#x27;./fmk.contenuabstrait&#x27;;
+
+/**
+ * Cette classe fournit les comportements de base de tous les contenus avec du contenu riche.
+ * 
+ * @see cf. https://angular.io/guide/reactive-forms#grouping-form-controls
+ */
+// @Directive pour pouvoir utilisé les annotations Angular dans cette classe
+@Directive()
+export abstract class FmkContenuComplexeAbstraitComponent extends FmkContenuAbstraitComponent implements OnInit {
+
+    /**
+     * Controle associé au champ de saisie.
+     * Pour que le contrôle soit associé à un FormGroup, il doit être initialié au niveau de la page (cf. https://angular.io/guide/reactive-forms#grouping-form-controls).
+     */
+    @Input()
+    public groupeControles: UntypedFormGroup | undefined;
+
+    /** Pour ne pas appeler systématiquement la méthode formulaireService.recupererControleAssocieAuContenu, on en initialise les résultats et on les garde */
+    public referenceDesControlesParClef: { [index: string]: any } &#x3D; {};
+
+    /** GETTER pour ne pas caster */
+    public get contenuComplexe(): ContenuSaisieComplexe { return this.contenu as ContenuSaisieComplexe; }
+
+    /** Langue précédente (utilisée pour limiter les changements multiples) */
+    private languePrecedente: string | undefined;
+
+    /** Constructeur avec injection des dépendances */
+    public constructor(protected contexte: ContexteService, private formulaireService: FormulaireService, private logger: NGXLogger) { super(); }
+
+    /** A la création du composant */
+    public ngOnInit(): void {
+        // Appel aux composants pour modifier les libellés pour la langue sélectionnée.
+        const sub &#x3D; this.contexte.obtenirUnObservableDeChargementDeLaLangue().subscribe(langue &#x3D;&gt; {
+            if (langue &amp;&amp; langue !&#x3D;&#x3D; this.languePrecedente) {
+                this.logger.info(&#x27;Changement de langue pour le composant \&#x27;&#x27; + this.contenu?.clef + &#x27;\&#x27; (\&#x27;&#x27; + langue + &#x27;\&#x27;)&#x27;);
+                this.auChangementDeLangue(langue);
+                this.languePrecedente &#x3D; langue;
+            }
+        });
+        this.declarerSouscription(sub);
+    }
+
+    /** Méthode de l&#x27;instance permettant de changer les libellés au changement de langue */
+    protected abstract auChangementDeLangue(langueCourante: string): void;
+
+    /** A l&#x27;initialisation */
+    protected override initialiserComposant(contenu: ContenuDeBloc): void {
+
+        // Récupération de la liste champs possible du composant complexe
+        this.contenuComplexe.sousContenus &#x3D; this.obtenirLesChampsEtContenusPossibleDuComposant(contenu);
+
+        // Gestion de la visibilité de ces champs
+        // (/!\code dupliqué dans ContenuComplexeTestUtils)
+        const champsVisibles &#x3D; (contenu as ContenuSaisieComplexe).champsVisibles;
+        this.contenuComplexe.sousContenus.forEach(cc &#x3D;&gt; {
+            if (!!cc.clef &amp;&amp; champsVisibles.indexOf(cc.clef) &#x3D;&#x3D;&#x3D; -1) {
+                cc.conditionVisibilite &#x3D; &#x27;false&#x27;;
+            }
+        });
+
+        // Gestion des validations de ces champs (masque tout puis active)
+        //  (/!\code dupliqué dans ContenuComplexeTestUtils)
+        const validations &#x3D; (contenu as ContenuSaisieComplexe).validationsComplexes;
+        Object.keys(validations).forEach(champs &#x3D;&gt; {
+            const sousContenu &#x3D; this.contenuComplexe.sousContenus.find(c &#x3D;&gt; c.clef &#x3D;&#x3D;&#x3D; champs) as ContenuDeBloc;
+            if (!sousContenu) {
+                this.logger.error(&#x27;Erreur de configuration des validations : le champs \&#x27;&#x27; + champs + &#x27;\&#x27; n\&#x27;existe pas pour le composant complexe de type &#x27; + contenu.type + &#x27; avec la clef &#x27; + contenu.clef + &#x27;.&#x27;);
+            }
+            else if (validations[champs] &amp;&amp; validations[champs].length) {
+                this.logger.info(&#x27;Surcharge de la validation de \&#x27;&#x27; + champs + &#x27;\&#x27; avec &#x27; + validations[champs]);
+                (sousContenu as any)[&#x27;validationsSimples&#x27;] &#x3D; validations[champs];
+            }
+        });
+
+        // Ajout des libellés d&#x27;aide
+        const aides &#x3D; (contenu as ContenuSaisieComplexe).aides;
+        if (aides) {
+            Object.keys(aides).forEach(champs &#x3D;&gt; {
+                const sousContenu &#x3D; this.contenuComplexe.sousContenus.find(c &#x3D;&gt; c.clef &#x3D;&#x3D;&#x3D; champs) as ContenuDeBloc;
+                if (!sousContenu) {
+                    this.logger.error(&#x27;Erreur de configuration des aides : le champs \&#x27;&#x27; + champs + &#x27;\&#x27; n\&#x27;existe pas pour le composant complexe de type &#x27; + contenu.type + &#x27; avec la clef &#x27; + contenu.clef + &#x27;.&#x27;);
+                }
+                else if (aides[champs]) {
+                    sousContenu.aide &#x3D; aides[champs];
+                }
+            });
+        }
+
+        // Ajout des titres personnalisés
+        const titres &#x3D; (contenu as ContenuSaisieComplexe).titres;
+        if (titres) {
+            Object.keys(titres).forEach(champs &#x3D;&gt; {
+                const sousContenu &#x3D; this.contenuComplexe.sousContenus.find(c &#x3D;&gt; c.clef &#x3D;&#x3D;&#x3D; champs) as ContenuDeBloc;
+                if (!sousContenu) {
+                    this.logger.error(&#x27;Erreur de configuration des titres : le champs \&#x27;&#x27; + champs + &#x27;\&#x27; n\&#x27;existe pas pour le composant complexe de type &#x27; + contenu.type + &#x27; avec la clef &#x27; + contenu.clef + &#x27;.&#x27;);
+                }
+                else if (titres[champs]) {
+                    sousContenu.titre &#x3D; titres[champs];
+                }
+            });
+        }
+
+        this.contenuComplexe.sousContenus.forEach(c &#x3D;&gt; {
+            // Modification des clefs des contenus pour les prefixer avec celle du composant
+            c.clef &#x3D; ((this.contenu) ? this.contenu.clef : &#x27;&#x27;) + &#x27;_&#x27; + c.clef;
+            // Initialisation des données du contenu autour de la gestion des titres et des aides (pouvant contenir des variables)
+            UtilitaireModel.initialiserLeOuLesTitresEtAides(c);
+        });
+
+
+        if (this.groupeControles) {
+            // Pour chaque bloc, création des controles liés aux contenus
+            const subs &#x3D; this.formulaireService.creerLesControlesDunFormulaire(this.contenuComplexe.sousContenus, this.groupeControles as UntypedFormGroup);
+            this.declarerSouscriptions(subs);
+
+            // Calculer les conditions d&#x27;affichage
+            this.formulaireService.calculerLesConditionsDeTousLesContenus(this.contenuComplexe.sousContenus, this.groupeControles as UntypedFormGroup, this.contexte.langue);
+
+            // Recalcule les titres de touts les au changement de langue
+            const sub2 &#x3D; this.contexte.obtenirUnObservableDeChargementDeLaLangue().subscribe(langue &#x3D;&gt; {
+                if (this.groupeControles &amp;&amp; langue &amp;&amp; this.contenuComplexe.sousContenus) {
+                    this.formulaireService.calculerLesConditionsDeTousLesContenus(this.contenuComplexe.sousContenus, this.groupeControles as UntypedFormGroup, langue);
+                }
+            });
+            this.declarerSouscription(sub2);
+
+            // Log
+            this.logger.debug(&#x27;Initialisation terminée du composant complexe \&#x27;&#x27; + contenu.clef + &#x27;\&#x27;&#x27;, { contenusComposant: this.contenuComplexe.sousContenus, groupeControles: (this.groupeControles as UntypedFormGroup).controls });
+
+            // Calcul du cache pour la méthode recupererControleAssocieAuContenu
+            this.contenuComplexe.sousContenus.forEach(c &#x3D;&gt; {
+                if (c.clef) {
+                    this.referenceDesControlesParClef[c.clef] &#x3D; this.formulaireService.recupererControleAssocieAuContenu(c, this.groupeControles as UntypedFormGroup);
+                }
+            });
+        }
+    }
+
+    /**
+     * Méthode retournant la liste des champs possibles du composant
+     * avec la condition de visibilité à &#x27;true&#x27; ou avec une condition intelligente
+     * avec la condition de désactivation à &#x27;false&#x27;
+     * et les validations à []. 
+     */
+    public abstract obtenirLesChampsEtContenusPossibleDuComposant(contenu: ContenuDeBloc): ContenuDeBloc[];
+
+
+    /** Méthode permettant de récupérer un contrôle à partir du contenu */
+    public recupererControleAssocieAuContenu(contenu: ContenuDeBloc): UntypedFormControl | undefined {
+        if (contenu.clef) {
+            return this.referenceDesControlesParClef[contenu.clef];
+        } else {
+            return undefined;
+        }
+    }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'directive';
+            var COMPODOC_CURRENT_PAGE_URL = 'FmkContenuComplexeAbstraitComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

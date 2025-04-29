@@ -1,0 +1,2571 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ContexteService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Fichier</h3>
+        </p>
+        <p class="comment">
+            <code>projects/framework/src/lib/services/stateful/contexte.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#configurationDemarcheSubject" >configurationDemarcheSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#idBrouillon" >idBrouillon</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#indexPageSubject" >indexPageSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#informationsUtilisateurConnecteSubject" >informationsUtilisateurConnecteSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#langueSubject" >langueSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#messageGeneralSubject" >messageGeneralSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#soumissionRealisee" >soumissionRealisee</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#tokenJwt" >tokenJwt</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#utilisateurConnecteOidc" >utilisateurConnecteOidc</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#afficherUnMessageGeneral" >afficherUnMessageGeneral</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#avancer" >avancer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#avancerDepuisLaSoumissionDeDemarche" >avancerDepuisLaSoumissionDeDemarche</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#calculerIndexDeLaPagePrecedente" >calculerIndexDeLaPagePrecedente</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#calculerIndexDeLaPageSuivante" >calculerIndexDeLaPageSuivante</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#calculerSiIndexPageAffichable" >calculerSiIndexPageAffichable</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#calculerSiPageAffichable" >calculerSiPageAffichable</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#calculerSiPageEstDerniereAffichable" >calculerSiPageEstDerniereAffichable</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#calculerSiPageEstPremiereAffichable" >calculerSiPageEstPremiereAffichable</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#changerDePage" >changerDePage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#changerDePageAuChargementDuBrouillonUniquement" >changerDePageAuChargementDuBrouillonUniquement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#changerLangue" >changerLangue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#obtenirUnObservableDeChangementDePage" >obtenirUnObservableDeChangementDePage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#obtenirUnObservableDeChargementDeLaConfiguration" >obtenirUnObservableDeChargementDeLaConfiguration</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#obtenirUnObservableDeChargementDeLaLangue" >obtenirUnObservableDeChargementDeLaLangue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#obtenirUnObservableDesInformationsDeLutilisateurConnecte" >obtenirUnObservableDesInformationsDeLutilisateurConnecte</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#obtenirUnObservableSurLesMessagesGeneraux" >obtenirUnObservableSurLesMessagesGeneraux</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#rechercherIndexPage" >rechercherIndexPage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#reculer" >reculer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#sauvegarderDonnesUtilisateur" >sauvegarderDonnesUtilisateur</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#sauvegarderNouveauTokenJwt" >sauvegarderNouveauTokenJwt</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#stockerConfigurationDemarche" >stockerConfigurationDemarche</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accesseurs</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#tokenJwtCourant" >tokenJwtCourant</a>
+                                </li>
+                                <li>
+                                    <a href="#soumissionRealiseeBloquantLeRetourArriere" >soumissionRealiseeBloquantLeRetourArriere</a>
+                                </li>
+                                <li>
+                                    <a href="#configurationDemarche" >configurationDemarche</a>
+                                </li>
+                                <li>
+                                    <a href="#langue" >langue</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructeur</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(donneesService: <a href="../injectables/DonneesService.html" target="_self">DonneesService</a>, logger: NGXLogger)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="69" class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:69</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructeur avec injection des dépendances</p>
+</div>
+                            <div>
+                                    <b>Paramètres :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nom</td>
+                                                    <td>Type</td>
+                                                <td>Optionnel</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>donneesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DonneesService.html" target="_self" >DonneesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                    <code>NGXLogger</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="afficherUnMessageGeneral"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>afficherUnMessageGeneral</b></span>
+                        <a href="#afficherUnMessageGeneral"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>afficherUnMessageGeneral(message: <a href="../classes/MessageAafficher.html" target="_self">MessageAafficher | undefined</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="141"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:141</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Affiche un message général.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>message</td>
+                                            <td>
+                                                            <code><a href="../classes/MessageAafficher.html" target="_self" >MessageAafficher | undefined</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="avancer"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>avancer</b></span>
+                        <a href="#avancer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>avancer(page: <a href="../classes/Page.html" target="_self">Page</a>, formulaire: UntypedFormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="146"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:146</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Permet d&#39;avancer dans la navigation</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="../classes/Page.html" target="_self" >Page</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>formulaire</td>
+                                            <td>
+                                                        <code>UntypedFormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="avancerDepuisLaSoumissionDeDemarche"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>avancerDepuisLaSoumissionDeDemarche</b></span>
+                        <a href="#avancerDepuisLaSoumissionDeDemarche"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>avancerDepuisLaSoumissionDeDemarche()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="207"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:207</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cette méthode est à usage exclusif du composant de soumission.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculerIndexDeLaPagePrecedente"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>calculerIndexDeLaPagePrecedente</b></span>
+                        <a href="#calculerIndexDeLaPagePrecedente"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculerIndexDeLaPagePrecedente(page?: <a href="../classes/Page.html" target="_self">Page</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="260"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:260</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Calcul l&#39;index de la précédente page affichable</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="../classes/Page.html" target="_self" >Page</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Oui
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>number | undefined</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculerIndexDeLaPageSuivante"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>calculerIndexDeLaPageSuivante</b></span>
+                        <a href="#calculerIndexDeLaPageSuivante"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculerIndexDeLaPageSuivante(page?: <a href="../classes/Page.html" target="_self">Page</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="233"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:233</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Calcul l&#39;index de la page affichable suivante</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="../classes/Page.html" target="_self" >Page</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Oui
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>number | undefined</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculerSiIndexPageAffichable"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>calculerSiIndexPageAffichable</b></span>
+                        <a href="#calculerSiIndexPageAffichable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculerSiIndexPageAffichable(indexAtester: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="287"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:287</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Calcul des conditions d&#39;affichage d&#39;une page</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>indexAtester</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculerSiPageAffichable"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>calculerSiPageAffichable</b></span>
+                        <a href="#calculerSiPageAffichable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculerSiPageAffichable(page: <a href="../classes/Page.html" target="_self">Page</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="292"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:292</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Calcul des conditions d&#39;affichage d&#39;une page</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="../classes/Page.html" target="_self" >Page</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculerSiPageEstDerniereAffichable"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>calculerSiPageEstDerniereAffichable</b></span>
+                        <a href="#calculerSiPageEstDerniereAffichable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculerSiPageEstDerniereAffichable(page: <a href="../classes/Page.html" target="_self">Page</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="193"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:193</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode définissant si la page en paramètre est la dernière affichable</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="../classes/Page.html" target="_self" >Page</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculerSiPageEstPremiereAffichable"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>calculerSiPageEstPremiereAffichable</b></span>
+                        <a href="#calculerSiPageEstPremiereAffichable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculerSiPageEstPremiereAffichable(page: <a href="../classes/Page.html" target="_self">Page</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="188"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:188</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode définissant si la page en paramètre est la première affichable</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="../classes/Page.html" target="_self" >Page</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changerDePage"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>changerDePage</b></span>
+                        <a href="#changerDePage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changerDePage(nouvelIndexPage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="120"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:120</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Change la page en cours sans validation des données saisie.
+A n&#39;utiliser que pour revenir en arrière !</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>nouvelIndexPage</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changerDePageAuChargementDuBrouillonUniquement"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>changerDePageAuChargementDuBrouillonUniquement</b></span>
+                        <a href="#changerDePageAuChargementDuBrouillonUniquement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changerDePageAuChargementDuBrouillonUniquement(nouvelIndexPage: number | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="134"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:134</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Change la page en cours sans validation des données.
+A n&#39;utiliser qu&#39;au chargement du brouillon !!</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>nouvelIndexPage</td>
+                                            <td>
+                                                        <code>number | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changerLangue"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>changerLangue</b></span>
+                        <a href="#changerLangue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changerLangue(langue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="228"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:228</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Changement de la langue de l&#39;application et donc recalcul de tous les libellés</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>langue</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenirUnObservableDeChangementDePage"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>obtenirUnObservableDeChangementDePage</b></span>
+                        <a href="#obtenirUnObservableDeChangementDePage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>obtenirUnObservableDeChangementDePage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="102"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Récupérer la configuration quand elle sera là en cours</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;number&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenirUnObservableDeChargementDeLaConfiguration"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>obtenirUnObservableDeChargementDeLaConfiguration</b></span>
+                        <a href="#obtenirUnObservableDeChargementDeLaConfiguration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>obtenirUnObservableDeChargementDeLaConfiguration()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="87"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Etre notifié quand la configuration change</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="../classes/ConfigurationDemarche.html" target="_self" >Observable&lt;ConfigurationDemarche | undefined&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenirUnObservableDeChargementDeLaLangue"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>obtenirUnObservableDeChargementDeLaLangue</b></span>
+                        <a href="#obtenirUnObservableDeChargementDeLaLangue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>obtenirUnObservableDeChargementDeLaLangue()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="92"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Etre notifié quand la langue change (valeur vide pour &#39;FR&#39;)</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;string | undefined&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenirUnObservableDesInformationsDeLutilisateurConnecte"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>obtenirUnObservableDesInformationsDeLutilisateurConnecte</b></span>
+                        <a href="#obtenirUnObservableDesInformationsDeLutilisateurConnecte"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>obtenirUnObservableDesInformationsDeLutilisateurConnecte()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="97"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Etre notifié quand les informations de l&#39;utilisateur connecté changent</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;any | undefined&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenirUnObservableSurLesMessagesGeneraux"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>obtenirUnObservableSurLesMessagesGeneraux</b></span>
+                        <a href="#obtenirUnObservableSurLesMessagesGeneraux"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>obtenirUnObservableSurLesMessagesGeneraux()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="82"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Etre notifié quand un message général est créé</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="../classes/MessageAafficher.html" target="_self" >Observable&lt;MessageAafficher | undefined&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rechercherIndexPage"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>rechercherIndexPage</b></span>
+                        <a href="#rechercherIndexPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>rechercherIndexPage(page: <a href="../classes/Page.html" target="_self">Page</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="198"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:198</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Renvoi l&#39;index de la page passée en paramètre.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="../classes/Page.html" target="_self" >Page</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>number | undefined</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reculer"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>reculer</b></span>
+                        <a href="#reculer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>reculer(page: <a href="../classes/Page.html" target="_self">Page</a>, formulaire: UntypedFormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="165"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:165</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Permet de reculer dans la navigation</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="../classes/Page.html" target="_self" >Page</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>formulaire</td>
+                                            <td>
+                                                        <code>UntypedFormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sauvegarderDonnesUtilisateur"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>sauvegarderDonnesUtilisateur</b></span>
+                        <a href="#sauvegarderDonnesUtilisateur"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sauvegarderDonnesUtilisateur(utilisateur: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="112"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sauvegarde informations post connexion</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>utilisateur</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sauvegarderNouveauTokenJwt"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>sauvegarderNouveauTokenJwt</b></span>
+                        <a href="#sauvegarderNouveauTokenJwt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sauvegarderNouveauTokenJwt(tokenJwt: string | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="107"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sauvegarde du token</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tokenJwt</td>
+                                            <td>
+                                                        <code>string | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stockerConfigurationDemarche"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>stockerConfigurationDemarche</b></span>
+                        <a href="#stockerConfigurationDemarche"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>stockerConfigurationDemarche(config: <a href="../classes/ConfigurationDemarche.html" target="_self">ConfigurationDemarche</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="75"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Setter déguisé</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>config</td>
+                                            <td>
+                                                            <code><a href="../classes/ConfigurationDemarche.html" target="_self" >ConfigurationDemarche</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configurationDemarcheSubject"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>configurationDemarcheSubject</b></span>
+                        <a href="#configurationDemarcheSubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>new BehaviorSubject&lt;ConfigurationDemarche | undefined&gt;(undefined)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="57" class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:57</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Subject lié au chargement de la configuration.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="idBrouillon"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>idBrouillon</b></span>
+                        <a href="#idBrouillon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="47" class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Identifiant du brouillon chargé (pour le mettre à jour à la demande de l&#39;usager)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="indexPageSubject"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>indexPageSubject</b></span>
+                        <a href="#indexPageSubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>new BehaviorSubject&lt;number&gt;(0)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="66" class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:66</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Subject lié au changement de page.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="informationsUtilisateurConnecteSubject"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>informationsUtilisateurConnecteSubject</b></span>
+                        <a href="#informationsUtilisateurConnecteSubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>new BehaviorSubject&lt;any | undefined&gt;(undefined)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="44" class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:44</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Subject lié à la connexion de l&#39;utilisateur.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="langueSubject"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>langueSubject</b></span>
+                        <a href="#langueSubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>new BehaviorSubject&lt;string | undefined&gt;(undefined)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="63" class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:63</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Subject lié au chargement de la langue.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="messageGeneralSubject"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>messageGeneralSubject</b></span>
+                        <a href="#messageGeneralSubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>new BehaviorSubject&lt;MessageAafficher | undefined&gt;(undefined)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="69" class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:69</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Subject lié aux messages généraux à afficher en haut de page.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="soumissionRealisee"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>soumissionRealisee</b></span>
+                        <a href="#soumissionRealisee"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="50" class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:50</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Soumission réalisée</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tokenJwt"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>tokenJwt</b></span>
+                        <a href="#tokenJwt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>undefined</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="37" class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Token JWT de sécurité actuel et valide</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="utilisateurConnecteOidc"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>utilisateurConnecteOidc</b></span>
+                        <a href="#utilisateurConnecteOidc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="41" class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:41</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag permettant de savoir si l&#39;usager et connecté OIDC</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accesseurs
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="tokenJwtCourant"></a>
+                        <span class="name"><b>tokenJwtCourant</b><a href="#tokenJwtCourant"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>tokenJwtCourant()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Défini dans <a href="" data-line="38" class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:38</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="soumissionRealiseeBloquantLeRetourArriere"></a>
+                        <span class="name"><b>soumissionRealiseeBloquantLeRetourArriere</b><a href="#soumissionRealiseeBloquantLeRetourArriere"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>soumissionRealiseeBloquantLeRetourArriere()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Défini dans <a href="" data-line="51" class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:51</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="configurationDemarche"></a>
+                        <span class="name"><b>configurationDemarche</b><a href="#configurationDemarche"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>configurationDemarche()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Défini dans <a href="" data-line="54" class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:54</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Instance de configuration accessible à tous en cas de besoin</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Renvoie : </b>        <code><a href="../classes/ConfigurationDemarche.html" target="_self" >ConfigurationDemarche | undefined</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="langue"></a>
+                        <span class="name"><b>langue</b><a href="#langue"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>langue()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Défini dans <a href="" data-line="60" class="link-to-prism">projects/framework/src/lib/services/stateful/contexte.service.ts:60</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Instance de langue en coursconfiguration accessible à tous en cas de besoin</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { UntypedFormGroup } from &#x27;@angular/forms&#x27;;
+import { NGXLogger } from &#x27;ngx-logger&#x27;;
+import { BehaviorSubject, Observable } from &#x27;rxjs&#x27;;
+import { TypeContenuDeBloc } from &#x27;../../model/configurationdemarchecontenubloc.model&#x27;;
+import { ConfigurationDemarche, Page } from &#x27;../../model/configurationdemarchegeneral.model&#x27;;
+import { MessageAafficher } from &#x27;../../model/message.model&#x27;;
+import { UtilitaireModel } from &#x27;../../utilitaires/utilitaire.model&#x27;;
+import { DonneesService } from &#x27;./donnees.service&#x27;;
+
+
+@Injectable({ providedIn: &#x27;root&#x27; })
+export class ContexteService {
+
+    /** Token JWT de sécurité actuel et valide */
+    private tokenJwt: string | undefined &#x3D; undefined;
+    public get tokenJwtCourant(): string | undefined { return this.tokenJwt; }
+
+    /** Flag permettant de savoir si l&#x27;usager et connecté OIDC*/
+    public utilisateurConnecteOidc &#x3D; false;
+
+    /** Subject lié à la connexion de l&#x27;utilisateur. */
+    private informationsUtilisateurConnecteSubject &#x3D; new BehaviorSubject&lt;any | undefined&gt;(undefined);
+
+    /** Identifiant du brouillon chargé (pour le mettre à jour à la demande de l&#x27;usager) */
+    public idBrouillon: string | undefined;
+
+    /** Soumission réalisée */
+    private soumissionRealisee &#x3D; false;
+    public get soumissionRealiseeBloquantLeRetourArriere(): boolean { return this.soumissionRealisee; }
+
+    /** Instance de configuration accessible à tous en cas de besoin */
+    public get configurationDemarche(): ConfigurationDemarche | undefined { return this.configurationDemarcheSubject.value; }
+
+    /** Subject lié au chargement de la configuration. */
+    private configurationDemarcheSubject &#x3D; new BehaviorSubject&lt;ConfigurationDemarche | undefined&gt;(undefined);
+
+    /** Instance de langue en coursconfiguration accessible à tous en cas de besoin */
+    public get langue(): string { return this.langueSubject.value || &#x27;FR&#x27;; }
+
+    /** Subject lié au chargement de la langue. */
+    private langueSubject &#x3D; new BehaviorSubject&lt;string | undefined&gt;(undefined);
+
+    /** Subject lié au changement de page. */
+    private indexPageSubject &#x3D; new BehaviorSubject&lt;number&gt;(0);
+
+    /** Subject lié aux messages généraux à afficher en haut de page. */
+    private messageGeneralSubject &#x3D; new BehaviorSubject&lt;MessageAafficher | undefined&gt;(undefined);
+
+    /** Constructeur avec injection des dépendances */
+    public constructor(private donneesService: DonneesService, private logger: NGXLogger) { }
+
+    /** Setter déguisé */
+    public stockerConfigurationDemarche(config: ConfigurationDemarche): void {
+
+        // stockage de la donnée
+        this.configurationDemarcheSubject.next(config);
+    }
+
+    /** Etre notifié quand un message général est créé */
+    public obtenirUnObservableSurLesMessagesGeneraux(): Observable&lt;MessageAafficher | undefined&gt; {
+        return this.messageGeneralSubject.asObservable();
+    }
+
+    /** Etre notifié quand la configuration change */
+    public obtenirUnObservableDeChargementDeLaConfiguration(): Observable&lt;ConfigurationDemarche | undefined&gt; {
+        return this.configurationDemarcheSubject.asObservable();
+    }
+
+    /** Etre notifié quand la langue change (valeur vide pour &#x27;FR&#x27;) */
+    public obtenirUnObservableDeChargementDeLaLangue(): Observable&lt;string | undefined&gt; {
+        return this.langueSubject.asObservable();
+    }
+
+    /** Etre notifié quand les informations de l&#x27;utilisateur connecté changent */
+    public obtenirUnObservableDesInformationsDeLutilisateurConnecte(): Observable&lt;any | undefined&gt; {
+        return this.informationsUtilisateurConnecteSubject.asObservable();
+    }
+
+    /** Récupérer la configuration quand elle sera là en cours */
+    public obtenirUnObservableDeChangementDePage(): Observable&lt;number&gt; {
+        return this.indexPageSubject.asObservable();
+    }
+
+    /** Sauvegarde du token */
+    public sauvegarderNouveauTokenJwt(tokenJwt: string | undefined): void {
+        this.tokenJwt &#x3D; tokenJwt;
+    }
+
+    /** Sauvegarde informations post connexion */
+    public sauvegarderDonnesUtilisateur(utilisateur: any): void {
+        this.informationsUtilisateurConnecteSubject.next(utilisateur);
+    }
+
+    /**
+     * Change la page en cours sans validation des données saisie.
+     * A n&#x27;utiliser que pour revenir en arrière !
+     */
+    public changerDePage(nouvelIndexPage: number): void {
+        if (nouvelIndexPage &gt; this.indexPageSubject.value) {
+            this.logger.error(&#x27;Erreur dans le code, on ne doit pas aller directement à une page suppérieur !&#x27;);
+        } else if (nouvelIndexPage &lt; this.indexPageSubject.value) {
+            this.indexPageSubject.next(nouvelIndexPage);
+        } else {
+            // rien à faire car on est déjà sur la bonne page
+        }
+    }
+
+    /**
+     * Change la page en cours sans validation des données.
+     * A n&#x27;utiliser qu&#x27;au chargement du brouillon !!
+     */
+    public changerDePageAuChargementDuBrouillonUniquement(nouvelIndexPage: number | undefined): void {
+        if (nouvelIndexPage !&#x3D;&#x3D; undefined &amp;&amp; this.configurationDemarche &amp;&amp; this.configurationDemarche.pages &amp;&amp; nouvelIndexPage &lt; this.configurationDemarche.pages.length) {
+            this.indexPageSubject.next(nouvelIndexPage);
+        }
+    }
+
+    /** Affiche un message général. */
+    public afficherUnMessageGeneral(message: MessageAafficher | undefined): void {
+        this.messageGeneralSubject.next(message);
+    }
+
+    /** Permet d&#x27;avancer dans la navigation */
+    public avancer(page: Page, formulaire: UntypedFormGroup): void {
+        // Si le formulaire est invalide, on ne doit pas arriver jusque là.
+        // Si la configuration n&#x27;est pas chargée, non plus
+        // Mais au cas où
+        if (!formulaire.valid || !this.configurationDemarche) {
+            return;
+        }
+
+        // Sauvegarde des données dans le contexte tout de même
+        this.donneesService.sauvegarderDonneesDuFormulaire(this.configurationDemarche, page, formulaire);
+
+        // Changement de page
+        const index &#x3D; this.calculerIndexDeLaPageSuivante();
+        if (index !&#x3D;&#x3D; undefined) {
+            this.indexPageSubject.next(index);
+        }
+    }
+
+    /** Permet de reculer dans la navigation */
+    public reculer(page: Page, formulaire: UntypedFormGroup): void {
+        // pas de retour arrière après soumission
+        if (this.soumissionRealisee) {
+            return;
+        }
+        // Si la configuration n&#x27;est pas chargée, on part
+        if (!this.configurationDemarche) {
+            return;
+        }
+
+        // On peut reculer avec un formulaire invalide
+
+        // Sauvegarde des données dans le contexte tout de même
+        this.donneesService.sauvegarderDonneesDuFormulaire(this.configurationDemarche, page, formulaire);
+
+        // Changement de page
+        const index &#x3D; this.calculerIndexDeLaPagePrecedente();
+        if (index !&#x3D;&#x3D; undefined) {
+            this.indexPageSubject.next(index);
+        }
+    }
+
+    /** Méthode définissant si la page en paramètre est la première affichable */
+    public calculerSiPageEstPremiereAffichable(page: Page): boolean {
+        return this.calculerIndexDeLaPagePrecedente(page) &#x3D;&#x3D;&#x3D; undefined;
+    }
+
+    /** Méthode définissant si la page en paramètre est la dernière affichable */
+    public calculerSiPageEstDerniereAffichable(page: Page): boolean {
+        return this.calculerIndexDeLaPageSuivante(page) &#x3D;&#x3D;&#x3D; undefined;
+    }
+
+    /** Renvoi l&#x27;index de la page passée en paramètre. */
+    public rechercherIndexPage(page: Page): number | undefined {
+        if (!this.configurationDemarche) {
+            return undefined;
+        } else {
+            return this.configurationDemarche.pages.indexOf(page);
+        }
+    }
+
+    /** Cette méthode est à usage exclusif du composant de soumission. */
+    public avancerDepuisLaSoumissionDeDemarche(): void {
+        // Si la configuration n&#x27;est pas chargée, on part
+        if (!this.configurationDemarche) {
+            return;
+        }
+
+        const page &#x3D; this.configurationDemarche.pages[this.indexPageSubject.value];
+
+        // Contrôle au cas où
+        if (!UtilitaireModel.rechercherComposantDansLaPage(page, TypeContenuDeBloc.finDemarche)) {
+            this.logger.error(&#x27;Erreur de développement : cette méthode ne doit être appelée que depuis un composant de soumission&#x27;);
+        }
+
+        // On conserve l&#x27;information
+        this.soumissionRealisee &#x3D; true;
+
+        // On avance
+        this.avancer(page, new UntypedFormGroup({}));
+    }
+
+    /** Changement de la langue de l&#x27;application et donc recalcul de tous les libellés */
+    public changerLangue(langue: string): void {
+        this.langueSubject.next(langue);
+    }
+
+    /** Calcul l&#x27;index de la page affichable suivante */
+    private calculerIndexDeLaPageSuivante(page?: Page): number | undefined {
+
+        // Calcul à partir de la page courante ou de la page en paramètre
+        let indexAtester: number | undefined &#x3D; this.indexPageSubject.value;
+        if (page) {
+            indexAtester &#x3D; this.rechercherIndexPage(page);
+        }
+
+        // Si la page est la toute dernière
+        if (!!this.configurationDemarche &amp;&amp; indexAtester &#x3D;&#x3D;&#x3D; this.configurationDemarche.pages.length - 1) {
+            return undefined;
+        }
+
+        // Test de chaque page suivante
+        if (indexAtester !&#x3D;&#x3D; undefined &amp;&amp; this.configurationDemarche) {
+            for (let i &#x3D; indexAtester + 1; i &lt; this.configurationDemarche.pages.length; i++) {
+                if (this.calculerSiIndexPageAffichable(i)) {
+                    return i;
+                }
+            }
+        }
+
+        // Si aucune n&#x27;est bonne
+        return undefined;
+    }
+
+    /** Calcul l&#x27;index de la précédente page affichable */
+    private calculerIndexDeLaPagePrecedente(page?: Page): number | undefined {
+
+        // Calcul à partir de la page courante ou de la page en paramètre
+        let indexAtester: number | undefined &#x3D; this.indexPageSubject.value;
+        if (page) {
+            indexAtester &#x3D; this.rechercherIndexPage(page);
+        }
+
+        // Si la page est la toute première
+        if (indexAtester &#x3D;&#x3D;&#x3D; 0) {
+            return undefined;
+        }
+
+        // Test de chaque page précédente
+        if (indexAtester !&#x3D;&#x3D; undefined) {
+            for (let i &#x3D; indexAtester - 1; i &gt; -1; i--) {
+                if (this.calculerSiIndexPageAffichable(i)) {
+                    return i;
+                }
+            }
+        }
+
+        // Si aucune n&#x27;est bonne
+        return undefined;
+    }
+
+    /** Calcul des conditions d&#x27;affichage d&#x27;une page */
+    private calculerSiIndexPageAffichable(indexAtester: number): boolean {
+        return !!this.configurationDemarche &amp;&amp; this.calculerSiPageAffichable(this.configurationDemarche.pages[indexAtester]);
+    }
+
+    /** Calcul des conditions d&#x27;affichage d&#x27;une page */
+    private calculerSiPageAffichable(page: Page): boolean {
+        const toutesLesDonnees &#x3D; this.donneesService.lireToutEtIntegrerLesDonneesFournies({});
+        page.visibilite &#x3D; this.donneesService.calculerCondition(page.conditionVisibilite, toutesLesDonnees, true);
+        return page.visibilite;
+    }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ContexteService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

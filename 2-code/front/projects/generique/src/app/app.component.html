@@ -1,0 +1,11 @@
+<!-- Le composant d'entete du framework -->
+<div data-fmk-entete></div>
+
+<!-- Le composant contenant les pages (configurée+spécifiques à la démarche) -->
+@if (afficherApplication) {
+  <div data-fmk-conteneurpages [configurationDemarche]="configuration">
+  </div>
+}
+
+<!-- Le composant de pied de page du framework -->
+<div data-fmk-pieddepage></div>

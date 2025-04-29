@@ -1,0 +1,73 @@
+<!-- Ce code doit être cohérent avec le code de ValidationService.creerValidationsSynchrones -->
+@if (controle && controle.invalid && (controle.dirty || controle.touched)) {
+  <!-- La CSS 'erreur' est utilisée dans les tests E2E -->
+  @if (controle.errors && controle.errors['required']) {
+    <p class="fr-message fr-message--error">
+      @if (!estDeTypeDate()) {
+        <span class="erreur required" aria-hidden="false" role="alert">{{ 'validation.obligatoire' | i18n }}</span>
+      }
+      @if (estDeTypeDate()) {
+        <span class="erreur required" aria-hidden="false" role="alert">{{ 'validation.obligatoireDate' | i18n }}</span>
+      }
+    </p>
+  }
+  @if (controle.errors && controle.errors['email']) {
+    <p class="fr-message fr-message--error">
+      <span class="erreur email" aria-hidden="false" role="alert">{{ 'validation.email' | i18n }}</span>
+    </p>
+  }
+  @if (controle.errors && controle.errors['secu']) {
+    <p class="fr-message fr-message--error">
+      <span class="erreur secu" aria-hidden="false" role="alert">{{ 'validation.secu' | i18n }}</span>
+    </p>
+  }
+  @if (controle.errors && controle.errors['telephoneFR']) {
+    <p class="fr-message fr-message--error">
+      <span class="erreur telephoneFR" aria-hidden="false" role="alert">{{ 'validation.telephoneFR' | i18n }}</span>
+    </p>
+  }
+  @if (controle.errors && controle.errors['datePassee']) {
+    <p class="fr-message fr-message--error">
+      <span class="erreur datePassee" aria-hidden="false" role="alert">{{ 'validation.datePassee' | i18n }}</span>
+    </p>
+  }
+  @if (controle.errors && controle.errors['dateFuture']) {
+    <p class="fr-message fr-message--error">
+      <span class="erreur dateFuture" aria-hidden="false" role="alert">{{ 'validation.dateFuture' | i18n }}</span>
+    </p>
+  }
+  @if (controle.errors && controle.errors['autocompletionPrecise']) {
+    <p class="fr-message fr-message--error">
+      <span class="erreur autocompletionPrecise" aria-hidden="false" role="alert">{{ 'validation.autocompletionPrecise' | i18n }}</span>
+    </p>
+  }
+  @if (controle.errors && controle.errors['url']) {
+    <p class="fr-message fr-message--error">
+      <span class="erreur url" aria-hidden="false" role="alert">{{ 'validation.url' | i18n }}</span>
+    </p>
+  }
+  @if (controle.errors && controle.errors['regex']) {
+    <p class="fr-message fr-message--error">
+      <span class="erreur regex" aria-hidden="false" role="alert">{{ 'validation.regex' | i18n }}</span>
+    </p>
+  }
+  @if (controle.errors && controle.errors['dateAvantApres']) {
+    <p class="fr-message fr-message--error">
+      <span class="erreur dateAvantApres" aria-hidden="false" role="alert">{{ 'validation.dateAvantApres' | i18n }}</span>
+    </p>
+  }
+  @if (controle.errors && controle.errors['motDePasse']) {
+    <p class="fr-message fr-message--error">
+      <span class="erreur motDePasse" aria-hidden="false" role="alert">
+        {{ 'validation.motDePasse' | i18n }}
+        <ul>
+          <li>{{ 'validation.motDePasse.1' | i18n }}</li>
+          <li>{{ 'validation.motDePasse.2' | i18n }}</li>
+          <li>{{ 'validation.motDePasse.3' | i18n }}</li>
+          <li>{{ 'validation.motDePasse.4' | i18n }}<i>. !#$%&'"*+\/=?^_`{{'{'}}|&#125;~-&#64;</i></li>
+        </ul>
+      </span>
+    </p>
+  }
+  <!-- Ce code doit être cohérent avec le code de ValidationService.creerValidationsSynchrones -->
+}

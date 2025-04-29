@@ -1,0 +1,58 @@
+---
+
+# Création du groupe www
+- name: "[Preparation] Groupe '{{ unix_groupe }}'"
+  ansible.builtin.group:
+    name: "{{ unix_groupe }}"
+    state: "present"
+
+# Création de l'utilisateur www
+- name: "[Preparation] Utilisateur '{{ unix_utilisateur }}'"
+  ansible.builtin.user:
+    name: "{{ unix_utilisateur }}"
+    shell: /bin/bash
+    group: "{{ unix_groupe }}"
+    state: "present"
+
+# Création du répertoire des clefs SSH autorisées à la connexion
+# 700 est nécessaire car sans cette restriction, la connexion SSH n'est pas autorisée
+- name: "[Preparation] Répertoire '/home/{{ unix_utilisateur }}/.ssh'"
+  ansible.builtin.file:
+    path: "/home/{{ unix_utilisateur }}/.ssh"
+    state: "directory"
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+    mode: "{{ mode_rep_restreint }}"
+
+# Autorisation d'accès SSH avec le compte www (même clef que celle pour ubuntu)
+# 700 est nécessaire car sans cette restriction, la connexion SSH n'est pas autorisée
+# Force false pour ne pas redéposer une seconde fois la clef
+- name: "[Preparation] Dépôt de la clef SSH dans le compte '{{ unix_utilisateur }}'"
+  ansible.builtin.copy:
+    src: "{{ ansible_ssh_private_key_file }}.pub"
+    dest: "/home/{{ unix_utilisateur }}/.ssh/authorized_keys"
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+    mode: "{{ mode_fic_restreint_executable }}"
+    force: false
+  register: "resultatCopieClefSsh"
+
+# Modification de la clef pour permettre la connexion
+- name: "[Preparation] Modification de la clef '/home/{{ unix_utilisateur }}/.ssh/authorized_keys'"
+  ansible.builtin.command:
+    cmd: "sed -i 's/@.*/@localhost/g' /home/{{ unix_utilisateur }}/.ssh/authorized_keys"
+  when: "resultatCopieClefSsh.changed == true"
+
+# Ligne de debug pratique à copier/coller
+#- debug:
+#      msg: "{{ resultatCopieClefSsh }}"
+
+# Création du répertoire de base de tous les applicatifs '{{ psl_rep }}'
+# 755 pour permettre tout à www mais uniquement la lecture pour tous les autres (744 ne suffit pas)
+- name: "[Preparation] Répertoire '{{ psl_rep }}'"
+  ansible.builtin.file:
+    path: "{{ psl_rep }}"
+    state: "directory"
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+    mode: "{{ mode_rep_nominal }}"

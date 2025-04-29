@@ -1,0 +1,46 @@
+---
+
+# Création du répertoire des logs '{{ logs_rep }}'
+- name: "[Installation] Répertoire '{{ logs_rep }}'"
+  ansible.builtin.file:
+    path: "{{ logs_rep }}"
+    state: "directory"
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+    mode: "{{ mode_rep_nominal }}"
+
+# Création du répertoire des applicatifs '{{ applicatifs_rep }}'
+- name: "[Installation] Répertoire '{{ applicatifs_rep }}'"
+  ansible.builtin.file:
+    path: "{{ applicatifs_rep }}"
+    state: "directory"
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+    mode: "{{ mode_rep_nominal }}"
+
+# Création du répertoire du keystore '{{ keystore_rep }}'
+- name: "[Installation] Répertoire '{{ keystore_rep }}'"
+  ansible.builtin.file:
+    path: "{{ keystore_rep }}"
+    state: "directory"
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+    mode: "{{ mode_rep_nominal }}"
+
+# Dépôt du keystore au bon endroit '{{ keystore_fichier }}'
+- name: "[Installation] Keystore '{{ keystore_fichier }}'"
+  ansible.builtin.copy:
+    src: "{{ keystore_source }}"
+    dest: "{{ keystore_rep }}{{ keystore_fichier }}"
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+    mode: "{{ mode_fic_nominal }}"
+
+# Dépôt du fichier de variables '{{ applicatifs_rep }}variables.properties'
+- name: "[Installation] Dépôt du fichier de variables '{{ applicatifs_rep }}variables.properties'"
+  ansible.builtin.template:
+    src: "templates/variablesDeploiement.j2"
+    dest: "{{ applicatifs_rep }}variables.properties"
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+    mode: "{{ mode_fic_nominal }}"

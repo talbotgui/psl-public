@@ -1,0 +1,8 @@
+---
+
+# Description du rôle
+galaxy_info:
+  author: "Guillaume TALBOT"
+  description: "Ce rôle détruit une machine. Il doit être exécuter avec un compte passé en extra-vars"
+  min_ansible_version: "2.8"
+  license: "This program is offered under a commercial and under the AGPL license. See LICENSE.md in repository root directory"

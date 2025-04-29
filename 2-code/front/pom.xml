@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Déclaration de l'artefact parent -->
+	<parent>
+		<groupId>com.github.talbotgui.psl</groupId>
+		<artifactId>psl</artifactId>
+		<version>0.0.2-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>front</artifactId>
+	<packaging>pom</packaging>
+	<name>front</name>
+	<description>Workspace Angular contenant toute les applications WEB</description>
+
+	<!-- clefs de configuration -->
+	<properties>
+		<!-- Encoding des fichiers -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		
+		<!-- Version des dépendances -->
+		<version.frontend-maven-plugin>1.15.1</version.frontend-maven-plugin>	<!-- https://mvnrepository.com/artifact/com.github.eirslett/frontend-maven-plugin -->
+		<!-- /!\ vérifier aussi les versions de plugin dans les pom.xml parents /!\ -->
+		
+		<!-- Versions de node et npm -->
+		<version.node>v22.2.0</version.node>
+		<version.npm>10.7.0</version.npm>
+	</properties>
+
+	<build>
+		<plugins>
+			<!-- Nettoyage des répertoires générés par maven et npm -->
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>${version.clean-plugin}</version>
+				<configuration>
+					<filesets>
+						<fileset><directory>build</directory></fileset>
+						<fileset><directory>dist</directory></fileset>
+						<fileset><directory>coverage</directory></fileset>
+						<fileset><directory>node</directory></fileset>
+						<fileset><directory>node_modules</directory></fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+
+			<!-- Gestion de la partie NPM -->
+			<plugin>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>${version.frontend-maven-plugin}</version>
+				<executions>
+					<!-- Installation de Node et Npm (les xDownloadRoot permettent de rester sur le réseau local) -->
+					<execution>
+						<id>installNode</id>
+						<goals><goal>install-node-and-npm</goal></goals>
+						<phase>initialize</phase>
+						<configuration>
+							<!-- A faire évoluer selon la procédure du chapitre 3.34.3.4 -->
+							<nodeVersion>${version.node}</nodeVersion>
+							<npmVersion>${version.npm}</npmVersion>
+						</configuration>
+					</execution>
+					<!-- Téléchargement des dépendances -->
+					<execution>
+						<id>npmCi</id>
+						<goals><goal>npm</goal></goals>
+						<phase>generate-resources</phase>
+						<configuration><arguments>ci --legacy-peer-deps</arguments></configuration>
+					</execution>
+					<!-- Packaging des applications -->
+					<execution>
+						<id>npmRunBuild-all</id>
+						<goals><goal>npm</goal></goals>
+						<phase>compile</phase>
+						<configuration><arguments>run all-build-prod</arguments></configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Génération d'un fichier avec les informations du commit dans le répertoire de destination de la compilation de NPM -->
+			<!-- Pour générer un fichier dist/git.json contenant les informations du dernier commit -->
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>${version.git-commit-id-plugin}</version>
+				<executions>
+					<execution>
+						<id>gitInfos-adminpsl</id>
+						<phase>initialize</phase>
+						<goals><goal>revision</goal></goals>
+						<configuration>
+							<generateGitPropertiesFilename>${project.basedir}/dist/adminpsl/git.json</generateGitPropertiesFilename>
+						</configuration>
+					</execution>
+					<execution>
+						<id>gitInfos-edition</id>
+						<phase>initialize</phase>
+						<goals><goal>revision</goal></goals>
+						<configuration>
+							<generateGitPropertiesFilename>${project.basedir}/dist/mademarche/edition/git.json</generateGitPropertiesFilename>
+						</configuration>
+					</execution>
+					<execution>
+						<id>gitInfos-generique</id>
+						<phase>initialize</phase>
+						<goals><goal>revision</goal></goals>
+						<configuration>
+							<generateGitPropertiesFilename>${project.basedir}/dist/mademarche/generique/git.json</generateGitPropertiesFilename>
+						</configuration>
+					</execution>
+					<execution>
+						<id>gitInfos-specifique</id>
+						<phase>initialize</phase>
+						<goals><goal>revision</goal></goals>
+						<configuration>
+							<generateGitPropertiesFilename>${project.basedir}/dist/mademarche/specifique/git.json</generateGitPropertiesFilename>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- pour forcer la génération du fichier -->
+					<generateGitPropertiesFile>true</generateGitPropertiesFile>
+					<format>json</format>
+					<skipPoms>false</skipPoms>
+					<!-- pour limiter les données publiées sur Internet -->
+					<includeOnlyProperties>
+						<includeOnlyProperty>git.branch</includeOnlyProperty>
+						<includeOnlyProperty>git.build.time</includeOnlyProperty>
+						<includeOnlyProperty>git.build.version</includeOnlyProperty>
+						<includeOnlyProperty>git.closest.tag.*</includeOnlyProperty>
+						<includeOnlyProperty>git.commit.id</includeOnlyProperty>
+					</includeOnlyProperties>
+					<!-- chemin vers la racine de dépot GIT (à préciser dans chacun des modules car il change) -->
+					<dotGitDirectory>${project.basedir}/../../.git</dotGitDirectory>
+				</configuration>
+			</plugin>
+			
+			<!-- Génération d'un ZIP minimal contenant les applications WEB -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>${version.assembly-plugin}</version>
+				<executions>
+					<execution>
+						<id>zip-adminpsl</id>
+						<phase>package</phase>
+						<goals><goal>single</goal></goals>
+						<configuration><descriptors><descriptor>assembly/adminpsl-assembly.xml</descriptor></descriptors></configuration>
+					</execution>
+					<execution>
+						<id>zip-edition</id>
+						<phase>package</phase>
+						<goals><goal>single</goal></goals>
+						<configuration><descriptors><descriptor>assembly/edition-assembly.xml</descriptor></descriptors></configuration>
+					</execution>
+					<execution>
+						<id>zip-generique</id>
+						<phase>package</phase>
+						<goals><goal>single</goal></goals>
+						<configuration><descriptors><descriptor>assembly/generique-assembly.xml</descriptor></descriptors></configuration>
+					</execution>
+					<execution>
+						<id>zip-specifique</id>
+						<phase>package</phase>
+						<goals><goal>single</goal></goals>
+						<configuration><descriptors><descriptor>assembly/specifique-assembly.xml</descriptor></descriptors></configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<outputDirectory>${project.basedir}/dist</outputDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>qualimetrie</id>
+				<build>				
+					<plugins>
+						<plugin>
+							<groupId>com.github.eirslett</groupId>
+							<artifactId>frontend-maven-plugin</artifactId>
+							<version>${version.frontend-maven-plugin}</version>
+							<executions>
+								<execution>
+									<id>npmCompodoc-all</id>
+									<goals><goal>npm</goal></goals>
+									<phase>compile</phase>
+									<configuration><arguments>run all-compodoc</arguments></configuration>
+								</execution>
+								<execution>
+									<id>npmAnalyseBundle-all</id>
+									<goals><goal>npm</goal></goals>
+									<phase>compile</phase>
+									<configuration><arguments>run all-analyseBundle</arguments></configuration>
+								</execution>
+								<execution>
+									<id>npmCloc</id>
+									<goals><goal>npm</goal></goals>
+									<phase>compile</phase>
+									<configuration><arguments>run cloc</arguments></configuration>
+								</execution>
+							</executions>
+						</plugin>
+					</plugins>
+				</build>
+		</profile>
+	</profiles>
+</project>

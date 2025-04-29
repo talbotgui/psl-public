@@ -1,0 +1,32 @@
+@if (configurationEnCoursDedition) {
+  <mat-accordion multi>
+    <!-- Attributs-->
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Configuration de la démarche {{configurationEnCoursDedition.codeDemarche}}</mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+        <mat-label>
+          <span class="symbol-required">* </span>
+          <span>Code de la démarche</span>
+        </mat-label>
+        <input type="text" disabled="true" matInput [(ngModel)]="configurationEnCoursDedition.codeDemarche">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>
+          <span class="symbol-required">* </span>
+          <span>Titre de la démarche</span>
+        </mat-label>
+        <input type="text" disabled="true" matInput [(ngModel)]="configurationEnCoursDedition.titre">
+      </mat-form-field>
+      <mat-action-row>
+        <button type="button" class="btn btn-primary" mat-button (click)="ajouterElementEnfant()">Ajouter une page</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+    <!-- Pages -->
+    <app-editeurniveau2 [pages]="configurationEnCoursDedition.pages"></app-editeurniveau2>
+  </mat-accordion>
+}
+<button type="button" class="btn btn-primary" (click)="testerJson()">
+  <span class="btn-text">Tester la configuration</span>
+</button>

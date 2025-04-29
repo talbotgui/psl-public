@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Déclaration de l'artefact parent -->
+	<parent>
+		<groupId>com.github.talbotgui.psl.socle</groupId>
+		<artifactId>socle</artifactId>
+		<version>0.0.2-SNAPSHOT</version>
+	</parent>
+
+	<!-- Définition Maven de cet artefact -->
+	<groupId>com.github.talbotgui.psl.socle.servicescloud</groupId>
+	<artifactId>services-cloud</artifactId>
+	<packaging>pom</packaging>
+
+	<!-- Clef de configuration disponibles dans cet artefact et tous ces enfants -->
+	<properties>
+    	<!-- Toutes les sources sont en UTF-8 -->
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- Modification de la clef pour les besoins des sous-projets -->
+		<cheminRelatifVersLaRacineDuDepot>${project.basedir}/../../..</cheminRelatifVersLaRacineDuDepot>
+	</properties>
+
+	<!-- Liste des enfants de cet artefact -->
+	<modules>
+		<module>service-admin</module>
+		<module>service-registry</module>
+		<module>service-redis</module>
+		<module>service-gateway</module>
+		<module>service-ldap</module>
+		<module>service-config</module>
+		<!--
+			'service-nosql' doit rester en dernier car il est dépend de socle-commundb.
+			Maven modifie donc l'ordre du build pour prendre en compte cette dépendance.
+			Ainsi, tous les autres services sont buildés en premier.
+		-->
+		<module>service-nosql</module>
+	</modules>
+	
+</project>

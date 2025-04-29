@@ -1,0 +1,29 @@
+meta {
+  name: 082-Adminpsl-authentificationReussie
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://localhost{{API_HOST}}:{{API_ADMIN_PORT}}/socle/adminpsl/connexion
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  nomUtilisateur: admin1
+  motDePasse: admin
+}
+
+vars:post-response {
+  tokenAdminPsl: res.body
+}
+
+assert {
+  res.status: eq 200
+  res.body: isDefined 
+}
+
+script:pre-request {
+  // 
+}

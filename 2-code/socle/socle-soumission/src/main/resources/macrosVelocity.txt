@@ -1,0 +1,10 @@
+#*
+  Fichier contenant des macros utilisables dans tous les templates textuels (utilisant donc Velocity).
+  /!\ ne pas laisser de ligne ne commençant qui ne sont pas des commentaires ou des débuts de macro (sinon cela génère des lignes vides dans les fichiers générés)
+*#
+#* Petite macro pour formatter un nombre sur 2 chiffres. *#
+#macro( formatterNombre $i )#if( $i<10 )0#{end}$i#end
+#* Petite macro pour récupérer la valeur d'une clef. *#
+#macro( evaluerVariable $clef )#set( $d = '$' )#evaluate( "${d}${clef}" )#end
+#* Grosse macro pour afficher un contenu pour toutes les valeurs d'une occurence *#
+#macro( blocdynamique $clef $nbMaxOccurences)#foreach( $i in [0..$nbMaxOccurences] )#set( $occurence = "#formatterNombre( $i )" )#set( $clefOccurence = $clef.replace("@@", $occurence) )#set( $valeur = "#evaluerVariable( ${clefOccurence} )" )#set( $valeur2 = $valeur.replace('$','') )#if( $valeur2 != $clefOccurence )#evaluate( "$!bodyContent" )#end#end#end

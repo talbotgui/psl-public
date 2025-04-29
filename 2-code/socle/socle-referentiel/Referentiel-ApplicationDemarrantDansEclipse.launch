@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/socle-referentiel"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="4"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+        <listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>
+    </listAttribute>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_ATTR_USE_ARGFILE" value="false"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_SHOW_CODEDETAILS_IN_EXCEPTION_MESSAGES" value="true"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_CLASSPATH_ONLY_JAR" value="false"/>
+    <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.github.talbotgui.psl.socle.referentiel.application.ApplicationDemarrantDansEclipse"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="socle-referentiel"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--spring.config.location=classpath:/bootstrap.properties,classpath:/config/tls.properties,classpath:/config/serviceregistry.properties,classpath:/config/log.properties,classpath:/config/jwt.properties,classpath:/config/doc.properties,classpath:/config/adminClient.properties,classpath:/config/socle-referentiel.properties,classpath:/application-dansEclipse.properties,classpath:/application-communDansEclipse.properties --repertoirePidEtLog=./../.log/"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="socle-referentiel"/>
+    <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
+    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-XX:+EnableDynamicAgentLoading -DcheminKeystore=../../.certificatsLocaux/tls/keystore.p12 -DmotdepasseKeystore=changeit "/>
+</launchConfiguration>

@@ -1,0 +1,221 @@
+#!/bin/sh
+
+######################################
+# Script de démarrage sur machine Unix
+# Paramètres du template :
+#     scripts_demarrer_parametres_specifiques('') = {{ scripts_demarrer_parametres_specifiques | default('') }}
+#     scripts_demarrer_options_specifiques('') = {{ scripts_demarrer_options_specifiques | default('') }}
+#     scripts_demarrer_option_avec_keystore(true) = {{ scripts_demarrer_option_avec_keystore | default('') }}
+#     scripts_demarrer_option_sans_param_eureka(false) = {{ scripts_demarrer_option_sans_param_eureka | default('') }}
+#     scripts_demarrer_option_arret_par_acturator(true) = {{ scripts_demarrer_option_arret_par_acturator | default('') }}
+#     scripts_demarrer_option_arret_par_kill(true) = {{ scripts_demarrer_option_arret_par_kill | default('') }}
+######################################
+{% set var_keystore = scripts_demarrer_option_avec_keystore | default(true) %}
+{% set var_sanseureka = scripts_demarrer_option_sans_param_eureka | default(false) %}
+{% set var_actuator = scripts_demarrer_option_arret_par_acturator | default(true) %}
+{% set var_kill = scripts_demarrer_option_arret_par_kill | default(true) %}
+
+# Chargement du fichier des variables
+# TODO chiffrer le fichier de conf
+#eval "$(gpg -dq {{ applicatifs_rep }}variables.properties.gpg)"
+. {{ applicatifs_rep }}variables.properties
+
+###########
+# Variables
+###########
+
+OPTIONS="--enable-preview"
+{% if var_keystore == true %}
+OPTIONS_KEYSTORE="-DcheminKeystore=${cheminKeystore} -DmotdepasseKeystore=${motdepasseKeystore}"
+{% endif %}
+OPTIONS_JVM="-Xmx80m -Xms80m"
+EXECUTABLE="-jar {{ applicatifs_rep }}{{ applicatif_nom }}/{{ applicatif_nom }}.jar"
+OPTIONS_SPECIFIQUES="-DrepertoirePidEtLog=${repertoirePidEtLog} {{ scripts_demarrer_options_specifiques | default('') }}"
+PARAMETRES_SPECIFIQUES="{{ scripts_demarrer_parametres_specifiques | default('') }}"
+PARAMETRES="--repertoirePidEtLog=${repertoirePidEtLog}{{ (var_sanseureka == true) | ternary ('', ' --EUREKA_URI=https://${apiRegistreUtilisateur}:${apiRegistreMotdepasse}@${apiRegistreURL}/service/registry/eureka --MACHINE_HOSTNAME=`cat /etc/hostname`') }}"
+FICHIER_BOOT="${repertoirePidEtLog}log_{{ applicatif_nom }}.boot"
+NOM_PID_A_ARRETER=${repertoirePidEtLog}pid_{{ applicatif_nom }}-1.pid
+
+# Utilitaire de log avec gestion des couleurs déclarées ci-dessous
+NC='\033[0m'
+RED='\033[0;31m'
+BLUE='\033[0;34m'
+GREEN='\033[0;32m'
+GRAY='\033[0;37m'
+log() {
+    echo ${GRAY}`date "+%Y-%m-%dT%H:%M"`"${NC} $1"
+    return
+}
+
+# Fonction de démarrage
+demarrer() {
+    # Log
+    log "Démarrage de {{ applicatif_nom }}"
+
+    # Protection contre le démarrage multiple
+    if [ -f "${NOM_PID_A_ARRETER}" ] ; then
+        log "  ${BLUE}applicatif déjà démarré (`cat ${NOM_PID_A_ARRETER}` dans "${NOM_PID_A_ARRETER}")" 
+        exit 1
+    fi
+
+    # log {% if var_keystore == true %}(OPTIONS_KEYSTORE contenant un mot de passe, il n'est pas logger){% endif %}
+    log "  nohup java ${OPTIONS} {% if var_keystore == true %}/OPTIONS_KEYSTORE/ {% endif %}${OPTIONS_JVM} ${OPTIONS_SPECIFIQUES} ${EXECUTABLE} ${PARAMETRES} ${PARAMETRES_SPECIFIQUES} >>${FICHIER_BOOT} 2>&1 &"
+
+    # pour traiter les chemins relatifs (pas bien mais peut-être encore utilisé)
+    cd {{ applicatifs_rep }}{{ applicatif_nom }}
+
+    # Démarrage
+    nohup java ${OPTIONS} {% if var_keystore == true %}${OPTIONS_KEYSTORE} {% endif %}${OPTIONS_JVM} ${OPTIONS_SPECIFIQUES} ${EXECUTABLE} ${PARAMETRES} ${PARAMETRES_SPECIFIQUES} >>${FICHIER_BOOT} 2>&1 &
+}
+
+# Fonction d'attente que le démarrage se termine
+attendreDemarrage() {
+    FICHIER_PID="${repertoirePidEtLog}pid_{{ applicatif_nom }}-1.pid"
+    log "    attente de la fin du démarrage (max 30 secondes) et de la création de $FICHIER_PID"
+
+    # Attente de max 30 secondes
+    i=0
+    while [ ! -f $FICHIER_PID ] && [ $i -lt 100 ] ; do
+        sleep 0.3
+        i=$(($i+1))
+    done
+    # Log final
+    if [ -f $FICHIER_PID ] ; then
+        log "    ${GREEN}démarré"
+    else
+        log "    ${RED}erreur de démarrage ou toujours en cours de démarrage"
+    fi
+
+}
+
+# Fonction d'arrêt
+# pas d'exit mais un return pour faire fonctionner le restart
+arreter() {
+    # Log
+    log "Tentative d'arrêt de {{ applicatif_nom }}"
+
+    # Vérification de la présence du PID
+    if ! [ -f "${NOM_PID_A_ARRETER}" ] ; then
+        # pas d'erreur si on demande d'arrêter un processus éteint
+        log "  ${BLUE}aucun processus à arrêter"
+        return
+    fi
+
+    {% if var_actuator == true %}
+    # Arrêt via Actuator
+    httpPort=`curl -k -s -u ${apiRegistreUtilisateur}:${apiRegistreMotdepasse} https://${apiRegistreURL}/service/registry/eureka/apps/ | awk "/{{ applicatif_nom }}-1/,/port/" | grep port | sed 's/[^0-9\.]*//g'`
+    if [ "$httpPort" != "" ] ; then
+        log "  arrêt de "{{ applicatif_nom }}" via API sur le port "$httpPort""
+        resultat=`curl -k -s -X POST -u "${apiActuatorUtilisateur}:${apiActuatorMotdepasse}" ${apiActuatorURLsansPort}:${httpPort}/actuator/shutdown`
+        if [ "$resultat" = "{\"message\":\"Shutting down, bye...\"}" ] ; then
+            log "  ${GREEN}arrêt réussi"
+            rm ${NOM_PID_A_ARRETER}
+            return
+        else
+            log "  ${RED}arrêt échoué (résultat de l'appel à /shutdown : $resultat)"
+        fi
+    else
+        log "  ${RED}appel Actuator échoué pas de (ou mauvaise) réponse du registre"
+    fi
+    {% else %}
+    # Pas d'arrêt via Actuator car ce composant est exposé à Internet
+    {% endif %}
+
+    # Arrêt par kill du processus
+    if [ -f "${NOM_PID_A_ARRETER}" ] ; then
+    {% if var_kill == true %}
+        pid=`cat ${NOM_PID_A_ARRETER}`
+        log "  arrêt de ${NOM_PID_A_ARRETER} par un kill de $pid."
+        kill -15  $pid
+    {% endif %}
+        rm ${NOM_PID_A_ARRETER}
+        log "  ${GREEN}arrêt réussi"
+    fi
+}
+
+# Fonction de statut
+statut() {
+    log "Recherche du statut du processus {{ applicatif_nom }}"
+
+    # Version installée
+    fichierPom=`unzip -l {{ applicatifs_rep }}{{ applicatif_nom }}/{{ applicatif_nom }}.jar | grep {{ applicatif_nom }} | grep pom.properties | sed 's/.*META/META/'`
+    if [ "$fichierPom" = "" ]; then
+        fichierPom='META-INF/build-info.properties'
+    fi
+    version=`unzip -p {{ applicatifs_rep }}{{ applicatif_nom }}/{{ applicatif_nom }}.jar $fichierPom | grep version | sed 's/.*=//g'`
+    log "  Version installée = $version" 
+
+    # Recherche état du processus
+    if [ -f "${NOM_PID_A_ARRETER}" ] ; then
+
+        # Contenu du PID
+        log "  ${GREEN}PID=`cat ${NOM_PID_A_ARRETER}` (chemin "${NOM_PID_A_ARRETER}")"
+
+        # Pas d'appel à Actuator qui est fermé car le composant est exposé à Internet
+
+    else
+        log "  ${BLUE}Processus non démarré"
+    fi
+}
+
+# Fonction affichant les logs
+afficherLogs() {
+    tail -f /psl/logs/log_{{ applicatif_nom }}*
+}
+
+# Switch
+case "$1" in
+
+    ###########
+    # Démarrage
+    ###########
+    start)
+        demarrer
+    ;;
+    startAndWait)
+        demarrer
+        attendreDemarrage
+    ;;
+    #######
+    # Arrêt
+    #######
+    stop)
+        arreter
+    ;;
+
+    ########
+    # Statut
+    ########
+    status)
+        statut
+    ;;
+
+    #############
+    # Redémarrage
+    #############
+    restart)
+        arreter
+        demarrer
+    ;;
+
+    #####
+    # Log
+    #####
+    log)
+        afficherLogs
+    ;;
+
+    #######
+    # Autre
+    #######
+    reload|force-reload)
+        log "${BLUE}Action sans effet"
+    ;;
+    *)
+        log "${RED}Usage: {{ applicatif_nom }} {start|stop|status|restart|log}" >&2
+        exit 1
+    ;;
+esac
+
+# Sortie normale
+exit 0

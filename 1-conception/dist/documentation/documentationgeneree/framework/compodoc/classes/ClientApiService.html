@@ -1,0 +1,1374 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >ClientApiService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Fichier</h3>
+        </p>
+        <p class="comment">
+            <code>projects/framework/src/lib/services/stateless/clientapi-service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Classe abstraite permettant de construire des services appelant des APIs.</p>
+
+            </p>
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#creerOptionsSimples" >creerOptionsSimples</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#creerOptionsSimplesAvecAuthentification" >creerOptionsSimplesAvecAuthentification</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#creerOptionsTexteSimple" >creerOptionsTexteSimple</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#creerOptionsTexteSimpleAvecAuthentification" >creerOptionsTexteSimpleAvecAuthentification</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#delete" >delete</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#get" >get</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#post" >post</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#postAvecProgression" >postAvecProgression</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#tracerErreur" >tracerErreur</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructeur</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(http: HttpClient, logger: NGXLogger, contexte: <a href="../injectables/ContexteService.html" target="_self">ContexteService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="31" class="link-to-prism">projects/framework/src/lib/services/stateless/clientapi-service.ts:31</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructeur pour injection de dépendance.
+Attention à bien appeler ce constructeur depuis les classes qui héritent de celle-ci !</p>
+</div>
+                            <div>
+                                    <b>Paramètres :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nom</td>
+                                                    <td>Type</td>
+                                                <td>Optionnel</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpClient</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                    <code>NGXLogger</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>contexte</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ContexteService.html" target="_self" >ContexteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="creerOptionsSimples"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>creerOptionsSimples</b></span>
+                        <a href="#creerOptionsSimples"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>creerOptionsSimples()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="116"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/clientapi-service.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>De simples entêtes (cas par défaut).</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>literal type</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="creerOptionsSimplesAvecAuthentification"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>creerOptionsSimplesAvecAuthentification</b></span>
+                        <a href="#creerOptionsSimplesAvecAuthentification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>creerOptionsSimplesAvecAuthentification()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="126"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/clientapi-service.ts:126</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Entêtes simples (@see creerOptionsSimples) avec un Authorization en plus.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>literal type</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="creerOptionsTexteSimple"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>creerOptionsTexteSimple</b></span>
+                        <a href="#creerOptionsTexteSimple"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>creerOptionsTexteSimple()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="145"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/clientapi-service.ts:145</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>De simples entêtes (cas par défaut).</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>literal type</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="creerOptionsTexteSimpleAvecAuthentification"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>creerOptionsTexteSimpleAvecAuthentification</b></span>
+                        <a href="#creerOptionsTexteSimpleAvecAuthentification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>creerOptionsTexteSimpleAvecAuthentification()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="137"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/clientapi-service.ts:137</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Entêtes simples (@see creerOptionsSimples) avec un Authorization en plus.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>literal type</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="delete"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>delete</b></span>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>delete(idAppelant: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options: literal type, valeurParDefaut: T)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="63"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/clientapi-service.ts:63</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Paramètres de type :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode de base pour appeler une API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idAppelant</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID de l&#39;appelant (pour identifier l&#39;émetteur des messages et les masquer)</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>L&#39;URL de la ressource.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Les entêtes à utiliser.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>valeurParDefaut</td>
+                                            <td>
+                                                        <code>T</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>La valeur par défaut en cas d&#39;erreur.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;T&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="get"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>get</b></span>
+                        <a href="#get"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>get(idAppelant: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, options: literal type, valeurParDefaut: T)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="46"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/clientapi-service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Paramètres de type :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode de base pour appeler une API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idAppelant</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID de l&#39;appelant (pour identifier l&#39;émetteur des messages et les masquer)</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>L&#39;URL de la ressource.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Les entêtes à utiliser.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>valeurParDefaut</td>
+                                            <td>
+                                                        <code>T</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>La valeur par défaut en cas d&#39;erreur.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;T&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="post"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>post</b></span>
+                        <a href="#post"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>post(idAppelant: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, options: literal type, valeurParDefaut: T)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="81"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/clientapi-service.ts:81</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Paramètres de type :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode de base pour appeler une API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idAppelant</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID de l&#39;appelant (pour identifier l&#39;émetteur des messages et les masquer)</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>L&#39;URL de la ressource.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Le corps de la requête.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Les entêtes à utiliser.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>valeurParDefaut</td>
+                                            <td>
+                                                        <code>T</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>La valeur par défaut en cas d&#39;erreur.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;T&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="postAvecProgression"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>postAvecProgression</b></span>
+                        <a href="#postAvecProgression"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>postAvecProgression(idAppelant: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: FormData, options: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="98"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/clientapi-service.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode de base pour appeler une API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idAppelant</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID de l&#39;appelant (pour identifier l&#39;émetteur des messages et les masquer)</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>L&#39;URL de la ressource.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                        <code>FormData</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Le corps de la requête.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Les entêtes à utiliser.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>Observable&lt;HttpEvent&lt;any&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tracerErreur"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>tracerErreur</b></span>
+                        <a href="#tracerErreur"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>tracerErreur(idAppelant: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, methodeHttp: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, parametres: string[], erreur: HttpErrorResponse)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="157"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateless/clientapi-service.ts:157</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode de gestion des erreurs.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idAppelant</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID de l&#39;appelant (pour identifier l&#39;émetteur des messages et les masquer)</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>methodeHttp</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Nom de la méthode générant l&#39;erreur.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>parametres</td>
+                                            <td>
+                                                        <code>string[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Paramètres d&#39;appel à la méthode.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>erreur</td>
+                                            <td>
+                                                        <code>HttpErrorResponse</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objet erreur à traiter.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient, HttpErrorResponse, HttpEvent, HttpHeaders, HttpRequest } from &#x27;@angular/common/http&#x27;;
+import { NGXLogger } from &#x27;ngx-logger&#x27;;
+import { EMPTY, Observable, of } from &#x27;rxjs&#x27;;
+import { catchError } from &#x27;rxjs/operators&#x27;;
+import { LibelleI18n, i18n } from &#x27;../../conf/i18n&#x27;;
+import { MessageAafficher, TypeMessageAafficher } from &#x27;../../model/message.model&#x27;;
+import { ContexteService } from &#x27;../stateful/contexte.service&#x27;;
+
+/** Classe abstraite permettant de construire des services appelant des APIs. */
+export abstract class ClientApiService {
+
+    /**
+     * Constructeur pour injection de dépendance.
+     * Attention à bien appeler ce constructeur depuis les classes qui héritent de celle-ci !
+     * */
+    public constructor(private http: HttpClient, protected logger: NGXLogger, protected contexte: ContexteService) { }
+
+    /**
+     * Méthode de base pour appeler une API.
+     * @param idAppelant ID de l&#x27;appelant (pour identifier l&#x27;émetteur des messages et les masquer)
+     * @param url L&#x27;URL de la ressource.
+     * @param options Les entêtes à utiliser.
+     * @param valeurParDefaut La valeur par défaut en cas d&#x27;erreur.
+     */
+    protected get&lt;T&gt;(idAppelant: string, url: string, options: { headers: HttpHeaders; }, valeurParDefaut: T): Observable&lt;T&gt; {
+        return this.http.get&lt;T&gt;(url, options).pipe(
+            // gestion d&#x27;erreur
+            catchError(erreur &#x3D;&gt; {
+                this.tracerErreur(idAppelant, &#x27;get&#x27;, [url], erreur);
+                return of(valeurParDefaut);
+            }),
+        );
+    }
+
+    /**
+     * Méthode de base pour appeler une API.
+     * @param idAppelant ID de l&#x27;appelant (pour identifier l&#x27;émetteur des messages et les masquer)
+     * @param url L&#x27;URL de la ressource.
+     * @param options Les entêtes à utiliser.
+     * @param valeurParDefaut La valeur par défaut en cas d&#x27;erreur.
+     */
+    protected delete&lt;T&gt;(idAppelant: string, url: string, options: { headers: HttpHeaders; }, valeurParDefaut: T): Observable&lt;T&gt; {
+        return this.http.delete&lt;T&gt;(url, options).pipe(
+            // gestion d&#x27;erreur
+            catchError(erreur &#x3D;&gt; {
+                this.tracerErreur(idAppelant, &#x27;delete&#x27;, [url], erreur);
+                return of(valeurParDefaut);
+            }),
+        );
+    }
+
+    /**
+     * Méthode de base pour appeler une API.
+     * @param idAppelant ID de l&#x27;appelant (pour identifier l&#x27;émetteur des messages et les masquer)
+     * @param url L&#x27;URL de la ressource.
+     * @param body Le corps de la requête.
+     * @param options Les entêtes à utiliser.
+     * @param valeurParDefaut La valeur par défaut en cas d&#x27;erreur.
+     */
+    protected post&lt;T&gt;(idAppelant: string, url: string, body: any, options: { headers: HttpHeaders; }, valeurParDefaut: T): Observable&lt;T&gt; {
+        return this.http.post&lt;T&gt;(url, body, options).pipe(
+            // gestion d&#x27;erreur
+            catchError(erreur &#x3D;&gt; {
+                this.tracerErreur(idAppelant, &#x27;post&#x27;, [url, body], erreur);
+                return of(valeurParDefaut);
+            }),
+        );
+    }
+
+    /**
+     * Méthode de base pour appeler une API.
+     * @param idAppelant ID de l&#x27;appelant (pour identifier l&#x27;émetteur des messages et les masquer)
+     * @param url L&#x27;URL de la ressource.
+     * @param body Le corps de la requête.
+     * @param options Les entêtes à utiliser.
+     */
+    protected postAvecProgression(idAppelant: string, url: string, body: FormData, options: { headers: HttpHeaders; }): Observable&lt;HttpEvent&lt;any&gt;&gt; {
+        const optionsComplete &#x3D; options as { headers?: HttpHeaders | { [header: string]: string | string[]; }; observe: string; reportProgress: boolean; };
+        optionsComplete.observe &#x3D; &#x27;events&#x27;;
+        optionsComplete.reportProgress &#x3D; true;
+
+        // retrait du Content-Type pour laisser faire le navigateur
+        optionsComplete.headers &#x3D; (optionsComplete.headers as HttpHeaders).delete(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
+
+        return this.http.request(new HttpRequest(&#x27;POST&#x27;, url, body, options)).pipe(
+            // gestion d&#x27;erreur
+            catchError(erreur &#x3D;&gt; {
+                this.tracerErreur(idAppelant, &#x27;post&#x27;, [url, &#x27;formulaire&#x27;], erreur);
+                return EMPTY;
+            }),
+        );
+    }
+
+    /** De simples entêtes (cas par défaut). */
+    protected creerOptionsSimples(): { headers: HttpHeaders; } {
+        const langue &#x3D; this.contexte.langue.toLocaleLowerCase();
+        const entetes &#x3D; new HttpHeaders({ &#x27;Content-Type&#x27;: &#x27;application/json&#x27;, &#x27;Accept-language&#x27;: langue });
+        return { headers: entetes };
+    }
+
+    /**
+     * Entêtes simples (@see creerOptionsSimples) avec un Authorization en plus.
+     * @param tokenJwt Un token JWT.
+    */
+    protected creerOptionsSimplesAvecAuthentification(): { headers: HttpHeaders; } {
+        const langue &#x3D; this.contexte.langue.toLocaleLowerCase();
+        const tokenJwt &#x3D; this.contexte.tokenJwtCourant;
+        const entetes &#x3D; new HttpHeaders({ &#x27;Content-Type&#x27;: &#x27;application/json&#x27;, &#x27;Accept-language&#x27;: langue, &#x27;Authorization&#x27;: &#x27;Bearer &#x27; + tokenJwt });
+        return { headers: entetes };
+    }
+
+    /**
+     * Entêtes simples (@see creerOptionsSimples) avec un Authorization en plus.
+     * @param tokenJwt Un token JWT.
+    */
+    protected creerOptionsTexteSimpleAvecAuthentification(): { headers: HttpHeaders; responseType: string; } {
+        const langue &#x3D; this.contexte.langue.toLocaleLowerCase();
+        const tokenJwt &#x3D; this.contexte.tokenJwtCourant;
+        const entetes &#x3D; new HttpHeaders({ &#x27;Authorization&#x27;: &#x27;Bearer &#x27; + tokenJwt, &#x27;Accept-language&#x27;: langue });
+        return { responseType: &#x27;text&#x27;, headers: entetes };
+    }
+
+    /** De simples entêtes (cas par défaut). */
+    protected creerOptionsTexteSimple(): { headers: HttpHeaders; responseType: string, } {
+        const langue &#x3D; this.contexte.langue.toLocaleLowerCase();
+        return { responseType: &#x27;text&#x27;, headers: new HttpHeaders({ &#x27;Accept-language&#x27;: langue }) };
+    }
+
+    /**
+     * Méthode de gestion des erreurs.
+     * @param idAppelant ID de l&#x27;appelant (pour identifier l&#x27;émetteur des messages et les masquer)
+     * @param methodeHttp Nom de la méthode générant l&#x27;erreur.
+     * @param parametres Paramètres d&#x27;appel à la méthode.
+     * @param erreur Objet erreur à traiter.
+     */
+    private tracerErreur(idAppelant: string, methodeHttp: string, parametres: string[], erreur: HttpErrorResponse): void {
+        // Si un message explicite venant de l&#x27;API du socle est présent
+        let messagePrecisDeLapi &#x3D; &#x27;&#x27;;
+        if (erreur.error &amp;&amp; erreur.error.error) {
+            messagePrecisDeLapi &#x3D; erreur.error.error;
+        }
+
+        // Récupération de la langue courante
+        const langue &#x3D; this.contexte.langue;
+
+        // Création du début du message dépendant de la fonctionnalité appelée
+        let messagePublic &#x3D; &#x27;&#x27;;
+        if ((i18n.messageErreurApi as any)[idAppelant]) {
+            messagePublic &#x3D; ((i18n.messageErreurApi as any)[idAppelant] as LibelleI18n).get(langue);
+            messagePublic +&#x3D; &#x27; &#x27;;
+        }
+
+        // Ajout d&#x27;un message précisant l&#x27;erreur en fonction du code HTTP ou du contenu de la réponse
+        if (erreur.status &#x3D;&#x3D;&#x3D; 0 &amp;&amp; !erreur.ok) {
+            messagePublic +&#x3D; i18n.erreursHttp[0].get(langue);
+        } else if (erreur.status &#x3D;&#x3D;&#x3D; 400) {
+            messagePublic +&#x3D; i18n.erreursHttp[400].get(langue).replace(&#x27;*messagePrecisDeLapi*&#x27;, &#x27; &#x27; + messagePrecisDeLapi);
+        } else if (erreur.status &#x3D;&#x3D;&#x3D; 401) {
+            messagePublic +&#x3D; i18n.erreursHttp[401].get(langue);
+        } else if (erreur.status &#x3D;&#x3D;&#x3D; 403) {
+            messagePublic +&#x3D; i18n.erreursHttp[403].get(langue);
+        } else if (erreur.status &#x3D;&#x3D;&#x3D; 404) {
+            messagePublic +&#x3D; i18n.erreursHttp[404].get(langue);
+        } else if (messagePrecisDeLapi) {
+            messagePublic +&#x3D; messagePrecisDeLapi;
+        } else {
+            messagePublic +&#x3D; i18n.erreursHttpParDefaut.get(langue);
+        }
+
+        // log à défaut de mieux pour le moment
+        this.logger.error(&#x27;Erreur dans l\&#x27;appel &#x27; + methodeHttp + &#x27;(&#x27; + parametres + &#x27;) : &#x27; + messagePublic, erreur);
+
+        // Affichage d&#x27;un message à l&#x27;usager
+        this.contexte.afficherUnMessageGeneral(new MessageAafficher(idAppelant, TypeMessageAafficher.Erreur, messagePublic));
+    }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'ClientApiService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

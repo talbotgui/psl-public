@@ -1,0 +1,19 @@
+meta {
+  name: 01-ElasticSearch-Etat
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:9200/_cluster/health/
+  body: none
+  auth: none
+}
+
+tests {
+  // // Vérifications de base
+  // pm.test("Réponse correcte", function () {
+  //     pm.expect(pm.response.code).to.be.equals(200);
+  //     pm.expect(pm.response.text()).to.contains("green");
+  // });
+}

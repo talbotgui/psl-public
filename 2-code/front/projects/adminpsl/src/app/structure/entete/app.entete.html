@@ -1,0 +1,34 @@
+<!-- Le role="banner" est implicite (cf. https://html-validate.org/rules/no-redundant-role.html) -->
+<header class="fr-header">
+  <div class="fr-header__body">
+    <div class="fr-container">
+      <div class="fr-header__body-row">
+        <div class="fr-header__brand fr-enlarge-link">
+          <div class="fr-header__brand-top">
+            <div class="fr-header__logo">
+              <p class="fr-logo">République<br>Française</p>
+            </div>
+          </div>
+          <div class="fr-header__service">
+            <a href="/" title="Plateforme de services en ligne - administration">
+              <p class="fr-header__service-title">Plateforme de services en ligne</p>
+            </a>
+            <p class="fr-header__service-tagline">Administration de la nouvelle PSL</p>
+          </div>
+        </div>
+        <div class="fr-header__tools">
+          <div class="fr-header__tools-links">
+            <ul class="fr-btns-group">
+              @if (!!utilisateur) {
+                <li>
+                  <a class="fr-btn fr-icon-account-line" href="#">{{utilisateur.nom}}</a>
+                </li>
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fr-header__menu-links"></div>
+  </div>
+</header>

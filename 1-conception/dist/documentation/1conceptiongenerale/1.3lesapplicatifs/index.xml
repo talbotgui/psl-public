@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1.3 Les applicatifs on Documentation nouvelle PSL</title>
+    <link>http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/</link>
+    <description>Recent content in 1.3 Les applicatifs on Documentation nouvelle PSL</description>
+    <generator>Hugo</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Wed, 02 Apr 2025 22:36:22 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1.3.1 Les applications WEB de démarche</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.1demarche/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.1demarche/</guid>
+      <description>1.3.1.1 - Introduction 1.3.1.2 - Paramétrabilité des applications de démarche 1.3.1.3 - Le moteur paramétrable 1.3.1.4 - Un schéma 1.3.1.1 - Introduction Chaque application WEB de démarche est unique :&#xA;un public d&amp;rsquo;usagers (trés général ou très précis) un ou plusieurs partenaires et services instructeurs une liste précise de données à obtenir de l&amp;rsquo;usager (dont souvent des pièces jointes justificatives) une liste de documents à générer Chaque démarche est donc une application spécifique</description>
+    </item>
+    <item>
+      <title>1.3.2 Le socle</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.2socle/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.2socle/</guid>
+      <description>1.3.2.1 - Introduction 1.3.2.2 - Les paramètres du socle 1.3.2.3 - Les paramètres publics des applications de démarche 1.3.2.4 - Référentiels 1.3.2.5 - Gestion des documents 1.3.2.5.1 - Stockage des documents 1.3.2.5.2 - Antivirus 1.3.2.6 - Brouillon 1.3.2.7 - Transfert 1.3.2.8 - Notification 1.3.2.7 - Admin 1.3.2.7.1 - LDAP 1.3.2.1 - Introduction Les démarches ne sont que des applications WEB s&amp;rsquo;exécutant dans le navigateur des usagers. Tout le reste constitue le socle applicatif :</description>
+    </item>
+    <item>
+      <title>1.3.3 Les outils</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.3outils/</link>
+      <pubDate>Fri, 04 Aug 2023 08:12:36 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.3outils/</guid>
+      <description>En plus de la partie applicative (FRONT et BACK) et de la présente documentation, un ensemble d&amp;rsquo;outils existent pour faciliter la construction de ce SI :&#xA;l&amp;rsquo;outil de rétro-ingénierie permettant d&amp;rsquo;initialiser une configuration publique de démarche à partir d&amp;rsquo;une démarche existante de l&amp;rsquo;ancienne PSL l&amp;rsquo;éditeur de configuration publique est accessible comme tout autre application WEB de démarche est uniquement installée sur un environnement hors production permet de passer d&amp;rsquo;étape en étape dans la navigateur ajoute, dans la toute première étape de la saisie, de modifier la configuration de tester cette configuration immédiatement et de recommencer infiniment les outils techniques sont des exécutables Java à utiliser depuis Eclipse et présents des projets du Socle : La classe OutilRecuperationTemplateDeDocumentEtape1 permet, à partir d&amp;rsquo;un code de démarche, de lister les templates de document présents dans les sources de l&amp;rsquo;ancienne PSL, d&amp;rsquo;en extraire les clefs et d&amp;rsquo;initier un fichier de mapping avec toutes les clefs que la démarche publique devra couvrir.</description>
+    </item>
+    <item>
+      <title>1.3.4 Rétro-ingénierie</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.4retroingenierie/</link>
+      <pubDate>Sun, 24 Apr 2022 21:17:37 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.4retroingenierie/</guid>
+      <description>Pour initialiser une configuration publique de démarche, est disponible un outil&#xA;basé sur la librairie de test d&amp;rsquo;application WEB Cypress (semblable à Protractor ou Selenium) capable de naviguer dans une application existante (déployée en local) à partir d&amp;rsquo;une URL de brouillon extrayant la substance de l&amp;rsquo;application pour créer une première version de la configuration (pages, libellés, champs, validations, composants&amp;hellip;) générant un brouillon dans la nouvelle PSL avec les mêmes données Pour initialiser les templates de la démarche, sont disponibles, dans le projet socle-dbconfiguration, deux outils :</description>
+    </item>
+  </channel>
+</rss>

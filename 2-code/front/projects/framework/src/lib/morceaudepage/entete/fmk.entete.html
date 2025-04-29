@@ -1,0 +1,84 @@
+<!-- Le role="banner" est implicite (cf. https://html-validate.org/rules/no-redundant-role.html) -->
+<header class="fr-header">
+  <div class="fr-header__body">
+    <div class="fr-container">
+      <div class="fr-header__body-row">
+        <div class="fr-header__brand fr-enlarge-link">
+          <div class="fr-header__brand-top">
+            <div class="fr-header__logo">
+              <p class="fr-logo">
+                {{'entete.republique.1' | i18n}}
+                <br>{{'entete.republique.2' | i18n}}
+                </p>
+              </div>
+              <div class="fr-header__navbar">
+                <button type="button" class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="modal-menu" aria-haspopup="menu"
+                id="bouton-menu" title="Menu">{{'entete.bouton.menu' | i18n}}</button>
+              </div>
+            </div>
+            <div class="fr-header__service">
+              <a rel="noopener" href="https://www.service-public.fr" title="Accueil - Service-Public.fr">
+                <p class="fr-header__service-title">{{'entete.service.titre' | i18n}}</p>
+              </a>
+              <p class="fr-header__service-tagline">{{'entete.service.tag' | i18n}}</p>
+            </div>
+          </div>
+          <div class="fr-header__tools">
+            <div class="fr-header__tools-links">
+              <ul class="fr-links-group">
+                @if (!donneesDeConnexion) {
+                  <li>
+                    <a class="fr-link fr-fi-lock-line" target="_blank" rel="noopener" [href]="lienConnexionServicePublic">{{'entete.bouton.connexion' |
+                    i18n}}</a>
+                  </li>
+                }
+                @if (donneesDeConnexion) {
+                  <li>
+                    <a class="fr-link fr-fi-account-line" title="Accès à l'espace personnel" target="_blank" rel="noopener"
+                    [href]="lienServicePublic">{{donneesDeConnexion.utilisateur_email}}</a>
+                  </li>
+                }
+                @if (donneesDeConnexion) {
+                  <li>
+                    <a class="fr-link fr-fi-logout-box-r-line lienActif" href="#" (click)="seDeconnecter()">{{'entete.bouton.deconnexion' | i18n}}</a>
+                  </li>
+                }
+                @if (languesDisponibles && languesDisponibles.length>1) {
+                  <li>
+                    <nav aria-label="Entête" class="fr-translate fr-nav">
+                      <div class="fr-nav__item">
+                        <button type="button" class="fr-translate__btn fr-btn fr-btn--tertiary" aria-controls="selecteurLangue" aria-expanded="false"
+                          title="Sélectionner une langue">{{langueCourante}}<span class="fr-hidden-lg"> -
+                        {{getLibelleLangue(langueCourante)}}</span></button>
+                        <div class="fr-collapse fr-translate__menu fr-menu" id="selecteurLangue">
+                          <ul class="fr-menu__list">
+                            @for (l of languesDisponibles; track l) {
+                              <li>
+                                <a class="fr-translate__language fr-nav__link" [hreflang]="l" [lang]="l" href="#" [attr.aria-current]="l===langueCourante"
+                                (click)="$event.preventDefault();selectionnerLangue(l)">{{l}} - {{getLibelleLangue(l)}}</a>
+                              </li>
+                            }
+                          </ul>
+                        </div>
+                      </div>
+                    </nav>
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modale du menu qd l'écran est en taille réduite (le aria-labelledby vide est nécessaire pour le test automatique RGAA) -->
+    <div class="fr-header__menu fr-modal" id="modal-menu" aria-labelledby="">
+      <div class="fr-container">
+        <button type="button" class="fr-btn--close fr-btn" aria-controls="modal-menu" title="Fermer">{{'entete.bouton.fermer' | i18n}}</button>
+        <div class="fr-header__menu-links">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Affichage des messages globaux -->
+  <div data-fmk-messageglobal></div>

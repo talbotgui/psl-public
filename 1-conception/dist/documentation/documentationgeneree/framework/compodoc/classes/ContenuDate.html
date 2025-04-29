@@ -1,0 +1,1044 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >ContenuDate</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Fichier</h3>
+        </p>
+        <p class="comment">
+            <code>projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Saisie de date</p>
+
+            </p>
+
+            <p class="comment">
+                <h3>Etend</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../classes/ContenuSaisie.html" target="_self" >ContenuSaisie</a></code>
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#validationsSimples" >validationsSimples</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#aide" >aide</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#aideAafficher" >aideAafficher</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#clef" >clef</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#conditionDesactivation" >conditionDesactivation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#conditionVisibilite" >conditionVisibilite</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#desactivation" >desactivation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#FLAG_FONCTIONNALITE_MODE_OBLIGATOIRE_PAR_DEFAUT" >FLAG_FONCTIONNALITE_MODE_OBLIGATOIRE_PAR_DEFAUT</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#listeClefsDonneesPresentesDansConfiguration" >listeClefsDonneesPresentesDansConfiguration</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#titre" >titre</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#titreAafficher" >titreAafficher</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#type" >type</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#visibilite" >visibilite</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validationsSimples"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>validationsSimples</b></span>
+                        <a href="#validationsSimples"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../classes/ContenuSaisie.html" target="_self" >ContenuSaisie</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ContenuSaisie.html#source" target="_self" >ContenuSaisie:150</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Liste des validations à appliquer au champ à la saisie et une fois les données envoyées au socle</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aide"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>aide</b></span>
+                        <a href="#aide"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ContenuDeBloc.html#source" target="_self" >ContenuDeBloc:101</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Modèle de l&#39;aide (peut contenir une {{variable}}).
+Cet attribut n&#39;est pas obligatoire. S&#39;il est vide, aucun titre ne s&#39;affiche.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aideAafficher"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>aideAafficher</b></span>
+                        <a href="#aideAafficher"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ContenuDeBloc.html#source" target="_self" >ContenuDeBloc:103</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Aide à afficher à côté du titre si elle est renseignée (prise en compte des variables éventuellement présente).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clef"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>clef</b></span>
+                        <a href="#clef"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ContenuDeBloc.html#source" target="_self" >ContenuDeBloc:86</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Clef unique définissant la donnée saisie.
+Cette clef est utilisable dans les conditions et les autres champs.
+(cet attribut n&#39;est pas utile dans tous les sous-types mais presque et il est très fortement utilisé)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="conditionDesactivation"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>conditionDesactivation</b></span>
+                        <a href="#conditionDesactivation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ContenuDeBloc.html#source" target="_self" >ContenuDeBloc:109</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Condition de désactivation du champs (cf. conditionVisibilite)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="conditionVisibilite"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>conditionVisibilite</b></span>
+                        <a href="#conditionVisibilite"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ContenuDeBloc.html#source" target="_self" >ContenuDeBloc:118</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Condition d&#39;affichage du contenu.
+Cette attribut est optionnel et sa valeur par défaut est undefined.
+Cette condition est une expression JS évaluée avec l&#39;équivalent de la méthode EVAL() ayant accès aux données de la démarche uniquement.
+Attention, toutes les données sont des chaines de caractères (même les boolean et les nombres).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="desactivation"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>desactivation</b></span>
+                        <a href="#desactivation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ContenuDeBloc.html#source" target="_self" >ContenuDeBloc:111</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Désactivation calculée depuis la condition</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FLAG_FONCTIONNALITE_MODE_OBLIGATOIRE_PAR_DEFAUT"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>FLAG_FONCTIONNALITE_MODE_OBLIGATOIRE_PAR_DEFAUT</b></span>
+                        <a href="#FLAG_FONCTIONNALITE_MODE_OBLIGATOIRE_PAR_DEFAUT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ContenuDeBloc.html#source" target="_self" >ContenuDeBloc:77</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cette variable statique publique contient la valeur de la configuration (ListeFonctionnalites.modeObligatoireParDefaut)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listeClefsDonneesPresentesDansConfiguration"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>listeClefsDonneesPresentesDansConfiguration</b></span>
+                        <a href="#listeClefsDonneesPresentesDansConfiguration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ContenuDeBloc.html#source" target="_self" >ContenuDeBloc:105</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Liste des clefs de variable auxquelles va réagir ce contenu (les clefs présentes dans le titre, l&#39;aide ou les conditions).</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="titre"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>titre</b></span>
+                        <a href="#titre"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ContenuDeBloc.html#source" target="_self" >ContenuDeBloc:91</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Modèle du titre du contenu de bloc (peut contenir une {{variable}}).
+Cet attribut n&#39;est pas obligatoire. S&#39;il est vide, aucun titre ne s&#39;affiche.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="titreAafficher"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>titreAafficher</b></span>
+                        <a href="#titreAafficher"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ContenuDeBloc.html#source" target="_self" >ContenuDeBloc:96</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Titre du contenu de bloc à afficher (prise en compte des variables éventuellement présente).
+Cet attribut n&#39;est pas obligatoire. S&#39;il est vide, aucun titre ne s&#39;affiche.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="type"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>type</b></span>
+                        <a href="#type"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#TypeContenuDeBloc" target="_self" >TypeContenuDeBloc | undefined</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ContenuDeBloc.html#source" target="_self" >ContenuDeBloc:107</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Type du contenu</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visibilite"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>visibilite</b></span>
+                        <a href="#visibilite"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Hérité de         <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans         <code><a href="../classes/ContenuDeBloc.html#source" target="_self" >ContenuDeBloc:120</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Visibilité calculée depuis la condition</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export enum TypeContenuDeBloc {
+    adresseFrOuEtr &#x3D; &#x27;adresseFrOuEtr&#x27;, // ContenuAdresseFrOuEtr
+    autocompletion &#x3D; &#x27;autocompletion&#x27;, // ContenuAutocompletion
+    case &#x3D; &#x27;case&#x27;, //ContenuCase
+    contactPersonnel &#x3D; &#x27;contactPersonnel&#x27;, //ContenuContactPersonnel
+    date &#x3D; &#x27;date&#x27;, // ContenuDate
+    finDemarche &#x3D; &#x27;finDemarche&#x27;,// ContenuFinDemarche
+    identite &#x3D; &#x27;identite&#x27;, // ContenuIdentite
+    listeFinie &#x3D; &#x27;listeFinie&#x27;, //ContenuListeFinie
+    paragraphe &#x3D; &#x27;paragraphe&#x27;, // ContenuParagraphe
+    radio &#x3D; &#x27;radio&#x27;, // ContenuRadio
+    recapitulatif &#x3D; &#x27;recapitulatif&#x27;, // ContenuRecapitulatif
+    saisie &#x3D; &#x27;saisie&#x27;, // ContenuSaisie
+    saisieLongue &#x3D; &#x27;saisieLongue&#x27;, // ContenuSaisieLongue
+    documents &#x3D; &quot;documents&quot;, // ContenuDocuments
+    uploadDocument &#x3D; &quot;uploadDocument&quot;, //ContenuUploadDocument
+    utilisateurConnecte &#x3D; &quot;utilisateurConnecte&quot; // ContenuUtilisateurConnecte
+}
+
+/** Liste des valideurs supportés */
+export abstract class Validation {
+    public static readonly required &#x3D; &#x27;required&#x27;;
+    public static readonly email &#x3D; &#x27;email&#x27;;
+    public static readonly url &#x3D; &#x27;url&#x27;;
+    public static readonly telephoneFR &#x3D; &#x27;telephoneFR&#x27;;
+    public static readonly secu &#x3D; &#x27;secu&#x27;;
+    public static readonly datePassee &#x3D; &#x27;datePassee&#x27;;
+    public static readonly dateFuture &#x3D; &#x27;dateFuture&#x27;;
+    public static readonly dateAvant &#x3D; &#x27;dateAvant&#x27;;
+    public static readonly dateApres &#x3D; &#x27;dateApres&#x27;;
+    public static readonly autocompletionPrecise &#x3D; &#x27;autocompletionPrecise&#x27;;
+    public static readonly regex &#x3D; &#x27;regex&#x27;;
+    public static readonly motDePasse &#x3D; &#x27;motDePasse&#x27;;
+}
+
+/** Attributs et règles communes à tous les contenus de bloc */
+export abstract class ContenuDeBloc {
+    /** Cette variable statique publique contient la valeur de la configuration (ListeFonctionnalites.modeObligatoireParDefaut) */
+    // Cette variable est statique pour être simple à initialiser depuis le chargement de la configuration et parcequ&#x27;il ne peut y avoir qu&#x27;une seule et unique valeur pour toute la démarche
+    public static FLAG_FONCTIONNALITE_MODE_OBLIGATOIRE_PAR_DEFAUT: boolean;
+    /** GETTER permettant d&#x27;accéder à la donnée statique proprement depuis le code HTML */
+    public get modeObligatoireParDefaut() { return ContenuDeBloc.FLAG_FONCTIONNALITE_MODE_OBLIGATOIRE_PAR_DEFAUT; }
+
+    /**
+     * Clef unique définissant la donnée saisie.
+     * Cette clef est utilisable dans les conditions et les autres champs.
+     * (cet attribut n&#x27;est pas utile dans tous les sous-types mais presque et il est très fortement utilisé)
+     */
+    public clef: string | undefined;
+    /**
+     * Modèle du titre du contenu de bloc (peut contenir une {{variable}}).
+     * Cet attribut n&#x27;est pas obligatoire. S&#x27;il est vide, aucun titre ne s&#x27;affiche.
+     */
+    public titre: string | undefined;
+    /**
+     * Titre du contenu de bloc à afficher (prise en compte des variables éventuellement présente).
+     * Cet attribut n&#x27;est pas obligatoire. S&#x27;il est vide, aucun titre ne s&#x27;affiche.
+     */
+    public titreAafficher: string | undefined;
+    /**
+     * Modèle de l&#x27;aide (peut contenir une {{variable}}).
+     * Cet attribut n&#x27;est pas obligatoire. S&#x27;il est vide, aucun titre ne s&#x27;affiche.
+      */
+    public aide: string | undefined;
+    /** Aide à afficher à côté du titre si elle est renseignée (prise en compte des variables éventuellement présente). */
+    public aideAafficher: string | undefined;
+    /** Liste des clefs de variable auxquelles va réagir ce contenu (les clefs présentes dans le titre, l&#x27;aide ou les conditions). */
+    public listeClefsDonneesPresentesDansConfiguration: string[] &#x3D; [];
+    /** Type du contenu */
+    public type: TypeContenuDeBloc | undefined;
+    /** Condition de désactivation du champs (cf. conditionVisibilite) */
+    public conditionDesactivation: string | undefined;
+    /** Désactivation calculée depuis la condition */
+    public desactivation &#x3D; false;
+    /**
+     * Condition d&#x27;affichage du contenu.
+     * Cette attribut est optionnel et sa valeur par défaut est undefined.
+     * Cette condition est une expression JS évaluée avec l&#x27;équivalent de la méthode EVAL() ayant accès aux données de la démarche uniquement.
+     * Attention, toutes les données sont des chaines de caractères (même les boolean et les nombres).
+     */
+    public conditionVisibilite: string | undefined;
+    /** Visibilité calculée depuis la condition */
+    public visibilite &#x3D; true;
+}
+
+/** Contenu de bloc ne contenant qu&#x27;un paragraphe de texte sur fond coloré selon le style sélectionné. */
+export class ContenuParagraphe extends ContenuDeBloc {
+    /**
+     * Modèle de texte correspond au contenu d&#x27;un unique paragraphe (balise &lt;p&gt;).
+     * Il peut contenir des balises HTML.
+     * Il peut demander l&#x27;affichage d&#x27;une ou plusieurs des données précédemment saisie avec les caractères {{}}
+     */
+    public texte: string | undefined;
+    /** Le texte à afficher avec les variables résolues */
+    public texteAafficher: string | undefined;
+    /** Liste de classes CSS séparée par un espace à appliquer au paragraphe &lt;p&gt; */
+    public style: string | undefined;
+    /** Liste de classes CSS séparée par un espace à appliquer à l&#x27;aide associée */
+    public styleAide: string | undefined;
+    /** Informe que le texte est inclu dans un bloc dynamique et ne s&#x27;affiche que quand ce dernier est en mode lecture seule. */
+    public estIncluDansUnBlocDynamiquePourLectureSeule: boolean | undefined;
+}
+
+/** Contenu de bloc affichant les données d&#x27;un utilisateur connecté. */
+export class ContenuUtilisateurConnecte extends ContenuDeBloc { }
+
+/** Contenu de bloc affichant les documents générés à l&#x27;issue de la soumission. */
+export class ContenuDocuments extends ContenuDeBloc { }
+
+/** Attributs et règles communes à tous les contenus de bloc permettant de la saisie */
+export class ContenuSaisie extends ContenuDeBloc {
+    /** Liste des validations à appliquer au champ à la saisie et une fois les données envoyées au socle */
+    public validationsSimples: string[] &#x3D; [];
+}
+
+/** Attributs et rèles communes à tous les contenus de bloc permettant de la saisie */
+export abstract class ContenuSaisieComplexe extends ContenuDeBloc {
+    /** Liste des champs à afficher (sans condition autre que celles portées par le composant) */
+    public champsVisibles: string[] &#x3D; [];
+    /** Liste des champs obligatoires */
+    public validationsComplexes: { [index: string]: any } &#x3D; {};
+    /** Liste des aides des champs */
+    public aides: { [index: string]: any } &#x3D; {};
+    /** Liste des titre des champs */
+    public titres: { [index: string]: any } &#x3D; {};
+    /** Sous-contenus générés au chargement*/
+    public sousContenus: ContenuDeBloc[] &#x3D; [];
+}
+
+/** Case à cocher */
+export class ContenuCase extends ContenuSaisie { }
+
+/** Liste déroulante au contenu fixe et connu à l&#x27;avance */
+export class ContenuOption {
+    /** Libellé paramétré */
+    public libelle: string | undefined;
+    /** Libellé affiché */
+    public libelleAafficher: string | undefined;
+    /** Valeur conservée dans les données soumises */
+    public valeur: string | number | boolean | undefined;
+    /** Condition d&#x27;affichage du champs (cf. ContenuDeBlocconditionVisibilite) */
+    public conditionVisibilite: string | undefined;
+    /** Visibilité calculée depuis la condition */
+    public visibilite &#x3D; true;
+}
+export class ContenuListeFinie extends ContenuSaisie {
+    /** Liste des valeurs possibles affichées par le composant */
+    public valeurs: ContenuOption[] &#x3D; [];
+}
+
+/** Groupe de radio bouton */
+export class ContenuRadio extends ContenuListeFinie { }
+
+/** Saisie de date */
+export class ContenuDate extends ContenuSaisie { }
+
+/** Saisie par autocompletion de donnée venant d&#x27;une API */
+export class ContenuAutocompletion extends ContenuSaisie {
+    /** Code de l&#x27;API après de laquelle se sourcer. */
+    public api: string | undefined;
+    /** Nom de l&#x27;attribut des objets en sortie de l&#x27;API à utiliser pour afficher les options à l&#x27;usager */
+    public attributReponseApiPourLibelle: string | undefined;
+    /** Valeur paramétrée du complément à ajouter à l&#x27;appel de l&#x27;API (peut contenir des variables entre {{}} */
+    public complementAppelApi: string | undefined;
+    /** Valeur calculée du complément à ajouter à l&#x27;appel de l&#x27;API (peut contenir des variables entre {{}} */
+    public complementAppelApiCalcule: string | undefined;
+}
+
+/** Saisie de l&#x27;identite d&#x27;une personne physique ou morale */
+export class ContenuIdentite extends ContenuSaisieComplexe { }
+
+/** Saisie d&#x27;une adresse française ou étrangère */
+export class ContenuAdresseFrOuEtr extends ContenuSaisieComplexe { }
+
+/** Saisie de coordonnées de contact */
+export class ContenuContactPersonnel extends ContenuSaisieComplexe { }
+
+/** Récapitulatif en fin de démarche */
+export class ContenuRecapitulatif extends ContenuDeBloc { }
+
+/** Composant proposant la mise à jour des données personnelles et du porte document */
+export class ContenuFinDemarche extends ContenuDeBloc { }
+
+/** Composant proposant l&#x27;upload d&#x27;une pièce jointe */
+export class ContenuUploadDocument extends ContenuSaisie {
+    /** Id du document stocké */
+    public idDocumentStocke: string | undefined;
+}</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'ContenuDate.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

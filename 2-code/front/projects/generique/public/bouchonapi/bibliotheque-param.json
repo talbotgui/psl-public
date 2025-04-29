@@ -1,0 +1,1034 @@
+{
+  "versionConfiguration": "1.0.0",
+  "codeDemarche": "bibliotheque",
+  "titre": "Démarche montrant les possiblités du moteur de la nouvelle PSL",
+  "titreEN": "Library",
+  "pointsEntree": [
+    {
+      "authentification": ""
+    },
+    {
+      "parametres": [
+        {
+          "parametre": "auth",
+          "valeurs": [
+            "FC"
+          ]
+        }
+      ],
+      "authentification": "FranceConnect"
+    }
+  ],
+  "valeursInitiales": {
+    "radio1": "oui"
+  },
+  "piecesJointesAssociees": [
+    {
+      "codePieceJointe": "pj1",
+      "tailleMaximaleAutorisee": 10,
+      "typesDeContenuAutorises": [
+        "application/pdf",
+        "image/png"
+      ]
+    }
+  ],
+  "fonctionnalites": {
+    "modeObligatoireParDefaut": true,
+    "deuil": true,
+    "brouillon": true
+  },
+  "pages": [
+    {
+      "titre": "Des exemples de paragraphe",
+      "titreEN": "Titre de page en anglais",
+      "titreAriane": "Paragraphes et sous-blocs",
+      "titreArianeEN": "Titre Ariane en anglais",
+      "blocs": [
+        {
+          "titre": "Libellés simples",
+          "titreEN": "Titre de bloc en anglais",
+          "aide": "Aide contextuelle du bloc",
+          "aideEN": "Aide de bloc en anglais",
+          "contenus": [
+            {
+              "type": "paragraphe",
+              "texte": "Un simple libellé.",
+              "texteEN": "contenu de paragraphe en anglais"
+            },
+            {
+              "type": "paragraphe",
+              "style": "text-danger",
+              "texte": "Un libellé avec un style 'text-danger' (texte en rouge).",
+              "texteEN": "EN Un libellé avec un style 'text-danger' (texte en rouge)."
+            },
+            {
+              "type": "paragraphe",
+              "texte": "<span class=\"text-center\"><img src=\"./logoPoste.gif\" alt=\"\"/></span><span class=\"text-center\">Un libellé dans du code HTML avec une image</span>"
+            },
+            {
+              "type": "paragraphe",
+              "texte": "Paragraphe avec une aide",
+              "texteEN": "EN Paragraphe avec une aide",
+              "aide": "Petite annonce : Aide à la saisie du paragraphe cherche raison d'être. Si intéressé, contactez-moi :)",
+              "aideEN": "Aide de paragraphe en anglais"
+            },
+            {
+              "type": "paragraphe",
+              "texte": "Paragraphe avec une aide utilisant un style 'text-danger'",
+              "texteEN": "EN Paragraphe avec une aide utilisant un style 'text-danger'",
+              "aide": "Petite annonce : Aide à la saisie du paragraphe cherche raison d'être. Si intéressé, contactez-moi :)",
+              "aideEN": "EN Petite annonce : Aide à la saisie du paragraphe cherche raison d'être. Si intéressé, contactez-moi :)",
+              "styleAide": "text-danger"
+            },
+            {
+              "type": "paragraphe",
+              "texte": "Paragraphe en <a rel=\"noopener noreferrer\" href=\"https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-avant\">mode <b>callout</b> de la DSFR</a>.",
+              "texteEN": "EN Paragraphe en <a rel=\"noopener noreferrer\" href=\"https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-avant\">mode <b>callout</b> de la DSFR</a>.",
+              "style": "fr-callout fr-icon-message-2-line",
+              "aide": "Et son aide avec une autre icône et une autre couleur",
+              "aideEN": "EN Et son aide avec une autre icône et une autre couleur",
+              "styleAide": "fr-callout fr-callout--green-emeraude fr-icon-information-line"
+            },
+            {
+              "type": "paragraphe",
+              "texte": "Paragraphe en <a rel=\"noopener noreferrer\" href=\"https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-exergue\">mode <b>highlight</b> de la DSFR</a>.",
+              "texteEN": "EN Paragraphe en <a rel=\"noopener noreferrer\" href=\"https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-exergue\">mode <b>highlight</b> de la DSFR</a>.",
+              "style": "fr-highlight",
+              "aide": "Et son aide avec une autre couleur",
+              "aideEN": "EN Et son aide avec une autre couleur",
+              "styleAide": "fr-highlight fr-highlight--purple-glycine"
+            }
+          ]
+        },
+        {
+          "titre": "Libellés conditionnés",
+          "titreEN": "EN Libellés conditionnés",
+          "aideTitre": "Tooltip du titre du bloc",
+          "aideTitreEN": "EN Tooltip du titre du bloc",
+          "aide": "Une autre aide contextuelle de bloc",
+          "aideEN": "EN Une autre aide contextuelle de bloc",
+          "contenus": [
+            {
+              "titre": "Valeur saisissable avec la clef 'radio1' (valeur actuelle={{radio1}})",
+              "titreEN": "Titre de contenu en anglais with key 'radio1' (current value={{radio1}})",
+              "type": "radio",
+              "clef": "radio1",
+              "valeurs": [
+                {
+                  "valeur": "oui",
+                  "libelle": "Libelle de la valeur 'oui' (et radio1={{radio1}})",
+                  "libelleEN": "Label of 'oui' (et radio1={{radio1}})"
+                },
+                {
+                  "valeur": "non",
+                  "libelle": "Libelle de la valeur 'non' (et radio1={{radio1}})",
+                  "libelleEN": "Label of 'non' (et radio1={{radio1}})"
+                }
+              ]
+            },
+            {
+              "type": "paragraphe",
+              "texte": "Un libellé avec la condition radio1==='oui'",
+              "texteEN": "EN Un libellé avec la condition radio1==='oui'",
+              "conditionVisibilite": "radio1==='oui'"
+            },
+            {
+              "type": "paragraphe",
+              "texte": "Un libellé avec la valeur d'une donnée : radio1={{radio1}}",
+              "texteEN": "EN Un libellé avec la valeur d'une donnée : radio1={{radio1}}",
+              "aide": "Fonctionne aussi pour l'aide : radio1={{radio1}}"
+            }
+          ]
+        },
+        {
+          "titre": "Bloc des informations d'un usager connecté",
+          "titreEN": "EN Bloc des informations d'un usager connecté",
+          "contenus": [
+            {
+              "type": "paragraphe",
+              "texte": "Ci-dessous s'affiche le contenu de type 'utilisateurConnecte' car l'URL contient le paramètre auth=FC",
+              "texteEN": "EN Ci-dessous s'affiche le contenu de type 'utilisateurConnecte' car l'URL contient le paramètre auth=FC",
+              "conditionVisibilite": "auth==='FC'"
+            },
+            {
+              "type": "utilisateurConnecte",
+              "conditionVisibilite": "auth==='FC'"
+            },
+            {
+              "type": "paragraphe",
+              "texte": "S'afficherait, ci-dessus, le contenu de type 'utilisateurConnecte' si l'URL contenait le paramètre auth=FC",
+              "texteEN": "EN S'afficherait, ci-dessus, le contenu de type 'utilisateurConnecte' si l'URL contenait le paramètre auth=FC",
+              "conditionVisibilite": "auth!=='FC'"
+            }
+          ]
+        },
+        {
+          "titre": "Bloc de blocs",
+          "titreEN": "Titre de bloc en anglais",
+          "sousBlocs": [
+            {
+              "titre": "Sous-bloc 1",
+              "titreEN": "Titre de sous-bloc en anglais",
+              "contenus": [
+                {
+                  "type": "paragraphe",
+                  "texte": "Un libellé pour le sous-bloc 1."
+                }
+              ]
+            },
+            {
+              "titre": "Sous-bloc 2",
+              "titreEN": "Titre de sous-bloc en anglais",
+              "contenus": [
+                {
+                  "type": "paragraphe",
+                  "texte": "Un libellé pour le sous-bloc 2."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "titre": "Seconde page de paragraphe",
+      "titreEN": "EN Seconde page de paragraphe",
+      "exclueDuFilDariane": true,
+      "blocs": [
+        {
+          "contenus": [
+            {
+              "type": "paragraphe",
+              "texte": "Cette page existe mais elle n'est pas visible spécifiquement dans le fil d'Ariane. Elle partage son numéro avec la page précédente"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "titre": "Des exemples de saisie",
+      "titreEN": "EN Des exemples de saisie",
+      "titreAriane": "Saisies",
+      "blocs": [
+        {
+          "titre": "Saisies de texte",
+          "titreEN": "EN Saisies de texte",
+          "contenus": [
+            {
+              "type": "saisie",
+              "clef": "clefSaisie1",
+              "titre": "Une saisie textuelle sans contrainte."
+            },
+            {
+              "type": "saisie",
+              "clef": "clefSaisie2",
+              "titre": "Une saisie textuelle sans contrainte avec une aide.",
+              "titreEN": "Simple user input without constraints and validations.",
+              "aide": "Un texte d'aide à la saisie",
+              "aideEN": "Aide à la saisie en anglais"
+            },
+            {
+              "type": "saisie",
+              "clef": "clefSaisie3",
+              "titre": "Une saisie textuelle sans contrainte avec une condition d'affichage (première saisie de cette page différente de 'caché').",
+              "titreEN": "EN Une saisie textuelle sans contrainte avec une condition d'affichage (première saisie de cette page différente de 'caché').",
+              "conditionVisibilite": "clefSaisie1!=='caché'"
+            },
+            {
+              "type": "saisie",
+              "clef": "clefSaisie4",
+              "titre": "Une saisie textuelle sans contrainte avec une condition d'activation (première saisie de cette page différente de 'caché').",
+              "titreEN": "EN Une saisie textuelle sans contrainte avec une condition d'activation (première saisie de cette page différente de 'caché').",
+              "conditionDesactivation": "clefSaisie1!=='caché'"
+            }
+          ]
+        },
+        {
+          "titre": "Saisie avec validation",
+          "titreEN": "EN Saisie avec validation",
+          "contenus": [
+            {
+              "type": "saisie",
+              "clef": "clefSaisie5",
+              "titre": "Une saisie textuelle obligatoire.",
+              "titreEN": "EN Une saisie textuelle obligatoire.",
+              "validationsSimples": [
+                "required"
+              ]
+            },
+            {
+              "type": "saisie",
+              "clef": "clefSaisie6",
+              "titre": "Une saisie textuelle d'un email obligatoire.",
+              "titreEN": "EN Une saisie textuelle d'un email obligatoire.",
+              "validationsSimples": [
+                "required",
+                "email"
+              ]
+            },
+            {
+              "type": "saisie",
+              "clef": "clefSaisie7",
+              "titre": "Une saisie textuelle d'un numéro de téléphone.",
+              "titreEN": "EN Une saisie textuelle d'un numéro de téléphone.",
+              "validationsSimples": [
+                "telephoneFR"
+              ]
+            },
+            {
+              "type": "saisie",
+              "clef": "clefSaisie8",
+              "titre": "Une saisie textuelle d'un numéro de sécurité social.",
+              "titreEN": "EN Une saisie textuelle d'un numéro de sécurité social.",
+              "aide": "269054968815787 par exemple",
+              "aideEN": "EN 269054968815787 par exemple",
+              "validationsSimples": [
+                "secu"
+              ]
+            },
+            {
+              "type": "saisie",
+              "clef": "clefSaisie9",
+              "titre": "Une saisie textuelle sans assistance (type=saisie) d'une date dans le passé.",
+              "titreEN": "EN Une saisie textuelle sans assistance (type=saisie) d'une date dans le passé.",
+              "validationsSimples": [
+                "datePassee"
+              ]
+            },
+            {
+              "type": "saisie",
+              "clef": "clefSaisie10",
+              "titre": "Une saisie textuelle sans assistance (type=saisie) d'une date dans le futur.",
+              "titreEN": "EN Une saisie textuelle sans assistance (type=saisie) d'une date dans le futur.",
+              "validationsSimples": [
+                "dateFuture"
+              ]
+            },
+            {
+              "type": "date",
+              "clef": "clefSaisie11",
+              "titre": "Une saisie textuelle avec assistance (type=date) d'une date dans le passé.",
+              "titreEN": "EN Une saisie textuelle avec assistance (type=date) d'une date dans le passé.",
+              "validationsSimples": [
+                "datePassee"
+              ]
+            },
+            {
+              "type": "date",
+              "clef": "clefSaisie12",
+              "titre": "Une saisie textuelle avec assistance (type=date) d'une date dans le futur.",
+              "titreEN": "EN Une saisie textuelle avec assistance (type=date) d'une date dans le futur.",
+              "validationsSimples": [
+                "dateFuture"
+              ]
+            },
+            {
+              "type": "saisie",
+              "clef": "clefSaisie13",
+              "titre": "Une saisie avec une expression régulière ^[A-Z]{6}$.",
+              "titreEN": "EN Une saisie avec une expression régulière ^[A-Z]{6}$.",
+              "validationsSimples": [
+                "regex-^[A-Z]{6}$"
+              ]
+            },
+            {
+              "type": "saisie",
+              "clef": "clefSaisie14",
+              "titre": "Une saisie textuelle d'une adresse internet",
+              "titreEN": "EN Une saisie textuelle d'une adresse internet",
+              "validationsSimples": [
+                "url"
+              ]
+            },
+            {
+              "type": "date",
+              "clef": "clefSaisie15",
+              "titre": "Une saisie textuelle avec assistance (type=date) d'une date répondant à J-10 < date < J+4",
+              "titreEN": "EN Une saisie textuelle avec assistance (type=date) d'une date répondant à J-10 < date < J+4",
+              "validationsSimples": [
+                "dateApres-10j",
+                "dateAvant+4j"
+              ]
+            },
+            {
+              "type": "date",
+              "clef": "clefSaisie16",
+              "titre": "Une saisie textuelle avec assistance (type=date) d'une date répondant à M-1 < date",
+              "titreEN": "EN Une saisie textuelle avec assistance (type=date) d'une date répondant à M-1 < date",
+              "validationsSimples": [
+                "dateApres-1M"
+              ]
+            },
+            {
+              "type": "date",
+              "clef": "clefSaisie17",
+              "titre": "Une saisie textuelle avec assistance (type=date) d'une date répondant à A-1 < date < A+1",
+              "titreEN": "EN Une saisie textuelle avec assistance (type=date) d'une date répondant à A-1 < date < A+1",
+              "validationsSimples": [
+                "dateApres-1A",
+                "dateAvant+1a"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "titre": "Auto-complétion et spéciales",
+      "titreEN": "EN Auto-complétion et spéciales",
+      "titreAriane": "Auto-complétion",
+      "blocs": [
+        {
+          "titre": "Des exemples d'auto-complétion",
+          "titreEN": "EN Des exemples d'auto-complétion",
+          "contenus": [
+            {
+              "type": "autocompletion",
+              "clef": "clefAutocompletion1",
+              "api": "communeNaissance",
+              "attributReponseApiPourLibelle": "libelleLong",
+              "titre": "Une saisie avec auto-complétion de commune."
+            },
+            {
+              "type": "paragraphe",
+              "conditionVisibilite": "!!clefAutocompletion1_libelle",
+              "texte": "La commune sélectionnée est '{{clefAutocompletion1_libelle}}' avec le code postal '{{clefAutocompletion1_codePostal}}' et le code INSEE '{{clefAutocompletion1_code}}'. Pour se simplifier la vie, l'API renvoi un attribut 'libelleLong' avec la valeur '{{clefAutocompletion1_libelleLong}}'"
+            },
+            {
+              "type": "paragraphe",
+              "conditionVisibilite": "!clefAutocompletion1_libelle",
+              "texte": "Aucune commune saisie actuellement"
+            },
+            {
+              "type": "autocompletion",
+              "clef": "clefAutocompletion2",
+              "api": "communeNaissance",
+              "attributReponseApiPourLibelle": "libelleLong",
+              "titre": "Une saisie avec auto-complétion de commune de naissance et la validation que la saisie est une des valeurs proposée.",
+              "titreEN": "EN Une saisie avec auto-complétion de commune de naissance et la validation que la saisie est une des valeurs proposée.",
+              "validationsSimples": [
+                "autocompletionPrecise"
+              ]
+            },
+            {
+              "type": "autocompletion",
+              "clef": "clefAutocompletion9",
+              "api": "communeActuelle",
+              "attributReponseApiPourLibelle": "libelleLong",
+              "titre": "Une saisie avec auto-complétion de commune actuelle et la validation que la saisie est une des valeurs proposée.",
+              "titreEN": "EN Une saisie avec auto-complétion de commune actuelle et la validation que la saisie est une des valeurs proposée.",
+              "validationsSimples": [
+                "autocompletionPrecise"
+              ]
+            },
+            {
+              "type": "autocompletion",
+              "clef": "clefAutocompletion3",
+              "api": "nationalitePaysActuel",
+              "attributReponseApiPourLibelle": "nationalite",
+              "titre": "Une saisie avec auto-complétion de nationalité et la validation que la saisie est une des valeurs proposée.",
+              "titreEN": "EN Une saisie avec auto-complétion de nationalité et la validation que la saisie est une des valeurs proposée.",
+              "validationsSimples": [
+                "autocompletionPrecise"
+              ]
+            },
+            {
+              "type": "paragraphe",
+              "conditionVisibilite": "!!clefAutocompletion3_libelle",
+              "texte": "La nationalité sélectionnée est '{{clefAutocompletion3_nationalite}}' associée au pays '{{clefAutocompletion3_libelle}}' avec le code INSEE '{{clefAutocompletion3_codeInsee}}' et la capitale '{{clefAutocompletion3_capitale}}'"
+            },
+            {
+              "type": "paragraphe",
+              "conditionVisibilite": "!clefAutocompletion3_libelle",
+              "texte": "Aucune nationalité saisie actuellement"
+            },
+            {
+              "type": "autocompletion",
+              "clef": "clefAutocompletion4",
+              "api": "paysNaissance",
+              "attributReponseApiPourLibelle": "libelle",
+              "titre": "Une saisie avec auto-complétion de pays de naissance et la validation que la saisie est une des valeurs proposée.",
+              "titreEN": "EN Une saisie avec auto-complétion de pays de naissance et la validation que la saisie est une des valeurs proposée.",
+              "validationsSimples": [
+                "autocompletionPrecise"
+              ]
+            },
+            {
+              "type": "paragraphe",
+              "conditionVisibilite": "!!clefAutocompletion4_libelle",
+              "texte": "Le pays sélectionné est '{{clefAutocompletion4_libelle}}' avec le code '{{clefAutocompletion4_code}}'"
+            },
+            {
+              "type": "paragraphe",
+              "conditionVisibilite": "!clefAutocompletion4_libelle",
+              "texte": "Aucun pays saisi actuellement"
+            },
+            {
+              "type": "autocompletion",
+              "clef": "clefAutocompletion5",
+              "api": "nationalitePaysActuel",
+              "attributReponseApiPourLibelle": "libelle",
+              "titre": "Une saisie avec auto-complétion de pays actuel et la validation que la saisie est une des valeurs proposée.",
+              "titreEN": "EN Une saisie avec auto-complétion de pays actuel et la validation que la saisie est une des valeurs proposée.",
+              "validationsSimples": [
+                "autocompletionPrecise"
+              ]
+            },
+            {
+              "type": "autocompletion",
+              "clef": "clefAutocompletion6",
+              "api": "adresseban",
+              "attributReponseApiPourLibelle": "label",
+              "complementAppelApi": "",
+              "titre": "Une saisie avec auto-complétion d'adresse BAN.",
+              "titreEN": "EN Une saisie avec auto-complétion d'adresse BAN.",
+              "validationsSimples": [
+                "autocompletionPrecise"
+              ]
+            },
+            {
+              "type": "paragraphe",
+              "texte": "A la sélection d'une valeur dans une autocomplétion, beaucoup de données sont disponibles. Par exemple, dans le cas de la BAN, les données disponibles sont : le nom de la ville (clefAutocompletion6_city: {{clefAutocompletion6_city}}), le code INSEE (clefAutocompletion6_citycode: {{clefAutocompletion6_citycode}}), le libellé complet (clefAutocompletion6_label: {{clefAutocompletion6_label}}), le libellé court (clefAutocompletion6_name: {{clefAutocompletion6_name}}), le code postal (clefAutocompletion6_postcode: {{clefAutocompletion6_postcode}}), le nom de la rue (clefAutocompletion6_street: {{clefAutocompletion6_street}}) et les coordonnées (clefAutocompletion6_x/y : {{clefAutocompletion6_x}}/{{clefAutocompletion6_y}})",
+              "texteEN": "EN A la sélection d'une valeur dans une autocomplétion, beaucoup de données sont disponibles. Par exemple, dans le cas de la BAN, les données disponibles sont : le nom de la ville (clefAutocompletion6_city: {{clefAutocompletion6_city}}), le code INSEE (clefAutocompletion6_citycode: {{clefAutocompletion6_citycode}}), le libellé complet (clefAutocompletion6_label: {{clefAutocompletion6_label}}), le libellé court (clefAutocompletion6_name: {{clefAutocompletion6_name}}), le code postal (clefAutocompletion6_postcode: {{clefAutocompletion6_postcode}}), le nom de la rue (clefAutocompletion6_street: {{clefAutocompletion6_street}}) et les coordonnées (clefAutocompletion6_x/y : {{clefAutocompletion6_x}}/{{clefAutocompletion6_y}})",
+              "conditionVisibilite": "clefAutocompletion6_city"
+            },
+            {
+              "type": "autocompletion",
+              "clef": "clefAutocompletion7",
+              "api": "communeban",
+              "attributReponseApiPourLibelle": "libelleLong",
+              "titre": "Une saisie avec auto-complétion de commune BAN.",
+              "titreEN": "EN Une saisie avec auto-complétion de commune BAN.",
+              "validationsSimples": [
+                "autocompletionPrecise"
+              ]
+            },
+            {
+              "type": "autocompletion",
+              "clef": "clefAutocompletion8",
+              "api": "adresseban",
+              "attributReponseApiPourLibelle": "label",
+              "complementAppelApi": "codeInsee={{clefAutocompletion7_citycode}}",
+              "titre": "Une saisie avec auto-complétion d'adresse BAN.",
+              "titreEN": "EN Une saisie avec auto-complétion d'adresse BAN.",
+              "validationsSimples": [
+                "autocompletionPrecise"
+              ]
+            }
+          ]
+        },
+        {
+          "titre": "Des exemples de saisie spéciale",
+          "titreEN": "EN Des exemples de saisie spéciale",
+          "contenus": [
+            {
+              "type": "case",
+              "clef": "clefCase1",
+              "titre": "Une case à cocher obligatoire",
+              "titreEN": "EN Une case à cocher obligatoire",
+              "validationsSimples": [
+                "required"
+              ]
+            },
+            {
+              "type": "case",
+              "clef": "clefCase2",
+              "titre": "Une case à cocher avec une aide",
+              "titreEN": "EN Une case à cocher avec une aide",
+              "aide": "Une aide"
+            },
+            {
+              "type": "radio",
+              "clef": "clefRadio1",
+              "titre": "Une sélection par bouton radio avec une aide",
+              "titreEN": "EN Une sélection par bouton radio avec une aide",
+              "aide": "Une aide",
+              "aideEN": "EN Une aide",
+              "valeurs": [
+                {
+                  "libelle": "libelleOui",
+                  "valeur": "oui"
+                },
+                {
+                  "libelle": "libelleNon",
+                  "valeur": "non"
+                }
+              ]
+            },
+            {
+              "type": "radio",
+              "clef": "clefRadio2",
+              "titre": "Une sélection par bouton radio avec 3 valeurs et une validation obligatoire",
+              "titreEN": "EN Une sélection par bouton radio avec 3 valeurs et une validation obligatoire",
+              "valeurs": [
+                {
+                  "libelle": "libelleOui",
+                  "valeur": "oui"
+                },
+                {
+                  "libelle": "libelleNon",
+                  "valeur": "non"
+                },
+                {
+                  "libelle": "libellePeutEtre",
+                  "valeur": "peutetre"
+                }
+              ],
+              "validationsSimples": [
+                "required"
+              ]
+            },
+            {
+              "type": "radio",
+              "clef": "clefRadio3",
+              "titre": "Une sélection par bouton radio dont une valeur est conditionnée par clefRadio2='non'",
+              "titreEN": "EN Une sélection par bouton radio dont une valeur est conditionnée par clefRadio2='non'",
+              "valeurs": [
+                {
+                  "libelle": "libelle non conditionné (le conditionné devrait être juste en dessous)",
+                  "valeur": "valeurNonConditionnee"
+                },
+                {
+                  "libelle": "libellé de l'option conditionnée",
+                  "valeur": "valeurConditionnee",
+                  "conditionVisibilite": "clefRadio2=='non'"
+                }
+              ],
+              "validationsSimples": []
+            },
+            {
+              "type": "listeFinie",
+              "clef": "clefListe1",
+              "titre": "Une liste déroulante",
+              "titreEN": "EN Une liste déroulante",
+              "valeurs": [
+                {
+                  "libelle": ""
+                },
+                {
+                  "libelle": "libelleOui",
+                  "libelleEN": "labelOui",
+                  "valeur": "oui"
+                },
+                {
+                  "libelle": "libelleNon",
+                  "libelleEN": "labelNon",
+                  "valeur": "non"
+                }
+              ]
+            },
+            {
+              "type": "listeFinie",
+              "clef": "clefListe2",
+              "titre": "Une longue liste déroulante et une validation obligatoire",
+              "titreEN": "EN Une longue liste déroulante et une validation obligatoire",
+              "valeurs": [
+                {
+                  "libelle": "libelle1",
+                  "valeur": 1
+                },
+                {
+                  "libelle": "libelle2",
+                  "valeur": 2
+                },
+                {
+                  "libelle": "libelle3",
+                  "valeur": 3
+                },
+                {
+                  "libelle": "libelle4",
+                  "valeur": 4
+                },
+                {
+                  "libelle": "libelle5",
+                  "valeur": 5
+                },
+                {
+                  "libelle": "libelle6",
+                  "valeur": 6
+                },
+                {
+                  "libelle": "libelle7",
+                  "valeur": 7
+                },
+                {
+                  "libelle": "libelle8",
+                  "valeur": 8
+                },
+                {
+                  "libelle": "libelle9",
+                  "valeur": 9
+                },
+                {
+                  "libelle": "libelle10",
+                  "valeur": 10
+                },
+                {
+                  "libelle": "libelle11",
+                  "valeur": 11
+                },
+                {
+                  "libelle": "libelle12",
+                  "valeur": 12
+                },
+                {
+                  "libelle": "libelle13",
+                  "valeur": 13
+                },
+                {
+                  "libelle": "libelle14",
+                  "valeur": 14
+                },
+                {
+                  "libelle": "libelle15",
+                  "valeur": 15
+                },
+                {
+                  "libelle": "libelle16",
+                  "valeur": 16
+                },
+                {
+                  "libelle": "libelle17",
+                  "valeur": 17
+                },
+                {
+                  "libelle": "libelle18",
+                  "valeur": 18
+                },
+                {
+                  "libelle": "libelle19",
+                  "valeur": 19
+                },
+                {
+                  "libelle": "libelle20",
+                  "valeur": 20
+                }
+              ],
+              "validationsSimples": [
+                "required"
+              ]
+            },
+            {
+              "type": "listeFinie",
+              "clef": "clefListe3",
+              "titre": "Une liste déroulante dont la seconde option non vide est conditionné par 'clefListe2==1' (la valeur sélectionnée de la longue liste est 1)",
+              "titreEN": "EN Une liste déroulante dont la seconde option non vide est conditionné par 'clefListe2==1' (la valeur sélectionnée de la longue liste est 1)",
+              "valeurs": [
+                {
+                  "libelle": "libelle non conditionné (le conditionné devrait être juste en dessous)",
+                  "valeur": "valeurNonConditionnee"
+                },
+                {
+                  "libelle": "libellé de l'option conditionnée",
+                  "valeur": "valeurConditionnee",
+                  "conditionVisibilite": "clefListe2==1"
+                }
+              ]
+            },
+            {
+              "type": "saisieLongue",
+              "clef": "saisieLongueNonLimite",
+              "titre": "Saisie longue (textarea) sans limite de caractères"
+            },
+            {
+              "type": "saisieLongue",
+              "clef": "saisieLongueLimite",
+              "titre": "Saisie longue (textarea) avec une limite de 500 caractères",
+              "titreEN": "EN Saisie longue (textarea) avec une limite de 500 caractères",
+              "validationsSimples": [
+                "regex-^[\\s\\S]{0,500}$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "titre": "Des exemples de composants complexes",
+      "titreEN": "EN Des exemples de composants complexes",
+      "titreAriane": "Composants complexes",
+      "blocs": [
+        {
+          "titre": "Composant identité avec uniquement 2 champs tous obligatoires",
+          "titreEN": "EN Composant identité avec uniquement 2 champs tous obligatoires",
+          "contenus": [
+            {
+              "type": "identite",
+              "clef": "identite1",
+              "champsVisibles": [
+                "civilite",
+                "nomFamille"
+              ],
+              "validationsComplexes": {
+                "civilite": [
+                  "required"
+                ],
+                "nomFamille": [
+                  "required"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "titre": "Composant identité avec uniquement 2 champs et tous les libellés personnalisés",
+          "titreEN": "EN Composant identité avec uniquement 2 champs et tous les libellés personnalisés",
+          "contenus": [
+            {
+              "titre": "Le nom de famille saisi ci-dessous est : {{identite2_nomFamille}}",
+              "titreEN": "EN Le nom de famille saisi ci-dessous est : {{identite2_nomFamille}}",
+              "aide": "Le nom de famille saisi ci-dessous est : {{identite2_nomFamille}}",
+              "aideEN": "EN Le nom de famille saisi ci-dessous est : {{identite2_nomFamille}}",
+              "type": "identite",
+              "clef": "identite2",
+              "champsVisibles": [
+                "civilite",
+                "nomFamille"
+              ],
+              "aides": {
+                "civilite": "Monsieur ou madame ou non binaire",
+                "nomFamille": "Le nom de famille '{{identite2_nomFamille}}' est celui d'usage, de naissance ou de femme mariée ?"
+              },
+              "titres": {
+                "civilite": "M/Mme/autre",
+                "nomFamille": "Le nom de famille '{{identite2_nomFamille}}'"
+              }
+            }
+          ]
+        },
+        {
+          "titre": "Composant identité avec tous les champs et sans validation",
+          "titreEN": "EN Composant identité avec tous les champs et sans validation",
+          "contenus": [
+            {
+              "titre": "Le nom de famille de l'identité précédente : {{identite2_nomFamille}}",
+              "titreEN": "EN Le nom de famille de l'identité précédente : {{identite2_nomFamille}}",
+              "aide": "Le nom de famille de l'identité précédente : {{identite2_nomFamille}}",
+              "aideEN": "EN Le nom de famille de l'identité précédente : {{identite2_nomFamille}}",
+              "type": "identite",
+              "clef": "identite3",
+              "aides": {
+                "nomFamille": "Le nom de famille de l'identité précédente : {{identite2_nomFamille}}"
+              },
+              "champsVisibles": [
+                "prenoms",
+                "nationalite",
+                "dateNaissance",
+                "civilite",
+                "communeNaissanceETR",
+                "nomFamille",
+                "nomUsage",
+                "paysNaissance",
+                "communeNaissanceFR"
+              ],
+              "validationsComplexes": {}
+            }
+          ]
+        },
+        {
+          "titre": "Adresse française de naissance ou étrangère sans validation ni aide",
+          "titreEN": "EN Adresse française de naissance ou étrangère sans validation ni aide",
+          "contenus": [
+            {
+              "type": "adresseFrOuEtr",
+              "aide": "Aide à la saisie de l'adresse",
+              "aideEN": "EN Aide à la saisie de l'adresse",
+              "clef": "adresse1",
+              "champsVisibles": [
+                "estFrance",
+                "etage",
+                "immeuble",
+                "voie",
+                "boitePostale",
+                "communeNaissance",
+                "adresseETR",
+                "paysETR"
+              ],
+              "validationsComplexes": {}
+            }
+          ]
+        },
+        {
+          "titre": "Composant de contact personnel avec tous les champs sans surcharge des validations (attention, si la validation 'required' est ajouté sur l'email, il faut aussi mettre la validation 'email')",
+          "titreEN": "EN Composant de contact personnel avec tous les champs sans surcharge des validations (attention, si la validation 'required' est ajouté sur l'email, il faut aussi mettre la validation 'email')",
+          "contenus": [
+            {
+              "clef": "infoPersoContactPerso",
+              "type": "contactPersonnel",
+              "champsVisibles": [
+                "numTeleGeneral",
+                "email"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "titre": "Les blocs dynamiques",
+      "titreEN": "EN Les blocs dynamiques",
+      "titreAriane": "Blocs dynamiques",
+      "blocs": [
+        {
+          "titre": "Bloc simple",
+          "titreEN": "EN Bloc simple",
+          "contenus": [
+            {
+              "type": "paragraphe",
+              "texte": "Ce premier bloc de la page est un bloc standard. Il contient un titre et s'affiche avec la mise en forme d'un bloc."
+            },
+            {
+              "type": "paragraphe",
+              "texte": "Le bloc ci-dessous (le second) est dynamique et permet deux occurences au maximum."
+            }
+          ]
+        },
+        {
+          "dynamique": true,
+          "maxOccurences": 2,
+          "contenus": [
+            {
+              "type": "paragraphe",
+              "texte": "Ce bloc dynamique ne contient qu'un simple texte et un champ de saisie de nombre."
+            },
+            {
+              "type": "saisie",
+              "titre": "Saisie d'un nombre",
+              "titreEN": "EN Saisie d'un nombre",
+              "clef": "bloc2Occurenc@@saisie",
+              "validationsSimples": [
+                "regex-^[0-9]+(,[0-9]{1,2})?$",
+                "required"
+              ]
+            },
+            {
+              "type": "paragraphe",
+              "estIncluDansUnBlocDynamiquePourLectureSeule": true,
+              "texte": "Ce paragraphe, lui, s'affiche quand l'occurence est en mode LECTURE. La donnée saisie est : {{bloc2Occurenc@@saisie}}."
+            }
+          ]
+        },
+        {
+          "titre": "Bloc simple 2",
+          "titreEN": "EN Bloc simple 2",
+          "contenus": [
+            {
+              "type": "paragraphe",
+              "texte": "Ce troisième bloc de la page est un bloc standard sous le bloc dynamique."
+            },
+            {
+              "type": "paragraphe",
+              "texte": "Il est possible de compter les occurences d'un champ de bloc dynamique et même d'en faire la somme ({{sommeChampBlocDynamique('bloc2Occurenc@@saisie')}}€ en {{nombreOccurencesBlocDynamique('bloc2Occurenc@@saisie')}} fois)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "titre": "Des exemples de gestion de pièce jointe",
+      "titreEN": "EN Des exemples de gestion de pièce jointe",
+      "titreAriane": "Pièces jointes",
+      "blocs": [
+        {
+          "contenus": [
+            {
+              "type": "uploadDocument",
+              "clef": "pj1",
+              "titre": "Une pièce jointe",
+              "titreEN": "EN Une pièce jointe",
+              "aide": "Aide pour la première pièce justificative obligatoire",
+              "aideEN": "EN Aide pour la première pièce justificative obligatoire",
+              "validationsSimples": [
+                "required"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "titre": "Les blocs conditionnels",
+      "titreEN": "EN Les blocs conditionnels",
+      "titreAriane": "Blocs conditionnels",
+      "blocs": [
+        {
+          "contenus": [
+            {
+              "type": "case",
+              "clef": "clefCaseDuBlocConditionnel",
+              "titre": "Une case à cocher"
+            }
+          ]
+        },
+        {
+          "titre": "Ce bloc est conditionnel",
+          "titreEN": "EN Ce bloc est conditionnel",
+          "conditionVisibilite": "clefCaseDuBlocConditionnel == 'true'",
+          "contenus": [
+            {
+              "type": "paragraphe",
+              "texte": "Je suis un bloc qui s'affiche quand la case est cochée"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "titre": "Le récapitulatif",
+      "titreEN": "EN Le récapitulatif",
+      "titreAriane": "Récapitulatif",
+      "blocs": [
+        {
+          "contenus": [
+            {
+              "type": "recapitulatif"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "titre": "La Soumission",
+      "titreEN": "EN La Soumission",
+      "exclueDuFilDariane": true,
+      "blocs": [
+        {
+          "contenus": [
+            {
+              "type": "finDemarche"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "titre": "Les documents",
+      "titreEN": "EN Les documents",
+      "exclueDuFilDariane": true,
+      "blocs": [
+        {
+          "contenus": [
+            {
+              "type": "paragraphe",
+              "style": "succes",
+              "texte": "Merci, votre demande a été transmise. Votre dossier a été transmis."
+            },
+            {
+              "type": "paragraphe",
+              "style": "succes",
+              "texte": "La référence de votre dossier : {{numeroTeledossier}}."
+            },
+            {
+              "type": "paragraphe",
+              "style": "succes",
+              "texte": "Cette référence doit être conservée. Elle vous sera utile lors de vos éventuels échanges pour le suivi de votre demande."
+            },
+            {
+              "type": "documents"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

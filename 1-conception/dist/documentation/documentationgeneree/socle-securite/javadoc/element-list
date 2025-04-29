@@ -1,0 +1,9 @@
+com.github.talbotgui.psl.socle.securite.apiclient
+com.github.talbotgui.psl.socle.securite.apiclient.api
+com.github.talbotgui.psl.socle.securite.apiclient.dto
+com.github.talbotgui.psl.socle.securite.application
+com.github.talbotgui.psl.socle.securite.client
+com.github.talbotgui.psl.socle.securite.client.dto
+com.github.talbotgui.psl.socle.securite.controleur
+com.github.talbotgui.psl.socle.securite.exception
+com.github.talbotgui.psl.socle.securite.service

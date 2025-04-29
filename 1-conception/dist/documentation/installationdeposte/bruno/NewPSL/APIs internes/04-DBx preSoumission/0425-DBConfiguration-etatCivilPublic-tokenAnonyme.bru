@@ -1,0 +1,20 @@
+meta {
+  name: 0425-DBConfiguration-etatCivilPublic-tokenAnonyme
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/configuration/demarche/etatcivil
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+assert {
+  res.status: eq 200
+  res.body.codeDemarche: eq etatcivil
+}

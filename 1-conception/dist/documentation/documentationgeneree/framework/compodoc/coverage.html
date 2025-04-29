@@ -1,0 +1,1425 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content coverage">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Couverture de documentation</li>
+</ol>
+
+<div>
+    <img src="./images/coverage-badge-documentation.svg">
+</div>
+
+<table class="table table-bordered coverage" id="coverage-table">
+    <thead class="coverage-header">
+        <tr>
+            <th>Fichier</th>
+            <th>Type</th>
+            <th>Identifiant</th>
+            <th style="text-align:right" class="statements" data-sort-default>Déclarations</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/FmkApplicationAbstraitComponent.html">projects/framework/src/lib/application/abstrait/fmk.applicationabstrait.ts</a>
+            </td>
+            <td>directive</td>
+            <td>FmkApplicationAbstraitComponent</td>
+            <td align="right" data-sort="92">
+                <span class="coverage-percent">92 %</span>
+                <span class="coverage-count">(12/13)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#initConfigService">projects/framework/src/lib/conf/app.config.ts</a>
+            </td>
+            <td>function</td>
+            <td>initConfigService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#appConfig">projects/framework/src/lib/conf/app.config.ts</a>
+            </td>
+            <td>variable</td>
+            <td>appConfig</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#fournirEnvironnement">projects/framework/src/lib/conf/app.config.ts</a>
+            </td>
+            <td>variable</td>
+            <td>fournirEnvironnement</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#configuration">projects/framework/src/lib/conf/configuration.prod.ts</a>
+            </td>
+            <td>variable</td>
+            <td>configuration</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#configuration">projects/framework/src/lib/conf/configuration.ts</a>
+            </td>
+            <td>variable</td>
+            <td>configuration</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/LibelleI18n.html">projects/framework/src/lib/conf/i18n.ts</a>
+            </td>
+            <td>class</td>
+            <td>LibelleI18n</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#i18n">projects/framework/src/lib/conf/i18n.ts</a>
+            </td>
+            <td>variable</td>
+            <td>i18n</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/FmkContenuAbstraitComponent.html">projects/framework/src/lib/contenu/abstrait/fmk.contenuabstrait.ts</a>
+            </td>
+            <td>directive</td>
+            <td>FmkContenuAbstraitComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(13/13)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/FmkContenuComplexeAbstraitComponent.html">projects/framework/src/lib/contenu/abstrait/fmk.contenucomplexeabstrait.ts</a>
+            </td>
+            <td>directive</td>
+            <td>FmkContenuComplexeAbstraitComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(20/20)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/FmkContenuMonoSaisieAbstraitComponent.html">projects/framework/src/lib/contenu/abstrait/fmk.contenumonosaisieabstrait.ts</a>
+            </td>
+            <td>directive</td>
+            <td>FmkContenuMonoSaisieAbstraitComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(13/13)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuDocumentsComponent.html">projects/framework/src/lib/contenu/dedie/contenudocuments/fmk.contenudocuments.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuDocumentsComponent</td>
+            <td align="right" data-sort="88">
+                <span class="coverage-percent">88 %</span>
+                <span class="coverage-count">(15/17)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuFinDemarcheConnecteComponent.html">projects/framework/src/lib/contenu/dedie/contenufindemarche/contenufindemarcheconnecte/fmk.contenufindemarcheconnecte.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuFinDemarcheConnecteComponent</td>
+            <td align="right" data-sort="93">
+                <span class="coverage-percent">93 %</span>
+                <span class="coverage-count">(14/15)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkCaptchaComponent.html">projects/framework/src/lib/contenu/dedie/contenufindemarche/contenufindemarchenonconnecte/captcha/fmk.captcha.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkCaptchaComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuFinDemarcheNonConnecteComponent.html">projects/framework/src/lib/contenu/dedie/contenufindemarche/contenufindemarchenonconnecte/fmk.contenufindemarchenonconnecte.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuFinDemarcheNonConnecteComponent</td>
+            <td align="right" data-sort="94">
+                <span class="coverage-percent">94 %</span>
+                <span class="coverage-count">(17/18)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/FmkContenuFinDemarcheAbstraitComponent.html">projects/framework/src/lib/contenu/dedie/contenufindemarche/fmk.abstraitcontenufindemarche.ts</a>
+            </td>
+            <td>directive</td>
+            <td>FmkContenuFinDemarcheAbstraitComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(17/17)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuFinDemarcheComponent.html">projects/framework/src/lib/contenu/dedie/contenufindemarche/fmk.contenufindemarche.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuFinDemarcheComponent</td>
+            <td align="right" data-sort="66">
+                <span class="coverage-percent">66 %</span>
+                <span class="coverage-count">(2/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuRecapitulatifComponent.html">projects/framework/src/lib/contenu/dedie/contenurecapitulatif/fmk.contenurecapitulatif.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuRecapitulatifComponent</td>
+            <td align="right" data-sort="95">
+                <span class="coverage-percent">95 %</span>
+                <span class="coverage-count">(19/20)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkListeContenusRecapitulatifComponent.html">projects/framework/src/lib/contenu/dedie/contenurecapitulatif/listecontenusrecapitulatif/fmk.listecontenusrecapitulatif.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkListeContenusRecapitulatifComponent</td>
+            <td align="right" data-sort="93">
+                <span class="coverage-percent">93 %</span>
+                <span class="coverage-count">(15/16)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuUtilisateurConnecteComponent.html">projects/framework/src/lib/contenu/dedie/contenuutilisateurconnecte/fmk.contenuutilisateurconnecte.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuUtilisateurConnecteComponent</td>
+            <td align="right" data-sort="92">
+                <span class="coverage-percent">92 %</span>
+                <span class="coverage-count">(13/14)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuComponent.html">projects/framework/src/lib/contenu/fmk.contenu.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuComponent</td>
+            <td align="right" data-sort="40">
+                <span class="coverage-percent">40 %</span>
+                <span class="coverage-count">(4/10)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkMessagesValidationComponent.html">projects/framework/src/lib/contenu/messagesvalidation/fmk.messagesvalidation.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkMessagesValidationComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuAdresseFrOuRtrComponent.html">projects/framework/src/lib/contenu/riche/contenuadressefrouetr/fmk.contenuadressefrouetr.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuAdresseFrOuRtrComponent</td>
+            <td align="right" data-sort="85">
+                <span class="coverage-percent">85 %</span>
+                <span class="coverage-count">(18/21)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuContactPersonnelComponent.html">projects/framework/src/lib/contenu/riche/contenucontactpersonnel/fmk.contenucontactpersonnel.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuContactPersonnelComponent</td>
+            <td align="right" data-sort="85">
+                <span class="coverage-percent">85 %</span>
+                <span class="coverage-count">(18/21)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuIdentiteComponent.html">projects/framework/src/lib/contenu/riche/contenuidentite/fmk.contenuidentite.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuIdentiteComponent</td>
+            <td align="right" data-sort="85">
+                <span class="coverage-percent">85 %</span>
+                <span class="coverage-count">(18/21)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuRicheComponent.html">projects/framework/src/lib/contenu/riche/fmk.contenuriche.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuRicheComponent</td>
+            <td align="right" data-sort="66">
+                <span class="coverage-percent">66 %</span>
+                <span class="coverage-count">(4/6)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuAutocompletionComponent.html">projects/framework/src/lib/contenu/simple/contenuautocompletion/fmk.contenuautocompletion.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuAutocompletionComponent</td>
+            <td align="right" data-sort="94">
+                <span class="coverage-percent">94 %</span>
+                <span class="coverage-count">(18/19)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuCaseComponent.html">projects/framework/src/lib/contenu/simple/contenucase/fmk.contenucase.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuCaseComponent</td>
+            <td align="right" data-sort="93">
+                <span class="coverage-percent">93 %</span>
+                <span class="coverage-count">(15/16)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuDateComponent.html">projects/framework/src/lib/contenu/simple/contenudate/fmk.contenudate.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuDateComponent</td>
+            <td align="right" data-sort="92">
+                <span class="coverage-percent">92 %</span>
+                <span class="coverage-count">(12/13)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuListeFinieComponent.html">projects/framework/src/lib/contenu/simple/contenulistefinie/fmk.contenulistefinie.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuListeFinieComponent</td>
+            <td align="right" data-sort="92">
+                <span class="coverage-percent">92 %</span>
+                <span class="coverage-count">(12/13)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuParagrapheComponent.html">projects/framework/src/lib/contenu/simple/contenuparagraphe/fmk.contenuparagraphe.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuParagrapheComponent</td>
+            <td align="right" data-sort="93">
+                <span class="coverage-percent">93 %</span>
+                <span class="coverage-count">(14/15)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuRadioComponent.html">projects/framework/src/lib/contenu/simple/contenuradio/fmk.contenuradio.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuRadioComponent</td>
+            <td align="right" data-sort="92">
+                <span class="coverage-percent">92 %</span>
+                <span class="coverage-count">(12/13)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuSaisieComponent.html">projects/framework/src/lib/contenu/simple/contenusaisie/fmk.contenusaisie.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuSaisieComponent</td>
+            <td align="right" data-sort="92">
+                <span class="coverage-percent">92 %</span>
+                <span class="coverage-count">(12/13)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuSaisieLongueComponent.html">projects/framework/src/lib/contenu/simple/contenusaisielongue/fmk.contenusaisielongue.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuSaisieLongueComponent</td>
+            <td align="right" data-sort="88">
+                <span class="coverage-percent">88 %</span>
+                <span class="coverage-count">(15/17)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuUploadDocumentComponent.html">projects/framework/src/lib/contenu/simple/contenuuploaddocument/fmk.contenuuploaddocument.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuUploadDocumentComponent</td>
+            <td align="right" data-sort="90">
+                <span class="coverage-percent">90 %</span>
+                <span class="coverage-count">(29/32)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkContenuSimpleComponent.html">projects/framework/src/lib/contenu/simple/fmk.contenusimple.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkContenuSimpleComponent</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(4/12)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ConnexionBrouillonDialog.html">projects/framework/src/lib/modale/connexionbrouillon/fmk.connexionbrouillon.ts</a>
+            </td>
+            <td>component</td>
+            <td>ConnexionBrouillonDialog</td>
+            <td align="right" data-sort="88">
+                <span class="coverage-percent">88 %</span>
+                <span class="coverage-count">(8/9)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/BrouillonDemarche.html">projects/framework/src/lib/model/brouillonsoumissiondemarche.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>BrouillonDemarche</td>
+            <td align="right" data-sort="87">
+                <span class="coverage-percent">87 %</span>
+                <span class="coverage-count">(7/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/DocumentsPostSoumission.html">projects/framework/src/lib/model/brouillonsoumissiondemarche.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>DocumentsPostSoumission</td>
+            <td align="right" data-sort="87">
+                <span class="coverage-percent">87 %</span>
+                <span class="coverage-count">(7/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/DonneesDeSoumission.html">projects/framework/src/lib/model/brouillonsoumissiondemarche.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>DonneesDeSoumission</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuAdresseFrOuEtr.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuAdresseFrOuEtr</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(18/18)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuAutocompletion.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuAutocompletion</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(18/18)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuCase.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuCase</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(14/14)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuContactPersonnel.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuContactPersonnel</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(18/18)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuDate.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuDate</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(14/14)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuDeBloc.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuDeBloc</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(13/13)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuDocuments.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuDocuments</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(13/13)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuFinDemarche.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuFinDemarche</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(13/13)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuIdentite.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuIdentite</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(18/18)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuListeFinie.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuListeFinie</td>
+            <td align="right" data-sort="93">
+                <span class="coverage-percent">93 %</span>
+                <span class="coverage-count">(14/15)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuOption.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuOption</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuParagraphe.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuParagraphe</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(18/18)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuRadio.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuRadio</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(15/15)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuRecapitulatif.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuRecapitulatif</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(13/13)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuSaisie.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuSaisie</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(14/14)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuSaisieComplexe.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuSaisieComplexe</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(18/18)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuUploadDocument.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuUploadDocument</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(15/15)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ContenuUtilisateurConnecte.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ContenuUtilisateurConnecte</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(13/13)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Validation.html">projects/framework/src/lib/model/configurationdemarchecontenubloc.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>Validation</td>
+            <td align="right" data-sort="7">
+                <span class="coverage-percent">7 %</span>
+                <span class="coverage-count">(1/13)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Bloc.html">projects/framework/src/lib/model/configurationdemarchegeneral.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>Bloc</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(12/12)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ConfigurationDemarche.html">projects/framework/src/lib/model/configurationdemarchegeneral.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ConfigurationDemarche</td>
+            <td align="right" data-sort="90">
+                <span class="coverage-percent">90 %</span>
+                <span class="coverage-count">(9/10)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ListeFonctionnalites.html">projects/framework/src/lib/model/configurationdemarchegeneral.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ListeFonctionnalites</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Page.html">projects/framework/src/lib/model/configurationdemarchegeneral.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>Page</td>
+            <td align="right" data-sort="90">
+                <span class="coverage-percent">90 %</span>
+                <span class="coverage-count">(9/10)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ParametrePointEntree.html">projects/framework/src/lib/model/configurationdemarchegeneral.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ParametrePointEntree</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/PieceJointeAssociee.html">projects/framework/src/lib/model/configurationdemarchegeneral.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>PieceJointeAssociee</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/PointEntree.html">projects/framework/src/lib/model/configurationdemarchegeneral.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>PointEntree</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/SousBloc.html">projects/framework/src/lib/model/configurationdemarchegeneral.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>SousBloc</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(11/11)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/MessageAafficher.html">projects/framework/src/lib/model/message.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>MessageAafficher</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/DonneesUsager.html">projects/framework/src/lib/model/securite.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>DonneesUsager</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(17/17)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ReponseConnexion.html">projects/framework/src/lib/model/securite.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>ReponseConnexion</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#CLEF_UTILISATEUR">projects/framework/src/lib/model/securite.model.ts</a>
+            </td>
+            <td>variable</td>
+            <td>CLEF_UTILISATEUR</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkFilDarianeComponent.html">projects/framework/src/lib/morceaudepage/conteneurPages/fildariane/fmk.fildariane.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkFilDarianeComponent</td>
+            <td align="right" data-sort="93">
+                <span class="coverage-percent">93 %</span>
+                <span class="coverage-count">(14/15)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkConteneurPagesComponent.html">projects/framework/src/lib/morceaudepage/conteneurPages/fmk.conteneurpages.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkConteneurPagesComponent</td>
+            <td align="right" data-sort="90">
+                <span class="coverage-percent">90 %</span>
+                <span class="coverage-count">(10/11)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkBlocComponent.html">projects/framework/src/lib/morceaudepage/conteneurPages/page/bloc/fmk.bloc.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkBlocComponent</td>
+            <td align="right" data-sort="93">
+                <span class="coverage-percent">93 %</span>
+                <span class="coverage-count">(15/16)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkBlocDynamiqueComponent.html">projects/framework/src/lib/morceaudepage/conteneurPages/page/blocdynamique/fmk.blocdynamique.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkBlocDynamiqueComponent</td>
+            <td align="right" data-sort="92">
+                <span class="coverage-percent">92 %</span>
+                <span class="coverage-count">(24/26)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkPageComponent.html">projects/framework/src/lib/morceaudepage/conteneurPages/page/fmk.page.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkPageComponent</td>
+            <td align="right" data-sort="92">
+                <span class="coverage-percent">92 %</span>
+                <span class="coverage-count">(12/13)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkNavigationComponent.html">projects/framework/src/lib/morceaudepage/conteneurPages/page/navigation/fmk.navigation.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkNavigationComponent</td>
+            <td align="right" data-sort="88">
+                <span class="coverage-percent">88 %</span>
+                <span class="coverage-count">(16/18)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/AncreTabulableDirective.html">projects/framework/src/lib/morceaudepage/directives/ancretabulable.ts</a>
+            </td>
+            <td>directive</td>
+            <td>AncreTabulableDirective</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./pipes/i18nPipeDirective.html">projects/framework/src/lib/morceaudepage/directives/i18nPipe.ts</a>
+            </td>
+            <td>pipe</td>
+            <td>i18nPipeDirective</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./pipes/LibelleDirective.html">projects/framework/src/lib/morceaudepage/directives/libelle.ts</a>
+            </td>
+            <td>pipe</td>
+            <td>LibelleDirective</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkEnteteComponent.html">projects/framework/src/lib/morceaudepage/entete/fmk.entete.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkEnteteComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(10/10)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkMessageGlobalComponent.html">projects/framework/src/lib/morceaudepage/entete/messageglobal/fmk.messageglobal.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkMessageGlobalComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(11/11)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FmkPiedDePageComponent.html">projects/framework/src/lib/morceaudepage/pieddepage/fmk.pieddepage.ts</a>
+            </td>
+            <td>component</td>
+            <td>FmkPiedDePageComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ContexteService.html">projects/framework/src/lib/services/stateful/contexte.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ContexteService</td>
+            <td align="right" data-sort="96">
+                <span class="coverage-percent">96 %</span>
+                <span class="coverage-count">(32/33)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/DonneesService.html">projects/framework/src/lib/services/stateful/donnees.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>DonneesService</td>
+            <td align="right" data-sort="90">
+                <span class="coverage-percent">90 %</span>
+                <span class="coverage-count">(19/21)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/EnvironnementService.html">projects/framework/src/lib/services/stateful/environnement.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>EnvironnementService</td>
+            <td align="right" data-sort="75">
+                <span class="coverage-percent">75 %</span>
+                <span class="coverage-count">(3/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/BouchonService.html">projects/framework/src/lib/services/stateless/bouchon.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>BouchonService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(16/16)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/BrouillonService.html">projects/framework/src/lib/services/stateless/brouillon.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>BrouillonService</td>
+            <td align="right" data-sort="89">
+                <span class="coverage-percent">89 %</span>
+                <span class="coverage-count">(17/19)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ClientApiService.html">projects/framework/src/lib/services/stateless/clientapi-service.ts</a>
+            </td>
+            <td>class</td>
+            <td>ClientApiService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(11/11)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ConfigurationService.html">projects/framework/src/lib/services/stateless/configuration.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ConfigurationService</td>
+            <td align="right" data-sort="95">
+                <span class="coverage-percent">95 %</span>
+                <span class="coverage-count">(19/20)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/DateService.html">projects/framework/src/lib/services/stateless/date.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>DateService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/DocumentService.html">projects/framework/src/lib/services/stateless/document.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>DocumentService</td>
+            <td align="right" data-sort="93">
+                <span class="coverage-percent">93 %</span>
+                <span class="coverage-count">(15/16)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/FormulaireService.html">projects/framework/src/lib/services/stateless/formulaire.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>FormulaireService</td>
+            <td align="right" data-sort="91">
+                <span class="coverage-percent">91 %</span>
+                <span class="coverage-count">(11/12)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/OIDCService.html">projects/framework/src/lib/services/stateless/oidc.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>OIDCService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/PieceJointeService.html">projects/framework/src/lib/services/stateless/piecejointe.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>PieceJointeService</td>
+            <td align="right" data-sort="93">
+                <span class="coverage-percent">93 %</span>
+                <span class="coverage-count">(14/15)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ReferentielService.html">projects/framework/src/lib/services/stateless/referentiel.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ReferentielService</td>
+            <td align="right" data-sort="92">
+                <span class="coverage-percent">92 %</span>
+                <span class="coverage-count">(13/14)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/SecuriteService.html">projects/framework/src/lib/services/stateless/securite.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>SecuriteService</td>
+            <td align="right" data-sort="94">
+                <span class="coverage-percent">94 %</span>
+                <span class="coverage-count">(18/19)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/SoumissionService.html">projects/framework/src/lib/services/stateless/soumission.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>SoumissionService</td>
+            <td align="right" data-sort="93">
+                <span class="coverage-percent">93 %</span>
+                <span class="coverage-count">(15/16)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ValidationService.html">projects/framework/src/lib/services/stateless/validation.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ValidationService</td>
+            <td align="right" data-sort="90">
+                <span class="coverage-percent">90 %</span>
+                <span class="coverage-count">(9/10)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/AbstractComponent.html">projects/framework/src/lib/utilitaires/abstract.component.ts</a>
+            </td>
+            <td>directive</td>
+            <td>AbstractComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UtilitaireBlocDynamique.html">projects/framework/src/lib/utilitaires/utilitaire.blocdynamique.ts</a>
+            </td>
+            <td>class</td>
+            <td>UtilitaireBlocDynamique</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/UtilitaireModel.html">projects/framework/src/lib/utilitaires/utilitaire.model.ts</a>
+            </td>
+            <td>class</td>
+            <td>UtilitaireModel</td>
+            <td align="right" data-sort="95">
+                <span class="coverage-percent">95 %</span>
+                <span class="coverage-count">(19/20)</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script src="js/libs/tablesort.min.js"></script>
+<script src="js/libs/tablesort.number.min.js"></script>
+<script>
+    new Tablesort(document.getElementById('coverage-table'));
+</script>
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'coverage';
+            var COMPODOC_CURRENT_PAGE_URL = 'coverage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

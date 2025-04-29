@@ -1,0 +1,92 @@
+meta {
+  name: 0431-DBBrouillon-ecritureBrouillonEtatCivil-tokenSP
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/brouillon/brouillon
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslSP}}
+}
+
+body:json {
+  {
+  	"codeDemarche": "etatcivil",
+  	"versionConfiguration": "1.0.0",
+  	"donnees": {
+  		"action": "MARIAGE",
+  		"communeConcerne_code": "80001",
+  		"communeConcerne_codePostal": "80000",
+  		"communeConcerne_libelle": "Amiens",
+  		"communeConcerne_libelleLong": "Amiens (80000)",
+  		"motif": "Mariage",
+  		"natureActe": "COPIE-INTEGRALE",
+  		"nombreExemplaire": "1",
+  		"qualiteDemandeur": "PersonneConcernee",
+  		"typeActe": "NAISSANCE",
+  		"dateMariage": "2018-08-08",
+  		"identite1_civilite": "MME",
+  		"identite1_nomFamille": "DURANT",
+  		"identite1_nomUsage": "DUPONT",
+  		"identite1_prenoms": "Annie",
+  		"identite1_dateNaissance": "2001-01-01",
+  		"identite1_nationnalite_id": 1,
+  		"identite1_nationnalite_libelle": "Française",
+  		"identite1_paysNaissance_id": 1,
+  		"identite1_paysNaissance_libelle": "France",
+  		"identite1_communeNaissanceFR_codePostal": "80400",
+  		"identite1_communeNaissanceFR_code": "80401",
+  		"identite1_communeNaissanceFR_libelle": "Ham",
+  		"identite1_communeNaissanceFR_libelleLong": "Ham (80000)",
+  		"filiation1_mere_filiationInconnue": "false",
+  		"filiation1_mere_nom": "NomMere1",
+  		"filiation1_mere_prenoms": "PrenomsMere1",
+  		"filiation1_pere_filiationInconnue": "false",
+  		"filiation1_pere_nom": "NomPere1",
+  		"filiation1_pere_prenoms": "PrenomsPere1",
+  		"identite2_civilite": "M",
+  		"identite2_nomFamille": "DURANT",
+  		"identite2_nomUsage": null,
+  		"identite2_prenoms": "Arnaud",
+  		"identite2_dateNaissance": "2002-02-02",
+  		"identite2_nationnalite_id": 1,
+  		"identite2_nationnalite_libelle": "Française",
+  		"identite2_paysNaissance_id": 1,
+  		"identite2_paysNaissance_libelle": "France",
+  		"identite2_communeNaissanceFR_code": "18801",
+  		"identite2_communeNaissanceFR_libelle": "Baugy",
+  		"identite2_communeNaissanceFR_libelleLong": "Baugy",
+  		"filiation2_mere_filiationInconnue": "false",
+  		"filiation2_mere_nom": "NomMere2",
+  		"filiation2_mere_prenoms": "PrenomsMere2",
+  		"filiation2_pere_filiationInconnue": "false",
+  		"filiation2_pere_nom": "NomPere2",
+  		"filiation2_pere_prenoms": "PrenomsPere2",
+  		"adresse_estFrance": "true",
+  		"adresse_etage": "Etage 1",
+  		"adresse_immeuble": "Immeuble 1",
+  		"adresse_voie": "1 rue XXX",
+  		"adresse_boitePostale": "BP 123",
+  		"adresse_commune_code": "80001",
+  		"adresse_commune_codePostal": "80000",
+  		"adresse_commune_libelle": "Amiens",
+  		"adresse_commune_libelleLong": "Amiens (80000)",
+  		"contact_email": "monemail@test.com",
+  		"contact_telephone": "0612345678"
+  	},
+  	"indexPage": 0
+  }
+}
+
+vars:post-response {
+  idBrouillonCree: res.body
+}
+
+assert {
+  res.status: eq 200
+}

@@ -1,0 +1,53 @@
+---
+
+# Destruction du répertoire /psl
+- name: "[Destruction] Répertoire '{{ psl_rep }}"
+  ansible.builtin.file:
+    path: "{{ psl_rep }}"
+    force: true
+    state: "absent"
+
+# Destruction de l'utilisateur www
+- name: "[Destruction] Utilisateur '{{ unix_utilisateur }}'"
+  ansible.builtin.user:
+    name: "{{ unix_utilisateur }}"
+    remove: true
+    force: true
+    state: "absent"
+
+# Destruction du groupe www
+- name: "[Destruction] Groupe '{{ unix_groupe }}'"
+  ansible.builtin.group:
+    name: "{{ unix_groupe }}"
+    state: "absent"
+
+# Cette tâche permet de désinstaller Java
+# Ajout de l'autoremove pour forcer la suppression des logiciels
+- name: "[Destruction] Logiciel '{{ packages_java }}'"
+  apt:
+    name: "{{ packages_java }}"
+    force_apt_get: "true"
+    state: "absent"
+    autoremove: true
+
+# Cette tâche permet de désinstaller ZIP
+# Ajout de l'autoremove pour forcer la suppression des logiciels
+- name: "[Destruction] Logiciel 'unzip'"
+  apt:
+    name: "unzip"
+    force_apt_get: "true"
+    state: "absent"
+    autoremove: true
+
+# Suppression de la sauvegarde du CACERT (le CACERT est créé à l'installation de Java)
+- name: "[Destruction] Suppression du CACERT spécifique '{{ cacert_chemin }}.save'"
+  ansible.builtin.file:
+    path: "{{ cacert_chemin }}.save"
+    state: "absent"
+
+# Suppression du CACERT (le CACERT est créé à l'installation de Java)
+- name: "[Destruction] Suppression du CACERT spécifique '{{ cacert_chemin }}'"
+  ansible.builtin.file:
+    path: "{{ cacert_chemin }}"
+    state: "absent"
+

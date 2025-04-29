@@ -1,0 +1,14 @@
+---
+
+# Description du rôle
+galaxy_info:
+  author: "Guillaume TALBOT"
+  description: "Ce rôle installe un service-gateway sur un serveur"
+  min_ansible_version: "2.8"
+  license: "This program is offered under a commercial and under the AGPL license. See LICENSE.md in repository root directory"
+
+# Eventuelles déclarations de dépendance
+dependencies:
+  - role: "commun/ac_repertoires_et_keystore"
+  - role: "commun/ai_installer"
+  - role: "commun/ah_template_script_demarrer"

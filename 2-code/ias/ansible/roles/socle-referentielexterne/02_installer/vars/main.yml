@@ -1,0 +1,7 @@
+---
+
+# Nom de l'applicatif
+applicatif_nom: "socle-referentielexterne"
+
+# Répertoire contenant les fichiers de configuration à déposer sur le sreveur
+configuration_rep: "{{ playbook_dir }}/../../socle/socle-referentielexterne/src/test/resources/"

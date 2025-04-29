@@ -1,0 +1,10 @@
+---
+
+# Dépôt du script
+- name: "[Installation] Script de démarrage/arrêt/statut '{{ applicatifs_rep }}{{ applicatif_nom }}/{{ applicatif_nom }}.sh'"
+  ansible.builtin.template:
+    src: "templates/script.j2"
+    dest: "{{ applicatifs_rep }}{{ applicatif_nom }}/{{ applicatif_nom }}.sh"
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+    mode: "{{ mode_fic_nominal_executable }}"

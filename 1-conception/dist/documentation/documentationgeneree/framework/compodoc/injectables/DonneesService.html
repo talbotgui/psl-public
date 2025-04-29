@@ -1,0 +1,1865 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >DonneesService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Fichier</h3>
+        </p>
+        <p class="comment">
+            <code>projects/framework/src/lib/services/stateful/donnees.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#donnees" >donnees</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#LISTE_FONCTIONS_DISPONIBLES" >LISTE_FONCTIONS_DISPONIBLES</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#parser" >parser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#REGEX_RECHERCHE_DONNEE" >REGEX_RECHERCHE_DONNEE</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#REGEX_RECHERCHE_DONNEE_EXPRESSION" >REGEX_RECHERCHE_DONNEE_EXPRESSION</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#staticEval" >staticEval</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#calculerCondition" >calculerCondition</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#integrerDesVariablesDansUnLibelle" >integrerDesVariablesDansUnLibelle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#lire" >lire</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#lireTout" >lireTout</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#lireToutEtIntegrerLesDonneesFournies" >lireToutEtIntegrerLesDonneesFournies</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#lireUnObjet" >lireUnObjet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#sauvegarder" >sauvegarder</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#sauvegarderDonneesDuFormulaire" >sauvegarderDonneesDuFormulaire</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#sauvegarderIdentifiantCaptcha" >sauvegarderIdentifiantCaptcha</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#sauvegarderSaisieCaptcha" >sauvegarderSaisieCaptcha</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#sauvegarderUnObjet" >sauvegarderUnObjet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#supprimer" >supprimer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#supprimerDonnee" >supprimerDonnee</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructeur</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(logger: NGXLogger, dateService: <a href="../injectables/DateService.html" target="_self">DateService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="52" class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:52</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructeur pour injection des dépendances</p>
+</div>
+                            <div>
+                                    <b>Paramètres :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nom</td>
+                                                    <td>Type</td>
+                                                <td>Optionnel</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                    <code>NGXLogger</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dateService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DateService.html" target="_self" >DateService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculerCondition"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>calculerCondition</b></span>
+                        <a href="#calculerCondition"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculerCondition(conditionVisibilite: string | undefined, toutesLesDonnees: literal type, valeurParDefaut: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="141"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:141</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Calcul d&#39;une condition d&#39;affichage à partir des données stockées dans le service plus les données fournies en plus</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>conditionVisibilite</td>
+                                            <td>
+                                                        <code>string | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>toutesLesDonnees</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>valeurParDefaut</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="integrerDesVariablesDansUnLibelle"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>integrerDesVariablesDansUnLibelle</b></span>
+                        <a href="#integrerDesVariablesDansUnLibelle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>integrerDesVariablesDansUnLibelle(libelle: string | undefined, toutesLesDonnees: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="185"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:185</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Remplace, dans le libellé fourni, les {{variable}} par la valeur présente dans les données globales (dans un premier temps) ou dans les données de la page (prioritairement).</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>libelle</td>
+                                            <td>
+                                                        <code>string | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>toutesLesDonnees</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>string | undefined</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lire"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>lire</b></span>
+                        <a href="#lire"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>lire(clef: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="63"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Pour lire les données mise dans le contexte</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>clef</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>string | undefined</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lireTout"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>lireTout</b></span>
+                        <a href="#lireTout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>lireTout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="262"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:262</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode clonant l&#39;objet contenant toutes les données
+et transformant tout en string.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>literal type</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lireToutEtIntegrerLesDonneesFournies"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>lireToutEtIntegrerLesDonneesFournies</b></span>
+                        <a href="#lireToutEtIntegrerLesDonneesFournies"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>lireToutEtIntegrerLesDonneesFournies(donneesDeLaPage: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="166"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:166</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Fusion des données de la page prioritairement aux données globales</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>donneesDeLaPage</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>literal type</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lireUnObjet"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>lireUnObjet</b></span>
+                        <a href="#lireUnObjet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>lireUnObjet(clef: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="68"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Pour lire les données mise dans le contexte</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>clef</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>literal type | undefined</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sauvegarder"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>sauvegarder</b></span>
+                        <a href="#sauvegarder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sauvegarder(clef: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, valeur: string | Date | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="86"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sauvegarde d&#39;une valeur.
+La validation de la donnée doit être faite avant l&#39;appel à cette méthode.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>clef</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>valeur</td>
+                                            <td>
+                                                        <code>string | Date | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sauvegarderDonneesDuFormulaire"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>sauvegarderDonneesDuFormulaire</b></span>
+                        <a href="#sauvegarderDonneesDuFormulaire"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sauvegarderDonneesDuFormulaire(configurationDemarche: <a href="../classes/ConfigurationDemarche.html" target="_self">ConfigurationDemarche</a>, page: <a href="../classes/Page.html" target="_self">Page</a>, formulaire: UntypedFormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="111"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:111</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sauvegarde des données du formulaire dans le contexte (qq soit l&#39;état du formulaire)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>configurationDemarche</td>
+                                            <td>
+                                                            <code><a href="../classes/ConfigurationDemarche.html" target="_self" >ConfigurationDemarche</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="../classes/Page.html" target="_self" >Page</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>formulaire</td>
+                                            <td>
+                                                        <code>UntypedFormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sauvegarderIdentifiantCaptcha"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>sauvegarderIdentifiantCaptcha</b></span>
+                        <a href="#sauvegarderIdentifiantCaptcha"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sauvegarderIdentifiantCaptcha(idCaptcha: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="284"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:284</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sauvegarde, dans les données de l&#39;id du captcha</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idCaptcha</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sauvegarderSaisieCaptcha"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>sauvegarderSaisieCaptcha</b></span>
+                        <a href="#sauvegarderSaisieCaptcha"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sauvegarderSaisieCaptcha(valeurCaptcha: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="289"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:289</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sauvegarde, dans les données de la valeur du captcha</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>valeurCaptcha</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sauvegarderUnObjet"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>sauvegarderUnObjet</b></span>
+                        <a href="#sauvegarderUnObjet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sauvegarderUnObjet(clef: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, objet: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="94"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:94</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sauvegarde non pas d&#39;une valeur mais d&#39;un objet (dans le cas des autocompletion par exemple).
+La validation de la donnée doit être faite avant l&#39;appel à cette méthode.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>clef</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>objet</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="supprimer"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>supprimer</b></span>
+                        <a href="#supprimer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>supprimer(clef: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="274"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:274</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Suppression d&#39;une valeur.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>clef</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="supprimerDonnee"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>supprimerDonnee</b></span>
+                        <a href="#supprimerDonnee"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>supprimerDonnee(clef: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="58"
+                                    class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>clef</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="donnees"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>donnees</b></span>
+                        <a href="#donnees"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="46" class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Toutes les données</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LISTE_FONCTIONS_DISPONIBLES"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>LISTE_FONCTIONS_DISPONIBLES</b></span>
+                        <a href="#LISTE_FONCTIONS_DISPONIBLES"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[&#x27;sommeChampBlocDynamique&#x27;, &#x27;nombreOccurencesBlocDynamique&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="43" class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Liste des fonctions disponibles dans les expressions</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="parser"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>parser</b></span>
+                        <a href="#parser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>new ES6Parser()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="49" class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:49</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Analyseur d&#39;expression conditionnelle</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="REGEX_RECHERCHE_DONNEE"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>REGEX_RECHERCHE_DONNEE</b></span>
+                        <a href="#REGEX_RECHERCHE_DONNEE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>/{{([a-zA-Z0-9_@()&#x27;]*)}}/ig</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="36" class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:36</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Regex de recherche des variables dans un libelle (titre, aide, texte de paragraphe, ...)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="REGEX_RECHERCHE_DONNEE_EXPRESSION"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>REGEX_RECHERCHE_DONNEE_EXPRESSION</b></span>
+                        <a href="#REGEX_RECHERCHE_DONNEE_EXPRESSION"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>/([a-zA-Z0-9_]+)/ig</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="40" class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:40</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Regex de recherche des variables dans une expression JS (condition de visibilité ou de désactivation)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="staticEval"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>staticEval</b></span>
+                        <a href="#staticEval"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>new ES6StaticEval()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="52" class="link-to-prism">projects/framework/src/lib/services/stateful/donnees.service.ts:52</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evaluateur d&#39;expression conditionnelle</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { UntypedFormGroup } from &#x27;@angular/forms&#x27;;
+import { ES6Parser, ES6StaticEval } from &#x27;espression&#x27;;
+import { NGXLogger } from &#x27;ngx-logger&#x27;;
+import { ConfigurationDemarche, Page } from &#x27;../../model/configurationdemarchegeneral.model&#x27;;
+import { DateService } from &#x27;../../services/stateless/date.service&#x27;;
+import { UtilitaireModel } from &#x27;../../utilitaires/utilitaire.model&#x27;;
+
+@Injectable({ providedIn: &#x27;root&#x27; })
+export class DonneesService {
+
+    /** Regex de recherche des variables dans un libelle (titre, aide, texte de paragraphe, ...) */
+    // les caractères a-zA-Z0-9_ sont des caractères autorisés pour toute variable
+    // les caractères @()&#x27; viennent des appels de fonction évaluables comme sommeChampBlocDynamique(&#x27;prejudicePaiements@@Montant&#x27;)
+    public static readonly REGEX_RECHERCHE_DONNEE &#x3D; /{{([a-zA-Z0-9_@()&#x27;]*)}}/ig;
+
+    /** Regex de recherche des variables dans une expression JS (condition de visibilité ou de désactivation) */
+    // les caractères a-zA-Z0-9_ sont des caractères autorisés pour toute variable
+    public static readonly REGEX_RECHERCHE_DONNEE_EXPRESSION &#x3D; /([a-zA-Z0-9_]+)/ig;
+
+    /** Liste des fonctions disponibles dans les expressions */
+    public static readonly LISTE_FONCTIONS_DISPONIBLES &#x3D; [&#x27;sommeChampBlocDynamique&#x27;, &#x27;nombreOccurencesBlocDynamique&#x27;]
+
+    /** Toutes les données */
+    private donnees: { [index: string]: any } &#x3D; {};
+
+    /** Analyseur d&#x27;expression conditionnelle */
+    private parser &#x3D; new ES6Parser();
+
+    /** Evaluateur d&#x27;expression conditionnelle */
+    private staticEval &#x3D; new ES6StaticEval();
+
+    /** Constructeur pour injection des dépendances */
+    public constructor(private logger: NGXLogger, private dateService: DateService) { }
+
+    // Suppression d&#x27;une donnée
+    public supprimerDonnee(clef: string): void {
+        delete this.donnees[clef];
+    }
+
+    /** Pour lire les données mise dans le contexte */
+    public lire(clef: string): string | undefined {
+        return this.donnees[clef] as string;
+    }
+
+    /** Pour lire les données mise dans le contexte */
+    public lireUnObjet(clef: string): { [index: string]: any } | undefined {
+        const resultat: { [index: string]: any } &#x3D; {};
+        Object.keys(this.donnees).forEach(k &#x3D;&gt; {
+            if (k.startsWith(clef + &#x27;_&#x27;)) {
+                resultat[k] &#x3D; this.donnees[k];
+            }
+        });
+        if (Object.keys(resultat).length &#x3D;&#x3D;&#x3D; 0) {
+            return undefined;
+        } else {
+            return resultat;
+        }
+    }
+
+    /**
+     * Sauvegarde d&#x27;une valeur. 
+     * La validation de la donnée doit être faite avant l&#x27;appel à cette méthode.
+    */
+    public sauvegarder(clef: string, valeur: string | Date | undefined): void {
+        this.donnees[clef] &#x3D; valeur;
+    }
+
+    /**
+     * Sauvegarde non pas d&#x27;une valeur mais d&#x27;un objet (dans le cas des autocompletion par exemple). 
+     * La validation de la donnée doit être faite avant l&#x27;appel à cette méthode.
+     */
+    public sauvegarderUnObjet(clef: string, objet: { [index: string]: any }): void {
+        // Suppression des données précédente avec cette clef au cas où le nouvel objet ait moins d&#x27;attribut que le précédent
+        this.supprimer(clef);
+        // Sauvegarde 
+        if (typeof objet !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp; objet !&#x3D;&#x3D; null) {
+            Object.keys(objet).forEach(k &#x3D;&gt; {
+                if (k.indexOf(clef) !&#x3D;&#x3D; 0) {
+                    this.logger.error(&#x27;L\&#x27;attribut d\&#x27;objet &quot;&#x27; + k + &#x27;&quot; ne contient pas la clef du contenu &quot;&#x27; + clef + &quot;&#x27;&quot;);
+                }
+                if (typeof objet[k] !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp; typeof objet[k] !&#x3D;&#x3D; &#x27;object&#x27; &amp;&amp; objet[k] !&#x3D;&#x3D; null) {
+                    this.donnees[k] &#x3D; objet[k];
+                }
+            });
+        }
+    }
+
+    /** Sauvegarde des données du formulaire dans le contexte (qq soit l&#x27;état du formulaire) */
+    public sauvegarderDonneesDuFormulaire(configurationDemarche: ConfigurationDemarche, page: Page, formulaire: UntypedFormGroup): void {
+        // Pour chaque controle du formulaire
+        Object.keys(formulaire.controls).forEach(clef &#x3D;&gt; {
+            const controle &#x3D; formulaire.controls[clef];
+            // si le controle est un sous-formulaire (cas des composants complexe)
+            if (controle instanceof UntypedFormGroup) {
+                this.sauvegarderDonneesDuFormulaire(configurationDemarche, page, controle);
+            }
+            // si le controle est actif (les masqués sont désactivés) et a été modifié, on en sauvegarde le contenu
+            else if (!controle.disabled &amp;&amp; controle.dirty) {
+
+                // Attention, ce IF/ELSE doit être cohérent avec celui présent dans le calcul des conditions (DonneesService.calculerCondition)
+                if (typeof controle.value &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+                    this.sauvegarder(clef, controle.value);
+                } else {
+                    this.sauvegarderUnObjet(clef, controle.value);
+                }
+            }
+            // si le contrôle est inactif et que cette donnée n&#x27;est modifiable nulle part ailleurs, on supprime la donnée
+            const donneePresenteeUniquementDansCeForm &#x3D; UtilitaireModel.verifierDonneeEstPresenteeUneSeuleFoisDansTouteLaDemarche(configurationDemarche, clef);
+            if (controle.disabled &amp;&amp; donneePresenteeUniquementDansCeForm) {
+                this.supprimer(clef);
+            }
+        });
+
+        // Log
+        this.logger.trace(&#x27;Données en quittant la page \&#x27;&#x27; + page.titreAriane + &#x27;\&#x27; : &#x27;, this.donnees);
+    }
+
+    /** Calcul d&#x27;une condition d&#x27;affichage à partir des données stockées dans le service plus les données fournies en plus */
+    public calculerCondition(conditionVisibilite: string | undefined, toutesLesDonnees: { [index: string]: string }, valeurParDefaut: boolean): boolean {
+
+        if (conditionVisibilite &#x3D;&#x3D;&#x3D; undefined || conditionVisibilite &#x3D;&#x3D;&#x3D; &#x27;&#x27; || conditionVisibilite &#x3D;&#x3D;&#x3D; null) {
+            return valeurParDefaut;
+        } else if (conditionVisibilite &#x3D;&#x3D;&#x3D; &#x27;true&#x27;) {
+            return true;
+        } else if (conditionVisibilite &#x3D;&#x3D;&#x3D; &#x27;false&#x27;) {
+            return false;
+        } else {
+            try {
+                // Parse de l&#x27;expression
+                const expression &#x3D; this.parser.parse(conditionVisibilite);
+
+                // Calcul
+                const resultat &#x3D; this.staticEval.evaluate(expression, toutesLesDonnees);
+                this.logger.trace(&#x27;Calcul de la condition \&#x27;&#x27; + conditionVisibilite + &#x27;\&#x27;&#x27;, { toutesLesDonnees, resultat });
+                return resultat;
+            } catch (erreur) {
+                this.logger.error(&#x27;Erreur de calcul de la condition \&#x27;&#x27; + conditionVisibilite + &#x27;\&#x27;&#x27;, { toutesLesDonnees, erreur });
+                return valeurParDefaut;
+            }
+        }
+    }
+
+    /** Fusion des données de la page prioritairement aux données globales */
+    public lireToutEtIntegrerLesDonneesFournies(donneesDeLaPage: { [index: string]: any }): { [index: string]: string } {
+        const toutesLesDonnees &#x3D; { ...this.donnees };
+        Object.keys(donneesDeLaPage).forEach(clef &#x3D;&gt; {
+            if (donneesDeLaPage[clef] &#x3D;&#x3D;&#x3D; undefined || donneesDeLaPage[clef] &#x3D;&#x3D;&#x3D; null) {
+                // rien à faire
+            }
+            else if (typeof donneesDeLaPage[clef] &#x3D;&#x3D;&#x3D; &#x27;string&#x27; || donneesDeLaPage[clef] instanceof Date) {
+                toutesLesDonnees[clef] &#x3D; donneesDeLaPage[clef];
+            } else {
+                Object.keys(donneesDeLaPage[clef]).forEach(k &#x3D;&gt; toutesLesDonnees[k] &#x3D; donneesDeLaPage[clef][k]);
+            }
+        });
+
+        return toutesLesDonnees;
+    }
+
+    /**
+     * Remplace, dans le libellé fourni, les {{variable}} par la valeur présente dans les données globales (dans un premier temps) ou dans les données de la page (prioritairement).
+     */
+    public integrerDesVariablesDansUnLibelle(libelle: string | undefined, toutesLesDonnees: { [index: string]: string }): string | undefined {
+        // Si pas de libellé, pas de traitement
+        if (!libelle || libelle.length &#x3D;&#x3D;&#x3D; 0) {
+            return undefined;
+        }
+
+        // Ajout des fonctions dans les données pour l&#x27;évaluation
+        const contexteEvaluation: { [index: string]: string | ((s: string) &#x3D;&gt; number) } &#x3D; Object.assign({}, toutesLesDonnees);
+        contexteEvaluation[DonneesService.LISTE_FONCTIONS_DISPONIBLES[0]] &#x3D; (clef: string): number &#x3D;&gt; {
+            // log
+            this.logger.info(&#x27;calcul de sommeChampBlocDynamique(&quot;&#x27; + clef + &#x27;&quot;)&#x27;);
+            // au cas où
+            if (!clef) {
+                return 0;
+            }
+            // Pré-découpage pour rechercher les clefs
+            const clefDecoupee &#x3D; clef.split(&#x27;@@&#x27;);
+            if (clefDecoupee.length !&#x3D; 2) {
+                return 0;
+            }
+            // Recherche des clefs
+            return Object.keys(toutesLesDonnees).filter(k &#x3D;&gt; k.startsWith(clefDecoupee[0]) &amp;&amp; k.endsWith(clefDecoupee[1]))
+                // transformation d&#x27;une liste de clef en liste de valeur numérique (parseFloat traite aussi les entiers)
+                .map(k &#x3D;&gt; {
+                    const valeur &#x3D; toutesLesDonnees[k];
+                    if (valeur) {
+                        const valeurF &#x3D; parseFloat(valeur.replace(&#x27;,&#x27;, &#x27;.&#x27;));
+                        if (!isNaN(valeurF)) {
+                            return valeurF;
+                        }
+                    }
+                    return 0;
+                })
+                // Réalisation de la somme (avec 0 comme valeur initiale pour traiter le cas des tableaux vides)
+                .reduce((cumule: number, courant: number) &#x3D;&gt; cumule + courant, 0);
+        };
+        contexteEvaluation[DonneesService.LISTE_FONCTIONS_DISPONIBLES[1]] &#x3D; (clef: string): number &#x3D;&gt; {
+            // log
+            this.logger.info(&#x27;reche des occurences de (&quot;&#x27; + clef + &#x27;&quot;)&#x27;);
+            // au cas où
+            if (!clef) {
+                return 0;
+            }
+            // Pré-découpage pour rechercher les clefs
+            const clefDecoupee &#x3D; clef.split(&#x27;@@&#x27;);
+            if (clefDecoupee.length !&#x3D; 2) {
+                return 0;
+            }
+            // Recherche des clefs
+            return Object.keys(toutesLesDonnees).filter(k &#x3D;&gt; k.startsWith(clefDecoupee[0]) &amp;&amp; k.endsWith(clefDecoupee[1])).length;
+        };
+
+        // Traitement du libellé
+        let txt &#x3D; libelle;
+        const donneesAremplacer &#x3D; txt.match(DonneesService.REGEX_RECHERCHE_DONNEE);
+        if (donneesAremplacer) {
+            donneesAremplacer.forEach((d) &#x3D;&gt; {
+                const expression &#x3D; d.substring(2, d.length - 2);
+                let resultat;
+                if (expression) {
+                    try {
+                        resultat &#x3D; this.staticEval.evaluate(this.parser.parse(expression), contexteEvaluation);
+                    } catch (erreur) {
+                        this.logger.error(&#x27;Erreur de calcul de l\&#x27;expression \&#x27;&#x27; + expression + &#x27;\&#x27;&#x27;, { contexteEvaluation, erreur });
+                    }
+                }
+                txt &#x3D; txt.replace(d, resultat ? resultat : &#x27;&#x27;);
+            });
+        }
+
+        return txt;
+    }
+
+    /**
+     * Méthode clonant l&#x27;objet contenant toutes les données
+     * et transformant tout en string.
+    */
+    public lireTout(): { [index: string]: any } {
+        // Seul et unique usage autorisé de Object.assign
+        const toutesLesDonnees &#x3D; Object.assign({}, this.donnees);
+        Object.keys(toutesLesDonnees).forEach(clef &#x3D;&gt; {
+            if (toutesLesDonnees[clef] instanceof Date) {
+                toutesLesDonnees[clef] &#x3D; this.dateService.transformerDateEnString(toutesLesDonnees[clef]);
+            }
+        });
+        return toutesLesDonnees;
+    }
+
+    /** Suppression d&#x27;une valeur. */
+    private supprimer(clef: string): void {
+        delete this.donnees[clef];
+        Object.keys(this.donnees).forEach(k &#x3D;&gt; {
+            if (k.startsWith(clef + &#x27;_&#x27;)) {
+                delete this.donnees[k];
+            }
+        });
+    }
+
+    /** Sauvegarde, dans les données de l&#x27;id du captcha */
+    public sauvegarderIdentifiantCaptcha(idCaptcha: string) {
+        this.sauvegarder(&#x27;captcha_id&#x27;, idCaptcha);
+    }
+
+    /** Sauvegarde, dans les données de la valeur du captcha */
+    public sauvegarderSaisieCaptcha(valeurCaptcha: string) {
+        this.sauvegarder(&#x27;captcha_valeur&#x27;, valeurCaptcha);
+    }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'DonneesService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

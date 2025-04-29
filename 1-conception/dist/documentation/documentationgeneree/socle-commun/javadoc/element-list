@@ -1,0 +1,13 @@
+com.github.talbotgui.psl.socle.commun.apiclient
+com.github.talbotgui.psl.socle.commun.apiclient.dto
+com.github.talbotgui.psl.socle.commun.application.configuration
+com.github.talbotgui.psl.socle.commun.exception
+com.github.talbotgui.psl.socle.commun.feign
+com.github.talbotgui.psl.socle.commun.oidc
+com.github.talbotgui.psl.socle.commun.oidc.dto
+com.github.talbotgui.psl.socle.commun.securite
+com.github.talbotgui.psl.socle.commun.securite.dto
+com.github.talbotgui.psl.socle.commun.securite.exception
+com.github.talbotgui.psl.socle.commun.utils
+com.github.talbotgui.psl.socle.commun.utils.dto
+com.github.talbotgui.psl.socle.commun.utils.exception

@@ -1,0 +1,6 @@
+com.github.talbotgui.psl.socle.referentielexterne.apiclient
+com.github.talbotgui.psl.socle.referentielexterne.apiclient.api
+com.github.talbotgui.psl.socle.referentielexterne.apiclient.dto
+com.github.talbotgui.psl.socle.referentielexterne.application
+com.github.talbotgui.psl.socle.referentielexterne.client
+com.github.talbotgui.psl.socle.referentielexterne.controleur

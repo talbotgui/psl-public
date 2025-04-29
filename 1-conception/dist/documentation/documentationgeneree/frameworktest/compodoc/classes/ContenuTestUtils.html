@@ -1,0 +1,760 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >ContenuTestUtils</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Fichier</h3>
+        </p>
+        <p class="comment">
+            <code>projects/framework/cypress/utils/contenutest-utils.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Classe utilitaire regroupant des actions et validations</p>
+
+            </p>
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#validerBonFonctionnementContenu" >validerBonFonctionnementContenu</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#validerExistence" >validerExistence</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#verifierSiLeContenuEstActif" >verifierSiLeContenuEstActif</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validerBonFonctionnementContenu"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>validerBonFonctionnementContenu</b></span>
+                        <a href="#validerBonFonctionnementContenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validerBonFonctionnementContenu(iPage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, iBloc: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, iSousBloc: number | undefined, iContenu: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contenu: ContenuDeBloc, configuration: ConfigurationDemarche | undefined, brouillonDemarche: BrouillonDemarche, donneesDeBase: literal type, donneesDeLaPage: literal type, occurenceDeBlocDynamique: number | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="42"
+                                    class="link-to-prism">projects/framework/cypress/utils/contenutest-utils.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Saisie d&#39;une valeur valide dans un contenu quelque soit son type.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>iPage</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iBloc</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iSousBloc</td>
+                                            <td>
+                                                        <code>number | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iContenu</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>contenu</td>
+                                            <td>
+                                                        <code>ContenuDeBloc</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>configuration</td>
+                                            <td>
+                                                        <code>ConfigurationDemarche | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>brouillonDemarche</td>
+                                            <td>
+                                                        <code>BrouillonDemarche</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>donneesDeBase</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>donneesDeLaPage</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>occurenceDeBlocDynamique</td>
+                                            <td>
+                                                        <code>number | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validerExistence"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>validerExistence</b></span>
+                        <a href="#validerExistence"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validerExistence(iBloc: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, iSousBloc: number | undefined, iContenu: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contenu: ContenuDeBloc, occurenceDeBlocDynamique: number | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="37"
+                                    class="link-to-prism">projects/framework/cypress/utils/contenutest-utils.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Validation de la présence du contenu</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>iBloc</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iSousBloc</td>
+                                            <td>
+                                                        <code>number | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iContenu</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>contenu</td>
+                                            <td>
+                                                        <code>ContenuDeBloc</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>occurenceDeBlocDynamique</td>
+                                            <td>
+                                                        <code>number | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verifierSiLeContenuEstActif"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>verifierSiLeContenuEstActif</b></span>
+                        <a href="#verifierSiLeContenuEstActif"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>verifierSiLeContenuEstActif(iPage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, iBloc: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, iContenu: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contenu: ContenuDeBloc, toutesLesDonnees: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="73"
+                                    class="link-to-prism">projects/framework/cypress/utils/contenutest-utils.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Calcul les conditions d&#39;un contenu pour vérifier que le contenu est actif.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>iPage</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iBloc</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>iContenu</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>contenu</td>
+                                            <td>
+                                                        <code>ContenuDeBloc</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>toutesLesDonnees</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BrouillonDemarche } from &#x27;../../../framework/src/lib/model/brouillonsoumissiondemarche.model&#x27;;
+import { ContenuDeBloc, ContenuSaisie, ContenuSaisieComplexe } from &#x27;../../../framework/src/lib/model/configurationdemarchecontenubloc.model&#x27;;
+import { UtilitaireModel } from &#x27;../../../framework/src/lib/utilitaires/utilitaire.model&#x27;;
+import { ConfigurationDemarche } from &#x27;../../src/lib/model/configurationdemarchegeneral.model&#x27;;
+import { ContenuAffichageTestUtils } from &#x27;./contenuaffichagetest-utils&#x27;;
+import { ContenuComplexeTestUtils } from &quot;./contenucomplexetest-utils&quot;;
+import { ContenuMonoTestUtils } from &quot;./contenumonotest-utils&quot;;
+import { DonneesUtils } from &#x27;./donnees-utils&#x27;;
+import { LogUtils } from &#x27;./log-utils&#x27;;
+
+/** Classe utilitaire regroupant des actions et validations */
+export class ContenuTestUtils {
+
+    /** Validation de la présence du contenu */
+    public static validerExistence(iBloc: number, iSousBloc: number | undefined, iContenu: number, contenu: ContenuDeBloc, occurenceDeBlocDynamique: number | undefined): void {
+        cy.contenuObtenirContenu(iBloc, iSousBloc, iContenu, contenu, occurenceDeBlocDynamique).should(&#x27;exist&#x27;);
+    }
+
+    /** Saisie d&#x27;une valeur valide dans un contenu quelque soit son type. */
+    public static validerBonFonctionnementContenu(iPage: number, iBloc: number, iSousBloc: number | undefined, iContenu: number, contenu: ContenuDeBloc, configuration: ConfigurationDemarche | undefined, brouillonDemarche: BrouillonDemarche, donneesDeBase: { [index: string]: any }, donneesDeLaPage: { [index: string]: any }, occurenceDeBlocDynamique: number | undefined): void {
+
+        // Vérification des validations pour les mono-champs
+        if (UtilitaireModel.contenuEstUneSaisieMonoChamp(contenu)) {
+            // Validation des libellés (titre et aide)
+            ContenuMonoTestUtils.validerLeLibelleEtAide(iPage, iBloc, iSousBloc, iContenu, contenu as ContenuSaisie, configuration?.fonctionnalites?.modeObligatoireParDefaut || false, occurenceDeBlocDynamique);
+            // Validation des validations du contenu
+            ContenuMonoTestUtils.validerLesValidationDunContenuMonoChamp(iPage, iBloc, iSousBloc, iContenu, contenu as ContenuSaisie, brouillonDemarche, occurenceDeBlocDynamique);
+            // Recherche d&#x27;une bonne valeur
+            const valeur &#x3D; ContenuMonoTestUtils.definirBonneValeur(contenu as ContenuSaisie, brouillonDemarche);
+            // Saisie de la bonne valeur
+            ContenuMonoTestUtils.saisirValeurDunContenuMonoChamp(iBloc, iSousBloc, iContenu, contenu as ContenuSaisie, valeur, occurenceDeBlocDynamique);
+            // Sauvegarder la donnée saisie
+            ContenuMonoTestUtils.enregistrerLaSaisieDansLesDonneesDeLaPage(iPage, iBloc, iSousBloc, iContenu, contenu, valeur, brouillonDemarche, donneesDeLaPage);
+        }
+        // Pour les complexes
+        else if (UtilitaireModel.contenuEstUneSaisieComplexe(contenu)) {
+            ContenuComplexeTestUtils.saisirValeurValideDunContenuComplexe(iPage, iBloc, iSousBloc, iContenu, contenu as ContenuSaisieComplexe, brouillonDemarche, donneesDeBase, donneesDeLaPage, occurenceDeBlocDynamique);
+        }
+        // Pour les composants riches d&#x27;affichage
+        else if (UtilitaireModel.contenuNestPasUneSaisie(contenu)) {
+            ContenuAffichageTestUtils.validerContenuAffichage(iPage, iBloc, iSousBloc, iContenu, contenu as ContenuDeBloc, occurenceDeBlocDynamique, configuration);
+        }
+        // Pour les autres
+        else {
+            LogUtils.logContenu(iPage, iBloc, iSousBloc, iContenu, &#x27;/!\\ attention le type de contenu \&#x27;&#x27; + contenu.type + &#x27;\&#x27; n\&#x27;est pas géré spécifiquement dans le code de test&#x27;);
+            // rien à faire
+        }
+    }
+
+    /** Calcul les conditions d&#x27;un contenu pour vérifier que le contenu est actif. */
+    public static verifierSiLeContenuEstActif(iPage: number, iBloc: number, iContenu: number, contenu: ContenuDeBloc, toutesLesDonnees: { [index: string]: string }): boolean {
+
+        // Calcul de la condition d&#x27;affichage du contenu
+        const visibilite &#x3D; DonneesUtils.calculerCondition(contenu.conditionVisibilite, toutesLesDonnees, true);
+        if (!visibilite) {
+            LogUtils.logContenu(iPage, iBloc, undefined, iContenu, &#x27;Le contenu n\&#x27;est pas visible&#x27;);
+        }
+
+        // Calcul de la désactivation du contenu
+        const desactive &#x3D; DonneesUtils.calculerCondition(contenu.conditionDesactivation, toutesLesDonnees, false);
+        if (desactive) {
+            LogUtils.logContenu(iPage, iBloc, undefined, iContenu, &#x27;Le contenu n\&#x27;est pas actif&#x27;);
+        }
+
+        // TRUE si le contenu est actif
+        return visibilite &amp;&amp; !desactive;
+    }
+}
+
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'ContenuTestUtils.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

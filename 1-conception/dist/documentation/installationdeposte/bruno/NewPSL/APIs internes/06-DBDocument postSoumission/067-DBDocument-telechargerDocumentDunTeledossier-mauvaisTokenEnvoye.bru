@@ -1,0 +1,19 @@
+meta {
+  name: 067-DBDocument-telechargerDocumentDunTeledossier-mauvaisTokenEnvoye
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/document/teledossier/{{idTeledossierCreeAvecSP}}/document/{{codePremierDocumentAvecSP}}?clef={{clefTelechargementDocument}}
+  body: none
+  auth: none
+}
+
+query {
+  clef: {{clefTelechargementDocument}}
+}
+
+assert {
+  res.status: eq 404
+}

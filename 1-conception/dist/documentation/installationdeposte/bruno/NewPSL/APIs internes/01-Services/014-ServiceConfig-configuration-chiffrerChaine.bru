@@ -1,0 +1,23 @@
+meta {
+  name: 014-ServiceConfig-configuration-chiffrerChaine
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{API_HOST}}:{{portServiceConfig}}/encrypt
+  body: text
+  auth: none
+}
+
+headers {
+  Content-Type: text/plain
+}
+
+body:text {
+  MotDePasseStore
+}
+
+script:pre-request {
+  // 
+}

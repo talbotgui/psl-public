@@ -1,0 +1,31 @@
+# Configuration sans impact car c'est la valeur par défaut
+server.port: 5601
+server.host: "localhost"
+
+# Configuration spécifique à la PSL
+server.name: "newPSL"
+
+# L'environnement de développement local est mono-noeud
+elasticsearch.hosts: ["http://localhost:9200"]
+
+# L'utilisateur est toujours le même pour se connecter à ElasticSearch (le mot de passe est dans le keystore)
+elasticsearch.username: "kibana_system"
+elasticsearch.password: "${MDP_KIBANA_SYSTEM}"
+
+# Logs
+logging.root.level: info
+logging.appenders.default:
+  type: file
+  fileName: ${CHEMIN_SOCLE}/.elastic/logs/kibana/kibana.log
+  layout:
+    type: json
+
+# Autres chemins
+path.data: ${CHEMIN_SOCLE}/.elastic/data/kibana
+pid.file: ${CHEMIN_SOCLE}/.elastic/logs/kibana/kibana.pid
+
+# Définition d'une clef de chiffrement des objets de Kibana dans ElasticSearch (@see https://www.elastic.co/guide/en/kibana/current/xpack-security-secure-saved-objects.html)
+xpack.encryptedSavedObjects.encryptionKey: "min-32-byte-long-strong-encryption-key"
+
+# Définition d'une clef de chiffrement pour le reporting de Kibana (@see https://www.elastic.co/guide/en/kibana/current/reporting-settings-kb.html)
+xpack.reporting.encryptionKey: "something_secret"

@@ -1,0 +1,115 @@
+#
+# A savoir : 
+#  - conserver le FIELD "message" permet le bon fonctionnement de Observability > Logs > Stream dans Kibana (pas utilisé pour le moment)
+#
+
+# Configuration des chemins propres à FileBeat
+path:
+  home: "${CHEMIN_SOCLE}.elastic/bin/filebeat-${versionElastic}-windows-x86_64"
+  config: "${CHEMIN_SOCLE}services-cloud/service-elastic/filebeat"
+  data: "${CHEMIN_SOCLE}.elastic/data/filebeat"
+  logs: "${CHEMIN_SOCLE}.elastic/logs/filebeat"
+
+# Pas de port HTTP sur le processus FileBeat
+http.enabled: false
+
+# Paramètres du elasticSearch dans lequel envoyer les logs
+output.elasticsearch:
+  hosts: ["localhost"]
+  index: "logs-filebeat-%{+yyyy.MM.dd}"
+  username: "elastic"
+  password: "${MDP_ELASTIC}" 
+  
+# Processors communs
+processors:
+  - add_host_metadata: ~
+
+# Paramètres des fichiers à surveiller et remonter dans ElasticSearch
+filebeat.inputs:
+  # d'abord les fichiers des services
+- type: filestream
+  id: services
+  paths:
+    - ${CHEMIN_SOCLE}/.log/log_service*.log
+  parsers:
+    - multiline:
+        type: pattern
+        pattern: '^\[\d{2}/\d{2}/\d{4}:\d{2}:\d{2}:\d{2}:\d{3} '
+        negate: true
+        match: after
+  processors:
+    # Decoupage de la ligne de log depuis FileBeat (outil très pratique : https://dissect-tester.jorgelbg.me/)
+    - dissect:
+        tokenizer: "[%{horodatage} %{deltaFuseau}] %{pid} [%{traceid},%{parentspanid}] %{severite} %{classe} : %{message}"
+        field: "message"
+        target_prefix: "psl"
+        trim_values: "all"
+    # Manipulation de la date pour la mettre dans un format intégrable par FileBeat et extraction du nom de l'application
+    - script:
+        lang: javascript
+        id: modifierFormatDate
+        source: >
+          function process(event) {
+              var tab = (event.Get("psl.horodatage")+"").replace(/\//g,":").split(':');
+              var offset = event.Get("psl.deltaFuseau").substring(0,3);
+              var horodatageFormate = tab[2]+"-"+tab[1]+"-"+tab[0]+"T"+tab[3]+":"+tab[4]+":"+tab[5]+"."+tab[6]+"Z"+offset+":00";
+              event.Put("psl.horodatageFormate", horodatageFormate);
+          }
+    # Utilisation du premier champ de la ligne de log pour servir de @timestamp
+    - timestamp:
+        field: psl.horodatageFormate
+        layouts: ["2006-01-02T15:04:05.999Z-07:00"]
+        timezone: "Local"
+    # Suppression des champs inutiles (dates inutiles car on garde Timestamp) ou trop volumineux (comme message)
+    - drop_fields:
+        fields: [psl.horodatage,psl.horodatageFormate,psl.deltaFuseau,message]
+    # Ajout d'un champ pour filtrer les services des micro-services
+    - add_fields:
+        target: "psl"
+        fields.type: service
+
+  # d'abord les fichiers des micro-services
+- type: filestream
+  id: micro
+  paths:
+    - ${CHEMIN_SOCLE}/.log/log_socle*.log
+  parsers:
+    - multiline:
+        type: pattern
+        pattern: '^\[\d{2}/\d{2}/\d{4}:\d{2}:\d{2}:\d{2}:\d{3} '
+        negate: true
+        match: after
+  processors:
+    # Decoupage de la ligne de log depuis FileBeat (outil très pratique : https://dissect-tester.jorgelbg.me/)
+    - dissect:
+        tokenizer: "[%{horodatage} %{deltaFuseau}] %{pid} [%{traceid},%{parentspanid}] %{severite} %{classe} : %{message}"
+        field: "message"
+        target_prefix: "psl"
+        trim_values: "all"
+    # Manipulation de la date pour la mettre dans un format intégrable par FileBeat et extraction du nom de l'application
+    - script:
+        lang: javascript
+        id: modifierFormatDate
+        source: >
+          function process(event) {
+              var tab = (event.Get("psl.horodatage")+"").replace(/\//g,":").split(':');
+              var offset = event.Get("psl.deltaFuseau").substring(0,3);
+              var horodatageFormate = tab[2]+"-"+tab[1]+"-"+tab[0]+"T"+tab[3]+":"+tab[4]+":"+tab[5]+"."+tab[6]+"Z"+offset+":00";
+              event.Put("psl.horodatageFormate", horodatageFormate);
+          }
+    # Utilisation du premier champ de la ligne de log pour servir de @timestamp
+    - timestamp:
+        field: psl.horodatageFormate
+        layouts: ["2006-01-02T15:04:05.999Z-07:00"]
+        timezone: "Local"
+    # Suppression des champs inutiles (dates inutiles car on garde Timestamp) ou trop volumineux (comme message)
+    - drop_fields:
+        fields: [psl.horodatage,psl.horodatageFormate,psl.deltaFuseau,message]
+    # Ajout d'un champ pour filtrer les services des micro-services
+    - add_fields:
+        target: "psl"
+        fields.type: micro
+
+# Description des indexes
+setup.template.name: "logs"
+setup.template.pattern: "logs-filebeat-%{+yyyy.MM.dd}"

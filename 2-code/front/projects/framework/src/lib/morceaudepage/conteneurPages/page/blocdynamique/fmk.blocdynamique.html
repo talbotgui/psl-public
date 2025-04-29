@@ -1,0 +1,55 @@
+@if (bloc && contenuAffichageBlocDynamique?.visibilite) {
+  <div class="fr-grid-row fmk-bloc">
+    <!-- Fieldset d'une occurence -->
+    @for (occurence of listeDesOccurences; track occurence) {
+      <fieldset [class]="'fmk-blocdynamiquefieldset fieldset-'+occurence">
+        <!-- Contenus d'une occurence -->
+        @for (contenu of bloc.contenus; track contenu; let j = $index) {
+          <!-- libellé en mode lecture-->
+          @if (occurenceEnCoursDedition!==occurence && !!($any(contenu).estIncluDansUnBlocDynamiquePourLectureSeule) && recupererContenuDunBlocDynamique(occurence,j)?.visibilite) {
+            <div class="fr-col-12 data-contenu data-contenu{{j}}-{{occurence}}"
+              >
+              <div data-fmk-contenu [contenu]="recupererContenuDunBlocDynamique(occurence,j)"></div>
+            </div>
+          }
+          <!-- Le reste en mode édition -->
+          @if (occurenceEnCoursDedition===occurence && !($any(contenu)).estIncluDansUnBlocDynamiquePourLectureSeule && recupererContenuDunBlocDynamique(occurence,j)?.visibilite) {
+            <div class="fr-col-12 data-contenu data-contenu{{j}}-{{occurence}}"
+              >
+              <div data-fmk-contenu [contenu]="recupererContenuDunBlocDynamique(occurence,j)"
+                [controle]="recupererControleAssocieAuContenu(occurence,j)">
+              </div>
+            </div>
+          }
+        }
+        <!-- Actions d'une occurence -->
+        <div class="fr-col-12 actions-{{occurence}}">
+          @if (occurenceEnCoursDedition===occurence) {
+            <button type="button" [disabled]="formulaire && !formulaire.valid" class="btn-quitter"
+              title="Valider" (click)="quitterModeEdition()">
+              <span class="fr-fi-success-line" aria-hidden="true"></span><span class="blank">Valider</span>
+            </button>
+          }
+          @if (occurenceEnCoursDedition === undefined) {
+            <button type="button" class="btn-editer" title="Modifier"
+              (click)="passerEnModeEdition(occurence)">
+              <span class="fr-icon-edit-line" aria-hidden="true"></span><span class="blank">Modifier</span>
+            </button>
+          }
+          <button type="button" class="btn-supprimer" title="Supprimer" (click)="supprimerOccurence(occurence)">
+            <span class="fr-fi-delete-line" aria-hidden="true"></span><span class="blank">Supprimer</span>
+          </button>
+        </div>
+      </fieldset>
+    }
+    <!-- Actions du bloc -->
+    <div class="fr-col-12">
+      @if (calculerSiNouvelleOccurenceEstAutorisee()) {
+        <button type="button" [disabled]="occurenceEnCoursDedition !== undefined"
+          class="btn-ajout" title="Ajouter" (click)="ajouterUneOccurence()">
+          <span class="fr-fi-add-circle-line" aria-hidden="true"></span><span class="blank">Ajouter</span>
+        </button>
+      }
+    </div>
+  </div>
+}

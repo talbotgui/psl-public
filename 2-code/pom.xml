@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- ************************************************ -->
+	<!-- Pour compiler ce projet, il est nécessaire de SYSTEMATIQUEMENT compiler les classes de test. -->
+	<!-- Donc pas de paramètre "-Dmaven.test.skip" -->
+	<!-- La bonne commande est : mvn clean install -DskipTests -->
+	<!--  -->
+	<!-- Pour lancer l'analyse de la Javadoc : mvn clean install -DskipTests -P qualimetrie -->
+	<!-- ************************************************ -->
+
+	<!-- Déclaration de l'artefact parent -->
+	<parent>
+		<groupId>com.github.talbotgui.psl</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.0.2-SNAPSHOT</version>
+	</parent>
+
+	<!-- Définition Maven de cet artefact -->
+	<artifactId>psl</artifactId>
+	<packaging>pom</packaging>
+	<description>Projet global de la nouvelle PSL</description>
+
+	<!-- Clef de configuration disponibles dans cet artefact et tous ces enfants -->
+	<properties>	
+	</properties>
+
+	<!-- Liste des enfants de cet artefact -->
+	<modules>
+		<module>ias</module>
+		<module>socle</module>
+		<module>front</module>
+	</modules>
+	
+	<build>
+	</build>
+</project>

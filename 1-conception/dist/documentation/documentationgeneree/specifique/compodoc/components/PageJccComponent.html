@@ -1,0 +1,1835 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Composants</li>
+  <li class="breadcrumb-item"
+  >
+  PageJccComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Fichier</h3>
+</p>
+<p class="comment">
+    <code>projects/specifique/src/app/pagejcc/pagejcc.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Contenu de la page spécifique de JCC</p>
+
+    </p>
+
+    <p class="comment">
+        <h3>Etend</h3>
+    </p>
+    <p class="comment">
+                <code>AbstractComponent</code>
+    </p>
+
+    <p class="comment">
+        <h3>Implémente</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Métadonnées</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+            <tr>
+                <td class="col-md-3">encapsulation</td>
+                <td class="col-md-9"><code>ViewEncapsulation.None</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-pagejcc</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ReactiveFormsModule</code>
+                            <code>FmkMessagesValidationComponent</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./pagejcc.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./pagejcc.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#destinatairesActifs" >destinatairesActifs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#destinatairesSelectionnees" >destinatairesSelectionnees</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#flagAfficherAide" >flagAfficherAide</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#flagMasquerNumeroSecu" >flagMasquerNumeroSecu</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#afficherMasquerAide" >afficherMasquerAide</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#changerLaValeur" >changerLaValeur</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#completerFormulaireAvecChampNumeroSecu" >completerFormulaireAvecChampNumeroSecu</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initialiserFormulaireAvecLesDestinataires" >initialiserFormulaireAvecLesDestinataires</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Entrées</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#formulaire" >formulaire</a>
+                            </li>
+                            <li>
+                                <a href="#page" >page</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accesseurs</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#saisieNumeroSecuValide" >saisieNumeroSecuValide</a>
+                                </li>
+                                <li>
+                                    <a href="#saisieNumeroSecuInvalide" >saisieNumeroSecuInvalide</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructeur</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(donneesService: DonneesService, validationService: ValidationService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="70" class="link-to-prism">projects/specifique/src/app/pagejcc/pagejcc.component.ts:70</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructeur pour injection des dépendances</p>
+</div>
+                            <div>
+                                    <b>Paramètres :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nom</td>
+                                                    <td>Type</td>
+                                                <td>Optionnel</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>donneesService</td>
+                                                  
+                                                        <td>
+                                                                    <code>DonneesService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>validationService</td>
+                                                  
+                                                        <td>
+                                                                    <code>ValidationService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Entrées</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formulaire"></a>
+                        <b>formulaire</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>UntypedFormGroup | undefined</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Défini dans <a href="" data-line="48" class="link-to-prism">projects/specifique/src/app/pagejcc/pagejcc.component.ts:48</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Formulaire</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="page"></a>
+                        <b>page</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Page | undefined</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Défini dans <a href="" data-line="52" class="link-to-prism">projects/specifique/src/app/pagejcc/pagejcc.component.ts:52</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>La configuration de la page</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="afficherMasquerAide"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>afficherMasquerAide</b></span>
+                        <a href="#afficherMasquerAide"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>afficherMasquerAide(clef: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="157"
+                                    class="link-to-prism">projects/specifique/src/app/pagejcc/pagejcc.component.ts:157</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Affiche ou masque l&#39;aide</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>clef</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changerLaValeur"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>changerLaValeur</b></span>
+                        <a href="#changerLaValeur"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changerLaValeur(e: Event, clef: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="164"
+                                    class="link-to-prism">projects/specifique/src/app/pagejcc/pagejcc.component.ts:164</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>See FmkContenuCaseComponent</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>e</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>clef</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="completerFormulaireAvecChampNumeroSecu"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>completerFormulaireAvecChampNumeroSecu</b></span>
+                        <a href="#completerFormulaireAvecChampNumeroSecu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>completerFormulaireAvecChampNumeroSecu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="107"
+                                    class="link-to-prism">projects/specifique/src/app/pagejcc/pagejcc.component.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Ajout du mini-formulaire affiché si un destinataire du cadre &quot;santé et retraite&quot; est coché</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialiserFormulaireAvecLesDestinataires"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initialiserFormulaireAvecLesDestinataires</b></span>
+                        <a href="#initialiserFormulaireAvecLesDestinataires"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initialiserFormulaireAvecLesDestinataires()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="82"
+                                    class="link-to-prism">projects/specifique/src/app/pagejcc/pagejcc.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Initialisation du formulaire avec la liste des destinataires</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="76"
+                                    class="link-to-prism">projects/specifique/src/app/pagejcc/pagejcc.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Au chargement du composant</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destinatairesActifs"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>destinatairesActifs</b></span>
+                        <a href="#destinatairesActifs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type | undefined</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="41" class="link-to-prism">projects/specifique/src/app/pagejcc/pagejcc.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Liste des destinataires actifs</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destinatairesSelectionnees"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>destinatairesSelectionnees</b></span>
+                        <a href="#destinatairesSelectionnees"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type | undefined</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="44" class="link-to-prism">projects/specifique/src/app/pagejcc/pagejcc.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Etat des destinataires sélectionnés au chargement de la page</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="flagAfficherAide"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>flagAfficherAide</b></span>
+                        <a href="#flagAfficherAide"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="55" class="link-to-prism">projects/specifique/src/app/pagejcc/pagejcc.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag de gestion de l&#39;affichage de l&#39;aide de chacun des champs</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="flagMasquerNumeroSecu"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>flagMasquerNumeroSecu</b></span>
+                        <a href="#flagMasquerNumeroSecu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="58" class="link-to-prism">projects/specifique/src/app/pagejcc/pagejcc.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag conditionnant l&#39;affichage du champs de numéro de sécurité social</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accesseurs
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="saisieNumeroSecuValide"></a>
+                        <span class="name"><b>saisieNumeroSecuValide</b><a href="#saisieNumeroSecuValide"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>saisieNumeroSecuValide()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Défini dans <a href="" data-line="61" class="link-to-prism">projects/specifique/src/app/pagejcc/pagejcc.component.ts:61</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Calcul de la validation du champ de numéro de sécurité sociale pour ne pas le coder plusieurs fois</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="saisieNumeroSecuInvalide"></a>
+                        <span class="name"><b>saisieNumeroSecuInvalide</b><a href="#saisieNumeroSecuInvalide"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>saisieNumeroSecuInvalide()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Défini dans <a href="" data-line="67" class="link-to-prism">projects/specifique/src/app/pagejcc/pagejcc.component.ts:67</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Calcul de la validation du champ de numéro de sécurité sociale pour ne pas le coder plusieurs fois</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit, ViewEncapsulation } from &quot;@angular/core&quot;;
+import { ReactiveFormsModule, UntypedFormControl, UntypedFormGroup } from &quot;@angular/forms&quot;;
+import { debounceTime, distinctUntilChanged } from &quot;rxjs/operators&quot;;
+import { FmkMessagesValidationComponent } from &quot;../../../../framework/src/lib/contenu/messagesvalidation/fmk.messagesvalidation&quot;;
+import { AbstractComponent } from &quot;../../../../framework/src/lib/utilitaires/abstract.component&quot;;
+import { DonneesService, Page, Validation, ValidationService } from &quot;../../../../framework/src/public-api&quot;;
+
+
+/**
+ * Contenu de la page spécifique de JCC
+ */
+@Component({
+    selector: &#x27;app-pagejcc&#x27;, templateUrl: &#x27;./pagejcc.component.html&#x27;, encapsulation: ViewEncapsulation.None, styleUrls: [&#x27;./pagejcc.component.scss&#x27;],
+    standalone: true,
+    imports: [ReactiveFormsModule, FmkMessagesValidationComponent]
+})
+export class PageJccComponent extends AbstractComponent implements OnInit {
+
+    /** Liste des destinataires actifs */
+    public destinatairesActifs: { [index: string]: any; } | undefined &#x3D; {};
+
+    /** Etat des destinataires sélectionnés au chargement de la page */
+    public destinatairesSelectionnees: { [index: string]: any; } | undefined &#x3D; {};
+
+    /** Formulaire */
+    @Input()
+    public formulaire: UntypedFormGroup | undefined;
+
+    /** La configuration de la page */
+    @Input()
+    public page: Page | undefined;
+
+    /** Flag de gestion de l&#x27;affichage de l&#x27;aide de chacun des champs */
+    public flagAfficherAide: { [index: string]: any; } &#x3D; {};
+
+    /** Flag conditionnant l&#x27;affichage du champs de numéro de sécurité social */
+    public flagMasquerNumeroSecu &#x3D; true;
+
+    /** Calcul de la validation du champ de numéro de sécurité sociale pour ne pas le coder plusieurs fois */
+    public get saisieNumeroSecuValide(): boolean {
+        const ctrl &#x3D; this.formulaire?.get(&#x27;numeroSecu&#x27;);
+        return !ctrl || (!ctrl.invalid &amp;&amp; (ctrl.dirty || ctrl.touched));
+    }
+
+    /** Calcul de la validation du champ de numéro de sécurité sociale pour ne pas le coder plusieurs fois */
+    public get saisieNumeroSecuInvalide(): boolean {
+        const ctrl &#x3D; this.formulaire?.get(&#x27;numeroSecu&#x27;);
+        return !ctrl || (ctrl.invalid &amp;&amp; (ctrl.dirty || ctrl.touched));
+    }
+
+    /** Constructeur pour injection des dépendances */
+    public constructor(private donneesService: DonneesService, private validationService: ValidationService) { super(); }
+
+    /** Au chargement du composant */
+    public ngOnInit(): void {
+        this.initialiserFormulaireAvecLesDestinataires();
+        this.completerFormulaireAvecChampNumeroSecu();
+    }
+
+    /** Initialisation du formulaire avec la liste des destinataires */
+    private initialiserFormulaireAvecLesDestinataires(): void {
+
+        // Récupération de la liste des destinataires actifs depuis la configuration
+        this.destinatairesActifs &#x3D; this.donneesService.lireUnObjet(&#x27;destinatairesActifs&#x27;);
+
+        // Définition des valeurs par défaut (le ternaire de la seconde ligne est pour le premier accès à la page uniquement)
+        this.destinatairesSelectionnees &#x3D; this.donneesService.lireUnObjet(&#x27;destinatairesSelectionnees&#x27;);
+        this.destinatairesSelectionnees &#x3D; this.destinatairesSelectionnees ? this.destinatairesSelectionnees : {};
+
+        // Création du formulaire
+        for (const clef in this.destinatairesActifs) {
+
+            // Initialisation du flag d&#x27;aide de chaque destinataire
+            this.flagAfficherAide[clef] &#x3D; false;
+
+            // Ajout du champ dans le formulaire (valeur par défaut inutile)
+            const valeurParDefaut &#x3D; this.destinatairesSelectionnees[clef] ? this.destinatairesSelectionnees[clef] : &#x27;&#x27;;
+            if (this.formulaire) {
+                this.formulaire.addControl(clef.replace(&#x27;destinatairesActifs&#x27;, &#x27;destinatairesSelectionnees&#x27;), new UntypedFormControl(valeurParDefaut, { updateOn: &#x27;blur&#x27;, validators: [] }));
+            }
+        }
+
+    }
+
+    /** Ajout du mini-formulaire affiché si un destinataire du cadre &quot;santé et retraite&quot; est coché */
+    private completerFormulaireAvecChampNumeroSecu(): void {
+        if (!this.formulaire) {
+            return;
+        }
+
+        // Initialisation du flag d&#x27;affichage de l&#x27;aide
+        const clefNumeroSecu &#x3D; &#x27;numeroSecu&#x27;;
+        this.flagAfficherAide[clefNumeroSecu] &#x3D; false;
+
+        // Ajout du champs numéro de sécu
+        const validationsSecu &#x3D; this.validationService.creerValidationsSynchrones([Validation.required, Validation.secu]);
+        const valeurParDefaut &#x3D; this.donneesService.lire(clefNumeroSecu);
+        this.formulaire.addControl(clefNumeroSecu, new UntypedFormControl({ value: valeurParDefaut, disabled: true }, { updateOn: &#x27;blur&#x27;, validators: validationsSecu }));
+
+        // Définition de la liste des champs associés à l&#x27;affichage du numéro de sécu
+        const listeControleDuNumeroSecu &#x3D; [this.formulaire.get(&#x27;destinatairesSelectionnees_cnmss&#x27;), this.formulaire.get(&#x27;destinatairesSelectionnees_agirc&#x27;),
+        this.formulaire.get(&#x27;destinatairesSelectionnees_cpam&#x27;), this.formulaire.get(&#x27;destinatairesSelectionnees_cdc&#x27;),
+        this.formulaire.get(&#x27;destinatairesSelectionnees_cnav&#x27;), this.formulaire.get(&#x27;destinatairesSelectionnees_msa&#x27;),
+        this.formulaire.get(&#x27;destinatairesSelectionnees_camieg&#x27;), this.formulaire.get(&#x27;destinatairesSelectionnees_enim&#x27;)];
+
+        // Fonction appelée à chaque changement de la valeur de l&#x27;un des champs ci-dessus
+        const controleNumeroSecu &#x3D; this.formulaire.get(clefNumeroSecu);
+        const afficherMasquerNumeroSecu &#x3D; () &#x3D;&gt; {
+            // Si un des champs est coché
+            this.flagMasquerNumeroSecu &#x3D; !listeControleDuNumeroSecu.map(ctrl &#x3D;&gt; !!ctrl &amp;&amp; ctrl.value &#x3D;&#x3D;&#x3D; &#x27;true&#x27;).reduce((cumule, courant) &#x3D;&gt; cumule || courant);
+            // Activation/désactivation du controle pour activer/désactiver les validators associés et donc valider/invalider le formulaire
+            if (controleNumeroSecu) {
+                if (controleNumeroSecu.enabled &amp;&amp; this.flagMasquerNumeroSecu) {
+                    controleNumeroSecu.disable({ emitEvent: false });
+                    controleNumeroSecu.setValue(&#x27;&#x27;);
+                } else if (controleNumeroSecu.disabled &amp;&amp; !this.flagMasquerNumeroSecu) {
+                    controleNumeroSecu.enable({ emitEvent: false });
+                }
+            }
+        };
+
+        // Ajout de la surveillance des champs conditionnant l&#x27;affichage du numéro de sécurité sociale
+        // debounce est nécessaire pour attendre que le changement de valeur soit effectif (@see https://github.com/angular/angular/issues/24818)
+        listeControleDuNumeroSecu.forEach(controle &#x3D;&gt; {
+            if (controle) {
+                const sub &#x3D; controle.valueChanges.pipe(debounceTime(0), distinctUntilChanged()).subscribe(afficherMasquerNumeroSecu);
+                this.declarerSouscription(sub);
+            }
+        });
+
+        // A l&#x27;initialisation, appel une première fois à la méthode
+        afficherMasquerNumeroSecu();
+    }
+
+    /** Affiche ou masque l&#x27;aide */
+    public afficherMasquerAide(clef: string): void {
+        this.flagAfficherAide[clef] &#x3D; !this.flagAfficherAide[clef];
+    }
+
+    /**
+     * @see FmkContenuCaseComponent
+     */
+    public changerLaValeur(e: Event, clef: string): void {
+        if (this.formulaire) {
+            const controle &#x3D; this.formulaire.get(clef);
+            // Toute donnée de l&#x27;application est une chaine de caractère et non un boolean
+            // (seul les paramètres comme les destinataires actifs sont des boolean)
+            if (controle) {
+                controle.setValue((e.target as HTMLInputElement)?.checked + &#x27;&#x27;);
+                controle.markAsDirty();
+            }
+        }
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- Message d&#x27;information pour les champs obligatoires (s&#x27;il en existe) --&gt;
+@if (page &amp;&amp; !page.modeObligatoireParDefaut) {
+  &lt;p class&#x3D;&quot;mentionObligatoireParDefaut&quot;&gt;Les champs marqués d&#x27;un &lt;span class&#x3D;&quot;symbol-required&quot;&gt;*&lt;/span&gt;
+sont obligatoires&lt;/p&gt;
+}
+@if (page &amp;&amp; page.modeObligatoireParDefaut) {
+  &lt;p class&#x3D;&quot;mentionPasObligatoireParDefaut&quot;&gt;Sauf indication contraire, &lt;b&gt;toutes les informations
+  demandées sont obligatoires&lt;/b&gt; pour pouvoir
+traiter votre demande.&lt;/p&gt;
+}
+
+&lt;!-- Titre de la page --&gt;
+&lt;h2&gt;{{(page) ? page.titre : &#x27;&#x27;}}&lt;/h2&gt;
+
+@if (formulaire) {
+  &lt;form [formGroup]&#x3D;&quot;formulaire&quot;&gt;
+    &lt;div class&#x3D;&quot;fr-grid-row&quot;&gt;
+      &lt;div class&#x3D;&quot;fr-col-12&quot;&gt;
+        &lt;fieldset class&#x3D;&quot;fr-container&quot;&gt;
+          &lt;legend&gt;
+            &lt;h3&gt;
+              &lt;span&gt;Santé et retraite&lt;/span&gt;
+              &lt;span class&#x3D;&quot;fr-sr-only&quot;&gt;Saisie complémentaire requise - affichage automatique&lt;/span&gt;
+            &lt;/h3&gt;
+          &lt;/legend&gt;
+          &lt;div class&#x3D;&quot;fr-grid-row panel panel-default&quot;&gt;
+            @if (destinatairesActifs &amp;&amp; destinatairesActifs[&#x27;destinatairesActifs_agirc&#x27;] &#x3D;&#x3D;&#x3D; true) {
+              &lt;div class&#x3D;&quot;fr-col-12 checkbox agirc libelle&quot;
+                &gt;
+                &lt;div class&#x3D;&quot;fr-form-group&quot;&gt;
+                  &lt;div class&#x3D;&quot;fr-checkbox-group libelle&quot;&gt;
+                    &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;destinatairesSelectionnees_agirc&quot;
+                      [checked]&#x3D;&quot;!!destinatairesSelectionnees &amp;&amp; destinatairesSelectionnees[&#x27;agirc&#x27;] &#x3D;&#x3D;&#x3D; &#x27;true&#x27;&quot;
+                      (change)&#x3D;&quot;changerLaValeur($event, &#x27;destinatairesSelectionnees_agirc&#x27;)&quot;&gt;
+                      &lt;label class&#x3D;&quot;fr-label&quot; for&#x3D;&quot;destinatairesSelectionnees_agirc&quot;&gt;
+                        &lt;span&gt;&lt;img src&#x3D;&quot;./jechangedecoordonnees/logoAgirc.gif&quot; alt&#x3D;&quot;&quot; /&gt; Régimes
+                        ARRCO et AGIRC&lt;/span&gt;
+                      &lt;/label&gt;
+                    &lt;/div&gt;
+                    &lt;a data-toggle&#x3D;&quot;collapse&quot; class&#x3D;&quot;btn-help&quot; [attr.aria-expanded]&#x3D;&quot;flagAfficherAide[&#x27;agirc&#x27;]&quot;
+                      (click)&#x3D;&quot;afficherMasquerAide(&#x27;agirc&#x27;)&quot;&gt;
+                      &lt;span class&#x3D;&quot;fr-fi-question-fill&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;
+                    &lt;/a&gt;
+                    &lt;div class&#x3D;&quot;help-panel collapse&quot; [class.show]&#x3D;&quot;flagAfficherAide[&#x27;agirc&#x27;]&quot;&gt;
+                      &lt;h4&gt;Vous souhaitez informer vos caisses de retraite complémentaire de votre changement
+                      d’adresse.&lt;/h4&gt;
+                      &lt;h5&gt;Vous êtes … &lt;/h5&gt;
+                      &lt;p&gt;salarié ou retraité du secteur privé et à ce titre vous êtes inscrit auprès d’une
+                        caisse
+                      de retraite Arrco et éventuellement inscrit auprès d’une caisse Agirc.&lt;/p&gt;
+                      &lt;h5&gt;Vous devez indiquer …&lt;/h5&gt;
+                      &lt;p&gt;votre numéro de sécurité sociale (présent sur votre carte Vitale ou vos bulletins de
+                      salaire ou vos avis de paiement de l’Assédic) et votre date de naissance.&lt;/p&gt;
+                      &lt;h5&gt;Après l’envoi de votre demande … &lt;/h5&gt;
+                      &lt;p&gt;vos caisses de retraite complémentaire seront informées de ce changement et mettront
+                        à
+                        jour votre dossier. Si vous avez indiqué votre adresse courriel, vos caisses de
+                        retraire
+                      vous confirmeront l’enregistrement de votre changement d’adresse.&lt;/p&gt;
+                      &lt;h5&gt;Pour plus d’informations … &lt;/h5&gt;
+                      &lt;p&gt;sur la retraite complémentaire, vous pouvez consulter le site &lt;a href&#x3D;&quot;http://www.agirc-arrco.fr&quot; target&#x3D;&quot;_blank&quot;
+                        title&#x3D;&quot;www.agirc-arrco.fr - Nouvelle fenêtre&quot;&gt;www.agirc-arrco.fr&lt;span aria-hidden&#x3D;&quot;true&quot;
+                      class&#x3D;&quot;icon&quot;&gt;&lt;/span&gt;&lt;/a&gt; ou contacter
+                      votre caisse de retraite ou encore le Cicas (centre d’information, conseil et
+                      accueil
+                    des salariés) de votre département.&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            }
+            @if (destinatairesActifs &amp;&amp; destinatairesActifs[&#x27;destinatairesActifs_agirc&#x27;] !&#x3D;&#x3D; true) {
+              &lt;div class&#x3D;&quot;fr-col-12 destinataireInactif&quot;
+                &gt;
+                &lt;span&gt;&lt;img src&#x3D;&quot;./jechangedecoordonnees/logoAgirc.gif&quot; alt&#x3D;&quot;&quot; /&gt; Régimes ARRCO et
+                AGIRC&lt;/span&gt;
+                &lt;p class&#x3D;&quot;text-danger&quot; style&#x3D;&quot;margin-left:15px;&quot; role&#x3D;&quot;alert&quot;&gt;Suite à des opérations
+                  techniques,
+                aucun dossier ne peut être transmis temporairement à l&#x27;AGIRC.&lt;/p&gt;
+              &lt;/div&gt;
+            }
+            @if (destinatairesActifs &amp;&amp; destinatairesActifs[&#x27;destinatairesActifs_cnmss&#x27;] &#x3D;&#x3D;&#x3D; true) {
+              &lt;div class&#x3D;&quot;fr-col-12 checkbox cnmss libelle&quot;
+                &gt;
+                &lt;div class&#x3D;&quot;fr-form-group&quot;&gt;
+                  &lt;div class&#x3D;&quot;fr-checkbox-group libelle&quot;&gt;
+                    &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;destinatairesSelectionnees_cnmss&quot;
+                      [checked]&#x3D;&quot;!!destinatairesSelectionnees &amp;&amp; destinatairesSelectionnees[&#x27;cnmss&#x27;] &#x3D;&#x3D;&#x3D; &#x27;true&#x27;&quot;
+                      (change)&#x3D;&quot;changerLaValeur($event, &#x27;destinatairesSelectionnees_cnmss&#x27;)&quot;&gt;
+                      &lt;label class&#x3D;&quot;fr-label&quot; for&#x3D;&quot;destinatairesSelectionnees_cnmss&quot;&gt;
+                        &lt;span&gt;&lt;img src&#x3D;&quot;./jechangedecoordonnees/logoCnmss.png&quot; alt&#x3D;&quot;&quot; /&gt;
+                        Caisse Nationale Militaire de Sécurité Sociale (CNMSS)&lt;/span&gt;
+                      &lt;/label&gt;
+                    &lt;/div&gt;
+                    &lt;a data-toggle&#x3D;&quot;collapse&quot; class&#x3D;&quot;btn-help&quot; [attr.aria-expanded]&#x3D;&quot;flagAfficherAide[&#x27;cnmss&#x27;]&quot;
+                      (click)&#x3D;&quot;afficherMasquerAide(&#x27;cnmss&#x27;)&quot;&gt;
+                      &lt;span class&#x3D;&quot;fr-fi-question-fill&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;
+                    &lt;/a&gt;
+                    &lt;div class&#x3D;&quot;help-panel collapse&quot; [class.show]&#x3D;&quot;flagAfficherAide[&#x27;cnmss&#x27;]&quot;&gt;
+                      &lt;h4&gt;Vous souhaitez informer la Caisse Nationale Militaire de Sécurité Sociale de votre
+                        changement de coordonnées.&lt;br&gt;Vous êtes ressortissant du régime de sécurité sociale
+                        des
+                      militaires.&lt;/h4&gt;
+                      &lt;h5&gt;Vous devez indiquer … &lt;/h5&gt;
+                      &lt;p&gt;Votre numéro de sécurité sociale qui figure sur votre attestation de droits ou la
+                        Carte
+                      Vitale de l’assuré mais aussi sur les relevés de paiement.&lt;/p&gt;
+                      &lt;p&gt;&lt;strong&gt;Les personnes de votre foyer n’ont pas à faire de déclaration séparée si
+                        elles
+                        sont ayants droits sur votre propre compte, car l’information est prise en
+                        compte
+                      pour tous ces membres de la famille.&lt;/strong&gt;&lt;/p&gt;
+                      &lt;h5&gt;Après l’envoi de votre demande … &lt;/h5&gt;
+                      &lt;p&gt;Vous serez informés &lt;strong&gt;dans le tableau de bord de
+                      mon.service-public.fr.&lt;/strong&gt;
+                    &lt;/p&gt;
+                    &lt;h5&gt;Le traitement sera effectué … &lt;/h5&gt;
+                    &lt;p&gt;Dans les &lt;strong&gt;15&lt;/strong&gt; jours &lt;strong&gt;suivant la réception de votre
+                  demande.&lt;/strong&gt;&lt;/p&gt;
+                  &lt;h5&gt;Pour plus d&#x27;informations ... &lt;/h5&gt;
+                  &lt;p&gt;&lt;strong&gt;Consultez notre site&lt;/strong&gt; &lt;a href&#x3D;&quot;http://www.cnmss.fr&quot; target&#x3D;&quot;_blank&quot;
+                  title&#x3D;&quot;www.cnmss.fr - Nouvelle fenêtre&quot;&gt;www.cnmss.fr&lt;span aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;icon&quot;&gt;&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          }
+          @if (destinatairesActifs &amp;&amp; destinatairesActifs[&#x27;destinatairesActifs_cnmss&#x27;] !&#x3D;&#x3D; true) {
+            &lt;div class&#x3D;&quot;fr-col-12 destinataireInactif&quot;
+              &gt;
+              &lt;span&gt;&lt;img src&#x3D;&quot;./jechangedecoordonnees/logoCnmss.png&quot; alt&#x3D;&quot;&quot; /&gt; Caisse Nationale
+              Militaire de Sécurité Sociale (CNMSS)&lt;/span&gt;
+              &lt;p class&#x3D;&quot;text-danger&quot; style&#x3D;&quot;margin-left:15px;&quot; role&#x3D;&quot;alert&quot;&gt;Suite à des opérations
+                techniques,
+              aucun dossier ne peut être transmis temporairement à la CNMSS.&lt;/p&gt;
+            &lt;/div&gt;
+          }
+          @if (destinatairesActifs &amp;&amp; destinatairesActifs[&#x27;destinatairesActifs_cpam&#x27;] &#x3D;&#x3D;&#x3D; true) {
+            &lt;div class&#x3D;&quot;fr-col-12 checkbox cpam libelle&quot;
+              &gt;
+              &lt;div class&#x3D;&quot;fr-form-group&quot;&gt;
+                &lt;div class&#x3D;&quot;fr-checkbox-group libelle&quot;&gt;
+                  &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;destinatairesSelectionnees_cpam&quot;
+                    [checked]&#x3D;&quot;!!destinatairesSelectionnees &amp;&amp; destinatairesSelectionnees[&#x27;cpam&#x27;] &#x3D;&#x3D;&#x3D; &#x27;true&#x27;&quot;
+                    (change)&#x3D;&quot;changerLaValeur($event, &#x27;destinatairesSelectionnees_cpam&#x27;)&quot;&gt;
+                    &lt;label class&#x3D;&quot;fr-label&quot; for&#x3D;&quot;destinatairesSelectionnees_cpam&quot;&gt;
+                      &lt;span&gt;&lt;img src&#x3D;&quot;./jechangedecoordonnees/logoCapam.svg&quot; style&#x3D;&quot;width:120px;&quot; alt&#x3D;&quot;&quot; /&gt;
+                      CPAM / CGSS&lt;/span&gt;
+                    &lt;/label&gt;
+                  &lt;/div&gt;
+                  &lt;a data-toggle&#x3D;&quot;collapse&quot; class&#x3D;&quot;btn-help&quot; [attr.aria-expanded]&#x3D;&quot;flagAfficherAide[&#x27;cnmss&#x27;]&quot;
+                    (click)&#x3D;&quot;afficherMasquerAide(&#x27;cpam&#x27;)&quot;&gt;
+                    &lt;span class&#x3D;&quot;fr-fi-question-fill&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;
+                  &lt;/a&gt;
+                  &lt;div class&#x3D;&quot;help-panel collapse&quot; [class.show]&#x3D;&quot;flagAfficherAide[&#x27;cpam&#x27;]&quot;&gt;
+                    &lt;h4&gt;Vous souhaitez informer votre caisse de l&#x27;Assurance Maladie de votre changement
+                    d’adresse.&lt;/h4&gt;
+                    &lt;h5&gt;Vous êtes rattaché à une CPAM ou une CGSS (dans un département d&#x27;outre-mer).&lt;/h5&gt;
+                    &lt;p&gt;Dans un premier temps, les assurés inscrits aux autres régimes (agricole, commerçant,
+                      artisan, étudiant, mutuelles de fonctionnaires, etc) sont exclus de la procédure.
+                    &lt;/p&gt;
+                    &lt;p&gt;&lt;strong&gt;Vous trouverez votre identifiant NIR sur votre carte Vitale et sur vos
+                      relevés de
+                    remboursements.&lt;/strong&gt;&lt;/p&gt;
+                    &lt;h5&gt;Les personnes de votre foyer n’ont pas à faire de déclaration séparée si elles
+                      dépendent
+                    de votre CPAM ou CGSS.&lt;/h5&gt;
+                    &lt;p&gt;Les personnes qui ne disposent pas d’une carte VITALE personnelle doivent indiquer le
+                      numéro de sécurité sociale de titulaire de la carte VITALE sur laquelle elle figure.
+                    &lt;/p&gt;
+                    &lt;p&gt;Les personnes qui demeurent avec vous et qui ne dépendent pas de votre CPAM doivent
+                      faire
+                    une déclaration séparée sous leur propre numéro de sécurité sociale.&lt;/p&gt;
+                    &lt;h5&gt;Après l&#x27;envoi de votre demande ...&lt;/h5&gt;
+                    &lt;p&gt;votre caisse d’Assurance Maladie vous confirmera l’enregistrement de votre changement
+                    d’adresse.&lt;/p&gt;
+                    &lt;p&gt;Si votre nouveau domicile se situe dans un autre département, elle vous communiquera
+                      s’il
+                      y a lieu les coordonnées de votre nouvelle caisse, les formalités à accomplir ou les
+                    pièces justificatives à fournir.&lt;/p&gt;
+                    &lt;h5&gt;Pour plus d&#x27;informations ...&lt;/h5&gt;
+                    &lt;p&gt;En cas de problème, veuillez nous contacter via mon compte sur Ameli.fr si vous
+                      disposez
+                      d’un compte ou retrouvez les coordonnées de votre caisse d’Assurance Maladie sur
+                    www.ameli.fr rubrique « votre caisse »&lt;/p&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            }
+            @if (destinatairesActifs &amp;&amp; destinatairesActifs[&#x27;destinatairesActifs_cpam&#x27;] !&#x3D;&#x3D; true) {
+              &lt;div class&#x3D;&quot;fr-col-12 destinataireInactif&quot;
+                &gt;
+                &lt;span&gt;&lt;img src&#x3D;&quot;./jechangedecoordonnees/logoCapam.svg&quot; style&#x3D;&quot;width:120px;&quot; alt&#x3D;&quot;&quot; /&gt;
+                CPAM / CGSS&lt;/span&gt;
+                &lt;p class&#x3D;&quot;text-danger&quot; style&#x3D;&quot;margin-left:15px;&quot; role&#x3D;&quot;alert&quot;&gt;Suite à des opérations
+                  techniques,
+                aucun dossier ne peut être transmis temporairement à la CPAM.&lt;/p&gt;
+              &lt;/div&gt;
+            }
+            @if (destinatairesActifs &amp;&amp; destinatairesActifs[&#x27;destinatairesActifs_cdc&#x27;] &#x3D;&#x3D;&#x3D; true) {
+              &lt;div class&#x3D;&quot;fr-col-12 checkbox cdc libelle&quot;
+                &gt;
+                &lt;div class&#x3D;&quot;fr-form-group&quot;&gt;
+                  &lt;div class&#x3D;&quot;fr-checkbox-group libelle&quot;&gt;
+                    &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;destinatairesSelectionnees_cdc&quot;
+                      [checked]&#x3D;&quot;!!destinatairesSelectionnees &amp;&amp; destinatairesSelectionnees[&#x27;cdc&#x27;] &#x3D;&#x3D;&#x3D; &#x27;true&#x27;&quot;
+                      (change)&#x3D;&quot;changerLaValeur($event, &#x27;destinatairesSelectionnees_cdc&#x27;)&quot;&gt;
+                      &lt;label class&#x3D;&quot;fr-label&quot; for&#x3D;&quot;destinatairesSelectionnees_cdc&quot;&gt;
+                        &lt;span&gt;&lt;img src&#x3D;&quot;./jechangedecoordonnees/logoCdc.gif&quot; alt&#x3D;&quot;&quot; /&gt;
+                        Fonds gérés par la Caisse des dépots&lt;/span&gt;
+                      &lt;/label&gt;
+                    &lt;/div&gt;
+                    &lt;a data-toggle&#x3D;&quot;collapse&quot; class&#x3D;&quot;btn-help&quot; [attr.aria-expanded]&#x3D;&quot;flagAfficherAide[&#x27;cdc&#x27;]&quot;
+                      (click)&#x3D;&quot;afficherMasquerAide(&#x27;cdc&#x27;)&quot;&gt;
+                      &lt;span class&#x3D;&quot;fr-fi-question-fill&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;
+                    &lt;/a&gt;
+                    &lt;div class&#x3D;&quot;help-panel collapse&quot; [class.show]&#x3D;&quot;flagAfficherAide[&#x27;cdc&#x27;]&quot;&gt;
+                      &lt;h4&gt;Vous souhaitez informer la Caisse des dépôts de votre changement d’adresse.&lt;/h4&gt;
+                      &lt;h5&gt;Vous êtes affilié, retraité ou pensionné relevant de l’un au moins des fonds ou
+                        régimes
+                      suivants :&lt;/h5&gt;
+                      &lt;div&gt;
+                        &lt;ul&gt;
+                          &lt;li&gt;ATC - ICNA Allocation temporaire complémentaire des ingénieurs de contrôle
+                            de la
+                          navigation aérienne &lt;/li&gt;
+                          &lt;li&gt; ATIACL Allocation Temporaire d’Invalidité des Agents des Collectivités
+                            Locales
+                          &lt;/li&gt;
+                          &lt;li&gt; Chemin de fer de l’Hérault &lt;/li&gt;
+                          &lt;li&gt; CNRACL Caisses Nationale de Retraites des Agents des Collectivités Locales
+                          &lt;/li&gt;
+                          &lt;li&gt; CRRFOM Caisses de retraites des régies ferroviaires d’outre-mer &lt;/li&gt;
+                          &lt;li&gt; FAEFM Fonds d’allocation des élus en fin de mandat &lt;/li&gt;
+                          &lt;li&gt; FCAT Fonds commun des accidents du travail &lt;/li&gt;
+                          &lt;li&gt; FCATA Fonds commun des accidents du travail agricole &lt;/li&gt;
+                          &lt;li&gt; FPA Fonds de prévoyance de l’aéronautique &lt;/li&gt;
+                          &lt;li&gt; FPM Fonds de prévoyance militaire &lt;/li&gt;
+                          &lt;li&gt; FSPOEIE Fonds Spécial des Pensions des Ouvriers des Etablissements
+                            Industriels
+                          de l&#x27;Etat &lt;/li&gt;
+                          &lt;li&gt; Imprimerie Nationale Régime spécial de pension du personnel de l’imprimerie
+                          nationale &lt;/li&gt;
+                          &lt;li&gt; IRCANTEC Institution de Retraite Complémentaire des Agents Non Titulaires
+                            de
+                          l&#x27;Etat et des Collectivités publiques &lt;/li&gt;
+                          &lt;li&gt; MINES Retraite des Mines &lt;/li&gt;
+                          &lt;li&gt; Préfecture du Haut-Rhin Régime de la caisse de retraite du personnel
+                          départemental du Haut-Rhin &lt;/li&gt;
+                          &lt;li&gt; RAFP Retraite Additionnelle de la Fonction Publique &lt;/li&gt;
+                          &lt;li&gt; RATOCEM Rentes d’accident du travail des ouvriers civils des établissements
+                          militaires &lt;/li&gt;
+                          &lt;li&gt; RISP Le Régime d’Indemnisation des Sapeurs-Pompiers volontaires &lt;/li&gt;
+                          &lt;li&gt; SASPA Service de l&#x27;Allocation Solidarité aux Personnes Agées &lt;/li&gt;
+                          &lt;li&gt; SUDAC Pension et Complément de pension de la Société urbaine de
+                            distribution
+                          d’air comprimé&lt;/li&gt;
+                        &lt;/ul&gt;
+                      &lt;/div&gt;
+                      &lt;p&gt;Note : le changement d’adresse déclaré par vos soins sera mis en œuvre dans
+                        l’ensemble
+                      des fonds concernés.&lt;/p&gt;
+                      &lt;p&gt;Si vous êtes retraité et que vous percevez votre pension par chèque à votre domicile,
+                        le
+                        changement d’adresse ne peut être traité par ce canal. Prenez contact directement
+                        avec
+                      l’organisme correspondant.&lt;/p&gt;
+                      &lt;p&gt;&lt;strong&gt;Vous devez indiquer votre numéro de sécurité sociale &lt;/strong&gt;(présent sur
+                      votre
+                    carte Vitale).&lt;/p&gt;
+                    &lt;p&gt;&lt;strong&gt;Les personnes de votre foyer n’ont pas à faire de déclaration séparée s’ils
+                      ont
+                    le même numéro de sécurité sociale.&lt;/strong&gt;&lt;/p&gt;
+                    &lt;h5&gt;Après l&#x27;envoi de votre demande ...&lt;/h5&gt;
+                    &lt;p&gt;si l&#x27;enregistrement de votre changement d&#x27;adresse n’a pas été possible, CDC
+                      Retraites,
+                    gestionnaire des fonds, vous informera dans un délai maximal de 8 jours.&lt;/p&gt;
+                    &lt;h5&gt;Pour plus d&#x27;informations ...&lt;/h5&gt;
+                    &lt;p&gt;sur les régimes gérés par la Caisse des dépôts, vous pouvez consulter le site &lt;a href&#x3D;&quot;http://www.cdc.retraites.fr&quot;
+                      target&#x3D;&quot;_blank&quot; title&#x3D;&quot;www.cdc.retraites.fr - Nouvelle fenêtre&quot;&gt;www.cdc.retraites.fr&lt;span aria-hidden&#x3D;&quot;true&quot;
+                    class&#x3D;&quot;icon&quot;&gt;&lt;/span&gt;&lt;/a&gt;. En cas de
+                    doutes
+                    ou de problèmes sur le traitement de votre déclaration de changement d&#x27;adresse, vous
+                  pouvez contacter votre régime.&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          }
+          @if (destinatairesActifs &amp;&amp; destinatairesActifs[&#x27;destinatairesActifs_cdc&#x27;] !&#x3D;&#x3D; true) {
+            &lt;div class&#x3D;&quot;fr-col-12 destinataireInactif&quot;&gt;
+              &lt;span&gt;&lt;img src&#x3D;&quot;./jechangedecoordonnees/logoCdc.gif&quot; alt&#x3D;&quot;&quot; /&gt; Fonds gérés par la
+                Caisse
+              des dépots&lt;/span&gt;
+              &lt;p class&#x3D;&quot;text-danger&quot; style&#x3D;&quot;margin-left:15px;&quot; role&#x3D;&quot;alert&quot;&gt;Suite à des opérations
+                techniques,
+              aucun dossier ne peut être transmis temporairement à la Caisse des dépots.&lt;/p&gt;
+            &lt;/div&gt;
+          }
+          @if (destinatairesActifs &amp;&amp; destinatairesActifs[&#x27;destinatairesActifs_cnav&#x27;] &#x3D;&#x3D;&#x3D; true) {
+            &lt;div class&#x3D;&quot;fr-col-12 checkbox cnav libelle&quot;
+              &gt;
+              &lt;div class&#x3D;&quot;fr-form-group&quot;&gt;
+                &lt;div class&#x3D;&quot;fr-checkbox-group libelle&quot;&gt;
+                  &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;destinatairesSelectionnees_cnav&quot;
+                    [checked]&#x3D;&quot;!!destinatairesSelectionnees &amp;&amp; destinatairesSelectionnees[&#x27;cnav&#x27;] &#x3D;&#x3D;&#x3D; &#x27;true&#x27;&quot;
+                    (change)&#x3D;&quot;changerLaValeur($event, &#x27;destinatairesSelectionnees_cnav&#x27;)&quot;&gt;
+                    &lt;label class&#x3D;&quot;fr-label&quot; for&#x3D;&quot;destinatairesSelectionnees_cnav&quot;&gt;
+                      &lt;span&gt;&lt;img src&#x3D;&quot;./jechangedecoordonnees/logoCnav.gif&quot; alt&#x3D;&quot;&quot; /&gt;
+                      CNAV, CARSAT, CRAV ou CGSS (Régime général)&lt;/span&gt;
+                    &lt;/label&gt;
+                  &lt;/div&gt;
+                  &lt;a data-toggle&#x3D;&quot;collapse&quot; class&#x3D;&quot;btn-help&quot; [attr.aria-expanded]&#x3D;&quot;flagAfficherAide[&#x27;cnav&#x27;]&quot;
+                    (click)&#x3D;&quot;afficherMasquerAide(&#x27;cnav&#x27;)&quot;&gt;
+                    &lt;span class&#x3D;&quot;fr-fi-question-fill&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;
+                  &lt;/a&gt;
+                  &lt;div class&#x3D;&quot;help-panel collapse&quot; [class.show]&#x3D;&quot;flagAfficherAide[&#x27;cnav&#x27;]&quot;&gt;
+                    &lt;h4&gt;Vous souhaitez informer votre caisse de Retraite de la Sécurité Sociale de votre
+                    changement d’adresse.&lt;/h4&gt;
+                    &lt;h5&gt;Vous êtes … &lt;/h5&gt;
+                    &lt;p&gt;Salarié de l&#x27;industrie, du commerce et des services, Salarié non titulaire du secteur
+                    public et para-public&lt;/p&gt;
+                    &lt;p&gt;&lt;strong&gt;ET&lt;/strong&gt;&lt;/p&gt;
+                    &lt;ul&gt;
+                      &lt;li&gt;Vous êtes retraité(e)&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;p&gt;&lt;strong&gt;ou&lt;/strong&gt;&lt;/p&gt;
+                    &lt;ul&gt;
+                      &lt;li&gt;Vous avez un dossier en cours (régularisation de carrière, rachat, …)&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;p&gt;&lt;strong&gt;ou&lt;/strong&gt;&lt;/p&gt;
+                    &lt;ul&gt;
+                      &lt;li&gt; Vous avez déposé un dossier de retraite auprès d’une de ces caisses :&lt;ul&gt;
+                        &lt;li&gt;CNAV : Caisse Nationale d’Assurance Vieillesse (Paris et île de France)
+                        &lt;/li&gt;
+                        &lt;li&gt;CARSAT : Caisse de Retraite et Santé au Travail (Province excepté Région
+                        Alsace-Moselle)&lt;/li&gt;
+                        &lt;li&gt;CRAV : Caisse Régionale d’Assurance Vieillesse (Région Alsace-Moselle)
+                        &lt;/li&gt;
+                        &lt;li&gt;CGSS : Caisse Générale de Sécurité Sociale (DOM)&lt;/li&gt;
+                      &lt;/ul&gt;Vous devez indiquer votre numéro de sécurité sociale et sa clé (présent sur
+                    votre carte VITALE).&lt;/li&gt;
+                  &lt;/ul&gt;
+                  &lt;h5&gt;Si plusieurs personnes sont concernées ... &lt;/h5&gt;
+                  &lt;p&gt;Les personnes qui sont concernées par ce changement d&#x27;adresse et qui sont dans l&#x27;une
+                    des
+                    situations mentionnées ci-dessus, doivent également déclarer leur nouvelle adresse
+                    par
+                  ce service.&lt;/p&gt;
+                  &lt;h5&gt;Après l&#x27;envoi de votre demande ... &lt;/h5&gt;
+                  &lt;p&gt;votre caisse de retraite procédera à l&#x27;enregistrement de votre changement d&#x27;adresse
+                    et
+                  vous adressera vos prochains courriers à votre nouvelle adresse. &lt;/p&gt;
+                  &lt;h5&gt;Pour plus d&#x27;informations ... &lt;/h5&gt;
+                  &lt;p&gt;sur la retraite du régime général, vous pouvez consulter le site &lt;a href&#x3D;&quot;http://www.lassuranceretraite.fr&quot;
+                    target&#x3D;&quot;_blank&quot; title&#x3D;&quot;www.lassuranceretraite.fr - Nouvelle fenêtre&quot;&gt;www.lassuranceretraite.fr&lt;span
+                  aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;icon&quot;&gt;&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
+                  &lt;p&gt;En cas de doutes ou de problèmes sur le traitement de votre déclaration de changement
+                    d&#x27;adresse, vous pouvez contacter la caisse de retraite de votre ancienne adresse.
+                  &lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          }
+          @if (destinatairesActifs &amp;&amp; destinatairesActifs[&#x27;destinatairesActifs_cnav&#x27;] !&#x3D;&#x3D; true) {
+            &lt;div class&#x3D;&quot;fr-col-12 destinataireInactif&quot;
+              &gt;
+              &lt;span&gt;&lt;img src&#x3D;&quot;./jechangedecoordonnees/logoCnav.gif&quot; alt&#x3D;&quot;&quot; /&gt; CNAV, CARSAT, CRAV ou
+              CGSS (Régime général)&lt;/span&gt;
+              &lt;p class&#x3D;&quot;text-danger&quot; style&#x3D;&quot;margin-left:15px;&quot; role&#x3D;&quot;alert&quot;&gt;Suite à des opérations
+                techniques,
+                aucun dossier ne peut être transmis temporairement à la CNAV, CARSAT, CRAV ou CGSS
+                (Régime
+              général).&lt;/p&gt;
+            &lt;/div&gt;
+          }
+          @if (destinatairesActifs &amp;&amp; destinatairesActifs[&#x27;destinatairesActifs_msa&#x27;] &#x3D;&#x3D;&#x3D; true) {
+            &lt;div class&#x3D;&quot;fr-col-12 checkbox msa libelle&quot;
+              &gt;
+              &lt;div class&#x3D;&quot;fr-form-group&quot;&gt;
+                &lt;div class&#x3D;&quot;fr-checkbox-group libelle&quot;&gt;
+                  &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;destinatairesSelectionnees_msa&quot;
+                    [checked]&#x3D;&quot;!!destinatairesSelectionnees &amp;&amp; destinatairesSelectionnees[&#x27;msa&#x27;] &#x3D;&#x3D;&#x3D; &#x27;true&#x27;&quot;
+                    (change)&#x3D;&quot;changerLaValeur($event, &#x27;destinatairesSelectionnees_msa&#x27;)&quot;&gt;
+                    &lt;label class&#x3D;&quot;fr-label&quot; for&#x3D;&quot;destinatairesSelectionnees_msa&quot;&gt;
+                      &lt;span&gt;&lt;img src&#x3D;&quot;./jechangedecoordonnees/logoMsa.gif&quot; alt&#x3D;&quot;&quot; /&gt;
+                      MSA&lt;/span&gt;
+                    &lt;/label&gt;
+                  &lt;/div&gt;
+                  &lt;a data-toggle&#x3D;&quot;collapse&quot; class&#x3D;&quot;btn-help&quot; [attr.aria-expanded]&#x3D;&quot;flagAfficherAide[&#x27;msa&#x27;]&quot;
+                    (click)&#x3D;&quot;afficherMasquerAide(&#x27;msa&#x27;)&quot;&gt;
+                    &lt;span class&#x3D;&quot;fr-fi-question-fill&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;
+                  &lt;/a&gt;
+                  &lt;div class&#x3D;&quot;help-panel collapse&quot; [class.show]&#x3D;&quot;flagAfficherAide[&#x27;msa&#x27;]&quot;&gt;
+                    &lt;h4&gt;Vous souhaitez informer la MSA de votre changement d’adresse.&lt;/h4&gt;
+                    &lt;h5&gt;Vous êtes … &lt;/h5&gt;
+                    &lt;p&gt;un particulier inscrit à la Mutualité Sociale Agricole, régime de protection sociale
+                      des
+                    salariés et des non-salariés agricoles.&lt;/p&gt;
+                    &lt;p&gt;&lt;strong&gt;Vous devez indiquer votre numéro de sécurité sociale&lt;/strong&gt;(présent sur les
+                  documents adressés par la MSA).&lt;/p&gt;
+                  &lt;h5&gt;Si plusieurs personnes sont concernées ... &lt;/h5&gt;
+                  &lt;p&gt;vous pouvez effectuer le changement d’adresse pour chaque membre de votre famille en
+                  indiquant leur identité et leur numéro de sécurité sociale.&lt;/p&gt;
+                  &lt;h5&gt;Après l&#x27;envoi de votre demande ... &lt;/h5&gt;
+                  &lt;p&gt;vous recevrez, dans un délai de 10 jours maximum, à votre nouvelle adresse, une
+                    confirmation de l’enregistrement de vos nouvelles coordonnées par la MSA qui gère
+                    votre
+                  dossier ainsi que les démarches éventuelles à accomplir.&lt;/p&gt;
+                  &lt;h5&gt;Pour plus d&#x27;informations ... &lt;/h5&gt;
+                  &lt;p&gt;vous pouvez retrouver les coordonnées de l&#x27;ensemble des Caisses de MSA sur notre site
+                    Internet &lt;a href&#x3D;&quot;http://www.msa.fr&quot; target&#x3D;&quot;_blank&quot;
+                    title&#x3D;&quot;http://www.msa.fr - Nouvelle fenêtre&quot;&gt;http://www.msa.fr&lt;span aria-hidden&#x3D;&quot;true&quot;
+                  class&#x3D;&quot;icon&quot;&gt;&lt;/span&gt;&lt;/a&gt; à la rubrique
+                  &quot;contact&quot; ou la rubrique &quot;le réseau des caisses&quot; de l&#x27;espace &quot;La MSA vous
+                  accompagne&quot; ou
+                  directement en indiquant le numéro du département concerné sur la page d&#x27;accueil de
+                notre site.&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        }
+        @if (destinatairesActifs &amp;&amp; destinatairesActifs[&#x27;destinatairesActifs_msa&#x27;] !&#x3D;&#x3D; true) {
+          &lt;div class&#x3D;&quot;fr-col-12 destinataireInactif&quot;&gt;
+            &lt;span&gt;&lt;img src&#x3D;&quot;./jechangedecoordonnees/logoMsa.gif&quot; alt&#x3D;&quot;&quot; /&gt; MSA&lt;/span&gt;
+            &lt;p class&#x3D;&quot;text-danger&quot; style&#x3D;&quot;margin-left:15px;&quot; role&#x3D;&quot;alert&quot;&gt;Suite à des opérations
+              techniques,
+            aucun dossier ne peut être transmis temporairement à la MSA.&lt;/p&gt;
+          &lt;/div&gt;
+        }
+        @if (destinatairesActifs &amp;&amp; destinatairesActifs[&#x27;destinatairesActifs_camieg&#x27;] &#x3D;&#x3D;&#x3D; true) {
+          &lt;div class&#x3D;&quot;fr-col-12 checkbox camieg libelle&quot;
+            &gt;
+            &lt;div class&#x3D;&quot;fr-form-group&quot;&gt;
+              &lt;div class&#x3D;&quot;fr-checkbox-group libelle&quot;&gt;
+                &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;destinatairesSelectionnees_camieg&quot;
+                  [checked]&#x3D;&quot;!!destinatairesSelectionnees &amp;&amp; destinatairesSelectionnees[&#x27;camieg&#x27;] &#x3D;&#x3D;&#x3D; &#x27;true&#x27;&quot;
+                  (change)&#x3D;&quot;changerLaValeur($event, &#x27;destinatairesSelectionnees_camieg&#x27;)&quot;&gt;
+                  &lt;label class&#x3D;&quot;fr-label&quot; for&#x3D;&quot;destinatairesSelectionnees_camieg&quot;&gt;
+                    &lt;span&gt;&lt;img src&#x3D;&quot;./jechangedecoordonnees/logoCamieg.png&quot; alt&#x3D;&quot;&quot; /&gt;
+                    CAMIEG&lt;/span&gt;
+                  &lt;/label&gt;
+                &lt;/div&gt;
+                &lt;a data-toggle&#x3D;&quot;collapse&quot; class&#x3D;&quot;btn-help&quot; [attr.aria-expanded]&#x3D;&quot;flagAfficherAide[&#x27;camieg&#x27;]&quot;
+                  (click)&#x3D;&quot;afficherMasquerAide(&#x27;camieg&#x27;)&quot;&gt;
+                  &lt;span class&#x3D;&quot;fr-fi-question-fill&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;
+                &lt;/a&gt;
+                &lt;div class&#x3D;&quot;help-panel collapse&quot; [class.show]&#x3D;&quot;flagAfficherAide[&#x27;camieg&#x27;]&quot;&gt;
+                  &lt;h4&gt;Vous souhaitez informer la CAMIEG de votre changement d’adresse.&lt;/h4&gt;
+                  &lt;p&gt;&lt;strong&gt;Vous trouverez votre identifiant NIR sur votre carte Vitale et sur vos
+                    relevés de
+                  remboursements.&lt;/strong&gt;&lt;/p&gt;
+                  &lt;p&gt;&lt;strong&gt;Les personnes de votre foyer n’ont pas à faire de déclaration séparée si
+                    elles
+                  dépendent de la CAMIEG.&lt;/strong&gt;&lt;/p&gt;
+                  &lt;p&gt;Les personnes qui ne disposent pas d’une carte VITALE personnelle doivent indiquer le
+                    numéro de sécurité sociale du titulaire de la carte VITALE sur laquelle elles
+                    figurent
+                  &lt;/p&gt;
+                  &lt;h5&gt;Après l&#x27;envoi de votre demande ...&lt;/h5&gt;
+                  &lt;p&gt;La CAMIEG vous confirmera l’enregistrement de votre changement d’adresse.&lt;/p&gt;
+                  &lt;h5&gt;Pour plus d&#x27;informations ...&lt;/h5&gt;
+                  &lt;p&gt;En cas de problème, veuillez nous contacter via votre compte Ameli ou retrouvez les
+                    coordonnées de la CAMIEG sur &lt;a href&#x3D;&quot;http://www.camieg.fr&quot; title&#x3D;&quot;http://www.camieg.fr - nouvelle fenêtre&quot;
+                    target&#x3D;&quot;_blank&quot;&gt;www.camieg.fr&lt;span class&#x3D;&quot;icon&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    en cliquant sur « Nous contacter»
+                  (ou sur le picto représentant une enveloppe).&lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          }
+          @if (destinatairesActifs &amp;&amp; destinatairesActifs[&#x27;destinatairesActifs_camieg&#x27;] !&#x3D;&#x3D; true) {
+            &lt;div class&#x3D;&quot;fr-col-12 destinataireInactif&quot;
+              &gt;
+              &lt;span&gt;&lt;img src&#x3D;&quot;./jechangedecoordonnees/logoCamieg.png&quot; alt&#x3D;&quot;&quot; /&gt; CAMIEG&lt;/span&gt;
+              &lt;p class&#x3D;&quot;text-danger&quot; style&#x3D;&quot;margin-left:15px;&quot; role&#x3D;&quot;alert&quot;&gt;Suite à des opérations
+                techniques,
+              aucun dossier ne peut être transmis temporairement à la CAMIEG.&lt;/p&gt;
+            &lt;/div&gt;
+          }
+          @if (destinatairesActifs &amp;&amp; destinatairesActifs[&#x27;destinatairesActifs_enim&#x27;] &#x3D;&#x3D;&#x3D; true) {
+            &lt;div class&#x3D;&quot;fr-col-12 checkbox enim libelle&quot;
+              &gt;
+              &lt;div class&#x3D;&quot;fr-form-group&quot;&gt;
+                &lt;div class&#x3D;&quot;fr-checkbox-group libelle&quot;&gt;
+                  &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;destinatairesSelectionnees_enim&quot;
+                    [checked]&#x3D;&quot;!!destinatairesSelectionnees &amp;&amp; destinatairesSelectionnees[&#x27;enim&#x27;] &#x3D;&#x3D;&#x3D; &#x27;true&#x27;&quot;
+                    (change)&#x3D;&quot;changerLaValeur($event, &#x27;destinatairesSelectionnees_enim&#x27;)&quot;&gt;
+                    &lt;label class&#x3D;&quot;fr-label&quot; for&#x3D;&quot;destinatairesSelectionnees_enim&quot;&gt;
+                      &lt;span&gt;&lt;img src&#x3D;&quot;./jechangedecoordonnees/logoEnim.jpg&quot; alt&#x3D;&quot;&quot; /&gt;
+                      ENIM&lt;/span&gt;
+                    &lt;/label&gt;
+                  &lt;/div&gt;
+                  &lt;a data-toggle&#x3D;&quot;collapse&quot; class&#x3D;&quot;btn-help&quot; [attr.aria-expanded]&#x3D;&quot;flagAfficherAide[&#x27;enim&#x27;]&quot;
+                    (click)&#x3D;&quot;afficherMasquerAide(&#x27;enim&#x27;)&quot;&gt;
+                    &lt;span class&#x3D;&quot;fr-fi-question-fill&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;
+                  &lt;/a&gt;
+                  &lt;div class&#x3D;&quot;help-panel collapse&quot; [class.show]&#x3D;&quot;flagAfficherAide[&#x27;enim&#x27;]&quot;&gt;
+                    &lt;h4&gt;Vous souhaitez informer l’Enim de votre changement d’adresse. &lt;/h4&gt;
+                    &lt;h5&gt;Vous êtes …&lt;/h5&gt;
+                    &lt;p&gt;un particulier inscrit à la l’Enim, régime de protection sociale des marins.&lt;/p&gt;
+                    &lt;p&gt;Vous devez indiquer votre numéro de sécurité sociale (présent sur les documents
+                      adressés
+                    par l’Enim).&lt;/p&gt;&lt;br&gt;
+                    &lt;h5&gt;Si plusieurs personnes sont concernées ...&lt;/h5&gt;
+                    &lt;p&gt;vous pouvez effectuer le changement d’adresse pour chaque membre de votre famille en
+                    indiquant leur identité et leur numéro de sécurité sociale.&lt;/p&gt;&lt;br&gt;
+                    &lt;p&gt;Vous pouvez retrouver toutes les informations nécessaires à vos prises en charge sur
+                      le
+                      site internet &lt;a href&#x3D;&quot;http://www.enim.eu&quot; title&#x3D;&quot;http://www.enim.eu - nouvelle fenêtre&quot;
+                      target&#x3D;&quot;_blank&quot;&gt;www.enim.eu&lt;span class&#x3D;&quot;icon&quot;&gt;&lt;/span&gt;&lt;/a&gt; .&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              }
+              @if (destinatairesActifs &amp;&amp; destinatairesActifs[&#x27;destinatairesActifs_enim&#x27;] !&#x3D;&#x3D; true) {
+                &lt;div class&#x3D;&quot;fr-col-12 destinataireInactif&quot;
+                  &gt;
+                  &lt;span&gt;&lt;img src&#x3D;&quot;./jechangedecoordonnees/logoEnim.jpg&quot; alt&#x3D;&quot;&quot; /&gt; ENIM&lt;/span&gt;
+                  &lt;p class&#x3D;&quot;text-danger&quot; style&#x3D;&quot;margin-left:15px;&quot; role&#x3D;&quot;alert&quot;&gt;Suite à des opérations
+                    techniques,
+                  aucun dossier ne peut être transmis temporairement à la CAMIEG.&lt;/p&gt;
+                &lt;/div&gt;
+              }
+              @if (flagMasquerNumeroSecu) {
+                &lt;div class&#x3D;&quot;fr-col-md-12 numeroSecu&quot;&gt;
+                  &lt;div [class.fr-input-group--error]&#x3D;&quot;saisieNumeroSecuInvalide&quot; [class.fr-input-group--valid]&#x3D;&quot;saisieNumeroSecuValide&quot;
+                    class&#x3D;&quot;fr-input-group fr-form-group&quot;&gt;
+                    &lt;div class&#x3D;&quot;libelle&quot;&gt;
+                      &lt;label class&#x3D;&quot;fr-label&quot; for&#x3D;&quot;idSaisieNumeroSecu&quot;&gt;
+                        &lt;span class&#x3D;&quot;symbol-required&quot;&gt;* &lt;/span&gt;
+                        &lt;span&gt;Votre numéro de sécurité sociale sera communiqué aux
+                        organismes que vous avez cochés ci-dessus.&lt;/span&gt;
+                      &lt;/label&gt;
+                    &lt;/div&gt;
+                    &lt;input class&#x3D;&quot;fr-input&quot; [class.fr-input--error]&#x3D;&quot;saisieNumeroSecuInvalide&quot;
+                      [class.fr-input--valid]&#x3D;&quot;saisieNumeroSecuValide&quot; aria-describedby&#x3D;&quot;desc-SaisieNumeroSecu&quot; type&#x3D;&quot;text&quot;
+                      id&#x3D;&quot;idSaisieNumeroSecu&quot; formControlName&#x3D;&quot;numeroSecu&quot;&gt;
+                      @if (formulaire.get(&#x27;numeroSecu&#x27;)) {
+                        &lt;p data-fmk-messagesvalidation id&#x3D;&quot;desc-SaisieNumeroSecu&quot;
+                        [controle]&#x3D;&quot;formulaire.get(&#x27;numeroSecu&#x27;)&quot; aria-live&#x3D;&quot;assertive&quot;&gt;&lt;/p&gt;
+                      }
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                }
+              &lt;/div&gt;
+            &lt;/fieldset&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;fr-grid-row&quot;&gt;
+          &lt;div class&#x3D;&quot;fr-col-12&quot;&gt;
+            &lt;fieldset class&#x3D;&quot;fr-container&quot;&gt;
+              &lt;legend&gt;
+                &lt;h3&gt;
+                  &lt;span&gt;Autres organismes privés&lt;/span&gt;
+                  &lt;span class&#x3D;&quot;fr-sr-only&quot;&gt;Saisie complémentaire requise - affichage automatique&lt;/span&gt;
+                &lt;/h3&gt;
+              &lt;/legend&gt;
+              &lt;div class&#x3D;&quot;fr-grid-row panel panel-default&quot;&gt;
+                @if (destinatairesActifs &amp;&amp; destinatairesActifs[&#x27;destinatairesActifs_laposte&#x27;] &#x3D;&#x3D;&#x3D; true) {
+                  &lt;div class&#x3D;&quot;fr-col-md-12 checkbox laposte libelle&quot;
+                    &gt;
+                    &lt;div class&#x3D;&quot;fr-form-group&quot;&gt;
+                      &lt;div class&#x3D;&quot;fr-checkbox-group libelle&quot;&gt;
+                        &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;destinatairesSelectionnees_laposte&quot;
+                          [checked]&#x3D;&quot;!!destinatairesSelectionnees &amp;&amp; destinatairesSelectionnees[&#x27;laposte&#x27;] &#x3D;&#x3D;&#x3D; &#x27;true&#x27;&quot;
+                          (change)&#x3D;&quot;changerLaValeur($event, &#x27;destinatairesSelectionnees_laposte&#x27;)&quot;&gt;
+                          &lt;label class&#x3D;&quot;fr-label&quot; for&#x3D;&quot;destinatairesSelectionnees_laposte&quot;&gt;
+                            &lt;span&gt;&lt;img src&#x3D;&quot;./jechangedecoordonnees/logoPoste.gif&quot; alt&#x3D;&quot;&quot; /&gt;
+                            La Poste&lt;/span&gt;
+                          &lt;/label&gt;
+                        &lt;/div&gt;
+                        &lt;a data-toggle&#x3D;&quot;collapse&quot; class&#x3D;&quot;btn-help&quot; [attr.aria-expanded]&#x3D;&quot;flagAfficherAide[&#x27;laposte&#x27;]&quot;
+                          (click)&#x3D;&quot;afficherMasquerAide(&#x27;laposte&#x27;)&quot;&gt;
+                          &lt;span class&#x3D;&quot;fr-fi-question-fill&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;
+                        &lt;/a&gt;
+                        &lt;div class&#x3D;&quot;help-panel collapse&quot; [class.show]&#x3D;&quot;flagAfficherAide[&#x27;laposte&#x27;]&quot;&gt;
+                          &lt;p&gt;Vous souhaitez informer La Poste de votre changement de coordonnées et souscrire un
+                            contrat de réexpédition. Le service de réexpédition définitive de La Poste vous
+                            permet
+                            de faire suivre l’intégralité du courrier reçu à votre adresse actuelle en France
+                          métropolitaine ou dans les DOM vers votre nouveau domicile.&lt;/p&gt;
+                          &lt;p&gt;Après envoi de votre demande, La Poste vous enverra immédiatement un courriel de
+                            confirmation. Vous serez alors invité(e) à vous rendre sur le site de réexpédition
+                            du
+                            courrier de La Poste où vous pourrez choisir, compléter si nécessaire et payer en
+                            ligne
+                            votre contrat. Le service de réexpédition pourra débuter au plus tôt 2 jours ouvrés
+                          après la date de souscription de votre contrat.&lt;/p&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  }
+                &lt;/div&gt;
+              &lt;/fieldset&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+      }</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./pagejcc.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">div.destinataireInactif img, .checkbox img { max-width: 130px; max-height: 80px; }
+div.destinataireInactif &gt; span { margin-left: 30px; }</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Légende</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elément Html</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Composant</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elément Html avec une directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- Message d\'information pour les champs obligatoires (s\'il en existe) -->@if (page && !page.modeObligatoireParDefaut) {  <p class="mentionObligatoireParDefaut">Les champs marqués d\'un <span class="symbol-required">*</span>sont obligatoires</p>}@if (page && page.modeObligatoireParDefaut) {  <p class="mentionPasObligatoireParDefaut">Sauf indication contraire, <b>toutes les informations  demandées sont obligatoires</b> pour pouvoirtraiter votre demande.</p>}<!-- Titre de la page --><h2>{{(page) ? page.titre : \'\'}}</h2>@if (formulaire) {  <form [formGroup]="formulaire">    <div class="fr-grid-row">      <div class="fr-col-12">        <fieldset class="fr-container">          <legend>            <h3>              <span>Santé et retraite</span>              <span class="fr-sr-only">Saisie complémentaire requise - affichage automatique</span>            </h3>          </legend>          <div class="fr-grid-row panel panel-default">            @if (destinatairesActifs && destinatairesActifs[\'destinatairesActifs_agirc\'] === true) {              <div class="fr-col-12 checkbox agirc libelle"                >                <div class="fr-form-group">                  <div class="fr-checkbox-group libelle">                    <input type="checkbox" id="destinatairesSelectionnees_agirc"                      [checked]="!!destinatairesSelectionnees && destinatairesSelectionnees[\'agirc\'] === \'true\'"                      (change)="changerLaValeur($event, \'destinatairesSelectionnees_agirc\')">                      <label class="fr-label" for="destinatairesSelectionnees_agirc">                        <span><img src="./jechangedecoordonnees/logoAgirc.gif" alt="" /> Régimes                        ARRCO et AGIRC</span>                      </label>                    </div>                    <a data-toggle="collapse" class="btn-help" [attr.aria-expanded]="flagAfficherAide[\'agirc\']"                      (click)="afficherMasquerAide(\'agirc\')">                      <span class="fr-fi-question-fill" aria-hidden="true"></span>                    </a>                    <div class="help-panel collapse" [class.show]="flagAfficherAide[\'agirc\']">                      <h4>Vous souhaitez informer vos caisses de retraite complémentaire de votre changement                      d’adresse.</h4>                      <h5>Vous êtes … </h5>                      <p>salarié ou retraité du secteur privé et à ce titre vous êtes inscrit auprès d’une                        caisse                      de retraite Arrco et éventuellement inscrit auprès d’une caisse Agirc.</p>                      <h5>Vous devez indiquer …</h5>                      <p>votre numéro de sécurité sociale (présent sur votre carte Vitale ou vos bulletins de                      salaire ou vos avis de paiement de l’Assédic) et votre date de naissance.</p>                      <h5>Après l’envoi de votre demande … </h5>                      <p>vos caisses de retraite complémentaire seront informées de ce changement et mettront                        à                        jour votre dossier. Si vous avez indiqué votre adresse courriel, vos caisses de                        retraire                      vous confirmeront l’enregistrement de votre changement d’adresse.</p>                      <h5>Pour plus d’informations … </h5>                      <p>sur la retraite complémentaire, vous pouvez consulter le site <a href="http://www.agirc-arrco.fr" target="_blank"                        title="www.agirc-arrco.fr - Nouvelle fenêtre">www.agirc-arrco.fr<span aria-hidden="true"                      class="icon"></span></a> ou contacter                      votre caisse de retraite ou encore le Cicas (centre d’information, conseil et                      accueil                    des salariés) de votre département.</p>                  </div>                </div>              </div>            }            @if (destinatairesActifs && destinatairesActifs[\'destinatairesActifs_agirc\'] !== true) {              <div class="fr-col-12 destinataireInactif"                >                <span><img src="./jechangedecoordonnees/logoAgirc.gif" alt="" /> Régimes ARRCO et                AGIRC</span>                <p class="text-danger" style="margin-left:15px;" role="alert">Suite à des opérations                  techniques,                aucun dossier ne peut être transmis temporairement à l\'AGIRC.</p>              </div>            }            @if (destinatairesActifs && destinatairesActifs[\'destinatairesActifs_cnmss\'] === true) {              <div class="fr-col-12 checkbox cnmss libelle"                >                <div class="fr-form-group">                  <div class="fr-checkbox-group libelle">                    <input type="checkbox" id="destinatairesSelectionnees_cnmss"                      [checked]="!!destinatairesSelectionnees && destinatairesSelectionnees[\'cnmss\'] === \'true\'"                      (change)="changerLaValeur($event, \'destinatairesSelectionnees_cnmss\')">                      <label class="fr-label" for="destinatairesSelectionnees_cnmss">                        <span><img src="./jechangedecoordonnees/logoCnmss.png" alt="" />                        Caisse Nationale Militaire de Sécurité Sociale (CNMSS)</span>                      </label>                    </div>                    <a data-toggle="collapse" class="btn-help" [attr.aria-expanded]="flagAfficherAide[\'cnmss\']"                      (click)="afficherMasquerAide(\'cnmss\')">                      <span class="fr-fi-question-fill" aria-hidden="true"></span>                    </a>                    <div class="help-panel collapse" [class.show]="flagAfficherAide[\'cnmss\']">                      <h4>Vous souhaitez informer la Caisse Nationale Militaire de Sécurité Sociale de votre                        changement de coordonnées.<br>Vous êtes ressortissant du régime de sécurité sociale                        des                      militaires.</h4>                      <h5>Vous devez indiquer … </h5>                      <p>Votre numéro de sécurité sociale qui figure sur votre attestation de droits ou la                        Carte                      Vitale de l’assuré mais aussi sur les relevés de paiement.</p>                      <p><strong>Les personnes de votre foyer n’ont pas à faire de déclaration séparée si                        elles                        sont ayants droits sur votre propre compte, car l’information est prise en                        compte                      pour tous ces membres de la famille.</strong></p>                      <h5>Après l’envoi de votre demande … </h5>                      <p>Vous serez informés <strong>dans le tableau de bord de                      mon.service-public.fr.</strong>                    </p>                    <h5>Le traitement sera effectué … </h5>                    <p>Dans les <strong>15</strong> jours <strong>suivant la réception de votre                  demande.</strong></p>                  <h5>Pour plus d\'informations ... </h5>                  <p><strong>Consultez notre site</strong> <a href="http://www.cnmss.fr" target="_blank"                  title="www.cnmss.fr - Nouvelle fenêtre">www.cnmss.fr<span aria-hidden="true" class="icon"></span></a>.</p>                </div>              </div>            </div>          }          @if (destinatairesActifs && destinatairesActifs[\'destinatairesActifs_cnmss\'] !== true) {            <div class="fr-col-12 destinataireInactif"              >              <span><img src="./jechangedecoordonnees/logoCnmss.png" alt="" /> Caisse Nationale              Militaire de Sécurité Sociale (CNMSS)</span>              <p class="text-danger" style="margin-left:15px;" role="alert">Suite à des opérations                techniques,              aucun dossier ne peut être transmis temporairement à la CNMSS.</p>            </div>          }          @if (destinatairesActifs && destinatairesActifs[\'destinatairesActifs_cpam\'] === true) {            <div class="fr-col-12 checkbox cpam libelle"              >              <div class="fr-form-group">                <div class="fr-checkbox-group libelle">                  <input type="checkbox" id="destinatairesSelectionnees_cpam"                    [checked]="!!destinatairesSelectionnees && destinatairesSelectionnees[\'cpam\'] === \'true\'"                    (change)="changerLaValeur($event, \'destinatairesSelectionnees_cpam\')">                    <label class="fr-label" for="destinatairesSelectionnees_cpam">                      <span><img src="./jechangedecoordonnees/logoCapam.svg" style="width:120px;" alt="" />                      CPAM / CGSS</span>                    </label>                  </div>                  <a data-toggle="collapse" class="btn-help" [attr.aria-expanded]="flagAfficherAide[\'cnmss\']"                    (click)="afficherMasquerAide(\'cpam\')">                    <span class="fr-fi-question-fill" aria-hidden="true"></span>                  </a>                  <div class="help-panel collapse" [class.show]="flagAfficherAide[\'cpam\']">                    <h4>Vous souhaitez informer votre caisse de l\'Assurance Maladie de votre changement                    d’adresse.</h4>                    <h5>Vous êtes rattaché à une CPAM ou une CGSS (dans un département d\'outre-mer).</h5>                    <p>Dans un premier temps, les assurés inscrits aux autres régimes (agricole, commerçant,                      artisan, étudiant, mutuelles de fonctionnaires, etc) sont exclus de la procédure.                    </p>                    <p><strong>Vous trouverez votre identifiant NIR sur votre carte Vitale et sur vos                      relevés de                    remboursements.</strong></p>                    <h5>Les personnes de votre foyer n’ont pas à faire de déclaration séparée si elles                      dépendent                    de votre CPAM ou CGSS.</h5>                    <p>Les personnes qui ne disposent pas d’une carte VITALE personnelle doivent indiquer le                      numéro de sécurité sociale de titulaire de la carte VITALE sur laquelle elle figure.                    </p>                    <p>Les personnes qui demeurent avec vous et qui ne dépendent pas de votre CPAM doivent                      faire                    une déclaration séparée sous leur propre numéro de sécurité sociale.</p>                    <h5>Après l\'envoi de votre demande ...</h5>                    <p>votre caisse d’Assurance Maladie vous confirmera l’enregistrement de votre changement                    d’adresse.</p>                    <p>Si votre nouveau domicile se situe dans un autre département, elle vous communiquera                      s’il                      y a lieu les coordonnées de votre nouvelle caisse, les formalités à accomplir ou les                    pièces justificatives à fournir.</p>                    <h5>Pour plus d\'informations ...</h5>                    <p>En cas de problème, veuillez nous contacter via mon compte sur Ameli.fr si vous                      disposez                      d’un compte ou retrouvez les coordonnées de votre caisse d’Assurance Maladie sur                    www.ameli.fr rubrique « votre caisse »</p>                  </div>                </div>              </div>            }            @if (destinatairesActifs && destinatairesActifs[\'destinatairesActifs_cpam\'] !== true) {              <div class="fr-col-12 destinataireInactif"                >                <span><img src="./jechangedecoordonnees/logoCapam.svg" style="width:120px;" alt="" />                CPAM / CGSS</span>                <p class="text-danger" style="margin-left:15px;" role="alert">Suite à des opérations                  techniques,                aucun dossier ne peut être transmis temporairement à la CPAM.</p>              </div>            }            @if (destinatairesActifs && destinatairesActifs[\'destinatairesActifs_cdc\'] === true) {              <div class="fr-col-12 checkbox cdc libelle"                >                <div class="fr-form-group">                  <div class="fr-checkbox-group libelle">                    <input type="checkbox" id="destinatairesSelectionnees_cdc"                      [checked]="!!destinatairesSelectionnees && destinatairesSelectionnees[\'cdc\'] === \'true\'"                      (change)="changerLaValeur($event, \'destinatairesSelectionnees_cdc\')">                      <label class="fr-label" for="destinatairesSelectionnees_cdc">                        <span><img src="./jechangedecoordonnees/logoCdc.gif" alt="" />                        Fonds gérés par la Caisse des dépots</span>                      </label>                    </div>                    <a data-toggle="collapse" class="btn-help" [attr.aria-expanded]="flagAfficherAide[\'cdc\']"                      (click)="afficherMasquerAide(\'cdc\')">                      <span class="fr-fi-question-fill" aria-hidden="true"></span>                    </a>                    <div class="help-panel collapse" [class.show]="flagAfficherAide[\'cdc\']">                      <h4>Vous souhaitez informer la Caisse des dépôts de votre changement d’adresse.</h4>                      <h5>Vous êtes affilié, retraité ou pensionné relevant de l’un au moins des fonds ou                        régimes                      suivants :</h5>                      <div>                        <ul>                          <li>ATC - ICNA Allocation temporaire complémentaire des ingénieurs de contrôle                            de la                          navigation aérienne </li>                          <li> ATIACL Allocation Temporaire d’Invalidité des Agents des Collectivités                            Locales                          </li>                          <li> Chemin de fer de l’Hérault </li>                          <li> CNRACL Caisses Nationale de Retraites des Agents des Collectivités Locales                          </li>                          <li> CRRFOM Caisses de retraites des régies ferroviaires d’outre-mer </li>                          <li> FAEFM Fonds d’allocation des élus en fin de mandat </li>                          <li> FCAT Fonds commun des accidents du travail </li>                          <li> FCATA Fonds commun des accidents du travail agricole </li>                          <li> FPA Fonds de prévoyance de l’aéronautique </li>                          <li> FPM Fonds de prévoyance militaire </li>                          <li> FSPOEIE Fonds Spécial des Pensions des Ouvriers des Etablissements                            Industriels                          de l\'Etat </li>                          <li> Imprimerie Nationale Régime spécial de pension du personnel de l’imprimerie                          nationale </li>                          <li> IRCANTEC Institution de Retraite Complémentaire des Agents Non Titulaires                            de                          l\'Etat et des Collectivités publiques </li>                          <li> MINES Retraite des Mines </li>                          <li> Préfecture du Haut-Rhin Régime de la caisse de retraite du personnel                          départemental du Haut-Rhin </li>                          <li> RAFP Retraite Additionnelle de la Fonction Publique </li>                          <li> RATOCEM Rentes d’accident du travail des ouvriers civils des établissements                          militaires </li>                          <li> RISP Le Régime d’Indemnisation des Sapeurs-Pompiers volontaires </li>                          <li> SASPA Service de l\'Allocation Solidarité aux Personnes Agées </li>                          <li> SUDAC Pension et Complément de pension de la Société urbaine de                            distribution                          d’air comprimé</li>                        </ul>                      </div>                      <p>Note : le changement d’adresse déclaré par vos soins sera mis en œuvre dans                        l’ensemble                      des fonds concernés.</p>                      <p>Si vous êtes retraité et que vous percevez votre pension par chèque à votre domicile,                        le                        changement d’adresse ne peut être traité par ce canal. Prenez contact directement                        avec                      l’organisme correspondant.</p>                      <p><strong>Vous devez indiquer votre numéro de sécurité sociale </strong>(présent sur                      votre                    carte Vitale).</p>                    <p><strong>Les personnes de votre foyer n’ont pas à faire de déclaration séparée s’ils                      ont                    le même numéro de sécurité sociale.</strong></p>                    <h5>Après l\'envoi de votre demande ...</h5>                    <p>si l\'enregistrement de votre changement d\'adresse n’a pas été possible, CDC                      Retraites,                    gestionnaire des fonds, vous informera dans un délai maximal de 8 jours.</p>                    <h5>Pour plus d\'informations ...</h5>                    <p>sur les régimes gérés par la Caisse des dépôts, vous pouvez consulter le site <a href="http://www.cdc.retraites.fr"                      target="_blank" title="www.cdc.retraites.fr - Nouvelle fenêtre">www.cdc.retraites.fr<span aria-hidden="true"                    class="icon"></span></a>. En cas de                    doutes                    ou de problèmes sur le traitement de votre déclaration de changement d\'adresse, vous                  pouvez contacter votre régime.</p>                </div>              </div>            </div>          }          @if (destinatairesActifs && destinatairesActifs[\'destinatairesActifs_cdc\'] !== true) {            <div class="fr-col-12 destinataireInactif">              <span><img src="./jechangedecoordonnees/logoCdc.gif" alt="" /> Fonds gérés par la                Caisse              des dépots</span>              <p class="text-danger" style="margin-left:15px;" role="alert">Suite à des opérations                techniques,              aucun dossier ne peut être transmis temporairement à la Caisse des dépots.</p>            </div>          }          @if (destinatairesActifs && destinatairesActifs[\'destinatairesActifs_cnav\'] === true) {            <div class="fr-col-12 checkbox cnav libelle"              >              <div class="fr-form-group">                <div class="fr-checkbox-group libelle">                  <input type="checkbox" id="destinatairesSelectionnees_cnav"                    [checked]="!!destinatairesSelectionnees && destinatairesSelectionnees[\'cnav\'] === \'true\'"                    (change)="changerLaValeur($event, \'destinatairesSelectionnees_cnav\')">                    <label class="fr-label" for="destinatairesSelectionnees_cnav">                      <span><img src="./jechangedecoordonnees/logoCnav.gif" alt="" />                      CNAV, CARSAT, CRAV ou CGSS (Régime général)</span>                    </label>                  </div>                  <a data-toggle="collapse" class="btn-help" [attr.aria-expanded]="flagAfficherAide[\'cnav\']"                    (click)="afficherMasquerAide(\'cnav\')">                    <span class="fr-fi-question-fill" aria-hidden="true"></span>                  </a>                  <div class="help-panel collapse" [class.show]="flagAfficherAide[\'cnav\']">                    <h4>Vous souhaitez informer votre caisse de Retraite de la Sécurité Sociale de votre                    changement d’adresse.</h4>                    <h5>Vous êtes … </h5>                    <p>Salarié de l\'industrie, du commerce et des services, Salarié non titulaire du secteur                    public et para-public</p>                    <p><strong>ET</strong></p>                    <ul>                      <li>Vous êtes retraité(e)</li>                    </ul>                    <p><strong>ou</strong></p>                    <ul>                      <li>Vous avez un dossier en cours (régularisation de carrière, rachat, …)</li>                    </ul>                    <p><strong>ou</strong></p>                    <ul>                      <li> Vous avez déposé un dossier de retraite auprès d’une de ces caisses :<ul>                        <li>CNAV : Caisse Nationale d’Assurance Vieillesse (Paris et île de France)                        </li>                        <li>CARSAT : Caisse de Retraite et Santé au Travail (Province excepté Région                        Alsace-Moselle)</li>                        <li>CRAV : Caisse Régionale d’Assurance Vieillesse (Région Alsace-Moselle)                        </li>                        <li>CGSS : Caisse Générale de Sécurité Sociale (DOM)</li>                      </ul>Vous devez indiquer votre numéro de sécurité sociale et sa clé (présent sur                    votre carte VITALE).</li>                  </ul>                  <h5>Si plusieurs personnes sont concernées ... </h5>                  <p>Les personnes qui sont concernées par ce changement d\'adresse et qui sont dans l\'une                    des                    situations mentionnées ci-dessus, doivent également déclarer leur nouvelle adresse                    par                  ce service.</p>                  <h5>Après l\'envoi de votre demande ... </h5>                  <p>votre caisse de retraite procédera à l\'enregistrement de votre changement d\'adresse                    et                  vous adressera vos prochains courriers à votre nouvelle adresse. </p>                  <h5>Pour plus d\'informations ... </h5>                  <p>sur la retraite du régime général, vous pouvez consulter le site <a href="http://www.lassuranceretraite.fr"                    target="_blank" title="www.lassuranceretraite.fr - Nouvelle fenêtre">www.lassuranceretraite.fr<span                  aria-hidden="true" class="icon"></span></a>.</p>                  <p>En cas de doutes ou de problèmes sur le traitement de votre déclaration de changement                    d\'adresse, vous pouvez contacter la caisse de retraite de votre ancienne adresse.                  </p>                </div>              </div>            </div>          }          @if (destinatairesActifs && destinatairesActifs[\'destinatairesActifs_cnav\'] !== true) {            <div class="fr-col-12 destinataireInactif"              >              <span><img src="./jechangedecoordonnees/logoCnav.gif" alt="" /> CNAV, CARSAT, CRAV ou              CGSS (Régime général)</span>              <p class="text-danger" style="margin-left:15px;" role="alert">Suite à des opérations                techniques,                aucun dossier ne peut être transmis temporairement à la CNAV, CARSAT, CRAV ou CGSS                (Régime              général).</p>            </div>          }          @if (destinatairesActifs && destinatairesActifs[\'destinatairesActifs_msa\'] === true) {            <div class="fr-col-12 checkbox msa libelle"              >              <div class="fr-form-group">                <div class="fr-checkbox-group libelle">                  <input type="checkbox" id="destinatairesSelectionnees_msa"                    [checked]="!!destinatairesSelectionnees && destinatairesSelectionnees[\'msa\'] === \'true\'"                    (change)="changerLaValeur($event, \'destinatairesSelectionnees_msa\')">                    <label class="fr-label" for="destinatairesSelectionnees_msa">                      <span><img src="./jechangedecoordonnees/logoMsa.gif" alt="" />                      MSA</span>                    </label>                  </div>                  <a data-toggle="collapse" class="btn-help" [attr.aria-expanded]="flagAfficherAide[\'msa\']"                    (click)="afficherMasquerAide(\'msa\')">                    <span class="fr-fi-question-fill" aria-hidden="true"></span>                  </a>                  <div class="help-panel collapse" [class.show]="flagAfficherAide[\'msa\']">                    <h4>Vous souhaitez informer la MSA de votre changement d’adresse.</h4>                    <h5>Vous êtes … </h5>                    <p>un particulier inscrit à la Mutualité Sociale Agricole, régime de protection sociale                      des                    salariés et des non-salariés agricoles.</p>                    <p><strong>Vous devez indiquer votre numéro de sécurité sociale</strong>(présent sur les                  documents adressés par la MSA).</p>                  <h5>Si plusieurs personnes sont concernées ... </h5>                  <p>vous pouvez effectuer le changement d’adresse pour chaque membre de votre famille en                  indiquant leur identité et leur numéro de sécurité sociale.</p>                  <h5>Après l\'envoi de votre demande ... </h5>                  <p>vous recevrez, dans un délai de 10 jours maximum, à votre nouvelle adresse, une                    confirmation de l’enregistrement de vos nouvelles coordonnées par la MSA qui gère                    votre                  dossier ainsi que les démarches éventuelles à accomplir.</p>                  <h5>Pour plus d\'informations ... </h5>                  <p>vous pouvez retrouver les coordonnées de l\'ensemble des Caisses de MSA sur notre site                    Internet <a href="http://www.msa.fr" target="_blank"                    title="http://www.msa.fr - Nouvelle fenêtre">http://www.msa.fr<span aria-hidden="true"                  class="icon"></span></a> à la rubrique                  "contact" ou la rubrique "le réseau des caisses" de l\'espace "La MSA vous                  accompagne" ou                  directement en indiquant le numéro du département concerné sur la page d\'accueil de                notre site.</p>              </div>            </div>          </div>        }        @if (destinatairesActifs && destinatairesActifs[\'destinatairesActifs_msa\'] !== true) {          <div class="fr-col-12 destinataireInactif">            <span><img src="./jechangedecoordonnees/logoMsa.gif" alt="" /> MSA</span>            <p class="text-danger" style="margin-left:15px;" role="alert">Suite à des opérations              techniques,            aucun dossier ne peut être transmis temporairement à la MSA.</p>          </div>        }        @if (destinatairesActifs && destinatairesActifs[\'destinatairesActifs_camieg\'] === true) {          <div class="fr-col-12 checkbox camieg libelle"            >            <div class="fr-form-group">              <div class="fr-checkbox-group libelle">                <input type="checkbox" id="destinatairesSelectionnees_camieg"                  [checked]="!!destinatairesSelectionnees && destinatairesSelectionnees[\'camieg\'] === \'true\'"                  (change)="changerLaValeur($event, \'destinatairesSelectionnees_camieg\')">                  <label class="fr-label" for="destinatairesSelectionnees_camieg">                    <span><img src="./jechangedecoordonnees/logoCamieg.png" alt="" />                    CAMIEG</span>                  </label>                </div>                <a data-toggle="collapse" class="btn-help" [attr.aria-expanded]="flagAfficherAide[\'camieg\']"                  (click)="afficherMasquerAide(\'camieg\')">                  <span class="fr-fi-question-fill" aria-hidden="true"></span>                </a>                <div class="help-panel collapse" [class.show]="flagAfficherAide[\'camieg\']">                  <h4>Vous souhaitez informer la CAMIEG de votre changement d’adresse.</h4>                  <p><strong>Vous trouverez votre identifiant NIR sur votre carte Vitale et sur vos                    relevés de                  remboursements.</strong></p>                  <p><strong>Les personnes de votre foyer n’ont pas à faire de déclaration séparée si                    elles                  dépendent de la CAMIEG.</strong></p>                  <p>Les personnes qui ne disposent pas d’une carte VITALE personnelle doivent indiquer le                    numéro de sécurité sociale du titulaire de la carte VITALE sur laquelle elles                    figurent                  </p>                  <h5>Après l\'envoi de votre demande ...</h5>                  <p>La CAMIEG vous confirmera l’enregistrement de votre changement d’adresse.</p>                  <h5>Pour plus d\'informations ...</h5>                  <p>En cas de problème, veuillez nous contacter via votre compte Ameli ou retrouvez les                    coordonnées de la CAMIEG sur <a href="http://www.camieg.fr" title="http://www.camieg.fr - nouvelle fenêtre"                    target="_blank">www.camieg.fr<span class="icon"></span></a>                    en cliquant sur « Nous contacter»                  (ou sur le picto représentant une enveloppe).</p>                </div>              </div>            </div>          }          @if (destinatairesActifs && destinatairesActifs[\'destinatairesActifs_camieg\'] !== true) {            <div class="fr-col-12 destinataireInactif"              >              <span><img src="./jechangedecoordonnees/logoCamieg.png" alt="" /> CAMIEG</span>              <p class="text-danger" style="margin-left:15px;" role="alert">Suite à des opérations                techniques,              aucun dossier ne peut être transmis temporairement à la CAMIEG.</p>            </div>          }          @if (destinatairesActifs && destinatairesActifs[\'destinatairesActifs_enim\'] === true) {            <div class="fr-col-12 checkbox enim libelle"              >              <div class="fr-form-group">                <div class="fr-checkbox-group libelle">                  <input type="checkbox" id="destinatairesSelectionnees_enim"                    [checked]="!!destinatairesSelectionnees && destinatairesSelectionnees[\'enim\'] === \'true\'"                    (change)="changerLaValeur($event, \'destinatairesSelectionnees_enim\')">                    <label class="fr-label" for="destinatairesSelectionnees_enim">                      <span><img src="./jechangedecoordonnees/logoEnim.jpg" alt="" />                      ENIM</span>                    </label>                  </div>                  <a data-toggle="collapse" class="btn-help" [attr.aria-expanded]="flagAfficherAide[\'enim\']"                    (click)="afficherMasquerAide(\'enim\')">                    <span class="fr-fi-question-fill" aria-hidden="true"></span>                  </a>                  <div class="help-panel collapse" [class.show]="flagAfficherAide[\'enim\']">                    <h4>Vous souhaitez informer l’Enim de votre changement d’adresse. </h4>                    <h5>Vous êtes …</h5>                    <p>un particulier inscrit à la l’Enim, régime de protection sociale des marins.</p>                    <p>Vous devez indiquer votre numéro de sécurité sociale (présent sur les documents                      adressés                    par l’Enim).</p><br>                    <h5>Si plusieurs personnes sont concernées ...</h5>                    <p>vous pouvez effectuer le changement d’adresse pour chaque membre de votre famille en                    indiquant leur identité et leur numéro de sécurité sociale.</p><br>                    <p>Vous pouvez retrouver toutes les informations nécessaires à vos prises en charge sur                      le                      site internet <a href="http://www.enim.eu" title="http://www.enim.eu - nouvelle fenêtre"                      target="_blank">www.enim.eu<span class="icon"></span></a> .</p>                    </div>                  </div>                </div>              }              @if (destinatairesActifs && destinatairesActifs[\'destinatairesActifs_enim\'] !== true) {                <div class="fr-col-12 destinataireInactif"                  >                  <span><img src="./jechangedecoordonnees/logoEnim.jpg" alt="" /> ENIM</span>                  <p class="text-danger" style="margin-left:15px;" role="alert">Suite à des opérations                    techniques,                  aucun dossier ne peut être transmis temporairement à la CAMIEG.</p>                </div>              }              @if (flagMasquerNumeroSecu) {                <div class="fr-col-md-12 numeroSecu">                  <div [class.fr-input-group--error]="saisieNumeroSecuInvalide" [class.fr-input-group--valid]="saisieNumeroSecuValide"                    class="fr-input-group fr-form-group">                    <div class="libelle">                      <label class="fr-label" for="idSaisieNumeroSecu">                        <span class="symbol-required">* </span>                        <span>Votre numéro de sécurité sociale sera communiqué aux                        organismes que vous avez cochés ci-dessus.</span>                      </label>                    </div>                    <input class="fr-input" [class.fr-input--error]="saisieNumeroSecuInvalide"                      [class.fr-input--valid]="saisieNumeroSecuValide" aria-describedby="desc-SaisieNumeroSecu" type="text"                      id="idSaisieNumeroSecu" formControlName="numeroSecu">                      @if (formulaire.get(\'numeroSecu\')) {                        <p data-fmk-messagesvalidation id="desc-SaisieNumeroSecu"                        [controle]="formulaire.get(\'numeroSecu\')" aria-live="assertive"></p>                      }                    </div>                  </div>                }              </div>            </fieldset>          </div>        </div>        <div class="fr-grid-row">          <div class="fr-col-12">            <fieldset class="fr-container">              <legend>                <h3>                  <span>Autres organismes privés</span>                  <span class="fr-sr-only">Saisie complémentaire requise - affichage automatique</span>                </h3>              </legend>              <div class="fr-grid-row panel panel-default">                @if (destinatairesActifs && destinatairesActifs[\'destinatairesActifs_laposte\'] === true) {                  <div class="fr-col-md-12 checkbox laposte libelle"                    >                    <div class="fr-form-group">                      <div class="fr-checkbox-group libelle">                        <input type="checkbox" id="destinatairesSelectionnees_laposte"                          [checked]="!!destinatairesSelectionnees && destinatairesSelectionnees[\'laposte\'] === \'true\'"                          (change)="changerLaValeur($event, \'destinatairesSelectionnees_laposte\')">                          <label class="fr-label" for="destinatairesSelectionnees_laposte">                            <span><img src="./jechangedecoordonnees/logoPoste.gif" alt="" />                            La Poste</span>                          </label>                        </div>                        <a data-toggle="collapse" class="btn-help" [attr.aria-expanded]="flagAfficherAide[\'laposte\']"                          (click)="afficherMasquerAide(\'laposte\')">                          <span class="fr-fi-question-fill" aria-hidden="true"></span>                        </a>                        <div class="help-panel collapse" [class.show]="flagAfficherAide[\'laposte\']">                          <p>Vous souhaitez informer La Poste de votre changement de coordonnées et souscrire un                            contrat de réexpédition. Le service de réexpédition définitive de La Poste vous                            permet                            de faire suivre l’intégralité du courrier reçu à votre adresse actuelle en France                          métropolitaine ou dans les DOM vers votre nouveau domicile.</p>                          <p>Après envoi de votre demande, La Poste vous enverra immédiatement un courriel de                            confirmation. Vous serez alors invité(e) à vous rendre sur le site de réexpédition                            du                            courrier de La Poste où vous pourrez choisir, compléter si nécessaire et payer en                            ligne                            votre contrat. Le service de réexpédition pourra débuter au plus tôt 2 jours ouvrés                          après la date de souscription de votre contrat.</p>                        </div>                      </div>                    </div>                  }                </div>              </fieldset>            </div>          </div>        </form>      }</div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'PageJccComponent', 'selector': 'app-pagejcc'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'PageJccComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'PageJccComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

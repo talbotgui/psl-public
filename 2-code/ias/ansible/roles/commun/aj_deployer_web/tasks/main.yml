@@ -1,0 +1,43 @@
+---
+
+# Création du répertoire de l'application
+- name: "[Déploiement] Création des répertoires nécessaires '/var/www/html/{{ prefix_deploiement }}' et '/var/www/html/bin/{{ classifier }}/{{ version }}-{{ uuid_execution }}'"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: "directory"
+    recurse : true
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+    mode: "{{ mode_rep_nominal }}"
+  with_items: [ "/var/www/html/bin/{{ classifier }}/{{ version }}-{{ uuid_execution }}", "/var/www/html/{{ prefix_deploiement }}" ]
+
+# Décompression des archives applicatives
+- name: "[Déploiement] Décompression de l'archive applicative dans '/var/www/html/bin/{{ classifier }}/{{ version }}-{{ uuid_execution }}'"
+  ansible.builtin.unarchive:
+    src: "{{ binaire_rep }}{{ groupId | replace('.','/') }}/{{ artifactId }}/{{ version }}/{{ artifactId }}-{{ version }}-{{ classifier }}.zip"
+    dest: "/var/www/html/bin/{{ classifier }}/{{ version }}-{{ uuid_execution }}"
+
+# Création/modification du lien symbolique vers la bonne version applicative
+- name: "[Déploiement] Création/modification du lien symbolique vers la bonne version applicative"
+  ansible.builtin.file:
+    src: "/var/www/html/bin/{{ classifier }}/{{ version }}-{{ uuid_execution }}"
+    dest: "/var/www/html/{{ prefix_deploiement }}{{ classifier }}"
+    owner: "{{ unix_utilisateur }}"
+    group: "{{ unix_groupe }}"
+    state: link
+
+# Destruction du répertoire de chaque ancienne version applicative
+# Au premier déploiement, le répertoire de chaque application est absent. Donc ignore_errors:true
+- name: "[Déploiement] Recherche des répertoires des versions à supprimer qui ne sont pas de l'exécution '{{ uuid_execution }}'"
+  ansible.builtin.shell:
+    cmd: "find /var/www/html/bin/{{ classifier }} -mindepth 1 -maxdepth 1 -type d -exec ls -d \"{}\" \\; | grep -v {{ uuid_execution }}"
+  register: "listeAsupprimer"
+  ignore_errors: true
+- debug:
+    msg: "{{ listeAsupprimer.stdout_lines }}"
+
+- name: "[Déploiement] Suppression du répertoire des anciennes versions dans '/var/www/html/'"
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: "absent"
+  with_items: "{{ listeAsupprimer.stdout_lines }}"

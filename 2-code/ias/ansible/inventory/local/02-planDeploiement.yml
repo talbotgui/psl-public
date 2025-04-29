@@ -1,0 +1,37 @@
+# Ce fichier de l'inventaire décrit le plan de déploiement et donc la répartition des applicatifs sur les différentes machines logiques.
+#
+#
+#
+# Dans le cas spécifique de cet inventaire local, il n'y a aucune redondance. Donc toutes les machines _2 et _3 sont commentées/absentes.
+#
+all:
+
+  children:
+
+    ############################
+    # Groupe par service déployé (cette partie correspond au plan de déploiement)
+    ############################
+    # /!\ Pour l'inventaire local :
+    #   - tous les _[1:3] ont été remplacé par un unique chiffre
+    #   - chaque service a un nom de machine différent pour que chaque exécution utilisant --limit ne s'exécute que pour un applicatif donné
+    machines_web_front: { hosts: { "EXE_EXP_1": } }
+    machines_web_admin: { hosts: { "ADM_INT_1": } }
+
+    machines_service_redis: { hosts: { "EXE_PRO_1": } }
+    machines_service_gateway: { hosts: { "EXE_EXP_1": } }
+    machines_service_registry: { hosts: { "EXE_PRO_1": } }
+    machines_service_config: { hosts: { "ADM_INT_1": } }
+    machines_service_admin: { hosts: { "ADM_INT_1": } }
+    machines_service_ldap: { hosts: { "ADM_PRO_1": } }
+    machines_service_nosql: { hosts: { "EXE_PRO_1": } }
+
+    machines_socle_dbbrouillon: { hosts: { "EXE_INT_1": } }
+    machines_socle_dbconfiguration: { hosts: { "EXE_INT_1": } }
+    machines_socle_dbdocument: { hosts: { "EXE_INT_1": } }
+    machines_socle_dbnotification: { hosts: { "EXE_INT_1": } }
+    machines_socle_referentiel: { hosts: { "EXE_INT_1": } }
+    machines_socle_referentielexterne: { hosts: { "EXE_INT_1": } }
+    machines_socle_securite: { hosts: { "EXE_PRO_1": } }
+    machines_socle_soumission: { hosts: { "EXE_INT_1": } }
+    machines_socle_transfert: { hosts: { "ADM_INT_1": } }
+    machines_socle_adminpsl: { hosts: { "ADM_INT_1": } }

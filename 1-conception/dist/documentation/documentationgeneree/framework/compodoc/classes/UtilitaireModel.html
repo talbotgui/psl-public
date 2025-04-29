@@ -1,0 +1,1822 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >UtilitaireModel</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>Fichier</h3>
+        </p>
+        <p class="comment">
+            <code>projects/framework/src/lib/utilitaires/utilitaire.model.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Cette classe fournit exclusivement des méthodes statiques de lecture/écriture/manipulation de modèles.</p>
+<p>Aucun appel à un composant externe n&#39;est autorisé !</p>
+
+            </p>
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#TYPE_CONTENU_NON_SAISIE" >TYPE_CONTENU_NON_SAISIE</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#TYPE_CONTENU_SAISIE_COMPLEXE" >TYPE_CONTENU_SAISIE_COMPLEXE</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#TYPE_CONTENU_SAISIE_MONO_CHAMP" >TYPE_CONTENU_SAISIE_MONO_CHAMP</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#TYPE_CONTENU_VALEUR_BOOLEAN" >TYPE_CONTENU_VALEUR_BOOLEAN</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#TYPE_CONTENU_VALEUR_OBJET" >TYPE_CONTENU_VALEUR_OBJET</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#contenuContientCetteValidation" >contenuContientCetteValidation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#contenuEstDeType" >contenuEstDeType</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#contenuEstDeTypeInconnu" >contenuEstDeTypeInconnu</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#contenuEstUneSaisieComplexe" >contenuEstUneSaisieComplexe</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#contenuEstUneSaisieMonoChamp" >contenuEstUneSaisieMonoChamp</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#contenuGereUneValeurDeTypeBoolean" >contenuGereUneValeurDeTypeBoolean</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#contenuGereUneValeurDeTypeObjet" >contenuGereUneValeurDeTypeObjet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#contenuNestPasUneSaisie" >contenuNestPasUneSaisie</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#initialiserLeOuLesTitresEtAides" >initialiserLeOuLesTitresEtAides</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#rechercheClefsDeVariableDansUneExpression" >rechercheClefsDeVariableDansUneExpression</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#rechercheClefsDeVariableDansUnLibelle" >rechercheClefsDeVariableDansUnLibelle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#rechercherComposantDansLaPage" >rechercherComposantDansLaPage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#retirerAppelsDeFonctions" >retirerAppelsDeFonctions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#verifierDonneeEstPresenteeUneSeuleFoisDansTouteLaDemarche" >verifierDonneeEstPresenteeUneSeuleFoisDansTouteLaDemarche</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TYPE_CONTENU_NON_SAISIE"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>TYPE_CONTENU_NON_SAISIE</b></span>
+                        <a href="#TYPE_CONTENU_NON_SAISIE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#TypeContenuDeBloc" target="_self" >TypeContenuDeBloc[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[TypeContenuDeBloc.paragraphe, TypeContenuDeBloc.recapitulatif, TypeContenuDeBloc.finDemarche, TypeContenuDeBloc.documents, TypeContenuDeBloc.utilisateurConnecte]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="34" class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:34</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cette constante est à maintenir en cohérence avec son équivalent dans la classe com.github.talbotgui.psl.socle.soumission.service.ValidationSoumissionServiceImpl</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TYPE_CONTENU_SAISIE_COMPLEXE"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>TYPE_CONTENU_SAISIE_COMPLEXE</b></span>
+                        <a href="#TYPE_CONTENU_SAISIE_COMPLEXE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#TypeContenuDeBloc" target="_self" >TypeContenuDeBloc[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[TypeContenuDeBloc.identite, TypeContenuDeBloc.adresseFrOuEtr, TypeContenuDeBloc.contactPersonnel]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="38" class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:38</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cette constante est à maintenir en cohérence avec son équivalent dans la classe com.github.talbotgui.psl.socle.soumission.service.ValidationSoumissionServiceImpl</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TYPE_CONTENU_SAISIE_MONO_CHAMP"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>TYPE_CONTENU_SAISIE_MONO_CHAMP</b></span>
+                        <a href="#TYPE_CONTENU_SAISIE_MONO_CHAMP"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#TypeContenuDeBloc" target="_self" >TypeContenuDeBloc[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[TypeContenuDeBloc.case, TypeContenuDeBloc.date, TypeContenuDeBloc.listeFinie, TypeContenuDeBloc.saisie, TypeContenuDeBloc.saisieLongue, TypeContenuDeBloc.autocompletion, TypeContenuDeBloc.radio, TypeContenuDeBloc.uploadDocument]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="36" class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:36</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cette constante est à maintenir en cohérence avec son équivalent dans la classe com.github.talbotgui.psl.socle.soumission.service.ValidationSoumissionServiceImpl</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TYPE_CONTENU_VALEUR_BOOLEAN"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>TYPE_CONTENU_VALEUR_BOOLEAN</b></span>
+                        <a href="#TYPE_CONTENU_VALEUR_BOOLEAN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#TypeContenuDeBloc" target="_self" >TypeContenuDeBloc[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[TypeContenuDeBloc.case]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="42" class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:42</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cette constante est à maintenir en cohérence avec son équivalent dans la classe com.github.talbotgui.psl.socle.soumission.service.ValidationSoumissionServiceImpl</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TYPE_CONTENU_VALEUR_OBJET"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>TYPE_CONTENU_VALEUR_OBJET</b></span>
+                        <a href="#TYPE_CONTENU_VALEUR_OBJET"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#TypeContenuDeBloc" target="_self" >TypeContenuDeBloc[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>[TypeContenuDeBloc.autocompletion, TypeContenuDeBloc.uploadDocument]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="40" class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:40</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cette constante est à maintenir en cohérence avec son équivalent dans la classe com.github.talbotgui.psl.socle.soumission.service.ValidationSoumissionServiceImpl</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contenuContientCetteValidation"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>contenuContientCetteValidation</b></span>
+                        <a href="#contenuContientCetteValidation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>contenuContientCetteValidation(contenu: <a href="../classes/ContenuDeBloc.html" target="_self">ContenuDeBloc</a>, validation: <a href="../classes/Validation.html" target="_self">Validation</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="93"
+                                    class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vérifie que le contenu contient cette validation précise</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>contenu</td>
+                                            <td>
+                                                            <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>validation</td>
+                                            <td>
+                                                            <code><a href="../classes/Validation.html" target="_self" >Validation</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contenuEstDeType"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>contenuEstDeType</b></span>
+                        <a href="#contenuEstDeType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>contenuEstDeType(contenu: <a href="../classes/ContenuDeBloc.html" target="_self">ContenuDeBloc</a>, type: <a href="../undefineds/TypeContenuDeBloc.html" target="_self">TypeContenuDeBloc</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="88"
+                                    class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vérifie le type de contenu (avec transtypage du fait que l&#39;enum n&#39;est pas une STRING - pb des chargements JSON)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>contenu</td>
+                                            <td>
+                                                            <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#TypeContenuDeBloc" target="_self" >TypeContenuDeBloc</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contenuEstDeTypeInconnu"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>contenuEstDeTypeInconnu</b></span>
+                        <a href="#contenuEstDeTypeInconnu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>contenuEstDeTypeInconnu(c: <a href="../classes/ContenuDeBloc.html" target="_self">ContenuDeBloc</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="79"
+                                    class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Si le contenu n&#39;est dans aucune de ces listes, c&#39;est un pb de conf</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>c</td>
+                                            <td>
+                                                            <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contenuEstUneSaisieComplexe"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>contenuEstUneSaisieComplexe</b></span>
+                        <a href="#contenuEstUneSaisieComplexe"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>contenuEstUneSaisieComplexe(c: <a href="../classes/ContenuDeBloc.html" target="_self">ContenuDeBloc</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="49"
+                                    class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vérification du type vis-à-vis de TYPE_CONTENU_SAISIE_COMPLEXE.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>c</td>
+                                            <td>
+                                                            <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contenuEstUneSaisieMonoChamp"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>contenuEstUneSaisieMonoChamp</b></span>
+                        <a href="#contenuEstUneSaisieMonoChamp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>contenuEstUneSaisieMonoChamp(c: <a href="../classes/ContenuDeBloc.html" target="_self">ContenuDeBloc</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="53"
+                                    class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vérification du type vis-à-vis de TYPE_CONTENU_SAISIE_MONO_CHAMP.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>c</td>
+                                            <td>
+                                                            <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contenuGereUneValeurDeTypeBoolean"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>contenuGereUneValeurDeTypeBoolean</b></span>
+                        <a href="#contenuGereUneValeurDeTypeBoolean"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>contenuGereUneValeurDeTypeBoolean(c: <a href="../classes/ContenuDeBloc.html" target="_self">ContenuDeBloc</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="61"
+                                    class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vérification si les valeurs possibles sont TRUE/FALSE : soit un type TYPE_CONTENU_VALEUR_BOOLEAN soit un radio ou une liste avec les options truefalse ou falsetrue.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>c</td>
+                                            <td>
+                                                            <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contenuGereUneValeurDeTypeObjet"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>contenuGereUneValeurDeTypeObjet</b></span>
+                        <a href="#contenuGereUneValeurDeTypeObjet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>contenuGereUneValeurDeTypeObjet(c: <a href="../classes/ContenuDeBloc.html" target="_self">ContenuDeBloc</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="57"
+                                    class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vérification du type vis-à-vis de TYPE_CONTENU_VALEUR_OBJET.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>c</td>
+                                            <td>
+                                                            <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contenuNestPasUneSaisie"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>contenuNestPasUneSaisie</b></span>
+                        <a href="#contenuNestPasUneSaisie"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>contenuNestPasUneSaisie(c: <a href="../classes/ContenuDeBloc.html" target="_self">ContenuDeBloc</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="45"
+                                    class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vérification du type vis-à-vis de TYPE_CONTENU_NON_SAISIE.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>c</td>
+                                            <td>
+                                                            <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialiserLeOuLesTitresEtAides"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>initialiserLeOuLesTitresEtAides</b></span>
+                        <a href="#initialiserLeOuLesTitresEtAides"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initialiserLeOuLesTitresEtAides(c: <a href="../classes/ContenuDeBloc.html" target="_self">ContenuDeBloc</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="185"
+                                    class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:185</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>c</td>
+                                            <td>
+                                                            <code><a href="../classes/ContenuDeBloc.html" target="_self" >ContenuDeBloc</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rechercheClefsDeVariableDansUneExpression"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                        <span ><b>rechercheClefsDeVariableDansUneExpression</b></span>
+                        <a href="#rechercheClefsDeVariableDansUneExpression"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>rechercheClefsDeVariableDansUneExpression(chaine: string | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="165"
+                                    class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:165</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode extrayant les clefs de donnée d&#39;une chaine de caractères</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>chaine</td>
+                                            <td>
+                                                        <code>string | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>string[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rechercheClefsDeVariableDansUnLibelle"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                        <span ><b>rechercheClefsDeVariableDansUnLibelle</b></span>
+                        <a href="#rechercheClefsDeVariableDansUnLibelle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>rechercheClefsDeVariableDansUnLibelle(chaine: string | undefined)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="150"
+                                    class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:150</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode extrayant les clefs de donnée d&#39;une chaine de caractères</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>chaine</td>
+                                            <td>
+                                                        <code>string | undefined</code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>string[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rechercherComposantDansLaPage"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>rechercherComposantDansLaPage</b></span>
+                        <a href="#rechercherComposantDansLaPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>rechercherComposantDansLaPage(page: <a href="../classes/Page.html" target="_self">Page</a>, typeContenu: <a href="../undefineds/TypeContenuDeBloc.html" target="_self">TypeContenuDeBloc</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="139"
+                                    class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:139</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Méthode recherchant un composant précis dans une page</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="../classes/Page.html" target="_self" >Page</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>typeContenu</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#TypeContenuDeBloc" target="_self" >TypeContenuDeBloc</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>    <code>ContenuDeBloc | undefined</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="retirerAppelsDeFonctions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                        <span ><b>retirerAppelsDeFonctions</b></span>
+                        <a href="#retirerAppelsDeFonctions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>retirerAppelsDeFonctions(chaine: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="158"
+                                    class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:158</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrait des noms de fonction manipulable dans la configuration (notamment pour les blocs dynamiques)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>chaine</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verifierDonneeEstPresenteeUneSeuleFoisDansTouteLaDemarche"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>verifierDonneeEstPresenteeUneSeuleFoisDansTouteLaDemarche</b></span>
+                        <a href="#verifierDonneeEstPresenteeUneSeuleFoisDansTouteLaDemarche"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>verifierDonneeEstPresenteeUneSeuleFoisDansTouteLaDemarche(configurationDemarche: <a href="../classes/ConfigurationDemarche.html" target="_self">ConfigurationDemarche</a>, clefAverifier: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="116"
+                                    class="link-to-prism">projects/framework/src/lib/utilitaires/utilitaire.model.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cette méthode vérifie que la clef n&#39;est présente qu&#39;une seule et unique fois dans toutes la démarche.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Paramètres :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nom</td>
+                                                <td>Type</td>
+                                            <td>Optionnel</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>configurationDemarche</td>
+                                            <td>
+                                                            <code><a href="../classes/ConfigurationDemarche.html" target="_self" >ConfigurationDemarche</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>clefAverifier</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Non
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ContenuAutocompletion, ContenuDeBloc, ContenuListeFinie, ContenuParagraphe, ContenuSaisie, ContenuSaisieComplexe, TypeContenuDeBloc, Validation } from &#x27;../model/configurationdemarchecontenubloc.model&#x27;;
+import { ConfigurationDemarche, Page, SousBloc } from &#x27;../model/configurationdemarchegeneral.model&#x27;;
+import { DonneesService } from &#x27;../services/stateful/donnees.service&#x27;;
+
+/**
+ * Cette classe fournit exclusivement des méthodes statiques de lecture/écriture/manipulation de modèles.
+ * 
+ * Aucun appel à un composant externe n&#x27;est autorisé !
+ */
+export class UtilitaireModel {
+
+    /** Cette constante est à maintenir en cohérence avec son équivalent dans la classe com.github.talbotgui.psl.socle.soumission.service.ValidationSoumissionServiceImpl */
+    private static readonly TYPE_CONTENU_NON_SAISIE: TypeContenuDeBloc[] &#x3D; [TypeContenuDeBloc.paragraphe, TypeContenuDeBloc.recapitulatif, TypeContenuDeBloc.finDemarche, TypeContenuDeBloc.documents, TypeContenuDeBloc.utilisateurConnecte];
+    /** Cette constante est à maintenir en cohérence avec son équivalent dans la classe com.github.talbotgui.psl.socle.soumission.service.ValidationSoumissionServiceImpl */
+    private static readonly TYPE_CONTENU_SAISIE_MONO_CHAMP: TypeContenuDeBloc[] &#x3D; [TypeContenuDeBloc.case, TypeContenuDeBloc.date, TypeContenuDeBloc.listeFinie, TypeContenuDeBloc.saisie, TypeContenuDeBloc.saisieLongue, TypeContenuDeBloc.autocompletion, TypeContenuDeBloc.radio, TypeContenuDeBloc.uploadDocument];
+    /** Cette constante est à maintenir en cohérence avec son équivalent dans la classe com.github.talbotgui.psl.socle.soumission.service.ValidationSoumissionServiceImpl */
+    private static readonly TYPE_CONTENU_SAISIE_COMPLEXE: TypeContenuDeBloc[] &#x3D; [TypeContenuDeBloc.identite, TypeContenuDeBloc.adresseFrOuEtr, TypeContenuDeBloc.contactPersonnel];
+    /** Cette constante est à maintenir en cohérence avec son équivalent dans la classe com.github.talbotgui.psl.socle.soumission.service.ValidationSoumissionServiceImpl */
+    private static readonly TYPE_CONTENU_VALEUR_OBJET: TypeContenuDeBloc[] &#x3D; [TypeContenuDeBloc.autocompletion, TypeContenuDeBloc.uploadDocument];
+    /** Cette constante est à maintenir en cohérence avec son équivalent dans la classe com.github.talbotgui.psl.socle.soumission.service.ValidationSoumissionServiceImpl */
+    private static readonly TYPE_CONTENU_VALEUR_BOOLEAN: TypeContenuDeBloc[] &#x3D; [TypeContenuDeBloc.case];
+
+    /** Vérification du type vis-à-vis de TYPE_CONTENU_NON_SAISIE. */
+    public static contenuNestPasUneSaisie(c: ContenuDeBloc): boolean {
+        return c &amp;&amp; !!c.type &amp;&amp; UtilitaireModel.TYPE_CONTENU_NON_SAISIE.includes(c.type);
+    }
+    /** Vérification du type vis-à-vis de TYPE_CONTENU_SAISIE_COMPLEXE. */
+    public static contenuEstUneSaisieComplexe(c: ContenuDeBloc): boolean {
+        return c &amp;&amp; !!c.type &amp;&amp; UtilitaireModel.TYPE_CONTENU_SAISIE_COMPLEXE.includes(c.type);
+    }
+    /** Vérification du type vis-à-vis de TYPE_CONTENU_SAISIE_MONO_CHAMP. */
+    public static contenuEstUneSaisieMonoChamp(c: ContenuDeBloc): boolean {
+        return c &amp;&amp; !!c.type &amp;&amp; UtilitaireModel.TYPE_CONTENU_SAISIE_MONO_CHAMP.includes(c.type);
+    }
+    /** Vérification du type vis-à-vis de TYPE_CONTENU_VALEUR_OBJET. */
+    public static contenuGereUneValeurDeTypeObjet(c: ContenuDeBloc): boolean {
+        return c &amp;&amp; !!c.type &amp;&amp; UtilitaireModel.TYPE_CONTENU_VALEUR_OBJET.includes(c.type);
+    }
+    /** Vérification si les valeurs possibles sont TRUE/FALSE : soit un type TYPE_CONTENU_VALEUR_BOOLEAN soit un radio ou une liste avec les options truefalse ou falsetrue. */
+    public static contenuGereUneValeurDeTypeBoolean(c: ContenuDeBloc): boolean {
+        // Si c&#x27;est une case à cocher
+        if (c &amp;&amp; !!c.type &amp;&amp; UtilitaireModel.TYPE_CONTENU_VALEUR_BOOLEAN.includes(c.type)) {
+            return true;
+        }
+        // Si c&#x27;est un radio ou une listeFinie avec les options TRUE/FALSE
+        if (c &amp;&amp; c.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.radio || c.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.listeFinie) {
+            const valeursPossibles &#x3D; (c as ContenuListeFinie).valeurs;
+            if (valeursPossibles.length !&#x3D;&#x3D; 2) {
+                return false;
+            }
+            const chaineDeComparaison &#x3D; &#x27;&#x27; + valeursPossibles[0].valeur + valeursPossibles[1].valeur;
+            return chaineDeComparaison &#x3D;&#x3D;&#x3D; &#x27;truefalse&#x27; || chaineDeComparaison &#x3D;&#x3D;&#x3D; &#x27;falsetrue&#x27;;
+        }
+        return false;
+    }
+
+    /** Si le contenu n&#x27;est dans aucune de ces listes, c&#x27;est un pb de conf */
+    public static contenuEstDeTypeInconnu(c: ContenuDeBloc): boolean {
+        return c &amp;&amp; !!c.type &amp;&amp; !UtilitaireModel.TYPE_CONTENU_NON_SAISIE.includes(c.type)
+            &amp;&amp; !UtilitaireModel.TYPE_CONTENU_SAISIE_MONO_CHAMP.includes(c.type)
+            &amp;&amp; !UtilitaireModel.TYPE_CONTENU_SAISIE_COMPLEXE.includes(c.type)
+            &amp;&amp; !UtilitaireModel.TYPE_CONTENU_VALEUR_OBJET.includes(c.type)
+            &amp;&amp; !UtilitaireModel.TYPE_CONTENU_VALEUR_BOOLEAN.includes(c.type);
+    }
+
+    /** Vérifie le type de contenu (avec transtypage du fait que l&#x27;enum n&#x27;est pas une STRING - pb des chargements JSON) */
+    public static contenuEstDeType(contenu: ContenuDeBloc, type: TypeContenuDeBloc): boolean {
+        return contenu.type &#x3D;&#x3D;&#x3D; type as string;
+    }
+
+    /** Vérifie que le contenu contient cette validation précise */
+    public static contenuContientCetteValidation(contenu: ContenuDeBloc, validation: Validation): boolean {
+        const contenuAsAny &#x3D; contenu as any;
+        // Pas de contenu
+        if (!contenu) {
+            return false;
+        }
+        // composant héritant de ContenuSaisie
+        else if (contenuAsAny[&#x27;validationsSimples&#x27;] &amp;&amp; Array.isArray(contenuAsAny[&#x27;validationsSimples&#x27;])) {
+            const cSaisie &#x3D; contenu as ContenuSaisie;
+            return cSaisie.validationsSimples.indexOf(validation as string) !&#x3D;&#x3D; -1;
+        }
+        // composant héritant de ContenuSaisieComplexe
+        else if (contenuAsAny[&#x27;validationsComplexes&#x27;]) {
+            const cSaisie &#x3D; contenu as ContenuSaisieComplexe;
+            return Object.keys(cSaisie.validationsComplexes).indexOf(validation as string) !&#x3D;&#x3D; -1;
+        }
+        // si pas de validation
+        else {
+            return false;
+        }
+    }
+
+    /** Cette méthode vérifie que la clef n&#x27;est présente qu&#x27;une seule et unique fois dans toutes la démarche. */
+    public static verifierDonneeEstPresenteeUneSeuleFoisDansTouteLaDemarche(configurationDemarche: ConfigurationDemarche, clefAverifier: string): boolean {
+        // Fonction commune au traitement d&#x27;un bloc et d&#x27;un sous-bloc 
+        // utilisée plus loin
+        const fn &#x3D; function (unBloc: SousBloc) {
+            (unBloc.contenus || []).forEach(contenu &#x3D;&gt; {
+                const clef &#x3D; contenu.clef;
+                if (clef &amp;&amp; (clef &#x3D;&#x3D;&#x3D; clefAverifier || clef.indexOf(clefAverifier + &#x27;_&#x27;) !&#x3D;&#x3D; -1 || clefAverifier.indexOf(clef + &#x27;_&#x27;) !&#x3D;&#x3D; -1)) {
+                    nbOccurences++;
+                }
+            })
+        }
+        let nbOccurences &#x3D; 0;
+        (configurationDemarche.pages || []).forEach(page &#x3D;&gt;
+            (page.blocs || []).forEach(bloc &#x3D;&gt; {
+                fn(bloc);
+                bloc.sousBlocs.forEach(sb &#x3D;&gt; fn(sb));
+            }
+            )
+        );
+        return nbOccurences &#x3D;&#x3D;&#x3D; 1;
+    }
+
+    /** Méthode recherchant un composant précis dans une page */
+    public static rechercherComposantDansLaPage(page: Page, typeContenu: TypeContenuDeBloc): ContenuDeBloc | undefined {
+        let resultat &#x3D; undefined;
+        (page.blocs || []).forEach(b &#x3D;&gt; b.contenus.forEach(c &#x3D;&gt; {
+            if (c.type &#x3D;&#x3D;&#x3D; typeContenu) {
+                resultat &#x3D; c;
+            }
+        }));
+        return resultat;
+    }
+
+    /** Méthode extrayant les clefs de donnée d&#x27;une chaine de caractères */
+    private static rechercheClefsDeVariableDansUnLibelle(chaine: string | undefined): string[] {
+        // Recherche de tous les {{xxx}}
+        const m &#x3D; (chaine) ? UtilitaireModel.retirerAppelsDeFonctions(chaine).match(DonneesService.REGEX_RECHERCHE_DONNEE) : [];
+        // Retrait des {{ et }}
+        return m ? [...m.map(e &#x3D;&gt; e.substring(2, e.length - 2))] : [];
+    }
+
+    /** Retrait des noms de fonction manipulable dans la configuration (notamment pour les blocs dynamiques) */
+    private static retirerAppelsDeFonctions(chaine: string): string {
+        let chaineNettoyee &#x3D; chaine;
+        DonneesService.LISTE_FONCTIONS_DISPONIBLES.forEach(f &#x3D;&gt; chaineNettoyee &#x3D; chaineNettoyee.replace(new RegExp(f + &quot;\\(\\&#x27;([^\\)]*)\\&#x27;\\)&quot;), &#x27;$1&#x27;));
+        return chaineNettoyee;
+    }
+
+    /** Méthode extrayant les clefs de donnée d&#x27;une chaine de caractères */
+    private static rechercheClefsDeVariableDansUneExpression(chaine: string | undefined): string[] {
+        // Au cas où
+        if (!chaine) {
+            return [];
+        }
+        // Retrait des noms de fonction
+        let chaineNettoyee &#x3D; UtilitaireModel.retirerAppelsDeFonctions(chaine)
+        // Retrait des valeurs entre &#x27;&#x27;
+        chaineNettoyee &#x3D; chaineNettoyee.replace(/&#x27;[^&#x27;]*&#x27;/ig, &#x27;&#x27;);
+        // Puis extraction des variables avec la regex
+        const liste &#x3D; chaineNettoyee.match(DonneesService.REGEX_RECHERCHE_DONNEE_EXPRESSION);
+        // Si pas de résultats
+        if (!liste) {
+            return [];
+        }
+        // retrait des valeurs &#x27;true&#x27;, &#x27;false&#x27;, ...
+        return liste.filter(e &#x3D;&gt; e !&#x3D;&#x3D; &#x27;true&#x27; &amp;&amp; e !&#x3D;&#x3D; &#x27;false&#x27;);
+    }
+
+    /* Initialisation des données du contenu autour de la gestion des titres, des aides et des conditions (pouvant contenir des variables)*/
+    public static initialiserLeOuLesTitresEtAides(c: ContenuDeBloc): void {
+
+        // Recherche de toutes les clefs de données présentes dans la configuration de ce contenu (titre(s), aide(s), conditions, texte, ...)
+        const listeClefs: string[] &#x3D; [];
+        listeClefs.push(...UtilitaireModel.rechercheClefsDeVariableDansUnLibelle(c.titre));
+        listeClefs.push(...UtilitaireModel.rechercheClefsDeVariableDansUnLibelle(c.aide));
+        listeClefs.push(...UtilitaireModel.rechercheClefsDeVariableDansUneExpression(c.conditionDesactivation));
+        listeClefs.push(...UtilitaireModel.rechercheClefsDeVariableDansUneExpression(c.conditionVisibilite));
+        if (UtilitaireModel.contenuEstUneSaisieComplexe(c)) {
+            const cComplexe &#x3D; c as ContenuSaisieComplexe;
+            if (cComplexe.titres) {
+                Object.keys(cComplexe.titres).forEach(t &#x3D;&gt; listeClefs.push(...UtilitaireModel.rechercheClefsDeVariableDansUnLibelle(t)));
+            }
+            if (cComplexe.aides) {
+                Object.keys(cComplexe.aides).forEach(a &#x3D;&gt; listeClefs.push(...UtilitaireModel.rechercheClefsDeVariableDansUnLibelle(a)));
+            }
+        }
+
+        // Initialisation des titres et aide (par défaut, la valeur est le modèle fourni)
+        // rien à faire pour les composants complexes car ils sont fait de sous-composants simples dont l&#x27;aide et le titre sont initialisés dans FmkContenuComplexeAbstraitComponent.initialiserComposant
+        c.aideAafficher &#x3D; c.aide;
+        c.titreAafficher &#x3D; c.titre;
+
+        // Spécificités ici pour recalculer le texte du paragraphe (et d&#x27;autres) en lien avec le code spécifique dans FormulaireService.recalculerLesElementsDuContenu
+        if (c.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.paragraphe) {
+            const cP &#x3D; c as ContenuParagraphe;
+            listeClefs.push(...UtilitaireModel.rechercheClefsDeVariableDansUnLibelle(cP.texte));
+            cP.texteAafficher &#x3D; (cP.texte &amp;&amp; cP.texte.length &gt; 0) ? cP.texte : undefined;
+        }
+        //  Spécificités ici pour les options de liste déroulante et de radio
+        else if (c.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.radio || c.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.listeFinie) {
+            const cL &#x3D; c as ContenuListeFinie;
+            cL.valeurs.forEach(v &#x3D;&gt; {
+                if (v.conditionVisibilite) {
+                    listeClefs.push(...UtilitaireModel.rechercheClefsDeVariableDansUneExpression(v.conditionVisibilite));
+                }
+            });
+        }
+        // Spécificité pour les compléments d&#x27;appel aux API d&#x27;une autocomplétion
+        else if (c.type &#x3D;&#x3D;&#x3D; TypeContenuDeBloc.autocompletion) {
+            const contenuType &#x3D; c as ContenuAutocompletion;
+            listeClefs.push(...UtilitaireModel.rechercheClefsDeVariableDansUnLibelle(contenuType.complementAppelApi));
+        }
+
+        // Affectation tardive du tableau (car les attributs du contenu sont surveillés par Angular et leur modification entraine des traitements de synchro)
+        c.listeClefsDonneesPresentesDansConfiguration &#x3D; listeClefs;
+    }
+}</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'UtilitaireModel.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

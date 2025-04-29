@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Déclaration de l'artefact parent -->
+	<parent>
+		<groupId>com.github.talbotgui.psl.socle</groupId>
+		<artifactId>socle</artifactId>
+		<version>0.0.2-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>socle-commundbtest</artifactId>
+	<name>socle-commundbtest</name>
+	<description>Classes communes de test entre les projets se connectant à une base MongoDB</description>
+
+	<!-- Modification de la clef pour les besoins des sous-projets -->
+	<properties><cheminRelatifVersLaRacineDuDepot>${project.basedir}/../../..</cheminRelatifVersLaRacineDuDepot></properties>
+
+	<dependencies>
+		<!-- Les projets communs -->
+		<dependency>
+			<groupId>com.github.talbotgui.psl.socle</groupId>
+			<artifactId>socle-communtest</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- Outils de tests (avec JUnit5 et non le 4 apporté par Spring) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<!-- Aux applicatifs utilsant commundb d'importer ce starter en scope 'test' -->
+			<scope>compile</scope>
+		</dependency>
+		
+		<!-- /!\ si des modifications sont faites ici, il faut vérifier si elles doivent être reportées dans service-nosql /!\ -->
+		
+		<!-- Pour se connecter à une base MongoDB -->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongodb-driver-sync</artifactId>
+		</dependency>
+		
+		<!-- Pour disposer d'un moteur MongoDB -->
+		<dependency>
+			<groupId>de.flapdoodle.embed</groupId>
+			<artifactId>de.flapdoodle.embed.mongo</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+	</build>
+
+</project>

@@ -1,0 +1,31 @@
+{
+  "versionConfiguration": "1.0.0",
+  "codeDemarche": "codeDemarcheSansPj",
+  "titre": "Titre",
+  "pointsEntree": [],
+  "piecesJointesAssociees":[],
+  "pages": [
+    {
+      "titre": "Mes informations personnelles",
+      "titreAriane": "Mes informations personnelles",
+      "exclueDuFilDariane": false,
+      "specifiqueAlaDemarche": false,
+      "blocs": [
+        {
+          "titre": "",
+          "contenus": [
+            {
+              "validations": [
+                "required"
+              ],
+              "type": "uploadDocument",
+              "clef": "pj1",
+              "titre": "Pièce jointe n°1",
+              "aide": "Aide pour la prmeière pièce justificative"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

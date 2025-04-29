@@ -1,0 +1,21 @@
+meta {
+  name: 011-ServiceRegistry-listeDesInstances
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{API_HOST}}:{{EUREKA_PORT}}/service/registry/eureka/apps
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: adminregistre
+  password: adminregistre
+}
+
+assert {
+  res.status: eq 200
+  res.body.applications: isDefined
+}

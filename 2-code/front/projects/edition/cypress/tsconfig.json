@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.app.json",
+  "include": [
+    "**/*.ts"
+  ],
+  "compilerOptions": {
+    "sourceMap": false,
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress", "cypress-axe", "node"]
+  }
+}

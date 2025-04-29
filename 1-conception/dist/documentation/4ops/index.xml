@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>4. Ops on Documentation nouvelle PSL</title>
+    <link>http://localhost:1313/documentation/4ops/</link>
+    <description>Recent content in 4. Ops on Documentation nouvelle PSL</description>
+    <generator>Hugo</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Sat, 22 Mar 2025 18:40:23 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/documentation/4ops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>4.1 Plan</title>
+      <link>http://localhost:1313/documentation/4ops/4.1plan/</link>
+      <pubDate>Sat, 22 Mar 2025 18:40:23 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/4ops/4.1plan/</guid>
+      <description>Voici le plan de déploiement imaginé au 13/06/2023 (aucun environnement cible n&amp;rsquo;existe encore à cette date).&#xA;4.1.1 - Les composants applicatifs et leurs contraintes 4.1.2 - Plan de déploiement 4.1.3 - Besoins vis-à-vis de l&amp;rsquo;hébergeur/exploitant 4.1.4 - Installation avec Ansible 4.1.5 - Commandes à connaître 4.1.1 - Les composants applicatifs et leurs contraintes Les services du socle sont des fonctionnalités que peuvent proposer les fournisseurs de Cloud. Ils ne seront donc pas tous installés en production.</description>
+    </item>
+    <item>
+      <title>4.2 Ansible</title>
+      <link>http://localhost:1313/documentation/4ops/4.2ansible/</link>
+      <pubDate>Mon, 21 Aug 2023 22:47:05 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/4ops/4.2ansible/</guid>
+      <description>Cette page décrit comment et pourquoi sont organisées les sources du projet IAC&#xA;4.2.1 - Description du projet 4.2.2 - Commandes de base 4.2.1 - Description du projet Ansible permet de créer un répertoire inventory pour y stocker plusieurs sources/fichiers et tous les utiliser avec le paramètre -i. Les fichiers y sont chargés dans l&amp;rsquo;ordre ASCII (source). Ainsi, dans chaque inventaire, sont présents les fichiers :&#xA;01-listeMachines.yml qui fournit, pour chaque code de machine (par exemple EXE_EXP_1), le nom de la machine et son port SSH 02-planDeploiement.</description>
+    </item>
+    <item>
+      <title>4.3 Règles</title>
+      <link>http://localhost:1313/documentation/4ops/4.3regles/</link>
+      <pubDate>Wed, 29 Nov 2023 07:12:10 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/4ops/4.3regles/</guid>
+      <description>Cette page décrit les régèles et normes de développement dans le projet IAC avec Ansible&#xA;4.3.1 - Conception générale 4.3.2 - A savoir 4.3.3 - Règles à respecter 4.3.4 - Commandes utiles 4.3.1 - Conception générale Ansible est un outil de préparation/rédaction de &amp;ldquo;scripts&amp;rdquo;. Il permet, avec ses modules natifs d&amp;rsquo;exécuter un très grand nombre d&amp;rsquo;actes différents sur un ensemble de machines Unix distantes.&#xA;Un projet Ansible est constitué : de tâches, de rôles et de playbook.</description>
+    </item>
+    <item>
+      <title>4.4 Exploitation</title>
+      <link>http://localhost:1313/documentation/4ops/4.4exploitation/</link>
+      <pubDate>Thu, 16 May 2024 18:01:19 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/4ops/4.4exploitation/</guid>
+      <description>Cette page décrit les tests d&amp;rsquo;une campagne de non-régression complète&#xA;4.4.1 - Introduction 4.4.2 - Prérequis à l&amp;rsquo;installation 4.4.3 - Commandes possibles 4.4.4 - Obtenir les versions des composants déployés 4.4.1 - Introduction Cette page décrit les différentes commandes utiles pour l&amp;rsquo;exploitation de ce SI.&#xA;4.4.2 - Prérequis à l&amp;rsquo;installation Les machines doivent toutes être des machines Ubuntu récentes (2023xx minimum). Un compte disposant des droits SUDO doit exister (par exemple, ubuntu dans le reste de la documentation)</description>
+    </item>
+  </channel>
+</rss>

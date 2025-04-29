@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3. Développement on Documentation nouvelle PSL</title>
+    <link>http://localhost:1313/documentation/3developpement/</link>
+    <description>Recent content in 3. Développement on Documentation nouvelle PSL</description>
+    <generator>Hugo</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Wed, 02 Apr 2025 23:07:24 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/documentation/3developpement/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>3.1 Liens</title>
+      <link>http://localhost:1313/documentation/3developpement/3.1liens/</link>
+      <pubDate>Sat, 22 Mar 2025 14:16:17 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.1liens/</guid>
+      <description>3.1.1 - Liens locaux 3.1.2 - Liens de la PIC Les liens vers les documentations générées automatiquement à partir du code sont disponible ici.&#xA;3.1.1 - Liens locaux Applicatifs WEB Front : Applicatifs WEB Front d&amp;rsquo;administration : édition de configuration de démarche PSL Admin: wsl ou local Applications WEB Back : Service Cloud Registry Eureka : lien local ou lien wsl Service Cloud Admin : lien local ou lien wsl Swagger des APIs exposés par la Gateway Documentation : liens documentaire publiée dans WSL ou en édition locale 3.</description>
+    </item>
+    <item>
+      <title>3.2 Installation de poste</title>
+      <link>http://localhost:1313/documentation/3developpement/3.2installationdeposte/</link>
+      <pubDate>Wed, 02 Apr 2025 23:07:24 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.2installationdeposte/</guid>
+      <description>3.2.1 - Clone du dépôt 3.2.2 - Java 3.2.3 - Maven 3.2.4 - Node &amp;amp; co 3.2.4.1 - Installer Node 3.2.5 - Les IDE 3.2.5.1 - IDE - Notepad++ 3.2.5.2 - IDE - Eclipse 3.2.5.3 - IDE - VSCode 3.2.5.4 - IDE - Compass 3.2.5.5 - IDE - UseBruno 3.2.5.6 - IDE - Règle sur l&amp;rsquo;utilisation des IDEs 3.2.5.7 - OUTILS - SMTP4DEV (pas nécessaire dans un premier temps) 3.</description>
+    </item>
+    <item>
+      <title>3.3 Démarrer tout</title>
+      <link>http://localhost:1313/documentation/3developpement/3.3demarrertout/</link>
+      <pubDate>Thu, 18 Jul 2024 08:43:47 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.3demarrertout/</guid>
+      <description>3.3.1 - Démarrer tout 3.2.2 - Ordre de démarrage des composants du socle 3.3.1 - Démarrer tout Pour démarrer l&amp;rsquo;ensemble des applications JAVA et FRONT sur un poste de développement, il faut :&#xA;en prérequis : avoir installé son poste de développement convenablement (cf. §3.2) avoir compilé avec succès tous les projets Java avec Maven avoir installé toutes les dépendances JS avec NPM (avec la commande npm ci) démarrer les projets Java ouvrir une ligne de commande git4windows dans le répertoire 2-code\socle exécuter la commande .</description>
+    </item>
+    <item>
+      <title>3.11 Infos-logs</title>
+      <link>http://localhost:1313/documentation/3developpement/3.11infoslogs/</link>
+      <pubDate>Mon, 06 May 2024 21:36:34 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.11infoslogs/</guid>
+      <description>3.11.1 - Types de log 3.11.2 - Format des logs 3.11.2.1 - Format des logs applicatives 3.11.2.2 - Format des access logs 3.11.3 - Configuration par environnement 3.11.3.1 - Logs en local 3.11.3.2 - Logs hors local 3.11.1 - Types de log Actuellement, deux types de log existent :&#xA;Les logs applicatives générées par les frameworks, les librairies et le code applicatif permettant de suivre l&amp;rsquo;activité des applications. Les access log généré par le serveur WEB et contenant exclusivement les traces des requêtes HTTP.</description>
+    </item>
+    <item>
+      <title>3.12 Infos-Spring</title>
+      <link>http://localhost:1313/documentation/3developpement/3.12infosspring/</link>
+      <pubDate>Mon, 06 May 2024 21:36:34 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.12infosspring/</guid>
+      <description>3.12.1 - Liste des principales dépendances Spring et leurs usages 3.12.2 - Liste des annotations Spring (et autres) utilisées dans les projets Back Les fonctionnalités CLOUD et plus largement de Spring sont utilisées dans les projets BACK.&#xA;3.12.1 - Liste des principales dépendances Spring et leurs usages Ces dépendances Spring sont utilisés sont dans les services de gestion/administration&#xA;spring-boot-admin-starter-server est utilisé dans service-admin pour fournir une interface d&amp;rsquo;administration de l&amp;rsquo;ensemble du SI.</description>
+    </item>
+    <item>
+      <title>3.13 Infos-cloud</title>
+      <link>http://localhost:1313/documentation/3developpement/3.13infoscloud/</link>
+      <pubDate>Sat, 05 Nov 2022 21:57:08 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.13infoscloud/</guid>
+      <description>3.13.1 - spring-boot-admin et service-admin 3.13.2 - spring-cloud-starter-gateway et service-gateway 3.13.3 - spring-cloud-config-server et service-config 3.13.4 - spring-cloud-starter-netflix-eureka-server et service-registry 3.13.5 - service-nosql 3.13.1 - spring-boot-admin et service-admin L&amp;rsquo;ensemble des applicatifs du socle sont prévus pour fonctionner dans le cloud et être scalables horizontalement (possibilité de démarrer plusieurs instances d&amp;rsquo;un même service et répartir la charge sur l&amp;rsquo;ensemble). Pour permettre le monitoring des instances démarrées,&#xA;existe l&amp;rsquo;application service-admin basée sur le projet SpringBootAdmin (https://codecentric.</description>
+    </item>
+    <item>
+      <title>3.14 Infos-PIC</title>
+      <link>http://localhost:1313/documentation/3developpement/3.14infospic/</link>
+      <pubDate>Fri, 04 Aug 2023 08:12:36 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.14infospic/</guid>
+      <description>Une Plateforme d&amp;rsquo;Intégration Continue (PIC) est un ensemble d&amp;rsquo;outils dont l&amp;rsquo;objectif premier est de tester, en continue (d&amp;rsquo;où son nom) toutes les versions de code créées par les développeurs. Pour cela, un orchestrateur (comme Jenkins) surveille un référentiel de source (comme Gitlab) pour déclencher le build (cf. §3.33) et envoyer, si besoin, un mail prévenant que quelque chose ne va pas. En plus de cet objectif de base, la PIC peut permettre :</description>
+    </item>
+    <item>
+      <title>3.15 Infos-test e2e</title>
+      <link>http://localhost:1313/documentation/3developpement/3.15infose2e/</link>
+      <pubDate>Thu, 18 Jul 2024 08:43:47 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.15infose2e/</guid>
+      <description>3.15.1 - Introduction 3.15.2 - Démarrage 3.15.3 - FailFast 3.15.4 - Couverture de code 3.15.5 - Dépannage 3.15.1 - Introduction Protractor n&amp;rsquo;est plus utilisé par Angular. Aucun test ni configuration de test d&amp;rsquo;écrans (E2E) n&amp;rsquo;existe plus à la création d&amp;rsquo;un projet Angular. CYPRESS est le framework nouvellement conseillé. Il fournit notamment une migration automatique depuis Protractor. Mais son premier usage est parfois pénible. Donc le fichier package.json contient des commandes install-1*cypress</description>
+    </item>
+    <item>
+      <title>3.16 Infos-velocity</title>
+      <link>http://localhost:1313/documentation/3developpement/3.16infovelocity/</link>
+      <pubDate>Sun, 04 Sep 2022 15:15:27 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.16infovelocity/</guid>
+      <description>3.15.1 - Introduction 3.15.2 - Syntaxes à connaître 3.15.1 - Introduction Velocity est un framework de templating de texte. Il permet, à partir d&amp;rsquo;un template et de données, de générer un texte.&#xA;Pour rappel, un document JSON, XML ou même HTML est, à la base, un document texte. Et la nouvelle PSL permet de générer un PDF à partir d&amp;rsquo;une page HTML.&#xA;3.15.2 - Syntaxes à connaître La documentation officielle est là.</description>
+    </item>
+    <item>
+      <title>3.21 Règles-conception</title>
+      <link>http://localhost:1313/documentation/3developpement/3.21reglesdeconception/</link>
+      <pubDate>Fri, 06 May 2022 20:27:48 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.21reglesdeconception/</guid>
+      <description>3.21.1 - Conception 3.21.1.1 - Les projets et leur catégorisation 3.21.1.2 - Configuration 3.21.1.3 - Les clients d&amp;rsquo;API 3.21.2 - Règles de nommage 3.21.1 - Conception 3.21.1.1 - Les projets et leur catégorisation Le projet socle se compose de multiples projets (notion de micro-service) mais ces projets se divisent en plusieurs catégories&#xA;les projets fonctionnels apportant des fonctionnalités et exposant des APIs sécurisées comme socle-dbdocument traitant du stockage des documents générés et des pièces jointes ; socle-dbconfiguration stockant les configurations internes et publiques des démarches ; socle-dbbrouillon stockant les brouillons de télé-dossier ; socle-referentiel exposant des APIs permettant l&amp;rsquo;autocomplétion à partir de données indéxées et obtenues depuis des référentiels externes ; socle-referentielexterne exposant des APIs permettant l&amp;rsquo;autocomplétion à partir de directement obtenues (à chaque requête entrante) depuis des référentiels externes ; socle-soumission exposant l&amp;rsquo;API de création d&amp;rsquo;un tx²élé-dossier (validation, génération de documents&amp;hellip;) ; socle-securite exposant les APIs de gestion de l&amp;rsquo;authentification des usagers.</description>
+    </item>
+    <item>
+      <title>3.22 Règles-Java</title>
+      <link>http://localhost:1313/documentation/3developpement/3.22reglesspecificiquesjava/</link>
+      <pubDate>Wed, 07 Aug 2024 22:17:59 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.22reglesspecificiquesjava/</guid>
+      <description>3.22.1 - Java 17 3.22.2 - Spécificités associées aux record de Java 3.22.3 - Les imports 3.22.4 - Validation de données en entrée des APIs exposées par le socle 3.22.5 - L&amp;rsquo;injection de dépendance de Spring 3.22.1 - Java 17 La partie Socle de cette solution est initialement développée avec Java 17. Elle utilise donc certaines fonctionnalités intéressantes (et pour certaines relativement récentes) de Java :&#xA;les record sont une nouvelle façon de déclarer une classe en Java.</description>
+    </item>
+    <item>
+      <title>3.23 Règles-Maven</title>
+      <link>http://localhost:1313/documentation/3developpement/3.23reglesmaven/</link>
+      <pubDate>Fri, 06 May 2022 20:27:48 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.23reglesmaven/</guid>
+      <description>3.23.1 - Règles de développement liées à Maven L&amp;rsquo;ensemble des projets BACK, FRONT sont construits avec Maven. Maven apporte deux grands services :&#xA;la gestion des dépendances se base sur l&amp;rsquo;identification unique de chaque artefact (alias livrable applicatif ) quelque soit son type (JAR, WAR ou EAR. Cette clef unique se compose du groupid, de l&amp;rsquo;artefactid et de la version. Par convention, le groupid est le package de base de la solution (donc aussi un nom DNS déclarant le propriétaire).</description>
+    </item>
+    <item>
+      <title>3.24 Règles-test</title>
+      <link>http://localhost:1313/documentation/3developpement/3.24reglesdetest/</link>
+      <pubDate>Thu, 22 Feb 2024 08:09:48 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.24reglesdetest/</guid>
+      <description>3.24.1 - Comment faire fonctionner edition-tool en local 3.24.2 - Les tests automatisés dans le Back 3.24.3 - Les requêtes HTTP 3.24.4 - Les tests en cas de modification structurelle du code du socle 3.24.5 - Tests E2E 3.24.6 - Analyse de problème dans les tess E2E 3.24.1 - Comment faire fonctionner edition-tool en local L&amp;rsquo;outil de reverse engineering générant une configuration et un brouillon de démarche à partir d&amp;rsquo;une application déployée est aussi limité que l&amp;rsquo;outil CYPRESS sur lequel il est basé.</description>
+    </item>
+    <item>
+      <title>3.25 Règles-logs</title>
+      <link>http://localhost:1313/documentation/3developpement/3.25reglesdelog/</link>
+      <pubDate>Sat, 22 Mar 2025 11:49:31 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.25reglesdelog/</guid>
+      <description>3.25.1 - Règles des logs 3.25.1 - Règles des logs Les règles impérieuses sont :&#xA;aucune donnée personnelle ne doit être logguée. Mais il peut être utile, durant les tests, de consulter le détail des données générées. Donc, les données interdites en production peuvent être loggées en niveau TRACE si et seulement si une ligne de log WARNING est ajoutée dans la classe et générée dès le début du micro-service pour avertir du problème (cf.</description>
+    </item>
+    <item>
+      <title>3.26 Règles-Front</title>
+      <link>http://localhost:1313/documentation/3developpement/3.26regesspecificiquesfront/</link>
+      <pubDate>Fri, 09 Aug 2024 08:56:45 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.26regesspecificiquesfront/</guid>
+      <description>3.26.1 - Angular 3.26.2 - DSFR 3.26.3 - Material versus DSFR 3.26.1 - Angular Toutes les bonnes pratiques poussées par Angular doivent être respectées. C&amp;rsquo;est pour cette raison que, régulièrement, un projet Angular est créé de zéro avec Angular-cli. Ainsi toutes les règles (notamment tslint) sont réintégrées au projet front.&#xA;En plus de ces bonnes pratiques, des choix ont été faits sur le projet :&#xA;aucun fichier source ne doit être vide (notamment les fichiers SCSS bien souvent vides) les CSS de chaque composant ne sont pas encapsulées (cf.</description>
+    </item>
+    <item>
+      <title>3.31 Procédures-site documentaire</title>
+      <link>http://localhost:1313/documentation/3developpement/3.31proceduressitedocumentaire/</link>
+      <pubDate>Sat, 22 Mar 2025 14:16:17 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.31proceduressitedocumentaire/</guid>
+      <description>3.31.1 - Installer tous les éléments 3.31.2 - Démarrer / arrêter le site 3.31.3 - Modifier les pages 3.31.4 - Modifier l&amp;rsquo;arborescence 3.31.5 - Générer la documentation technique 3.31.6 - Créer le site documentaire statique 3.31.7 - Mettre à jour la version d&amp;rsquo;Hugo 3.31.1 - Installer tous les éléments Pour manipuler modifier le site documentaire, il est faut :&#xA;cloner le dépôt des sources du projet installer le HOOK git pre-commit en copiant le fichier aInstaller_pre-commit présent à la racine du dépôt le renommant pre-commit le plaçant dans le répertoire .</description>
+    </item>
+    <item>
+      <title>3.32 Procédures-règles de l&#39;application Angular</title>
+      <link>http://localhost:1313/documentation/3developpement/3.32proceduresapplicationangular/</link>
+      <pubDate>Thu, 18 Jul 2024 08:43:47 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.32proceduresapplicationangular/</guid>
+      <description>3.32.1 - Recréer un workspace Angular avec des applications et un librairie commune 3.32.2 - Créer une nouvelle application de démarche 3.32.3 - Vérifier la cohérence d&amp;rsquo;une démarche 3.32.4 - Ajouter un nouveau type de contenu 3.32.5 - A savoir sur un type de contenu 3.32.6 - Ajout/retrait/modification d&amp;rsquo;un attribut dans un type de contenu ou une classe du package model 3.32.7 - Comment ajouter un nouveau type de validation de champ 3.</description>
+    </item>
+    <item>
+      <title>3.33 Procédures-environnement Maven</title>
+      <link>http://localhost:1313/documentation/3developpement/3.33proceduresmaven/</link>
+      <pubDate>Thu, 18 Jul 2024 08:43:47 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.33proceduresmaven/</guid>
+      <description>3.33.1 - Utilisations courantes de Maven 3.33.2 - Changement de version du socle PSL 3.33.3 - Changement ou ajout d&amp;rsquo;une dépendance 3.33.4 - Astuce pour exécuter un unique plugin ou une unique exécution 3.33.1 - Utilisations courantes de Maven Pour compiler le socle PSL, il est nécessaire de systématiquement compiler les classes de test. Donc il ne faut pas utiliser le paramètre -Dmaven.test.skip. La bonne commande à utiliser est mvn clean install -DskipTests.</description>
+    </item>
+    <item>
+      <title>3.34 Procédures-veille sécurité</title>
+      <link>http://localhost:1313/documentation/3developpement/3.34proceduressecurite/</link>
+      <pubDate>Sat, 22 Mar 2025 18:40:23 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.34proceduressecurite/</guid>
+      <description>3.34.1. - Projet Socle 3.34.1.1 - Mettre à jour les dépendances Java 3.34.1.2 - Chiffrement / déchiffrement des mots de passe (ou clefs) dans les fichiers de configuration 3.34.2 - Projet Front 3.34.2.1 - Montée de version Angular 3.34.2.2 - Montée de version Angular compliquée 3.34.2.3 - Montée de version Angular 3.34.2.4 - Montée de version DSFR 3.34.2.5 - Montée de version des autres dépendances Node 3.34.3 - Mise à jour des outils 3.</description>
+    </item>
+    <item>
+      <title>3.35 Procédures-elastic</title>
+      <link>http://localhost:1313/documentation/3developpement/3.35procedureselastic/</link>
+      <pubDate>Wed, 03 Jan 2024 22:49:53 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.35procedureselastic/</guid>
+      <description>3.35.1 - Comment mettre en place et utiliser la pile Elastic 3.35.2 - Comment faire évoluer la pile Elastic 3.35.3 - Kibana - ajouter un champ calculé 3.35.4 - Pile Elastic - montée de version 3.35.5 - Kibana - astuces diverses et informations à connaître Ce chapitre contient des procédures et des aides pour des manipuler la pile Elastic.&#xA;3.35.1 - Comment mettre en place et utiliser la pile Elastic Pour plus de détails sur la pile Elastic elle-même, cette dernière est décrite au chapitre §2.</description>
+    </item>
+    <item>
+      <title>3.36 Procédures-test</title>
+      <link>http://localhost:1313/documentation/3developpement/3.36procedurestest/</link>
+      <pubDate>Sat, 22 Mar 2025 14:16:17 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.36procedurestest/</guid>
+      <description>3.36.1 - Campagnes de test 3.36.2 - C1 La vérification du build 3.36.3 - C2 Les tests du système sur le poste local 3.36.4 - C2 Les tests du système sur WSL 3.36.5 - Tests du socle 3.36.6 - Tests des applications WEB 3.36.7 - FAQ Ce chapitre contient les procédures de test&#xA;3.36.1 - Campagnes de test Pour tout tester, il est nécessaire de réaliser plusieurs campagnes de test :</description>
+    </item>
+    <item>
+      <title>3.37 Procédures-diverses</title>
+      <link>http://localhost:1313/documentation/3developpement/3.37proceduresdiverses/</link>
+      <pubDate>Sat, 22 Mar 2025 11:49:31 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.37proceduresdiverses/</guid>
+      <description>3.37.1 - Comment ajouter le client d&amp;rsquo;API d&amp;rsquo;un micro-service dans un autre micro-service ? 3.37.2 - Ajout d&amp;rsquo;une dépendance dans le framework du workspace FRONT 3.37.3 - Cypress démarré avec xx-e2e ne trouve pas l&amp;rsquo;application qui est pourtant démarré 3.37.4 - Jackson n&amp;rsquo;arrive pas à transformer un JSON en Record (classcastexception LinkedHashMap) 3.37.5 - Erreur de compilation dans Eclipse 3.37.6 - Comment chiffrer/déchiffrer le fichier variablesPourScripts.properties.gpg 3.37.7 - Le micro-service SOCLE-REFERENTIEL ne démarre plus 3.</description>
+    </item>
+    <item>
+      <title>3.41 Les choses à savoir</title>
+      <link>http://localhost:1313/documentation/3developpement/3.41chosesasavoir/</link>
+      <pubDate>Fri, 15 Mar 2024 21:56:56 +0100</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.41chosesasavoir/</guid>
+      <description>Ce chapitre contient une liste non exhaustive d&amp;rsquo;informations, liens et sujets que tout membre de l&amp;rsquo;équipe devrait connaître pour développer efficacement.&#xA;culture informatique&#xA;les expressions régulières l&amp;rsquo;usage de KeePass les groupes d&amp;rsquo;onglet dans Chrome les outils de développement dans les navigateurs WEB les requêtes HTTP (méthodes, code de retour, entêtes, cookies) UNIX&#xA;les commandes de base pour parcourir une machine : cd, cat, vi, ls les redirections de sortie standard et sortie d&amp;rsquo;erreur (cd.</description>
+    </item>
+    <item>
+      <title>3.99 Foire aux questions (FAQ)</title>
+      <link>http://localhost:1313/documentation/3developpement/3.99faq/</link>
+      <pubDate>Mon, 01 Apr 2024 22:22:48 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/3developpement/3.99faq/</guid>
+      <description>3.99.1 - Que faire de la log &amp;ldquo;OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended&amp;rdquo; ? 3.99.2 - Des membres Java sont renommés &amp;ldquo;a&amp;rdquo; ou &amp;ldquo;b&amp;rdquo; quand le code s&amp;rsquo;exécutant a été compilé via Maven mais pas en DEBUG avec Eclipse 3.99.3 - Pourquoi le Hot Module Reload de WebPack ne permet pas de garder la configuration, les données et la progression dans une démarche Ce chapitre contient des éléments très diverses et la capitalisation de toutes les questions qu&amp;rsquo;un membre de l&amp;rsquo;équipe peut se poser.</description>
+    </item>
+  </channel>
+</rss>

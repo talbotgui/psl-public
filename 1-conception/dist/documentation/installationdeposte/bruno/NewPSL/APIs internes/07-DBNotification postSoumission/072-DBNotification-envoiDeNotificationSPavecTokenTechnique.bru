@@ -1,0 +1,31 @@
+meta {
+  name: 072-DBNotification-envoiDeNotificationSPavecTokenTechnique
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{API_HOST}}:{{portSocleDbNotification}}/socle/notification/interne/notification
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslSP}}
+}
+
+body:json {
+  {
+      "uuidEspace":"715125cc-1ebf-47c5-b8bf-2a461a80f129",
+    "codeDemarche":"arnaqueInternet",
+    "libelleDemarche":"arnaqueInternet",
+      "statutTeledossier":"brouillon",
+    "idExterneNotification":"idExterneNotification",
+    "messageAafficher":"<div>Juste un petit <b>bonjour Claudio (compte TestAttest01)</b>, cette notificaton ne partira jamais car le télédossier n'existe pas dans cet espace et ne peut être créé qu'avec l'accessToken de l'usager</div>",
+      "nombreJoursAvantExpiration":45
+  }
+}
+
+assert {
+  res.status: eq 200
+}

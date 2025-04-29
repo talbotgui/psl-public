@@ -1,0 +1,52 @@
+{
+	"codeDemarche": "bibliotheque",
+	"versionConfiguration": "1.0.0",
+	"documentsAgenerer": [
+		{
+			"code": "TRANSFERT",
+			"libelle": "Document de transfert",
+			"conditionGeneration": "true",
+			"documentPresenteAuTelechargementEnFinDeDemarche": false,
+			"typeDeGeneration": "templateTextuel",
+			"nomFinalDuDocument": "${numeroTeledossier}-transfert.json",
+			"contentType": "application/json",
+			"template": "----bibliotheque_transfert.json----"
+		},
+		{
+			"code": "JSON001",
+			"libelle": "Document récapitulatif de la demande en JSON",
+			"conditionGeneration": "true",
+			"documentPresenteAuTelechargementEnFinDeDemarche": true,
+			"typeDeGeneration": "templateTextuel",
+			"nomFinalDuDocument": "${numeroTeledossier}-recap.json",
+			"contentType": "application/json",
+			"template": "----bibliotheque_flux.json----"
+		}		
+	],
+	"notifications": {
+		"brouillon": [
+			{
+				"type": "email", "templateObjet": "Brouillon de démarche bibliotheque ${idBrouillon}",
+				"contenuHtml": true, "templateContenu": "#if(!$utilisateur_email)<div>Bonjour, vous avez commencé la saisie d'une démarche biliotheque. Pour terminer votre saisie, <a href=\"https://dev-psl.guillaumetalbot.com/demarche/bibliotheque/?id=${idBrouillon}\">cliquez sur ce lien</a>. A très vite.<br/>newPSL</div>#end",
+				"templateDestinataires": "${infoPersoContactPerso_email}"
+			},
+			{
+				"type": "notificationSP", "nombreJoursAvantExpiration":30,
+				"templateContenu": "#if($utilisateur_email)<div>Bonjour, vous avez commencé la saisie d'une démarche biliotheque. Pour terminer votre saisie, cliquez sur le bouton</div>#end",
+				"templateLienReprise": "https://dev-psl.guillaumetalbot.com/demarche/biliotheque/?id=${idBrouillon}"
+			}
+		],
+		"soumission": [
+			{
+				"type": "email", "templateObjet": "Soumission de démarche biliotheque ${numeroTeledossier}",
+				"contenuHtml": true, "templateContenu": "#if(!$utilisateur_email)<div>Bonjour, vous avez soumis une démarche biliotheque. A très vite.<br/>newPSL</div>#end",
+				"templateDestinataires": "${$clefSaisie6}"
+			},
+			{
+				"type": "notificationSP", "nombreJoursAvantExpiration":30,
+				"templateContenu": "#if($utilisateur_email)<div>Bonjour, vous avez soumis une démarche biliotheque ${numeroTeledossier}.</div>#end"
+			}
+		]
+	}
+}
+	

@@ -1,0 +1,25 @@
+<div class="fr-container">
+  <div class="fr-grid-row fr-grid-row--center fr-grid-row--gutters">
+    <div class="fr-col-7">
+      <div data-fmk-captcha></div>
+    </div>
+    <div class="fr-col-7">
+      <label class="fr-label" for="captchaFormulaireExtInput">
+        @if (contenu && !contenu.modeObligatoireParDefaut) {
+          <span class="symbol-required">* </span>
+        }
+        <span class="textelibelle">{{ 'findemarche.captcha.saisie' | i18n }}</span>
+      </label>
+      <input type="text" class="fr-input inputSaisie BDC_CaptchaDiv" id="captchaFormulaireExtInput" name="captcha" [(ngModel)]="valeurCaptcha">
+    </div>
+    <div class="fr-col-7">
+      <ul class="fr-btns-group fr-btns-group--lg">
+        <li>
+          <button type="submit" class="fr-btn" (click)="soumettreTeledossier()" [disabled]="!boutonActif || !valeurCaptcha">
+            <span>{{ 'findemarche.bouton.soumettre' | i18n}}</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

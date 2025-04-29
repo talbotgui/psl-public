@@ -1,0 +1,21 @@
+meta {
+  name: 0435-DBBrouillon-lectureBibliotheque-tokenAnonyme
+  type: http
+  seq: 12
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/brouillon/brouillon/bibliotheque/{{idBrouillonCreePourBibliotheque}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+assert {
+  res.status: eq 200
+  res.body.codeDemarche: eq bibliotheque
+  res.body.id: eq {{idBrouillonCreePourBibliotheque}}
+}

@@ -1,0 +1,5268 @@
+{
+	"info": {
+		"_postman_id": "e965dd10-f5b3-4cd5-b26c-f48c96808a9b",
+		"name": "NewPSL",
+		"description": "Cette collection contient un jeu de requêtes permettant de tester les principales fonctionnalités des services et applications du socle PSL.\n\nCette collection est utilisable pour tester le bon fonctionnement d'un environnement.\n\nElle est exécutable dans son ensemble (depuis l'onglet de détails de la collection.\n\n/!\\ Avant de lancer toute la collection, il faut :\n - décocher les requêtes 99x (qui testent les systèmes externes et pas la PSL)\n - générer le token SP via l'OIDC dans l'onglet Authorization de la requête 024.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30059113"
+	},
+	"item": [
+		{
+			"name": "APIs internes",
+			"item": [
+				{
+					"name": "01-Services",
+					"item": [
+						{
+							"name": "011-ServiceRegistry-listeDesInstances",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Vérifications de base\r",
+											"pm.test(\"Réponse correcte\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    pm.expect(pm.response.text()).to.contains(\"<instance>\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"// 01-Services\r",
+											"pm.environment.unset(\"portServiceConfig\");\r",
+											"pm.environment.unset(\"portSocleDbNotification\");\r",
+											"\r",
+											"// 02-Securite (le token SP nécessite une action manuelle pour être générée)\r",
+											"pm.environment.unset(\"tokenPslAnonyme\");\r",
+											"\r",
+											"// 04-DBx preSoumission\r",
+											"pm.environment.unset(\"nbNotifications\");\r",
+											"pm.environment.unset(\"idBrouillonCree\");\r",
+											"pm.environment.unset(\"idBrouillonCreePourBibliotheque\");\r",
+											"\r",
+											"// 05-Soumission\r",
+											"pm.environment.unset(\"idPj1\");\r",
+											"pm.environment.unset(\"idTeledossierCree\");\r",
+											"pm.environment.unset(\"idTeledossierCreeAvecSP\");\r",
+											"pm.environment.unset(\"idTeledossierCreeAI\");\r",
+											"\r",
+											"// 06-DBx postSoumission\r",
+											"pm.environment.unset(\"codePremierDocument\");\r",
+											"pm.environment.unset(\"clefTelechargementDocument\");\r",
+											"pm.environment.unset(\"codePremierDocumentAvecSP\");\r",
+											"pm.environment.unset(\"clefTelechargementDocumentAvecSP\");\r",
+											"\r",
+											"// 08-Adminpsl\r",
+											"pm.environment.unset(\"tokenAdminPsl\");\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "adminregistre",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "adminregistre",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{EUREKA_PORT}}/service/registry/eureka/apps",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{EUREKA_PORT}}",
+									"path": [
+										"service",
+										"registry",
+										"eureka",
+										"apps"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "012a-ServiceRegistry-recuperationPortDesMicroServices-serviceConfig",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Vérifications de base\r",
+											"pm.test(\"Réponse correcte\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    pm.expect(pm.response.text()).to.contains(\"<instance>\");\r",
+											"});\r",
+											"\r",
+											"// Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"var json = xml2Json(pm.response.text());\r",
+											"var portServiceConfig = json[\"instance\"][\"port\"][\"_\"];\r",
+											"pm.environment.set('portServiceConfig', portServiceConfig);\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "adminregistre",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "adminregistre",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{EUREKA_PORT}}/service/registry/eureka/apps/SERVICE-CONFIG/service-config-1",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{EUREKA_PORT}}",
+									"path": [
+										"service",
+										"registry",
+										"eureka",
+										"apps",
+										"SERVICE-CONFIG",
+										"service-config-1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "012b-ServiceRegistry-recuperationPortDesMicroServices-notification",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Vérifications de base\r",
+											"pm.test(\"Réponse correcte\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    pm.expect(pm.response.text()).to.contains(\"<instance>\");\r",
+											"});\r",
+											"\r",
+											"// Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"var json = xml2Json(pm.response.text());\r",
+											"var portSocleDbNotification = json[\"instance\"][\"port\"][\"_\"];\r",
+											"pm.environment.set('portSocleDbNotification', portSocleDbNotification);\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "adminregistre",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "adminregistre",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{EUREKA_PORT}}/service/registry/eureka/apps/SOCLE-DBNOTIFICATION/socle-dbnotification-1",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{EUREKA_PORT}}",
+									"path": [
+										"service",
+										"registry",
+										"eureka",
+										"apps",
+										"SOCLE-DBNOTIFICATION",
+										"socle-dbnotification-1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "013-ServiceConfig-configuration-socleSecurite",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Vérifications de base\r",
+											"pm.test(\"Réponse correcte\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.equals(200);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "adminconfig",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "adminconfig",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{portServiceConfig}}/tls,accesslog,adminClient,doc,jwt,log,serviceregistry,socle-securite/default",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{portServiceConfig}}",
+									"path": [
+										"tls,accesslog,adminClient,doc,jwt,log,serviceregistry,socle-securite",
+										"default"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "014-ServiceConfig-configuration-chiffrerChaine",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/plain",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "MotDePasseStore"
+								},
+								"url": {
+									"raw": "https://{{API_HOST}}:{{portServiceConfig}}/encrypt",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{portServiceConfig}}",
+									"path": [
+										"encrypt"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "015-ServiceConfig-configuration-dechiffrerChaine",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/plain",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "AQCSOYNxR/SB0Dmh5tY1IVE/vIzCU4vI/bgBzC3Y0tH+bynweMl6B8VcsgtHjHw6S7sONrtW7eo+RrBFLQ8XT1QlMEu4yftzokEWKntHT9TqrbX2JE+Igk3OTo89YRgsUwvsIgkMTMIOT94UPZ1ApKGmbu6uYv+KjyhOC7VHKYDRUTcr3XJgbdzBQ7MxvnRtwWAxxrHhdvXu4JC+++xUYEzEgiPNnnDo4I/fac33OO25FGhGBDYileXPjziGoPH1u+JH1XGZvgBwGr5ts1IEae40IoE1SFFoDb7Nwm/c33eTy/XDimd+DpSlF50gxtN4kXGgGIW8M8xSaMe023sz8wQRtnHJn8/YHPu0w9ml+1OKYrZ/qRvcAvE0H1EOwgx49OMC075+kbJE1gtrNDC+u2CM"
+								},
+								"url": {
+									"raw": "https://{{API_HOST}}:{{portServiceConfig}}/decrypt",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{portServiceConfig}}",
+									"path": [
+										"decrypt"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "016-ServiceGateway-swagger-dbbrouillon",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Vérifications de base\r",
+											"pm.test(\"Réponse correcte\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    pm.expect(pm.response.json().openapi).to.be.not.empty;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/v3/api-docs/brouillon",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"v3",
+										"api-docs",
+										"brouillon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "017-ServiceGateway-swagger-dbconfiguration",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Vérifications de base\r",
+											"pm.test(\"Réponse correcte\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    pm.expect(pm.response.json().openapi).to.be.not.empty;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/v3/api-docs/configuration",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"v3",
+										"api-docs",
+										"configuration"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "018-ServiceGateway-swagger-dbdocument",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Vérifications de base\r",
+											"pm.test(\"Réponse correcte\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    pm.expect(pm.response.json().openapi).to.be.not.empty;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/v3/api-docs/document",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"v3",
+										"api-docs",
+										"document"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "019-ServiceGateway-swagger-referentiel",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Vérifications de base\r",
+											"pm.test(\"Réponse correcte\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    pm.expect(pm.response.json().openapi).to.be.not.empty;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/v3/api-docs/referentiel",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"v3",
+										"api-docs",
+										"referentiel"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "0110-ServiceGateway-swagger-referentielexterne",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Vérifications de base\r",
+											"pm.test(\"Réponse correcte\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    pm.expect(pm.response.json().openapi).to.be.not.empty;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/v3/api-docs/referentielexterne",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"v3",
+										"api-docs",
+										"referentielexterne"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "0111-ServiceGateway-swagger-securite",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Vérifications de base\r",
+											"pm.test(\"Réponse correcte\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    pm.expect(pm.response.json().openapi).to.be.not.empty;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/v3/api-docs/securite",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"v3",
+										"api-docs",
+										"securite"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "0112-ServiceGateway-swagger-soumission",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Vérifications de base\r",
+											"pm.test(\"Réponse correcte\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    pm.expect(pm.response.json().openapi).to.be.not.empty;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/v3/api-docs/soumission",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"v3",
+										"api-docs",
+										"soumission"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "0113-ServiceGateway-swagger-dbnotification",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Vérifications de base\r",
+											"pm.test(\"Réponse correcte\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    pm.expect(pm.response.json().openapi).to.be.not.empty;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/v3/api-docs/notification",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"v3",
+										"api-docs",
+										"notification"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"// La purge des variables est faite dans le \"pre-request Script\" de la 011"
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "02-Securite",
+					"item": [
+						{
+							"name": "021-Securite-authentificationAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Vérifications de base\r",
+											"pm.test(\"Réponse correcte\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    pm.expect(pm.response.json().token).to.be.not.empty;\r",
+											"});\r",
+											"\r",
+											"// Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"pm.environment.set('tokenPslAnonyme', pm.response.json().token);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/securite/authentificationAnonyme",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"securite",
+										"authentificationAnonyme"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "022-Securite-infoUsager-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().email).to.be.equals(\"anonymous@psl.fr\");\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/securite/info",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"securite",
+										"info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "023-Securite-refreshToken-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Vérifications de base\r",
+											"pm.test(\"Réponse correcte\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    pm.expect(pm.response.json().access_token).to.be.not.empty;\r",
+											"});\r",
+											"\r",
+											"// Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"pm.environment.set('tokenPslAnonyme', pm.response.json().access_token);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "refresh_token",
+											"type": "text"
+										},
+										{
+											"key": "scope",
+											"value": "openid offline_access profile email particulier",
+											"type": "text"
+										},
+										{
+											"key": "refresh_token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "xxxxxxxxx",
+											"type": "text"
+										},
+										{
+											"key": "client_secret",
+											"value": "bidon",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/securite/token",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"securite",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "024-Securite-infoUsager-avecGenerationAuthentificationSP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si une connexion OIDC a été réalisée\r",
+											"if (pm.request.headers.get('Authorization')) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().email).to.be.not.empty;\r",
+											"    });\r",
+											"\r",
+											"    // Récupération des donnése pour alimenter des variables d'environnement\r",
+											"    if (pm.response.code == 200) {\r",
+											"        var tokenPslSP = pm.request.headers.get('Authorization').replace(\"Bearer \",\"\");\r",
+											"        pm.environment.set('tokenPslSP', tokenPslSP);\r",
+											"        pm.environment.set('emailCompteSP', pm.response.json().email);\r",
+											"    } else {\r",
+											"        pm.environment.unset('tokenPslSP');\r",
+											"        pm.environment.unset('emailCompteSP');\r",
+											"    }\r",
+											"} else {\r",
+											"    pm.test(\"Sans token SP généré, l'API renvoie un 401\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"    });\r",
+											"    pm.test(\"/!\\\\ Aucun token SP généré depuis l'onglet Authorization de cette requête\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.request.headers.get('Authorization')).be.null;\r",
+											"    });\r",
+											"    pm.environment.unset('tokenPslSP');\r",
+											"    pm.environment.unset('emailCompteSP');\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "redirect_uri",
+											"value": "https://dev-psl.guillaumetalbot.com/mademarche",
+											"type": "string"
+										},
+										{
+											"key": "scope",
+											"value": "openid profile email particulier",
+											"type": "string"
+										},
+										{
+											"key": "accessTokenUrl",
+											"value": "https://localhost:8080/socle/securite/token",
+											"type": "string"
+										},
+										{
+											"key": "authUrl",
+											"value": "https://xxx.service-public.fr/realms/service-public/protocol/openid-connect/auth",
+											"type": "string"
+										},
+										{
+											"key": "useBrowser",
+											"value": false,
+											"type": "boolean"
+										},
+										{
+											"key": "clientSecret",
+											"value": "xxxxxxxx",
+											"type": "string"
+										},
+										{
+											"key": "clientId",
+											"value": "xxxxxxxxx",
+											"type": "string"
+										},
+										{
+											"key": "grant_type",
+											"value": "authorization_code_with_pkce",
+											"type": "string"
+										},
+										{
+											"key": "tokenName",
+											"value": "TOKEN SP",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "client_authentication",
+											"value": "body",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/securite/info",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"securite",
+										"info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "025-Securite-infoUsager-tokenSP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL SP existe\r",
+											"if (pm.environment.get(\"tokenPslSP\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().email).to.be.not.empty;\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"Sans token SP généré, l'API renvoie un 401\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"    });\r",
+											"    pm.test(\"/!\\\\ Aucun token SP disponible\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(\"tokenPslSP\").to.be.equals(\"\");\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslSP}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/securite/info",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"securite",
+										"info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "026-Securite-refreshToken-tokenSP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si une connexion OIDC a été réalisée\r",
+											"if (pm.environment.get('tokenPslSP')) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().access_token).to.be.not.empty;\r",
+											"        pm.expect(pm.response.json().expires_in).to.be.not.empty;\r",
+											"        pm.expect(pm.response.json().refresh_expires_in).to.be.not.empty;\r",
+											"        pm.expect(pm.response.json().refresh_token).to.be.not.empty;\r",
+											"        pm.expect(pm.response.json().token_type).to.be.equals(\"PSL\")\r",
+											"        pm.expect(pm.response.json().id_token).to.be.empty;\r",
+											"        pm.expect(pm.response.json().session_state).to.be.not.empty;\r",
+											"        pm.expect(pm.response.json().scope).to.be.not.empty;\r",
+											"    });\r",
+											"\r",
+											"    // Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"    if (pm.response.json().access_token){\r",
+											"            pm.environment.set('tokenPslSP', pm.response.json().access_token);\r",
+											"    }\r",
+											"    pm.environment.set('tokenPslSP', pm.response.json().access_token);\r",
+											"} else {\r",
+											"    pm.test(\"Sans token SP généré, l'API renvoie un 401\", function () {\r",
+											"        // Au moins l'API doit répondre 400\r",
+											"        pm.expect(pm.response.code).to.be.equals(400);\r",
+											"    });\r",
+											"    pm.test(\"/!\\\\ Aucun token SP disponible\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(\"tokenPslSP\").to.be.equals(\"\");\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslSP}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "refresh_token",
+											"type": "text"
+										},
+										{
+											"key": "scope",
+											"value": "openid offline_access profile email particulier",
+											"type": "text"
+										},
+										{
+											"key": "refresh_token",
+											"value": "{{tokenPslSP}}",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "xxxxxxxxx",
+											"type": "text"
+										},
+										{
+											"key": "client_secret",
+											"value": "bidon",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/securite/token",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"securite",
+										"token"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "03-Referentiels",
+					"item": [
+						{
+							"name": "031-ReferentielExterne-communeBan-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json()[0].label).to.equals(\"Ham\");\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/referentielexterne/communeban?recherche=ham",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"referentielexterne",
+										"communeban"
+									],
+									"query": [
+										{
+											"key": "recherche",
+											"value": "ham"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "032-ReferentielExterne-adresseBan-tokenSP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL avec authentification SP existe\r",
+											"if (pm.environment.get(\"tokenPslSP\")) {\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json()[0].label).to.equals(\"59 rue du Port 63000 Clermont-Ferrand\");\r",
+											"    });\r",
+											"} else {\r",
+											"    pm.test(\"Sans token SP généré, l'API renvoie un 401\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"    });\r",
+											"    pm.test(\"/!\\\\ Aucune authentification SP\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(\"tokenPslSP\").to.be.equals(\"\");\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslSP}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/referentielexterne/adresseban?recherche=59%20rue%20du%20port",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"referentielexterne",
+										"adresseban"
+									],
+									"query": [
+										{
+											"key": "recherche",
+											"value": "59%20rue%20du%20port"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "033-Referentiel-paysActuels-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    pm.expect(pm.response.json()[0].codeInsee).to.equals(\"99515\");\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/referentiel/paysActuel?recherche=all",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"referentiel",
+										"paysActuel"
+									],
+									"query": [
+										{
+											"key": "recherche",
+											"value": "all"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "034-Referentiel-regionActuelle-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json()[0].codeInsee).to.equals(\"11\");\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/referentiel/regionActuelle?recherche=Fra",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"referentiel",
+										"regionActuelle"
+									],
+									"query": [
+										{
+											"key": "recherche",
+											"value": "Fra"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "035-Referentiel-departementActuel-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json()[0].codeInsee).to.equals(\"67\");\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/referentiel/departementActuel?recherche=rhin",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"referentiel",
+										"departementActuel"
+									],
+									"query": [
+										{
+											"key": "recherche",
+											"value": "rhin"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "036-Referentiel-communeActuelle-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json()[0].codeInsee).to.equals(\"68139\");\r",
+											"        pm.expect(pm.response.json()[0].typeProtection).to.equals(\"GN\");\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/referentiel/communeActuelle?recherche=hirtz",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"referentiel",
+										"communeActuelle"
+									],
+									"query": [
+										{
+											"key": "recherche",
+											"value": "hirtz"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "037-Referentiel-communeNaissance-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json()[0].code).to.equals(\"94352\");\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/referentiel/communeNaissance?recherche=alger",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"referentiel",
+										"communeNaissance"
+									],
+									"query": [
+										{
+											"key": "recherche",
+											"value": "alger"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "038-Referentiel-paysNaissance-tokenSP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL SP existe\r",
+											"if (pm.environment.get(\"tokenPslSP\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json()[0].code).to.equals(\"99121\");\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"Sans token SP généré, l'API renvoie un 401\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"    });\r",
+											"    pm.test(\"/!\\\\ Aucun token SP\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(\"tokenPslSP\").to.be.equals(\"\");\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslSP}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/referentiel/paysNaissance?recherche=you",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"referentiel",
+										"paysNaissance"
+									],
+									"query": [
+										{
+											"key": "recherche",
+											"value": "you"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "04-DBx preSoumission",
+					"item": [
+						{
+							"name": "041-DBNotification-statistiquesAvantToutAppel-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().nombreTotal).to.be.not.null;\r",
+											"    });\r",
+											"\r",
+											"    // Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"    pm.environment.set('nbNotifications', pm.response.json().nombreTotal);\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{portSocleDbNotification}}/socle/notification/admin/statistiques",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{portSocleDbNotification}}",
+									"path": [
+										"socle",
+										"notification",
+										"admin",
+										"statistiques"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "0420-DBConfiguration-biliothequePublic-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL SP existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().codeDemarche).to.equals(\"bibliotheque\");\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"Sans token généré, l'API renvoie un 401\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"    });\r",
+											"    pm.test(\"/!\\\\ Aucun token SP\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(\"tokenPslSP\").to.be.equals(\"\");\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/configuration/demarche/bibliotheque",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"configuration",
+										"demarche",
+										"bibliotheque"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "0421-DBConfiguration-biliothequePublic-tokenSP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL SP existe\r",
+											"if (pm.environment.get(\"tokenPslSP\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().codeDemarche).to.equals(\"bibliotheque\");\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"Sans token SP généré, l'API renvoie un 401\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"    });\r",
+											"    pm.test(\"/!\\\\ Aucun token SP\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(\"tokenPslSP\").to.be.equals(\"\");\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslSP}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/configuration/demarche/bibliotheque",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"configuration",
+										"demarche",
+										"bibliotheque"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "0422-DBConfiguration-bibliothequeInterne-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().codeDemarche).to.equals(\"bibliotheque\");\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/configuration/demarche/bibliotheque/interne",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"configuration",
+										"demarche",
+										"bibliotheque",
+										"interne"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "0423-DBConfiguration-etatCivilPublic-tokenSP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL SP existe\r",
+											"if (pm.environment.get(\"tokenPslSP\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().codeDemarche).to.equals(\"etatcivil\");\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"Sans token SP généré, l'API renvoie un 401\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"    });\r",
+											"    pm.test(\"/!\\\\ Aucun token SP\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(\"tokenPslSP\").to.be.equals(\"\");\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslSP}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/configuration/demarche/etatcivil",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"configuration",
+										"demarche",
+										"etatcivil"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "0424-DBConfiguration-etatCivilInterne-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().codeDemarche).to.equals(\"etatcivil\");\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/configuration/demarche/etatcivil/interne",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"configuration",
+										"demarche",
+										"etatcivil",
+										"interne"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "0425-DBConfiguration-etatCivilPublic-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().codeDemarche).to.equals(\"etatcivil\");\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/configuration/demarche/etatcivil",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"configuration",
+										"demarche",
+										"etatcivil"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "0431-DBBrouillon-ecritureBrouillonEtatCivil-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    });\r",
+											"    \r",
+											"    // Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"    pm.environment.set('idBrouillonCree', pm.response.json());\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslSP}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"codeDemarche\": \"etatcivil\",\r\n\t\"versionConfiguration\": \"1.0.0\",\r\n\t\"donnees\": {\r\n\t\t\"action\": \"MARIAGE\",\r\n\t\t\"communeConcerne_code\": \"80001\",\r\n\t\t\"communeConcerne_codePostal\": \"80000\",\r\n\t\t\"communeConcerne_libelle\": \"Amiens\",\r\n\t\t\"communeConcerne_libelleLong\": \"Amiens (80000)\",\r\n\t\t\"motif\": \"Mariage\",\r\n\t\t\"natureActe\": \"COPIE-INTEGRALE\",\r\n\t\t\"nombreExemplaire\": \"1\",\r\n\t\t\"qualiteDemandeur\": \"PersonneConcernee\",\r\n\t\t\"typeActe\": \"NAISSANCE\",\r\n\t\t\"dateMariage\": \"2018-08-08\",\r\n\t\t\"identite1_civilite\": \"MME\",\r\n\t\t\"identite1_nomFamille\": \"DURANT\",\r\n\t\t\"identite1_nomUsage\": \"DUPONT\",\r\n\t\t\"identite1_prenoms\": \"Annie\",\r\n\t\t\"identite1_dateNaissance\": \"2001-01-01\",\r\n\t\t\"identite1_nationnalite_id\": 1,\r\n\t\t\"identite1_nationnalite_libelle\": \"Française\",\r\n\t\t\"identite1_paysNaissance_id\": 1,\r\n\t\t\"identite1_paysNaissance_libelle\": \"France\",\r\n\t\t\"identite1_communeNaissanceFR_codePostal\": \"80400\",\r\n\t\t\"identite1_communeNaissanceFR_code\": \"80401\",\r\n\t\t\"identite1_communeNaissanceFR_libelle\": \"Ham\",\r\n\t\t\"identite1_communeNaissanceFR_libelleLong\": \"Ham (80000)\",\r\n\t\t\"filiation1_mere_filiationInconnue\": \"false\",\r\n\t\t\"filiation1_mere_nom\": \"NomMere1\",\r\n\t\t\"filiation1_mere_prenoms\": \"PrenomsMere1\",\r\n\t\t\"filiation1_pere_filiationInconnue\": \"false\",\r\n\t\t\"filiation1_pere_nom\": \"NomPere1\",\r\n\t\t\"filiation1_pere_prenoms\": \"PrenomsPere1\",\r\n\t\t\"identite2_civilite\": \"M\",\r\n\t\t\"identite2_nomFamille\": \"DURANT\",\r\n\t\t\"identite2_nomUsage\": null,\r\n\t\t\"identite2_prenoms\": \"Arnaud\",\r\n\t\t\"identite2_dateNaissance\": \"2002-02-02\",\r\n\t\t\"identite2_nationnalite_id\": 1,\r\n\t\t\"identite2_nationnalite_libelle\": \"Française\",\r\n\t\t\"identite2_paysNaissance_id\": 1,\r\n\t\t\"identite2_paysNaissance_libelle\": \"France\",\r\n\t\t\"identite2_communeNaissanceFR_code\": \"18801\",\r\n\t\t\"identite2_communeNaissanceFR_libelle\": \"Baugy\",\r\n\t\t\"identite2_communeNaissanceFR_libelleLong\": \"Baugy\",\r\n\t\t\"filiation2_mere_filiationInconnue\": \"false\",\r\n\t\t\"filiation2_mere_nom\": \"NomMere2\",\r\n\t\t\"filiation2_mere_prenoms\": \"PrenomsMere2\",\r\n\t\t\"filiation2_pere_filiationInconnue\": \"false\",\r\n\t\t\"filiation2_pere_nom\": \"NomPere2\",\r\n\t\t\"filiation2_pere_prenoms\": \"PrenomsPere2\",\r\n\t\t\"adresse_estFrance\": \"true\",\r\n\t\t\"adresse_etage\": \"Etage 1\",\r\n\t\t\"adresse_immeuble\": \"Immeuble 1\",\r\n\t\t\"adresse_voie\": \"1 rue XXX\",\r\n\t\t\"adresse_boitePostale\": \"BP 123\",\r\n\t\t\"adresse_commune_code\": \"80001\",\r\n\t\t\"adresse_commune_codePostal\": \"80000\",\r\n\t\t\"adresse_commune_libelle\": \"Amiens\",\r\n\t\t\"adresse_commune_libelleLong\": \"Amiens (80000)\",\r\n\t\t\"contact_email\": \"monemail@test.com\",\r\n\t\t\"contact_telephone\": \"0612345678\"\r\n\t},\r\n\t\"indexPage\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/brouillon/brouillon",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"brouillon",
+										"brouillon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "0432-DBBrouillon-lectureEtatCivil-tokenSP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL SP existe\r",
+											"if (pm.environment.get(\"tokenPslSP\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().codeDemarche).to.equals(\"etatcivil\");\r",
+											"        pm.expect(pm.response.json().id).to.equals(pm.environment.get(\"idBrouillonCree\"));\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"Sans token SP généré, l'API renvoie un 401\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"    });\r",
+											"    pm.test(\"/!\\\\ Aucun token SP\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(\"tokenPslSP\").to.be.equals(\"\");\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslSP}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/brouillon/brouillon/etatcivil/{{idBrouillonCree}}",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"brouillon",
+										"brouillon",
+										"etatcivil",
+										"{{idBrouillonCree}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "0433-DBBrouillon-ecritureBrouillonBiblioMinimum-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    });\r",
+											"    \r",
+											"    // Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"    pm.environment.set('idBrouillonCreePourBibliotheque', pm.response.json());\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"codeDemarche\":\"bibliotheque\",\"versionConfiguration\":\"1.0.0\",\"indexPage\":6,\r\n    \"donnees\":{\r\n    \"radio1\":\"oui\",\r\n    \"clefSaisie5\":\"saisieObligatoire\",\r\n    \"clefSaisie6\":\"email@obligatoire.com\",\r\n    \"clefCase1\":\"false\",\r\n    \"clefCase2\":\"false\",\r\n    \"clefRadio2\":\"peutetre\",\r\n    \"clefListe2\":\"16\",\r\n    \"identite1_civilite\":\"MME\",\r\n    \"identite1_nomFamille\":\"nomFamilleObligatoire\"\r\n}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/brouillon/brouillon",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"brouillon",
+										"brouillon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "0434-DBBrouillon-ecritureBrouillonBiblioComplet-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    });\r",
+											"    \r",
+											"    // Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"    pm.environment.set('idBrouillonCreePourBibliotheque', pm.response.json());\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"codeDemarche\":\"bibliotheque\",\"versionConfiguration\":\"1.0.0\",\"indexPage\":6,\r\n    \"donnees\":{\"radio1\":\"oui\",\"clefSaisie1\":\"1\",\"clefSaisie2\":\"2\",\"clefSaisie3\":\"3\",\"clefSaisie5\":\"4\",\"clefSaisie6\":\"cinq@email.com\",\"clefSaisie7\":\"0123456789\",\"clefSaisie8\":\"269054968815787\",\"clefSaisie9\":\"01/01/2000\",\"clefSaisie10\":\"01/01/3000\",\"clefSaisie11\":\"2022-01-01\",\"clefSaisie12\":\"2023-01-01\",\"clefAutocompletion1_code\":\"80410\",\"clefAutocompletion1_codePostal\":\"80400\",\"clefAutocompletion1_libelle\":\"Ham\",\"clefAutocompletion1_libelleLong\":\"Ham (80400)\",\"clefAutocompletion2_code\":\"18033\",\"clefAutocompletion2_codePostal\":\"18000\",\"clefAutocompletion2_libelle\":\"Bourges\",\"clefAutocompletion2_libelleLong\":\"Bourges (18000)\",\"clefAutocompletion3_capitale\":\"PARIS\",\"clefAutocompletion3_codeInsee\":\"XXXXX\",\"clefAutocompletion3_libelle\":\"FRANCE\",\"clefAutocompletion3_nationnalite\":\"FRANÇAISE\",\"clefAutocompletion4_code\":\"99999\",\"clefAutocompletion4_libelle\":\"FRANCE\",\"clefAutocompletion5\":\"\",\"clefAutocompletion6_label\":\"Rue de la Vallée 80000 Amiens\",\"clefAutocompletion6_score\":\"0.7456563636363636\",\"clefAutocompletion6_id\":\"80021_7930\",\"clefAutocompletion6_name\":\"Rue de la Vallée\",\"clefAutocompletion6_postcode\":\"80000\",\"clefAutocompletion6_citycode\":\"80021\",\"clefAutocompletion6_x\":\"650353.64\",\"clefAutocompletion6_y\":\"6977222.41\",\"clefAutocompletion6_city\":\"Amiens\",\"clefAutocompletion6_context\":\"80, Somme, Hauts-de-France\",\"clefAutocompletion6_type\":\"street\",\"clefAutocompletion6_importance\":\"0.70222\",\"clefAutocompletion7_libelleLong\":\"Paris (75056)\",\"clefAutocompletion7_city\":\"Paris\",\"clefAutocompletion7_importance\":\"0.67448\",\"clefAutocompletion7_postcode\":\"75001\",\"clefAutocompletion7_label\":\"Paris\",\"clefAutocompletion7_type\":\"municipality\",\"clefAutocompletion7_population\":\"2165423\",\"clefAutocompletion7_score\":\"0.9704072727272726\",\"clefAutocompletion7_citycode\":\"75056\",\"clefAutocompletion7_name\":\"Paris\",\"clefAutocompletion7_x\":\"652089.7\",\"clefAutocompletion7_context\":\"75, Paris, Île-de-France\",\"clefAutocompletion7_y\":\"6862305.26\",\"clefAutocompletion7_id\":\"75056\",\"clefCase1\":\"true\",\"clefCase2\":\"true\",\"clefAutocompletion8_nomProtecteur\":\"Gendarmerie - Brigade de Pfetterhouse\",\"clefAutocompletion8_typeProtection\":\"GN\",\"clefAutocompletion8_codeInsee\":\"68340\",\"clefAutocompletion8_codePostal\":\"68580\",\"clefAutocompletion8_libelle\":\"Ueberstrass\",\"clefAutocompletion8_libelleLong\":\"Ueberstrass (68580)\",\"clefRadio1\":\"non\",\"clefRadio2\":\"non\",\"clefRadio3\":\"valeurConditionnee\",\"clefListe1\":\"oui\",\"clefListe2\":\"1\",\"clefListe3\":\"valeurNonConditionnee\",\"saisieLongueNonLimite\":\"qsdqsd\",\"saisieLongueLimite\":\"qsdqsdqsdqsdqsdqs\\ndqs\\ndqs\\ndqsd\",\"identite1_civilite\":\"M\",\"identite1_nomFamille\":\"NomDeFamille\",\"identite2_civilite\":\"M\",\"identite2_nomFamille\":\"facultatif\",\"identite3_civilite\":\"M\",\"identite3_nomFamille\":\"1\",\"identite3_nomUsage\":\"2\",\"identite3_prenoms\":\"3\",\"identite3_dateNaissance\":\"2020-01-01\",\"identite3_paysNaissance_code\":\"99999\",\"identite3_paysNaissance_libelle\":\"FRANCE\",\"identite3_communeNaissanceFR_code\":\"64138\",\"identite3_communeNaissanceFR_codePostal\":\"64510\",\"identite3_communeNaissanceFR_libelle\":\"Bordes\",\"identite3_communeNaissanceFR_libelleLong\":\"Bordes (64510)\",\"identite3_nationnalite_capitale\":\"PARIS\",\"identite3_nationnalite_codeInsee\":\"XXXXX\",\"identite3_nationnalite_libelle\":\"FRANCE\",\"identite3_nationnalite_nationnalite\":\"FRANÇAISE\",\"adresse1_estFrance\":\"false\",\"adresse1_adresseETR\":\"ailleurs\",\"adresse1_paysETR_code\":\"99109\",\"adresse1_paysETR_libelle\":\"ALLEMAGNE\"}\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/brouillon/brouillon",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"brouillon",
+										"brouillon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "0435-DBBrouillon-lectureBibliotheque-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().codeDemarche).to.equals(\"bibliotheque\");\r",
+											"        pm.expect(pm.response.json().id).to.equals(pm.environment.get(\"idBrouillonCreePourBibliotheque\"));\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/brouillon/brouillon/bibliotheque/{{idBrouillonCreePourBibliotheque}}",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"brouillon",
+										"brouillon",
+										"bibliotheque",
+										"{{idBrouillonCreePourBibliotheque}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "05-Soumission",
+					"item": [
+						{
+							"name": "051-PieceJointe-sauvegarde-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    });\r",
+											"\r",
+											"    // Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"    pm.environment.set('idPj1', pm.response.json());\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "codeDemarche",
+											"value": "bibliotheque",
+											"type": "text"
+										},
+										{
+											"key": "codePieceJointe",
+											"value": "pj1",
+											"type": "text"
+										},
+										{
+											"key": "fichier",
+											"type": "file",
+											"src": "vide.pdf"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/document/piecejointe",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"document",
+										"piecejointe"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "052-Soumission-biblio-valide-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    });\r",
+											"\r",
+											"    // Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"    pm.environment.set('idTeledossierCree', pm.response.json());\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"codeDemarche\": \"bibliotheque\",\r\n  \"versionConfiguration\": \"1.0.0\",\r\n    \"donnees\": {\r\n        \"clefSaisie5\": \"toto\",\r\n        \"clefSaisie6\": \"aze@aze.com\",\r\n        \"clefRadio2\": \"peutetre\",\r\n        \"clefListe2\": 1,\r\n        \"pj1_id\": \"{{idPj1}}\",\r\n\t\t\"pj1_nom\": \"vide.pdf\",\r\n\t\t\"pj1_type\": \"application/pdf\",\r\n\t\t\"pj1_longueur\": \"123\",\r\n        \"identite1_civilite\": \"M\",\r\n        \"identite1_nomFamille\": \"NomDeFamille1\",\r\n        \"clefCase1\": \"true\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/soumission/soumettre",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"soumission",
+										"soumettre"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "053-Soumission-etatcivil-invalide-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(400);\r",
+											"        pm.expect(pm.response.json().status).to.not.be.equals(\"400\");\r",
+											"        pm.expect(pm.response.json().error).to.equals(\"Les données soumises ne sont pas conformes à l'attendu (ppet)\");\r",
+											"        pm.expect(pm.response.json().requestId).to.not.be.empty;\r",
+											"        pm.expect(pm.response.json().timestamp).to.not.be.empty;\r",
+											"    });    \r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"codeDemarche\": \"etatcivil\",\r\n  \"versionConfiguration\": \"1.0.0\",\r\n  \"donnees\": {\r\n    \"additionalProp1\": \"string\",\r\n    \"additionalProp2\": \"string\",\r\n    \"additionalProp3\": \"string\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/soumission/soumettre",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"soumission",
+										"soumettre"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "054-Soumission-validePourEtatcivil-tokenSP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL avec authentification SP existe\r",
+											"if (pm.environment.get(\"tokenPslSP\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    });\r",
+											"\r",
+											"    // Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"    pm.environment.set('idTeledossierCreeAvecSP', pm.response.json());\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"Sans token SP généré, l'API renvoie un 401\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"    });\r",
+											"    pm.test(\"/!\\\\ Aucune authentification SP\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(\"tokenPslSP\").to.be.equals(\"\");\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslSP}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"codeDemarche\": \"etatcivil\",\r\n  \"versionConfiguration\": \"1.0.0\",\r\n\t\"donnees\": {\r\n\t\t\"action\": \"MARIAGE\",\r\n\t\t\"communeConcerneMariage_code\": \"80001\",\r\n\t\t\"communeConcerneMariage_codePostal\": \"80000\",\r\n\t\t\"communeConcerneMariage_libelle\": \"Amiens\",\r\n\t\t\"communeConcerneMariage_libelleLong\": \"Amiens (80000)\",\r\n\t\t\"motif\": \"Mariage\",\r\n\t\t\"natureActe\": \"COPIE-INTEGRALE\",\r\n\t\t\"nombreExemplaire\": \"1\",\r\n\t\t\"qualiteDemandeur\": \"PersonneConcernee\",\r\n\t\t\"dateMariage\": \"2018-08-08\",\r\n\t\t\"identite1_civilite\": \"MME\",\r\n\t\t\"identite1_nomFamille\": \"DURANT\",\r\n\t\t\"identite1_nomUsage\": \"DUPONT\",\r\n\t\t\"identite1_prenoms\": \"Annie\",\r\n\t\t\"identite1_dateNaissance\": \"2001-01-01\",\r\n\t\t\"identite1_nationalite_id\": 1,\r\n\t\t\"identite1_nationalite_libelle\": \"Française\",\r\n\t\t\"identite1_paysNaissance_id\": 1,\r\n\t\t\"identite1_paysNaissance_libelle\": \"France\",\r\n\t\t\"identite1_communeNaissanceFR_codePostal\": \"80400\",\r\n\t\t\"identite1_communeNaissanceFR_code\": \"80401\",\r\n\t\t\"identite1_communeNaissanceFR_libelle\": \"Ham\",\r\n\t\t\"identite1_communeNaissanceFR_libelleLong\": \"Ham (80000)\",\r\n\t\t\"filiation1_mere_filiationInconnue\": \"false\",\r\n\t\t\"filiation1_mere_nom\": \"NomMere1\",\r\n\t\t\"filiation1_mere_prenoms\": \"PrenomsMere1\",\r\n\t\t\"filiation1_pere_filiationInconnue\": \"false\",\r\n\t\t\"filiation1_pere_nom\": \"NomPere1\",\r\n\t\t\"filiation1_pere_prenoms\": \"PrenomsPere1\",\r\n\t\t\"identite2_civilite\": \"M\",\r\n\t\t\"identite2_nomFamille\": \"DURANT\",\r\n\t\t\"identite2_nomUsage\": null,\r\n\t\t\"identite2_prenoms\": \"Arnaud\",\r\n\t\t\"identite2_dateNaissance\": \"2002-02-02\",\r\n\t\t\"identite2_nationalite_id\": 1,\r\n\t\t\"identite2_nationalite_libelle\": \"Française\",\r\n\t\t\"identite2_paysNaissance_id\": 1,\r\n\t\t\"identite2_paysNaissance_libelle\": \"France\",\r\n\t\t\"identite2_communeNaissanceFR_code\": \"18801\",\r\n\t\t\"identite2_communeNaissanceFR_libelle\": \"Baugy\",\r\n\t\t\"identite2_communeNaissanceFR_libelleLong\": \"Baugy\",\r\n\t\t\"filiation2_mere_filiationInconnue\": \"false\",\r\n\t\t\"filiation2_mere_nom\": \"NomMere2\",\r\n\t\t\"filiation2_mere_prenoms\": \"PrenomsMere2\",\r\n\t\t\"filiation2_pere_filiationInconnue\": \"false\",\r\n\t\t\"filiation2_pere_nom\": \"NomPere2\",\r\n\t\t\"filiation2_pere_prenoms\": \"PrenomsPere2\",\r\n\t\t\"adresse_estFrance\": \"true\",\r\n\t\t\"adresse_etage\": \"Etage 1\",\r\n\t\t\"adresse_immeuble\": \"Immeuble 1\",\r\n\t\t\"adresse_voie\": \"1 rue XXX\",\r\n\t\t\"adresse_boitePostale\": \"BP 123\",\r\n\t\t\"adresse_communeActuelle_codePostal\": \"80400\",\r\n\t\t\"adresse_communeActuelle_code\": \"80401\",\r\n\t\t\"adresse_communeActuelle_libelle\": \"Ham\",\r\n\t\t\"adresse_communeActuelle_libelleLong\": \"Ham (80000)\",\r\n\t\t\"contact_email\": \"{{emailCompteSP}}\",\r\n\t\t\"contact_telephone\": \"0612345678\",\r\n        \"utilisateur_email\":\"wossewodda-3728@yopmail.com\"\r\n\t}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/soumission/soumettre",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"soumission",
+										"soumettre"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "055-Soumission-arnaqueInternet-valide-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    });\r",
+											"\r",
+											"    // Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"    pm.environment.set('idTeledossierCreeAI', pm.response.json());\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"codeDemarche\": \"arnaqueinternet\",\r\n  \"versionConfiguration\": \"1.0.0\",\r\n  \"donnees\": {\r\n    \"action\": \"SIGNALEMENT\",\r\n    \"type\": \"FSV\",\r\n    \"infoPersoAdresse_communeActuelle_code\": \"18001\",\r\n    \"infoPersoAdresse_communeActuelle_codePostal\": \"18000\",\r\n    \"infoPersoAdresse_communeActuelle_libelle\": \"Bourges\",\r\n    \"infoPersoAdresse_communeActuelle_libelleLong\": \"Bourges (18000)\",\r\n    \"infoPersoAdresse_communeActuelle_typeProtection\": \"PN\",\r\n    \"infoPersoAdresse_estFrance\": \"true\",\r\n    \"infoPersoAdresse_voie\": \"1 rue de l'église\",\r\n    \"infoPersoContactPerso_email\": \"arnauddurant@gmail.com\",\r\n    \"infoPersoContactPerso_numTeleGeneral\": \"0123456789\",\r\n    \"infoPersoIdentite_civilite\": \"M\",\r\n    \"infoPersoIdentite_communeNaissanceFR_code\": \"18001\",\r\n    \"infoPersoIdentite_communeNaissanceFR_codePostal\": \"18000\",\r\n    \"infoPersoIdentite_communeNaissanceFR_libelle\": \"Bourges\",\r\n    \"infoPersoIdentite_communeNaissanceFR_libelleLong\": \"Bourges (18000)\",\r\n    \"infoPersoIdentite_dateNaissance\": \"2000-01-01\",\r\n    \"infoPersoIdentite_nationalite_capitale\": \"Paris\",\r\n    \"infoPersoIdentite_nationalite_codeInsee\": 1,\r\n    \"infoPersoIdentite_nationalite_libelle\": \"France\",\r\n    \"infoPersoIdentite_nationalite_nationalite\": \"Française\",\r\n    \"infoPersoIdentite_nomFamille\": \"Dupont\",\r\n    \"infoPersoIdentite_nomUsage\": \"Durant\",\r\n    \"infoPersoIdentite_paysNaissance_code\": 1,\r\n    \"infoPersoIdentite_paysNaissance_libelle\": \"France\",\r\n    \"infoPersoIdentite_prenoms\": \"Arnaud\",\r\n    \"infoPersoProfession\": \"00752\",\r\n    \"infoPersoSituationMatrimoniale\": \"Concubinage\",\r\n    \"faitsDateAchat\": \"2022-01-01\",\r\n    \"faitsProduitCategorie\": \"sousCategorieDeVehicule\",\r\n    \"faitsProduitMacroCategorie\": \"vehicule\",\r\n    \"faitsProduitModele\": \"saisies avec caractères spéciaux : \\n \\\" < = \",\r\n    \"faitsSiteAdresse\": \"https://lesite.fr\",\r\n    \"faitsSiteConditionsGenerales\": \"non\",\r\n    \"faitsSiteConnu\": \"Un moteur de recherche internet\",\r\n    \"faitsSiteIp\": \"127.0.0.1\",\r\n    \"faitsSiteLangue\": \"Française\",\r\n    \"faitsSiteNom\": \"leSite\",\r\n    \"faitsSiteNumeroRCS\": \"LE_NUM_RCS\",\r\n    \"faitsSiteNumeroRCSaffiche\": \"oui\",\r\n    \"prejudiceDemandeVersement\": \"oui\",\r\n    \"prejudicePaiements00DatePaiement\": \"2022-01-01\",\r\n    \"prejudicePaiements00IsDebite\": \"oui\",\r\n    \"prejudicePaiements00ModePaiement\": \"bitcoin\",\r\n    \"prejudicePaiements00Montant\": \"0,2\",\r\n    \"prejudicePaiements00OptionDevise\": \"false\",\r\n    \"prejudicePaiements01DatePaiement\": \"2022-01-02\",\r\n    \"prejudicePaiements01IsDebite\": \"oui\",\r\n    \"prejudicePaiements01ModePaiement\": \"bitcoin\",\r\n    \"prejudicePaiements01Montant\": \"2\",\r\n    \"prejudicePaiements01OptionDevise\": \"false\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/soumission/soumettre",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"soumission",
+										"soumettre"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "06-DBDocument postSoumission",
+					"item": [
+						{
+							"name": "061-DBDocument-listerDocumentsDunTeledossier-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    });    \r",
+											"\r",
+											"    // Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"    const rep =  pm.response.json();\r",
+											"    if (rep && rep[0]) {\r",
+											"        pm.environment.set('codePremierDocument', rep[0].codeDocument);\r",
+											"    }\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/document/teledossier/{{idTeledossierCree}}/document",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"document",
+										"teledossier",
+										"{{idTeledossierCree}}",
+										"document"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "062-DBDocument-demanderClefTelechargement-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si aucun token PSL anonyme existe\r",
+											"if (!pm.environment.get(\"tokenPslAnonyme\")){\r",
+											"    pm.test(\"Aucun token anonyme \", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											"// Si pas de soumission réalisée dans la requête précédente dans la collexion\r",
+											"else if (!pm.environment.get(\"idTeledossierCree\")) {\r",
+											"    pm.test(\"Pas de soumission réalisée\", function () {\r",
+											"        // Au moins l'API doit répondre 404\r",
+											"        pm.expect(pm.response.code).to.be.equals(404);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"idTeledossierCree\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											"// Si tout est là\r",
+											"else {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    });\r",
+											"\r",
+											"    // Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"    pm.environment.set('clefTelechargementDocument', pm.response.json());\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/document/teledossier/{{idTeledossierCree}}/document/{{codePremierDocument}}",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"document",
+										"teledossier",
+										"{{idTeledossierCree}}",
+										"document",
+										"{{codePremierDocument}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "063-DBDocument-telechargerDocumentDunTeledossier-sansToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si aucune clef de téléchargement obtenue\r",
+											"if (!pm.environment.get(\"clefTelechargementDocument\")){\r",
+											"    pm.test(\"Pas de clef de téléchargement obtenue \", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"clefTelechargementDocument\")).to.be.not.null();\r",
+											"    });\r",
+											"}\r",
+											"\r",
+											"// Si tout est là\r",
+											"else {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/document/teledossier/{{idTeledossierCree}}/document/{{codePremierDocument}}?clef={{clefTelechargementDocument}}",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"document",
+										"teledossier",
+										"{{idTeledossierCree}}",
+										"document",
+										"{{codePremierDocument}}"
+									],
+									"query": [
+										{
+											"key": "clef",
+											"value": "{{clefTelechargementDocument}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "064-DBDocument-listerDocumentsDunTeledossier-tokenSP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL existe\r",
+											"if (pm.environment.get(\"tokenPslSP\") && pm.environment.get('idTeledossierCreeAvecSP')) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    });    \r",
+											"\r",
+											"    // Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"    const rep =  pm.response.json();\r",
+											"    if (rep && rep[0]) {\r",
+											"        pm.environment.set('codePremierDocumentAvecSP', rep[0].codeDocument);\r",
+											"    }\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"Aucun token SP\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"    });\r",
+											"    pm.test(\"pas de token SP\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(\"tokenPslSP\").to.be.equals(\"\");\r",
+											"        pm.expect(\"idTeledossierCreeAvecSP\").to.be.equals(\"\");\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslSP}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/document/teledossier/{{idTeledossierCreeAvecSP}}/document",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"document",
+										"teledossier",
+										"{{idTeledossierCreeAvecSP}}",
+										"document"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "065-DBDocument-demanderClefTelechargementDunDocumentDunTeledossier-tokenSP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si aucun token PSL n'existe\r",
+											"if (!pm.environment.get(\"tokenPslSP\")){\r",
+											"    pm.test(\"Aucun token\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"    });\r",
+											"    pm.test(\"pas de token SP\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslSP\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											"// Si pas de soumission réalisée dans la requête précédente dans la collexion\r",
+											"else if (!pm.environment.get(\"idTeledossierCreeAvecSP\") || !pm.environment.get(\"codePremierDocumentAvecSP\")) {\r",
+											"    pm.test(\"Pas de soumission réalisée\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(404);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(\"idTeledossierCreeAvecSP\").to.be.equals(\"\");\r",
+											"        pm.expect(\"codePremierDocumentAvecSP\").to.be.equals(\"\");\r",
+											"    });\r",
+											"}\r",
+											"// Si tout est là\r",
+											"else {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    });\r",
+											"\r",
+											"    // Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"    pm.environment.set('clefTelechargementDocumentAvecSP', pm.response.json());\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslSP}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/document/teledossier/{{idTeledossierCreeAvecSP}}/document/{{codePremierDocumentAvecSP}}",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"document",
+										"teledossier",
+										"{{idTeledossierCreeAvecSP}}",
+										"document",
+										"{{codePremierDocumentAvecSP}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "066-DBDocument-telechargerDocumentDunTeledossier-sansTokenSP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si pas de clef de téléchargement obtenue dans la requête précédente dans la collexion\r",
+											"if (!pm.environment.get(\"clefTelechargementDocumentAvecSP\")) {\r",
+											"    pm.test(\"Sans token SP généré, l'API renvoie un 400\", function () {\r",
+											"        // Au moins l'API doit répondre 400\r",
+											"        pm.expect(pm.response.code).to.be.equals(400);\r",
+											"    });\r",
+											"    pm.test(\"Pas de token SP obtenu\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(\"clefTelechargementDocumentAvecSP\").to.be.equals(\"\");\r",
+											"    });\r",
+											"}\r",
+											"\r",
+											"// Si tout est là\r",
+											"else {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/document/teledossier/{{idTeledossierCreeAvecSP}}/document/{{codePremierDocumentAvecSP}}?clef={{clefTelechargementDocumentAvecSP}}",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"document",
+										"teledossier",
+										"{{idTeledossierCreeAvecSP}}",
+										"document",
+										"{{codePremierDocumentAvecSP}}"
+									],
+									"query": [
+										{
+											"key": "clef",
+											"value": "{{clefTelechargementDocumentAvecSP}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "067-DBDocument-telechargerDocumentDunTeledossier-mauvaisTokenEnvoye",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si pas de clef de téléchargement obtenue dans la requête précédente dans la collexion\r",
+											"if (!pm.environment.get(\"clefTelechargementDocumentAvecSP\")) {\r",
+											"    pm.test(\"Sans token SP généré, l'API renvoie un 404\", function () {\r",
+											"        // Au moins l'API doit répondre 404\r",
+											"        pm.expect(pm.response.code).to.be.equals(404);\r",
+											"    });\r",
+											"    pm.test(\"Pas de token SP obtenu\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(\"clefTelechargementDocumentAvecSP\").to.be.equals(\"\");\r",
+											"    });\r",
+											"}\r",
+											"\r",
+											"// Si tout est là\r",
+											"else {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(404);\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_PORT}}/socle/document/teledossier/{{idTeledossierCreeAvecSP}}/document/{{codePremierDocumentAvecSP}}?clef={{clefTelechargementDocument}}",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_PORT}}",
+									"path": [
+										"socle",
+										"document",
+										"teledossier",
+										"{{idTeledossierCreeAvecSP}}",
+										"document",
+										"{{codePremierDocumentAvecSP}}"
+									],
+									"query": [
+										{
+											"key": "clef",
+											"value": "{{clefTelechargementDocument}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "07-DBNotification postSoumission",
+					"item": [
+						{
+							"name": "070-DBNotification-envoiDeMail-anonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si aucun token PSL n'existe\r",
+											"if (!pm.environment.get(\"tokenPslAnonyme\")){\r",
+											"    pm.test(\"Aucun token\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											"// Si tout est là\r",
+											"else {\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslAnonyme}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"destinataires\":[\"test@test.com\"],\r\n\t\"objet\":\"Bonjour\",\r\n\t\"contenuHtml\":true,\r\n\t\"contenu\":\"<div>Juste un petit <b>bonjour</b></div>\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{API_HOST}}:{{portSocleDbNotification}}/socle/notification/interne/email",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{portSocleDbNotification}}",
+									"path": [
+										"socle",
+										"notification",
+										"interne",
+										"email"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "071-DBNotification-envoiDeNotificationSPavecUnTokenUtilisateur",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si aucun token PSL n'existe\r",
+											"if (!pm.environment.get(\"tokenPslSP\")){\r",
+											"    pm.test(\"Sans token SP généré, l'API renvoie un 401\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"    });\r",
+											"    pm.test(\"pas de token SP\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(\"tokenPslSP\").to.be.equals(\"\");\r",
+											"    });\r",
+											"}\r",
+											"// Si tout est là\r",
+											"else {\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslSP}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"accessToken\":\"token.bidon.detest\",\r\n    \"refreshToken\":\"token.bidon.detest\",\r\n\t\"codeDemarche\":\"arnaqueInternet\",\r\n\t\"libelleDemarche\":\"arnaqueInternet\",\r\n    \"statutTeledossier\":\"brouillon\",\r\n\t\"idExterneNotification\":\"idExterneNotification\",\r\n\t\"messageAafficher\":\"<div>Juste un petit <b>bonjour</b></div>\",\r\n    \"nombreJoursAvantExpiration\":45\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{API_HOST}}:{{portSocleDbNotification}}/socle/notification/interne/notification",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{portSocleDbNotification}}",
+									"path": [
+										"socle",
+										"notification",
+										"interne",
+										"notification"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "072-DBNotification-envoiDeNotificationSPavecTokenTechnique",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si aucun token PSL n'existe\r",
+											"if (!pm.environment.get(\"tokenPslSP\")){\r",
+											"    pm.test(\"Aucun token\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslSP\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											"// Si tout est là\r",
+											"else {\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenPslSP}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"uuidEspace\":\"715125cc-1ebf-47c5-b8bf-2a461a80f129\",\r\n\t\"codeDemarche\":\"arnaqueInternet\",\r\n\t\"libelleDemarche\":\"arnaqueInternet\",\r\n    \"statutTeledossier\":\"brouillon\",\r\n\t\"idExterneNotification\":\"idExterneNotification\",\r\n\t\"messageAafficher\":\"<div>Juste un petit <b>bonjour Claudio (compte TestAttest01)</b>, cette notificaton ne partira jamais car le télédossier n'existe pas dans cet espace et ne peut être créé qu'avec l'accessToken de l'usager</div>\",\r\n    \"nombreJoursAvantExpiration\":45\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{API_HOST}}:{{portSocleDbNotification}}/socle/notification/interne/notification",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{portSocleDbNotification}}",
+									"path": [
+										"socle",
+										"notification",
+										"interne",
+										"notification"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "073-DBNotification-statistiquesApresTousAppels-tokenAnonyme",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token anonyme existe\r",
+											"if (pm.environment.get(\"tokenPslAnonyme\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().nombreTotal).to.be.not.null;\r",
+											"    });\r",
+											"\r",
+											"    // Vérifications du nombre de notifications générées par les tests\r",
+											"    pm.test(\"Bon nombre de notifs (KO si pas de token SP)\", function () {\r",
+											"        // Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"        nbNotificationsAuDebut = pm.environment.get('nbNotifications');\r",
+											"        // 3 brouillons + 3 soumissions\r",
+											"        pm.expect(pm.response.json().nombreTotal).to.eq(nbNotificationsAuDebut + 6);\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token anonyme\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenPslAnonyme\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"strictSSL": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{portSocleDbNotification}}/socle/notification/admin/statistiques",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{portSocleDbNotification}}",
+									"path": [
+										"socle",
+										"notification",
+										"admin",
+										"statistiques"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "08-Adminpsl",
+					"item": [
+						{
+							"name": "081-Adminpsl-authentificationEchouee",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Vérifications de base\r",
+											"pm.test(\"Réponse correcte\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.equals(401);\r",
+											"    pm.expect(pm.response.json().token).to.not.exist;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nomUtilisateur",
+											"value": "jeNexiste",
+											"type": "default"
+										},
+										{
+											"key": "motDePasse",
+											"value": "Pas",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_ADMIN_PORT}}/socle/adminpsl/connexion",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_ADMIN_PORT}}",
+									"path": [
+										"socle",
+										"adminpsl",
+										"connexion"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "082-Adminpsl-authentificationReussie",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Vérifications de base\r",
+											"pm.test(\"Réponse correcte\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    pm.expect(pm.response.text()).to.not.empty;\r",
+											"});\r",
+											"\r",
+											"// Récupération d'une donnée pour alimenter une variable d'environnement\r",
+											"pm.environment.set('tokenAdminPsl', pm.response.text());\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nomUtilisateur",
+											"value": "admin1",
+											"type": "default"
+										},
+										{
+											"key": "motDePasse",
+											"value": "admin",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://localhost{{API_HOST}}:{{API_ADMIN_PORT}}/socle/adminpsl/connexion",
+									"protocol": "https",
+									"host": [
+										"localhost{{API_HOST}}"
+									],
+									"port": "{{API_ADMIN_PORT}}",
+									"path": [
+										"socle",
+										"adminpsl",
+										"connexion"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "083-Adminpsl-listeDesDemarches",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenAdminPsl\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().length).to.be.equals(6);\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token admin\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenAdminPsl\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenAdminPsl}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_ADMIN_PORT}}/socle/adminpsl/config/demarche",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_ADMIN_PORT}}",
+									"path": [
+										"socle",
+										"adminpsl",
+										"config",
+										"demarche"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "084-Adminpsl-generationTeledossiers",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si un token PSL anonyme existe\r",
+											"if (pm.environment.get(\"tokenAdminPsl\")) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    });\r",
+											"\r",
+											"} else {\r",
+											"    pm.test(\"/!\\\\ Aucun token admin\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.environment.get(\"tokenAdminPsl\")).to.be.not.null;\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenAdminPsl}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_ADMIN_PORT}}/socle/adminpsl/genererDesTransferts/20",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_ADMIN_PORT}}",
+									"path": [
+										"socle",
+										"adminpsl",
+										"genererDesTransferts",
+										"20"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "085-Adminpsl-rechercheMulticritere",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Vérifications de base\r",
+											"pm.test(\"Réponse correcte\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.equals(200);\r",
+											"    pm.expect(pm.response.text()).to.not.empty;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{tokenAdminPsl}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"codesDemarche\":[],\r\n    \"numeroPage\":0,\r\n    \"nombreElementsParPage\":50\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{API_HOST}}:{{API_ADMIN_PORT}}/socle/adminpsl/transfert",
+									"protocol": "https",
+									"host": [
+										"{{API_HOST}}"
+									],
+									"port": "{{API_ADMIN_PORT}}",
+									"path": [
+										"socle",
+										"adminpsl",
+										"transfert"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ElasticSearch",
+			"item": [
+				{
+					"name": "01-ElasticSearch-Etat",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Vérifications de base\r",
+									"pm.test(\"Réponse correcte\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.equals(200);\r",
+									"    pm.expect(pm.response.text()).to.contains(\"green\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9200/_cluster/health/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"_cluster",
+								"health",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "02-ElasticSearch-ListeIndices",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Vérifications de base\r",
+									"pm.test(\"Réponse correcte\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.equals(200);\r",
+									"    pm.expect(pm.response.text()).to.contains(\"service\");\r",
+									"    pm.expect(pm.response.text()).to.contains(\"socle\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9200/_cat/indices/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"_cat",
+								"indices",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "03-Kibana-Etat",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Vérifications de base\r",
+									"pm.test(\"Réponse correcte\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.equals(200);\r",
+									"    pm.expect(pm.response.text()).to.contains(\"newPSL\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5601/api/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5601",
+							"path": [
+								"api",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "APIs des systèmes externes",
+			"item": [
+				{
+					"name": "01-SP",
+					"item": [
+						{
+							"name": "CréationNotifications (connecté et offline)",
+							"item": [
+								{
+									"name": "01-infoUsagerSP avecTokenKC",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// Si une connexion OIDC a été réalisée\r",
+													"if (pm.request.headers.get('Authorization')) {\r",
+													"\r",
+													"    // Vérifications de base\r",
+													"    pm.test(\"Réponse correcte\", function () {\r",
+													"        pm.expect(pm.response.code).to.be.equals(200);\r",
+													"        pm.expect(pm.response.json().email).to.be.not.empty;\r",
+													"    });\r",
+													"\r",
+													"    // Récupération des donnése pour alimenter des variables d'environnement\r",
+													"    pm.environment.set('tokenSPpur', pm.request.auth.oauth2.get(\"accessToken\"));\r",
+													"    pm.environment.set('emailCompteSP', pm.response.json().email);\r",
+													"    pm.environment.set('uuidUtilisateurSP', pm.response.json().sub);\r",
+													"\r",
+													"} else {\r",
+													"    pm.test(\"/!\\\\ Aucun token SP généré depuis l'onglet Authorization de cette requête\", function () {\r",
+													"        pm.expect(pm.response.code).to.be.equals(401);\r",
+													"    });\r",
+													"    pm.environment.unset('tokenSPpur');\r",
+													"    pm.environment.unset('emailCompteSP');\r",
+													"    pm.environment.unset('uuidUtilisateurSP');\r",
+													"}\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "scope",
+													"value": "openid address microprofile-jwt profile roles join_association web-origins phone email offline_access",
+													"type": "string"
+												},
+												{
+													"key": "redirect_uri",
+													"value": "http://dev-psl.guillaumetalbot.com/mademarche",
+													"type": "string"
+												},
+												{
+													"key": "accessTokenUrl",
+													"value": "https://xxx.service-public.fr/realms/service-public/protocol/openid-connect/token",
+													"type": "string"
+												},
+												{
+													"key": "authUrl",
+													"value": "https://xxx.service-public.fr/realms/service-public/protocol/openid-connect/auth",
+													"type": "string"
+												},
+												{
+													"key": "useBrowser",
+													"value": false,
+													"type": "boolean"
+												},
+												{
+													"key": "clientSecret",
+													"value": "xxxxxxxx",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "xxxxxxxxx",
+													"type": "string"
+												},
+												{
+													"key": "grant_type",
+													"value": "authorization_code_with_pkce",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "TOKEN SP",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												},
+												{
+													"key": "client_authentication",
+													"value": "body",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://api.xxxxx.dila.fr/services/v1/userinfo",
+											"protocol": "http s",
+											"host": [
+												"api",
+												"service-public",
+												"fr",
+												"qualif",
+												"ext",
+												"dila",
+												"fr"
+											],
+											"path": [
+												"services",
+												"v1",
+												"userinfo"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "01ter-infoUsagerSP avecTokenMitre",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "scope",
+													"value": "offline_access",
+													"type": "string"
+												},
+												{
+													"key": "authUrl",
+													"value": "https://openid.xxxxx.dila.fr/authorize",
+													"type": "string"
+												},
+												{
+													"key": "redirect_uri",
+													"value": "https://pfi-psl.guillaumetalbot.com/mademarche",
+													"type": "string"
+												},
+												{
+													"key": "clientSecret",
+													"value": "HvF_PHYBb3fxVv7_1_pqNpcE0s0qn-3P6BWysl61u1nGd7KG453TtiprVvD9kDBMqVZW_TryNKKRjV9Yw4lCVA",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "264144d1-bf4a-4f59-9fe3-e33e34a3ff64",
+													"type": "string"
+												},
+												{
+													"key": "accessTokenUrl",
+													"value": "https://openid.xxxxx.dila.fr/token",
+													"type": "string"
+												},
+												{
+													"key": "useBrowser",
+													"value": false,
+													"type": "boolean"
+												},
+												{
+													"key": "grant_type",
+													"value": "authorization_code_with_pkce",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "TOKEN SP",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												},
+												{
+													"key": "client_authentication",
+													"value": "body",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://api.xxxxx.dila.fr/services/v1/userinfo",
+											"protocol": "http s",
+											"host": [
+												"api",
+												"service-public",
+												"fr",
+												"qualif",
+												"ext",
+												"dila",
+												"fr"
+											],
+											"path": [
+												"services",
+												"v1",
+												"userinfo"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "02-Création d'une nouvelle instance de démarche",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"function randomString(length=1) {\r",
+													"    let randomString = \"\";\r",
+													"    for (let i = 0; i < length; i++){\r",
+													"        randomString += pm.variables.replaceIn(\"{{$randomAlphaNumeric}}\");\r",
+													"    }\r",
+													"    return randomString;\r",
+													"}\r",
+													"\r",
+													"pm.environment.set('idTeledossierPourNotification', 'SP2-AI-' + randomString(8) + '-GTAL')\r",
+													"//pm.environment.set('idTeledossierPourNotification', 'SP2-AI-p4yigc2l-GTAL')\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// Vérifications de base\r",
+													"pm.test(\"Réponse correcte\", function () {\r",
+													"    pm.expect(pm.response.code).to.be.equals(201);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{tokenSPpur}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"codeDemarche\": \"arnaqueInternet\",\n  \"labelDemarche\": \"Arnaque Internet\",\n  \"id\": \"{{idTeledossierPourNotification}}\",\n  \"nombreJoursAvantExpiration\": 45,\n  \"statutInitial\": {\n    \"date\": \"2022-11-30T12:00:00.000Z\",\n    \"message\": \"Vous avez sauvegarder un brouillon dans ArnaqueInternet\",\n    \"idDemarcheComplementaire\": \"{{idTeledossierPourNotification}}\",\n    \"statut\": \"enregistre_brouillon\",\n    \"origine\": \"INFORMATIONS ADMINISTRATIVES ET LÉGALES\",\n    \"url\": \"https://www.google.com/search?q=url\",\n    \"actions\": [\n      { \"libelle\": \"Reprise brouillon 1\", \"url\": \"https://www.google.com/search?q=repriseBrouillon1\" },\n      { \"libelle\": \"Reprise brouillon 2\", \"url\": \"https://www.google.com/search?q=repriseBrouillon2\" }\n    ]\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://api.xxxxx.dila.fr/services/v1/particuliers/filactivites/demarches",
+											"protocol": "http s",
+											"host": [
+												"api",
+												"service-public",
+												"fr",
+												"qualif",
+												"ext",
+												"dila",
+												"fr"
+											],
+											"path": [
+												"services",
+												"v1",
+												"particuliers",
+												"filactivites",
+												"demarches"
+											]
+										},
+										"description": "Une instance de démarche (ou télédossier) est une suite d'évenement. Pour modifier le statut d'une instance de démarche créée, il faut lui ajouter de nouveaux événements.<br>L'identifiant de la démarche est retourné dans le header \"Location\".<br><br>CURL en CMD : <code>curl -v -H 'Authorization:xx' -H 'Content-Type:application/json' --data '{\"typeDemarche\": \"ILE\"}' http://localhost:8081/services/v1/particuliers/demarches</code>"
+									},
+									"response": []
+								},
+								{
+									"name": "03-Création d'un nouvel événement pour une instance de démarche existante",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// Vérifications de base\r",
+													"pm.test(\"Réponse correcte\", function () {\r",
+													"    pm.expect(pm.response.code).to.be.equals(201);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{tokenSPpur}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"date\": \"2022-11-30T13:30:00.000Z\",\n    \"message\": \"Vous avez sauvegarder un brouillon dans ArnaqueInternet (bis)\",\n    \"idDemarcheComplementaire\": \"{{idTeledossierPourNotification}}\",\n    \"statut\": \"enregistre_brouillon\",\n    \"origine\": \"INFORMATIONS ADMINISTRATIVES ET LÉGALES\",\n    \"url\": \"https://www.google.com/search?q=urlbis\",\n    \"actions\": [\n      { \"libelle\": \"Reprise brouillon 1bis\", \"url\": \"https://www.google.com/search?q=repriseBrouillon1bis\" },\n      { \"libelle\": \"Reprise brouillon 2bis\", \"url\": \"https://www.google.com/search?q=repriseBrouillon2bis\" }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://api.xxxxx.dila.fr/services/v1/particuliers/filactivites/demarches/:id_dem/statuts",
+											"protocol": "http s",
+											"host": [
+												"api",
+												"service-public",
+												"fr",
+												"qualif",
+												"ext",
+												"dila",
+												"fr"
+											],
+											"path": [
+												"services",
+												"v1",
+												"particuliers",
+												"filactivites",
+												"demarches",
+												":id_dem",
+												"statuts"
+											],
+											"variable": [
+												{
+													"key": "id_dem",
+													"value": "{{idTeledossierPourNotification}}",
+													"description": "(Required) Identifiant de la démarche"
+												}
+											]
+										},
+										"description": "Une instance de démarche est une suite d'événement qui peuvent modifier son statut. La démarche doit exister avant d'ajouter un nouvel événement.<br>L'identifiant de l'événement est retourné dans le header \"Location\"."
+									},
+									"response": []
+								},
+								{
+									"name": "04-Création token technique GT",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// Vérifications de base\r",
+													"pm.test(\"Réponse correcte\", function () {\r",
+													"    pm.expect(pm.response.code).to.be.equals(200);\r",
+													"    pm.expect(pm.response.json().access_token).to.be.not.empty;\r",
+													"});\r",
+													"\r",
+													"// Récupération d'une donnée pour alimenter une variable d'environnement\r",
+													"pm.environment.set('tokenGT', pm.response.json().access_token);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "grant_type",
+													"value": "client_credentials",
+													"type": "default"
+												},
+												{
+													"key": "client_id",
+													"value": "gtclient",
+													"type": "default"
+												},
+												{
+													"key": "client_secret",
+													"value": "xxxxxxxx",
+													"type": "default"
+												}
+											]
+										},
+										"url": {
+											"raw": "https://xxx.service-public.fr/realms/service-public/protocol/openid-connect/token",
+											"protocol": "http s",
+											"host": [
+												"qualif",
+												"auth",
+												"service-public",
+												"fr"
+											],
+											"path": [
+												"realms",
+												"service-public",
+												"protocol",
+												"openid-connect",
+												"token"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "05-Création d'un nouvel événement pour une instance de démarche existante en mode offline Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// Vérifications de base\r",
+													"pm.test(\"Réponse correcte\", function () {\r",
+													"    pm.expect(pm.response.code).to.be.equals(201);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{tokenGT}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"date\": \"2022-11-30T13:30:00.000Z\",\n    \"message\": \"Vous avez sauvegarder un brouillon dans ArnaqueInternet (ter)\",\n    \"idDemarcheComplementaire\": \"{{idTeledossierPourNotification}}\",\n    \"statut\": \"enregistre_brouillon\",\n    \"origine\": \"INFORMATIONS ADMINISTRATIVES ET LÉGALES\",\n    \"url\": \"https://www.google.com/search?q=urlter\",\n    \"actions\": [\n      { \"libelle\": \"Reprise brouillon 1ter\", \"url\": \"https://www.google.com/search?q=repriseBrouillon1ter\" },\n      { \"libelle\": \"Reprise brouillon 2ter\", \"url\": \"https://www.google.com/search?q=repriseBrouillon2ter\" }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://api.xxxxx.dila.fr/services/v1/particuliers/offline/:uuid_espace/filactivites/demarches/:id_dem/statuts",
+											"protocol": "http s",
+											"host": [
+												"api",
+												"service-public",
+												"fr",
+												"qualif",
+												"ext",
+												"dila",
+												"fr"
+											],
+											"path": [
+												"services",
+												"v1",
+												"particuliers",
+												"offline",
+												":uuid_espace",
+												"filactivites",
+												"demarches",
+												":id_dem",
+												"statuts"
+											],
+											"variable": [
+												{
+													"key": "uuid_espace",
+													"value": "{{uuidUtilisateurSP}}",
+													"description": "(Required) Identifiant de l'esapce particulier'"
+												},
+												{
+													"key": "id_dem",
+													"value": "{{idTeledossierPourNotification}}",
+													"description": "(Required) Identifiant de la démarche"
+												}
+											]
+										},
+										"description": "Une instance de démarche est une suite d'événement qui peuvent modifier son statut. La démarche doit exister avant d'ajouter un nouvel événement.<br>L'identifiant de l'événement est retourné dans le header \"Location\"."
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "GenerationAuthentificationSP-userInfoKc",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si une connexion OIDC a été réalisée\r",
+											"if (pm.request.headers.get('Authorization')) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().email).to.be.not.empty;\r",
+											"    });\r",
+											"\r",
+											"    // Récupération des donnése pour alimenter des variables d'environnement\r",
+											"    if (pm.response.code == 200) {\r",
+											"        var tokenPslSP = pm.request.headers.get('Authorization').replace(\"Bearer \",\"\");\r",
+											"        pm.environment.set('tokenPslSP', tokenPslSP);\r",
+											"        pm.environment.set('emailCompteSP', pm.response.json().email);\r",
+											"    } else {\r",
+											"        pm.environment.unset('tokenPslSP');\r",
+											"        pm.environment.unset('emailCompteSP');\r",
+											"    }\r",
+											"} else {\r",
+											"    pm.test(\"Sans token SP généré, l'API renvoie un 401\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"    });\r",
+											"    pm.test(\"/!\\\\ Aucun token SP généré depuis l'onglet Authorization de cette requête\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.request.headers.get('Authorization')).be.null;\r",
+											"    });\r",
+											"    pm.environment.unset('tokenPslSP');\r",
+											"    pm.environment.unset('emailCompteSP');\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "redirect_uri",
+											"value": "https://dev-psl.guillaumetalbot.com/mademarche",
+											"type": "string"
+										},
+										{
+											"key": "accessTokenUrl",
+											"value": "https://xxx.service-public.fr/realms/service-public/protocol/openid-connect/token",
+											"type": "string"
+										},
+										{
+											"key": "scope",
+											"value": "openid profile email particulier",
+											"type": "string"
+										},
+										{
+											"key": "authUrl",
+											"value": "https://xxx.service-public.fr/realms/service-public/protocol/openid-connect/auth",
+											"type": "string"
+										},
+										{
+											"key": "useBrowser",
+											"value": false,
+											"type": "boolean"
+										},
+										{
+											"key": "clientSecret",
+											"value": "xxxxxxxx",
+											"type": "string"
+										},
+										{
+											"key": "clientId",
+											"value": "xxxxxxxxx",
+											"type": "string"
+										},
+										{
+											"key": "grant_type",
+											"value": "authorization_code_with_pkce",
+											"type": "string"
+										},
+										{
+											"key": "tokenName",
+											"value": "TOKEN SP",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "client_authentication",
+											"value": "body",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://xxxxx.service-public.fr/services/v1/userinfo",
+									"protocol": "https",
+									"host": [
+										"api",
+										"qualif",
+										"service-public",
+										"fr"
+									],
+									"path": [
+										"services",
+										"v1",
+										"userinfo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GenerationAuthentificationSP et info du particulier",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si une connexion OIDC a été réalisée\r",
+											"if (pm.request.headers.get('Authorization')) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().email).to.be.not.empty;\r",
+											"    });\r",
+											"\r",
+											"    // Récupération des donnése pour alimenter des variables d'environnement\r",
+											"    if (pm.response.code == 200) {\r",
+											"        var tokenPslSP = pm.request.headers.get('Authorization').replace(\"Bearer \",\"\");\r",
+											"        pm.environment.set('tokenPslSP', tokenPslSP);\r",
+											"        pm.environment.set('emailCompteSP', pm.response.json().email);\r",
+											"    } else {\r",
+											"        pm.environment.unset('tokenPslSP');\r",
+											"        pm.environment.unset('emailCompteSP');\r",
+											"    }\r",
+											"} else {\r",
+											"    pm.test(\"Sans token SP généré, l'API renvoie un 401\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"    });\r",
+											"    pm.test(\"/!\\\\ Aucun token SP généré depuis l'onglet Authorization de cette requête\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.request.headers.get('Authorization')).be.null;\r",
+											"    });\r",
+											"    pm.environment.unset('tokenPslSP');\r",
+											"    pm.environment.unset('emailCompteSP');\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "accessTokenUrl",
+											"value": "https://xxx.service-public.fr/realms/service-public/protocol/openid-connect/token",
+											"type": "string"
+										},
+										{
+											"key": "redirect_uri",
+											"value": "http://dev-psl.guillaumetalbot.com/mademarche",
+											"type": "string"
+										},
+										{
+											"key": "scope",
+											"value": "openid profile email particulier",
+											"type": "string"
+										},
+										{
+											"key": "authUrl",
+											"value": "https://xxx.service-public.fr/realms/service-public/protocol/openid-connect/auth",
+											"type": "string"
+										},
+										{
+											"key": "useBrowser",
+											"value": false,
+											"type": "boolean"
+										},
+										{
+											"key": "clientSecret",
+											"value": "xxxxxxxx",
+											"type": "string"
+										},
+										{
+											"key": "clientId",
+											"value": "xxxxxxxxx",
+											"type": "string"
+										},
+										{
+											"key": "grant_type",
+											"value": "authorization_code_with_pkce",
+											"type": "string"
+										},
+										{
+											"key": "tokenName",
+											"value": "TOKEN SP",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "client_authentication",
+											"value": "body",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://xxxxx.service-public.fr/services/v1/particuliers/informations",
+									"protocol": "https",
+									"host": [
+										"api",
+										"qualif",
+										"service-public",
+										"fr"
+									],
+									"path": [
+										"services",
+										"v1",
+										"particuliers",
+										"informations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "VerificationExistanceCompteSp",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si une connexion OIDC a été réalisée\r",
+											"if (pm.request.headers.get('Authorization')) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().email).to.be.not.empty;\r",
+											"    });\r",
+											"\r",
+											"    // Récupération des donnése pour alimenter des variables d'environnement\r",
+											"    if (pm.response.code == 200) {\r",
+											"        var tokenPslSP = pm.request.headers.get('Authorization').replace(\"Bearer \",\"\");\r",
+											"        pm.environment.set('tokenPslSP', tokenPslSP);\r",
+											"        pm.environment.set('emailCompteSP', pm.response.json().email);\r",
+											"    } else {\r",
+											"        pm.environment.unset('tokenPslSP');\r",
+											"        pm.environment.unset('emailCompteSP');\r",
+											"    }\r",
+											"} else {\r",
+											"    pm.test(\"Sans token SP généré, l'API renvoie un 401\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"    });\r",
+											"    pm.test(\"/!\\\\ Aucun token SP généré depuis l'onglet Authorization de cette requête\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.request.headers.get('Authorization')).be.null;\r",
+											"    });\r",
+											"    pm.environment.unset('tokenPslSP');\r",
+											"    pm.environment.unset('emailCompteSP');\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "accessTokenUrl",
+											"value": "https://xxx.service-public.fr/realms/service-public/protocol/openid-connect/token",
+											"type": "string"
+										},
+										{
+											"key": "redirect_uri",
+											"value": "http://dev-psl.guillaumetalbot.com/mademarche",
+											"type": "string"
+										},
+										{
+											"key": "scope",
+											"value": "openid profile email particulier",
+											"type": "string"
+										},
+										{
+											"key": "authUrl",
+											"value": "https://xxx.service-public.fr/realms/service-public/protocol/openid-connect/auth",
+											"type": "string"
+										},
+										{
+											"key": "useBrowser",
+											"value": false,
+											"type": "boolean"
+										},
+										{
+											"key": "clientSecret",
+											"value": "xxxxxxxx",
+											"type": "string"
+										},
+										{
+											"key": "clientId",
+											"value": "xxxxxxxxx",
+											"type": "string"
+										},
+										{
+											"key": "grant_type",
+											"value": "authorization_code_with_pkce",
+											"type": "string"
+										},
+										{
+											"key": "tokenName",
+											"value": "TOKEN SP",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "client_authentication",
+											"value": "body",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"email\":\"ucassefa-7807@yopmail.com\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://xxxxx.service-public.fr/services/v1/particuliers/search",
+									"protocol": "https",
+									"host": [
+										"api",
+										"qualif",
+										"service-public",
+										"fr"
+									],
+									"path": [
+										"services",
+										"v1",
+										"particuliers",
+										"search"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "RecupererEmailDunCompteDepuisUUID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Si une connexion OIDC a été réalisée\r",
+											"if (pm.request.headers.get('Authorization')) {\r",
+											"\r",
+											"    // Vérifications de base\r",
+											"    pm.test(\"Réponse correcte\", function () {\r",
+											"        pm.expect(pm.response.code).to.be.equals(200);\r",
+											"        pm.expect(pm.response.json().email).to.be.not.empty;\r",
+											"    });\r",
+											"\r",
+											"    // Récupération des donnése pour alimenter des variables d'environnement\r",
+											"    if (pm.response.code == 200) {\r",
+											"        var tokenPslSP = pm.request.headers.get('Authorization').replace(\"Bearer \",\"\");\r",
+											"        pm.environment.set('tokenPslSP', tokenPslSP);\r",
+											"        pm.environment.set('emailCompteSP', pm.response.json().email);\r",
+											"    } else {\r",
+											"        pm.environment.unset('tokenPslSP');\r",
+											"        pm.environment.unset('emailCompteSP');\r",
+											"    }\r",
+											"} else {\r",
+											"    pm.test(\"Sans token SP généré, l'API renvoie un 401\", function () {\r",
+											"        // Au moins l'API doit répondre 401\r",
+											"        pm.expect(pm.response.code).to.be.equals(401);\r",
+											"    });\r",
+											"    pm.test(\"/!\\\\ Aucun token SP généré depuis l'onglet Authorization de cette requête\", function () {\r",
+											"        // Mais le test doit échouer\r",
+											"        pm.expect(pm.request.headers.get('Authorization')).be.null;\r",
+											"    });\r",
+											"    pm.environment.unset('tokenPslSP');\r",
+											"    pm.environment.unset('emailCompteSP');\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "scope",
+											"value": "",
+											"type": "string"
+										},
+										{
+											"key": "clientSecret",
+											"value": "xxxxxxxx",
+											"type": "string"
+										},
+										{
+											"key": "clientId",
+											"value": "gtclient",
+											"type": "string"
+										},
+										{
+											"key": "grant_type",
+											"value": "client_credentials",
+											"type": "string"
+										},
+										{
+											"key": "tokenName",
+											"value": "TOKEN SP OFFLINE",
+											"type": "string"
+										},
+										{
+											"key": "accessTokenUrl",
+											"value": "https://xxx.service-public.fr/realms/service-public/protocol/openid-connect/token",
+											"type": "string"
+										},
+										{
+											"key": "redirect_uri",
+											"value": "http://dev-psl.guillaumetalbot.com/mademarche",
+											"type": "string"
+										},
+										{
+											"key": "authUrl",
+											"value": "https://xxx.service-public.fr/realms/service-public/protocol/openid-connect/auth",
+											"type": "string"
+										},
+										{
+											"key": "useBrowser",
+											"value": false,
+											"type": "boolean"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "client_authentication",
+											"value": "body",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "https://xxxxx.service-public.fr/services/v1/particuliers/offline/d1fa8cca-c9a8-425d-a37c-db8ddb30c113/search",
+									"protocol": "https",
+									"host": [
+										"api",
+										"qualif",
+										"service-public",
+										"fr"
+									],
+									"path": [
+										"services",
+										"v1",
+										"particuliers",
+										"offline",
+										"d1fa8cca-c9a8-425d-a37c-db8ddb30c113",
+										"search"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// La purge des variables est faite dans le \"pre-request Script\" de la 011",
+					"",
+					"// logs",
+					"console.log(request.name);",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_HOST",
+			"value": "dev-psl.guillaumetalbot.com",
+			"type": "default"
+		},
+		{
+			"key": "API_PORT",
+			"value": "8080",
+			"type": "default"
+		},
+		{
+			"key": "EUREKA_PORT",
+			"value": "8761",
+			"type": "default"
+		},
+		{
+			"key": "API_ADMIN_PORT",
+			"value": "8989",
+			"type": "default"
+		}
+	]
+}

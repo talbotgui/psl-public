@@ -1,0 +1,24 @@
+meta {
+  name: 034-Referentiel-regionActuelle-tokenAnonyme
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/socle/referentiel/regionActuelle?recherche=Fra
+  body: none
+  auth: bearer
+}
+
+query {
+  recherche: Fra
+}
+
+auth:bearer {
+  token: {{tokenPslAnonyme}}
+}
+
+assert {
+  res.status: eq 200
+  res.body[0].codeInsee: eq "11"
+}

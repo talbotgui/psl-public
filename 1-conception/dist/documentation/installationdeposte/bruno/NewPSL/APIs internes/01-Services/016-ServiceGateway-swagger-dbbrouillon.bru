@@ -1,0 +1,20 @@
+meta {
+  name: 016-ServiceGateway-swagger-dbbrouillon
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/v3/api-docs/brouillon
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.openapi: isDefined
+}
+
+script:pre-request {
+  // 
+}

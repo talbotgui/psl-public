@@ -1,0 +1,32 @@
+@if (contenu) {
+<div class="contenuAbstrait">
+  <!-- Le contenu à afficher en fonction de son type -->
+  <!-- Ajout de la clef en attribut de la balise pour l'analyse et les tests automatisés -->
+  <!-- Attention, [controle] pour les mono-saisie et [groupeControles] pour les complexes-->
+  @if (estDeTypeSimple()) {
+  <div data-fmk-contenusimple [attr.data-clef]="contenu.clef" [contenu]="contenu" [controle]="controleAsFormControl">
+  </div>
+  }
+  @if (estDeTypeRiche()) {
+  <div data-fmk-contenuriche [attr.data-clef]="contenu.clef" [contenu]="contenu" [groupeControles]="controleAsFormGroup">
+  </div>
+  }
+  @if (estDeTypeFinDemarche()) {
+  <div data-fmk-contenufindemarche></div>
+  }
+  @if (estDeTypeRecapitulatif()) {
+  <div data-fmk-contenurecapitulatif [contenu]="contenu"></div>
+  }
+  @if (estDeTypeDocuments()) {
+  <div data-fmk-contenudocuments [attr.data-clef]="contenu.clef" [contenu]="contenu" [controle]="controleAsFormControl">
+  </div>
+  }
+  @if (estDeTypeUtilisateurConnecte()) {
+  <div data-fmk-contenuutilisateurconnecte [attr.data-clef]="contenu.clef" [contenu]="contenu">
+  </div>
+  }
+  @if (estDeTypeInconnu()) {
+  <span>Erreur de configuration, le type de contenu n'est pas connu</span>
+  }
+</div>
+}

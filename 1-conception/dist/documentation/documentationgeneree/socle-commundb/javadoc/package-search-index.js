@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.github.talbotgui.psl.socle.commundb.application"},{"l":"com.github.talbotgui.psl.socle.commundb.dao"},{"l":"com.github.talbotgui.psl.socle.commundb.exception"},{"l":"com.github.talbotgui.psl.socle.commundb.utils"}];updateSearchResults();

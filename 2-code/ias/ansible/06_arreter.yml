@@ -1,0 +1,154 @@
+---
+#
+# Pour démarrer le script, exécuter :
+#   ansible-playbook ansible/06_arreter.yml -i ansible/inventory/local
+#
+# Pour se limiter à un groupe de machines, ajouter --limit machines_zone_execution_exposee
+# Pour se limiter à un applicatif précis, ajouter --tags socle-securite
+#
+# Ce script s'exécute sans aucun droit SUDO
+#
+
+# Le service-redis installé avec SNAP nécessite de faire un SUDO pour être démarré/arrêté/pingué. Or ce script n'est pas conçu pour faire du SUDO. Donc on ne fait rien.
+
+- name: "[06_arreter] Arrêt de l'applicatif service-gateway"
+  tags: "service-gateway"
+  hosts: "machines_service_gateway"
+  roles:
+    - role: "commun/ag_arreter"
+      vars:
+        applicatif_nom: "service-gateway"
+
+# le registre est à la toute fin du fichier car il est nécessaire pour l'arrêt des autres applicatifs
+
+- name: "[06_arreter] Arrêt de l'applicatif service-config"
+  tags: "service-config"
+  hosts: "machines_service_config"
+  roles:
+    - role: "commun/ag_arreter"
+      vars:
+        applicatif_nom: "service-config"
+
+- name: "[06_arreter] Arrêt de l'applicatif service-admin"
+  tags: "service-admin"
+  hosts: "machines_service_admin"
+  roles:
+    - role: "commun/ag_arreter"
+      vars:
+        applicatif_nom: "service-admin"
+
+- name: "[06_arreter] Arrêt de l'applicatif service-ldap"
+  tags: "service-ldap"
+  hosts: "machines_service_ldap"
+  roles:
+    - role: "commun/ag_arreter"
+      vars:
+        applicatif_nom: "service-ldap"
+
+- name: "[06_arreter] Arrêt de l'applicatif service-nosql"
+  tags: "service-nosql"
+  hosts: "machines_service_nosql"
+  roles:
+    - role: "commun/ag_arreter"
+      vars:
+        applicatif_nom: "service-nosql"
+
+- name: "[06_arreter] Arrêt de l'applicatif socle-dbbrouillon"
+  tags: "socle-dbbrouillon"
+  hosts: "machines_socle_dbbrouillon"
+  roles:
+    - role: "commun/ag_arreter"
+      vars:
+        applicatif_nom: "socle-dbbrouillon"
+
+- name: "[06_arreter] Arrêt de l'applicatif socle-dbconfiguration"
+  tags: "socle-dbconfiguration"
+  hosts: "machines_socle_dbconfiguration"
+  roles:
+    - role: "commun/ag_arreter"
+      vars:
+        applicatif_nom: "socle-dbconfiguration"
+
+- name: "[06_arreter] Arrêt de l'applicatif socle-dbdocument"
+  tags: "socle-dbdocument"
+  hosts: "machines_socle_dbdocument"
+  roles:
+    - role: "commun/ag_arreter"
+      vars:
+        applicatif_nom: "socle-dbdocument"
+
+- name: "[06_arreter] Arrêt de l'applicatif socle-dbnotification"
+  tags: "socle-dbnotification"
+  hosts: "machines_socle_dbnotification"
+  roles:
+    - role: "commun/ag_arreter"
+      vars:
+        applicatif_nom: "socle-dbnotification"
+
+- name: "[06_arreter] Arrêt de l'applicatif socle-referentiel"
+  tags: "socle-referentiel"
+  hosts: "machines_socle_referentiel"
+  roles:
+    - role: "commun/ag_arreter"
+      vars:
+        applicatif_nom: "socle-referentiel"
+
+- name: "[06_arreter] Arrêt de l'applicatif socle-referentielexterne"
+  tags: "socle-referentielexterne"
+  hosts: "machines_socle_referentielexterne"
+  roles:
+    - role: "commun/ag_arreter"
+      vars:
+        applicatif_nom: "socle-referentielexterne"
+
+- name: "[06_arreter] Arrêt de l'applicatif socle-securite"
+  tags: "socle-securite"
+  hosts: "machines_socle_securite"
+  roles:
+    - role: "commun/ag_arreter"
+      vars:
+        applicatif_nom: "socle-securite"
+
+- name: "[06_arreter] Arrêt de l'applicatif socle-soumission"
+  tags: "socle-soumission"
+  hosts: "machines_socle_soumission"
+  roles:
+    - role: "commun/ag_arreter"
+      vars:
+        applicatif_nom: "socle-soumission"
+
+- name: "[06_arreter] Arrêt de l'applicatif socle-transfert"
+  tags: "socle-transfert"
+  hosts: "machines_socle_transfert"
+  roles:
+    - role: "commun/ag_arreter"
+      vars:
+        applicatif_nom: "socle-transfert"
+
+- name: "[06_arreter] Arrêt de l'applicatif socle-adminpsl"
+  tags: "socle-adminpsl"
+  hosts: "machines_socle_adminpsl"
+  roles:
+    - role: "commun/ag_arreter"
+      vars:
+        applicatif_nom: "socle-adminpsl"
+
+
+# le registre est à la toute fin du fichier car il est nécessaire pour l'arrêt des autres applicatifs
+- name: "[06_arreter] Arrêt de l'applicatif service-registry"
+  tags: "service-registry"
+  hosts: "machines_service_registry"
+  roles:
+    - role: "commun/ag_arreter"
+      vars:
+        applicatif_nom: "service-registry"
+
+- name: "[06_arreter] Arrêt de l'applicatif WEB public (front)"
+  tags: "web-front"
+  hosts: "machines_web_front"
+  roles: [ "front/06_arreter" ]
+
+- name: "[06_arreter] Arrêt de l'applicatif WEB d'administration"
+  tags: "web-admin"
+  hosts: "machines_web_admin"
+  roles: [ "front/06_arreter" ]

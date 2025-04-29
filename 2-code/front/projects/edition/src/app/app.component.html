@@ -1,0 +1,21 @@
+<!-- Le composant d'entete du framework -->
+<div data-fmk-entete></div>
+
+<!-- Le composant contenant les pages (configurée+spécifiques à la démarche) -->
+@if (afficherApplication) {
+  <div data-fmk-conteneurpages [configurationDemarche]="configuration">
+    <!-- Une page d'index 0 à afficher avant toutes les autres dans le cadre de la démarche d'édition -->
+    @if ((indexPageCouranteObservable | async) === 0 && page && !!page.specifiqueAlaDemarche) {
+      <div class="fr-col-12" id="page-1">
+        <div class="main-body">
+          <app-editeur (onDemandeDeTest)="navigation.ngOnInit();navigation.avancer()"></app-editeur>
+          <!-- Le composant de navigation -->
+          <div data-fmk-navigation #navigation [page]="page" [formulaire]="formulaire"></div>
+        </div>
+      </div>
+    }
+  </div>
+}
+
+<!-- Le composant de pied de page du framework -->
+<div data-fmk-pieddepage></div>

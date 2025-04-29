@@ -1,0 +1,2888 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.127.0">
+    <meta name="description" content="Conception de la nouvelle PSL">
+
+
+    <link rel="icon" href="/psl-public/documentation/images/favicon.png" type="image/png">
+
+    <title>3.32 Procédures-règles de l&#39;application Angular - Documentation nouvelle PSL</title>
+
+    
+    <link href="/psl-public/documentation/css/nucleus.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/fontawesome-all.min.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/hybrid.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/featherlight.min.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/perfect-scrollbar.min.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/auto-complete.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/atom-one-dark-reasonable.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/theme.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/tabs.css?1745960225" rel="stylesheet">
+    <link href="/psl-public/documentation/css/hugo-theme.css?1745960225" rel="stylesheet">
+    
+    <link href="/psl-public/documentation/css/theme-blue.css?1745960225" rel="stylesheet">
+    
+    <link href="/psl-public/documentation/style.css?1745960225" rel="stylesheet">
+
+    <script src="/psl-public/documentation/js/jquery-3.3.1.min.js?1745960225"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/psl-public/documentation/3developpement/3.32proceduresapplicationangular/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="/psl-public/documentation/"><img src="/psl-public/documentation/newPSL.png"/></a>
+<span style="color:white">Version : <i>${project.version}</i></span>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/psl-public/documentation/js/lunr.min.js?1745960225"></script>
+<script type="text/javascript" src="/psl-public/documentation/js/auto-complete.js?1745960225"></script>
+<script type="text/javascript">
+    
+        var baseurl = "http:\/\/localhost:1313\/documentation\/";
+    
+</script>
+<script type="text/javascript" src="/psl-public/documentation/js/search.js?1745960225"></script>
+
+    
+  </div>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/1conceptiongenerale/" title="1. Conception générale" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/1conceptiongenerale/">
+          1. Conception générale
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/" title="1.1 Objectifs" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/">
+          1.1 Objectifs
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.1objectifsfonctionnels/" title="1.1.1 Objectifs fonctionnels" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.1objectifsfonctionnels/">
+        1.1.1 Objectifs fonctionnels
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.2objectifstechniques/" title="1.1.2 Objectifs techniques" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.2objectifstechniques/">
+        1.1.2 Objectifs techniques
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.3objectifsdisponibilite/" title="1.1.3 Objectifs de disponibilité" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.3objectifsdisponibilite/">
+        1.1.3 Objectifs de disponibilité
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.4objectifhomogeneite/" title="1.1.4 Objectifs d&#39;homogénéité" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.1objectifs/1.1.4objectifhomogeneite/">
+        1.1.4 Objectifs d&#39;homogénéité
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.2architecture/" title="1.2 Architecture" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/1conceptiongenerale/1.2architecture/">
+          1.2 Architecture
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.1conceptionarchitecture/" title="1.2.1 Conception de l&#39;architecture" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.1conceptionarchitecture/">
+        1.2.1 Conception de l&#39;architecture
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.2schemageneral/" title="1.2.2 Schéma d&#39;architecture générale" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.2schemageneral/">
+        1.2.2 Schéma d&#39;architecture générale
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.3principesgeneraux/" title="1.2.3 Principes généraux" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.2architecture/1.2.3principesgeneraux/">
+        1.2.3 Principes généraux
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/" title="1.3 Les applicatifs" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/">
+          1.3 Les applicatifs
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.1demarche/" title="1.3.1 Les applications WEB de démarche" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.1demarche/">
+        1.3.1 Les applications WEB de démarche
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.2socle/" title="1.3.2 Le socle" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.2socle/">
+        1.3.2 Le socle
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.3outils/" title="1.3.3 Les outils" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.3outils/">
+        1.3.3 Les outils
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.4retroingenierie/" title="1.3.4 Rétro-ingénierie" class="dd-item ">
+        <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.4retroingenierie/">
+        1.3.4 Rétro-ingénierie
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/" title="2. Conception détaillée" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/2conceptiondetaillee/">
+          2. Conception détaillée
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.1introduction/" title="2.1 Introduction" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.1introduction/">
+        2.1 Introduction
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.2principesconceptionduback/" title="2.2 Principes de conception du BACK" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.2principesconceptionduback/">
+        2.2 Principes de conception du BACK
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.3principesconceptiondufront/" title="2.3 Principes de conception du FRONT" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.3principesconceptiondufront/">
+        2.3 Principes de conception du FRONT
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.4principesconceptionfrontetback/" title="2.4 Principes de conception communs" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.4principesconceptionfrontetback/">
+        2.4 Principes de conception communs
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.5principeconceptiondocumentaire/" title="2.5 Principes de rédaction documentaire" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.5principeconceptiondocumentaire/">
+        2.5 Principes de rédaction documentaire
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.6fonctionnalites/" title="2.6 Fonctionnalités" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.6fonctionnalites/">
+        2.6 Fonctionnalités
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.7cloud/" title="2.7 Fonctionnalités Cloud" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.7cloud/">
+        2.7 Fonctionnalités Cloud
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.8securite/" title="2.8 Sécurité" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.8securite/">
+        2.8 Sécurité
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.9liensdocumentaires/" title="2.9 Liens documentaires" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.9liensdocumentaires/">
+        2.9 Liens documentaires
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/2conceptiondetaillee/2.10documentationutilisateur/" title="2.10 Documentation utilisateur" class="dd-item ">
+        <a href="/psl-public/documentation/2conceptiondetaillee/2.10documentationutilisateur/">
+        2.10 Documentation utilisateur
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/3developpement/" title="3. Développement" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/psl-public/documentation/3developpement/">
+          3. Développement
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.1liens/" title="3.1 Liens" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.1liens/">
+        3.1 Liens
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.2installationdeposte/" title="3.2 Installation de poste" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.2installationdeposte/">
+        3.2 Installation de poste
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.3demarrertout/" title="3.3 Démarrer tout" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.3demarrertout/">
+        3.3 Démarrer tout
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.11infoslogs/" title="3.11 Infos-logs" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.11infoslogs/">
+        3.11 Infos-logs
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.12infosspring/" title="3.12 Infos-Spring" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.12infosspring/">
+        3.12 Infos-Spring
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.13infoscloud/" title="3.13 Infos-cloud" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.13infoscloud/">
+        3.13 Infos-cloud
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.14infospic/" title="3.14 Infos-PIC" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.14infospic/">
+        3.14 Infos-PIC
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.15infose2e/" title="3.15 Infos-test e2e" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.15infose2e/">
+        3.15 Infos-test e2e
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.16infovelocity/" title="3.16 Infos-velocity" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.16infovelocity/">
+        3.16 Infos-velocity
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.21reglesdeconception/" title="3.21 Règles-conception" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.21reglesdeconception/">
+        3.21 Règles-conception
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.22reglesspecificiquesjava/" title="3.22 Règles-Java" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.22reglesspecificiquesjava/">
+        3.22 Règles-Java
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.23reglesmaven/" title="3.23 Règles-Maven" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.23reglesmaven/">
+        3.23 Règles-Maven
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.24reglesdetest/" title="3.24 Règles-test" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.24reglesdetest/">
+        3.24 Règles-test
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.25reglesdelog/" title="3.25 Règles-logs" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.25reglesdelog/">
+        3.25 Règles-logs
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.26regesspecificiquesfront/" title="3.26 Règles-Front" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.26regesspecificiquesfront/">
+        3.26 Règles-Front
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.31proceduressitedocumentaire/" title="3.31 Procédures-site documentaire" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.31proceduressitedocumentaire/">
+        3.31 Procédures-site documentaire
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.32proceduresapplicationangular/" title="3.32 Procédures-règles de l&#39;application Angular" class="dd-item active">
+        <a href="/psl-public/documentation/3developpement/3.32proceduresapplicationangular/">
+        3.32 Procédures-règles de l&#39;application Angular
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.33proceduresmaven/" title="3.33 Procédures-environnement Maven" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.33proceduresmaven/">
+        3.33 Procédures-environnement Maven
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.34proceduressecurite/" title="3.34 Procédures-veille sécurité" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.34proceduressecurite/">
+        3.34 Procédures-veille sécurité
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.35procedureselastic/" title="3.35 Procédures-elastic" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.35procedureselastic/">
+        3.35 Procédures-elastic
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.36procedurestest/" title="3.36 Procédures-test" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.36procedurestest/">
+        3.36 Procédures-test
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.37proceduresdiverses/" title="3.37 Procédures-diverses" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.37proceduresdiverses/">
+        3.37 Procédures-diverses
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.41chosesasavoir/" title="3.41 Les choses à savoir" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.41chosesasavoir/">
+        3.41 Les choses à savoir
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/3developpement/3.99faq/" title="3.99 Foire aux questions (FAQ)" class="dd-item ">
+        <a href="/psl-public/documentation/3developpement/3.99faq/">
+        3.99 Foire aux questions (FAQ)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/4ops/" title="4. Ops" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/4ops/">
+          4. Ops
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/4ops/4.1plan/" title="4.1 Plan" class="dd-item ">
+        <a href="/psl-public/documentation/4ops/4.1plan/">
+        4.1 Plan
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/4ops/4.2ansible/" title="4.2 Ansible" class="dd-item ">
+        <a href="/psl-public/documentation/4ops/4.2ansible/">
+        4.2 Ansible
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/4ops/4.3regles/" title="4.3 Règles" class="dd-item ">
+        <a href="/psl-public/documentation/4ops/4.3regles/">
+        4.3 Règles
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/4ops/4.4exploitation/" title="4.4 Exploitation" class="dd-item ">
+        <a href="/psl-public/documentation/4ops/4.4exploitation/">
+        4.4 Exploitation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/5avancement/" title="5. Avancement" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/5avancement/">
+          5. Avancement
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/5avancement/5.1comment/" title="5.1 Organisation" class="dd-item ">
+        <a href="/psl-public/documentation/5avancement/5.1comment/">
+        5.1 Organisation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/psl-public/documentation/5avancement/5.2quoi/" title="5.2 à faire" class="dd-item ">
+        <a href="/psl-public/documentation/5avancement/5.2quoi/">
+        5.2 à faire
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/psl-public/documentation/6glossaire/" title="6. Glossaire" class="dd-item
+        
+        
+        
+        ">
+      <a href="/psl-public/documentation/6glossaire/">
+          6. Glossaire
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>License : <a href="/psl-public/documentation/0licence/">commercial & AGPL</a></p>
+<p>Built with <a target="_blank" href="https://github.com/matcornic/hugo-theme-learn">Learn Theme</i></a> & <a target="_blank" href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/documentation/'>Accueil</a> > <a href='/documentation/3developpement/'>3. Développement</a> > 3.32 Procédures-règles de l'application Angular
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#3321---recréer-un-workspace-angular-avec-des-applications-et-un-librairie-commune">3.32.1 - Recréer un workspace Angular avec des applications et un librairie commune</a></li>
+    <li><a href="#3322---créer-une-nouvelle-application-de-démarche">3.32.2 - Créer une nouvelle application de démarche</a></li>
+    <li><a href="#3323---vérifier-la-cohérence-dune-démarche">3.32.3 - Vérifier la cohérence d&rsquo;une démarche</a></li>
+    <li><a href="#3324---ajouter-un-nouveau-type-de-contenu">3.32.4 - Ajouter un nouveau type de contenu</a></li>
+    <li><a href="#3325---a-savoir-sur-un-type-de-contenu">3.32.5 - A savoir sur un type de contenu</a></li>
+    <li><a href="#3326---ajoutretraitmodification-dun-attribut-dans-un-type-de-contenu-ou-une-classe-du-package-_model_">3.32.6 - Ajout/retrait/modification d&rsquo;un attribut dans un type de contenu ou une classe du package <em>model</em></a></li>
+    <li><a href="#3327---comment-ajouter-un-nouveau-type-de-validation-de-champ">3.32.7 - Comment ajouter un nouveau type de validation de champ</a></li>
+    <li><a href="#3328---règles-de-développement-dans-le-code-spécifique-dune-démarche">3.32.8 - Règles de développement dans le code spécifique d&rsquo;une démarche</a></li>
+    <li><a href="#3329---intégration-de-la-charte-graphique-de-létat-dsfr">3.32.9 - Intégration de la charte graphique de l&rsquo;état (DSFR)</a></li>
+    <li><a href="#33210---validation-w3c-du-code-html-généré">3.32.10 - Validation W3C du code HTML généré</a></li>
+    <li><a href="#33211---quelques-rappels-tsjs">3.32.11 - Quelques rappels TS/JS</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              3.32 Procédures-règles de l&#39;application Angular
+            </h1>
+          
+
+        
+
+
+<div class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#3321---recréer-un-workspace-angular-avec-des-applications-et-un-librairie-commune">3.32.1 - Recréer un workspace Angular avec des applications et un librairie commune</a></li>
+    <li><a href="#3322---créer-une-nouvelle-application-de-démarche">3.32.2 - Créer une nouvelle application de démarche</a></li>
+    <li><a href="#3323---vérifier-la-cohérence-dune-démarche">3.32.3 - Vérifier la cohérence d&rsquo;une démarche</a></li>
+    <li><a href="#3324---ajouter-un-nouveau-type-de-contenu">3.32.4 - Ajouter un nouveau type de contenu</a></li>
+    <li><a href="#3325---a-savoir-sur-un-type-de-contenu">3.32.5 - A savoir sur un type de contenu</a></li>
+    <li><a href="#3326---ajoutretraitmodification-dun-attribut-dans-un-type-de-contenu-ou-une-classe-du-package-_model_">3.32.6 - Ajout/retrait/modification d&rsquo;un attribut dans un type de contenu ou une classe du package <em>model</em></a></li>
+    <li><a href="#3327---comment-ajouter-un-nouveau-type-de-validation-de-champ">3.32.7 - Comment ajouter un nouveau type de validation de champ</a></li>
+    <li><a href="#3328---règles-de-développement-dans-le-code-spécifique-dune-démarche">3.32.8 - Règles de développement dans le code spécifique d&rsquo;une démarche</a></li>
+    <li><a href="#3329---intégration-de-la-charte-graphique-de-létat-dsfr">3.32.9 - Intégration de la charte graphique de l&rsquo;état (DSFR)</a></li>
+    <li><a href="#33210---validation-w3c-du-code-html-généré">3.32.10 - Validation W3C du code HTML généré</a></li>
+    <li><a href="#33211---quelques-rappels-tsjs">3.32.11 - Quelques rappels TS/JS</a></li>
+  </ul>
+</nav>
+</div>
+<h2 id="3321---recréer-un-workspace-angular-avec-des-applications-et-un-librairie-commune">3.32.1 - Recréer un workspace Angular avec des applications et un librairie commune</h2>
+<p>Les informations/documentations/sources utiles :</p>
+<ul>
+<li><a href="https://octoperf.com/blog/2019/08/22/kraken-angular-workspace-multi-application-project/#install-angular-material">https://octoperf.com/blog/2019/08/22/kraken-angular-workspace-multi-application-project/#install-angular-material</a></li>
+<li><a href="https://angular.io/guide/file-structure">https://angular.io/guide/file-structure</a></li>
+<li><a href="https://www.tektutorialshub.com/angular/angular-multiple-apps-in-one-project/">https://www.tektutorialshub.com/angular/angular-multiple-apps-in-one-project/</a></li>
+</ul>
+<p>Les commandes à exécuter :</p>
+<ul>
+<li>pour initialiser le workspace : <code>ng new frontend --createApplication=false --directory=frontend --interactive=false </code></li>
+<li>pour créer un projet : <code>ng generate application etatcivil --style=scss --routing=false</code></li>
+<li>ajouter Material au projet : <code>ng add @angular/material --project=etatcivil</code></li>
+<li>pour créer une librairie : <code>ng generate library framework</code></li>
+<li>pour déclarer un service partagé :
+<ul>
+<li>il est possible d&rsquo;utiliser la commande : <code>ng generate service validation --project=framework</code></li>
+<li>attention à ne pas faire apparaitre le service dans le module de la librairie mais d&rsquo;utiliser l&rsquo;anotation <code>@Injectable({ providedIn: 'root' })</code> (cf. documentation de l&rsquo;anotation @Injectable)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3322---créer-une-nouvelle-application-de-démarche">3.32.2 - Créer une nouvelle application de démarche</h2>
+<p>Les étapes à réaliser pour créer une application de démarche sont :</p>
+<ul>
+<li>créer l&rsquo;application Angular
+<ul>
+<li>modifier le fichier <em>package.json</em> et remplacer <em>xxxxxx</em> par le code de la démarche (en minuscule) dans la commande <em>creationDemarche</em></li>
+<li>exécuter la commande <code>npm run creationDemarche</code> (ou <em>yarn</em> à la place de <em>npm</em>)</li>
+<li>remettre le code <em>xxxxxx</em> dans la commande <em>creationDemarche</em> dans le package.json</li>
+<li>sur le modèle des commandes existantes, dans le package.json, <em>en respectant l&rsquo;ordre alphabétique</em>
+<ul>
+<li>créer les commandes <em>xxxxxx-start</em>, <em>xxxxxx-startcoverage</em>, <em>xxxxxx-build-prod</em>, <em>xxxxxx-compodoc</em> et <em>xxxxxx-analyseBundle</em></li>
+<li>ajouter ces commandes dans les <em>all-*</em></li>
+<li>(les commentaires dans ce json sont obligatoires et sur le modèle <em>&quot;//commande : mon commentaire&quot;:&quot;&quot;</em>)</li>
+</ul>
+</li>
+<li>dupliquer un fichier <em>assembly/xxxxxx-assembly.xml</em> et en personnaliser le contenu avec le code de la démarche</li>
+<li>éditer le <em>pom.xml</em> du projet <em>front</em> pour
+<ul>
+<li>y ajouter l&rsquo;exécution <id>gitInfos-xxxxxx</id> sur le modèle des existants</li>
+<li>y ajouter l&rsquo;exécution <id>zip-xxxxxx</id> sur le modèle des existants</li>
+</ul>
+</li>
+<li>déclarer le nouveau répertoire de source dans le fichier <em>tsconfig.json</em> à la racine du projet <em>front</em></li>
+</ul>
+</li>
+<li>pour initialiser l&rsquo;application Angular
+<ul>
+<li>supprimer, s&rsquo;ils existent, les fichiers <em>src/favicon.ico</em> et <em>src/app/app-routing.module.ts</em></li>
+<li>dupliquer le fichier <em>tsconfig.doc.json</em> présent à la racine d&rsquo;un autre projet dans ce nouveau projet</li>
+<li>dans le fichier <em>angular.json</em>, trouver le nouveau projet puis
+<ul>
+<li>trouver ses <strong>2</strong> attributs <em>styles</em> pour y mettre le même contenu que celui des autres projets (au delta du code de la démarche)</li>
+<li>trouver ses <strong>2</strong> attributs <em>assets</em> pour y mettre le même contenu que celui des autres projets (au delta du code de la démarche)</li>
+<li>trouver l&rsquo;attribut <em>schematics</em> pour y mettre le même contenu que celui des autres projets</li>
+<li>recréer la partie <em>build-coverage</em> à la place de la partie <em>test</em></li>
+<li>ajouter les éléments nécessaires pour que la configuration de la démarche soit identique (au code de démarche près) aux autres (trop de modifications et trop changeante pour être listées ici)</li>
+</ul>
+</li>
+<li>dans le répertoire <em>projects/nouvelleDemarche</em>,
+<ul>
+<li>supprimer le fichier <em>.eslintrc.json</em></li>
+<li>supprimer les fichiers <em>tsconfig.spec.json</em> et <em>src/app/app.component.spec.ts</em></li>
+<li>récupérer la page <em>index.html</em> d&rsquo;une autre démarche en changeant le contenu de la balise <em>title</em> et la balise <em>base</em></li>
+<li>récupérer le répertoire des fichiers d&rsquo;environnement (<em>src/environments</em>) en remplaçant le code de la démarche</li>
+<li>récupérer le composant <em>app.component</em> dans son ensemble (TS et HTML) depuis une autre démarche (<em>etatcivil</em> par exemple) sans oublier de retirer du HTML le code des pages spécifiques (<em>etatcivil</em> n&rsquo;en a pas)</li>
+<li>récupérer le <em>app.module</em> depuis une autre démarche en en retirant les spécificités de la démarche (s&rsquo;il y en a)</li>
+<li>récupérer le répertoire <em>cypress</em> à la racine d&rsquo;un autre projet (autre qu&rsquo;<em>edition</em>), le dupliquer dans la nouvelle démarche</li>
+<li>remplacer le code de la démarche dans le fichier <em>src/cypress/e2e/e2e.cy.ts</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>configurer la démarche
+<ul>
+<li>créer la configuration publique de la démarche dans le fichier <em>assets/bouchonapi/param.json</em> du code Angular de la démarche (nom à définir en cohérence avec celui indiqué dans le fichier <em>e2e.cy.ts</em>)</li>
+<li>supprimer le fichier <em>src/assets/.gitkeep</em> (qui ne sert plus à rien car un répertoire existe maintenant)</li>
+<li>créer un brouillon dans le répertoire <em>assets/bouchonapi</em> du code Angular de la démarche</li>
+<li>créer la configuration privée de la démarche dans le répertoire <em>2-code/socle/socle-dbconfiguration/src/test/resources/db</em> (ainsi que les templates de document à générer)</li>
+</ul>
+</li>
+<li>tester
+<ul>
+<li>supprimer le contenu de la base de données avec la commande <code>. ./outils.sh PURGE DB</code> (qui supprime le répertoire <em>2-code/socle/.embedmongo</em> avant de démarrer la base de données MongoDB du socle (pour forcer l&rsquo;initialisation)</li>
+<li>depuis les logs de démarrage de la base de données, vérifier que le nombre de configurations publiques, de configurations privées et de templates de document sont bien insérés</li>
+<li>démarrer la démarche avec la commande <code>npm run xxxxxx-start</code> (ou <em>yarn</em> à la place de <em>npm</em>)</li>
+<li>la démarche doit être fonctionnelle</li>
+<li>arrêter l&rsquo;application</li>
+<li>activer tous les bouchons</li>
+<li>démarrer l&rsquo;application avec la commande <code>npm run xxxxxx-startcoverage</code> (ou <em>yarn</em> à la place de <em>npm</em>)</li>
+<li>démarrer les tests E2E avec la commande <code>npm run e2e</code> (ou <em>yarn</em> à la place de <em>npm</em>)</li>
+</ul>
+</li>
+<li>documenter la démarche
+<ul>
+<li>ajouter un lien vers la documentation technique générée (<em>compodoc</em>) de la démarche dans <a href="/psl-public/documentation/1conceptiongenerale/1.3lesapplicatifs/1.3.1demarche/">la page des démarches</a></li>
+<li>ajouter le code de la démarche dans <a href="/psl-public/documentation/2conceptiondetaillee/2.3principesconceptiondufront/#232---segmentation-du-code">la page des principes de conception</a></li>
+<li>ajouter un lien vers la documentation technique générée (<em>compodoc</em>) de la démarche dans <a href="/psl-public/documentation/2conceptiondetaillee/2.9liensdocumentaires/">la page des liens documentaires</a></li>
+<li>ajouter un lien vers l&rsquo;environnement de développement dans <a href="/psl-public/documentation/3developpement/3.1liens/">la page des liens</a></li>
+<li>ajouter une ligne pour la démarche dans <a href="/psl-public/documentation/5avancement/5.2quoi/">la liste des tests réguliers à réaliser</a></li>
+</ul>
+</li>
+<li>vérifier la cohérence de la démarche vis-à-vis des autres : exécuter la procédure du chapitre suivant</li>
+<li>dans le code <em>Java</em>, dans le projet socle-soumission, dans les classes <em>SoumissionReelleServiceTest</em> et <em>GenerationServiceDepuisSourcesFrontTest</em>, sur le modèle des tests existants, créer un test pour réaliser une soumission avec la configuration et les données du brouillon de la nouvelle démarche</li>
+<li>dans le projet <em>IAS</em>, dans le répertoire <em>2-code\ias\ansible</em>, déclarer la nouvelle démarche dans :
+<ul>
+<li>le playbook <em>03-deployer.yml</em> sur le modèle de celui d&rsquo;<em>arnaqueinternet</em> (en respectant l&rsquo;ordre alphabétique)</li>
+<li>dans le fichier de variables de chaque inventaire (fichier <em>inventory/*/group_vars/all/default.yml</em>), ajouter la nouvelle démarche dans les variables <em>applications_web_front</em> et <em>version_front</em></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3323---vérifier-la-cohérence-dune-démarche">3.32.3 - Vérifier la cohérence d&rsquo;une démarche</h2>
+<p>Cette procédure ne s&rsquo;applique au pied de la lettre que pour les démarches sans code spécifique. Elle permet de vérifier la cohérence entre les démarches et la bonne prise en compte de modifications globales (ajout d&rsquo;une librairie ou d&rsquo;une fonctionnalité) :</p>
+<ul>
+<li>ouvrir l&rsquo;outil <a href="https://sourceforge.net/projects/kdiff3/">KDIFF</a></li>
+<li>ouvrir ensemble les répertoires <em>2-code/front/projects/bibliotheque</em> et <em>2-code/front/projects/xxxx</em> avec xxxx le code de la démarche à comparer</li>
+<li>ne doivent être différents que :
+<ul>
+<li>le code de la démarche dans le fichier <em>cypress/e2e/e2e.cy.ts</em> et potentiellement le nom des brouillons</li>
+<li>le contenu des fichiers <em>src/assets/bouchonapi/brouillon.json</em> et <em>src/assets/bouchonapi/param.json</em> car ils sont totalement spécifiques à chaque démarche</li>
+<li>le contenu des fichiers <em>src/environments/environments.ts</em> et <em>src/environments/environments.prod.ts</em> car ils contiennent le code de la démarche</li>
+<li>le contenu des fichiers <em>src/index.html</em>, <em>src/environments/environments.ts</em> et <em>src/environments/environments.prod.ts</em> car ils contiennent le code de la démarche</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3324---ajouter-un-nouveau-type-de-contenu">3.32.4 - Ajouter un nouveau type de contenu</h2>
+<p>Tout type de contenu dispose des attributs suivants (@see ContenuDeBloc dans configurationdemarchecontenubloc.model.ts) :
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	cliquer ici pour afficher le contenu
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <ul>
+<li><em>clef</em> : Clef unique définissant la donnée saisie. Cette clef est utilisable dans les conditions et les autres champs.</li>
+<li><em>titre</em> : Titre du contenu de bloc. Cet attribut n&rsquo;est pas obligatoire. S&rsquo;il est vide, aucun titre ne s&rsquo;affiche.</li>
+<li><em>aide</em> : Aide affichée à côté du titre si elle est renseignée.</li>
+<li><em>type</em> : Type du contenu</li>
+<li><em>conditionDesactivation</em> : Condition de désactivation du champ (cf. conditionVisibilite)</li>
+<li><em>conditionVisibilite</em> : Condition d&rsquo;affichage du contenu. Cette attribut est optionnel et sa valeur par défaut est undefined. Cette condition est une expression JS évaluée avec l&rsquo;équivalent de la méthode EVAL() ayant accès aux données de la démarche uniquement. Attention, toutes les données sont des chaines de caractères (même les boolean et les nombres).</li>
+</ul>
+
+    </div>
+</div></p>
+<p>Pour ajouter un type de contenu, il faut :</p>
+<ul>
+<li>déclarer un nouveau type dans TypeContenuDeBloc (@see configurationdemarchecontenubloc.model.ts)</li>
+<li>associer ce nouveau type avec les catégories définies dans UtilitaireModel (@see utilitaire.model.ts)</li>
+<li>déclarer une nouvelle classe avec les spécificités du contenu à gérer dans configurationdemarchecontenubloc.model.ts (si nécessaire)</li>
+<li>enrichir la méthode ConfigurationService.transtyperContenuDeBloc pour transtyper les objets JSON dans le bon type TS</li>
+<li>créer le composants TS du nouveau type de contenu</li>
+<li>déclarer ce nouveau composant Angular dans le module.ts</li>
+<li>ajouter un GETTER dans le composant FmkContenuComponent (en respectant l&rsquo;ordre alphabétique des méthodes)</li>
+<li>ajouter une balise &lt;fmk-contenuxxxxx dans la partie HTML du composant FmkContenuComponent (en respectant l&rsquo;ordre alphabétique des composants)</li>
+</ul>
+<p>Côté Java, il faut aussi :</p>
+<ul>
+<li>déclarer le type de contenu dans une des constantes de la classe <em>ValidationSoumissionServiceImpl</em></li>
+<li>les champs de type <em>autocompletion</em> des composants complexes dans <em>ValidationSoumissionServiceImpl.LISTE_SOUS_CHAMPS_AUCOMPLETION_DANS_COMPOSANT_COMPLEXE</em></li>
+</ul>
+<p>Côté Editeur, il ne faut pas oublier de :</p>
+<ul>
+<li>vérifier les impacts sur le formulaire d&rsquo;un contenu</li>
+</ul>
+<p>Côté documentation, il faut enfin :</p>
+<ul>
+<li>ajouter le nouveau type de composant à la liste du chapitre 2.6</li>
+<li>décrire le nouveau type de contenu dans le chapitre 2.10.2.2</li>
+</ul>
+<hr>
+<h2 id="3325---a-savoir-sur-un-type-de-contenu">3.32.5 - A savoir sur un type de contenu</h2>
+<p>Concernant le fonctionnement d&rsquo;un type de contenu, quelques éléments à savoir :</p>
+<ul>
+<li>ne jamais utiliser une méthode/interface de hook du cycle de vie Angular (OnChange, OnInit&hellip;)</li>
+<li>pour exécuter du code au chargement du composant, il suffit de surcharger la méthode <code>protected initialiserComposant(contenu: ContenuDeBloc): void {}</code></li>
+</ul>
+<hr>
+<h2 id="3326---ajoutretraitmodification-dun-attribut-dans-un-type-de-contenu-ou-une-classe-du-package-_model_">3.32.6 - Ajout/retrait/modification d&rsquo;un attribut dans un type de contenu ou une classe du package <em>model</em></h2>
+<p>En cas de modification d&rsquo;une classe décrivant un type de contenu (ou une classe de la grappe de données des configurations publiques/inernes) pour y ajouter une un attribut saisissable dans un JSON (pas une donnée calculée), il est nécessaire de réaliser des modifications dans d&rsquo;autres classes du projet :</p>
+<ul>
+<li>dans ConfigurationService : si l&rsquo;attribut ajouté/modifié/supprimé est un type complexe (objet ou tableau), il est nécessaire de l&rsquo;initialiser au cas où il serait absent de la configuration chargée en JSON.</li>
+<li>dans l&rsquo;application d&rsquo;édition de démarche, le/les composants graphiques doivent être adaptés à la structure de données</li>
+<li>dans l&rsquo;éventuelle classe Java équivalente, la modification doit aussi être appliquée</li>
+<li>dans la démarche <em>bibliotheque</em>, un exemple doit être fourni</li>
+</ul>
+<hr>
+<h2 id="3327---comment-ajouter-un-nouveau-type-de-validation-de-champ">3.32.7 - Comment ajouter un nouveau type de validation de champ</h2>
+<p>Il existe deux types de validation de champ : les paramétrables et les autres. Par exemple <em>dateAvant-7j</em> est une validation paramétrable et <em>required</em> ne l&rsquo;est pas.</p>
+<p>Côté FRONT, pour ajouter une validation, il faut :</p>
+<ul>
+<li>modifier la classe <em>Validation</em> dans le fichier <em>configurationdemarchecontenubloc.model.ts</em> pour ajouter le nom de la validation (ou la partie fixe si c&rsquo;est une validation paramétrable)</li>
+<li>modifier la classe <em>ValidationService</em> pour ajouter le contrôle lui-même (en s&rsquo;inspirant du code existant). Attention, si la validation est paramétrable, l&rsquo;objet retourné par la méthode de validation doit contenir la partie fixe et non la variable <em>v</em>.</li>
+<li>modifier le fichier <em>fmk.messagesvalidation.html</em> pour ajouter le message d&rsquo;erreur associé à la validation</li>
+<li>modifier la méthode <em>ContenuMonoTestUtils.definirMauvaiseValeur</em> pour y fournir une mauvaise valeur pour la nouvelle validation</li>
+<li>ajouter la nouvelle validation dans le second <em>if</em> de la méthode <em>ContenuMonoTestUtils.validerLesValidationDunContenuMonoChamp</em></li>
+<li>si la validation est paramétrable, enrichir le calcul de la variable <em>nomClasseAssocieAvalidation</em> de la méthode <em>ContenuMonoTestUtils.validerLesValidationDunContenuMonoChamp</em></li>
+<li>modifier la configuration de la démarche <em>bibliotheque</em> pour y ajouter un champ avec cette nouvelle validation</li>
+<li>modifier les données de brouillon de la démarche <em>bibliotheque</em> pour y ajouter une bonne valeur pour le nouveau champ</li>
+<li>si la bonne valeur n&rsquo;est pas une valeur fixe (mais une valeur dépendante du jour par exemple), modifier la méthode <em>ContenuMonoTestUtils.definirBonneValeur</em> pour y ajouter une gestion spécifique de cette validation</li>
+<li>lancer les tests E2E de la démarche <em>bibliotheque</em></li>
+<li>modifier la démarche devant utiliser cette nouvelle validation</li>
+<li>lancer les tests E2E de cette démarche</li>
+</ul>
+<p>Côté BACK, pour ajouter une validation, il faut :</p>
+<ul>
+<li>modifier la classe <em>ValidationEnum</em> pour ajouter le nom de la validation (ou la partie fixe si c&rsquo;est une validation paramétrable)</li>
+<li>modifier la méthode <em>ValidationSoumissionServiceImpl.verifierValidationDuneValeur</em> pour ajouter le contrôle lui-même (en s&rsquo;inspirant du code existant).</li>
+<li>tester la nouvelle validation en modifiant les classes <em>SoumissionObjectMother</em> et <em>ValidationServiceTest</em>
+<ul>
+<li>pour enrichir les cas passants existants</li>
+<li>ajouter des cas bloquants et aux limites</li>
+</ul>
+</li>
+<li>lancer les tests automatisés sur projet <em>socle-soumission</em></li>
+</ul>
+<hr>
+<h2 id="3328---règles-de-développement-dans-le-code-spécifique-dune-démarche">3.32.8 - Règles de développement dans le code spécifique d&rsquo;une démarche</h2>
+<ul>
+<li>aucune fonctionnalité du framework ne doit être enrichie. Il faut enrichir le framework (type de contenu, validation&hellip;)</li>
+<li>toute souscription (alias appel à une méthode <em>subscribe()</em>) doit être détruite à la fin de la vie du composant qui réalise la souscription. La seule exception concerne les composants immortels (comme les <em>AppComponent</em>) pour lesquels un commentaire explicite est obligatoire. Pour réaliser cela,
+<ul>
+<li>soit le composant détruit lui-même la souscription dans sa méthode <em>ngOnDestroy</em> (prendre modèle sur la classe <em>AbstractComponent</em>)</li>
+<li>soit le composant hérite de <em>AbstractComponent</em> et utilise les méthodes <em>declarerSouscription</em> et <em>declarerSouscriptions</em> pour ajouter la souscription créée à la liste des souscriptions à détruire</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3329---intégration-de-la-charte-graphique-de-létat-dsfr">3.32.9 - Intégration de la charte graphique de l&rsquo;état (DSFR)</h2>
+<p>La documentation est disponible ici : <a href="https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223019574/D+veloppeurs">https://gouvfr.atlassian.net/wiki/spaces/DB/pages/223019574/D+veloppeurs</a>.
+La dépendance à DSFR (en version 1.1 au 10/11/2021) se fait via NPM/YARN.
+Pour intégrer les CSS DSFR à l&rsquo;application, la configuration <em>//build/options/styles</em> est correctement renseignée dans le fichier <em>angular.json</em>.
+La feuille de style <em>projects/framework/src/assets/stylesDSFR.scss</em> est dédiée aux styles ajoutés à DSFR pour l&rsquo;amender ou la compléter pour les besoins de la PSL.</p>
+<hr>
+<h2 id="33210---validation-w3c-du-code-html-généré">3.32.10 - Validation W3C du code HTML généré</h2>
+<p>Pour valider le code HTML généré dans une démarche, il faut :</p>
+<ul>
+<li>dans une démarche donnée, recopier le contenu du fichier <em>src/environments/environment.ts</em> dans le fichier <em>src/environments/environment.prod.ts</em></li>
+<li>depuis l&rsquo;invite de commande, exécuter un <em>xx-build-prod</em> de la démarche</li>
+<li>lancer le serveur <em>http</em> via la commande <em>npm http-start</em></li>
+<li>pour chaque écran de la démarche
+<ul>
+<li>dans les outils de développement, dans l&rsquo;onglet <em>Elements</em>, sélectionner la balise <em>html</em> et copier tout le contenu de la page</li>
+<li>aller sur le <a href="https://validator.w3.org/nu/#textarea">site du validateur W3C</a></li>
+<li>coller le code HTML</li>
+<li>lancer la validation</li>
+<li>interpréter les résultats
+<ul>
+<li>la balise <em>doctype</em> n&rsquo;est pas copiée dans la procédure mais est bien présente dans le code de la page. Donc cette erreur peut être ignorée.</li>
+<li>le contenu <em>@charset &ldquo;UTF-8&rdquo;</em> vient des CSS de la DSFR</li>
+<li>l&rsquo;attribut <em>type</em> de la balise <em>style</em> est généré automatiquement par Angular</li>
+<li>le rôle <em>banner</em> sur la balise <em>header</em> est demandée explicitement par la <a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/en-tete/">documentation DSFR</a></li>
+<li>le rôle <em>main</em> sur la balise <em>main</em> est demandée explicitement par la documentation DSFR : <a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/modeles/page-de-creation-de-compte/">lien 1</a> et <a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/modeles/page-d-erreurs/">lien 2</a></li>
+<li>le rôle <em>navigation</em> sur la balise <em>nav</em> est demandée explicitement par la <a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/fil-d-ariane/">documentation DSFR</a></li>
+<li>l&rsquo;attribut <em>contentinfo</em> sur la balise <em>footer</em> est demandée explicitement par la <a href="https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pied-de-page/">documentation DSFR</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="33211---quelques-rappels-tsjs">3.32.11 - Quelques rappels TS/JS</h2>
+<p>Voici quelques liens à consulter pour (re)découvrir quelques bases de TypeScript/Javascript :</p>
+<ul>
+<li><a href="https://developer.mozilla.org/fr/docs/Glossary/Falsy">les falsy</a></li>
+</ul>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/psl-public/documentation/3developpement/3.31proceduressitedocumentaire/" title="3.31 Procédures-site documentaire"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/psl-public/documentation/3developpement/3.33proceduresmaven/" title="3.33 Procédures-environnement Maven" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/psl-public/documentation/js/clipboard.min.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/perfect-scrollbar.min.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/perfect-scrollbar.jquery.min.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/jquery.sticky.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/featherlight.min.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/highlight.pack.js?1745960225"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/psl-public/documentation/js/modernizr.custom-3.6.0.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/learn.js?1745960225"></script>
+    <script src="/psl-public/documentation/js/hugo-learn.js?1745960225"></script>
+    
+        
+            <script src="/psl-public/documentation/mermaid/mermaid.js?1745960225"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

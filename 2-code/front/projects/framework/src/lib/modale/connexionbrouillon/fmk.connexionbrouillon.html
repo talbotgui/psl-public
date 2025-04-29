@@ -1,0 +1,101 @@
+<div mat-dialog-content class="connexionBrouillon">
+  <main>
+    <div class="fr-container">
+      <div class="fr-grid-row fr-grid-row-gutters fr-grid-row--center">
+        <div class="fr-col-12">
+          <fieldset class="fr-fieldset" id="fieldset-login" aria-labelledby="validationMotDePasse">
+
+            <legend class="fr-fieldset__legend">
+              <h2>{{ 'repriseBrouillon.titre' | i18n}}</h2>
+            </legend>
+
+            <!-- En fonction de l'usage de la popup -->
+            <div class="fr-fieldset__element">
+              @if (flagReprise) {
+                <p class="fr-text--sm">{{ 'repriseBrouillon.reprise' | i18n}}</p>
+              }
+              @if (!flagReprise) {
+                <p class="fr-text--sm">{{ 'repriseBrouillon.sauvegarde' | i18n}}</p>
+              }
+            </div>
+
+            <!-- Message d'information pour les champs obligatoires (s'il en existe) -->
+            <div class="fr-fieldset__element">
+              @if (!modeObligatoireParDefaut) {
+                <p class="fr-text--sm mentionPasObligatoireParDefaut">
+                  {{'page.modePasObligatoire.1' |i18n}}<span class="symbol-required">*</span>{{'page.modePasObligatoire.2'| i18n}}
+                </p>
+              }
+              @if (modeObligatoireParDefaut) {
+                <p class="fr-text--sm mentionObligatoireParDefaut">
+                  {{'page.modeObligatoire.1' |i18n}}<b>{{'page.modeObligatoire.2' |i18n}}</b>{{'page.modeObligatoire.3' | i18n}}
+                </p>
+              }
+            </div>
+
+            <div [class.fr-input-group--error]="saisieNomUtilisateurInvalide" [class.fr-input-group--valid]="saisieNomUtilisateurValide"
+              class="fr-fieldset__element fr-input-group">
+
+              <label class="fr-label" for="nomUtilisateurDansModaleBrouillon">
+                @if (!modeObligatoireParDefaut) {
+                  <span class="symbol-required">* </span>
+                }
+                <span>{{'repriseBrouillon.email' | i18n}}</span>
+              </label>
+
+              <input autofocus class="fr-input" [class.fr-input--error]="saisieNomUtilisateurInvalide"
+                [class.fr-input--valid]="saisieNomUtilisateurValide" type="text" id="nomUtilisateurDansModaleBrouillon"
+                [formControl]="controleNomUtilisateur">
+
+                <p data-fmk-messagesvalidation id="validationNomUtilisateur" [controle]="controleNomUtilisateur" aria-live="assertive">
+                </p>
+              </div>
+
+              <div [class.fr-input-group--error]="saisieMotDePasseInvalide" [class.fr-input-group--valid]="saisieMotDePasseValide"
+                class="fr-fieldset__element fr-input-group fr-password">
+
+                <label class="fr-label" for="motDePasseDansModaleBrouillon">
+                  @if (!modeObligatoireParDefaut) {
+                    <span class="symbol-required">* </span>
+                  }
+                  <span>{{'repriseBrouillon.motdepasse' | i18n}}</span>
+                </label>
+
+                <input class="fr-input fr-password__input" [class.fr-input--error]="saisieMotDePasseInvalide"
+                  [class.fr-input--valid]="saisieMotDePasseValide" type="password" id="motDePasseDansModaleBrouillon"
+                  [formControl]="controleMotDePasse" (keydown.enter)="confirmer()" autocomplete="current-password">
+
+                  <p data-fmk-messagesvalidation id="validationNomUtilisateur" [controle]="controleMotDePasse" aria-live="assertive"></p>
+
+                  <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
+                    <input [attr.aria-label]="'repriseBrouillon.caseAfficher' | i18n" id="afficherMotDePasse" type="checkbox">
+                    <label class="fr-password__checkbox fr-label" for="afficherMotDePasse">{{ 'repriseBrouillon.caseAfficherLibelle' |
+                    i18n }}</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div mat-dialog-actions>
+      <div class="fr-container">
+        <div class="fr-grid-row">
+          <div class="fr-col-12">
+            <ul class="fr-btns-group fr-btns-group--inline-md">
+              <li>
+                <button type="button" class="fr-btn" [disabled]="saisieNomUtilisateurInvalide || saisieMotDePasseInvalide"
+                (click)="confirmer()">Confirmer</button>
+              </li>
+              <li>
+                @if (flagReprise) {
+                  <button type="button" class="fr-btn fr-btn--secondary" (click)="annuler()">Annuler</button>
+                }
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>

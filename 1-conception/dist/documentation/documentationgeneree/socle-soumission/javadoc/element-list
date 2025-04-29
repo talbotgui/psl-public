@@ -1,0 +1,12 @@
+com.github.talbotgui.psl.socle.soumission.apiclient
+com.github.talbotgui.psl.socle.soumission.apiclient.api
+com.github.talbotgui.psl.socle.soumission.apiclient.dto
+com.github.talbotgui.psl.socle.soumission.application
+com.github.talbotgui.psl.socle.soumission.client
+com.github.talbotgui.psl.socle.soumission.client.dto
+com.github.talbotgui.psl.socle.soumission.controleur
+com.github.talbotgui.psl.socle.soumission.dto
+com.github.talbotgui.psl.socle.soumission.exception
+com.github.talbotgui.psl.socle.soumission.service.captcha
+com.github.talbotgui.psl.socle.soumission.service.soumission
+com.github.talbotgui.psl.socle.soumission.utils

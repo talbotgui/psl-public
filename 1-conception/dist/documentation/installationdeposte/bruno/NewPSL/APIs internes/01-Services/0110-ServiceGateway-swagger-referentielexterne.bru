@@ -1,0 +1,20 @@
+meta {
+  name: 0110-ServiceGateway-swagger-referentielexterne
+  type: http
+  seq: 11
+}
+
+get {
+  url: https://{{API_HOST}}:{{API_PORT}}/v3/api-docs/referentielexterne
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.openapi: isDefined 
+}
+
+script:pre-request {
+  // 
+}

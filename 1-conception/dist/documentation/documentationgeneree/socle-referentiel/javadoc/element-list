@@ -1,0 +1,12 @@
+com.github.talbotgui.psl.socle.referentiel.apiclient
+com.github.talbotgui.psl.socle.referentiel.apiclient.api
+com.github.talbotgui.psl.socle.referentiel.apiclient.dto
+com.github.talbotgui.psl.socle.referentiel.application
+com.github.talbotgui.psl.socle.referentiel.client
+com.github.talbotgui.psl.socle.referentiel.client.dtointerne
+com.github.talbotgui.psl.socle.referentiel.controleur
+com.github.talbotgui.psl.socle.referentiel.cron
+com.github.talbotgui.psl.socle.referentiel.dto.oauth2
+com.github.talbotgui.psl.socle.referentiel.exception
+com.github.talbotgui.psl.socle.referentiel.service
+com.github.talbotgui.psl.socle.referentiel.service.indexeur

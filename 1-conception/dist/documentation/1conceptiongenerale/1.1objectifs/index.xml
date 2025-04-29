@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1.1 Objectifs on Documentation nouvelle PSL</title>
+    <link>http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/</link>
+    <description>Recent content in 1.1 Objectifs on Documentation nouvelle PSL</description>
+    <generator>Hugo</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Wed, 02 Apr 2025 22:52:08 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1.1.1 Objectifs fonctionnels</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/1.1.1objectifsfonctionnels/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/1.1.1objectifsfonctionnels/</guid>
+      <description>Selon moi, l&amp;rsquo;objectif initial et primaire de la Plateforme de Service en Ligne (PSL) est&#xA;de permettre aux usagers de saisir leurs demandes dans des formulaires les guidant le plus possible jusqu&amp;rsquo;au remplissage des documents à envoyer au service instructeur. Ce guidage est&#xA;&amp;ldquo;fonctionnel&amp;rdquo; : les données à renseigner sont affichées/masquées en fonction des saisies précédentes pour que les demandes soient cohérentes et simples à saisir. &amp;ldquo;qualitatif&amp;rdquo; : les données saisies sont bonnes puisque les usagers disposent de saisies avec auto-complétion et de validations de champ.</description>
+    </item>
+    <item>
+      <title>1.1.2 Objectifs techniques</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/1.1.2objectifstechniques/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/1.1.2objectifstechniques/</guid>
+      <description>L&amp;rsquo;objectif technique de ma version du SI est de constuire une solution basée sur des technologies récentes pour en faciliter l&amp;rsquo;installation dans le cloud :&#xA;se baser sur des technologies récentes et pérennes : SpringBoot / Angular permettre une forte évolutivité : architecture micro-services maintenir un haut niveau de sécurité : du fait des technologies modernes (et donc maintenues) et de l&amp;rsquo;architecture (peu d&amp;rsquo;API recevant des données) être &amp;ldquo;cloud ready&amp;rdquo; nativement : usage des fonctionnalités de l&amp;rsquo;écosystème Spring simplifier la configuration et l&amp;rsquo;administration : réduction des configurations sous forme de clef/valeur mais des configurations structurées en Document (au sens NoSQL du terme) disposer d&amp;rsquo;un SI hautement disponible (sans parler de l&amp;rsquo;aspect scalabilité traité par le cloud) </description>
+    </item>
+    <item>
+      <title>1.1.3 Objectifs de disponibilité</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/1.1.3objectifsdisponibilite/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/1.1.3objectifsdisponibilite/</guid>
+      <description>Les applications fontales doivent être hautement disponibles. Leur disponibilité ne doit pas dépendre des applicatifs présents en aval dans la chaîne de traitement de l&amp;rsquo;information.&#xA;Autrement dit, si un des applicatifs en aval est indisponible, aucune fonctionnalité de ma PSL ne doit être impactée.&#xA;La solution est simple (en tout cas le principe) : à la soumission d&amp;rsquo;un télé-dossier, ma PSL ne fait que stocker les pièces jointes fournies par l&amp;rsquo;usager et les documents générés.</description>
+    </item>
+    <item>
+      <title>1.1.4 Objectifs d&#39;homogénéité</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/1.1.4objectifhomogeneite/</link>
+      <pubDate>Wed, 02 Apr 2025 22:52:08 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.1objectifs/1.1.4objectifhomogeneite/</guid>
+      <description>Enfin, parmi les attendus de la PSL, restent&#xA;l&amp;rsquo;homogénéité des écrans leur respect du Référentiel Général d&amp;rsquo;Amélioration de l&amp;rsquo;Accessibilité leur respect de la charte DesignSytem de l&amp;rsquo;état Dans cet objectif, presque toutes les démarches sont construites de la même manière :&#xA;un fil d&amp;rsquo;Ariane permettant de se repérer dans les différentes étapes de la saisie chaque étape est un ensemble de pages chaque page contient un formulaire le formulaire est constitué de blocs chaque bloc peut commencer par un titre et regroupe des champs de saisie et des paragraphes de texte </description>
+    </item>
+  </channel>
+</rss>

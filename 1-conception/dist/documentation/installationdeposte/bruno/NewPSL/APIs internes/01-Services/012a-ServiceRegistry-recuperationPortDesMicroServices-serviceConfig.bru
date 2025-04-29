@@ -1,0 +1,25 @@
+meta {
+  name: 012a-ServiceRegistry-recuperationPortDesMicroServices-serviceConfig
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{API_HOST}}:{{EUREKA_PORT}}/service/registry/eureka/apps/SERVICE-CONFIG/service-config-1
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: adminregistre
+  password: adminregistre
+}
+
+vars:post-response {
+  portServiceConfig: res("instance.port.$")
+}
+
+assert {
+  res.status: eq 200
+  res.body.instance: isDefined
+}

@@ -1,0 +1,1068 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>maj-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">maj-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Saisissez un texte"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Composants</li>
+  <li class="breadcrumb-item"
+  >
+  ConnexionBrouillonDialog</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Fichier</h3>
+</p>
+<p class="comment">
+    <code>projects/framework/src/lib/modale/connexionbrouillon/fmk.connexionbrouillon.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implémente</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Métadonnées</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+            <tr>
+                <td class="col-md-3">encapsulation</td>
+                <td class="col-md-9"><code>ViewEncapsulation.None</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>div[data-fmk-connexionreprisebrouillon]</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CdkScrollable</code>
+                            <code>MatDialogContent</code>
+                            <code>ReactiveFormsModule</code>
+                                <code><a href="../components/FmkMessagesValidationComponent.html" target="_self" >FmkMessagesValidationComponent</a></code>
+                            <code>MatDialogActions</code>
+                                <code><a href="../miscellaneous/variables.html#i18n" target="_self" >i18nPipeDirective</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./fmk.connexionbrouillon.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propriétés</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#controleMotDePasse" >controleMotDePasse</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#controleNomUtilisateur" >controleNomUtilisateur</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#flagReprise" >flagReprise</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#modeObligatoireParDefaut" >modeObligatoireParDefaut</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Méthodes</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#annuler" >annuler</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#confirmer" >confirmer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accesseurs</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#saisieNomUtilisateurValide" >saisieNomUtilisateurValide</a>
+                                </li>
+                                <li>
+                                    <a href="#saisieNomUtilisateurInvalide" >saisieNomUtilisateurInvalide</a>
+                                </li>
+                                <li>
+                                    <a href="#saisieMotDePasseValide" >saisieMotDePasseValide</a>
+                                </li>
+                                <li>
+                                    <a href="#saisieMotDePasseInvalide" >saisieMotDePasseInvalide</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructeur</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(validationService: <a href="../injectables/ValidationService.html" target="_self">ValidationService</a>, contexteService: <a href="../injectables/ContexteService.html" target="_self">ContexteService</a>, dialogRef: <a href="../components/ConnexionBrouillonDialog.html" target="_self">MatDialogRef&lt;ConnexionBrouillonDialog&gt;</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="69" class="link-to-prism">projects/framework/src/lib/modale/connexionbrouillon/fmk.connexionbrouillon.ts:69</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructeur permettant l&#39;injection de dépendances</p>
+</div>
+                            <div>
+                                    <b>Paramètres :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Nom</td>
+                                                    <td>Type</td>
+                                                <td>Optionnel</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>validationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ValidationService.html" target="_self" >ValidationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>contexteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ContexteService.html" target="_self" >ContexteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogRef</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../components/ConnexionBrouillonDialog.html" target="_self" >MatDialogRef&lt;ConnexionBrouillonDialog&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Non
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Méthodes
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="annuler"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>annuler</b></span>
+                        <a href="#annuler"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>annuler()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="95"
+                                    class="link-to-prism">projects/framework/src/lib/modale/connexionbrouillon/fmk.connexionbrouillon.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Si l&#39;utilisateur annule sa saisie, la modale ne renvoie rien.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmer"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>confirmer</b></span>
+                        <a href="#confirmer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>confirmer()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="90"
+                                    class="link-to-prism">projects/framework/src/lib/modale/connexionbrouillon/fmk.connexionbrouillon.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Si l&#39;utilisateur annule sa saisie, la modale renvoie le nom de l&#39;utilisateur et le mot de passe saisi.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Défini dans <a href="" data-line="75"
+                                    class="link-to-prism">projects/framework/src/lib/modale/connexionbrouillon/fmk.connexionbrouillon.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Initialisation du composant</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Renvoie : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propriétés
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="controleMotDePasse"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>controleMotDePasse</b></span>
+                        <a href="#controleMotDePasse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>new FormControl(&#x27;&#x27;, { updateOn: &#x27;blur&#x27; })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="47" class="link-to-prism">projects/framework/src/lib/modale/connexionbrouillon/fmk.connexionbrouillon.ts:47</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Contrôle associé au champ &#39;motDePasse&#39; (valeur par défaut vide)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="controleNomUtilisateur"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>controleNomUtilisateur</b></span>
+                        <a href="#controleNomUtilisateur"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>new FormControl(&#x27;&#x27;, { updateOn: &#x27;blur&#x27; })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="44" class="link-to-prism">projects/framework/src/lib/modale/connexionbrouillon/fmk.connexionbrouillon.ts:44</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Contrôle associé au champ &#39;nomUtilisateur&#39; (valeur par défaut vide)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="flagReprise"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>flagReprise</b></span>
+                        <a href="#flagReprise"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="41" class="link-to-prism">projects/framework/src/lib/modale/connexionbrouillon/fmk.connexionbrouillon.ts:41</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag indiquant si la fenêtre modale est utilisée pour la sauvegarde ou la reprise du brouillon</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modeObligatoireParDefaut"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>modeObligatoireParDefaut</b></span>
+                        <a href="#modeObligatoireParDefaut"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valeur par défaut : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Défini dans <a href="" data-line="50" class="link-to-prism">projects/framework/src/lib/modale/connexionbrouillon/fmk.connexionbrouillon.ts:50</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag venant de la configuration de la démarche</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accesseurs
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="saisieNomUtilisateurValide"></a>
+                        <span class="name"><b>saisieNomUtilisateurValide</b><a href="#saisieNomUtilisateurValide"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>saisieNomUtilisateurValide()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Défini dans <a href="" data-line="53" class="link-to-prism">projects/framework/src/lib/modale/connexionbrouillon/fmk.connexionbrouillon.ts:53</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Calcul de la validation du champ &#39;nomUtilisateur&#39;</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="saisieNomUtilisateurInvalide"></a>
+                        <span class="name"><b>saisieNomUtilisateurInvalide</b><a href="#saisieNomUtilisateurInvalide"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>saisieNomUtilisateurInvalide()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Défini dans <a href="" data-line="58" class="link-to-prism">projects/framework/src/lib/modale/connexionbrouillon/fmk.connexionbrouillon.ts:58</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Calcul de la validation du champ &#39;nomUtilisateur&#39;</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="saisieMotDePasseValide"></a>
+                        <span class="name"><b>saisieMotDePasseValide</b><a href="#saisieMotDePasseValide"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>saisieMotDePasseValide()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Défini dans <a href="" data-line="62" class="link-to-prism">projects/framework/src/lib/modale/connexionbrouillon/fmk.connexionbrouillon.ts:62</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Calcul de la validation du champ &#39;motDePasse&#39;</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="saisieMotDePasseInvalide"></a>
+                        <span class="name"><b>saisieMotDePasseInvalide</b><a href="#saisieMotDePasseInvalide"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>saisieMotDePasseInvalide()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Défini dans <a href="" data-line="67" class="link-to-prism">projects/framework/src/lib/modale/connexionbrouillon/fmk.connexionbrouillon.ts:67</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Calcul de la validation du champ &#39;motDePasse&#39;</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Renvoie : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewEncapsulation } from &#x27;@angular/core&#x27;;
+import { FormControl, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { MatDialogActions, MatDialogContent, MatDialogRef } from &#x27;@angular/material/dialog&#x27;;
+import { FmkMessagesValidationComponent } from &#x27;../../contenu/messagesvalidation/fmk.messagesvalidation&#x27;;
+import { TypeContenuDeBloc } from &#x27;../../model/configurationdemarchecontenubloc.model&#x27;;
+import { i18nPipeDirective } from &#x27;../../morceaudepage/directives/i18nPipe&#x27;;
+import { ContexteService } from &#x27;../../services/stateful/contexte.service&#x27;;
+import { ValidationService } from &#x27;../../services/stateless/validation.service&#x27;;
+
+import { CdkScrollable } from &#x27;@angular/cdk/scrolling&#x27;;
+
+@Component({
+    selector: &#x27;div[data-fmk-connexionreprisebrouillon]&#x27;, templateUrl: &#x27;./fmk.connexionbrouillon.html&#x27;, encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    imports: [CdkScrollable, MatDialogContent, ReactiveFormsModule, FmkMessagesValidationComponent, MatDialogActions, i18nPipeDirective]
+})
+export class ConnexionBrouillonDialog implements OnInit {
+
+    /** Flag indiquant si la fenêtre modale est utilisée pour la sauvegarde ou la reprise du brouillon */
+    public flagReprise &#x3D; false;
+
+    /** Contrôle associé au champ &#x27;nomUtilisateur&#x27; (valeur par défaut vide) */
+    public controleNomUtilisateur &#x3D; new FormControl(&#x27;&#x27;, { updateOn: &#x27;blur&#x27; });
+
+    /** Contrôle associé au champ &#x27;motDePasse&#x27; (valeur par défaut vide) */
+    public controleMotDePasse &#x3D; new FormControl(&#x27;&#x27;, { updateOn: &#x27;blur&#x27; });
+
+    /** Flag venant de la configuration de la démarche */
+    public modeObligatoireParDefaut &#x3D; false;
+
+    /** Calcul de la validation du champ &#x27;nomUtilisateur&#x27; */
+    public get saisieNomUtilisateurValide(): boolean {
+        return !this.controleNomUtilisateur || (!this.controleNomUtilisateur.invalid &amp;&amp; (this.controleNomUtilisateur.dirty || this.controleNomUtilisateur.touched));
+    }
+
+    /** Calcul de la validation du champ &#x27;nomUtilisateur&#x27; */
+    public get saisieNomUtilisateurInvalide(): boolean {
+        return !this.controleNomUtilisateur || (this.controleNomUtilisateur.invalid &amp;&amp; (this.controleNomUtilisateur.dirty || this.controleNomUtilisateur.touched));
+    }
+    /** Calcul de la validation du champ &#x27;motDePasse&#x27; */
+    public get saisieMotDePasseValide(): boolean {
+        return !this.controleMotDePasse || (!this.controleMotDePasse.invalid &amp;&amp; (this.controleMotDePasse.dirty || this.controleMotDePasse.touched));
+    }
+
+    /** Calcul de la validation du champ &#x27;motDePasse&#x27; */
+    public get saisieMotDePasseInvalide(): boolean {
+        return !this.controleMotDePasse || (this.controleMotDePasse.invalid &amp;&amp; (this.controleMotDePasse.dirty || this.controleMotDePasse.touched));
+    }
+
+    /** Constructeur permettant l&#x27;injection de dépendances */
+    constructor(private validationService: ValidationService, private contexteService: ContexteService, private dialogRef: MatDialogRef&lt;ConnexionBrouillonDialog&gt;) { }
+
+    /**Initialisation du composant */
+    public ngOnInit(): void {
+
+        // Initialisation du champ &#x27;nomUtilisateur&#x27;
+        this.controleNomUtilisateur.addValidators(this.validationService.creerValidationsSynchrones([&#x27;required&#x27;, &#x27;email&#x27;], TypeContenuDeBloc.saisie));
+        this.controleNomUtilisateur.addAsyncValidators(this.validationService.creerValidationsAsynchrones());
+
+        // Initialisation du champ &#x27;motDePasse&#x27;
+        this.controleMotDePasse.addValidators(this.validationService.creerValidationsSynchrones([&#x27;required&#x27;, &#x27;motDePasse&#x27;], TypeContenuDeBloc.saisie));
+        this.controleMotDePasse.addAsyncValidators(this.validationService.creerValidationsAsynchrones());
+
+        // Récupération du flag &#x27;modeObligatoireParDefaut&#x27; depuis la configuration de la démarche
+        this.modeObligatoireParDefaut &#x3D; !!this.contexteService.configurationDemarche?.fonctionnalites?.modeObligatoireParDefaut;
+    }
+
+    /** Si l&#x27;utilisateur annule sa saisie, la modale renvoie le nom de l&#x27;utilisateur et le mot de passe saisi. */
+    public confirmer(): void {
+        this.dialogRef.close({ nomUtilisateur: this.controleNomUtilisateur?.value, motDePasse: this.controleMotDePasse?.value });
+    }
+
+    /** Si l&#x27;utilisateur annule sa saisie, la modale ne renvoie rien. */
+    public annuler(): void {
+        this.dialogRef.close(undefined);
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div mat-dialog-content class&#x3D;&quot;connexionBrouillon&quot;&gt;
+  &lt;main&gt;
+    &lt;div class&#x3D;&quot;fr-container&quot;&gt;
+      &lt;div class&#x3D;&quot;fr-grid-row fr-grid-row-gutters fr-grid-row--center&quot;&gt;
+        &lt;div class&#x3D;&quot;fr-col-12&quot;&gt;
+          &lt;fieldset class&#x3D;&quot;fr-fieldset&quot; id&#x3D;&quot;fieldset-login&quot; aria-labelledby&#x3D;&quot;validationMotDePasse&quot;&gt;
+
+            &lt;legend class&#x3D;&quot;fr-fieldset__legend&quot;&gt;
+              &lt;h2&gt;{{ &#x27;repriseBrouillon.titre&#x27; | i18n}}&lt;/h2&gt;
+            &lt;/legend&gt;
+
+            &lt;!-- En fonction de l&#x27;usage de la popup --&gt;
+            &lt;div class&#x3D;&quot;fr-fieldset__element&quot;&gt;
+              @if (flagReprise) {
+                &lt;p class&#x3D;&quot;fr-text--sm&quot;&gt;{{ &#x27;repriseBrouillon.reprise&#x27; | i18n}}&lt;/p&gt;
+              }
+              @if (!flagReprise) {
+                &lt;p class&#x3D;&quot;fr-text--sm&quot;&gt;{{ &#x27;repriseBrouillon.sauvegarde&#x27; | i18n}}&lt;/p&gt;
+              }
+            &lt;/div&gt;
+
+            &lt;!-- Message d&#x27;information pour les champs obligatoires (s&#x27;il en existe) --&gt;
+            &lt;div class&#x3D;&quot;fr-fieldset__element&quot;&gt;
+              @if (!modeObligatoireParDefaut) {
+                &lt;p class&#x3D;&quot;fr-text--sm mentionPasObligatoireParDefaut&quot;&gt;
+                  {{&#x27;page.modePasObligatoire.1&#x27; |i18n}}&lt;span class&#x3D;&quot;symbol-required&quot;&gt;*&lt;/span&gt;{{&#x27;page.modePasObligatoire.2&#x27;| i18n}}
+                &lt;/p&gt;
+              }
+              @if (modeObligatoireParDefaut) {
+                &lt;p class&#x3D;&quot;fr-text--sm mentionObligatoireParDefaut&quot;&gt;
+                  {{&#x27;page.modeObligatoire.1&#x27; |i18n}}&lt;b&gt;{{&#x27;page.modeObligatoire.2&#x27; |i18n}}&lt;/b&gt;{{&#x27;page.modeObligatoire.3&#x27; | i18n}}
+                &lt;/p&gt;
+              }
+            &lt;/div&gt;
+
+            &lt;div [class.fr-input-group--error]&#x3D;&quot;saisieNomUtilisateurInvalide&quot; [class.fr-input-group--valid]&#x3D;&quot;saisieNomUtilisateurValide&quot;
+              class&#x3D;&quot;fr-fieldset__element fr-input-group&quot;&gt;
+
+              &lt;label class&#x3D;&quot;fr-label&quot; for&#x3D;&quot;nomUtilisateurDansModaleBrouillon&quot;&gt;
+                @if (!modeObligatoireParDefaut) {
+                  &lt;span class&#x3D;&quot;symbol-required&quot;&gt;* &lt;/span&gt;
+                }
+                &lt;span&gt;{{&#x27;repriseBrouillon.email&#x27; | i18n}}&lt;/span&gt;
+              &lt;/label&gt;
+
+              &lt;input autofocus class&#x3D;&quot;fr-input&quot; [class.fr-input--error]&#x3D;&quot;saisieNomUtilisateurInvalide&quot;
+                [class.fr-input--valid]&#x3D;&quot;saisieNomUtilisateurValide&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;nomUtilisateurDansModaleBrouillon&quot;
+                [formControl]&#x3D;&quot;controleNomUtilisateur&quot;&gt;
+
+                &lt;p data-fmk-messagesvalidation id&#x3D;&quot;validationNomUtilisateur&quot; [controle]&#x3D;&quot;controleNomUtilisateur&quot; aria-live&#x3D;&quot;assertive&quot;&gt;
+                &lt;/p&gt;
+              &lt;/div&gt;
+
+              &lt;div [class.fr-input-group--error]&#x3D;&quot;saisieMotDePasseInvalide&quot; [class.fr-input-group--valid]&#x3D;&quot;saisieMotDePasseValide&quot;
+                class&#x3D;&quot;fr-fieldset__element fr-input-group fr-password&quot;&gt;
+
+                &lt;label class&#x3D;&quot;fr-label&quot; for&#x3D;&quot;motDePasseDansModaleBrouillon&quot;&gt;
+                  @if (!modeObligatoireParDefaut) {
+                    &lt;span class&#x3D;&quot;symbol-required&quot;&gt;* &lt;/span&gt;
+                  }
+                  &lt;span&gt;{{&#x27;repriseBrouillon.motdepasse&#x27; | i18n}}&lt;/span&gt;
+                &lt;/label&gt;
+
+                &lt;input class&#x3D;&quot;fr-input fr-password__input&quot; [class.fr-input--error]&#x3D;&quot;saisieMotDePasseInvalide&quot;
+                  [class.fr-input--valid]&#x3D;&quot;saisieMotDePasseValide&quot; type&#x3D;&quot;password&quot; id&#x3D;&quot;motDePasseDansModaleBrouillon&quot;
+                  [formControl]&#x3D;&quot;controleMotDePasse&quot; (keydown.enter)&#x3D;&quot;confirmer()&quot; autocomplete&#x3D;&quot;current-password&quot;&gt;
+
+                  &lt;p data-fmk-messagesvalidation id&#x3D;&quot;validationNomUtilisateur&quot; [controle]&#x3D;&quot;controleMotDePasse&quot; aria-live&#x3D;&quot;assertive&quot;&gt;&lt;/p&gt;
+
+                  &lt;div class&#x3D;&quot;fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm&quot;&gt;
+                    &lt;input [attr.aria-label]&#x3D;&quot;&#x27;repriseBrouillon.caseAfficher&#x27; | i18n&quot; id&#x3D;&quot;afficherMotDePasse&quot; type&#x3D;&quot;checkbox&quot;&gt;
+                    &lt;label class&#x3D;&quot;fr-password__checkbox fr-label&quot; for&#x3D;&quot;afficherMotDePasse&quot;&gt;{{ &#x27;repriseBrouillon.caseAfficherLibelle&#x27; |
+                    i18n }}&lt;/label&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/fieldset&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/main&gt;
+    &lt;/div&gt;
+
+    &lt;div mat-dialog-actions&gt;
+      &lt;div class&#x3D;&quot;fr-container&quot;&gt;
+        &lt;div class&#x3D;&quot;fr-grid-row&quot;&gt;
+          &lt;div class&#x3D;&quot;fr-col-12&quot;&gt;
+            &lt;ul class&#x3D;&quot;fr-btns-group fr-btns-group--inline-md&quot;&gt;
+              &lt;li&gt;
+                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;fr-btn&quot; [disabled]&#x3D;&quot;saisieNomUtilisateurInvalide || saisieMotDePasseInvalide&quot;
+                (click)&#x3D;&quot;confirmer()&quot;&gt;Confirmer&lt;/button&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                @if (flagReprise) {
+                  &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;fr-btn fr-btn--secondary&quot; (click)&#x3D;&quot;annuler()&quot;&gt;Annuler&lt;/button&gt;
+                }
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Légende</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elément Html</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Composant</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elément Html avec une directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div mat-dialog-content class="connexionBrouillon">  <main>    <div class="fr-container">      <div class="fr-grid-row fr-grid-row-gutters fr-grid-row--center">        <div class="fr-col-12">          <fieldset class="fr-fieldset" id="fieldset-login" aria-labelledby="validationMotDePasse">            <legend class="fr-fieldset__legend">              <h2>{{ \'repriseBrouillon.titre\' | i18n}}</h2>            </legend>            <!-- En fonction de l\'usage de la popup -->            <div class="fr-fieldset__element">              @if (flagReprise) {                <p class="fr-text--sm">{{ \'repriseBrouillon.reprise\' | i18n}}</p>              }              @if (!flagReprise) {                <p class="fr-text--sm">{{ \'repriseBrouillon.sauvegarde\' | i18n}}</p>              }            </div>            <!-- Message d\'information pour les champs obligatoires (s\'il en existe) -->            <div class="fr-fieldset__element">              @if (!modeObligatoireParDefaut) {                <p class="fr-text--sm mentionPasObligatoireParDefaut">                  {{\'page.modePasObligatoire.1\' |i18n}}<span class="symbol-required">*</span>{{\'page.modePasObligatoire.2\'| i18n}}                </p>              }              @if (modeObligatoireParDefaut) {                <p class="fr-text--sm mentionObligatoireParDefaut">                  {{\'page.modeObligatoire.1\' |i18n}}<b>{{\'page.modeObligatoire.2\' |i18n}}</b>{{\'page.modeObligatoire.3\' | i18n}}                </p>              }            </div>            <div [class.fr-input-group--error]="saisieNomUtilisateurInvalide" [class.fr-input-group--valid]="saisieNomUtilisateurValide"              class="fr-fieldset__element fr-input-group">              <label class="fr-label" for="nomUtilisateurDansModaleBrouillon">                @if (!modeObligatoireParDefaut) {                  <span class="symbol-required">* </span>                }                <span>{{\'repriseBrouillon.email\' | i18n}}</span>              </label>              <input autofocus class="fr-input" [class.fr-input--error]="saisieNomUtilisateurInvalide"                [class.fr-input--valid]="saisieNomUtilisateurValide" type="text" id="nomUtilisateurDansModaleBrouillon"                [formControl]="controleNomUtilisateur">                <p data-fmk-messagesvalidation id="validationNomUtilisateur" [controle]="controleNomUtilisateur" aria-live="assertive">                </p>              </div>              <div [class.fr-input-group--error]="saisieMotDePasseInvalide" [class.fr-input-group--valid]="saisieMotDePasseValide"                class="fr-fieldset__element fr-input-group fr-password">                <label class="fr-label" for="motDePasseDansModaleBrouillon">                  @if (!modeObligatoireParDefaut) {                    <span class="symbol-required">* </span>                  }                  <span>{{\'repriseBrouillon.motdepasse\' | i18n}}</span>                </label>                <input class="fr-input fr-password__input" [class.fr-input--error]="saisieMotDePasseInvalide"                  [class.fr-input--valid]="saisieMotDePasseValide" type="password" id="motDePasseDansModaleBrouillon"                  [formControl]="controleMotDePasse" (keydown.enter)="confirmer()" autocomplete="current-password">                  <p data-fmk-messagesvalidation id="validationNomUtilisateur" [controle]="controleMotDePasse" aria-live="assertive"></p>                  <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">                    <input [attr.aria-label]="\'repriseBrouillon.caseAfficher\' | i18n" id="afficherMotDePasse" type="checkbox">                    <label class="fr-password__checkbox fr-label" for="afficherMotDePasse">{{ \'repriseBrouillon.caseAfficherLibelle\' |                    i18n }}</label>                  </div>                </div>              </fieldset>            </div>          </div>        </div>      </main>    </div>    <div mat-dialog-actions>      <div class="fr-container">        <div class="fr-grid-row">          <div class="fr-col-12">            <ul class="fr-btns-group fr-btns-group--inline-md">              <li>                <button type="button" class="fr-btn" [disabled]="saisieNomUtilisateurInvalide || saisieMotDePasseInvalide"                (click)="confirmer()">Confirmer</button>              </li>              <li>                @if (flagReprise) {                  <button type="button" class="fr-btn fr-btn--secondary" (click)="annuler()">Annuler</button>                }              </li>            </ul>          </div>        </div>      </div>    </div></div>'
+    var COMPONENTS = [{'name': 'ConnexionBrouillonDialog', 'selector': 'div[data-fmk-connexionreprisebrouillon]'},{'name': 'FmkBlocComponent', 'selector': 'div[data-fmk-bloc]'},{'name': 'FmkBlocDynamiqueComponent', 'selector': 'div[data-fmk-blocdynamique]'},{'name': 'FmkCaptchaComponent', 'selector': 'div[data-fmk-captcha]'},{'name': 'FmkConteneurPagesComponent', 'selector': 'div[data-fmk-conteneurpages]'},{'name': 'FmkContenuAdresseFrOuRtrComponent', 'selector': 'div[data-fmk-contenuadressefrouetr]'},{'name': 'FmkContenuAutocompletionComponent', 'selector': 'div[data-fmk-contenuautocompletion]'},{'name': 'FmkContenuCaseComponent', 'selector': 'div[data-fmk-contenucase]'},{'name': 'FmkContenuComponent', 'selector': 'div[data-fmk-contenu]'},{'name': 'FmkContenuContactPersonnelComponent', 'selector': 'div[data-fmk-contenucontactpersonnel]'},{'name': 'FmkContenuDateComponent', 'selector': 'div[data-fmk-contenudate]'},{'name': 'FmkContenuDocumentsComponent', 'selector': 'div[data-fmk-contenudocuments]'},{'name': 'FmkContenuFinDemarcheComponent', 'selector': 'div[data-fmk-contenufindemarche]'},{'name': 'FmkContenuFinDemarcheConnecteComponent', 'selector': 'div[data-fmk-contenufindemarcheconnecte]'},{'name': 'FmkContenuFinDemarcheNonConnecteComponent', 'selector': 'div[data-fmk-contenufindemarchenonconnecte]'},{'name': 'FmkContenuIdentiteComponent', 'selector': 'div[data-fmk-contenuidentite]'},{'name': 'FmkContenuListeFinieComponent', 'selector': 'div[data-fmk-contenulistefinie]'},{'name': 'FmkContenuParagrapheComponent', 'selector': 'div[data-fmk-contenuparagraphe]'},{'name': 'FmkContenuRadioComponent', 'selector': 'div[data-fmk-contenuradio]'},{'name': 'FmkContenuRecapitulatifComponent', 'selector': 'div[data-fmk-contenurecapitulatif]'},{'name': 'FmkContenuRicheComponent', 'selector': 'div[data-fmk-contenuriche]'},{'name': 'FmkContenuSaisieComponent', 'selector': 'div[data-fmk-contenusaisie]'},{'name': 'FmkContenuSaisieLongueComponent', 'selector': 'div[data-fmk-contenusaisielongue]'},{'name': 'FmkContenuSimpleComponent', 'selector': 'div[data-fmk-contenusimple]'},{'name': 'FmkContenuUploadDocumentComponent', 'selector': 'div[data-fmk-contenuuploaddocument]'},{'name': 'FmkContenuUtilisateurConnecteComponent', 'selector': 'div[data-fmk-contenuutilisateurconnecte]'},{'name': 'FmkEnteteComponent', 'selector': 'div[data-fmk-entete]'},{'name': 'FmkFilDarianeComponent', 'selector': 'div[data-fmk-fildariane]'},{'name': 'FmkListeContenusRecapitulatifComponent', 'selector': 'div[data-fmk-listecontenusrecapitulatif]'},{'name': 'FmkMessageGlobalComponent', 'selector': 'div[data-fmk-messageglobal]'},{'name': 'FmkMessagesValidationComponent', 'selector': '[data-fmk-messagesvalidation]'},{'name': 'FmkNavigationComponent', 'selector': 'div[data-fmk-navigation]'},{'name': 'FmkPageComponent', 'selector': 'div[data-fmk-page]'},{'name': 'FmkPiedDePageComponent', 'selector': 'div[data-fmk-pieddepage]'}];
+    var DIRECTIVES = [{'name': 'AbstractComponent', 'selector': ''},{'name': 'AncreTabulableDirective', 'selector': 'a:not([href])'},{'name': 'FmkApplicationAbstraitComponent', 'selector': ''},{'name': 'FmkContenuAbstraitComponent', 'selector': ''},{'name': 'FmkContenuComplexeAbstraitComponent', 'selector': ''},{'name': 'FmkContenuFinDemarcheAbstraitComponent', 'selector': ''},{'name': 'FmkContenuMonoSaisieAbstraitComponent', 'selector': ''}];
+    var ACTUAL_COMPONENT = {'name': 'ConnexionBrouillonDialog'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> résultats matchant "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">Aucun résultat matchant "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ConnexionBrouillonDialog.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

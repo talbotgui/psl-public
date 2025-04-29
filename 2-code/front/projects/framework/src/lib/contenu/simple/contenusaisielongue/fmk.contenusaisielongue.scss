@@ -1,0 +1,6 @@
+/* Pour la mise en forme du décompte (attention, à tester avec le champ ayant le focus)*/
+.decompteCaracteres { font-size: 80%; text-align: right; }
+.decompteCaracteres>span { color:#0b6ba8; }
+
+/* Pour forcer la largeur du textarea et limiter sa hauteur. /!\ un bout de JS gère l'adaptation de la hauteur au contenu */
+textarea.saisieLongue { width: 100%; max-height: 400px; }

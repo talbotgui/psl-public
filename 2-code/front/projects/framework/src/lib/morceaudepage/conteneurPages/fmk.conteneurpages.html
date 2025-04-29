@@ -1,0 +1,36 @@
+<main class="main" id="main">
+  @if (configurationDemarche) {
+    <div class="fr-container">
+      <!-- le fil d'Ariane-->
+      <div data-fmk-fildariane [configurationDemarche]="configurationDemarche"></div>
+      <!-- Affichage des messages globaux -->
+      <div data-fmk-messageglobal></div>
+      <!-- les pages -->
+      @if (indexPageCourante !== undefined && indexPageCourante > -1) {
+        <div class="fr-grid-row">
+          <!-- les pages paramétrées dans la configuration -->
+          @for (page of configurationDemarche.pages; track page; let i = $index) {
+            @if (!page.specifiqueAlaDemarche && i === indexPageCourante) {
+              <div class="fr-col-12" [id]="'page'+i">
+                <div class="main-body">
+                  <div data-fmk-page [page]="page"></div>
+                </div>
+              </div>
+            }
+          }
+          <!-- les pages potentiellement fournies par l'application utilisant le framework-->
+          <!-- pour cela, il faut utiliser ainsi :
+          <div data-fmk-conteneurpages [configurationDemarche]="configuration" *ngIf="afficherApplication">
+            <div class="fr-col-12" id="pageXXXX" *ngIf="(indexPageCouranteObservable | async) === XXXX && page && !!page.specifiqueAlaDemarche">
+              <div class="main-body">
+                coucou
+              </div>
+            </div>
+          </div>
+          -->
+          <ng-content></ng-content>
+        </div>
+      }
+    </div>
+  }
+</main>

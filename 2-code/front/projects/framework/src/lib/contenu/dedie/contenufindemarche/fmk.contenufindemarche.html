@@ -1,0 +1,6 @@
+@if (estUsagerConnecte()) {
+  <div data-fmk-contenufindemarcheconnecte></div>
+}
+@if (!estUsagerConnecte()) {
+  <div data-fmk-contenufindemarchenonconnecte></div>
+}

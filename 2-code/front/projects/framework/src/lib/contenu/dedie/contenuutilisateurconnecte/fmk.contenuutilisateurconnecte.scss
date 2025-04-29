@@ -1,0 +1,10 @@
+/** Ce composant n'est pas du tout un standard du DSFR. Donc les CSS personnalisées sont acceptées */
+
+/** fond gris + réduction du padding + petite marge en bas avec le composant suivant. */
+div.dataReadOnly { background-color: #ececec; padding: 0.5em 1em; margin-bottom: 20px;}
+
+/** Pour reserrer les lignes */
+p.utilisateurConnecte { margin:0px!important; }
+
+/** Pour que l'image se réduise si l'écran est peu large. */
+img.utilisateurConnecte { max-width: 100%; }

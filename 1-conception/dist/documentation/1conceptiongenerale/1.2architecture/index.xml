@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1.2 Architecture on Documentation nouvelle PSL</title>
+    <link>http://localhost:1313/documentation/1conceptiongenerale/1.2architecture/</link>
+    <description>Recent content in 1.2 Architecture on Documentation nouvelle PSL</description>
+    <generator>Hugo</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Wed, 02 Apr 2025 22:36:22 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/documentation/1conceptiongenerale/1.2architecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1.2.1 Conception de l&#39;architecture</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.2architecture/1.2.1conceptionarchitecture/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.2architecture/1.2.1conceptionarchitecture/</guid>
+      <description>L&amp;rsquo;architecture de cette PSL est basée sur des Single Page Application (SPA) et des micro-services (wikipedia)&#xA;Le découpage des fonctionnalités de ma PSL en livrables applicatifs WEB est naturel :&#xA;une application publique par démarche (au sens applicatif du terme) une application interne par typologie d&amp;rsquo;utilisateurs (un éditeur pour les concepteurs, une administration pour les exploitants&amp;hellip;) Côté BACK, le principe des micro-services prévaut. Ainsi, le découpage des fonctionnalités est piloté par la séparation des données dans des bases différentes de par</description>
+    </item>
+    <item>
+      <title>1.2.2 Schéma d&#39;architecture générale</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.2architecture/1.2.2schemageneral/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.2architecture/1.2.2schemageneral/</guid>
+      <description>A partir des principes énoncés au chapitre précédent, on peut imaginer une architecture avec :&#xA;Guide de lecture :&#xA;Chaque zone colorée est une zone réseau particulière dont les flux entrants sont spécifiques. En bout de flèche, le &amp;ldquo;R&amp;rdquo; et/ou le &amp;ldquo;W&amp;rdquo; spécifie que l&amp;rsquo;accès est en &amp;ldquo;Lecture&amp;rdquo; ou &amp;ldquo;Ecriture&amp;rdquo;. Par défaut, tous les accès sont &amp;ldquo;Lecture seule&amp;rdquo;. </description>
+    </item>
+    <item>
+      <title>1.2.3 Principes généraux</title>
+      <link>http://localhost:1313/documentation/1conceptiongenerale/1.2architecture/1.2.3principesgeneraux/</link>
+      <pubDate>Wed, 02 Apr 2025 22:36:22 +0200</pubDate>
+      <guid>http://localhost:1313/documentation/1conceptiongenerale/1.2architecture/1.2.3principesgeneraux/</guid>
+      <description>1.2.3.1 - Hébergement des applicatifs 1.2.3.2 - Haute disponibilité 1.2.3.3 - Scalabilité 1.2.3.4 - Zone réseau 1.2.3.5 - Sécurisation des appels à PSL 1.2.3.1 - Hébergement des applicatifs Les applicatifs WEB se présentent sous forme de sites statiques. Leur hébergement peut donc se faire via un service cloud dédié ou un serveur WEB classique (HTTPd ou Nginx).&#xA;Les applicatifs Java sont autonomes (Tomcat est embarqué via SpringBoot). Ces applicatifs peuvent être déployés sur tout type de VM et automatisés/gérés automatiquement.</description>
+    </item>
+  </channel>
+</rss>

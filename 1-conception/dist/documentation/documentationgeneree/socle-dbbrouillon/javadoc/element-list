@@ -1,0 +1,8 @@
+com.github.talbotgui.psl.socle.dbbrouillon.apiclient
+com.github.talbotgui.psl.socle.dbbrouillon.apiclient.api
+com.github.talbotgui.psl.socle.dbbrouillon.apiclient.dto
+com.github.talbotgui.psl.socle.dbbrouillon.application
+com.github.talbotgui.psl.socle.dbbrouillon.controleur
+com.github.talbotgui.psl.socle.dbbrouillon.dao
+com.github.talbotgui.psl.socle.dbbrouillon.exception
+com.github.talbotgui.psl.socle.dbbrouillon.service

@@ -1,0 +1,22 @@
+##########################################################################
+# Ce fichier contient les variables utilisées par les scripts de démarrage
+##########################################################################
+
+# Variables nécessaires au démarrage des applicatifs
+cheminKeystore="{{ keystore_rep }}{{ keystore_fichier }}"
+motdepasseKeystore="changeit"
+repertoirePidEtLog="{{ logs_rep }}"
+
+# Variables nécessaires à l'arrêt des applicatifs
+apiActuatorURLsansPort=https://localhost
+apiActuatorUtilisateur="utilisateurPourActuator"
+apiActuatorMotdepasse="xxxxxxxx"
+
+# Variables liées au LDAP
+ldapAdminUtilisateur={{ ldap_manager }}
+ldapAdminMdp={{ ldap_motdepasse }}
+
+# Parametres de connexion au service de registre (utilisé dans arret.sh)
+apiRegistreURL="localhost:8761"
+apiRegistreUtilisateur="adminregistre"
+apiRegistreMotdepasse="adminregistre"

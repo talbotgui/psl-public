@@ -1,0 +1,41 @@
+/******************************************************
+*** Complément à la DSFR pour les besoins de la PSL ***
+******************************************************/
+
+/* Pour les libellés et le bouton d'aide associé*/
+.fr-fi-question-fill { cursor: default!important; }
+
+/* Pour les icônes DSFR en général */
+.fr-fi-add-circle-line { cursor: default!important; }
+
+/* Spinner */
+.spin { -webkit-animation: fa-spin 2s infinite linear; animation: fa-spin 2s infinite linear; }
+
+/* CSS utilisées dans les pages comme repère mais déclarées ici pour la cohérence */
+.main-body { cursor:default; }
+
+/*************************
+*** Reprises Bootstrap ***
+*************************/
+.collapse.show { display: block; } .collapse { display: none; }
+.text-center { text-align: center; } .text-right { text-align: right; }
+.align-self-center { align-self: center; }
+
+/*****************************************************************
+*** Correction/adaptation à la DSFR pour les besoins de la PSL ***
+*****************************************************************/
+/* !! JAMAIS !! */
+
+/**************************************************
+*** Reprise adaptées pour les besoins de la PSL ***
+***************************************************/
+
+/* pour l'aide */
+.symbol-required { color:#c22222; }
+.blank { display:none; }
+
+/* pour les simples libellés */
+.text-info { color: #0b6ba8; } a.text-info:hover { color: #084d78; }
+.text-warning { color: #bc5b00; } a.text-warning:hover { color: #894200; }
+.text-danger { color: #c22222; } a.text-danger:hover { color: #971a1a; }
+  

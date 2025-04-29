@@ -1,0 +1,36 @@
+# Ce fichier de l'inventaire liste toutes les machines en les identifiant par leur code logique.
+#
+# Ce code logique est décrit dans le chapitre 4.1.1 de la documentation.
+# Il se présente sous la forme COLONNE_COUCHE_X avec
+#   COUCHE : la couche réseau de la machine entre EXPosée à internet ou INTerne ou PROfonde
+#   COLONNE : la position réseau de la machine dans partie ADMinistration ou EXEcution
+#   X : le numéro de la machine dans cette zone (zone = intersection d'une couche et d'une colonne).
+#
+
+all:
+  #######################################################
+  # Déclaration de toutes les machines de l'environnement (à minima une machine par zone réseau)
+  #######################################################
+  hosts:
+    EXE_EXP_1: { ansible_host: "machineInt", ansible_port: "22" }
+    EXE_EXP_2: { ansible_host: "machineInt", ansible_port: "22" }
+    EXE_EXP_3: { ansible_host: "machineInt", ansible_port: "22" }
+
+    EXE_INT_1: { ansible_host: "machineInt", ansible_port: "22" }
+    EXE_INT_2: { ansible_host: "machineInt", ansible_port: "22" }
+    EXE_INT_3: { ansible_host: "machineInt", ansible_port: "22" }
+
+    EXE_PRO_1: { ansible_host: "machineInt", ansible_port: "22" }
+    EXE_PRO_2: { ansible_host: "machineInt", ansible_port: "22" }
+    EXE_PRO_3: { ansible_host: "machineInt", ansible_port: "22" }
+
+    ADM_EXP_1: { ansible_host: "machineInt", ansible_port: "22" }
+    ADM_EXP_2: { ansible_host: "machineInt", ansible_port: "22" }
+    ADM_EXP_3: { ansible_host: "machineInt", ansible_port: "22" }
+
+    ADM_INT_1: { ansible_host: "machineInt", ansible_port: "22" }
+    ADM_INT_2: { ansible_host: "machineInt", ansible_port: "22" }
+
+    ADM_PRO_1: { ansible_host: "machineInt", ansible_port: "22" }
+    ADM_PRO_2: { ansible_host: "machineInt", ansible_port: "22" }
+    ADM_PRO_3: { ansible_host: "machineInt", ansible_port: "22" }

@@ -1,0 +1,14 @@
+<mat-form-field>
+    <mat-label>
+        <span>Nouvelle option à ajouter (clef=valeur)</span>
+    </mat-label>
+    <!-- <div role="group" class="conteneur"> -->
+    <input type="text" matInput aria-label="Valeur" [(ngModel)]="valeur">
+    <span class="espace">=</span>
+    <input class="listeFinie" type="text" matInput aria-label="Libellé" [(ngModel)]="libelle">
+    <span class="espace">&nbsp;</span>
+    <button type="button" class="listeFinie" mat-icon-button [disabled]="valeur === '' || libelle === ''" (click)="valider()">
+        <span class="fr-icon-add-circle-fill" aria-hidden="false" aria-label="Ajouter l'option"></span>
+    </button>
+    <!-- </div>-->
+</mat-form-field>
